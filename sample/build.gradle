@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "com.anychart.prototype"
+        applicationId "com.anychart.anychart"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
