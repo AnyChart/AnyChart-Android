@@ -3,15 +3,21 @@ package com.anychart.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.chart.common.Event;
 import com.anychart.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.anychart.chart.common.JavaScriptInterface;
 import com.anychart.anychart.chart.common.enums.OverlapMode;
 import com.anychart.anychart.chart.piechart.PieChart;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,9 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
         pieChart.setOnClickListener(new JavaScriptInterface.OnClick() {
             @Override
-            public void onClick(String x, String value) {
-                Log.e("DEBUG", x);
-//                Toast.makeText(MainActivity.this, String.format(Locale.US, "x: %s, value: %s", x, value), Toast.LENGTH_SHORT).show();
+            public void onClick(Event event) {
+                Toast.makeText(MainActivity.this, String.format(Locale.US, "x: %s, value: %s", event.getX(), event.getValue()), Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -1,6 +1,7 @@
 package com.anychart.anychart.chart.piechart;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.anychart.anychart.MyApplication;
 import com.anychart.anychart.chart.common.Chart;
@@ -220,23 +221,11 @@ public class PieChart extends Chart {
 
         if (listener != null) {
             js.append("chart.listen(\"pointsselect\", function(event) {\n" +
-                    "android.onClick(event.point.get('x'), event.point.get('value'));\n" +
+                        "android.onClick('{'\n" +
+                        "+'\"x\" : \"' + event.point.get('x') + '\",'\n" +
+                        "+'\"value\" : \"' + event.point.get('value') + '\"'\n" +
+                        "+'}');" +
                     "});");
-        // TODO json
-//        js.append("var cache = [];" +
-//                "chart.listen(\"pointsselect\", function(event) {\n" +
-//                "android.onClick(JSON.stringify(event, function(key, value) {\n" +
-//                "    if (typeof value === 'object' && value !== null) {\n" +
-//                "        if (cache.indexOf(value) !== -1) {\n" +
-//                "            // Circular reference found, discard key\n" +
-//                "            return;\n" +
-//                "        }\n" +
-//                "        // Store value in our collection\n" +
-//                "        cache.push(value);\n" +
-//                "    }\n" +
-//                "    return value;\n" +
-//                "}), event.point.get('value'));\n" +
-//                "});");
         }
 
         return js.toString();

@@ -1,6 +1,10 @@
 package com.anychart.anychart.chart.common;
 
+import android.util.Log;
 import android.webkit.JavascriptInterface;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by arseny on 8/7/17.
@@ -11,7 +15,7 @@ public class JavaScriptInterface {
     private OnClick listener;
 
     public interface OnClick {
-        void onClick(String x, String value);
+        void onClick(Event event);
     }
 
 //    Context context;
@@ -25,8 +29,22 @@ public class JavaScriptInterface {
     }
 
     @JavascriptInterface
-    public void onClick(String x, String value) {
-        listener.onClick(x, value);
+    public void onClick(String json) {
+        Event event = new Event();
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(json);
+
+            String x = jsonObject.getString("x");
+            String value = jsonObject.getString("value");
+
+            event.setX(x);
+            event.setValue(value);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        listener.onClick(event);
     }
 
 }
