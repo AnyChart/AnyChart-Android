@@ -6,4 +6,18 @@ package com.anychart.anychart.chart.common;
 
 public abstract class Chart extends JsObject {
 
+    protected OnChange onChangeListener;
+
+    protected boolean isRendered = false;
+
+    public interface OnChange {
+        void onChange(String jsChange);
+    }
+
+    public void setOnChangeListener(OnChange listener) {
+        onChangeListener = listener;
+
+        isRendered = true;
+    }
+
 }

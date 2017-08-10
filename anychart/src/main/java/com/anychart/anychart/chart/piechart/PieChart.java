@@ -1,7 +1,6 @@
 package com.anychart.anychart.chart.piechart;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.anychart.anychart.MyApplication;
 import com.anychart.anychart.chart.common.Chart;
@@ -50,7 +49,7 @@ public class PieChart extends Chart {
     private int slice = -1;
     private boolean explodeSlices;
 
-    private JavaScriptInterface.OnClick listener;
+    private JavaScriptInterface.OnClick onClickListener;
 
     public PieChart() {
 
@@ -62,6 +61,11 @@ public class PieChart extends Chart {
 
     public void setData(List<DataEntry> data) {
         this.data = data;
+
+        if (isRendered) {
+            onChangeListener.onChange(generateJSData());
+            js.setLength(0);
+        }
     }
 
     public Labels getLabels() {
@@ -77,6 +81,15 @@ public class PieChart extends Chart {
 
     public void setTitle(String title) {
         this.title = title;
+
+        if (isRendered) {
+            onChangeListener.onChange(generateJSTitle());
+            js.setLength(0);
+        }
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void setEnabledLegend(boolean value) {
@@ -160,29 +173,41 @@ public class PieChart extends Chart {
     public void setOnClickListener(JavaScriptInterface.OnClick listener) {
         MyApplication.getInstance().getJavaScriptInterface().setOnClickListener(listener);
 
-        this.listener = listener;
+        this.onClickListener = listener;
+    }
+
+    private String generateJSData() {
+        js.append("chart.data([");
+        for (int i = 0; i < data.size(); i++) {
+            DataEntry dataEntry = data.get(i);
+            js.append(dataEntry.generateJs());
+
+            if (i != data.size() - 1)
+                js.append(",");
+        }
+        js.append("]);");
+
+        return js.toString();
+    }
+
+    private String generateJSTitle() {
+        js.append(String.format(Locale.US, "chart.title(\"%s\");", title));
+
+        return js.toString();
     }
 
     @Override
     public String generateJs() {
-        js.append("var chart = anychart.pie();");
+        js.append("chart = anychart.pie();");
 
         if (data != null) {
-            js.append("chart.data([");
-            for (int i = 0; i < data.size(); i++) {
-                DataEntry dataEntry = data.get(i);
-                js.append(dataEntry.generateJs());
-
-                if (i != data.size() - 1)
-                    js.append(",");
-            }
-            js.append("]);");
+            generateJSData();
         }
 
         if (labels != null)
             js.append(String.format(Locale.US, "chart.labels(%s);", labels.generateJs()));
         if (!TextUtils.isEmpty(title))
-            js.append(String.format(Locale.US, "chart.title(\"%s\");", title));
+            generateJSTitle();
         js.append(String.format(Locale.US, "chart.legend().enabled(%b);", enabledLegend));
         if (x != -1d && y != -1d && width != -1d && height != -1d)
             js.append(String.format(Locale.US, "chart.bounds(%f, %f, %f, %f);", x, y, width, height));
@@ -219,15 +244,17 @@ public class PieChart extends Chart {
             js.append("]);");
         }
 
-        if (listener != null) {
+        if (onClickListener != null) {
             js.append("chart.listen(\"pointsselect\", function(event) {\n" +
-                        "android.onClick('{'\n" +
+                        "android.onClickListener('{'\n" +
                         "+'\"x\" : \"' + event.point.get('x') + '\",'\n" +
                         "+'\"value\" : \"' + event.point.get('value') + '\"'\n" +
                         "+'}');" +
                     "});");
         }
 
-        return js.toString();
+        String resultJS = js.toString();
+        js.setLength(0);
+        return resultJS;
     }
 }
