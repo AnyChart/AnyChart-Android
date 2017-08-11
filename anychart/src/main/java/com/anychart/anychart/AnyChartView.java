@@ -2,7 +2,6 @@ package com.anychart.anychart;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -15,8 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
-import com.anychart.anychart.chart.common.Chart;
-import com.anychart.anychart.chart.piechart.PieChart;
+import com.anychart.anychart.application.MyApplication;
 
 
 /**
@@ -105,6 +103,7 @@ public class AnyChartView extends FrameLayout {
 //                    @Override
 //                    public void run() {
 //                        ((PieChart) chart).setTitle("New Title");
+//                        ((PieChart) chart).getLabels().setBackgroundColor("#123456");
 //                    }
 //                }, 5000);
             }

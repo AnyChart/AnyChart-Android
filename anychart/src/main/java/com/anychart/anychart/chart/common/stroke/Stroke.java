@@ -1,6 +1,6 @@
 package com.anychart.anychart.chart.common.stroke;
 
-import com.anychart.anychart.chart.common.JsObject;
+import com.anychart.anychart.JsObject;
 
 /**
  * Created by arseny on 8/8/17.

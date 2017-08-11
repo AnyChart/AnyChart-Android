@@ -1,4 +1,4 @@
-package com.anychart.anychart;
+package com.anychart.anychart.application;
 
 import android.app.Application;
 

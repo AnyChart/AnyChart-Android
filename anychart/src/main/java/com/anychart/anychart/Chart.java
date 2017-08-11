@@ -1,4 +1,4 @@
-package com.anychart.anychart.chart.common;
+package com.anychart.anychart;
 
 /**
  * Created by NeverKnowsBest on 08/04/2017.
@@ -10,11 +10,11 @@ public abstract class Chart extends JsObject {
 
     protected boolean isRendered = false;
 
-    public interface OnChange {
+    interface OnChange {
         void onChange(String jsChange);
     }
 
-    public void setOnChangeListener(OnChange listener) {
+    void setOnChangeListener(OnChange listener) {
         onChangeListener = listener;
 
         isRendered = true;

@@ -1,5 +1,7 @@
 package com.anychart.anychart.chart.common;
 
+import com.anychart.anychart.JsObject;
+
 import java.util.Locale;
 
 /**

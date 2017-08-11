@@ -1,6 +1,6 @@
 package com.anychart.anychart.chart.common;
 
-import android.graphics.Color;
+import com.anychart.anychart.JsObject;
 
 import java.util.Locale;
 

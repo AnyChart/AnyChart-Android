@@ -31,7 +31,7 @@ public class JavaScriptInterface {
     @JavascriptInterface
     public void onClick(String json) {
         Event event = new Event();
-        JSONObject jsonObject = null;
+        JSONObject jsonObject;
         try {
             jsonObject = new JSONObject(json);
 

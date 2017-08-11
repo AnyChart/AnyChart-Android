@@ -3,7 +3,7 @@ package com.anychart.anychart.chart.common.dataentry;
 import android.text.TextUtils;
 
 import com.anychart.anychart.chart.common.enums.Anchor;
-import com.anychart.anychart.chart.common.JsObject;
+import com.anychart.anychart.JsObject;
 import com.anychart.anychart.chart.common.enums.MarkerType;
 import com.anychart.anychart.chart.common.fill.Fill;
 import com.anychart.anychart.chart.common.stroke.Stroke;
