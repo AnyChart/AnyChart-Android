@@ -1,8 +1,7 @@
-package com.anychart.anychart.chart.common.dataentry;
+package com.anychart.anychart;
 
-import com.anychart.anychart.JsObject;
-import com.anychart.anychart.chart.common.fill.Fill;
-import com.anychart.anychart.chart.common.stroke.Stroke;
+import com.anychart.anychart.chart.common.Fill;
+import com.anychart.anychart.chart.common.Stroke;
 
 import java.util.Locale;
 
@@ -15,8 +14,8 @@ public class DataEntry extends JsObject {
     private Markers markers;
     private Labels labels;
 
-    public String x;
-    public double value;
+    private String x;
+    private double value;
 
     private Fill fill;
     private Stroke stroke;
@@ -28,28 +27,56 @@ public class DataEntry extends JsObject {
 
     public void setFill(Fill fill) {
         this.fill = fill;
+
+        onChangeListener.onChange(null);
     }
 
     public void setStroke(Stroke stroke) {
         this.stroke = stroke;
+
+        onChangeListener.onChange(null);
     }
 
     public Markers getMarkers() {
-        if (markers == null)
+        if (markers == null) {
             markers = new Markers();
+            markers.setOnChangeListener(new OnChange() {
+                @Override
+                public void onChange(String jsChange) {
+                    if (isRendered) {
+                        onChangeListener.onChange(null);
+                        js.setLength(0);
+                    }
+                }
+            });
+        }
 
         return markers;
     }
 
     public Labels getLabels() {
-        if (labels == null)
+        if (labels == null) {
             labels = new Labels();
+            labels.setOnChangeListener(new OnChange() {
+                @Override
+                public void onChange(String jsChange) {
+                    if (isRendered) {
+                        onChangeListener.onChange(null);
+                        js.setLength(0);
+                    }
+                }
+            });
+        }
 
         return labels;
     }
 
+    void setOnChangeListener(Labels.OnChange onChangeListener) {
+        this.onChangeListener = onChangeListener;
+    }
+
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         js.append(String.format(Locale.US, "{" +
                         "x: \"%s\"," +
                         "value: %f",

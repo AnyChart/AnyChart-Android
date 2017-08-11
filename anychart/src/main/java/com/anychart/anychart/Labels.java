@@ -1,4 +1,4 @@
-package com.anychart.anychart.chart.common.dataentry;
+package com.anychart.anychart;
 
 import android.text.TextUtils;
 
@@ -8,7 +8,6 @@ import com.anychart.anychart.chart.common.enums.Direction;
 import com.anychart.anychart.chart.common.enums.FontStyle;
 import com.anychart.anychart.chart.common.enums.FontVariant;
 import com.anychart.anychart.chart.common.enums.HAlign;
-import com.anychart.anychart.chart.common.JsObject;
 import com.anychart.anychart.chart.common.enums.TextWrap;
 import com.anychart.anychart.chart.common.enums.VAlign;
 
@@ -56,64 +55,99 @@ public class Labels extends JsObject {
     private double width = -1d;
     private double zIndex = -1d;
 
+    private OnChange onChangeListener;
+
     public void setBackgroundColor(String backgroundColor) {
         this.backgroundColor = backgroundColor;
+
+        onChangeListener.onChange(null);
     }
 
     public void setHAlign(HAlign hAlign) {
         this.hAlign = hAlign;
+
+        onChangeListener.onChange(null);
     }
 
     public void setLineHeight(double lineHeight) {
         this.lineHeight = lineHeight;
+
+        onChangeListener.onChange(null);
     }
 
     public void setVAlign(VAlign vAlign) {
         this.vAlign = vAlign;
+
+        onChangeListener.onChange(null);
     }
 
     public void setAdjustByWidth(boolean adjustByWidth) {
         this.adjustByWidth = adjustByWidth;
+
+        onChangeListener.onChange(null);
     }
 
     public void setAdjustByHeight(boolean adjustByHeight) {
         this.adjustByHeight = adjustByHeight;
+
+        onChangeListener.onChange(null);
     }
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+
+        onChangeListener.onChange(null);
     }
 
     public void setSelectable(boolean selectable) {
         this.selectable = selectable;
+
+        onChangeListener.onChange(null);
     }
 
     public void setPaddingTop(double paddingTop) {
         this.paddingTop = paddingTop;
+
+        onChangeListener.onChange(null);
     }
 
     public void setPaddingRight(double paddingRight) {
         this.paddingRight = paddingRight;
+
+        onChangeListener.onChange(null);
     }
 
     public void setPaddingBottom(double paddingBottom) {
         this.paddingBottom = paddingBottom;
+
+        onChangeListener.onChange(null);
     }
 
     public void setPaddingLeft(double paddingLeft) {
         this.paddingLeft = paddingLeft;
+
+        onChangeListener.onChange(null);
     }
 
     public void setRotation(double angle) {
         this.angle = angle;
+
+        onChangeListener.onChange(null);
     }
 
     public void setzIndex(double zIndex) {
         this.zIndex = zIndex;
+
+        onChangeListener.onChange(null);
     }
 
     @Override
-    public String generateJs() {
+    void setOnChangeListener(OnChange onChangeListener) {
+        this.onChangeListener = onChangeListener;
+    }
+
+    @Override
+    protected String generateJs() {
         js.append("{");
 
         if (!TextUtils.isEmpty(backgroundColor))
@@ -180,6 +214,8 @@ public class Labels extends JsObject {
 
         js.append("}");
 
-        return super.generateJs();
+        String resultJs = super.generateJs();
+        js.setLength(0);
+        return resultJs;
     }
 }

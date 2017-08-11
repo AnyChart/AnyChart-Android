@@ -1,12 +1,11 @@
-package com.anychart.anychart.chart.common.dataentry;
+package com.anychart.anychart;
 
 import android.text.TextUtils;
 
 import com.anychart.anychart.chart.common.enums.Anchor;
-import com.anychart.anychart.JsObject;
 import com.anychart.anychart.chart.common.enums.MarkerType;
-import com.anychart.anychart.chart.common.fill.Fill;
-import com.anychart.anychart.chart.common.stroke.Stroke;
+import com.anychart.anychart.chart.common.Fill;
+import com.anychart.anychart.chart.common.Stroke;
 
 import java.util.Locale;
 
@@ -30,50 +29,77 @@ public class Markers extends JsObject {
 
     public void setMarkerType(MarkerType markerType) {
         this.markerType = markerType;
+
+        onChangeListener.onChange(null);
     }
 
     public void setFill(Fill fill) {
         this.fill = fill;
+
+        onChangeListener.onChange(null);
     }
 
     public void setStroke(Stroke stroke) {
         this.stroke = stroke;
+
+        onChangeListener.onChange(null);
     }
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+
+        onChangeListener.onChange(null);
     }
 
     public void setAnchor(Anchor anchor) {
         this.anchor = anchor;
+
+        onChangeListener.onChange(null);
     }
 
     public void setOffsetX(double offsetX) {
         this.offsetX = offsetX;
+
+        onChangeListener.onChange(null);
     }
 
     public void setOffsetY(double offsetY) {
         this.offsetY = offsetY;
+
+        onChangeListener.onChange(null);
     }
 
     public void setPosition(String position) {
         this.position = position;
+
+        onChangeListener.onChange(null);
     }
 
     public void setAngle(double angle) {
         this.angle = angle;
+
+        onChangeListener.onChange(null);
     }
 
     public void setMarkerSize(double markerSize) {
         this.markerSize = markerSize;
+
+        onChangeListener.onChange(null);
     }
 
     public void setzIndex(double zIndex) {
         this.zIndex = zIndex;
+
+        onChangeListener.onChange(null);
     }
 
     @Override
-    public String generateJs() {
+    void setOnChangeListener(OnChange listener) {
+        this.onChangeListener = listener;
+    }
+
+    @Override
+    protected String generateJs() {
         js.append("{");
 
         if (markerType != null)
@@ -100,6 +126,8 @@ public class Markers extends JsObject {
 
         js.append("}");
 
-        return super.generateJs();
+        String resultJs = super.generateJs();
+        js.setLength(0);
+        return resultJs;
     }
 }
