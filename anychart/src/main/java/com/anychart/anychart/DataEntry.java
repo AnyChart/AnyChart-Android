@@ -28,13 +28,15 @@ public class DataEntry extends JsObject {
     public void setFill(Fill fill) {
         this.fill = fill;
 
-        onChangeListener.onChange(null);
+        if (onChangeListener != null)
+            onChangeListener.onChange(null);
     }
 
     public void setStroke(Stroke stroke) {
         this.stroke = stroke;
 
-        onChangeListener.onChange(null);
+        if (onChangeListener != null)
+            onChangeListener.onChange(null);
     }
 
     public Markers getMarkers() {
@@ -43,7 +45,7 @@ public class DataEntry extends JsObject {
             markers.setOnChangeListener(new OnChange() {
                 @Override
                 public void onChange(String jsChange) {
-                    if (isRendered) {
+                    if (isRendered && onChangeListener != null) {
                         onChangeListener.onChange(null);
                         js.setLength(0);
                     }
@@ -60,7 +62,7 @@ public class DataEntry extends JsObject {
             labels.setOnChangeListener(new OnChange() {
                 @Override
                 public void onChange(String jsChange) {
-                    if (isRendered) {
+                    if (isRendered && onChangeListener != null) {
                         onChangeListener.onChange(null);
                         js.setLength(0);
                     }
