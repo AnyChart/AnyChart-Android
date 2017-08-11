@@ -1,4 +1,6 @@
-package com.anychart.anychart.chart.common.stroke;
+package com.anychart.anychart.chart.common;
+
+import com.anychart.anychart.chart.common.Stroke;
 
 import java.util.Locale;
 
@@ -25,7 +27,7 @@ public class SolidStroke extends Stroke {
     }
 
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         js.append(String.format(Locale.US, "{" +
                 "color: \"%s\"," +
                 "dash: \"%s\"," +

@@ -25,7 +25,7 @@ public class GradientKey extends JsObject {
     }
 
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         js.append(String.format(Locale.US, "{" +
                 "color: \"%s\"", color));
         if (offset != -1d) {

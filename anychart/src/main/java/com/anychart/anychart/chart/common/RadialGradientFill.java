@@ -1,8 +1,4 @@
-package com.anychart.anychart.chart.common.fill;
-
-import com.anychart.anychart.chart.common.GradientKey;
-import com.anychart.anychart.chart.common.Mode;
-import com.anychart.anychart.chart.common.Rect;
+package com.anychart.anychart.chart.common;
 
 import java.util.List;
 import java.util.Locale;
@@ -32,7 +28,7 @@ public class RadialGradientFill extends Fill {
     }
 
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         js.append("{" +
                 "keys: [");
         for (int i = 0; i < gradientKeys.size(); i++) {

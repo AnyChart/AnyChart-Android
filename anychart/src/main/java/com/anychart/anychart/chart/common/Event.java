@@ -17,11 +17,11 @@ public class Event {
         return value;
     }
 
-    public void setX(String x) {
+    void setX(String x) {
         this.x = x;
     }
 
-    public void setValue(String value) {
+    void setValue(String value) {
         this.value = value;
     }
 }

@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.chart.common.Event;
-import com.anychart.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.chart.common.JavaScriptInterface;
 import com.anychart.anychart.chart.common.enums.OverlapMode;
 import com.anychart.anychart.PieChart;

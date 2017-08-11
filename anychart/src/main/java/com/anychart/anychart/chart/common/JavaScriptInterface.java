@@ -20,9 +20,9 @@ public class JavaScriptInterface {
 
 //    Context context;
 
-    public JavaScriptInterface() {
+//    public JavaScriptInterface() {
 //        context = context;
-    }
+//    }
 
     public void setOnClickListener(OnClick listener) {
         this.listener = listener;

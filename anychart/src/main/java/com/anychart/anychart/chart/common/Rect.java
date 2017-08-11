@@ -23,7 +23,7 @@ public class Rect extends JsObject {
     }
 
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         js.append(String.format(Locale.US, "acgraph.math.Rect(%f, %f, %f, %f)",
                 x, y, width, height));
 

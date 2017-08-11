@@ -15,4 +15,18 @@ public abstract class JsObject {
     protected StringBuilder getJs() {
         return js;
     }
+
+    OnChange onChangeListener;
+
+    boolean isRendered = false;
+
+    interface OnChange {
+        void onChange(String jsChange);
+    }
+
+    void setOnChangeListener(OnChange listener) {
+        onChangeListener = listener;
+
+        isRendered = true;
+    }
 }

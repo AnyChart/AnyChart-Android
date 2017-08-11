@@ -1,6 +1,4 @@
-package com.anychart.anychart.chart.common.fill;
-
-import android.graphics.Color;
+package com.anychart.anychart.chart.common;
 
 import java.util.Locale;
 
@@ -23,7 +21,7 @@ public class SolidFill extends Fill {
     }
 
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         js.append(String.format(Locale.US,
                 "{" +
                 "color: \"%s\"," +

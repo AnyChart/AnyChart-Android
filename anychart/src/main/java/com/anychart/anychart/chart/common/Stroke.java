@@ -1,4 +1,4 @@
-package com.anychart.anychart.chart.common.stroke;
+package com.anychart.anychart.chart.common;
 
 import com.anychart.anychart.JsObject;
 

@@ -28,7 +28,7 @@ public class Mode extends JsObject {
     }
 
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         if (rect == null) {
             js.append(mode);
         } else {

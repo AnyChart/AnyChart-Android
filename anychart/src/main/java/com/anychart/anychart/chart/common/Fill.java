@@ -1,4 +1,4 @@
-package com.anychart.anychart.chart.common.fill;
+package com.anychart.anychart.chart.common;
 
 import com.anychart.anychart.JsObject;
 

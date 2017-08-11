@@ -1,8 +1,8 @@
-package com.anychart.anychart.chart.common.stroke;
+package com.anychart.anychart.chart.common;
 
 import com.anychart.anychart.chart.common.GradientKey;
 import com.anychart.anychart.chart.common.Mode;
-import com.anychart.anychart.chart.common.Rect;
+import com.anychart.anychart.chart.common.Stroke;
 
 import java.util.List;
 import java.util.Locale;
@@ -11,9 +11,12 @@ import java.util.Locale;
  * Created by arseny on 8/8/17.
  */
 
-public class LinearGradientStroke extends Stroke {
+public class RadialGradientStroke extends Stroke {
 
-    private double angle;
+    private double cx;
+    private double cy;
+    private double fx;
+    private double fy;
     private String dash;
     private List<GradientKey> gradientKeys;
     private LineCap lineCap;
@@ -22,9 +25,12 @@ public class LinearGradientStroke extends Stroke {
     private double opacity;
     private double thickness;
 
-    public LinearGradientStroke(double angle, String dash, List<GradientKey> gradientKeys,
+    public RadialGradientStroke(double cx, double cy, double fx, double fy, String dash, List<GradientKey> gradientKeys,
                                 LineCap lineCap, LineJoin lineJoin, Mode mode, double opacity, double thickness) {
-        this.angle = angle;
+        this.cx = cx;
+        this.cy = cy;
+        this.fx = fx;
+        this.fy = fy;
         this.dash = dash;
         this.gradientKeys = gradientKeys;
         this.lineCap = lineCap;
@@ -34,9 +40,8 @@ public class LinearGradientStroke extends Stroke {
         this.thickness = thickness;
     }
 
-
     @Override
-    public String generateJs() {
+    protected String generateJs() {
         js.append("{" +
                 "keys: [");
         for (int i = 0; i < gradientKeys.size(); i++) {
@@ -49,18 +54,19 @@ public class LinearGradientStroke extends Stroke {
         js.append("],");
 
         js.append(String.format(Locale.US,
-                        "angle: %f," +
-                        "dash: \"%s\"," +
-                        "lineCap: \"%s\"," +
-                        "lineJoin: \"%s\"," +
-                        "get: %s," +
-                        "opacity: %f," +
-                        "thickness: %f",
-                angle, dash, lineCap.get(), lineJoin.get(), (mode == null) ? "null" : mode.generateJs(), opacity, thickness));
+                "cx: %f," +
+                "cy: %f," +
+                "fx: %f," +
+                "fy: %f," +
+                "dash: \"%s\"," +
+                "lineCap: \"%s\"," +
+                "lineJoin: \"%s\"," +
+                "get: %s," +
+                "opacity: %f," +
+                "thickness: %f",
+                cx, cy, fx, fy, dash, lineCap.get(), lineJoin.get(), (mode == null) ? "null" : mode.generateJs(), opacity, thickness));
         js.append("}");
 
-        System.out.println(js);
-
-        return js.toString();
+        return super.generateJs();
     }
 }
