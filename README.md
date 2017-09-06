@@ -18,21 +18,40 @@ TODO
 ## Chart Types
 AnyChart product family includes more than 60 different chart types and we're constantly adding new ones.
 
-### Pie Chart
-<img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart" align="right" width="180px">
-  
-The Pie Chart is essentially a circle divided into sectors. The area of each item reflects its value's proportion of the sum of all values in one data set.  
-[Usage Sample (APK File)](https://static.anychart.com/cdn/integrations/android-basic-sample.apk)  
-[Code Snippet](https://static.anychart.com/cdn/integrations/android-basic-sample.apk)  
-[Documentation Article](https://docs.anychart.com/7.14.3/Basic_Charts/Pie_Chart)  
-
-### Donut Chart
-<img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart" align="right" width="180px">
-  
-The Pie Chart is essentially a circle divided into sectors. The area of each item reflects its value's proportion of the sum of all values in one data set.  
-[Usage Sample (APK File)](https://static.anychart.com/cdn/integrations/android-basic-sample.apk)  
-[Code Snippet](https://static.anychart.com/cdn/integrations/android-basic-sample.apk)  
-[Documentation Article](https://docs.anychart.com/7.14.3/Basic_Charts/Pie_Chart)  
+<table>
+    <tr>
+        <td>
+            <h3 align="center">Pie Chart</h3>
+            <hr>          
+            <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart">
+            <sup>
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Sample (APK)</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Pie Chart</h3>
+            <hr>          
+            <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart">
+            <sup>
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Sample (APK)</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Pie Chart</h3>
+            <hr>          
+            <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart">
+            <sup>
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Sample (APK)</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+</table>  
 
 ## License
 [© AnyChart.com - JavaScript charts](https://www.anychart.com). All rights reserved.
