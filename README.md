@@ -15,6 +15,9 @@ TODO
 ### JAR/AAR File
 TODO
 
+## Getting Started
+TODO
+
 ## Chart Types
 AnyChart product family includes more than 60 different chart types and we're constantly adding new ones.
 
@@ -52,6 +55,26 @@ AnyChart product family includes more than 60 different chart types and we're co
         </td>
     </tr>
 </table>  
+
+
+## Contacts
+* Web: [www.anychart.com](https://www.anychart.com)
+* Email: [contact@anychart.com](mailto:contact@anychart.com)
+* Twitter: [anychart](https://twitter.com/anychart)
+* Facebook: [AnyCharts](https://www.facebook.com/AnyCharts)
+* LinkedIn: [anychart](https://www.linkedin.com/company/anychart)
+
+## Links
+* [AnyChart Website](https://www.anychart.com)
+* [Download AnyChart](https://www.anychart.com/download/)
+* [AnyChart Licensing](https://www.anychart.com/buy/)
+* [AnyChart Support](https://www.anychart.com/support/)
+* [Report Issues](https://github.com/AnyChart/anychart/issues)
+* [AnyChart Playground](https://playground.anychart.com)
+* [AnyChart Documentation](https://docs.anychart.com)
+* [AnyChart API Reference](https://api.anychart.com)
+* [AnyChart Sample Solutions](https://www.anychart.com/solutions/)
+* [AnyChart Integrations](https://www.anychart.com/integrations/)
 
 ## License
 [© AnyChart.com - JavaScript charts](https://www.anychart.com). All rights reserved.
