@@ -1,133 +1,195 @@
 package com.anychart.anychart;
 
-import android.text.TextUtils;
-
-import com.anychart.anychart.chart.common.enums.Anchor;
-import com.anychart.anychart.chart.common.enums.MarkerType;
-import com.anychart.anychart.chart.common.Fill;
-import com.anychart.anychart.chart.common.Stroke;
-
 import java.util.Locale;
-
-/**
- * Created by arseny on 8/8/17.
- */
+import java.util.Arrays;
 
 public class Markers extends JsObject {
 
-    private MarkerType markerType;
-    private Fill fill;
-    private Stroke stroke;
-    private boolean enabled = false;
-    private Anchor anchor;
-    private double offsetX = -1d;
-    private double offsetY = -1d;
-    private String position;
-    private double angle = -1d;
-    private double markerSize = -1d;
-    private double zIndex = -1d;
+	private Double index;
 
-    public void setMarkerType(MarkerType markerType) {
-        this.markerType = markerType;
+	public void setItemat(Double index) {
+		this.index = index;
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private Double index1;
+	private String type;
 
-    public void setFill(Fill fill) {
-        this.fill = fill;
+	public void setItemat(Double index1, String type) {
+		this.index = null;
+		this.index1 = index1;
+		this.type = type;
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String[] items;
+	private String items1;
+	private String var_args;
 
-    public void setStroke(Stroke stroke) {
-        this.stroke = stroke;
+	public void setItems(String[] items, String var_args) {
+		this.items1 = null;
+		this.items = items;
+		this.var_args = var_args;
+	}
 
-        onChangeListener.onChange(null);
-    }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+	public void setItems(String items1, String var_args) {
+		this.items = null;
+		this.items1 = items1;
+		this.var_args = var_args;
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String type1;
+	private Boolean useCapture;
 
-    public void setAnchor(Anchor anchor) {
-        this.anchor = anchor;
+	public void setListen(String type1, Boolean useCapture) {
+		this.type = null;
+		this.type1 = type1;
+		this.useCapture = useCapture;
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String type2;
+	private Boolean useCapture1;
 
-    public void setOffsetX(double offsetX) {
-        this.offsetX = offsetX;
+	public void setListenonce(String type2, Boolean useCapture1) {
+		this.type = null;
+		this.type1 = null;
+		this.type2 = type2;
+		this.useCapture = null;
+		this.useCapture1 = useCapture1;
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String type3;
 
-    public void setOffsetY(double offsetY) {
-        this.offsetY = offsetY;
+	public void setRemovealllisteners(String type3) {
+		this.type = null;
+		this.type1 = null;
+		this.type2 = null;
+		this.type3 = type3;
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String type4;
+	private Boolean useCapture2;
 
-    public void setPosition(String position) {
-        this.position = position;
+	public void setUnlisten(String type4, Boolean useCapture2) {
+		this.type = null;
+		this.type1 = null;
+		this.type2 = null;
+		this.type3 = null;
+		this.type4 = type4;
+		this.useCapture = null;
+		this.useCapture1 = null;
+		this.useCapture2 = useCapture2;
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String generateJSindex() {
+		if (index != null) {
+			return String.format(Locale.US, "index: %f,", index);
+		}
+		return "";
+	}
 
-    public void setAngle(double angle) {
-        this.angle = angle;
+	private String generateJSindex1() {
+		if (index1 != null) {
+			return String.format(Locale.US, "index: %f,", index1);
+		}
+		return "";
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String generateJStype() {
+		if (type != null) {
+			return String.format(Locale.US, "type: \"%s\",", type);
+		}
+		return "";
+	}
 
-    public void setMarkerSize(double markerSize) {
-        this.markerSize = markerSize;
+	private String generateJSitems() {
+		if (items != null) {
+			return String.format(Locale.US, "items: %s,", Arrays.toString(items));
+		}
+		return "";
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String generateJSitems1() {
+		if (items1 != null) {
+			return String.format(Locale.US, "items: \"%s\",", items1);
+		}
+		return "";
+	}
 
-    public void setzIndex(double zIndex) {
-        this.zIndex = zIndex;
+	private String generateJSvar_args() {
+		if (var_args != null) {
+			return String.format(Locale.US, "var_args: \"%s\",", var_args);
+		}
+		return "";
+	}
 
-        onChangeListener.onChange(null);
-    }
+	private String generateJStype1() {
+		if (type1 != null) {
+			return String.format(Locale.US, "type: \"%s\",", type1);
+		}
+		return "";
+	}
 
-    @Override
-    void setOnChangeListener(OnChange listener) {
-        this.onChangeListener = listener;
-    }
+	private String generateJSuseCapture() {
+		if (useCapture != null) {
+			return String.format(Locale.US, "useCapture: %b,", useCapture);
+		}
+		return "";
+	}
 
-    @Override
-    protected String generateJs() {
-        js.append("{");
+	private String generateJStype2() {
+		if (type2 != null) {
+			return String.format(Locale.US, "type: \"%s\",", type2);
+		}
+		return "";
+	}
 
-        if (markerType != null)
-            js.append(String.format(Locale.US, "type: \"%s\",", markerType.get()));
-        if (fill != null)
-            js.append(String.format(Locale.US, "fill: %s,", fill.generateJs()));
-        if (stroke != null)
-            js.append(String.format(Locale.US, "stroke: %s,", stroke.generateJs()));
-        js.append(String.format(Locale.US, "enabled: %b,", enabled));
-        if (anchor != null)
-            js.append(String.format(Locale.US, "anchor: \"%s\",", anchor.get()));
-        if (offsetX != -1d)
-            js.append(String.format(Locale.US, "offsetX: \"%f\",", offsetX));
-        if (offsetY != -1d)
-            js.append(String.format(Locale.US, "offsetY: \"%f\",", offsetY));
-        if (!TextUtils.isEmpty(position))
-            js.append(String.format(Locale.US, "position: %s,", position));
-        if (angle != -1d)
-            js.append(String.format(Locale.US, "rotation: %f,", angle));
-        if (markerSize != -1d)
-            js.append(String.format(Locale.US, "size: %f,", markerSize));
-        if (zIndex != -1d)
-            js.append(String.format(Locale.US, "zIndex: %f,", zIndex));
+	private String generateJSuseCapture1() {
+		if (useCapture1 != null) {
+			return String.format(Locale.US, "useCapture: %b,", useCapture1);
+		}
+		return "";
+	}
 
-        js.append("}");
+	private String generateJStype3() {
+		if (type3 != null) {
+			return String.format(Locale.US, "type: \"%s\",", type3);
+		}
+		return "";
+	}
 
-        String resultJs = super.generateJs();
-        js.setLength(0);
-        return resultJs;
-    }
+	private String generateJStype4() {
+		if (type4 != null) {
+			return String.format(Locale.US, "type: \"%s\",", type4);
+		}
+		return "";
+	}
+
+	private String generateJSuseCapture2() {
+		if (useCapture2 != null) {
+			return String.format(Locale.US, "useCapture: %b,", useCapture2);
+		}
+		return "";
+	}
+
+	@Override
+	protected String generateJs() {
+		js.append("{");
+		js.append(generateJSindex());
+		js.append(generateJSindex1());
+		js.append(generateJStype());
+		js.append(generateJSitems());
+		js.append(generateJSitems1());
+		js.append(generateJSvar_args());
+		js.append(generateJStype1());
+		js.append(generateJSuseCapture());
+		js.append(generateJStype2());
+		js.append(generateJSuseCapture1());
+		js.append(generateJStype3());
+		js.append(generateJStype4());
+		js.append(generateJSuseCapture2());
+		js.append("}");
+		String result = js.toString();
+		js.setLength(0);
+		return result;
+	}
 }

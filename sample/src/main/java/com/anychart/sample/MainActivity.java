@@ -2,18 +2,14 @@ package com.anychart.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.chart.common.Event;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.chart.common.JavaScriptInterface;
-import com.anychart.anychart.chart.common.enums.OverlapMode;
-import com.anychart.anychart.PieChart;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import com.anychart.anychart.Cartesian;
+import com.anychart.anychart.DistinctColors;
+import com.anychart.anychart.Fill;
+import com.anychart.anychart.Pie;
+import com.anychart.anychart.SolidFill;
+import com.anychart.anychart.TextParsingMode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,66 +18,54 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<DataEntry> data = new ArrayList<>();
-        DataEntry dataEntry = new DataEntry("A", 637166d);
-//        dataEntry.getMarkers().setEnable(true);
-//        dataEntry.getMarkers().setType(MarkerType.ARROW_DOWN);
-//        dataEntry.setFill(new SolidFill("#123456"));
-//        dataEntry.setFill(new LinearGradientFill(45,
-//                Arrays.asList(new GradientKey("#90caf9", 0.2, 0.3), new GradientKey("#000000")), Mode.instantiateMode(false), 0.4d));
-//        dataEntry.setFill(new RadialGradientFill(0.5, 0.5, 0.9, 0.3,
-//                Arrays.asList(new GradientKey("#90caf9", 0.2, 0.3), new GradientKey("#000000")),
-//                Mode.instantiateMode(new Rect(0, 0, 20, 20)),
-//                0.81));
-//        dataEntry.setStroke(new SolidStroke("#000000", "10 2", Stroke.LineCap.ROUND, Stroke.LineJoin.ROUND, 0.8, 1));
-//        dataEntry.setStroke(new LinearGradientStroke(45, "10 2",
-//                Arrays.asList(new GradientKey("#90caf9"), new GradientKey("#000000", 0.7, 0.6)), Stroke.LineCap.ROUND, Stroke.LineJoin.ROUND,
-//                null, 1, 3));
-//        dataEntry.setStroke(new RadialGradientStroke(.5, 0.5, 0.9, 0.3,
-//                "5 5 2",
-//                Arrays.asList(new GradientKey("#90caf9", 0.2, 0.3), new GradientKey("#000000")),
-//                Stroke.LineCap.BUTT, Stroke.LineJoin.BEVEL,
-//                Mode.instantiateMode(new Rect(0, 0, 20, 20)),
-//                0.81, 1));
-//        dataEntry.getLabels().setRotation(45);
-        data.add(dataEntry);
-        data.add(new DataEntry("B", 721630d));
-        data.add(new DataEntry("C", 148662d));
-        data.add(new DataEntry("D", 78662d));
-        data.add(new DataEntry("E", 90000d));
+//        try {
+//            System.out.println(getClass().getField("i").getName());
+//        } catch (NoSuchFieldException e) {
+//            e.printStackTrace();
+//        }
 
-        final PieChart pieChart = new PieChart();
-        pieChart.setData(data);
-//        pieChart.setEnabledLabels(false);
-//        pieChart.setEnabledHoverLabels(false);
-        pieChart.setTitle("Pie Chart");
-//        pieChart.setEnabledLegend(false);
-//        pieChart.setBounds(0, 200, 200, 500);
-        pieChart.setEnabledCredits(false);
-        pieChart.setEnabledTooltip(false);
-        pieChart.setBackgroundColor("#9E9E9E", 0.3d);
-//        pieChart.setMargin(50, 20, 30, 80);
-        pieChart.setInnerRadius(30);
-        pieChart.setRadius(20);
-        pieChart.setStartAngle(20);
-        pieChart.setEnabledAnimation(true);
-        pieChart.setOverlapMode(OverlapMode.ALLOW_OVERLAP);
-//        pieChart.setPadding(50, 20, 180, 60);
-        pieChart.setExplode(100);
-//        pieChart.setExplodeSlice(0);
-//        pieChart.setExplodeSlices(true);
+        Pie pie = new Pie();
+        TextParsingMode textParsingMode = null;
+        pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]", "['James' , 11000]", "['Mary' , 9000]"}, textParsingMode);
+//        pie.setData(data);
+        pie.setInnerradius(90d);
+        pie.setExplodeslices(true);
+        pie.setTitle("HRFTG yey");
+        pie.setAnimation(true, 2000d);
+        pie.setStartangle(30d);
+
+        Cartesian cartesian = new Cartesian();
+        cartesian.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]", "['James' , 11000]", "['Mary' , 9000]"});
+
+//        String[] a = {"#000000", "#000000"};
+//        com.anychart.anychart.GradientKey[] a = {new com.anychart.anychart.GradientKey("#000000", 0d, 1d), new com.anychart.anychart.GradientKey("#000000", 0d, 1d),
+//                new com.anychart.anychart.GradientKey("#000000", 0d, 1d)};
+//        com.anychart.anychart.LinearGradientFill linearGradientFill = new com.anychart.anychart.LinearGradientFill(a, true, 90d, 1d);
+//        System.out.println(linearGradientFill.getStr());
+
+        Fill linearGradientFill = new com.anychart.anychart.LinearGradientFill(new String[]{"\"#000000\"", "\"#987654\""}, false, 90d, .8d);
+        Fill solidFill = new com.anychart.anychart.SolidFill("#000000", .9d);
+        pie.setFill(linearGradientFill);
+        cartesian.setTitle("Cartesian");
+
+        DistinctColors distinctColors = new DistinctColors();
+        SolidFill[] a = {new SolidFill("#F44336", 1d), new SolidFill("#FFEB3B", 1d), new SolidFill("#795548", 1d), new SolidFill("#4CAF50", 1d)};
+        distinctColors.setItems(a, new SolidFill("#123456", 1d));
+        cartesian.setPalette(distinctColors);
+//        cartesian.
 
 //        List<String> colors = new ArrayList<>(Arrays.asList("#90caf9", "#80cbc4", "#aed581", "#e6ee9c", "#000000"));
 //        pieChart.setPalette(colors);
 
-        pieChart.setOnClickListener(new JavaScriptInterface.OnClick() {
-            @Override
-            public void onClick(Event event) {
-                Toast.makeText(MainActivity.this, String.format(Locale.US, "x: %s, value: %s", event.getX(), event.getValue()), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        pieChart.setOnClickListener(new JavaScriptInterface.OnClick() {
+//            @Override
+//            public void onClick(Event event) {
+//                Toast.makeText(MainActivity.this, String.format(Locale.US, "x: %s, value: %s", event.getX(), event.getValue()), Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         final AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-        anyChartView.setChart(pieChart);
+        anyChartView.setChart(pie);
     }
+
 }
