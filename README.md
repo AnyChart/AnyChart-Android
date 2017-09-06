@@ -55,4 +55,4 @@ AnyChart product family includes more than 60 different chart types and we're co
 
 ## License
 [© AnyChart.com - JavaScript charts](https://www.anychart.com). All rights reserved.
-[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/wrappers/Android?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
+![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Wrappers/Android?pixel&useReferer)
