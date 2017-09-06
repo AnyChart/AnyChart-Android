@@ -22,8 +22,19 @@ AnyChart product family includes more than 60 different chart types and we're co
 <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart" align="right" width="200px">
   
 The Pie Chart is essentially a circle divided into sectors. The area of each item reflects its value's proportion of the sum of all values in one data set.  
-
 To learn more, take a look at [Usage Sample (APK File)](https://static.anychart.com/cdn/integrations/android-basic-sample.apk), [Code Snippet](https://static.anychart.com/cdn/integrations/android-basic-sample.apk) and [Documentation Article](https://docs.anychart.com/7.14.3/Basic_Charts/Pie_Chart).
+<br><br>
+
+### Donut Chart
+<img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart" align="right" width="200px">
+  
+The Pie Chart is essentially a circle divided into sectors. The area of each item reflects its value's proportion of the sum of all values in one data set.  
+To learn more, take a look at [Usage Sample (APK File)](https://static.anychart.com/cdn/integrations/android-basic-sample.apk), [Code Snippet](https://static.anychart.com/cdn/integrations/android-basic-sample.apk) and [Documentation Article](https://docs.anychart.com/7.14.3/Basic_Charts/Pie_Chart).
+<br><br>
+  
+  
+  
+  
 
 ## License
 [© AnyChart.com - JavaScript charts](https://www.anychart.com). All rights reserved.
