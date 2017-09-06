@@ -16,7 +16,19 @@ TODO
 TODO
 
 ## Getting Started
-TODO
+
+### Add declaration to a view
+```
+<com.anychart.anychart.AnyChartView
+        android:id="@+id/any_chart_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+```
 
 ## Chart Types
 AnyChart product family includes more than 60 different chart types and we're constantly adding new ones.
