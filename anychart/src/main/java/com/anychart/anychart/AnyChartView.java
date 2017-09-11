@@ -72,6 +72,7 @@ public class AnyChartView extends FrameLayout {
             public void onPageFinished(WebView view, String url) {
                 if (chart != null) {
                     js.append(chart.generateJs());
+                    System.out.println(js.toString());
                 }
 
                 String resultJs = js.append("chart.container(\"container\");" +

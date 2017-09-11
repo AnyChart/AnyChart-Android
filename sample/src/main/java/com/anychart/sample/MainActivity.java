@@ -72,6 +72,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btnColumnChart = (Button) findViewById(R.id.btn_column_chart);
+        btnColumnChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ColumnChartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

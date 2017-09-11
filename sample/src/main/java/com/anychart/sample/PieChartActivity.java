@@ -4,8 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.Cartesian;
+import com.anychart.anychart.Column;
 import com.anychart.anychart.DistinctColors;
 import com.anychart.anychart.Pie;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.TextParsingMode;
 
@@ -19,7 +22,8 @@ public class PieChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Pie pie = new Pie();
-        pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]", "['James' , 11000]", "['Mary' , 9000]"}, TextParsingMode.CSV);
+        pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]",
+                "['James' , 11000]", "['Mary' , 9000]"}, TextParsingMode.CSV);
 
         pie.setInnerradius(90d);
         pie.setExplodeslices(true);

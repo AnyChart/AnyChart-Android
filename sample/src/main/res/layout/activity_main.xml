@@ -16,8 +16,10 @@
         />
 
     <Button
+        android:id="@+id/btn_column_chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="column chart"
         />
 
     <Button
