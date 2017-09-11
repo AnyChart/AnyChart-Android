@@ -13,21 +13,35 @@ TODO
 TODO
 
 ### JAR/AAR File
-TODO
+Download the latest AAR.
+Copy AAR file into the libs folder of your application project.
+
+If you using **Android Studio**:
+1. Right click on your project and choose "Open Module Settings".
+2. Click the plus button in the top left to add a new module.
+3. Choose "Import .JAR or .AAR Package".
+4. Find the AAR file.
+5. In the app's module click on the dependencies tab and add the new module as a dependency.
 
 ## Getting Started
+AnyChart library for Android compatible with API 15+(Android 4.0.3)
 
 ### Add declaration to a view
-```
+```xml
 <com.anychart.anychart.AnyChartView
         android:id="@+id/any_chart_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         />
+```
+
+### Add Java code (for example you want pie chart)
+```java
+Pie pie = new Pie();
+pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]"}, TextParsingMode.CSV);
+
+AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+anyChartView.setChart(pie);
 ```
 
 ## Chart Types
@@ -41,27 +55,27 @@ AnyChart product family includes more than 60 different chart types and we're co
             <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart">
             <sup>
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Sample (APK)</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Code Snippet</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/PieChartActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
         <td>
-            <h3 align="center">Pie Chart</h3>
+            <h3 align="center">Column Chart</h3>
             <hr>          
-            <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart">
+            <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Column Chart - AnyChart">
             <sup>
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Sample (APK)</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Code Snippet</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/ColumnChartActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
         <td>
-            <h3 align="center">Pie Chart</h3>
+            <h3 align="center">Line Chart</h3>
             <hr>          
-            <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Pie Chart - AnyChart">
+            <img src="https://www.anychart.com/chartopedia/chart-types/pie-chart/thumb.png" alt="Line Chart - AnyChart">
             <sup>
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Sample (APK)</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Code Snippet</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/LineChartActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
