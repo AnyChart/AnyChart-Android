@@ -1,7 +1,10 @@
 package com.anychart.sample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
@@ -17,12 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        try {
-//            System.out.println(getClass().getField("i").getName());
-//        } catch (NoSuchFieldException e) {
-//            e.printStackTrace();
-//        }
 
         Pie pie = new Pie();
         TextParsingMode textParsingMode = null;
@@ -64,8 +61,17 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        final AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-        anyChartView.setChart(pie);
+//        final AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+//        anyChartView.setChart(pie);
+
+        Button btnPieChart = (Button) findViewById(R.id.btn_pie_chart);
+        btnPieChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PieChartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
