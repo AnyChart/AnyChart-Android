@@ -40,12 +40,16 @@ public abstract class JsObject {
     public static String arrayToString(JsObject[] jsObjects) {
         StringBuilder result = new StringBuilder();
 
+        result.append("[");
+
         for (int i = 0; i < jsObjects.length; i++) {
             result.append(jsObjects[i].generateJs());
             if (i != jsObjects.length - 1) {
                 result.append(", ");
             }
         }
+
+        result.append("]");
 
         return result.toString();
     }
@@ -53,12 +57,16 @@ public abstract class JsObject {
     public static String arrayToString(JsObjectInterface[] jsObjects) {
         StringBuilder result = new StringBuilder();
 
+        result.append("[");
+
         for (int i = 0; i < jsObjects.length; i++) {
             result.append(jsObjects[i].generateJs());
             if (i != jsObjects.length - 1) {
                 result.append(", ");
             }
         }
+
+        result.append("]");
 
         return result.toString();
     }
