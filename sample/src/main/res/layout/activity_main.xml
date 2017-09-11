@@ -12,19 +12,21 @@
         android:id="@+id/btn_pie_chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pie chart"
+        android:text="@string/pie_chart"
         />
 
     <Button
         android:id="@+id/btn_column_chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="column chart"
+        android:text="@string/column_chart"
         />
 
     <Button
+        android:id="@+id/btn_line_chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/line_chart"
         />
 
 </LinearLayout>

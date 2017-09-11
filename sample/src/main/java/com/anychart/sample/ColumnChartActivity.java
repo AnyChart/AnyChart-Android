@@ -20,7 +20,6 @@ public class ColumnChartActivity extends AppCompatActivity {
 
         Cartesian cartesian = new Cartesian();
         cartesian.setColumn(new String[] {"['2014', 100]", "['2015', 120]", "['2016', 180]"}, TextParsingMode.CSV);
-//        cartesian.setLabels(true);
 
         LinearGradientFill linearGradientFill = new LinearGradientFill(new String[]{"\"#456789\"", "\"#987654\""}, false, 90d, .8d);
         DistinctColors distinctColors = new DistinctColors();

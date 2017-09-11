@@ -1,14 +1,11 @@
 package com.anychart.sample;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.Column;
 import com.anychart.anychart.DistinctColors;
 import com.anychart.anychart.Pie;
-import com.anychart.anychart.Set;
 import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.TextParsingMode;
 

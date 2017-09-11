@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".ColumnChartActivity">
         </activity>
+        <activity android:name=".LineChartActivity">
+        </activity>
     </application>
 
 </manifest>
