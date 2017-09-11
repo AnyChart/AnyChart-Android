@@ -35,7 +35,7 @@ AnyChart library for Android compatible with API 15+(Android 4.0.3)
         />
 ```
 
-### Add Java code (for example you want pie chart)
+### Add Java code (for example, if you want to create pie chart)
 ```java
 Pie pie = new Pie();
 pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]"}, TextParsingMode.CSV);
