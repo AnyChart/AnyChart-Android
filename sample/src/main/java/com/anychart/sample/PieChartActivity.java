@@ -30,7 +30,7 @@ public class PieChartActivity extends AppCompatActivity {
 
         SolidFill[] a = {
                 new SolidFill("#F44336", 1d),
-                new SolidFill("#FFEB3B", 1d),
+                new SolidFill("#F4A742", 1d),
                 new SolidFill("#795548", 1d),
                 new SolidFill("#4CAF50", 1d),
                 new SolidFill("#504CAF", 0.4d)};
