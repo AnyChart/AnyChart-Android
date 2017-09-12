@@ -1,4 +1,4 @@
-package com.anychart.sample;
+package com.anychart.sample.charts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.TextParsingMode;
+import com.anychart.sample.R;
 
 public class LineChartActivity extends AppCompatActivity {
 

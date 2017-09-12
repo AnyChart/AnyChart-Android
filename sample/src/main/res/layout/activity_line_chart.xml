@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.anychart.sample.LineChartActivity">
+    tools:context="com.anychart.sample.charts.LineChartActivity">
 
     <com.anychart.anychart.AnyChartView
         android:id="@+id/any_chart_view"

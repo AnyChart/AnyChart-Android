@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.RecyclerView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.anychart.sample.MainActivity">
-
-    <Button
-        android:id="@+id/btn_pie_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pie_chart"
-        />
-
-    <Button
-        android:id="@+id/btn_column_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/column_chart"
-        />
-
-    <Button
-        android:id="@+id/btn_line_chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/line_chart"
-        />
-
-</LinearLayout>
+    tools:context="com.anychart.sample.MainActivity"
+    />

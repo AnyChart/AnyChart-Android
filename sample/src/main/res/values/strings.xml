@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AnyChart</string>
-    <string name="pie_chart">pie chart</string>
-    <string name="column_chart">column chart</string>
-    <string name="line_chart">line chart</string>
+    <string name="pie_chart">Pie Chart</string>
+    <string name="column_chart">Column Chart</string>
+    <string name="line_chart">Line Chart</string>
+    <string name="venn_diagram">Venn Diagram</string>
 </resources>

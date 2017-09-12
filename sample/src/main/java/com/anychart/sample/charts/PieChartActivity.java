@@ -1,4 +1,4 @@
-package com.anychart.sample;
+package com.anychart.sample.charts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import com.anychart.anychart.DistinctColors;
 import com.anychart.anychart.Pie;
 import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.TextParsingMode;
+import com.anychart.sample.R;
 
 public class PieChartActivity extends AppCompatActivity {
 
