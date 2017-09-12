@@ -102,15 +102,6 @@ public class AnyChartView extends FrameLayout {
                         }
                     }
                 });
-
-//                final Handler handler = new Handler();
-//                handler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        ((PieChart) chart).setTitle("New Title");
-//                        ((PieChart) chart).getLabels().setBackgroundColor("#123456");
-//                    }
-//                }, 5000);
             }
         });
 

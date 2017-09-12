@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".charts.RiskMatrixActivity">
         </activity>
+        <activity android:name=".charts.TagCloudActivity">
+        </activity>
     </application>
 
 </manifest>
