@@ -29,8 +29,8 @@ public class VennDiagramActivity extends AppCompatActivity {
                 "{x: ['B', 'C'], name: 'Machine\\nLearning', value: 5}",
                 "{x: ['C', 'D'], name: 'Traditional\\nResearch', value: 5}",
                 "{x: ['D', 'B'], name: 'Traditional\\nSoftware', value: 5}",
-                "{x: ['B', 'C', 'D'], name: 'Unicorn', value: 5}",
-        }, "csv");
+                "{x: ['B', 'C', 'D'], name: 'Unicorn', value: 5}"
+        }, null);
 
         anyChartView.setChart(venn);
     }

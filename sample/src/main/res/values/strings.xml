@@ -4,4 +4,5 @@
     <string name="column_chart">Column Chart</string>
     <string name="line_chart">Line Chart</string>
     <string name="venn_diagram">Venn Diagram</string>
+    <string name="risk_matrix">Risk Matrix</string>
 </resources>

@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import com.anychart.sample.charts.ColumnChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
 import com.anychart.sample.charts.PieChartActivity;
+import com.anychart.sample.charts.RiskMatrixActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.column_chart), ColumnChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.line_chart), LineChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.venn_diagram), VennDiagramActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.risk_matrix), RiskMatrixActivity.class));
 
         return chartList;
     }

@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".charts.VennDiagramActivity">
         </activity>
+        <activity android:name=".charts.RiskMatrixActivity">
+        </activity>
     </application>
 
 </manifest>
