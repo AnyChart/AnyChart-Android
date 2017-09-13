@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.OrdinalColor;
 import com.anychart.anychart.ScaleTypes;
 import com.anychart.anychart.TagCloud;
 import com.anychart.anychart.TextParsingMode;
@@ -15,7 +14,7 @@ public class TagCloudActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tag_cloud);
+        setContentView(R.layout.activity_chart_common);
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 

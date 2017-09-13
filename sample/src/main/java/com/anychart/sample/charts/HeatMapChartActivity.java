@@ -9,12 +9,12 @@ import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
 
-public class RiskMatrixActivity extends AppCompatActivity {
+public class HeatMapChartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_risk_matrix);
+        setContentView(R.layout.activity_chart_common);
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 

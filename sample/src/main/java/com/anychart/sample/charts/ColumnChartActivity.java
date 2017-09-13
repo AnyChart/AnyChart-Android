@@ -15,7 +15,7 @@ public class ColumnChartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_column_chart);
+        setContentView(R.layout.activity_chart_common);
 
         AnyChartView anyChartView = (AnyChartView) findViewById(com.anychart.sample.R.id.any_chart_view);
 
