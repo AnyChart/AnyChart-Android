@@ -2,12 +2,16 @@ package com.anychart.sample;
 
 import android.content.res.Resources;
 
+import com.anychart.sample.charts.CircularGaugeActivity;
 import com.anychart.sample.charts.ColumnChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
 import com.anychart.sample.charts.PieChartActivity;
-import com.anychart.sample.charts.RiskMatrixActivity;
+import com.anychart.sample.charts.HeatMapChartActivity;
+import com.anychart.sample.charts.ScatterChartActivity;
 import com.anychart.sample.charts.TagCloudActivity;
+import com.anychart.sample.charts.TreeMapChartActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
+import com.anychart.sample.charts.WaterfallChartActivity;
 
 import java.util.ArrayList;
 
@@ -40,8 +44,12 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.column_chart), ColumnChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.line_chart), LineChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.venn_diagram), VennDiagramActivity.class));
-        chartList.add(new Chart(resources.getString(R.string.risk_matrix), RiskMatrixActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.heat_map_chart), HeatMapChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.tag_cloud), TagCloudActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.waterfall_chart), WaterfallChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.tree_map_chart), TreeMapChartActivity.class));
+//        chartList.add(new Chart(resources.getString(R.string.circular_gauge), CircularGaugeActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.scatter_chart), ScatterChartActivity.class));
 
         return chartList;
     }

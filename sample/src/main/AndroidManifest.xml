@@ -24,9 +24,17 @@
         </activity>
         <activity android:name=".charts.VennDiagramActivity">
         </activity>
-        <activity android:name=".charts.RiskMatrixActivity">
+        <activity android:name=".charts.HeatMapChartActivity">
         </activity>
         <activity android:name=".charts.TagCloudActivity">
+        </activity>
+        <activity android:name=".charts.WaterfallChartActivity">
+        </activity>
+        <activity android:name=".charts.TreeMapChartActivity">
+        </activity>
+        <activity android:name=".charts.CircularGaugeActivity">
+        </activity>
+        <activity android:name=".charts.ScatterChartActivity">
         </activity>
     </application>
 
