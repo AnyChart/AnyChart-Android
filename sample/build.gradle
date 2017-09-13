@@ -24,7 +24,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-//    compile 'com.github.AnyChart:AnyChart-Android:-SNAPSHOT'
+//    compile 'com.github.AnyChart:AnyChart-Android:master-SNAPSHOT'
     compile project(":anychart")
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
