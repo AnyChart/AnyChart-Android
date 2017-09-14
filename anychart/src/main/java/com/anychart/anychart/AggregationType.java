@@ -1,0 +1,26 @@
+package com.anychart.anychart;
+
+import java.util.Locale;
+
+public enum AggregationType implements JsObject.JsObjectInterface {
+    AVERAGE("average"),
+    FIRST("first"),
+    FIRST_VALUE("firstValue"),
+    LAST("last"),
+    LAST_VALUE("lastValue"),
+    LIST("list"),
+    MAX("max"),
+    MIN("min"),
+    SUM("sum"),
+    WEIGHTED_AVERAGE("weightedAverage");
+
+    private final String value;
+
+    AggregationType(String value) {
+        this.value = value;
+    }
+
+    public String generateJs() {
+        return String.format(Locale.US, "\"%s\"", value);
+    }
+}
