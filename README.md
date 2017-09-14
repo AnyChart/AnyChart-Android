@@ -6,11 +6,63 @@ TODO Description
 
 ## Installation
 
+### Leiningen
+Add it in your project.clj at the end of repositories:
+```leiningen
+:repositories [["jitpack" "https://jitpack.io"]]
+```
+Add the dependency:
+```leiningen
+:dependencies [[com.github.AnyChart/AnyChart-Android "v0.0.1"]]	
+```
+
+### SBT
+Add it in your build.sbt at the end of resolvers:
+```sbt
+resolvers += "jitpack" at "https://jitpack.io"
+```
+Add the dependency:
+```sbt
+libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "v0.0.1"	
+```
+
 ### Maven
-TODO
+Add the JitPack repository to your build file: 
+```xml
+<repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+</repositories>
+```
+Add the dependency:
+```xml
+<dependency>
+    <groupId>com.github.AnyChart</groupId>
+    <artifactId>AnyChart-Android</artifactId>
+    <version>v0.0.1</version>
+</dependency>
+```
 
 ### Gradle
-TODO
+Add it in your root build.gradle at the end of repositories:
+```groovy
+allprojects {
+        repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+        }
+}
+```
+**WARNING:** Ensure you add it under **allprojects** instead of buildscript.
+
+Add the dependency in your project build.gradle:
+```Groovy
+dependencies {
+        compile 'com.github.AnyChart:AnyChart-Android:v0.0.1'
+}
+```
 
 ### JAR/AAR File
 Download the <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/anychart-library.aar">latest AAR</a>.
