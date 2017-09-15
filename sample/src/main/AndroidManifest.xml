@@ -52,6 +52,8 @@
         </activity>
         <activity android:name=".charts.PertChartActivity">
         </activity>
+        <activity android:name=".charts.GanttChartActivity">
+        </activity>
     </application>
 
 </manifest>

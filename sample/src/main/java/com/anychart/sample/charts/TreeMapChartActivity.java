@@ -1,11 +1,10 @@
 package com.anychart.sample.charts;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.OrdinalColor;
-import com.anychart.anychart.Tree;
 import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.anychart.TreeMap;
 import com.anychart.sample.R;

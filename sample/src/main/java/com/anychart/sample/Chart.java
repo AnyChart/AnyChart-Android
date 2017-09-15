@@ -8,6 +8,7 @@ import com.anychart.sample.charts.HeatMapChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
 import com.anychart.sample.charts.PertChartActivity;
 import com.anychart.sample.charts.PieChartActivity;
+import com.anychart.sample.charts.PolarChartActivity;
 import com.anychart.sample.charts.RadarChartActivity;
 import com.anychart.sample.charts.RangeChartActivity;
 import com.anychart.sample.charts.ResourceChartActivity;
@@ -57,11 +58,12 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.scatter_chart), ScatterChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.resource_chart), ResourceChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.radar_chart), RadarChartActivity.class));
-//        chartList.add(new Chart(resources.getString(R.string.polar_chart), PolarChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.polar_chart), PolarChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.range_chart), RangeChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.vertical_chart), VerticalChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.funnel_chart), FunnelChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.pert_chart), PertChartActivity.class));
+//        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
 
         return chartList;
     }

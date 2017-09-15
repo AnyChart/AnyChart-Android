@@ -24,7 +24,6 @@ public class PieChartActivity extends AppCompatActivity {
                 "['James' , 11000]", "['Mary' , 9000]"}, TextParsingMode.CSV);
 
         pie.setInnerradius(90d);
-        pie.setExplodeslices(true);
         pie.setTitle("Pie Sample");
         pie.setAnimation(true, 2000d);
         pie.setStartangle(30d);

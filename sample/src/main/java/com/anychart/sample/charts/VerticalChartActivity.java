@@ -1,10 +1,9 @@
 package com.anychart.sample.charts;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Bar;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
@@ -22,6 +21,8 @@ public class VerticalChartActivity extends AppCompatActivity {
         cartesian.setAnimation(true);
         cartesian.setTitle("Vertical Combination of Bar and Jump Line Chart");
         cartesian.setLabels(true);
+        cartesian.setXaxis(true);
+        cartesian.setYaxis(true);
         cartesian.setBar(new String[] {
                 "['Jan', 11.5]",
                 "['Feb', 12]",

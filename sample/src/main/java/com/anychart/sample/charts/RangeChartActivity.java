@@ -20,6 +20,8 @@ public class RangeChartActivity extends AppCompatActivity {
         Cartesian cartesian = new Cartesian();
 
         cartesian.setTitle("Coastal Water Temperature \\nin London vs Edinburgh in 2015 (°C)");
+        cartesian.setXaxis(true);
+        cartesian.setYaxis(true);
 
         cartesian.setRangecolumn(getEdinburghData(), TextParsingMode.CSV);
         cartesian.setRangecolumn(getLondonData(), TextParsingMode.CSV);
