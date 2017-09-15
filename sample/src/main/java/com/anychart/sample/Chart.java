@@ -4,6 +4,7 @@ import android.content.res.Resources;
 
 import com.anychart.sample.charts.CircularGaugeActivity;
 import com.anychart.sample.charts.ColumnChartActivity;
+import com.anychart.sample.charts.FunnelChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
 import com.anychart.sample.charts.PieChartActivity;
 import com.anychart.sample.charts.HeatMapChartActivity;
@@ -15,6 +16,7 @@ import com.anychart.sample.charts.ScatterChartActivity;
 import com.anychart.sample.charts.TagCloudActivity;
 import com.anychart.sample.charts.TreeMapChartActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
+import com.anychart.sample.charts.VerticalChartActivity;
 import com.anychart.sample.charts.WaterfallChartActivity;
 
 import java.util.ArrayList;
@@ -58,6 +60,8 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.radar_chart), RadarChartActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.polar_chart), PolarChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.range_chart), RangeChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.vertical_chart), VerticalChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.funnel_chart), FunnelChartActivity.class));
 
         return chartList;
     }

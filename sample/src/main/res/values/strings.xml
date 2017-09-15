@@ -14,4 +14,6 @@
     <string name="radar_chart">Radar Chart</string>
     <string name="polar_chart">Polar Chart</string>
     <string name="range_chart">Range Chart</string>
+    <string name="vertical_chart">Vertical Chart</string>
+    <string name="funnel_chart">Funnel Chart</string>
 </resources>

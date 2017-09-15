@@ -46,6 +46,10 @@
         </activity>
         <activity android:name=".charts.RangeChartActivity">
         </activity>
+        <activity android:name=".charts.VerticalChartActivity">
+        </activity>
+        <activity android:name=".charts.FunnelChartActivity">
+        </activity>
     </application>
 
 </manifest>
