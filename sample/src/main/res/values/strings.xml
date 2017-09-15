@@ -12,4 +12,6 @@
     <string name="scatter_chart">Scatter Chart</string>
     <string name="resource_chart">Resource Chart</string>
     <string name="radar_chart">Radar Chart</string>
+    <string name="polar_chart">Polar Chart</string>
+    <string name="range_chart">Range Chart</string>
 </resources>

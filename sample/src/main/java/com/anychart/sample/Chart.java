@@ -7,7 +7,9 @@ import com.anychart.sample.charts.ColumnChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
 import com.anychart.sample.charts.PieChartActivity;
 import com.anychart.sample.charts.HeatMapChartActivity;
+import com.anychart.sample.charts.PolarChartActivity;
 import com.anychart.sample.charts.RadarChartActivity;
+import com.anychart.sample.charts.RangeChartActivity;
 import com.anychart.sample.charts.ResourceChartActivity;
 import com.anychart.sample.charts.ScatterChartActivity;
 import com.anychart.sample.charts.TagCloudActivity;
@@ -54,6 +56,8 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.scatter_chart), ScatterChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.resource_chart), ResourceChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.radar_chart), RadarChartActivity.class));
+//        chartList.add(new Chart(resources.getString(R.string.polar_chart), PolarChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.range_chart), RangeChartActivity.class));
 
         return chartList;
     }

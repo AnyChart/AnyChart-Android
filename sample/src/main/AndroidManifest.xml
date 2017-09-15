@@ -42,6 +42,10 @@
         </activity>
         <activity android:name=".charts.RadarChartActivity">
         </activity>
+        <activity android:name=".charts.PolarChartActivity">
+        </activity>
+        <activity android:name=".charts.RangeChartActivity">
+        </activity>
     </application>
 
 </manifest>
