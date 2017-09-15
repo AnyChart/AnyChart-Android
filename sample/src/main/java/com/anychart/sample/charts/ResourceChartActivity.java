@@ -1,5 +1,6 @@
 package com.anychart.sample.charts;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -16,6 +17,8 @@ public class ResourceChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Resource resource = new Resource();
@@ -26,6 +29,13 @@ public class ResourceChartActivity extends AppCompatActivity {
         resource.setData(getData(), TextParsingMode.CSV);
 
         anyChartView.setChart(resource);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     private String[] getData() {
