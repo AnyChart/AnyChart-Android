@@ -497,7 +497,7 @@ public class Pert extends Chart {
         this.fillMethod = fillMethod;
         this.deps = deps;
 
-        js.append(String.format(Locale.US, "chart.data(\"%s\", %s, %s);", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
+        js.append(String.format(Locale.US, "chart.data(%s, %s, %s);", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.data(\"%s\", %s, %s);", data2, (fillMethod != null) ? fillMethod.generateJs() : "null", arrayToString(deps)));

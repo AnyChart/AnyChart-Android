@@ -50,6 +50,8 @@
         </activity>
         <activity android:name=".charts.FunnelChartActivity">
         </activity>
+        <activity android:name=".charts.PertChartActivity">
+        </activity>
     </application>
 
 </manifest>

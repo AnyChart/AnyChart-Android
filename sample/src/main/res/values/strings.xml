@@ -16,4 +16,5 @@
     <string name="range_chart">Range Chart</string>
     <string name="vertical_chart">Vertical Chart</string>
     <string name="funnel_chart">Funnel Chart</string>
+    <string name="pert_chart">Pert Chart</string>
 </resources>

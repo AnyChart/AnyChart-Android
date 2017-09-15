@@ -38,6 +38,10 @@ public abstract class JsObject {
     }
 
     public static String arrayToString(JsObject[] jsObjects) {
+        if (jsObjects == null) {
+            return "";
+        }
+
         StringBuilder result = new StringBuilder();
 
         result.append("[");
@@ -55,6 +59,10 @@ public abstract class JsObject {
     }
 
     public static String arrayToString(JsObjectInterface[] jsObjects) {
+        if (jsObjects == null) {
+            return "";
+        }
+
         StringBuilder result = new StringBuilder();
 
         result.append("[");
@@ -72,6 +80,10 @@ public abstract class JsObject {
     }
 
     public static String arrayToString(Object[] jsObjects) {
+        if (jsObjects == null) {
+            return "";
+        }
+
         StringBuilder result = new StringBuilder();
 
         result.append("[");
