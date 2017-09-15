@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.anychart.sample">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,6 +37,8 @@
         <activity android:name=".charts.CircularGaugeActivity">
         </activity>
         <activity android:name=".charts.ScatterChartActivity">
+        </activity>
+        <activity android:name=".charts.ResourceChartActivity">
         </activity>
     </application>
 
