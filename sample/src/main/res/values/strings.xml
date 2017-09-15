@@ -11,4 +11,5 @@
     <string name="circular_gauge">Circular Gauge</string>
     <string name="scatter_chart">Scatter Chart</string>
     <string name="resource_chart">Resource Chart</string>
+    <string name="radar_chart">Radar Chart</string>
 </resources>
