@@ -14,7 +14,7 @@ public class ImageFill extends JsObject implements Fill {
         this.mode = mode;
         this.src = src;
 
-        js.append(String.format(Locale.US, "{mode: %s,src: \"%s\"}",  (mode != null) ? mode.generateJs() : "null", src));
+        js.append(String.format(Locale.US, "{mode: %s,src: %s}",  (mode != null) ? mode.generateJs() : "null", src));
     }
 
 

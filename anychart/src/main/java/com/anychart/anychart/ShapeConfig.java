@@ -22,7 +22,7 @@ public class ShapeConfig extends JsObject  {
         this.strokeNames = strokeNames;
         this.zIndex = zIndex;
 
-        js.append(String.format(Locale.US, "{fillNames: %s,isHatchFill: %b,name: \"%s\",shapeType: %s,strokeNames: %s,zIndex: %f}",  Arrays.toString(fillNames), isHatchFill, name, (shapeType != null) ? shapeType.generateJs() : "null", Arrays.toString(strokeNames), zIndex));
+        js.append(String.format(Locale.US, "{fillNames: %s,isHatchFill: %b,name: %s,shapeType: %s,strokeNames: %s,zIndex: %f}",  Arrays.toString(fillNames), isHatchFill, name, (shapeType != null) ? shapeType.generateJs() : "null", Arrays.toString(strokeNames), zIndex));
     }
 
 

@@ -24,16 +24,16 @@ public class PieChartActivity extends AppCompatActivity {
                 "['James' , 11000]", "['Mary' , 9000]"}, TextParsingMode.CSV);
 
         pie.setInnerradius(90d);
-        pie.setTitle("Pie Sample");
+        pie.setTitle("'Pie Sample'");
         pie.setAnimation(true, 2000d);
         pie.setStartangle(30d);
 
         SolidFill[] a = {
-                new SolidFill("#F44336", 1d),
-                new SolidFill("#F4A742", 1d),
-                new SolidFill("#795548", 1d),
-                new SolidFill("#4CAF50", 1d),
-                new SolidFill("#504CAF", 0.4d)};
+                new SolidFill("'#F44336'", 1d),
+                new SolidFill("'#F4A742'", 1d),
+                new SolidFill("'#795548'", 1d),
+                new SolidFill("'#4CAF50'", 1d),
+                new SolidFill("'#504CAF'", 0.4d)};
         DistinctColors distinctColors = new DistinctColors();
         distinctColors.setItems(a, null);
         pie.setPalette(distinctColors);

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.OrdinalColor;
 import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.anychart.TreeMap;
 import com.anychart.sample.R;
@@ -18,18 +17,7 @@ public class TreeMapChartActivity extends AppCompatActivity {
 
         AnyChartView anyChart = (AnyChartView) findViewById(R.id.any_chart_view);
 
-//        Tree tree = new Tree();
-//        tree.setAdddata(getData(), TreeFillingMethod.AS_TABLE, null);
         TreeMap treeMap = new TreeMap();
-        OrdinalColor ordinalColor = new OrdinalColor();
-//        ordinalColor.setRanges("[{less: 25000}," +
-//                        "        {from: 25000, to: 30000}," +
-//                        "        {from: 30000, to: 40000}," +
-//                        "        {from: 40000, to: 50000}," +
-//                        "        {from: 50000, to: 100000}," +
-//                        "        {greater: 100000}]");
-//        ordinalColor.setColors(new String[] { "'#ffee58'", "'#fbc02d'", "'#f57f17'", "'#c0ca33'", "'#689f38'", "'#2e7d32'" });
-//        treeMap.setColorscale(ordinalColor);
         treeMap.setData(getData(), TreeFillingMethod.AS_TABLE);
         treeMap.setMaxdepth(2d);
 

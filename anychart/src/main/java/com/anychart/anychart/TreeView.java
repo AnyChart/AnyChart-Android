@@ -207,14 +207,14 @@ public class TreeView extends JsObject {
 
     private String generateJSdata() {
         if (data != null) {
-            return String.format(Locale.US, "data: \"%s\",", data);
+            return String.format(Locale.US, "data: %s,", data);
         }
         return "";
     }
 
     private String generateJSdata1() {
         if (data1 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data1);
+            return String.format(Locale.US, "data: %s,", data1);
         }
         return "";
     }
@@ -277,14 +277,14 @@ public class TreeView extends JsObject {
 
     private String generateJSsoughtField() {
         if (soughtField != null) {
-            return String.format(Locale.US, "soughtField: \"%s\",", soughtField);
+            return String.format(Locale.US, "soughtField: %s,", soughtField);
         }
         return "";
     }
 
     private String generateJSsearch() {
         if (search != null) {
-            return String.format(Locale.US, "search: \"%s\",", search);
+            return String.format(Locale.US, "search: %s,", search);
         }
         return "";
     }
@@ -305,14 +305,14 @@ public class TreeView extends JsObject {
 
     private String generateJSsoughtField1() {
         if (soughtField1 != null) {
-            return String.format(Locale.US, "soughtField: \"%s\",", soughtField1);
+            return String.format(Locale.US, "soughtField: %s,", soughtField1);
         }
         return "";
     }
 
     private String generateJSsearchItems() {
         if (searchItems != null) {
-            return String.format(Locale.US, "searchItems: \"%s\",", searchItems);
+            return String.format(Locale.US, "searchItems: %s,", searchItems);
         }
         return "";
     }

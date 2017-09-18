@@ -38,7 +38,7 @@ public class GanttToolbar extends JsObject {
 
     private String generateJSelement() {
         if (element != null) {
-            return String.format(Locale.US, "element: \"%s\",", element);
+            return String.format(Locale.US, "element: %s,", element);
         }
         return "";
     }

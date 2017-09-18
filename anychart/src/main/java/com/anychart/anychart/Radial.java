@@ -295,7 +295,7 @@ public class Radial extends JsObject {
 
     private String generateJScontainer2() {
         if (container2 != null) {
-            return String.format(Locale.US, "container: \"%s\",", container2);
+            return String.format(Locale.US, "container: %s,", container2);
         }
         return "";
     }
@@ -330,7 +330,7 @@ public class Radial extends JsObject {
 
     private String generateJSinnerRadius() {
         if (innerRadius != null) {
-            return String.format(Locale.US, "innerRadius: \"%s\",", innerRadius);
+            return String.format(Locale.US, "innerRadius: %s,", innerRadius);
         }
         return "";
     }
@@ -351,7 +351,7 @@ public class Radial extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -365,7 +365,7 @@ public class Radial extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -400,7 +400,7 @@ public class Radial extends JsObject {
 
     private String generateJSoverlapMode1() {
         if (overlapMode1 != null) {
-            return String.format(Locale.US, "overlapMode: \"%s\",", overlapMode1);
+            return String.format(Locale.US, "overlapMode: %s,", overlapMode1);
         }
         return "";
     }
@@ -456,7 +456,7 @@ public class Radial extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -470,7 +470,7 @@ public class Radial extends JsObject {
 
     private String generateJSstartAngle() {
         if (startAngle != null) {
-            return String.format(Locale.US, "startAngle: \"%s\",", startAngle);
+            return String.format(Locale.US, "startAngle: %s,", startAngle);
         }
         return "";
     }
@@ -498,7 +498,7 @@ public class Radial extends JsObject {
 
     private String generateJSstroke2() {
         if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: \"%s\",", stroke2);
+            return String.format(Locale.US, "stroke: %s,", stroke2);
         }
         return "";
     }
@@ -512,7 +512,7 @@ public class Radial extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -540,7 +540,7 @@ public class Radial extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

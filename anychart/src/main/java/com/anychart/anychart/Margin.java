@@ -370,7 +370,7 @@ public class Margin extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -384,14 +384,14 @@ public class Margin extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -405,7 +405,7 @@ public class Margin extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -419,7 +419,7 @@ public class Margin extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -433,14 +433,14 @@ public class Margin extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -468,7 +468,7 @@ public class Margin extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -482,7 +482,7 @@ public class Margin extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -496,7 +496,7 @@ public class Margin extends JsObject {
 
     private String generateJSvalue8() {
         if (value8 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value8);
+            return String.format(Locale.US, "value: %s,", value8);
         }
         return "";
     }
@@ -517,14 +517,14 @@ public class Margin extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

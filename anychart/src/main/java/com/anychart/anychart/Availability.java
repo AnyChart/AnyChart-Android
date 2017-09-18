@@ -1,7 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
 
 public class Availability extends JsObject  {
 
@@ -34,7 +33,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.to1 = to1;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,ends: \"%s\",from: %f,from: \"%s\",isWorking: %b,on: %f,on: \"%s\",starts: %f,starts: \"%s\",to: %f,to: \"%s\"}",  (each != null) ? each.generateJs() : "null", ends, ends1, from, from1, isWorking, on, on1, starts, starts1, to, to1));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,ends: %s,from: %f,from: %s,isWorking: %b,on: %f,on: %s,starts: %f,starts: %s,to: %f,to: %s}",  (each != null) ? each.generateJs() : "null", ends, ends1, from, from1, isWorking, on, on1, starts, starts1, to, to1));
     }
 
 

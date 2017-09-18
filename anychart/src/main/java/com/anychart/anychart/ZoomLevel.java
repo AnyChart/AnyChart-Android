@@ -18,7 +18,7 @@ public class ZoomLevel extends JsObject  {
         this.unit = unit;
         this.unitPixSize = unitPixSize;
 
-        js.append(String.format(Locale.US, "{count: %f,id: \"%s\",unit: %s,unitPixSize: %f}",  count, id, (unit != null) ? unit.generateJs() : "null", unitPixSize));
+        js.append(String.format(Locale.US, "{count: %f,id: %s,unit: %s,unitPixSize: %f}",  count, id, (unit != null) ? unit.generateJs() : "null", unitPixSize));
     }
 
 

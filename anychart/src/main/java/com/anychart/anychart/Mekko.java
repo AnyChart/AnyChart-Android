@@ -93,10 +93,10 @@ public class Mekko extends Chart {
     public void setGetseries(String id1) {
         this.id1 = id1;
 
-        js.append(String.format(Locale.US, "chart.getSeries(\"%s\");", id1));
+        js.append(String.format(Locale.US, "chart.getSeries(%s);", id1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getSeries(\"%s\");", id1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getSeries(%s);", id1));
             js.setLength(0);
         }
     }
@@ -149,10 +149,10 @@ public class Mekko extends Chart {
         this.data = data;
         this.csvSettings = csvSettings;
 
-        js.append(String.format(Locale.US, "chart.mekko(%s, \"%s\");", (data != null) ? data.generateJs() : "null", csvSettings));
+        js.append(String.format(Locale.US, "chart.mekko(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.mekko(%s, \"%s\");", (data != null) ? data.generateJs() : "null", csvSettings));
+            onChangeListener.onChange(String.format(Locale.US, "chart.mekko(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings));
             js.setLength(0);
         }
     }
@@ -162,10 +162,10 @@ public class Mekko extends Chart {
         this.data1 = data1;
         this.csvSettings = csvSettings;
 
-        js.append(String.format(Locale.US, "chart.mekko(%s, \"%s\");", (data1 != null) ? data1.generateJs() : "null", csvSettings));
+        js.append(String.format(Locale.US, "chart.mekko(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.mekko(%s, \"%s\");", (data1 != null) ? data1.generateJs() : "null", csvSettings));
+            onChangeListener.onChange(String.format(Locale.US, "chart.mekko(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings));
             js.setLength(0);
         }
     }
@@ -175,10 +175,10 @@ public class Mekko extends Chart {
         this.data2 = data2;
         this.csvSettings = csvSettings;
 
-        js.append(String.format(Locale.US, "chart.mekko(%s, \"%s\");", Arrays.toString(data2), csvSettings));
+        js.append(String.format(Locale.US, "chart.mekko(%s, %s);", Arrays.toString(data2), csvSettings));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.mekko(%s, \"%s\");", Arrays.toString(data2), csvSettings));
+            onChangeListener.onChange(String.format(Locale.US, "chart.mekko(%s, %s);", Arrays.toString(data2), csvSettings));
             js.setLength(0);
         }
     }
@@ -253,10 +253,10 @@ public class Mekko extends Chart {
     public void setRemoveseries(String id3) {
         this.id3 = id3;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(\"%s\");", id3));
+        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(\"%s\");", id3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id3));
             js.setLength(0);
         }
     }

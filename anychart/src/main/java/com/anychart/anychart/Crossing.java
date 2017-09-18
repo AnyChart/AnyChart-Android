@@ -68,7 +68,7 @@ public class Crossing extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -82,7 +82,7 @@ public class Crossing extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }

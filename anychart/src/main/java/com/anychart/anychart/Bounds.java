@@ -1755,7 +1755,7 @@ public class Bounds extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -1769,7 +1769,7 @@ public class Bounds extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -1783,7 +1783,7 @@ public class Bounds extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
@@ -1797,7 +1797,7 @@ public class Bounds extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -1811,7 +1811,7 @@ public class Bounds extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -1825,7 +1825,7 @@ public class Bounds extends JsObject {
 
     private String generateJSmaxWidth3() {
         if (maxWidth3 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth3);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth3);
         }
         return "";
     }
@@ -1839,7 +1839,7 @@ public class Bounds extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -1853,7 +1853,7 @@ public class Bounds extends JsObject {
 
     private String generateJSminHeight3() {
         if (minHeight3 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight3);
+            return String.format(Locale.US, "minHeight: %s,", minHeight3);
         }
         return "";
     }
@@ -1867,7 +1867,7 @@ public class Bounds extends JsObject {
 
     private String generateJSminWidth1() {
         if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: \"%s\",", minWidth1);
+            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
@@ -1881,7 +1881,7 @@ public class Bounds extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -1895,7 +1895,7 @@ public class Bounds extends JsObject {
 
     private String generateJSxOrRect1() {
         if (xOrRect1 != null) {
-            return String.format(Locale.US, "xOrRect: \"%s\",", xOrRect1);
+            return String.format(Locale.US, "xOrRect: %s,", xOrRect1);
         }
         return "";
     }
@@ -1944,7 +1944,7 @@ public class Bounds extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -1958,7 +1958,7 @@ public class Bounds extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }
@@ -1972,7 +1972,7 @@ public class Bounds extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -2021,7 +2021,7 @@ public class Bounds extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }
@@ -2035,7 +2035,7 @@ public class Bounds extends JsObject {
 
     private String generateJSwidth3() {
         if (width3 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width3);
+            return String.format(Locale.US, "width: %s,", width3);
         }
         return "";
     }

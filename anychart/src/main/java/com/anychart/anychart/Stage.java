@@ -2055,7 +2055,7 @@ public class Stage extends JsObject {
 
     private String generateJSdesc() {
         if (desc != null) {
-            return String.format(Locale.US, "desc: \"%s\",", desc);
+            return String.format(Locale.US, "desc: %s,", desc);
         }
         return "";
     }
@@ -2132,7 +2132,7 @@ public class Stage extends JsObject {
 
     private String generateJSpaperSizeOrWidth1() {
         if (paperSizeOrWidth1 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: \"%s\",", paperSizeOrWidth1);
+            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth1);
         }
         return "";
     }
@@ -2188,7 +2188,7 @@ public class Stage extends JsObject {
 
     private String generateJSpaperSizeOrWidth2() {
         if (paperSizeOrWidth2 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: \"%s\",", paperSizeOrWidth2);
+            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth2);
         }
         return "";
     }
@@ -2209,7 +2209,7 @@ public class Stage extends JsObject {
 
     private String generateJSlandscapeOrHeight1() {
         if (landscapeOrHeight1 != null) {
-            return String.format(Locale.US, "landscapeOrHeight: \"%s\",", landscapeOrHeight1);
+            return String.format(Locale.US, "landscapeOrHeight: %s,", landscapeOrHeight1);
         }
         return "";
     }
@@ -2230,7 +2230,7 @@ public class Stage extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -2251,7 +2251,7 @@ public class Stage extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -2279,21 +2279,21 @@ public class Stage extends JsObject {
 
     private String generateJStext() {
         if (text != null) {
-            return String.format(Locale.US, "text: \"%s\",", text);
+            return String.format(Locale.US, "text: %s,", text);
         }
         return "";
     }
 
     private String generateJSid() {
         if (id != null) {
-            return String.format(Locale.US, "id: \"%s\",", id);
+            return String.format(Locale.US, "id: %s,", id);
         }
         return "";
     }
 
     private String generateJSsrc() {
         if (src != null) {
-            return String.format(Locale.US, "src: \"%s\",", src);
+            return String.format(Locale.US, "src: %s,", src);
         }
         return "";
     }
@@ -2335,7 +2335,7 @@ public class Stage extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -2349,7 +2349,7 @@ public class Stage extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -2377,7 +2377,7 @@ public class Stage extends JsObject {
 
     private String generateJSpaperSizeOrWidth4() {
         if (paperSizeOrWidth4 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: \"%s\",", paperSizeOrWidth4);
+            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth4);
         }
         return "";
     }
@@ -2398,7 +2398,7 @@ public class Stage extends JsObject {
 
     private String generateJSlandscapeOrHeight3() {
         if (landscapeOrHeight3 != null) {
-            return String.format(Locale.US, "landscapeOrHeight: \"%s\",", landscapeOrHeight3);
+            return String.format(Locale.US, "landscapeOrHeight: %s,", landscapeOrHeight3);
         }
         return "";
     }
@@ -2433,7 +2433,7 @@ public class Stage extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -2461,7 +2461,7 @@ public class Stage extends JsObject {
 
     private String generateJSwidth6() {
         if (width6 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width6);
+            return String.format(Locale.US, "width: %s,", width6);
         }
         return "";
     }
@@ -2475,7 +2475,7 @@ public class Stage extends JsObject {
 
     private String generateJSheight8() {
         if (height8 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height8);
+            return String.format(Locale.US, "height: %s,", height8);
         }
         return "";
     }
@@ -2524,7 +2524,7 @@ public class Stage extends JsObject {
 
     private String generateJSanchor1() {
         if (anchor1 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor1);
+            return String.format(Locale.US, "anchor: %s,", anchor1);
         }
         return "";
     }
@@ -2559,14 +2559,14 @@ public class Stage extends JsObject {
 
     private String generateJSfilename() {
         if (filename != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename);
+            return String.format(Locale.US, "filename: %s,", filename);
         }
         return "";
     }
 
     private String generateJSpaperSize() {
         if (paperSize != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize);
+            return String.format(Locale.US, "paperSize: %s,", paperSize);
         }
         return "";
     }
@@ -2594,7 +2594,7 @@ public class Stage extends JsObject {
 
     private String generateJSfilename1() {
         if (filename1 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename1);
+            return String.format(Locale.US, "filename: %s,", filename1);
         }
         return "";
     }
@@ -2622,14 +2622,14 @@ public class Stage extends JsObject {
 
     private String generateJSfilename2() {
         if (filename2 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename2);
+            return String.format(Locale.US, "filename: %s,", filename2);
         }
         return "";
     }
 
     private String generateJSpaperSize1() {
         if (paperSize1 != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize1);
+            return String.format(Locale.US, "paperSize: %s,", paperSize1);
         }
         return "";
     }
@@ -2643,7 +2643,7 @@ public class Stage extends JsObject {
 
     private String generateJSfilename3() {
         if (filename3 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename3);
+            return String.format(Locale.US, "filename: %s,", filename3);
         }
         return "";
     }
@@ -2713,7 +2713,7 @@ public class Stage extends JsObject {
 
     private String generateJSanchor3() {
         if (anchor3 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor3);
+            return String.format(Locale.US, "anchor: %s,", anchor3);
         }
         return "";
     }
@@ -2769,7 +2769,7 @@ public class Stage extends JsObject {
 
     private String generateJSanchor5() {
         if (anchor5 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor5);
+            return String.format(Locale.US, "anchor: %s,", anchor5);
         }
         return "";
     }
@@ -2853,7 +2853,7 @@ public class Stage extends JsObject {
 
     private String generateJSfilename4() {
         if (filename4 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename4);
+            return String.format(Locale.US, "filename: %s,", filename4);
         }
         return "";
     }
@@ -2874,7 +2874,7 @@ public class Stage extends JsObject {
 
     private String generateJSpaperSizeOrWidth7() {
         if (paperSizeOrWidth7 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: \"%s\",", paperSizeOrWidth7);
+            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth7);
         }
         return "";
     }
@@ -2909,7 +2909,7 @@ public class Stage extends JsObject {
 
     private String generateJSfilename5() {
         if (filename5 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename5);
+            return String.format(Locale.US, "filename: %s,", filename5);
         }
         return "";
     }
@@ -2944,7 +2944,7 @@ public class Stage extends JsObject {
 
     private String generateJSfilename6() {
         if (filename6 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename6);
+            return String.format(Locale.US, "filename: %s,", filename6);
         }
         return "";
     }
@@ -2958,7 +2958,7 @@ public class Stage extends JsObject {
 
     private String generateJSpaperSizeOrWidth8() {
         if (paperSizeOrWidth8 != null) {
-            return String.format(Locale.US, "paperSizeOrWidth: \"%s\",", paperSizeOrWidth8);
+            return String.format(Locale.US, "paperSizeOrWidth: %s,", paperSizeOrWidth8);
         }
         return "";
     }
@@ -2979,14 +2979,14 @@ public class Stage extends JsObject {
 
     private String generateJSlandscapeOrHeight5() {
         if (landscapeOrHeight5 != null) {
-            return String.format(Locale.US, "landscapeOrHeight: \"%s\",", landscapeOrHeight5);
+            return String.format(Locale.US, "landscapeOrHeight: %s,", landscapeOrHeight5);
         }
         return "";
     }
 
     private String generateJSfilename7() {
         if (filename7 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename7);
+            return String.format(Locale.US, "filename: %s,", filename7);
         }
         return "";
     }
@@ -3035,21 +3035,21 @@ public class Stage extends JsObject {
 
     private String generateJStext1() {
         if (text1 != null) {
-            return String.format(Locale.US, "text: \"%s\",", text1);
+            return String.format(Locale.US, "text: %s,", text1);
         }
         return "";
     }
 
     private String generateJStitle() {
         if (title != null) {
-            return String.format(Locale.US, "title: \"%s\",", title);
+            return String.format(Locale.US, "title: %s,", title);
         }
         return "";
     }
 
     private String generateJSpaperSize2() {
         if (paperSize2 != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize2);
+            return String.format(Locale.US, "paperSize: %s,", paperSize2);
         }
         return "";
     }
@@ -3091,7 +3091,7 @@ public class Stage extends JsObject {
 
     private String generateJStype4() {
         if (type4 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type4);
+            return String.format(Locale.US, "type: %s,", type4);
         }
         return "";
     }
@@ -3112,7 +3112,7 @@ public class Stage extends JsObject {
 
     private String generateJSwidth13() {
         if (width13 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width13);
+            return String.format(Locale.US, "width: %s,", width13);
         }
         return "";
     }

@@ -2263,7 +2263,7 @@ public class Table extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -2277,7 +2277,7 @@ public class Table extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -2305,7 +2305,7 @@ public class Table extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -2340,7 +2340,7 @@ public class Table extends JsObject {
 
     private String generateJSx1() {
         if (x1 != null) {
-            return String.format(Locale.US, "x: \"%s\",", x1);
+            return String.format(Locale.US, "x: %s,", x1);
         }
         return "";
     }
@@ -2354,7 +2354,7 @@ public class Table extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -2368,7 +2368,7 @@ public class Table extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }
@@ -2382,7 +2382,7 @@ public class Table extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -2403,7 +2403,7 @@ public class Table extends JsObject {
 
     private String generateJSstrokeOrFill2() {
         if (strokeOrFill2 != null) {
-            return String.format(Locale.US, "strokeOrFill: \"%s\",", strokeOrFill2);
+            return String.format(Locale.US, "strokeOrFill: %s,", strokeOrFill2);
         }
         return "";
     }
@@ -2417,7 +2417,7 @@ public class Table extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -2445,7 +2445,7 @@ public class Table extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -2578,7 +2578,7 @@ public class Table extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -2592,7 +2592,7 @@ public class Table extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -2606,7 +2606,7 @@ public class Table extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -2620,7 +2620,7 @@ public class Table extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -2641,7 +2641,7 @@ public class Table extends JsObject {
 
     private String generateJScolsMaxWidth() {
         if (colsMaxWidth != null) {
-            return String.format(Locale.US, "colsMaxWidth: \"%s\",", colsMaxWidth);
+            return String.format(Locale.US, "colsMaxWidth: %s,", colsMaxWidth);
         }
         return "";
     }
@@ -2655,7 +2655,7 @@ public class Table extends JsObject {
 
     private String generateJScolsMinWidth() {
         if (colsMinWidth != null) {
-            return String.format(Locale.US, "colsMinWidth: \"%s\",", colsMinWidth);
+            return String.format(Locale.US, "colsMinWidth: %s,", colsMinWidth);
         }
         return "";
     }
@@ -2669,7 +2669,7 @@ public class Table extends JsObject {
 
     private String generateJScolsWidth() {
         if (colsWidth != null) {
-            return String.format(Locale.US, "colsWidth: \"%s\",", colsWidth);
+            return String.format(Locale.US, "colsWidth: %s,", colsWidth);
         }
         return "";
     }
@@ -2683,7 +2683,7 @@ public class Table extends JsObject {
 
     private String generateJStableValues() {
         if (tableValues != null) {
-            return String.format(Locale.US, "tableValues: \"%s\",", tableValues);
+            return String.format(Locale.US, "tableValues: %s,", tableValues);
         }
         return "";
     }
@@ -2711,7 +2711,7 @@ public class Table extends JsObject {
 
     private String generateJSfontColor() {
         if (fontColor != null) {
-            return String.format(Locale.US, "fontColor: \"%s\",", fontColor);
+            return String.format(Locale.US, "fontColor: %s,", fontColor);
         }
         return "";
     }
@@ -2725,14 +2725,14 @@ public class Table extends JsObject {
 
     private String generateJSfontDecoration1() {
         if (fontDecoration1 != null) {
-            return String.format(Locale.US, "fontDecoration: \"%s\",", fontDecoration1);
+            return String.format(Locale.US, "fontDecoration: %s,", fontDecoration1);
         }
         return "";
     }
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
@@ -2746,7 +2746,7 @@ public class Table extends JsObject {
 
     private String generateJSfontSize() {
         if (fontSize != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize);
+            return String.format(Locale.US, "fontSize: %s,", fontSize);
         }
         return "";
     }
@@ -2767,7 +2767,7 @@ public class Table extends JsObject {
 
     private String generateJSfontStyle1() {
         if (fontStyle1 != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle1);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle1);
         }
         return "";
     }
@@ -2781,14 +2781,14 @@ public class Table extends JsObject {
 
     private String generateJSfontVariant1() {
         if (fontVariant1 != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant1);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant1);
         }
         return "";
     }
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }
@@ -2837,7 +2837,7 @@ public class Table extends JsObject {
 
     private String generateJShAlign1() {
         if (hAlign1 != null) {
-            return String.format(Locale.US, "hAlign: \"%s\",", hAlign1);
+            return String.format(Locale.US, "hAlign: %s,", hAlign1);
         }
         return "";
     }
@@ -2851,7 +2851,7 @@ public class Table extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -2865,14 +2865,14 @@ public class Table extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
 
     private String generateJSletterSpacing() {
         if (letterSpacing != null) {
-            return String.format(Locale.US, "letterSpacing: \"%s\",", letterSpacing);
+            return String.format(Locale.US, "letterSpacing: %s,", letterSpacing);
         }
         return "";
     }
@@ -2886,7 +2886,7 @@ public class Table extends JsObject {
 
     private String generateJSlineHeight() {
         if (lineHeight != null) {
-            return String.format(Locale.US, "lineHeight: \"%s\",", lineHeight);
+            return String.format(Locale.US, "lineHeight: %s,", lineHeight);
         }
         return "";
     }
@@ -2900,7 +2900,7 @@ public class Table extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -2914,7 +2914,7 @@ public class Table extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -2935,7 +2935,7 @@ public class Table extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -2949,7 +2949,7 @@ public class Table extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -2963,7 +2963,7 @@ public class Table extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -2977,7 +2977,7 @@ public class Table extends JsObject {
 
     private String generateJSminWidth1() {
         if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: \"%s\",", minWidth1);
+            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
@@ -2998,7 +2998,7 @@ public class Table extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -3012,7 +3012,7 @@ public class Table extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -3026,7 +3026,7 @@ public class Table extends JsObject {
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color4);
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -3152,7 +3152,7 @@ public class Table extends JsObject {
 
     private String generateJScolor5() {
         if (color5 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color5);
+            return String.format(Locale.US, "color: %s,", color5);
         }
         return "";
     }
@@ -3278,7 +3278,7 @@ public class Table extends JsObject {
 
     private String generateJSrowsHeight() {
         if (rowsHeight != null) {
-            return String.format(Locale.US, "rowsHeight: \"%s\",", rowsHeight);
+            return String.format(Locale.US, "rowsHeight: %s,", rowsHeight);
         }
         return "";
     }
@@ -3292,7 +3292,7 @@ public class Table extends JsObject {
 
     private String generateJSrowsMaxHeight() {
         if (rowsMaxHeight != null) {
-            return String.format(Locale.US, "rowsMaxHeight: \"%s\",", rowsMaxHeight);
+            return String.format(Locale.US, "rowsMaxHeight: %s,", rowsMaxHeight);
         }
         return "";
     }
@@ -3306,7 +3306,7 @@ public class Table extends JsObject {
 
     private String generateJSrowsMinHeight() {
         if (rowsMinHeight != null) {
-            return String.format(Locale.US, "rowsMinHeight: \"%s\",", rowsMinHeight);
+            return String.format(Locale.US, "rowsMinHeight: %s,", rowsMinHeight);
         }
         return "";
     }
@@ -3320,14 +3320,14 @@ public class Table extends JsObject {
 
     private String generateJScsvSettings() {
         if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: \"%s\",", csvSettings);
+            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
         }
         return "";
     }
 
     private String generateJSfilename() {
         if (filename != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename);
+            return String.format(Locale.US, "filename: %s,", filename);
         }
         return "";
     }
@@ -3362,7 +3362,7 @@ public class Table extends JsObject {
 
     private String generateJSpaperSize() {
         if (paperSize != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize);
+            return String.format(Locale.US, "paperSize: %s,", paperSize);
         }
         return "";
     }
@@ -3411,7 +3411,7 @@ public class Table extends JsObject {
 
     private String generateJSpaperSize1() {
         if (paperSize1 != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize1);
+            return String.format(Locale.US, "paperSize: %s,", paperSize1);
         }
         return "";
     }
@@ -3439,7 +3439,7 @@ public class Table extends JsObject {
 
     private String generateJSfilename1() {
         if (filename1 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename1);
+            return String.format(Locale.US, "filename: %s,", filename1);
         }
         return "";
     }
@@ -3460,7 +3460,7 @@ public class Table extends JsObject {
 
     private String generateJStextDirection1() {
         if (textDirection1 != null) {
-            return String.format(Locale.US, "textDirection: \"%s\",", textDirection1);
+            return String.format(Locale.US, "textDirection: %s,", textDirection1);
         }
         return "";
     }
@@ -3481,7 +3481,7 @@ public class Table extends JsObject {
 
     private String generateJStextOverflow1() {
         if (textOverflow1 != null) {
-            return String.format(Locale.US, "textOverflow: \"%s\",", textOverflow1);
+            return String.format(Locale.US, "textOverflow: %s,", textOverflow1);
         }
         return "";
     }
@@ -3495,21 +3495,21 @@ public class Table extends JsObject {
 
     private String generateJStextWrap1() {
         if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: \"%s\",", textWrap1);
+            return String.format(Locale.US, "textWrap: %s,", textWrap1);
         }
         return "";
     }
 
     private String generateJScsvSettings1() {
         if (csvSettings1 != null) {
-            return String.format(Locale.US, "csvSettings: \"%s\",", csvSettings1);
+            return String.format(Locale.US, "csvSettings: %s,", csvSettings1);
         }
         return "";
     }
 
     private String generateJSpaperSize2() {
         if (paperSize2 != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize2);
+            return String.format(Locale.US, "paperSize: %s,", paperSize2);
         }
         return "";
     }
@@ -3544,14 +3544,14 @@ public class Table extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -3579,7 +3579,7 @@ public class Table extends JsObject {
 
     private String generateJSvAlign1() {
         if (vAlign1 != null) {
-            return String.format(Locale.US, "vAlign: \"%s\",", vAlign1);
+            return String.format(Locale.US, "vAlign: %s,", vAlign1);
         }
         return "";
     }
@@ -3593,7 +3593,7 @@ public class Table extends JsObject {
 
     private String generateJSwidth7() {
         if (width7 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width7);
+            return String.format(Locale.US, "width: %s,", width7);
         }
         return "";
     }

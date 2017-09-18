@@ -75,7 +75,7 @@ public class TableMapping extends JsObject {
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
@@ -103,7 +103,7 @@ public class TableMapping extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -117,7 +117,7 @@ public class TableMapping extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -131,14 +131,14 @@ public class TableMapping extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
 
     private String generateJStype4() {
         if (type4 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type4);
+            return String.format(Locale.US, "type: %s,", type4);
         }
         return "";
     }

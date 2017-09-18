@@ -52,14 +52,14 @@ public class ChartA11y extends JsObject {
 
     private String generateJSmode1() {
         if (mode1 != null) {
-            return String.format(Locale.US, "mode: \"%s\",", mode1);
+            return String.format(Locale.US, "mode: %s,", mode1);
         }
         return "";
     }
 
     private String generateJStitleFormat() {
         if (titleFormat != null) {
-            return String.format(Locale.US, "titleFormat: \"%s\",", titleFormat);
+            return String.format(Locale.US, "titleFormat: %s,", titleFormat);
         }
         return "";
     }

@@ -63,14 +63,14 @@ public class RangePicker extends JsObject {
 
     private String generateJSformat() {
         if (format != null) {
-            return String.format(Locale.US, "format: \"%s\",", format);
+            return String.format(Locale.US, "format: %s,", format);
         }
         return "";
     }
 
     private String generateJSfromLabelText() {
         if (fromLabelText != null) {
-            return String.format(Locale.US, "fromLabelText: \"%s\",", fromLabelText);
+            return String.format(Locale.US, "fromLabelText: %s,", fromLabelText);
         }
         return "";
     }
@@ -98,7 +98,7 @@ public class RangePicker extends JsObject {
 
     private String generateJStoLabelText() {
         if (toLabelText != null) {
-            return String.format(Locale.US, "toLabelText: \"%s\",", toLabelText);
+            return String.format(Locale.US, "toLabelText: %s,", toLabelText);
         }
         return "";
     }

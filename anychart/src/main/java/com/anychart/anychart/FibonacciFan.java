@@ -1196,7 +1196,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -1217,7 +1217,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSgrid2() {
         if (grid2 != null) {
-            return String.format(Locale.US, "grid: \"%s\",", grid2);
+            return String.format(Locale.US, "grid: %s,", grid2);
         }
         return "";
     }
@@ -1231,7 +1231,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -1266,7 +1266,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJShoverGrid2() {
         if (hoverGrid2 != null) {
-            return String.format(Locale.US, "hoverGrid: \"%s\",", hoverGrid2);
+            return String.format(Locale.US, "hoverGrid: %s,", hoverGrid2);
         }
         return "";
     }
@@ -1280,7 +1280,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -1308,7 +1308,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJShoverMarkers1() {
         if (hoverMarkers1 != null) {
-            return String.format(Locale.US, "hoverMarkers: \"%s\",", hoverMarkers1);
+            return String.format(Locale.US, "hoverMarkers: %s,", hoverMarkers1);
         }
         return "";
     }
@@ -1329,7 +1329,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -1343,7 +1343,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }
@@ -1378,7 +1378,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJShoverTrend2() {
         if (hoverTrend2 != null) {
-            return String.format(Locale.US, "hoverTrend: \"%s\",", hoverTrend2);
+            return String.format(Locale.US, "hoverTrend: %s,", hoverTrend2);
         }
         return "";
     }
@@ -1392,7 +1392,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern3() {
         if (dashpattern3 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern3);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern3);
         }
         return "";
     }
@@ -1420,7 +1420,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSmarkers1() {
         if (markers1 != null) {
-            return String.format(Locale.US, "markers: \"%s\",", markers1);
+            return String.format(Locale.US, "markers: %s,", markers1);
         }
         return "";
     }
@@ -1441,7 +1441,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJScolor6() {
         if (color6 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color6);
+            return String.format(Locale.US, "color: %s,", color6);
         }
         return "";
     }
@@ -1455,7 +1455,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern4() {
         if (dashpattern4 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern4);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern4);
         }
         return "";
     }
@@ -1483,7 +1483,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSselectMarkers1() {
         if (selectMarkers1 != null) {
-            return String.format(Locale.US, "selectMarkers: \"%s\",", selectMarkers1);
+            return String.format(Locale.US, "selectMarkers: %s,", selectMarkers1);
         }
         return "";
     }
@@ -1504,7 +1504,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJScolor9() {
         if (color9 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color9);
+            return String.format(Locale.US, "color: %s,", color9);
         }
         return "";
     }
@@ -1518,7 +1518,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern5() {
         if (dashpattern5 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern5);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern5);
         }
         return "";
     }
@@ -1553,7 +1553,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSselectTrend2() {
         if (selectTrend2 != null) {
-            return String.format(Locale.US, "selectTrend: \"%s\",", selectTrend2);
+            return String.format(Locale.US, "selectTrend: %s,", selectTrend2);
         }
         return "";
     }
@@ -1567,7 +1567,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern6() {
         if (dashpattern6 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern6);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern6);
         }
         return "";
     }
@@ -1602,7 +1602,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJScolor12() {
         if (color12 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color12);
+            return String.format(Locale.US, "color: %s,", color12);
         }
         return "";
     }
@@ -1616,7 +1616,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern7() {
         if (dashpattern7 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern7);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern7);
         }
         return "";
     }
@@ -1651,7 +1651,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJStrend2() {
         if (trend2 != null) {
-            return String.format(Locale.US, "trend: \"%s\",", trend2);
+            return String.format(Locale.US, "trend: %s,", trend2);
         }
         return "";
     }
@@ -1665,7 +1665,7 @@ public class FibonacciFan extends JsObject {
 
     private String generateJSdashpattern8() {
         if (dashpattern8 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern8);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern8);
         }
         return "";
     }

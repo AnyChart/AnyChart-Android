@@ -397,7 +397,7 @@ public class RangeColors extends JsObject {
 
     private String generateJSitems6() {
         if (items6 != null) {
-            return String.format(Locale.US, "items: \"%s\",", items6);
+            return String.format(Locale.US, "items: %s,", items6);
         }
         return "";
     }
@@ -411,14 +411,14 @@ public class RangeColors extends JsObject {
 
     private String generateJSvar_args1() {
         if (var_args1 != null) {
-            return String.format(Locale.US, "var_args: \"%s\",", var_args1);
+            return String.format(Locale.US, "var_args: %s,", var_args1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -432,7 +432,7 @@ public class RangeColors extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -446,14 +446,14 @@ public class RangeColors extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

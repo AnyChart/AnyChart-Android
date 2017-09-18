@@ -145,7 +145,7 @@ public class ContextMenu extends JsObject {
 
     private String generateJSclassName() {
         if (className != null) {
-            return String.format(Locale.US, "className: \"%s\",", className);
+            return String.format(Locale.US, "className: %s,", className);
         }
         return "";
     }
@@ -201,7 +201,7 @@ public class ContextMenu extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -215,7 +215,7 @@ public class ContextMenu extends JsObject {
 
     private String generateJSclassName1() {
         if (className1 != null) {
-            return String.format(Locale.US, "className: \"%s\",", className1);
+            return String.format(Locale.US, "className: %s,", className1);
         }
         return "";
     }
@@ -236,7 +236,7 @@ public class ContextMenu extends JsObject {
 
     private String generateJSvar_args2() {
         if (var_args2 != null) {
-            return String.format(Locale.US, "var_args: \"%s\",", var_args2);
+            return String.format(Locale.US, "var_args: %s,", var_args2);
         }
         return "";
     }
@@ -264,7 +264,7 @@ public class ContextMenu extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }

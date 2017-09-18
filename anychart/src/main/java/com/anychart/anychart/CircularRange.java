@@ -205,7 +205,7 @@ public class CircularRange extends JsObject {
 
     private String generateJScornersRounding1() {
         if (cornersRounding1 != null) {
-            return String.format(Locale.US, "cornersRounding: \"%s\",", cornersRounding1);
+            return String.format(Locale.US, "cornersRounding: %s,", cornersRounding1);
         }
         return "";
     }
@@ -226,7 +226,7 @@ public class CircularRange extends JsObject {
 
     private String generateJSendSize1() {
         if (endSize1 != null) {
-            return String.format(Locale.US, "endSize: \"%s\",", endSize1);
+            return String.format(Locale.US, "endSize: %s,", endSize1);
         }
         return "";
     }
@@ -247,7 +247,7 @@ public class CircularRange extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -261,7 +261,7 @@ public class CircularRange extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -282,7 +282,7 @@ public class CircularRange extends JsObject {
 
     private String generateJSposition1() {
         if (position1 != null) {
-            return String.format(Locale.US, "position: \"%s\",", position1);
+            return String.format(Locale.US, "position: %s,", position1);
         }
         return "";
     }
@@ -310,14 +310,14 @@ public class CircularRange extends JsObject {
 
     private String generateJSradius1() {
         if (radius1 != null) {
-            return String.format(Locale.US, "radius: \"%s\",", radius1);
+            return String.format(Locale.US, "radius: %s,", radius1);
         }
         return "";
     }
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -331,7 +331,7 @@ public class CircularRange extends JsObject {
 
     private String generateJSstartSize1() {
         if (startSize1 != null) {
-            return String.format(Locale.US, "startSize: \"%s\",", startSize1);
+            return String.format(Locale.US, "startSize: %s,", startSize1);
         }
         return "";
     }
@@ -345,7 +345,7 @@ public class CircularRange extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

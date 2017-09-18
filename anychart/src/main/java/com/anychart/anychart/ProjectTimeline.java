@@ -15645,7 +15645,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -15771,7 +15771,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -15904,7 +15904,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSbaseStroke2() {
         if (baseStroke2 != null) {
-            return String.format(Locale.US, "baseStroke: \"%s\",", baseStroke2);
+            return String.format(Locale.US, "baseStroke: %s,", baseStroke2);
         }
         return "";
     }
@@ -15918,7 +15918,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -15953,7 +15953,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -16086,7 +16086,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSbaselineStroke2() {
         if (baselineStroke2 != null) {
-            return String.format(Locale.US, "baselineStroke: \"%s\",", baselineStroke2);
+            return String.format(Locale.US, "baselineStroke: %s,", baselineStroke2);
         }
         return "";
     }
@@ -16100,7 +16100,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -16128,7 +16128,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolumnStroke1() {
         if (columnStroke1 != null) {
-            return String.format(Locale.US, "columnStroke: \"%s\",", columnStroke1);
+            return String.format(Locale.US, "columnStroke: %s,", columnStroke1);
         }
         return "";
     }
@@ -16212,7 +16212,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSconnectorPreviewStroke2() {
         if (connectorPreviewStroke2 != null) {
-            return String.format(Locale.US, "connectorPreviewStroke: \"%s\",", connectorPreviewStroke2);
+            return String.format(Locale.US, "connectorPreviewStroke: %s,", connectorPreviewStroke2);
         }
         return "";
     }
@@ -16226,7 +16226,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }
@@ -16261,7 +16261,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSconnectorStroke2() {
         if (connectorStroke2 != null) {
-            return String.format(Locale.US, "connectorStroke: \"%s\",", connectorStroke2);
+            return String.format(Locale.US, "connectorStroke: %s,", connectorStroke2);
         }
         return "";
     }
@@ -16275,7 +16275,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern3() {
         if (dashpattern3 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern3);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern3);
         }
         return "";
     }
@@ -16310,7 +16310,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -16443,7 +16443,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSeditConnectorThumbStroke2() {
         if (editConnectorThumbStroke2 != null) {
-            return String.format(Locale.US, "editConnectorThumbStroke: \"%s\",", editConnectorThumbStroke2);
+            return String.format(Locale.US, "editConnectorThumbStroke: %s,", editConnectorThumbStroke2);
         }
         return "";
     }
@@ -16457,7 +16457,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern4() {
         if (dashpattern4 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern4);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern4);
         }
         return "";
     }
@@ -16485,7 +16485,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color4);
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -16618,7 +16618,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSeditIntervalThumbStroke2() {
         if (editIntervalThumbStroke2 != null) {
-            return String.format(Locale.US, "editIntervalThumbStroke: \"%s\",", editIntervalThumbStroke2);
+            return String.format(Locale.US, "editIntervalThumbStroke: %s,", editIntervalThumbStroke2);
         }
         return "";
     }
@@ -16632,7 +16632,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern5() {
         if (dashpattern5 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern5);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern5);
         }
         return "";
     }
@@ -16660,7 +16660,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor5() {
         if (color5 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color5);
+            return String.format(Locale.US, "color: %s,", color5);
         }
         return "";
     }
@@ -16793,7 +16793,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSeditPreviewStroke2() {
         if (editPreviewStroke2 != null) {
-            return String.format(Locale.US, "editPreviewStroke: \"%s\",", editPreviewStroke2);
+            return String.format(Locale.US, "editPreviewStroke: %s,", editPreviewStroke2);
         }
         return "";
     }
@@ -16807,7 +16807,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern6() {
         if (dashpattern6 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern6);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern6);
         }
         return "";
     }
@@ -16835,7 +16835,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor6() {
         if (color6 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color6);
+            return String.format(Locale.US, "color: %s,", color6);
         }
         return "";
     }
@@ -16968,7 +16968,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSeditProgressStroke2() {
         if (editProgressStroke2 != null) {
-            return String.format(Locale.US, "editProgressStroke: \"%s\",", editProgressStroke2);
+            return String.format(Locale.US, "editProgressStroke: %s,", editProgressStroke2);
         }
         return "";
     }
@@ -16982,7 +16982,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern7() {
         if (dashpattern7 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern7);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern7);
         }
         return "";
     }
@@ -17017,7 +17017,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSeditStructurePreviewDashStroke2() {
         if (editStructurePreviewDashStroke2 != null) {
-            return String.format(Locale.US, "editStructurePreviewDashStroke: \"%s\",", editStructurePreviewDashStroke2);
+            return String.format(Locale.US, "editStructurePreviewDashStroke: %s,", editStructurePreviewDashStroke2);
         }
         return "";
     }
@@ -17031,7 +17031,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern8() {
         if (dashpattern8 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern8);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern8);
         }
         return "";
     }
@@ -17059,7 +17059,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor7() {
         if (color7 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color7);
+            return String.format(Locale.US, "color: %s,", color7);
         }
         return "";
     }
@@ -17192,7 +17192,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSeditStructurePreviewStroke2() {
         if (editStructurePreviewStroke2 != null) {
-            return String.format(Locale.US, "editStructurePreviewStroke: \"%s\",", editStructurePreviewStroke2);
+            return String.format(Locale.US, "editStructurePreviewStroke: %s,", editStructurePreviewStroke2);
         }
         return "";
     }
@@ -17206,7 +17206,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern9() {
         if (dashpattern9 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern9);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern9);
         }
         return "";
     }
@@ -17276,7 +17276,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor8() {
         if (color8 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color8);
+            return String.format(Locale.US, "color: %s,", color8);
         }
         return "";
     }
@@ -17409,7 +17409,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSmilestoneStroke2() {
         if (milestoneStroke2 != null) {
-            return String.format(Locale.US, "milestoneStroke: \"%s\",", milestoneStroke2);
+            return String.format(Locale.US, "milestoneStroke: %s,", milestoneStroke2);
         }
         return "";
     }
@@ -17423,7 +17423,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern10() {
         if (dashpattern10 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern10);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern10);
         }
         return "";
     }
@@ -17451,7 +17451,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor9() {
         if (color9 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color9);
+            return String.format(Locale.US, "color: %s,", color9);
         }
         return "";
     }
@@ -17584,7 +17584,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSparentStroke2() {
         if (parentStroke2 != null) {
-            return String.format(Locale.US, "parentStroke: \"%s\",", parentStroke2);
+            return String.format(Locale.US, "parentStroke: %s,", parentStroke2);
         }
         return "";
     }
@@ -17598,7 +17598,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern11() {
         if (dashpattern11 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern11);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern11);
         }
         return "";
     }
@@ -17626,7 +17626,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor10() {
         if (color10 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color10);
+            return String.format(Locale.US, "color: %s,", color10);
         }
         return "";
     }
@@ -17759,7 +17759,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSprogressStroke2() {
         if (progressStroke2 != null) {
-            return String.format(Locale.US, "progressStroke: \"%s\",", progressStroke2);
+            return String.format(Locale.US, "progressStroke: %s,", progressStroke2);
         }
         return "";
     }
@@ -17773,7 +17773,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern12() {
         if (dashpattern12 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern12);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern12);
         }
         return "";
     }
@@ -17836,7 +17836,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor11() {
         if (color11 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color11);
+            return String.format(Locale.US, "color: %s,", color11);
         }
         return "";
     }
@@ -17962,7 +17962,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor12() {
         if (color12 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color12);
+            return String.format(Locale.US, "color: %s,", color12);
         }
         return "";
     }
@@ -18088,7 +18088,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor13() {
         if (color13 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color13);
+            return String.format(Locale.US, "color: %s,", color13);
         }
         return "";
     }
@@ -18207,7 +18207,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor14() {
         if (color14 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color14);
+            return String.format(Locale.US, "color: %s,", color14);
         }
         return "";
     }
@@ -18333,7 +18333,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor15() {
         if (color15 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color15);
+            return String.format(Locale.US, "color: %s,", color15);
         }
         return "";
     }
@@ -18452,7 +18452,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJScolor16() {
         if (color16 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color16);
+            return String.format(Locale.US, "color: %s,", color16);
         }
         return "";
     }
@@ -18585,7 +18585,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSselectedElementStroke2() {
         if (selectedElementStroke2 != null) {
-            return String.format(Locale.US, "selectedElementStroke: \"%s\",", selectedElementStroke2);
+            return String.format(Locale.US, "selectedElementStroke: %s,", selectedElementStroke2);
         }
         return "";
     }
@@ -18599,7 +18599,7 @@ public class ProjectTimeline extends JsObject {
 
     private String generateJSdashpattern13() {
         if (dashpattern13 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern13);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern13);
         }
         return "";
     }

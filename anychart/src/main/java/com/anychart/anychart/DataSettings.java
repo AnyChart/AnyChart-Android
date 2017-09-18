@@ -21,7 +21,7 @@ public class DataSettings extends JsObject  {
         this.rows = rows;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{textSettings: %s,caption: \"%s\",header: %s,rows: %s,text: \"%s\"}",  (textSettings != null) ? textSettings.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
+        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  (textSettings != null) ? textSettings.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
     }
 
     public DataSettings(TextParsingSettings textSettings1, String caption, String[] header, String[] rows, String text) {
@@ -31,7 +31,7 @@ public class DataSettings extends JsObject  {
         this.rows = rows;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{textSettings: %s,caption: \"%s\",header: %s,rows: %s,text: \"%s\"}",  (textSettings1 != null) ? textSettings1.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
+        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  (textSettings1 != null) ? textSettings1.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
     }
 
 

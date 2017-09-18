@@ -35,7 +35,7 @@ public class MapPoint extends JsObject {
 
     private String generateJSfield() {
         if (field != null) {
-            return String.format(Locale.US, "field: \"%s\",", field);
+            return String.format(Locale.US, "field: %s,", field);
         }
         return "";
     }
@@ -56,7 +56,7 @@ public class MapPoint extends JsObject {
 
     private String generateJSfield1() {
         if (field1 != null) {
-            return String.format(Locale.US, "field: \"%s\",", field1);
+            return String.format(Locale.US, "field: %s,", field1);
         }
         return "";
     }

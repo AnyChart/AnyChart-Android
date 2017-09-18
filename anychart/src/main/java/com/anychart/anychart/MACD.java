@@ -99,7 +99,7 @@ public class MACD extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -113,7 +113,7 @@ public class MACD extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -134,7 +134,7 @@ public class MACD extends JsObject {
 
     private String generateJStype4() {
         if (type4 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type4);
+            return String.format(Locale.US, "type: %s,", type4);
         }
         return "";
     }

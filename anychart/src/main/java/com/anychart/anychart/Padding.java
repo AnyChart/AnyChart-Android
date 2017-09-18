@@ -87,7 +87,7 @@ public class Padding extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -101,7 +101,7 @@ public class Padding extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
@@ -115,7 +115,7 @@ public class Padding extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -129,7 +129,7 @@ public class Padding extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }

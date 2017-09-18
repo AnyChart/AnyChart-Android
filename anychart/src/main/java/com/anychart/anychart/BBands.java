@@ -86,7 +86,7 @@ public class BBands extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -114,7 +114,7 @@ public class BBands extends JsObject {
 
     private String generateJStype4() {
         if (type4 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type4);
+            return String.format(Locale.US, "type: %s,", type4);
         }
         return "";
     }

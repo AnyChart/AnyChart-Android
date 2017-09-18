@@ -441,7 +441,7 @@ public class Circular extends JsObject {
 
     private String generateJScornersRounding1() {
         if (cornersRounding1 != null) {
-            return String.format(Locale.US, "cornersRounding: \"%s\",", cornersRounding1);
+            return String.format(Locale.US, "cornersRounding: %s,", cornersRounding1);
         }
         return "";
     }
@@ -476,14 +476,14 @@ public class Circular extends JsObject {
 
     private String generateJSfill1() {
         if (fill1 != null) {
-            return String.format(Locale.US, "fill: \"%s\",", fill1);
+            return String.format(Locale.US, "fill: %s,", fill1);
         }
         return "";
     }
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -609,7 +609,7 @@ public class Circular extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -623,7 +623,7 @@ public class Circular extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -658,7 +658,7 @@ public class Circular extends JsObject {
 
     private String generateJSoverlapMode1() {
         if (overlapMode1 != null) {
-            return String.format(Locale.US, "overlapMode: \"%s\",", overlapMode1);
+            return String.format(Locale.US, "overlapMode: %s,", overlapMode1);
         }
         return "";
     }
@@ -693,14 +693,14 @@ public class Circular extends JsObject {
 
     private String generateJSradius1() {
         if (radius1 != null) {
-            return String.format(Locale.US, "radius: \"%s\",", radius1);
+            return String.format(Locale.US, "radius: %s,", radius1);
         }
         return "";
     }
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -728,14 +728,14 @@ public class Circular extends JsObject {
 
     private String generateJSscale3() {
         if (scale3 != null) {
-            return String.format(Locale.US, "scale: \"%s\",", scale3);
+            return String.format(Locale.US, "scale: %s,", scale3);
         }
         return "";
     }
 
     private String generateJSstartAngle() {
         if (startAngle != null) {
-            return String.format(Locale.US, "startAngle: \"%s\",", startAngle);
+            return String.format(Locale.US, "startAngle: %s,", startAngle);
         }
         return "";
     }
@@ -749,7 +749,7 @@ public class Circular extends JsObject {
 
     private String generateJSsweepAngle() {
         if (sweepAngle != null) {
-            return String.format(Locale.US, "sweepAngle: \"%s\",", sweepAngle);
+            return String.format(Locale.US, "sweepAngle: %s,", sweepAngle);
         }
         return "";
     }
@@ -770,7 +770,7 @@ public class Circular extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -791,7 +791,7 @@ public class Circular extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }

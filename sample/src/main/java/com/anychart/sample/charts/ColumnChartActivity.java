@@ -25,7 +25,7 @@ public class ColumnChartActivity extends AppCompatActivity {
         cartesian.setXaxis(true);
         cartesian.setYaxis(true);
 
-        LinearGradientFill linearGradientFill = new LinearGradientFill(new String[]{"\"#456789\"", "\"#987654\""}, false, 90d, .8d);
+        LinearGradientFill linearGradientFill = new LinearGradientFill(new String[]{"'#456789'", "'#987654'"}, false, 90d, .8d);
         DistinctColors distinctColors = new DistinctColors();
         distinctColors.setItems(linearGradientFill, null);
         cartesian.setPalette(distinctColors);

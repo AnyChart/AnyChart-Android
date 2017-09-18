@@ -1732,7 +1732,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -1767,7 +1767,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSx1() {
         if (x1 != null) {
-            return String.format(Locale.US, "x: \"%s\",", x1);
+            return String.format(Locale.US, "x: %s,", x1);
         }
         return "";
     }
@@ -1781,7 +1781,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -1795,7 +1795,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }
@@ -1809,7 +1809,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -1830,7 +1830,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJScontainer2() {
         if (container2 != null) {
-            return String.format(Locale.US, "container: \"%s\",", container2);
+            return String.format(Locale.US, "container: %s,", container2);
         }
         return "";
     }
@@ -1872,7 +1872,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSkey() {
         if (key != null) {
-            return String.format(Locale.US, "key: \"%s\",", key);
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
@@ -1907,7 +1907,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -1921,7 +1921,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSindex() {
         if (index != null) {
-            return String.format(Locale.US, "index: \"%s\",", index);
+            return String.format(Locale.US, "index: %s,", index);
         }
         return "";
     }
@@ -1942,14 +1942,14 @@ public class SeparateChart extends JsObject {
 
     private String generateJSlabel1() {
         if (label1 != null) {
-            return String.format(Locale.US, "label: \"%s\",", label1);
+            return String.format(Locale.US, "label: %s,", label1);
         }
         return "";
     }
 
     private String generateJSindex2() {
         if (index2 != null) {
-            return String.format(Locale.US, "index: \"%s\",", index2);
+            return String.format(Locale.US, "index: %s,", index2);
         }
         return "";
     }
@@ -1970,7 +1970,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSlabel3() {
         if (label3 != null) {
-            return String.format(Locale.US, "label: \"%s\",", label3);
+            return String.format(Locale.US, "label: %s,", label3);
         }
         return "";
     }
@@ -1984,7 +1984,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
@@ -1998,7 +1998,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -2012,7 +2012,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -2054,7 +2054,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -2068,7 +2068,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -2082,7 +2082,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -2096,7 +2096,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -2117,7 +2117,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -2131,7 +2131,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -2145,7 +2145,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -2159,7 +2159,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSminWidth1() {
         if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: \"%s\",", minWidth1);
+            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
@@ -2180,7 +2180,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue8() {
         if (value8 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value8);
+            return String.format(Locale.US, "value: %s,", value8);
         }
         return "";
     }
@@ -2194,7 +2194,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue10() {
         if (value10 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value10);
+            return String.format(Locale.US, "value: %s,", value10);
         }
         return "";
     }
@@ -2208,7 +2208,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue12() {
         if (value12 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value12);
+            return String.format(Locale.US, "value: %s,", value12);
         }
         return "";
     }
@@ -2222,7 +2222,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSvalue14() {
         if (value14 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value14);
+            return String.format(Locale.US, "value: %s,", value14);
         }
         return "";
     }
@@ -2250,7 +2250,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -2264,14 +2264,14 @@ public class SeparateChart extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
 
     private String generateJSchartDataExportMode() {
         if (chartDataExportMode != null) {
-            return String.format(Locale.US, "chartDataExportMode: \"%s\",", chartDataExportMode);
+            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode);
         }
         return "";
     }
@@ -2285,14 +2285,14 @@ public class SeparateChart extends JsObject {
 
     private String generateJScsvSettings() {
         if (csvSettings != null) {
-            return String.format(Locale.US, "csvSettings: \"%s\",", csvSettings);
+            return String.format(Locale.US, "csvSettings: %s,", csvSettings);
         }
         return "";
     }
 
     private String generateJSfilename() {
         if (filename != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename);
+            return String.format(Locale.US, "filename: %s,", filename);
         }
         return "";
     }
@@ -2327,7 +2327,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSfilename1() {
         if (filename1 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename1);
+            return String.format(Locale.US, "filename: %s,", filename1);
         }
         return "";
     }
@@ -2341,7 +2341,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSfilename2() {
         if (filename2 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename2);
+            return String.format(Locale.US, "filename: %s,", filename2);
         }
         return "";
     }
@@ -2355,7 +2355,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSpaperSizeOrWidthOrOptions1() {
         if (paperSizeOrWidthOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrWidthOrOptions: \"%s\",", paperSizeOrWidthOrOptions1);
+            return String.format(Locale.US, "paperSizeOrWidthOrOptions: %s,", paperSizeOrWidthOrOptions1);
         }
         return "";
     }
@@ -2383,7 +2383,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSfilename3() {
         if (filename3 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename3);
+            return String.format(Locale.US, "filename: %s,", filename3);
         }
         return "";
     }
@@ -2411,14 +2411,14 @@ public class SeparateChart extends JsObject {
 
     private String generateJSfilename4() {
         if (filename4 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename4);
+            return String.format(Locale.US, "filename: %s,", filename4);
         }
         return "";
     }
 
     private String generateJSpaperSize() {
         if (paperSize != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize);
+            return String.format(Locale.US, "paperSize: %s,", paperSize);
         }
         return "";
     }
@@ -2432,7 +2432,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSfilename5() {
         if (filename5 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename5);
+            return String.format(Locale.US, "filename: %s,", filename5);
         }
         return "";
     }
@@ -2453,7 +2453,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSchartDataExportMode2() {
         if (chartDataExportMode2 != null) {
-            return String.format(Locale.US, "chartDataExportMode: \"%s\",", chartDataExportMode2);
+            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode2);
         }
         return "";
     }
@@ -2467,7 +2467,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSfilename6() {
         if (filename6 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename6);
+            return String.format(Locale.US, "filename: %s,", filename6);
         }
         return "";
     }
@@ -2481,7 +2481,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSfilename7() {
         if (filename7 != null) {
-            return String.format(Locale.US, "filename: \"%s\",", filename7);
+            return String.format(Locale.US, "filename: %s,", filename7);
         }
         return "";
     }
@@ -2495,14 +2495,14 @@ public class SeparateChart extends JsObject {
 
     private String generateJStitle1() {
         if (title1 != null) {
-            return String.format(Locale.US, "title: \"%s\",", title1);
+            return String.format(Locale.US, "title: %s,", title1);
         }
         return "";
     }
 
     private String generateJSchartDataExportMode4() {
         if (chartDataExportMode4 != null) {
-            return String.format(Locale.US, "chartDataExportMode: \"%s\",", chartDataExportMode4);
+            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode4);
         }
         return "";
     }
@@ -2516,7 +2516,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJScsvSettings1() {
         if (csvSettings1 != null) {
-            return String.format(Locale.US, "csvSettings: \"%s\",", csvSettings1);
+            return String.format(Locale.US, "csvSettings: %s,", csvSettings1);
         }
         return "";
     }
@@ -2537,7 +2537,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSpaperSize1() {
         if (paperSize1 != null) {
-            return String.format(Locale.US, "paperSize: \"%s\",", paperSize1);
+            return String.format(Locale.US, "paperSize: %s,", paperSize1);
         }
         return "";
     }
@@ -2593,14 +2593,14 @@ public class SeparateChart extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -2621,7 +2621,7 @@ public class SeparateChart extends JsObject {
 
     private String generateJSwidth7() {
         if (width7 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width7);
+            return String.format(Locale.US, "width: %s,", width7);
         }
         return "";
     }

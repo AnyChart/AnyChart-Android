@@ -111,14 +111,14 @@ public class TagCloudStateSettings extends JsObject {
 
     private String generateJSfill1() {
         if (fill1 != null) {
-            return String.format(Locale.US, "fill: \"%s\",", fill1);
+            return String.format(Locale.US, "fill: %s,", fill1);
         }
         return "";
     }
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
@@ -132,7 +132,7 @@ public class TagCloudStateSettings extends JsObject {
 
     private String generateJSfontSize1() {
         if (fontSize1 != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize1);
+            return String.format(Locale.US, "fontSize: %s,", fontSize1);
         }
         return "";
     }
@@ -146,7 +146,7 @@ public class TagCloudStateSettings extends JsObject {
 
     private String generateJSfontStyle1() {
         if (fontStyle1 != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle1);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle1);
         }
         return "";
     }
@@ -160,14 +160,14 @@ public class TagCloudStateSettings extends JsObject {
 
     private String generateJSfontVariant1() {
         if (fontVariant1 != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant1);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant1);
         }
         return "";
     }
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }

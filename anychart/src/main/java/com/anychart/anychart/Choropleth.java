@@ -2638,7 +2638,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -2673,7 +2673,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSx1() {
         if (x1 != null) {
-            return String.format(Locale.US, "x: \"%s\",", x1);
+            return String.format(Locale.US, "x: %s,", x1);
         }
         return "";
     }
@@ -2687,7 +2687,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -2701,7 +2701,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }
@@ -2715,14 +2715,14 @@ public class Choropleth extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -2764,7 +2764,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSdata3() {
         if (data3 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data3);
+            return String.format(Locale.US, "data: %s,", data3);
         }
         return "";
     }
@@ -2813,7 +2813,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -2932,7 +2932,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSgeoIdField() {
         if (geoIdField != null) {
-            return String.format(Locale.US, "geoIdField: \"%s\",", geoIdField);
+            return String.format(Locale.US, "geoIdField: %s,", geoIdField);
         }
         return "";
     }
@@ -2946,7 +2946,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSkey() {
         if (key != null) {
-            return String.format(Locale.US, "key: \"%s\",", key);
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
@@ -2981,7 +2981,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSpatternFillOrTypeOrState3() {
         if (patternFillOrTypeOrState3 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: \"%s\",", patternFillOrTypeOrState3);
+            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", patternFillOrTypeOrState3);
         }
         return "";
     }
@@ -2995,7 +2995,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -3023,7 +3023,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -3051,7 +3051,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -3191,7 +3191,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSpatternFillOrTypeOrState8() {
         if (patternFillOrTypeOrState8 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: \"%s\",", patternFillOrTypeOrState8);
+            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", patternFillOrTypeOrState8);
         }
         return "";
     }
@@ -3205,7 +3205,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color4);
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -3240,7 +3240,7 @@ public class Choropleth extends JsObject {
 
     private String generateJShoverMarkers1() {
         if (hoverMarkers1 != null) {
-            return String.format(Locale.US, "hoverMarkers: \"%s\",", hoverMarkers1);
+            return String.format(Locale.US, "hoverMarkers: %s,", hoverMarkers1);
         }
         return "";
     }
@@ -3261,7 +3261,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor7() {
         if (color7 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color7);
+            return String.format(Locale.US, "color: %s,", color7);
         }
         return "";
     }
@@ -3275,7 +3275,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -3296,7 +3296,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSid() {
         if (id != null) {
-            return String.format(Locale.US, "id: \"%s\",", id);
+            return String.format(Locale.US, "id: %s,", id);
         }
         return "";
     }
@@ -3352,14 +3352,14 @@ public class Choropleth extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -3373,7 +3373,7 @@ public class Choropleth extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -3394,7 +3394,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSmarkers1() {
         if (markers1 != null) {
-            return String.format(Locale.US, "markers: \"%s\",", markers1);
+            return String.format(Locale.US, "markers: %s,", markers1);
         }
         return "";
     }
@@ -3408,7 +3408,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -3422,7 +3422,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -3436,7 +3436,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -3450,14 +3450,14 @@ public class Choropleth extends JsObject {
 
     private String generateJSminWidth1() {
         if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: \"%s\",", minWidth1);
+            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
@@ -3471,7 +3471,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSoverlapMode1() {
         if (overlapMode1 != null) {
-            return String.format(Locale.US, "overlapMode: \"%s\",", overlapMode1);
+            return String.format(Locale.US, "overlapMode: %s,", overlapMode1);
         }
         return "";
     }
@@ -3499,7 +3499,7 @@ public class Choropleth extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -3513,7 +3513,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -3548,7 +3548,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor8() {
         if (color8 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color8);
+            return String.format(Locale.US, "color: %s,", color8);
         }
         return "";
     }
@@ -3688,7 +3688,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSpatternFillOrTypeOrState13() {
         if (patternFillOrTypeOrState13 != null) {
-            return String.format(Locale.US, "patternFillOrTypeOrState: \"%s\",", patternFillOrTypeOrState13);
+            return String.format(Locale.US, "patternFillOrTypeOrState: %s,", patternFillOrTypeOrState13);
         }
         return "";
     }
@@ -3702,7 +3702,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor9() {
         if (color9 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color9);
+            return String.format(Locale.US, "color: %s,", color9);
         }
         return "";
     }
@@ -3737,7 +3737,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSselectMarkers1() {
         if (selectMarkers1 != null) {
-            return String.format(Locale.US, "selectMarkers: \"%s\",", selectMarkers1);
+            return String.format(Locale.US, "selectMarkers: %s,", selectMarkers1);
         }
         return "";
     }
@@ -3758,7 +3758,7 @@ public class Choropleth extends JsObject {
 
     private String generateJScolor12() {
         if (color12 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color12);
+            return String.format(Locale.US, "color: %s,", color12);
         }
         return "";
     }
@@ -3772,7 +3772,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -3800,7 +3800,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSselectionMode1() {
         if (selectionMode1 != null) {
-            return String.format(Locale.US, "selectionMode: \"%s\",", selectionMode1);
+            return String.format(Locale.US, "selectionMode: %s,", selectionMode1);
         }
         return "";
     }
@@ -3821,7 +3821,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSstroke2() {
         if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: \"%s\",", stroke2);
+            return String.format(Locale.US, "stroke: %s,", stroke2);
         }
         return "";
     }
@@ -3835,7 +3835,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }
@@ -3870,7 +3870,7 @@ public class Choropleth extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }
@@ -3905,7 +3905,7 @@ public class Choropleth extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -3940,7 +3940,7 @@ public class Choropleth extends JsObject {
 
     private String generateJSwidth3() {
         if (width3 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width3);
+            return String.format(Locale.US, "width: %s,", width3);
         }
         return "";
     }

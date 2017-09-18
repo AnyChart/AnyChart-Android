@@ -21,11 +21,7 @@ public class TagCloudActivity extends AppCompatActivity {
         TagCloud tagCloud = new TagCloud();
 
         tagCloud.setScale(ScaleTypes.ORDINAL_COLOR);
-//        OrdinalColor ordinalColor = new OrdinalColor();
-//        ordinalColor.setColors(new String[] {"'#26959f'", "'#f18126'", "'#3b8ad8'", "'#60727b'", "'#e24b26'"});
-//        tagCloud.setColorscale(ordinalColor);
-
-        tagCloud.setTitle("World Population");
+        tagCloud.setTitle("'World Population'");
         tagCloud.setAngles(new Double[] {-90d, 0d, 90d});
 
         tagCloud.setColorrange(true);

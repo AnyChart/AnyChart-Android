@@ -17,7 +17,7 @@ public class VennDiagramActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Venn venn = new Venn();
-        venn.setStroke("#FFFFFF", 2d, null, null, null);
+        venn.setStroke("'#FFFFFF'", 2d, null, null, null);
         venn.setData(new String[] {
                 "{x: 'A', name: 'Data Science', value: 100}",
                 "{x: 'B', name: 'Computer Science', value: 25}",

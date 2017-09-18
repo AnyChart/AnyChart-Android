@@ -738,7 +738,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSbackground() {
         if (background != null) {
-            return String.format(Locale.US, "background: \"%s\",", background);
+            return String.format(Locale.US, "background: %s,", background);
         }
         return "";
     }
@@ -752,7 +752,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSfontColor() {
         if (fontColor != null) {
-            return String.format(Locale.US, "fontColor: \"%s\",", fontColor);
+            return String.format(Locale.US, "fontColor: %s,", fontColor);
         }
         return "";
     }
@@ -766,14 +766,14 @@ public class TagsSettings extends JsObject {
 
     private String generateJSfontDecoration1() {
         if (fontDecoration1 != null) {
-            return String.format(Locale.US, "fontDecoration: \"%s\",", fontDecoration1);
+            return String.format(Locale.US, "fontDecoration: %s,", fontDecoration1);
         }
         return "";
     }
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
@@ -787,7 +787,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSfontSize() {
         if (fontSize != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize);
+            return String.format(Locale.US, "fontSize: %s,", fontSize);
         }
         return "";
     }
@@ -808,7 +808,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSfontStyle1() {
         if (fontStyle1 != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle1);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle1);
         }
         return "";
     }
@@ -822,14 +822,14 @@ public class TagsSettings extends JsObject {
 
     private String generateJSfontVariant1() {
         if (fontVariant1 != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant1);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant1);
         }
         return "";
     }
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }
@@ -850,14 +850,14 @@ public class TagsSettings extends JsObject {
 
     private String generateJShAlign1() {
         if (hAlign1 != null) {
-            return String.format(Locale.US, "hAlign: \"%s\",", hAlign1);
+            return String.format(Locale.US, "hAlign: %s,", hAlign1);
         }
         return "";
     }
 
     private String generateJSletterSpacing() {
         if (letterSpacing != null) {
-            return String.format(Locale.US, "letterSpacing: \"%s\",", letterSpacing);
+            return String.format(Locale.US, "letterSpacing: %s,", letterSpacing);
         }
         return "";
     }
@@ -871,7 +871,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSlineHeight() {
         if (lineHeight != null) {
-            return String.format(Locale.US, "lineHeight: \"%s\",", lineHeight);
+            return String.format(Locale.US, "lineHeight: %s,", lineHeight);
         }
         return "";
     }
@@ -899,7 +899,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -913,7 +913,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -927,7 +927,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -941,7 +941,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -969,7 +969,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue8() {
         if (value8 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value8);
+            return String.format(Locale.US, "value: %s,", value8);
         }
         return "";
     }
@@ -983,7 +983,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue10() {
         if (value10 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value10);
+            return String.format(Locale.US, "value: %s,", value10);
         }
         return "";
     }
@@ -997,7 +997,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue12() {
         if (value12 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value12);
+            return String.format(Locale.US, "value: %s,", value12);
         }
         return "";
     }
@@ -1011,7 +1011,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvalue14() {
         if (value14 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value14);
+            return String.format(Locale.US, "value: %s,", value14);
         }
         return "";
     }
@@ -1039,7 +1039,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJStextDirection1() {
         if (textDirection1 != null) {
-            return String.format(Locale.US, "textDirection: \"%s\",", textDirection1);
+            return String.format(Locale.US, "textDirection: %s,", textDirection1);
         }
         return "";
     }
@@ -1060,7 +1060,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJStextOverflow1() {
         if (textOverflow1 != null) {
-            return String.format(Locale.US, "textOverflow: \"%s\",", textOverflow1);
+            return String.format(Locale.US, "textOverflow: %s,", textOverflow1);
         }
         return "";
     }
@@ -1074,7 +1074,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJStextWrap1() {
         if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: \"%s\",", textWrap1);
+            return String.format(Locale.US, "textWrap: %s,", textWrap1);
         }
         return "";
     }
@@ -1095,7 +1095,7 @@ public class TagsSettings extends JsObject {
 
     private String generateJSvAlign1() {
         if (vAlign1 != null) {
-            return String.format(Locale.US, "vAlign: \"%s\",", vAlign1);
+            return String.format(Locale.US, "vAlign: %s,", vAlign1);
         }
         return "";
     }

@@ -242,7 +242,7 @@ public class Line extends JsObject {
 
     private String generateJScontainer2() {
         if (container2 != null) {
-            return String.format(Locale.US, "container: \"%s\",", container2);
+            return String.format(Locale.US, "container: %s,", container2);
         }
         return "";
     }
@@ -270,14 +270,14 @@ public class Line extends JsObject {
 
     private String generateJSlayout1() {
         if (layout1 != null) {
-            return String.format(Locale.US, "layout: \"%s\",", layout1);
+            return String.format(Locale.US, "layout: %s,", layout1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -291,7 +291,7 @@ public class Line extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -354,7 +354,7 @@ public class Line extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -382,7 +382,7 @@ public class Line extends JsObject {
 
     private String generateJSstroke2() {
         if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: \"%s\",", stroke2);
+            return String.format(Locale.US, "stroke: %s,", stroke2);
         }
         return "";
     }
@@ -396,7 +396,7 @@ public class Line extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -417,7 +417,7 @@ public class Line extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

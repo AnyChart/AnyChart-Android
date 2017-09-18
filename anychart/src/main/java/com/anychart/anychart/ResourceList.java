@@ -1209,7 +1209,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSbackground() {
         if (background != null) {
-            return String.format(Locale.US, "background: \"%s\",", background);
+            return String.format(Locale.US, "background: %s,", background);
         }
         return "";
     }
@@ -1230,7 +1230,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -1265,7 +1265,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSx1() {
         if (x1 != null) {
-            return String.format(Locale.US, "x: \"%s\",", x1);
+            return String.format(Locale.US, "x: %s,", x1);
         }
         return "";
     }
@@ -1279,7 +1279,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -1293,7 +1293,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }
@@ -1307,7 +1307,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -1328,7 +1328,7 @@ public class ResourceList extends JsObject {
 
     private String generateJScontainer2() {
         if (container2 != null) {
-            return String.format(Locale.US, "container: \"%s\",", container2);
+            return String.format(Locale.US, "container: %s,", container2);
         }
         return "";
     }
@@ -1384,7 +1384,7 @@ public class ResourceList extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -1510,7 +1510,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -1524,14 +1524,14 @@ public class ResourceList extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -1545,7 +1545,7 @@ public class ResourceList extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -1566,7 +1566,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -1580,7 +1580,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -1594,7 +1594,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -1608,7 +1608,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSminWidth1() {
         if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: \"%s\",", minWidth1);
+            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
@@ -1622,7 +1622,7 @@ public class ResourceList extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -1741,7 +1741,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSoverlay() {
         if (overlay != null) {
-            return String.format(Locale.US, "overlay: \"%s\",", overlay);
+            return String.format(Locale.US, "overlay: %s,", overlay);
         }
         return "";
     }
@@ -1804,7 +1804,7 @@ public class ResourceList extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -1818,7 +1818,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -1839,7 +1839,7 @@ public class ResourceList extends JsObject {
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color4);
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -1853,7 +1853,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -1881,14 +1881,14 @@ public class ResourceList extends JsObject {
 
     private String generateJStop2() {
         if (top2 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top2);
+            return String.format(Locale.US, "top: %s,", top2);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -1909,7 +1909,7 @@ public class ResourceList extends JsObject {
 
     private String generateJSwidth4() {
         if (width4 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width4);
+            return String.format(Locale.US, "width: %s,", width4);
         }
         return "";
     }

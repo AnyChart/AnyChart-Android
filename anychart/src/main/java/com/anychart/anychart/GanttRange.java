@@ -320,7 +320,7 @@ public class GanttRange extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -453,7 +453,7 @@ public class GanttRange extends JsObject {
 
     private String generateJSfrom2() {
         if (from2 != null) {
-            return String.format(Locale.US, "from: \"%s\",", from2);
+            return String.format(Locale.US, "from: %s,", from2);
         }
         return "";
     }
@@ -467,14 +467,14 @@ public class GanttRange extends JsObject {
 
     private String generateJSlayout1() {
         if (layout1 != null) {
-            return String.format(Locale.US, "layout: \"%s\",", layout1);
+            return String.format(Locale.US, "layout: %s,", layout1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -488,7 +488,7 @@ public class GanttRange extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -516,7 +516,7 @@ public class GanttRange extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -544,14 +544,14 @@ public class GanttRange extends JsObject {
 
     private String generateJSto2() {
         if (to2 != null) {
-            return String.format(Locale.US, "to: \"%s\",", to2);
+            return String.format(Locale.US, "to: %s,", to2);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

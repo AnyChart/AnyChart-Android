@@ -1397,14 +1397,14 @@ public class Separator extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -1418,7 +1418,7 @@ public class Separator extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -1432,7 +1432,7 @@ public class Separator extends JsObject {
 
     private String generateJSspaceOrTopOrTopAndBottom() {
         if (spaceOrTopOrTopAndBottom != null) {
-            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: \"%s\",", spaceOrTopOrTopAndBottom);
+            return String.format(Locale.US, "spaceOrTopOrTopAndBottom: %s,", spaceOrTopOrTopAndBottom);
         }
         return "";
     }
@@ -1460,7 +1460,7 @@ public class Separator extends JsObject {
 
     private String generateJSrightOrRightAndLeft() {
         if (rightOrRightAndLeft != null) {
-            return String.format(Locale.US, "rightOrRightAndLeft: \"%s\",", rightOrRightAndLeft);
+            return String.format(Locale.US, "rightOrRightAndLeft: %s,", rightOrRightAndLeft);
         }
         return "";
     }
@@ -1474,7 +1474,7 @@ public class Separator extends JsObject {
 
     private String generateJSbottom() {
         if (bottom != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom);
+            return String.format(Locale.US, "bottom: %s,", bottom);
         }
         return "";
     }
@@ -1488,7 +1488,7 @@ public class Separator extends JsObject {
 
     private String generateJSleft() {
         if (left != null) {
-            return String.format(Locale.US, "left: \"%s\",", left);
+            return String.format(Locale.US, "left: %s,", left);
         }
         return "";
     }
@@ -1509,7 +1509,7 @@ public class Separator extends JsObject {
 
     private String generateJSorientation1() {
         if (orientation1 != null) {
-            return String.format(Locale.US, "orientation: \"%s\",", orientation1);
+            return String.format(Locale.US, "orientation: %s,", orientation1);
         }
         return "";
     }
@@ -1530,7 +1530,7 @@ public class Separator extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -1551,7 +1551,7 @@ public class Separator extends JsObject {
 
     private String generateJSstrokeOrFill2() {
         if (strokeOrFill2 != null) {
-            return String.format(Locale.US, "strokeOrFill: \"%s\",", strokeOrFill2);
+            return String.format(Locale.US, "strokeOrFill: %s,", strokeOrFill2);
         }
         return "";
     }
@@ -1565,7 +1565,7 @@ public class Separator extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -1586,7 +1586,7 @@ public class Separator extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -1607,7 +1607,7 @@ public class Separator extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }

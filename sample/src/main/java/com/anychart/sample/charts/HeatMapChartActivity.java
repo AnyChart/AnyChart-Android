@@ -19,10 +19,10 @@ public class HeatMapChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         HeatMap riskMap = new HeatMap();
-        riskMap.setTitle("Risk Matrix in Project Server");
-        riskMap.setStroke("#fff", 1d, null, null, null);
-        riskMap.setHoverstroke("#fff", 6d, null, null, null);
-        riskMap.setHoverfill(new SolidFill("#545f69", 1d));
+        riskMap.setTitle("'Risk Matrix in Project Server'");
+        riskMap.setStroke("'#fff'", 1d, null, null, null);
+        riskMap.setHoverstroke("'#fff'", 6d, null, null, null);
+        riskMap.setHoverfill(new SolidFill("'#545f69'", 1d));
         riskMap.setData(new String[] {
                 "{x: 'Rare', y: 'Insignificant', heat: 'Low', fill: '#90caf9'}",
                 "{x: 'Rare', y: 'Minor', heat: 'Low', fill: '#90caf9'}",

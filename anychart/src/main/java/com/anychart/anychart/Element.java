@@ -532,14 +532,14 @@ public class Element extends JsObject {
 
     private String generateJSkey() {
         if (key != null) {
-            return String.format(Locale.US, "key: \"%s\",", key);
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
 
     private String generateJSkey1() {
         if (key1 != null) {
-            return String.format(Locale.US, "key: \"%s\",", key1);
+            return String.format(Locale.US, "key: %s,", key1);
         }
         return "";
     }
@@ -553,7 +553,7 @@ public class Element extends JsObject {
 
     private String generateJSclip1() {
         if (clip1 != null) {
-            return String.format(Locale.US, "clip: \"%s\",", clip1);
+            return String.format(Locale.US, "clip: %s,", clip1);
         }
         return "";
     }
@@ -567,7 +567,7 @@ public class Element extends JsObject {
 
     private String generateJSdesc() {
         if (desc != null) {
-            return String.format(Locale.US, "desc: \"%s\",", desc);
+            return String.format(Locale.US, "desc: %s,", desc);
         }
         return "";
     }
@@ -602,14 +602,14 @@ public class Element extends JsObject {
 
     private String generateJSid() {
         if (id != null) {
-            return String.format(Locale.US, "id: \"%s\",", id);
+            return String.format(Locale.US, "id: %s,", id);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -623,7 +623,7 @@ public class Element extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -651,7 +651,7 @@ public class Element extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -693,7 +693,7 @@ public class Element extends JsObject {
 
     private String generateJSanchor1() {
         if (anchor1 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor1);
+            return String.format(Locale.US, "anchor: %s,", anchor1);
         }
         return "";
     }
@@ -749,7 +749,7 @@ public class Element extends JsObject {
 
     private String generateJSanchor3() {
         if (anchor3 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor3);
+            return String.format(Locale.US, "anchor: %s,", anchor3);
         }
         return "";
     }
@@ -805,7 +805,7 @@ public class Element extends JsObject {
 
     private String generateJSanchor5() {
         if (anchor5 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor5);
+            return String.format(Locale.US, "anchor: %s,", anchor5);
         }
         return "";
     }
@@ -854,7 +854,7 @@ public class Element extends JsObject {
 
     private String generateJStitle() {
         if (title != null) {
-            return String.format(Locale.US, "title: \"%s\",", title);
+            return String.format(Locale.US, "title: %s,", title);
         }
         return "";
     }
@@ -875,7 +875,7 @@ public class Element extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

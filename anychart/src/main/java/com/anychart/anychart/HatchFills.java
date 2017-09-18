@@ -301,14 +301,14 @@ public class HatchFills extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -413,7 +413,7 @@ public class HatchFills extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -427,7 +427,7 @@ public class HatchFills extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -441,14 +441,14 @@ public class HatchFills extends JsObject {
 
     private String generateJStype4() {
         if (type4 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type4);
+            return String.format(Locale.US, "type: %s,", type4);
         }
         return "";
     }
 
     private String generateJStype5() {
         if (type5 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type5);
+            return String.format(Locale.US, "type: %s,", type5);
         }
         return "";
     }

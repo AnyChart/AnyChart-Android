@@ -144,14 +144,14 @@ public class DataItem extends JsObject {
 
     private String generateJSkey() {
         if (key != null) {
-            return String.format(Locale.US, "key: \"%s\",", key);
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
 
     private String generateJSkey1() {
         if (key1 != null) {
-            return String.format(Locale.US, "key: \"%s\",", key1);
+            return String.format(Locale.US, "key: %s,", key1);
         }
         return "";
     }

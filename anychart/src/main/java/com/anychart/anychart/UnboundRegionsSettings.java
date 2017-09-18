@@ -219,7 +219,7 @@ public class UnboundRegionsSettings extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -352,7 +352,7 @@ public class UnboundRegionsSettings extends JsObject {
 
     private String generateJSstroke2() {
         if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: \"%s\",", stroke2);
+            return String.format(Locale.US, "stroke: %s,", stroke2);
         }
         return "";
     }
@@ -366,7 +366,7 @@ public class UnboundRegionsSettings extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }

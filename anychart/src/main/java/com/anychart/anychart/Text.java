@@ -844,14 +844,14 @@ public class Text extends JsObject {
 
     private String generateJSkey() {
         if (key != null) {
-            return String.format(Locale.US, "key: \"%s\",", key);
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
 
     private String generateJSkey1() {
         if (key1 != null) {
-            return String.format(Locale.US, "key: \"%s\",", key1);
+            return String.format(Locale.US, "key: %s,", key1);
         }
         return "";
     }
@@ -865,14 +865,14 @@ public class Text extends JsObject {
 
     private String generateJSclip1() {
         if (clip1 != null) {
-            return String.format(Locale.US, "clip: \"%s\",", clip1);
+            return String.format(Locale.US, "clip: %s,", clip1);
         }
         return "";
     }
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -893,14 +893,14 @@ public class Text extends JsObject {
 
     private String generateJSdecoration1() {
         if (decoration1 != null) {
-            return String.format(Locale.US, "decoration: \"%s\",", decoration1);
+            return String.format(Locale.US, "decoration: %s,", decoration1);
         }
         return "";
     }
 
     private String generateJSdesc() {
         if (desc != null) {
-            return String.format(Locale.US, "desc: \"%s\",", desc);
+            return String.format(Locale.US, "desc: %s,", desc);
         }
         return "";
     }
@@ -914,7 +914,7 @@ public class Text extends JsObject {
 
     private String generateJSdirection1() {
         if (direction1 != null) {
-            return String.format(Locale.US, "direction: \"%s\",", direction1);
+            return String.format(Locale.US, "direction: %s,", direction1);
         }
         return "";
     }
@@ -949,14 +949,14 @@ public class Text extends JsObject {
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
 
     private String generateJSfontSize() {
         if (fontSize != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize);
+            return String.format(Locale.US, "fontSize: %s,", fontSize);
         }
         return "";
     }
@@ -977,7 +977,7 @@ public class Text extends JsObject {
 
     private String generateJSfontStyle1() {
         if (fontStyle1 != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle1);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle1);
         }
         return "";
     }
@@ -991,14 +991,14 @@ public class Text extends JsObject {
 
     private String generateJSfontVariant1() {
         if (fontVariant1 != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant1);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant1);
         }
         return "";
     }
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }
@@ -1019,7 +1019,7 @@ public class Text extends JsObject {
 
     private String generateJShAlign1() {
         if (hAlign1 != null) {
-            return String.format(Locale.US, "hAlign: \"%s\",", hAlign1);
+            return String.format(Locale.US, "hAlign: %s,", hAlign1);
         }
         return "";
     }
@@ -1033,28 +1033,28 @@ public class Text extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
 
     private String generateJShtmlText() {
         if (htmlText != null) {
-            return String.format(Locale.US, "htmlText: \"%s\",", htmlText);
+            return String.format(Locale.US, "htmlText: %s,", htmlText);
         }
         return "";
     }
 
     private String generateJSid() {
         if (id != null) {
-            return String.format(Locale.US, "id: \"%s\",", id);
+            return String.format(Locale.US, "id: %s,", id);
         }
         return "";
     }
 
     private String generateJSletterSpacing() {
         if (letterSpacing != null) {
-            return String.format(Locale.US, "letterSpacing: \"%s\",", letterSpacing);
+            return String.format(Locale.US, "letterSpacing: %s,", letterSpacing);
         }
         return "";
     }
@@ -1068,7 +1068,7 @@ public class Text extends JsObject {
 
     private String generateJSlineHeight() {
         if (lineHeight != null) {
-            return String.format(Locale.US, "lineHeight: \"%s\",", lineHeight);
+            return String.format(Locale.US, "lineHeight: %s,", lineHeight);
         }
         return "";
     }
@@ -1082,7 +1082,7 @@ public class Text extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -1096,7 +1096,7 @@ public class Text extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -1131,7 +1131,7 @@ public class Text extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -1173,7 +1173,7 @@ public class Text extends JsObject {
 
     private String generateJSanchor1() {
         if (anchor1 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor1);
+            return String.format(Locale.US, "anchor: %s,", anchor1);
         }
         return "";
     }
@@ -1229,7 +1229,7 @@ public class Text extends JsObject {
 
     private String generateJSanchor3() {
         if (anchor3 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor3);
+            return String.format(Locale.US, "anchor: %s,", anchor3);
         }
         return "";
     }
@@ -1292,7 +1292,7 @@ public class Text extends JsObject {
 
     private String generateJSanchor5() {
         if (anchor5 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor5);
+            return String.format(Locale.US, "anchor: %s,", anchor5);
         }
         return "";
     }
@@ -1341,7 +1341,7 @@ public class Text extends JsObject {
 
     private String generateJStext() {
         if (text != null) {
-            return String.format(Locale.US, "text: \"%s\",", text);
+            return String.format(Locale.US, "text: %s,", text);
         }
         return "";
     }
@@ -1362,7 +1362,7 @@ public class Text extends JsObject {
 
     private String generateJStextOverflow1() {
         if (textOverflow1 != null) {
-            return String.format(Locale.US, "textOverflow: \"%s\",", textOverflow1);
+            return String.format(Locale.US, "textOverflow: %s,", textOverflow1);
         }
         return "";
     }
@@ -1376,14 +1376,14 @@ public class Text extends JsObject {
 
     private String generateJStextWrap1() {
         if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: \"%s\",", textWrap1);
+            return String.format(Locale.US, "textWrap: %s,", textWrap1);
         }
         return "";
     }
 
     private String generateJStitle() {
         if (title != null) {
-            return String.format(Locale.US, "title: \"%s\",", title);
+            return String.format(Locale.US, "title: %s,", title);
         }
         return "";
     }
@@ -1404,7 +1404,7 @@ public class Text extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -1425,7 +1425,7 @@ public class Text extends JsObject {
 
     private String generateJSvAlign1() {
         if (vAlign1 != null) {
-            return String.format(Locale.US, "vAlign: \"%s\",", vAlign1);
+            return String.format(Locale.US, "vAlign: %s,", vAlign1);
         }
         return "";
     }
@@ -1446,7 +1446,7 @@ public class Text extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }

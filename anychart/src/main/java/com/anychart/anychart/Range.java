@@ -24,7 +24,7 @@ public class Range extends JsObject  {
         this.type = type;
         this.unit = unit;
 
-        js.append(String.format(Locale.US, "{anchor: %s,count: %f,endDate: \"%s\",startDate: \"%s\",text: \"%s\",type: %s,unit: %s}",  (anchor != null) ? anchor.generateJs() : "null", count, endDate, startDate, text, (type != null) ? type.generateJs() : "null", (unit != null) ? unit.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{anchor: %s,count: %f,endDate: %s,startDate: %s,text: %s,type: %s,unit: %s}",  (anchor != null) ? anchor.generateJs() : "null", count, endDate, startDate, text, (type != null) ? type.generateJs() : "null", (unit != null) ? unit.generateJs() : "null"));
     }
 
 

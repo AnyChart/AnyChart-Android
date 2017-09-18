@@ -44,10 +44,10 @@ public class Funnel extends Chart {
     public void setBasewidth(String baseWidth) {
         this.baseWidth = baseWidth;
 
-        js.append(String.format(Locale.US, "chart.baseWidth(\"%s\");", baseWidth));
+        js.append(String.format(Locale.US, "chart.baseWidth(%s);", baseWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.baseWidth(\"%s\");", baseWidth));
+            onChangeListener.onChange(String.format(Locale.US, "chart.baseWidth(%s);", baseWidth));
             js.setLength(0);
         }
     }
@@ -82,10 +82,10 @@ public class Funnel extends Chart {
     public void setBottom(String bottom1) {
         this.bottom1 = bottom1;
 
-        js.append(String.format(Locale.US, "chart.bottom(\"%s\");", bottom1));
+        js.append(String.format(Locale.US, "chart.bottom(%s);", bottom1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bottom(\"%s\");", bottom1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bottom(%s);", bottom1));
             js.setLength(0);
         }
     }
@@ -159,10 +159,10 @@ public class Funnel extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %f, \"%s\");", x, y, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %f, %s);", x, y, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %f, \"%s\");", x, y, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %f, %s);", x, y, width, height1));
             js.setLength(0);
         }
     }
@@ -174,10 +174,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", %f);", x, y, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %s, %f);", x, y, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", %f);", x, y, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %s, %f);", x, y, width1, height));
             js.setLength(0);
         }
     }
@@ -189,10 +189,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", \"%s\");", x, y, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %s, %s);", x, y, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", \"%s\");", x, y, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %s, %s);", x, y, width1, height1));
             js.setLength(0);
         }
     }
@@ -204,10 +204,10 @@ public class Funnel extends Chart {
         this.width = width;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, %f);", x, y1, width, height));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %f, %f);", x, y1, width, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, %f);", x, y1, width, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %f, %f);", x, y1, width, height));
             js.setLength(0);
         }
     }
@@ -219,10 +219,10 @@ public class Funnel extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, \"%s\");", x, y1, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %f, %s);", x, y1, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, \"%s\");", x, y1, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %f, %s);", x, y1, width, height1));
             js.setLength(0);
         }
     }
@@ -234,10 +234,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", %f);", x, y1, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %s, %f);", x, y1, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", %f);", x, y1, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %s, %f);", x, y1, width1, height));
             js.setLength(0);
         }
     }
@@ -249,10 +249,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", \"%s\");", x, y1, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %s, %s);", x, y1, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", \"%s\");", x, y1, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %s, %s);", x, y1, width1, height1));
             js.setLength(0);
         }
     }
@@ -264,10 +264,10 @@ public class Funnel extends Chart {
         this.width = width;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, %f);", x1, y, width, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %f, %f);", x1, y, width, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, %f);", x1, y, width, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %f, %f);", x1, y, width, height));
             js.setLength(0);
         }
     }
@@ -279,10 +279,10 @@ public class Funnel extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, \"%s\");", x1, y, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %f, %s);", x1, y, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, \"%s\");", x1, y, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %f, %s);", x1, y, width, height1));
             js.setLength(0);
         }
     }
@@ -294,10 +294,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", %f);", x1, y, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %s, %f);", x1, y, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", %f);", x1, y, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %s, %f);", x1, y, width1, height));
             js.setLength(0);
         }
     }
@@ -309,10 +309,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", \"%s\");", x1, y, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %s, %s);", x1, y, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", \"%s\");", x1, y, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %s, %s);", x1, y, width1, height1));
             js.setLength(0);
         }
     }
@@ -324,10 +324,10 @@ public class Funnel extends Chart {
         this.width = width;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, %f);", x1, y1, width, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %f, %f);", x1, y1, width, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, %f);", x1, y1, width, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %f, %f);", x1, y1, width, height));
             js.setLength(0);
         }
     }
@@ -339,10 +339,10 @@ public class Funnel extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, \"%s\");", x1, y1, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %f, %s);", x1, y1, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, \"%s\");", x1, y1, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %f, %s);", x1, y1, width, height1));
             js.setLength(0);
         }
     }
@@ -354,10 +354,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", %f);", x1, y1, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %s, %f);", x1, y1, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", %f);", x1, y1, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %s, %f);", x1, y1, width1, height));
             js.setLength(0);
         }
     }
@@ -369,10 +369,10 @@ public class Funnel extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", \"%s\");", x1, y1, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", \"%s\");", x1, y1, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
             js.setLength(0);
         }
     }
@@ -395,10 +395,10 @@ public class Funnel extends Chart {
     public void setConnectorlength(String connectorLength1) {
         this.connectorLength1 = connectorLength1;
 
-        js.append(String.format(Locale.US, "chart.connectorLength(\"%s\");", connectorLength1));
+        js.append(String.format(Locale.US, "chart.connectorLength(%s);", connectorLength1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.connectorLength(\"%s\");", connectorLength1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.connectorLength(%s);", connectorLength1));
             js.setLength(0);
         }
     }
@@ -418,10 +418,10 @@ public class Funnel extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.connectorStroke(%s, %f, \"%s\", %s, %s);", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.connectorStroke(%s, %f, %s, %s, %s);", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.connectorStroke(%s, %f, \"%s\", %s, %s);", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.connectorStroke(%s, %f, %s, %s, %s);", (connectorStroke != null) ? connectorStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -434,10 +434,10 @@ public class Funnel extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.connectorStroke(%s, %f, \"%s\", %s, %s);", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.connectorStroke(%s, %f, %s, %s, %s);", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.connectorStroke(%s, %f, \"%s\", %s, %s);", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.connectorStroke(%s, %f, %s, %s, %s);", (connectorStroke1 != null) ? connectorStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -450,10 +450,10 @@ public class Funnel extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.connectorStroke(\"%s\", %f, \"%s\", %s, %s);", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.connectorStroke(%s, %f, %s, %s, %s);", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.connectorStroke(\"%s\", %f, \"%s\", %s, %s);", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.connectorStroke(%s, %f, %s, %s, %s);", connectorStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -490,10 +490,10 @@ public class Funnel extends Chart {
     public void setContainer(String container2) {
         this.container2 = container2;
 
-        js.append(String.format(Locale.US, "chart.container(\"%s\");", container2));
+        js.append(String.format(Locale.US, "chart.container(%s);", container2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.container(\"%s\");", container2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.container(%s);", container2));
             js.setLength(0);
         }
     }
@@ -653,10 +653,10 @@ public class Funnel extends Chart {
         this.data4 = data4;
         this.csvSettings = csvSettings;
 
-        js.append(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -666,10 +666,10 @@ public class Funnel extends Chart {
         this.data4 = data4;
         this.csvSettings1 = csvSettings1;
 
-        js.append(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -733,10 +733,10 @@ public class Funnel extends Chart {
         this.color = color;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "chart.fill(\"%s\", %f);", color, opacity));
+        js.append(String.format(Locale.US, "chart.fill(%s, %f);", color, opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(\"%s\", %f);", color, opacity));
+            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %f);", color, opacity));
             js.setLength(0);
         }
     }
@@ -858,10 +858,10 @@ public class Funnel extends Chart {
     public void setGetstat(String key) {
         this.key = key;
 
-        js.append(String.format(Locale.US, "chart.getStat(\"%s\");", key));
+        js.append(String.format(Locale.US, "chart.getStat(%s);", key));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(\"%s\");", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(%s);", key));
             js.setLength(0);
         }
     }
@@ -908,10 +908,10 @@ public class Funnel extends Chart {
         this.thickness1 = thickness1;
         this.size = size;
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%s, \"%s\", %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, \"%s\", %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color1, thickness1, size));
             js.setLength(0);
         }
     }
@@ -923,10 +923,10 @@ public class Funnel extends Chart {
         this.thickness1 = thickness1;
         this.size = size;
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%s, \"%s\", %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, \"%s\", %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color1, thickness1, size));
             js.setLength(0);
         }
     }
@@ -938,10 +938,10 @@ public class Funnel extends Chart {
         this.thickness1 = thickness1;
         this.size = size;
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%s, \"%s\", %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
+        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, \"%s\", %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color1, thickness1, size));
             js.setLength(0);
         }
     }
@@ -953,10 +953,10 @@ public class Funnel extends Chart {
         this.thickness1 = thickness1;
         this.size = size;
 
-        js.append(String.format(Locale.US, "chart.hatchFill(\"%s\", \"%s\", %f, %f);", patternFillOrType3, color1, thickness1, size));
+        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", patternFillOrType3, color1, thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(\"%s\", \"%s\", %f, %f);", patternFillOrType3, color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", patternFillOrType3, color1, thickness1, size));
             js.setLength(0);
         }
     }
@@ -968,10 +968,10 @@ public class Funnel extends Chart {
         this.thickness1 = thickness1;
         this.size = size;
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%b, \"%s\", %f, %f);", patternFillOrType4, color1, thickness1, size));
+        js.append(String.format(Locale.US, "chart.hatchFill(%b, %s, %f, %f);", patternFillOrType4, color1, thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%b, \"%s\", %f, %f);", patternFillOrType4, color1, thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%b, %s, %f, %f);", patternFillOrType4, color1, thickness1, size));
             js.setLength(0);
         }
     }
@@ -1020,10 +1020,10 @@ public class Funnel extends Chart {
     public void setHeight(String height3) {
         this.height3 = height3;
 
-        js.append(String.format(Locale.US, "chart.height(\"%s\");", height3));
+        js.append(String.format(Locale.US, "chart.height(%s);", height3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.height(\"%s\");", height3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.height(%s);", height3));
             js.setLength(0);
         }
     }
@@ -1062,10 +1062,10 @@ public class Funnel extends Chart {
         this.color2 = color2;
         this.opacity3 = opacity3;
 
-        js.append(String.format(Locale.US, "chart.hoverFill(\"%s\", %f);", color2, opacity3));
+        js.append(String.format(Locale.US, "chart.hoverFill(%s, %f);", color2, opacity3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverFill(\"%s\", %f);", color2, opacity3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverFill(%s, %f);", color2, opacity3));
             js.setLength(0);
         }
     }
@@ -1196,10 +1196,10 @@ public class Funnel extends Chart {
         this.thickness2 = thickness2;
         this.size1 = size1;
 
-        js.append(String.format(Locale.US, "chart.hoverHatchFill(%s, \"%s\", %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness2, size1));
+        js.append(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness2, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%s, \"%s\", %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness2, size1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness2, size1));
             js.setLength(0);
         }
     }
@@ -1211,10 +1211,10 @@ public class Funnel extends Chart {
         this.thickness2 = thickness2;
         this.size1 = size1;
 
-        js.append(String.format(Locale.US, "chart.hoverHatchFill(%s, \"%s\", %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness2, size1));
+        js.append(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness2, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%s, \"%s\", %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness2, size1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness2, size1));
             js.setLength(0);
         }
     }
@@ -1226,10 +1226,10 @@ public class Funnel extends Chart {
         this.thickness2 = thickness2;
         this.size1 = size1;
 
-        js.append(String.format(Locale.US, "chart.hoverHatchFill(%s, \"%s\", %f, %f);", (patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null", color3, thickness2, size1));
+        js.append(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null", color3, thickness2, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%s, \"%s\", %f, %f);", (patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null", color3, thickness2, size1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null", color3, thickness2, size1));
             js.setLength(0);
         }
     }
@@ -1241,10 +1241,10 @@ public class Funnel extends Chart {
         this.thickness2 = thickness2;
         this.size1 = size1;
 
-        js.append(String.format(Locale.US, "chart.hoverHatchFill(\"%s\", \"%s\", %f, %f);", patternFillOrType8, color3, thickness2, size1));
+        js.append(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", patternFillOrType8, color3, thickness2, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(\"%s\", \"%s\", %f, %f);", patternFillOrType8, color3, thickness2, size1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%s, %s, %f, %f);", patternFillOrType8, color3, thickness2, size1));
             js.setLength(0);
         }
     }
@@ -1256,10 +1256,10 @@ public class Funnel extends Chart {
         this.thickness2 = thickness2;
         this.size1 = size1;
 
-        js.append(String.format(Locale.US, "chart.hoverHatchFill(%b, \"%s\", %f, %f);", patternFillOrType9, color3, thickness2, size1));
+        js.append(String.format(Locale.US, "chart.hoverHatchFill(%b, %s, %f, %f);", patternFillOrType9, color3, thickness2, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%b, \"%s\", %f, %f);", patternFillOrType9, color3, thickness2, size1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverHatchFill(%b, %s, %f, %f);", patternFillOrType9, color3, thickness2, size1));
             js.setLength(0);
         }
     }
@@ -1295,10 +1295,10 @@ public class Funnel extends Chart {
     public void setHovermarkers(String hoverMarkers1) {
         this.hoverMarkers1 = hoverMarkers1;
 
-        js.append(String.format(Locale.US, "chart.hoverMarkers(\"%s\");", hoverMarkers1));
+        js.append(String.format(Locale.US, "chart.hoverMarkers(%s);", hoverMarkers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverMarkers(\"%s\");", hoverMarkers1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverMarkers(%s);", hoverMarkers1));
             js.setLength(0);
         }
     }
@@ -1331,10 +1331,10 @@ public class Funnel extends Chart {
         this.lineJoin1 = lineJoin1;
         this.lineCap1 = lineCap1;
 
-        js.append(String.format(Locale.US, "chart.hoverStroke(%s, %f, \"%s\", %s, %s);", (color4 != null) ? color4.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hoverStroke(%s, %f, %s, %s, %s);", (color4 != null) ? color4.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverStroke(%s, %f, \"%s\", %s, %s);", (color4 != null) ? color4.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverStroke(%s, %f, %s, %s, %s);", (color4 != null) ? color4.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1347,10 +1347,10 @@ public class Funnel extends Chart {
         this.lineJoin1 = lineJoin1;
         this.lineCap1 = lineCap1;
 
-        js.append(String.format(Locale.US, "chart.hoverStroke(%s, %f, \"%s\", %s, %s);", (color5 != null) ? color5.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hoverStroke(%s, %f, %s, %s, %s);", (color5 != null) ? color5.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverStroke(%s, %f, \"%s\", %s, %s);", (color5 != null) ? color5.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverStroke(%s, %f, %s, %s, %s);", (color5 != null) ? color5.generateJs() : "null", thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1363,10 +1363,10 @@ public class Funnel extends Chart {
         this.lineJoin1 = lineJoin1;
         this.lineCap1 = lineCap1;
 
-        js.append(String.format(Locale.US, "chart.hoverStroke(\"%s\", %f, \"%s\", %s, %s);", color6, thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hoverStroke(%s, %f, %s, %s, %s);", color6, thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverStroke(\"%s\", %f, \"%s\", %s, %s);", color6, thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverStroke(%s, %f, %s, %s, %s);", color6, thickness3, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1390,10 +1390,10 @@ public class Funnel extends Chart {
     public void setLabel(String index1) {
         this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.label(\"%s\");", index1));
+        js.append(String.format(Locale.US, "chart.label(%s);", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(\"%s\");", index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s);", index1));
             js.setLength(0);
         }
     }
@@ -1433,10 +1433,10 @@ public class Funnel extends Chart {
         this.index3 = index3;
         this.label2 = label2;
 
-        js.append(String.format(Locale.US, "chart.label(\"%s\", %b);", index3, label2));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index3, label2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(\"%s\", %b);", index3, label2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index3, label2));
             js.setLength(0);
         }
     }
@@ -1446,10 +1446,10 @@ public class Funnel extends Chart {
         this.index3 = index3;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(\"%s\", \"%s\");", index3, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index3, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(\"%s\", \"%s\");", index3, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index3, label3));
             js.setLength(0);
         }
     }
@@ -1472,10 +1472,10 @@ public class Funnel extends Chart {
         this.index4 = index4;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, \"%s\");", index4, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index4, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, \"%s\");", index4, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index4, label3));
             js.setLength(0);
         }
     }
@@ -1511,10 +1511,10 @@ public class Funnel extends Chart {
     public void setLeft(String left1) {
         this.left1 = left1;
 
-        js.append(String.format(Locale.US, "chart.left(\"%s\");", left1));
+        js.append(String.format(Locale.US, "chart.left(%s);", left1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.left(\"%s\");", left1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.left(%s);", left1));
             js.setLength(0);
         }
     }
@@ -1539,10 +1539,10 @@ public class Funnel extends Chart {
         this.type = type;
         this.useCapture = useCapture;
 
-        js.append(String.format(Locale.US, "chart.listen(\"%s\", %b);", type, useCapture));
+        js.append(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listen(\"%s\", %b);", type, useCapture));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
             js.setLength(0);
         }
     }
@@ -1554,10 +1554,10 @@ public class Funnel extends Chart {
         this.type1 = type1;
         this.useCapture1 = useCapture1;
 
-        js.append(String.format(Locale.US, "chart.listenOnce(\"%s\", %b);", type1, useCapture1));
+        js.append(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(\"%s\", %b);", type1, useCapture1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
             js.setLength(0);
         }
     }
@@ -1621,10 +1621,10 @@ public class Funnel extends Chart {
         this.value4 = value4;
         this.value5 = value5;
 
-        js.append(String.format(Locale.US, "chart.margin(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value6, value, value1, value2, value3, value4, value5));
+        js.append(String.format(Locale.US, "chart.margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value6, value, value1, value2, value3, value4, value5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
             js.setLength(0);
         }
     }
@@ -1639,10 +1639,10 @@ public class Funnel extends Chart {
         this.value4 = value4;
         this.value5 = value5;
 
-        js.append(String.format(Locale.US, "chart.margin(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value7, value, value1, value2, value3, value4, value5));
+        js.append(String.format(Locale.US, "chart.margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value7, value, value1, value2, value3, value4, value5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
             js.setLength(0);
         }
     }
@@ -1691,10 +1691,10 @@ public class Funnel extends Chart {
     public void setMarkers(String markers1) {
         this.markers1 = markers1;
 
-        js.append(String.format(Locale.US, "chart.markers(\"%s\");", markers1));
+        js.append(String.format(Locale.US, "chart.markers(%s);", markers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.markers(\"%s\");", markers1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.markers(%s);", markers1));
             js.setLength(0);
         }
     }
@@ -1717,10 +1717,10 @@ public class Funnel extends Chart {
     public void setMaxheight(String maxHeight1) {
         this.maxHeight1 = maxHeight1;
 
-        js.append(String.format(Locale.US, "chart.maxHeight(\"%s\");", maxHeight1));
+        js.append(String.format(Locale.US, "chart.maxHeight(%s);", maxHeight1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHeight(\"%s\");", maxHeight1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.maxHeight(%s);", maxHeight1));
             js.setLength(0);
         }
     }
@@ -1743,10 +1743,10 @@ public class Funnel extends Chart {
     public void setMaxwidth(String maxWidth1) {
         this.maxWidth1 = maxWidth1;
 
-        js.append(String.format(Locale.US, "chart.maxWidth(\"%s\");", maxWidth1));
+        js.append(String.format(Locale.US, "chart.maxWidth(%s);", maxWidth1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxWidth(\"%s\");", maxWidth1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.maxWidth(%s);", maxWidth1));
             js.setLength(0);
         }
     }
@@ -1769,10 +1769,10 @@ public class Funnel extends Chart {
     public void setMinheight(String minHeight1) {
         this.minHeight1 = minHeight1;
 
-        js.append(String.format(Locale.US, "chart.minHeight(\"%s\");", minHeight1));
+        js.append(String.format(Locale.US, "chart.minHeight(%s);", minHeight1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHeight(\"%s\");", minHeight1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minHeight(%s);", minHeight1));
             js.setLength(0);
         }
     }
@@ -1795,10 +1795,10 @@ public class Funnel extends Chart {
     public void setMinwidth(String minWidth1) {
         this.minWidth1 = minWidth1;
 
-        js.append(String.format(Locale.US, "chart.minWidth(\"%s\");", minWidth1));
+        js.append(String.format(Locale.US, "chart.minWidth(%s);", minWidth1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minWidth(\"%s\");", minWidth1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minWidth(%s);", minWidth1));
             js.setLength(0);
         }
     }
@@ -1809,10 +1809,10 @@ public class Funnel extends Chart {
     public void setNeckheight(String neckHeight) {
         this.neckHeight = neckHeight;
 
-        js.append(String.format(Locale.US, "chart.neckHeight(\"%s\");", neckHeight));
+        js.append(String.format(Locale.US, "chart.neckHeight(%s);", neckHeight));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.neckHeight(\"%s\");", neckHeight));
+            onChangeListener.onChange(String.format(Locale.US, "chart.neckHeight(%s);", neckHeight));
             js.setLength(0);
         }
     }
@@ -1835,10 +1835,10 @@ public class Funnel extends Chart {
     public void setNeckwidth(String neckWidth) {
         this.neckWidth = neckWidth;
 
-        js.append(String.format(Locale.US, "chart.neckWidth(\"%s\");", neckWidth));
+        js.append(String.format(Locale.US, "chart.neckWidth(%s);", neckWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.neckWidth(\"%s\");", neckWidth));
+            onChangeListener.onChange(String.format(Locale.US, "chart.neckWidth(%s);", neckWidth));
             js.setLength(0);
         }
     }
@@ -1874,10 +1874,10 @@ public class Funnel extends Chart {
     public void setOverlapmode(String overlapMode1) {
         this.overlapMode1 = overlapMode1;
 
-        js.append(String.format(Locale.US, "chart.overlapMode(\"%s\");", overlapMode1));
+        js.append(String.format(Locale.US, "chart.overlapMode(%s);", overlapMode1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.overlapMode(\"%s\");", overlapMode1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.overlapMode(%s);", overlapMode1));
             js.setLength(0);
         }
     }
@@ -1938,10 +1938,10 @@ public class Funnel extends Chart {
         this.value12 = value12;
         this.value13 = value13;
 
-        js.append(String.format(Locale.US, "chart.padding(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value14, value8, value9, value10, value11, value12, value13));
+        js.append(String.format(Locale.US, "chart.padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value14, value8, value9, value10, value11, value12, value13));
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
             js.setLength(0);
         }
     }
@@ -1956,10 +1956,10 @@ public class Funnel extends Chart {
         this.value12 = value12;
         this.value13 = value13;
 
-        js.append(String.format(Locale.US, "chart.padding(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value15, value8, value9, value10, value11, value12, value13));
+        js.append(String.format(Locale.US, "chart.padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value15, value8, value9, value10, value11, value12, value13));
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
             js.setLength(0);
         }
     }
@@ -2009,10 +2009,10 @@ public class Funnel extends Chart {
     public void setPointspadding(String pointsPadding) {
         this.pointsPadding = pointsPadding;
 
-        js.append(String.format(Locale.US, "chart.pointsPadding(\"%s\");", pointsPadding));
+        js.append(String.format(Locale.US, "chart.pointsPadding(%s);", pointsPadding));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.pointsPadding(\"%s\");", pointsPadding));
+            onChangeListener.onChange(String.format(Locale.US, "chart.pointsPadding(%s);", pointsPadding));
             js.setLength(0);
         }
     }
@@ -2049,10 +2049,10 @@ public class Funnel extends Chart {
     public void setRemovealllisteners(String type2) {
         this.type2 = type2;
 
-        js.append(String.format(Locale.US, "chart.removeAllListeners(\"%s\");", type2));
+        js.append(String.format(Locale.US, "chart.removeAllListeners(%s);", type2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeAllListeners(\"%s\");", type2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeAllListeners(%s);", type2));
             js.setLength(0);
         }
     }
@@ -2075,10 +2075,10 @@ public class Funnel extends Chart {
     public void setRight(String right1) {
         this.right1 = right1;
 
-        js.append(String.format(Locale.US, "chart.right(\"%s\");", right1));
+        js.append(String.format(Locale.US, "chart.right(%s);", right1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.right(\"%s\");", right1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.right(%s);", right1));
             js.setLength(0);
         }
     }
@@ -2093,10 +2093,10 @@ public class Funnel extends Chart {
         this.csvSettings2 = csvSettings2;
         this.filename = filename;
 
-        js.append(String.format(Locale.US, "chart.saveAsCsv(\"%s\", \"%s\", \"%s\");", chartDataExportMode, csvSettings2, filename));
+        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", chartDataExportMode, csvSettings2, filename));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(\"%s\", \"%s\", \"%s\");", chartDataExportMode, csvSettings2, filename));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", chartDataExportMode, csvSettings2, filename));
             js.setLength(0);
         }
     }
@@ -2107,10 +2107,10 @@ public class Funnel extends Chart {
         this.csvSettings2 = csvSettings2;
         this.filename = filename;
 
-        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, \"%s\", \"%s\");", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings2, filename));
+        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings2, filename));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, \"%s\", \"%s\");", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings2, filename));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings2, filename));
             js.setLength(0);
         }
     }
@@ -2128,10 +2128,10 @@ public class Funnel extends Chart {
         this.forceTransparentWhite = forceTransparentWhite;
         this.filename1 = filename1;
 
-        js.append(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, \"%s\");", width2, height4, quality, forceTransparentWhite, filename1));
+        js.append(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, %s);", width2, height4, quality, forceTransparentWhite, filename1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, \"%s\");", width2, height4, quality, forceTransparentWhite, filename1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, %s);", width2, height4, quality, forceTransparentWhite, filename1));
             js.setLength(0);
         }
     }
@@ -2143,10 +2143,10 @@ public class Funnel extends Chart {
         this.includeTheme = includeTheme;
         this.filename2 = filename2;
 
-        js.append(String.format(Locale.US, "chart.saveAsJson(%b, \"%s\");", includeTheme, filename2));
+        js.append(String.format(Locale.US, "chart.saveAsJson(%b, %s);", includeTheme, filename2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJson(%b, \"%s\");", includeTheme, filename2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJson(%b, %s);", includeTheme, filename2));
             js.setLength(0);
         }
     }
@@ -2165,10 +2165,10 @@ public class Funnel extends Chart {
         this.y2 = y2;
         this.filename3 = filename3;
 
-        js.append(String.format(Locale.US, "chart.saveAsPdf(%f, %b, %f, %f, \"%s\");", paperSizeOrWidthOrOptions, landscape1, x2, y2, filename3));
+        js.append(String.format(Locale.US, "chart.saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape1, x2, y2, filename3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(%f, %b, %f, %f, \"%s\");", paperSizeOrWidthOrOptions, landscape1, x2, y2, filename3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape1, x2, y2, filename3));
             js.setLength(0);
         }
     }
@@ -2181,10 +2181,10 @@ public class Funnel extends Chart {
         this.y2 = y2;
         this.filename3 = filename3;
 
-        js.append(String.format(Locale.US, "chart.saveAsPdf(\"%s\", %b, %f, %f, \"%s\");", paperSizeOrWidthOrOptions1, landscape1, x2, y2, filename3));
+        js.append(String.format(Locale.US, "chart.saveAsPdf(%s, %b, %f, %f, %s);", paperSizeOrWidthOrOptions1, landscape1, x2, y2, filename3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(\"%s\", %b, %f, %f, \"%s\");", paperSizeOrWidthOrOptions1, landscape1, x2, y2, filename3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(%s, %b, %f, %f, %s);", paperSizeOrWidthOrOptions1, landscape1, x2, y2, filename3));
             js.setLength(0);
         }
     }
@@ -2200,10 +2200,10 @@ public class Funnel extends Chart {
         this.quality1 = quality1;
         this.filename4 = filename4;
 
-        js.append(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, \"%s\");", width3, height5, quality1, filename4));
+        js.append(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width3, height5, quality1, filename4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, \"%s\");", width3, height5, quality1, filename4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width3, height5, quality1, filename4));
             js.setLength(0);
         }
     }
@@ -2217,10 +2217,10 @@ public class Funnel extends Chart {
         this.landscape2 = landscape2;
         this.filename5 = filename5;
 
-        js.append(String.format(Locale.US, "chart.saveAsSvg(\"%s\", %b, \"%s\");", paperSize, landscape2, filename5));
+        js.append(String.format(Locale.US, "chart.saveAsSvg(%s, %b, %s);", paperSize, landscape2, filename5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(\"%s\", %b, \"%s\");", paperSize, landscape2, filename5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%s, %b, %s);", paperSize, landscape2, filename5));
             js.setLength(0);
         }
     }
@@ -2248,10 +2248,10 @@ public class Funnel extends Chart {
         this.chartDataExportMode2 = chartDataExportMode2;
         this.filename6 = filename6;
 
-        js.append(String.format(Locale.US, "chart.saveAsXlsx(\"%s\", \"%s\");", chartDataExportMode2, filename6));
+        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", chartDataExportMode2, filename6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(\"%s\", \"%s\");", chartDataExportMode2, filename6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", chartDataExportMode2, filename6));
             js.setLength(0);
         }
     }
@@ -2261,10 +2261,10 @@ public class Funnel extends Chart {
         this.chartDataExportMode3 = chartDataExportMode3;
         this.filename6 = filename6;
 
-        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, \"%s\");", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
+        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, \"%s\");", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
             js.setLength(0);
         }
     }
@@ -2276,10 +2276,10 @@ public class Funnel extends Chart {
         this.includeTheme1 = includeTheme1;
         this.filename7 = filename7;
 
-        js.append(String.format(Locale.US, "chart.saveAsXml(%b, \"%s\");", includeTheme1, filename7));
+        js.append(String.format(Locale.US, "chart.saveAsXml(%b, %s);", includeTheme1, filename7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXml(%b, \"%s\");", includeTheme1, filename7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXml(%b, %s);", includeTheme1, filename7));
             js.setLength(0);
         }
     }
@@ -2330,10 +2330,10 @@ public class Funnel extends Chart {
         this.color7 = color7;
         this.opacity6 = opacity6;
 
-        js.append(String.format(Locale.US, "chart.selectFill(\"%s\", %f);", color7, opacity6));
+        js.append(String.format(Locale.US, "chart.selectFill(%s, %f);", color7, opacity6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectFill(\"%s\", %f);", color7, opacity6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectFill(%s, %f);", color7, opacity6));
             js.setLength(0);
         }
     }
@@ -2464,10 +2464,10 @@ public class Funnel extends Chart {
         this.thickness4 = thickness4;
         this.size2 = size2;
 
-        js.append(String.format(Locale.US, "chart.selectHatchFill(%s, \"%s\", %f, %f);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null", color8, thickness4, size2));
+        js.append(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null", color8, thickness4, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%s, \"%s\", %f, %f);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null", color8, thickness4, size2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null", color8, thickness4, size2));
             js.setLength(0);
         }
     }
@@ -2479,10 +2479,10 @@ public class Funnel extends Chart {
         this.thickness4 = thickness4;
         this.size2 = size2;
 
-        js.append(String.format(Locale.US, "chart.selectHatchFill(%s, \"%s\", %f, %f);", (patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null", color8, thickness4, size2));
+        js.append(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null", color8, thickness4, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%s, \"%s\", %f, %f);", (patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null", color8, thickness4, size2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null", color8, thickness4, size2));
             js.setLength(0);
         }
     }
@@ -2494,10 +2494,10 @@ public class Funnel extends Chart {
         this.thickness4 = thickness4;
         this.size2 = size2;
 
-        js.append(String.format(Locale.US, "chart.selectHatchFill(%s, \"%s\", %f, %f);", (patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null", color8, thickness4, size2));
+        js.append(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null", color8, thickness4, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%s, \"%s\", %f, %f);", (patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null", color8, thickness4, size2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", (patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null", color8, thickness4, size2));
             js.setLength(0);
         }
     }
@@ -2509,10 +2509,10 @@ public class Funnel extends Chart {
         this.thickness4 = thickness4;
         this.size2 = size2;
 
-        js.append(String.format(Locale.US, "chart.selectHatchFill(\"%s\", \"%s\", %f, %f);", patternFillOrTypeOrState3, color8, thickness4, size2));
+        js.append(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", patternFillOrTypeOrState3, color8, thickness4, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(\"%s\", \"%s\", %f, %f);", patternFillOrTypeOrState3, color8, thickness4, size2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%s, %s, %f, %f);", patternFillOrTypeOrState3, color8, thickness4, size2));
             js.setLength(0);
         }
     }
@@ -2524,10 +2524,10 @@ public class Funnel extends Chart {
         this.thickness4 = thickness4;
         this.size2 = size2;
 
-        js.append(String.format(Locale.US, "chart.selectHatchFill(%b, \"%s\", %f, %f);", patternFillOrTypeOrState4, color8, thickness4, size2));
+        js.append(String.format(Locale.US, "chart.selectHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, color8, thickness4, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%b, \"%s\", %f, %f);", patternFillOrTypeOrState4, color8, thickness4, size2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, color8, thickness4, size2));
             js.setLength(0);
         }
     }
@@ -2563,10 +2563,10 @@ public class Funnel extends Chart {
     public void setSelectmarkers(String selectMarkers1) {
         this.selectMarkers1 = selectMarkers1;
 
-        js.append(String.format(Locale.US, "chart.selectMarkers(\"%s\");", selectMarkers1));
+        js.append(String.format(Locale.US, "chart.selectMarkers(%s);", selectMarkers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarkers(\"%s\");", selectMarkers1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarkers(%s);", selectMarkers1));
             js.setLength(0);
         }
     }
@@ -2591,10 +2591,10 @@ public class Funnel extends Chart {
         this.color9 = color9;
         this.opacity9 = opacity9;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(\"%s\", %f);", color9, opacity9));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color9, opacity9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(\"%s\", %f);", color9, opacity9));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color9, opacity9));
             js.setLength(0);
         }
     }
@@ -2725,10 +2725,10 @@ public class Funnel extends Chart {
         this.lineJoin2 = lineJoin2;
         this.lineCap2 = lineCap2;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2741,10 +2741,10 @@ public class Funnel extends Chart {
         this.lineJoin2 = lineJoin2;
         this.lineCap2 = lineCap2;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color11 != null) ? color11.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color11 != null) ? color11.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color11 != null) ? color11.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color11 != null) ? color11.generateJs() : "null", thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2757,10 +2757,10 @@ public class Funnel extends Chart {
         this.lineJoin2 = lineJoin2;
         this.lineCap2 = lineCap2;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(\"%s\", %f, \"%s\", %s, %s);", color12, thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color12, thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(\"%s\", %f, \"%s\", %s, %s);", color12, thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color12, thickness5, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2780,10 +2780,10 @@ public class Funnel extends Chart {
         this.lineJoin3 = lineJoin3;
         this.lineCap3 = lineCap3;
 
-        js.append(String.format(Locale.US, "chart.selectStroke(%s, %f, \"%s\", %s, %s);", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectStroke(%s, %f, %s, %s, %s);", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectStroke(%s, %f, \"%s\", %s, %s);", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectStroke(%s, %f, %s, %s, %s);", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2796,10 +2796,10 @@ public class Funnel extends Chart {
         this.lineJoin3 = lineJoin3;
         this.lineCap3 = lineCap3;
 
-        js.append(String.format(Locale.US, "chart.selectStroke(%s, %f, \"%s\", %s, %s);", (color14 != null) ? color14.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectStroke(%s, %f, %s, %s, %s);", (color14 != null) ? color14.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectStroke(%s, %f, \"%s\", %s, %s);", (color14 != null) ? color14.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectStroke(%s, %f, %s, %s, %s);", (color14 != null) ? color14.generateJs() : "null", thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2812,10 +2812,10 @@ public class Funnel extends Chart {
         this.lineJoin3 = lineJoin3;
         this.lineCap3 = lineCap3;
 
-        js.append(String.format(Locale.US, "chart.selectStroke(\"%s\", %f, \"%s\", %s, %s);", color15, thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectStroke(%s, %f, %s, %s, %s);", color15, thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectStroke(\"%s\", %f, \"%s\", %s, %s);", color15, thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectStroke(%s, %f, %s, %s, %s);", color15, thickness6, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2861,10 +2861,10 @@ public class Funnel extends Chart {
         this.lineJoin4 = lineJoin4;
         this.lineCap4 = lineCap4;
 
-        js.append(String.format(Locale.US, "chart.stroke(%s, %f, \"%s\", %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, \"%s\", %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2877,10 +2877,10 @@ public class Funnel extends Chart {
         this.lineJoin4 = lineJoin4;
         this.lineCap4 = lineCap4;
 
-        js.append(String.format(Locale.US, "chart.stroke(%s, %f, \"%s\", %s, %s);", (color17 != null) ? color17.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color17 != null) ? color17.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, \"%s\", %s, %s);", (color17 != null) ? color17.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color17 != null) ? color17.generateJs() : "null", thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2893,10 +2893,10 @@ public class Funnel extends Chart {
         this.lineJoin4 = lineJoin4;
         this.lineCap4 = lineCap4;
 
-        js.append(String.format(Locale.US, "chart.stroke(\"%s\", %f, \"%s\", %s, %s);", color18, thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", color18, thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(\"%s\", %f, \"%s\", %s, %s);", color18, thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", color18, thickness7, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2919,10 +2919,10 @@ public class Funnel extends Chart {
     public void setTitle(String title1) {
         this.title1 = title1;
 
-        js.append(String.format(Locale.US, "chart.title(\"%s\");", title1));
+        js.append(String.format(Locale.US, "chart.title(%s);", title1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.title(\"%s\");", title1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.title(%s);", title1));
             js.setLength(0);
         }
     }
@@ -2935,10 +2935,10 @@ public class Funnel extends Chart {
         this.chartDataExportMode4 = chartDataExportMode4;
         this.csvSettings3 = csvSettings3;
 
-        js.append(String.format(Locale.US, "chart.toCsv(\"%s\", \"%s\");", chartDataExportMode4, csvSettings3));
+        js.append(String.format(Locale.US, "chart.toCsv(%s, %s);", chartDataExportMode4, csvSettings3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(\"%s\", \"%s\");", chartDataExportMode4, csvSettings3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, %s);", chartDataExportMode4, csvSettings3));
             js.setLength(0);
         }
     }
@@ -2948,10 +2948,10 @@ public class Funnel extends Chart {
         this.chartDataExportMode5 = chartDataExportMode5;
         this.csvSettings3 = csvSettings3;
 
-        js.append(String.format(Locale.US, "chart.toCsv(%s, \"%s\");", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings3));
+        js.append(String.format(Locale.US, "chart.toCsv(%s, %s);", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, \"%s\");", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, %s);", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings3));
             js.setLength(0);
         }
     }
@@ -2978,10 +2978,10 @@ public class Funnel extends Chart {
         this.paperSize1 = paperSize1;
         this.landscape3 = landscape3;
 
-        js.append(String.format(Locale.US, "chart.toSvg(\"%s\", %b);", paperSize1, landscape3));
+        js.append(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize1, landscape3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(\"%s\", %b);", paperSize1, landscape3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize1, landscape3));
             js.setLength(0);
         }
     }
@@ -3047,10 +3047,10 @@ public class Funnel extends Chart {
     public void setTop(String top1) {
         this.top1 = top1;
 
-        js.append(String.format(Locale.US, "chart.top(\"%s\");", top1));
+        js.append(String.format(Locale.US, "chart.top(%s);", top1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.top(\"%s\");", top1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.top(%s);", top1));
             js.setLength(0);
         }
     }
@@ -3062,10 +3062,10 @@ public class Funnel extends Chart {
         this.type3 = type3;
         this.useCapture2 = useCapture2;
 
-        js.append(String.format(Locale.US, "chart.unlisten(\"%s\", %b);", type3, useCapture2));
+        js.append(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(\"%s\", %b);", type3, useCapture2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
             js.setLength(0);
         }
     }
@@ -3088,10 +3088,10 @@ public class Funnel extends Chart {
     public void setWidth(String width7) {
         this.width7 = width7;
 
-        js.append(String.format(Locale.US, "chart.width(\"%s\");", width7));
+        js.append(String.format(Locale.US, "chart.width(%s);", width7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(\"%s\");", width7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.width(%s);", width7));
             js.setLength(0);
         }
     }

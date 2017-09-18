@@ -19,7 +19,7 @@ public class VerticalChartActivity extends AppCompatActivity {
 
         Cartesian cartesian = new Cartesian();
         cartesian.setAnimation(true);
-        cartesian.setTitle("Vertical Combination of Bar and Jump Line Chart");
+        cartesian.setTitle("'Vertical Combination of Bar and Jump Line Chart'");
         cartesian.setLabels(true);
         cartesian.setXaxis(true);
         cartesian.setYaxis(true);

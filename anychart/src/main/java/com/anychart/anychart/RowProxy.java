@@ -32,7 +32,7 @@ public class RowProxy extends JsObject {
 
     private String generateJSfield() {
         if (field != null) {
-            return String.format(Locale.US, "field: \"%s\",", field);
+            return String.format(Locale.US, "field: %s,", field);
         }
         return "";
     }
@@ -46,7 +46,7 @@ public class RowProxy extends JsObject {
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }

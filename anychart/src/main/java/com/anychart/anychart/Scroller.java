@@ -687,7 +687,7 @@ public class Scroller extends JsObject {
 
     private String generateJScontainer() {
         if (container != null) {
-            return String.format(Locale.US, "container: \"%s\",", container);
+            return String.format(Locale.US, "container: %s,", container);
         }
         return "";
     }
@@ -722,7 +722,7 @@ public class Scroller extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -848,14 +848,14 @@ public class Scroller extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -869,7 +869,7 @@ public class Scroller extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -890,7 +890,7 @@ public class Scroller extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -904,7 +904,7 @@ public class Scroller extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -918,7 +918,7 @@ public class Scroller extends JsObject {
 
     private String generateJSorientation1() {
         if (orientation1 != null) {
-            return String.format(Locale.US, "orientation: \"%s\",", orientation1);
+            return String.format(Locale.US, "orientation: %s,", orientation1);
         }
         return "";
     }
@@ -939,7 +939,7 @@ public class Scroller extends JsObject {
 
     private String generateJSoutlineStroke2() {
         if (outlineStroke2 != null) {
-            return String.format(Locale.US, "outlineStroke: \"%s\",", outlineStroke2);
+            return String.format(Locale.US, "outlineStroke: %s,", outlineStroke2);
         }
         return "";
     }
@@ -953,7 +953,7 @@ public class Scroller extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -1023,7 +1023,7 @@ public class Scroller extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -1037,7 +1037,7 @@ public class Scroller extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -1184,7 +1184,7 @@ public class Scroller extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

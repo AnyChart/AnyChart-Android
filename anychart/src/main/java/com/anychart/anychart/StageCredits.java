@@ -38,35 +38,35 @@ public class StageCredits extends JsObject {
 
     private String generateJSalt() {
         if (alt != null) {
-            return String.format(Locale.US, "alt: \"%s\",", alt);
+            return String.format(Locale.US, "alt: %s,", alt);
         }
         return "";
     }
 
     private String generateJSimgAlt() {
         if (imgAlt != null) {
-            return String.format(Locale.US, "imgAlt: \"%s\",", imgAlt);
+            return String.format(Locale.US, "imgAlt: %s,", imgAlt);
         }
         return "";
     }
 
     private String generateJSlogoSrc() {
         if (logoSrc != null) {
-            return String.format(Locale.US, "logoSrc: \"%s\",", logoSrc);
+            return String.format(Locale.US, "logoSrc: %s,", logoSrc);
         }
         return "";
     }
 
     private String generateJStext() {
         if (text != null) {
-            return String.format(Locale.US, "text: \"%s\",", text);
+            return String.format(Locale.US, "text: %s,", text);
         }
         return "";
     }
 
     private String generateJSurl() {
         if (url != null) {
-            return String.format(Locale.US, "url: \"%s\",", url);
+            return String.format(Locale.US, "url: %s,", url);
         }
         return "";
     }

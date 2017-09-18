@@ -21,7 +21,7 @@ public class ActionContext extends JsObject  {
         this.selectedPoints = selectedPoints;
         this.type = type;
 
-        js.append(String.format(Locale.US, "{target: %s,chart: %s,item: %s,selectedPoints: %s,type: \"%s\"}",  (target != null) ? target.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
+        js.append(String.format(Locale.US, "{target: %s,chart: %s,item: %s,selectedPoints: %s,type: %s}",  (target != null) ? target.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
     }
 
     public ActionContext(VisualBase target1, Chart chart, Item item, Point[] selectedPoints, String type) {
@@ -31,7 +31,7 @@ public class ActionContext extends JsObject  {
         this.selectedPoints = selectedPoints;
         this.type = type;
 
-        js.append(String.format(Locale.US, "{target: %s,chart: %s,item: %s,selectedPoints: %s,type: \"%s\"}",  (target1 != null) ? target1.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
+        js.append(String.format(Locale.US, "{target: %s,chart: %s,item: %s,selectedPoints: %s,type: %s}",  (target1 != null) ? target1.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
     }
 
 

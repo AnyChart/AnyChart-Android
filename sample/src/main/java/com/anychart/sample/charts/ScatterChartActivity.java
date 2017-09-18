@@ -1,11 +1,9 @@
 package com.anychart.sample.charts;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Marker;
-import com.anychart.anychart.MarkerType;
 import com.anychart.anychart.Scatter;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
@@ -21,7 +19,7 @@ public class ScatterChartActivity extends AppCompatActivity {
 
         Scatter scatter = new Scatter();
         scatter.setAnimation(true);
-        scatter.setTitle("System interruptions");
+        scatter.setTitle("'System interruptions'");
         scatter.setMarker(getMarkerData(), TextParsingMode.CSV);
         scatter.setLine(getLineData(), TextParsingMode.CSV);
 

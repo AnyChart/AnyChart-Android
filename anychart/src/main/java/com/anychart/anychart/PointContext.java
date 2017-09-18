@@ -30,7 +30,7 @@ public class PointContext extends JsObject {
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
@@ -51,14 +51,14 @@ public class PointContext extends JsObject {
 
     private String generateJSrestrictShapes() {
         if (restrictShapes != null) {
-            return String.format(Locale.US, "restrictShapes: \"%s\",", restrictShapes);
+            return String.format(Locale.US, "restrictShapes: %s,", restrictShapes);
         }
         return "";
     }
 
     private String generateJSkey() {
         if (key != null) {
-            return String.format(Locale.US, "key: \"%s\",", key);
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }

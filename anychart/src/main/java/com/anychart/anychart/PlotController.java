@@ -202,14 +202,14 @@ public class PlotController extends JsObject {
 
     private String generateJSconfig() {
         if (config != null) {
-            return String.format(Locale.US, "config: \"%s\",", config);
+            return String.format(Locale.US, "config: %s,", config);
         }
         return "";
     }
 
     private String generateJSconfig1() {
         if (config1 != null) {
-            return String.format(Locale.US, "config: \"%s\",", config1);
+            return String.format(Locale.US, "config: %s,", config1);
         }
         return "";
     }
@@ -223,7 +223,7 @@ public class PlotController extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -237,7 +237,7 @@ public class PlotController extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -265,7 +265,7 @@ public class PlotController extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -335,7 +335,7 @@ public class PlotController extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

@@ -181,14 +181,14 @@ public class View extends JsObject {
 
     private String generateJSfieldName() {
         if (fieldName != null) {
-            return String.format(Locale.US, "fieldName: \"%s\",", fieldName);
+            return String.format(Locale.US, "fieldName: %s,", fieldName);
         }
         return "";
     }
 
     private String generateJSfieldName1() {
         if (fieldName1 != null) {
-            return String.format(Locale.US, "fieldName: \"%s\",", fieldName1);
+            return String.format(Locale.US, "fieldName: %s,", fieldName1);
         }
         return "";
     }
@@ -202,14 +202,14 @@ public class View extends JsObject {
 
     private String generateJSfieldName2() {
         if (fieldName2 != null) {
-            return String.format(Locale.US, "fieldName: \"%s\",", fieldName2);
+            return String.format(Locale.US, "fieldName: %s,", fieldName2);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -223,7 +223,7 @@ public class View extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -244,7 +244,7 @@ public class View extends JsObject {
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
@@ -258,14 +258,14 @@ public class View extends JsObject {
 
     private String generateJSname1() {
         if (name1 != null) {
-            return String.format(Locale.US, "name: \"%s\",", name1);
+            return String.format(Locale.US, "name: %s,", name1);
         }
         return "";
     }
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -293,21 +293,21 @@ public class View extends JsObject {
 
     private String generateJSfieldName3() {
         if (fieldName3 != null) {
-            return String.format(Locale.US, "fieldName: \"%s\",", fieldName3);
+            return String.format(Locale.US, "fieldName: %s,", fieldName3);
         }
         return "";
     }
 
     private String generateJSfieldName4() {
         if (fieldName4 != null) {
-            return String.format(Locale.US, "fieldName: \"%s\",", fieldName4);
+            return String.format(Locale.US, "fieldName: %s,", fieldName4);
         }
         return "";
     }
 
     private String generateJSfieldName5() {
         if (fieldName5 != null) {
-            return String.format(Locale.US, "fieldName: \"%s\",", fieldName5);
+            return String.format(Locale.US, "fieldName: %s,", fieldName5);
         }
         return "";
     }
@@ -321,7 +321,7 @@ public class View extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

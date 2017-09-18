@@ -36,7 +36,7 @@ public class LegendItemProvider extends JsObject  {
         this.index = index;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{iconHatchFill: %s,disabled: %b,iconEnabled: %b,iconFill: %s,iconMarkerFill: %s,iconMarkerStroke: %s,iconMarkerType: \"%s\",iconStroke: %s,iconTextSpacing: %f,iconType: \"%s\",index: %f,text: \"%s\"}",  (iconHatchFill != null) ? iconHatchFill.generateJs() : "null", disabled, iconEnabled, (iconFill != null) ? iconFill.generateJs() : "null", (iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null", (iconMarkerStroke != null) ? iconMarkerStroke.generateJs() : "null", iconMarkerType, (iconStroke != null) ? iconStroke.generateJs() : "null", iconTextSpacing, iconType, index, text));
+        js.append(String.format(Locale.US, "{iconHatchFill: %s,disabled: %b,iconEnabled: %b,iconFill: %s,iconMarkerFill: %s,iconMarkerStroke: %s,iconMarkerType: %s,iconStroke: %s,iconTextSpacing: %f,iconType: %s,index: %f,text: %s}",  (iconHatchFill != null) ? iconHatchFill.generateJs() : "null", disabled, iconEnabled, (iconFill != null) ? iconFill.generateJs() : "null", (iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null", (iconMarkerStroke != null) ? iconMarkerStroke.generateJs() : "null", iconMarkerType, (iconStroke != null) ? iconStroke.generateJs() : "null", iconTextSpacing, iconType, index, text));
     }
 
     public LegendItemProvider(PatternFill iconHatchFill1, Boolean disabled, Boolean iconEnabled, Fill iconFill, Fill iconMarkerFill, Stroke iconMarkerStroke, String iconMarkerType, Stroke iconStroke, Double iconTextSpacing, String iconType, Double index, String text) {
@@ -53,7 +53,7 @@ public class LegendItemProvider extends JsObject  {
         this.index = index;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{iconHatchFill: %s,disabled: %b,iconEnabled: %b,iconFill: %s,iconMarkerFill: %s,iconMarkerStroke: %s,iconMarkerType: \"%s\",iconStroke: %s,iconTextSpacing: %f,iconType: \"%s\",index: %f,text: \"%s\"}",  (iconHatchFill1 != null) ? iconHatchFill1.generateJs() : "null", disabled, iconEnabled, (iconFill != null) ? iconFill.generateJs() : "null", (iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null", (iconMarkerStroke != null) ? iconMarkerStroke.generateJs() : "null", iconMarkerType, (iconStroke != null) ? iconStroke.generateJs() : "null", iconTextSpacing, iconType, index, text));
+        js.append(String.format(Locale.US, "{iconHatchFill: %s,disabled: %b,iconEnabled: %b,iconFill: %s,iconMarkerFill: %s,iconMarkerStroke: %s,iconMarkerType: %s,iconStroke: %s,iconTextSpacing: %f,iconType: %s,index: %f,text: %s}",  (iconHatchFill1 != null) ? iconHatchFill1.generateJs() : "null", disabled, iconEnabled, (iconFill != null) ? iconFill.generateJs() : "null", (iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null", (iconMarkerStroke != null) ? iconMarkerStroke.generateJs() : "null", iconMarkerType, (iconStroke != null) ? iconStroke.generateJs() : "null", iconTextSpacing, iconType, index, text));
     }
 
     public LegendItemProvider(HatchFill iconHatchFill2, Boolean disabled, Boolean iconEnabled, Fill iconFill, Fill iconMarkerFill, Stroke iconMarkerStroke, String iconMarkerType, Stroke iconStroke, Double iconTextSpacing, String iconType, Double index, String text) {
@@ -70,7 +70,7 @@ public class LegendItemProvider extends JsObject  {
         this.index = index;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{iconHatchFill: %s,disabled: %b,iconEnabled: %b,iconFill: %s,iconMarkerFill: %s,iconMarkerStroke: %s,iconMarkerType: \"%s\",iconStroke: %s,iconTextSpacing: %f,iconType: \"%s\",index: %f,text: \"%s\"}",  (iconHatchFill2 != null) ? iconHatchFill2.generateJs() : "null", disabled, iconEnabled, (iconFill != null) ? iconFill.generateJs() : "null", (iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null", (iconMarkerStroke != null) ? iconMarkerStroke.generateJs() : "null", iconMarkerType, (iconStroke != null) ? iconStroke.generateJs() : "null", iconTextSpacing, iconType, index, text));
+        js.append(String.format(Locale.US, "{iconHatchFill: %s,disabled: %b,iconEnabled: %b,iconFill: %s,iconMarkerFill: %s,iconMarkerStroke: %s,iconMarkerType: %s,iconStroke: %s,iconTextSpacing: %f,iconType: %s,index: %f,text: %s}",  (iconHatchFill2 != null) ? iconHatchFill2.generateJs() : "null", disabled, iconEnabled, (iconFill != null) ? iconFill.generateJs() : "null", (iconMarkerFill != null) ? iconMarkerFill.generateJs() : "null", (iconMarkerStroke != null) ? iconMarkerStroke.generateJs() : "null", iconMarkerType, (iconStroke != null) ? iconStroke.generateJs() : "null", iconTextSpacing, iconType, index, text));
     }
 
 

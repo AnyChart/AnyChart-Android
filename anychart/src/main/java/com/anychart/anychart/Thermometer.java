@@ -1746,7 +1746,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSbulbPadding() {
         if (bulbPadding != null) {
-            return String.format(Locale.US, "bulbPadding: \"%s\",", bulbPadding);
+            return String.format(Locale.US, "bulbPadding: %s,", bulbPadding);
         }
         return "";
     }
@@ -1760,14 +1760,14 @@ public class Thermometer extends JsObject {
 
     private String generateJSbulbRadius() {
         if (bulbRadius != null) {
-            return String.format(Locale.US, "bulbRadius: \"%s\",", bulbRadius);
+            return String.format(Locale.US, "bulbRadius: %s,", bulbRadius);
         }
         return "";
     }
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -1795,7 +1795,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -1935,7 +1935,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSpatternFillOrType3() {
         if (patternFillOrType3 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType3);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType3);
         }
         return "";
     }
@@ -1949,7 +1949,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -1977,7 +1977,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -2117,7 +2117,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSpatternFillOrType8() {
         if (patternFillOrType8 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType8);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType8);
         }
         return "";
     }
@@ -2131,7 +2131,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color4);
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -2187,7 +2187,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor7() {
         if (color7 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color7);
+            return String.format(Locale.US, "color: %s,", color7);
         }
         return "";
     }
@@ -2201,7 +2201,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -2236,7 +2236,7 @@ public class Thermometer extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -2250,7 +2250,7 @@ public class Thermometer extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -2264,14 +2264,14 @@ public class Thermometer extends JsObject {
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
 
     private String generateJSoffset() {
         if (offset != null) {
-            return String.format(Locale.US, "offset: \"%s\",", offset);
+            return String.format(Locale.US, "offset: %s,", offset);
         }
         return "";
     }
@@ -2292,7 +2292,7 @@ public class Thermometer extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -2313,7 +2313,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor8() {
         if (color8 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color8);
+            return String.format(Locale.US, "color: %s,", color8);
         }
         return "";
     }
@@ -2453,7 +2453,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSpatternFillOrType13() {
         if (patternFillOrType13 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType13);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType13);
         }
         return "";
     }
@@ -2467,7 +2467,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor9() {
         if (color9 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color9);
+            return String.format(Locale.US, "color: %s,", color9);
         }
         return "";
     }
@@ -2509,7 +2509,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor12() {
         if (color12 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color12);
+            return String.format(Locale.US, "color: %s,", color12);
         }
         return "";
     }
@@ -2523,7 +2523,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -2565,7 +2565,7 @@ public class Thermometer extends JsObject {
 
     private String generateJScolor15() {
         if (color15 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color15);
+            return String.format(Locale.US, "color: %s,", color15);
         }
         return "";
     }
@@ -2579,7 +2579,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }
@@ -2600,7 +2600,7 @@ public class Thermometer extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -2614,7 +2614,7 @@ public class Thermometer extends JsObject {
 
     private String generateJSwidth() {
         if (width != null) {
-            return String.format(Locale.US, "width: \"%s\",", width);
+            return String.format(Locale.US, "width: %s,", width);
         }
         return "";
     }

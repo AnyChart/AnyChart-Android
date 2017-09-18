@@ -350,7 +350,7 @@ public class Ray extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -364,7 +364,7 @@ public class Ray extends JsObject {
 
     private String generateJShoverMarkers1() {
         if (hoverMarkers1 != null) {
-            return String.format(Locale.US, "hoverMarkers: \"%s\",", hoverMarkers1);
+            return String.format(Locale.US, "hoverMarkers: %s,", hoverMarkers1);
         }
         return "";
     }
@@ -385,7 +385,7 @@ public class Ray extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -399,7 +399,7 @@ public class Ray extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -427,7 +427,7 @@ public class Ray extends JsObject {
 
     private String generateJSmarkers1() {
         if (markers1 != null) {
-            return String.format(Locale.US, "markers: \"%s\",", markers1);
+            return String.format(Locale.US, "markers: %s,", markers1);
         }
         return "";
     }
@@ -441,7 +441,7 @@ public class Ray extends JsObject {
 
     private String generateJSselectMarkers1() {
         if (selectMarkers1 != null) {
-            return String.format(Locale.US, "selectMarkers: \"%s\",", selectMarkers1);
+            return String.format(Locale.US, "selectMarkers: %s,", selectMarkers1);
         }
         return "";
     }
@@ -462,7 +462,7 @@ public class Ray extends JsObject {
 
     private String generateJScolor6() {
         if (color6 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color6);
+            return String.format(Locale.US, "color: %s,", color6);
         }
         return "";
     }
@@ -476,7 +476,7 @@ public class Ray extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -511,7 +511,7 @@ public class Ray extends JsObject {
 
     private String generateJScolor9() {
         if (color9 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color9);
+            return String.format(Locale.US, "color: %s,", color9);
         }
         return "";
     }
@@ -525,7 +525,7 @@ public class Ray extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }

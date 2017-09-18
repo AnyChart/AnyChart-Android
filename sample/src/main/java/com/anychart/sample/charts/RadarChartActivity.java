@@ -18,7 +18,7 @@ public class RadarChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Radar radar = new Radar();
-        radar.setTitle("WoW base stats comparison radar chart: Shaman vs Warrior vs Priest");
+        radar.setTitle("'WoW base stats comparison radar chart: Shaman vs Warrior vs Priest'");
         radar.setLine(new String[]{
                 "['Strength', 136]",
                 "['Agility', 79]",

@@ -5511,7 +5511,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType2() {
         if (seriesType2 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType2);
+            return String.format(Locale.US, "seriesType: %s,", seriesType2);
         }
         return "";
     }
@@ -5539,21 +5539,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata2() {
         if (data2 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data2);
+            return String.format(Locale.US, "data: %s,", data2);
         }
         return "";
     }
 
     private String generateJSdata3() {
         if (data3 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data3);
+            return String.format(Locale.US, "data: %s,", data3);
         }
         return "";
     }
 
     private String generateJSmappingSettings() {
         if (mappingSettings != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings);
         }
         return "";
     }
@@ -5609,7 +5609,7 @@ public class Plot extends JsObject {
 
     private String generateJSbackground() {
         if (background != null) {
-            return String.format(Locale.US, "background: \"%s\",", background);
+            return String.format(Locale.US, "background: %s,", background);
         }
         return "";
     }
@@ -5651,7 +5651,7 @@ public class Plot extends JsObject {
 
     private String generateJSupperSeriesType1() {
         if (upperSeriesType1 != null) {
-            return String.format(Locale.US, "upperSeriesType: \"%s\",", upperSeriesType1);
+            return String.format(Locale.US, "upperSeriesType: %s,", upperSeriesType1);
         }
         return "";
     }
@@ -5665,7 +5665,7 @@ public class Plot extends JsObject {
 
     private String generateJSlowerSeriesType1() {
         if (lowerSeriesType1 != null) {
-            return String.format(Locale.US, "lowerSeriesType: \"%s\",", lowerSeriesType1);
+            return String.format(Locale.US, "lowerSeriesType: %s,", lowerSeriesType1);
         }
         return "";
     }
@@ -5679,7 +5679,7 @@ public class Plot extends JsObject {
 
     private String generateJSmiddleSeriesType1() {
         if (middleSeriesType1 != null) {
-            return String.format(Locale.US, "middleSeriesType: \"%s\",", middleSeriesType1);
+            return String.format(Locale.US, "middleSeriesType: %s,", middleSeriesType1);
         }
         return "";
     }
@@ -5714,7 +5714,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType5() {
         if (seriesType5 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType5);
+            return String.format(Locale.US, "seriesType: %s,", seriesType5);
         }
         return "";
     }
@@ -5749,7 +5749,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType7() {
         if (seriesType7 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType7);
+            return String.format(Locale.US, "seriesType: %s,", seriesType7);
         }
         return "";
     }
@@ -5763,7 +5763,7 @@ public class Plot extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -5798,7 +5798,7 @@ public class Plot extends JsObject {
 
     private String generateJSx1() {
         if (x1 != null) {
-            return String.format(Locale.US, "x: \"%s\",", x1);
+            return String.format(Locale.US, "x: %s,", x1);
         }
         return "";
     }
@@ -5812,7 +5812,7 @@ public class Plot extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -5826,7 +5826,7 @@ public class Plot extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }
@@ -5840,7 +5840,7 @@ public class Plot extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -5861,21 +5861,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata6() {
         if (data6 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data6);
+            return String.format(Locale.US, "data: %s,", data6);
         }
         return "";
     }
 
     private String generateJSdata7() {
         if (data7 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data7);
+            return String.format(Locale.US, "data: %s,", data7);
         }
         return "";
     }
 
     private String generateJSmappingSettings1() {
         if (mappingSettings1 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings1);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings1);
         }
         return "";
     }
@@ -5924,7 +5924,7 @@ public class Plot extends JsObject {
 
     private String generateJSmaType() {
         if (maType != null) {
-            return String.format(Locale.US, "maType: \"%s\",", maType);
+            return String.format(Locale.US, "maType: %s,", maType);
         }
         return "";
     }
@@ -5980,21 +5980,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata10() {
         if (data10 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data10);
+            return String.format(Locale.US, "data: %s,", data10);
         }
         return "";
     }
 
     private String generateJSdata11() {
         if (data11 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data11);
+            return String.format(Locale.US, "data: %s,", data11);
         }
         return "";
     }
 
     private String generateJSmappingSettings2() {
         if (mappingSettings2 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings2);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings2);
         }
         return "";
     }
@@ -6015,7 +6015,7 @@ public class Plot extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -6029,7 +6029,7 @@ public class Plot extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -6050,7 +6050,7 @@ public class Plot extends JsObject {
 
     private String generateJSdefaultSeriesType() {
         if (defaultSeriesType != null) {
-            return String.format(Locale.US, "defaultSeriesType: \"%s\",", defaultSeriesType);
+            return String.format(Locale.US, "defaultSeriesType: %s,", defaultSeriesType);
         }
         return "";
     }
@@ -6127,7 +6127,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType11() {
         if (seriesType11 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType11);
+            return String.format(Locale.US, "seriesType: %s,", seriesType11);
         }
         return "";
     }
@@ -6155,7 +6155,7 @@ public class Plot extends JsObject {
 
     private String generateJSid1() {
         if (id1 != null) {
-            return String.format(Locale.US, "id: \"%s\",", id1);
+            return String.format(Locale.US, "id: %s,", id1);
         }
         return "";
     }
@@ -6218,7 +6218,7 @@ public class Plot extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -6239,21 +6239,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata14() {
         if (data14 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data14);
+            return String.format(Locale.US, "data: %s,", data14);
         }
         return "";
     }
 
     private String generateJSdata15() {
         if (data15 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data15);
+            return String.format(Locale.US, "data: %s,", data15);
         }
         return "";
     }
 
     private String generateJSmappingSettings3() {
         if (mappingSettings3 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings3);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings3);
         }
         return "";
     }
@@ -6274,21 +6274,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata18() {
         if (data18 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data18);
+            return String.format(Locale.US, "data: %s,", data18);
         }
         return "";
     }
 
     private String generateJSdata19() {
         if (data19 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data19);
+            return String.format(Locale.US, "data: %s,", data19);
         }
         return "";
     }
 
     private String generateJSmappingSettings4() {
         if (mappingSettings4 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings4);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings4);
         }
         return "";
     }
@@ -6379,7 +6379,7 @@ public class Plot extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
@@ -6407,28 +6407,28 @@ public class Plot extends JsObject {
 
     private String generateJSdata22() {
         if (data22 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data22);
+            return String.format(Locale.US, "data: %s,", data22);
         }
         return "";
     }
 
     private String generateJSdata23() {
         if (data23 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data23);
+            return String.format(Locale.US, "data: %s,", data23);
         }
         return "";
     }
 
     private String generateJSmappingSettings5() {
         if (mappingSettings5 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings5);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings5);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -6442,7 +6442,7 @@ public class Plot extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -6484,7 +6484,7 @@ public class Plot extends JsObject {
 
     private String generateJSmacdSeriesType() {
         if (macdSeriesType != null) {
-            return String.format(Locale.US, "macdSeriesType: \"%s\",", macdSeriesType);
+            return String.format(Locale.US, "macdSeriesType: %s,", macdSeriesType);
         }
         return "";
     }
@@ -6498,7 +6498,7 @@ public class Plot extends JsObject {
 
     private String generateJSsignalSeriesType() {
         if (signalSeriesType != null) {
-            return String.format(Locale.US, "signalSeriesType: \"%s\",", signalSeriesType);
+            return String.format(Locale.US, "signalSeriesType: %s,", signalSeriesType);
         }
         return "";
     }
@@ -6512,7 +6512,7 @@ public class Plot extends JsObject {
 
     private String generateJShistogramSeriesType() {
         if (histogramSeriesType != null) {
-            return String.format(Locale.US, "histogramSeriesType: \"%s\",", histogramSeriesType);
+            return String.format(Locale.US, "histogramSeriesType: %s,", histogramSeriesType);
         }
         return "";
     }
@@ -6540,21 +6540,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata26() {
         if (data26 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data26);
+            return String.format(Locale.US, "data: %s,", data26);
         }
         return "";
     }
 
     private String generateJSdata27() {
         if (data27 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data27);
+            return String.format(Locale.US, "data: %s,", data27);
         }
         return "";
     }
 
     private String generateJSmappingSettings6() {
         if (mappingSettings6 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings6);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings6);
         }
         return "";
     }
@@ -6582,7 +6582,7 @@ public class Plot extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -6596,7 +6596,7 @@ public class Plot extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -6610,7 +6610,7 @@ public class Plot extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -6624,7 +6624,7 @@ public class Plot extends JsObject {
 
     private String generateJSminWidth1() {
         if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: \"%s\",", minWidth1);
+            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
@@ -6680,7 +6680,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType14() {
         if (seriesType14 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType14);
+            return String.format(Locale.US, "seriesType: %s,", seriesType14);
         }
         return "";
     }
@@ -6701,21 +6701,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata30() {
         if (data30 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data30);
+            return String.format(Locale.US, "data: %s,", data30);
         }
         return "";
     }
 
     private String generateJSdata31() {
         if (data31 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data31);
+            return String.format(Locale.US, "data: %s,", data31);
         }
         return "";
     }
 
     private String generateJSmappingSettings7() {
         if (mappingSettings7 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings7);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings7);
         }
         return "";
     }
@@ -6771,21 +6771,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata34() {
         if (data34 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data34);
+            return String.format(Locale.US, "data: %s,", data34);
         }
         return "";
     }
 
     private String generateJSdata35() {
         if (data35 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data35);
+            return String.format(Locale.US, "data: %s,", data35);
         }
         return "";
     }
 
     private String generateJSmappingSettings8() {
         if (mappingSettings8 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings8);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings8);
         }
         return "";
     }
@@ -6806,21 +6806,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata38() {
         if (data38 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data38);
+            return String.format(Locale.US, "data: %s,", data38);
         }
         return "";
     }
 
     private String generateJSdata39() {
         if (data39 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data39);
+            return String.format(Locale.US, "data: %s,", data39);
         }
         return "";
     }
 
     private String generateJSmappingSettings9() {
         if (mappingSettings9 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings9);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings9);
         }
         return "";
     }
@@ -6841,21 +6841,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata42() {
         if (data42 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data42);
+            return String.format(Locale.US, "data: %s,", data42);
         }
         return "";
     }
 
     private String generateJSdata43() {
         if (data43 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data43);
+            return String.format(Locale.US, "data: %s,", data43);
         }
         return "";
     }
 
     private String generateJSmappingSettings10() {
         if (mappingSettings10 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings10);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings10);
         }
         return "";
     }
@@ -6876,28 +6876,28 @@ public class Plot extends JsObject {
 
     private String generateJSdata46() {
         if (data46 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data46);
+            return String.format(Locale.US, "data: %s,", data46);
         }
         return "";
     }
 
     private String generateJSdata47() {
         if (data47 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data47);
+            return String.format(Locale.US, "data: %s,", data47);
         }
         return "";
     }
 
     private String generateJSmappingSettings11() {
         if (mappingSettings11 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings11);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings11);
         }
         return "";
     }
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -6911,7 +6911,7 @@ public class Plot extends JsObject {
 
     private String generateJSid3() {
         if (id3 != null) {
-            return String.format(Locale.US, "id: \"%s\",", id3);
+            return String.format(Locale.US, "id: %s,", id3);
         }
         return "";
     }
@@ -6932,7 +6932,7 @@ public class Plot extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -6953,7 +6953,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType15() {
         if (seriesType15 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType15);
+            return String.format(Locale.US, "seriesType: %s,", seriesType15);
         }
         return "";
     }
@@ -6981,7 +6981,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType17() {
         if (seriesType17 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType17);
+            return String.format(Locale.US, "seriesType: %s,", seriesType17);
         }
         return "";
     }
@@ -7009,7 +7009,7 @@ public class Plot extends JsObject {
 
     private String generateJSseriesType19() {
         if (seriesType19 != null) {
-            return String.format(Locale.US, "seriesType: \"%s\",", seriesType19);
+            return String.format(Locale.US, "seriesType: %s,", seriesType19);
         }
         return "";
     }
@@ -7037,21 +7037,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata50() {
         if (data50 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data50);
+            return String.format(Locale.US, "data: %s,", data50);
         }
         return "";
     }
 
     private String generateJSdata51() {
         if (data51 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data51);
+            return String.format(Locale.US, "data: %s,", data51);
         }
         return "";
     }
 
     private String generateJSmappingSettings12() {
         if (mappingSettings12 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings12);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings12);
         }
         return "";
     }
@@ -7072,21 +7072,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata54() {
         if (data54 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data54);
+            return String.format(Locale.US, "data: %s,", data54);
         }
         return "";
     }
 
     private String generateJSdata55() {
         if (data55 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data55);
+            return String.format(Locale.US, "data: %s,", data55);
         }
         return "";
     }
 
     private String generateJSmappingSettings13() {
         if (mappingSettings13 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings13);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings13);
         }
         return "";
     }
@@ -7107,21 +7107,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata58() {
         if (data58 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data58);
+            return String.format(Locale.US, "data: %s,", data58);
         }
         return "";
     }
 
     private String generateJSdata59() {
         if (data59 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data59);
+            return String.format(Locale.US, "data: %s,", data59);
         }
         return "";
     }
 
     private String generateJSmappingSettings14() {
         if (mappingSettings14 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings14);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings14);
         }
         return "";
     }
@@ -7142,21 +7142,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata62() {
         if (data62 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data62);
+            return String.format(Locale.US, "data: %s,", data62);
         }
         return "";
     }
 
     private String generateJSdata63() {
         if (data63 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data63);
+            return String.format(Locale.US, "data: %s,", data63);
         }
         return "";
     }
 
     private String generateJSmappingSettings15() {
         if (mappingSettings15 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings15);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings15);
         }
         return "";
     }
@@ -7177,21 +7177,21 @@ public class Plot extends JsObject {
 
     private String generateJSdata66() {
         if (data66 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data66);
+            return String.format(Locale.US, "data: %s,", data66);
         }
         return "";
     }
 
     private String generateJSdata67() {
         if (data67 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data67);
+            return String.format(Locale.US, "data: %s,", data67);
         }
         return "";
     }
 
     private String generateJSmappingSettings16() {
         if (mappingSettings16 != null) {
-            return String.format(Locale.US, "mappingSettings: \"%s\",", mappingSettings16);
+            return String.format(Locale.US, "mappingSettings: %s,", mappingSettings16);
         }
         return "";
     }
@@ -7261,14 +7261,14 @@ public class Plot extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -7289,7 +7289,7 @@ public class Plot extends JsObject {
 
     private String generateJSwidth3() {
         if (width3 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width3);
+            return String.format(Locale.US, "width: %s,", width3);
         }
         return "";
     }

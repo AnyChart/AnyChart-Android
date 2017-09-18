@@ -301,7 +301,7 @@ public class ScaleBar extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -420,7 +420,7 @@ public class ScaleBar extends JsObject {
 
     private String generateJSfrom() {
         if (from != null) {
-            return String.format(Locale.US, "from: \"%s\",", from);
+            return String.format(Locale.US, "from: %s,", from);
         }
         return "";
     }
@@ -434,7 +434,7 @@ public class ScaleBar extends JsObject {
 
     private String generateJSoffset() {
         if (offset != null) {
-            return String.format(Locale.US, "offset: \"%s\",", offset);
+            return String.format(Locale.US, "offset: %s,", offset);
         }
         return "";
     }
@@ -469,7 +469,7 @@ public class ScaleBar extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -483,7 +483,7 @@ public class ScaleBar extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -504,7 +504,7 @@ public class ScaleBar extends JsObject {
 
     private String generateJSto() {
         if (to != null) {
-            return String.format(Locale.US, "to: \"%s\",", to);
+            return String.format(Locale.US, "to: %s,", to);
         }
         return "";
     }
@@ -518,7 +518,7 @@ public class ScaleBar extends JsObject {
 
     private String generateJSwidth() {
         if (width != null) {
-            return String.format(Locale.US, "width: \"%s\",", width);
+            return String.format(Locale.US, "width: %s,", width);
         }
         return "";
     }

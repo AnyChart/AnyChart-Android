@@ -113,7 +113,7 @@ public class TableSelectable extends JsObject {
 
     private String generateJSstartDate1() {
         if (startDate1 != null) {
-            return String.format(Locale.US, "startDate: \"%s\",", startDate1);
+            return String.format(Locale.US, "startDate: %s,", startDate1);
         }
         return "";
     }
@@ -127,7 +127,7 @@ public class TableSelectable extends JsObject {
 
     private String generateJSendDate1() {
         if (endDate1 != null) {
-            return String.format(Locale.US, "endDate: \"%s\",", endDate1);
+            return String.format(Locale.US, "endDate: %s,", endDate1);
         }
         return "";
     }

@@ -24,7 +24,7 @@ public class NumberLocale extends JsObject  {
         this.useBracketsForNegative = useBracketsForNegative;
         this.zeroFillDecimals = zeroFillDecimals;
 
-        js.append(String.format(Locale.US, "{decimalPoint: \"%s\",decimalsCount: %f,groupsSeparator: \"%s\",scale: %b,scaleSuffixSeparator: \"%s\",useBracketsForNegative: %b,zeroFillDecimals: %b}",  decimalPoint, decimalsCount, groupsSeparator, scale, scaleSuffixSeparator, useBracketsForNegative, zeroFillDecimals));
+        js.append(String.format(Locale.US, "{decimalPoint: %s,decimalsCount: %f,groupsSeparator: %s,scale: %b,scaleSuffixSeparator: %s,useBracketsForNegative: %b,zeroFillDecimals: %b}",  decimalPoint, decimalsCount, groupsSeparator, scale, scaleSuffixSeparator, useBracketsForNegative, zeroFillDecimals));
     }
 
 

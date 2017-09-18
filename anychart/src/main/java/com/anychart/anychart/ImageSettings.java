@@ -260,7 +260,7 @@ public class ImageSettings extends JsObject {
 
     private String generateJSalign() {
         if (align != null) {
-            return String.format(Locale.US, "align: \"%s\",", align);
+            return String.format(Locale.US, "align: %s,", align);
         }
         return "";
     }
@@ -288,7 +288,7 @@ public class ImageSettings extends JsObject {
 
     private String generateJSfittingMode() {
         if (fittingMode != null) {
-            return String.format(Locale.US, "fittingMode: \"%s\",", fittingMode);
+            return String.format(Locale.US, "fittingMode: %s,", fittingMode);
         }
         return "";
     }
@@ -316,7 +316,7 @@ public class ImageSettings extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -330,7 +330,7 @@ public class ImageSettings extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -344,7 +344,7 @@ public class ImageSettings extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -358,7 +358,7 @@ public class ImageSettings extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -379,7 +379,7 @@ public class ImageSettings extends JsObject {
 
     private String generateJSsize() {
         if (size != null) {
-            return String.format(Locale.US, "size: \"%s\",", size);
+            return String.format(Locale.US, "size: %s,", size);
         }
         return "";
     }

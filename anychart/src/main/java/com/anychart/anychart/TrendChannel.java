@@ -1647,7 +1647,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -1661,7 +1661,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -1801,7 +1801,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSpatternFillOrType3() {
         if (patternFillOrType3 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType3);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType3);
         }
         return "";
     }
@@ -1815,7 +1815,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -1843,7 +1843,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -1983,7 +1983,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSpatternFillOrType8() {
         if (patternFillOrType8 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType8);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType8);
         }
         return "";
     }
@@ -1997,7 +1997,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color4);
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -2025,7 +2025,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJShoverMarkers1() {
         if (hoverMarkers1 != null) {
-            return String.format(Locale.US, "hoverMarkers: \"%s\",", hoverMarkers1);
+            return String.format(Locale.US, "hoverMarkers: %s,", hoverMarkers1);
         }
         return "";
     }
@@ -2046,7 +2046,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor7() {
         if (color7 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color7);
+            return String.format(Locale.US, "color: %s,", color7);
         }
         return "";
     }
@@ -2060,7 +2060,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -2088,7 +2088,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSmarkers1() {
         if (markers1 != null) {
-            return String.format(Locale.US, "markers: \"%s\",", markers1);
+            return String.format(Locale.US, "markers: %s,", markers1);
         }
         return "";
     }
@@ -2102,7 +2102,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor8() {
         if (color8 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color8);
+            return String.format(Locale.US, "color: %s,", color8);
         }
         return "";
     }
@@ -2242,7 +2242,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSpatternFillOrType13() {
         if (patternFillOrType13 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType13);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType13);
         }
         return "";
     }
@@ -2256,7 +2256,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor9() {
         if (color9 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color9);
+            return String.format(Locale.US, "color: %s,", color9);
         }
         return "";
     }
@@ -2284,7 +2284,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSselectMarkers1() {
         if (selectMarkers1 != null) {
-            return String.format(Locale.US, "selectMarkers: \"%s\",", selectMarkers1);
+            return String.format(Locale.US, "selectMarkers: %s,", selectMarkers1);
         }
         return "";
     }
@@ -2305,7 +2305,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor12() {
         if (color12 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color12);
+            return String.format(Locale.US, "color: %s,", color12);
         }
         return "";
     }
@@ -2319,7 +2319,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -2354,7 +2354,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJScolor15() {
         if (color15 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color15);
+            return String.format(Locale.US, "color: %s,", color15);
         }
         return "";
     }
@@ -2368,7 +2368,7 @@ public class TrendChannel extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }

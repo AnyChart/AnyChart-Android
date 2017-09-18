@@ -1387,7 +1387,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSbackground() {
         if (background != null) {
-            return String.format(Locale.US, "background: \"%s\",", background);
+            return String.format(Locale.US, "background: %s,", background);
         }
         return "";
     }
@@ -1408,7 +1408,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSbottom1() {
         if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: \"%s\",", bottom1);
+            return String.format(Locale.US, "bottom: %s,", bottom1);
         }
         return "";
     }
@@ -1443,7 +1443,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSx1() {
         if (x1 != null) {
-            return String.format(Locale.US, "x: \"%s\",", x1);
+            return String.format(Locale.US, "x: %s,", x1);
         }
         return "";
     }
@@ -1457,7 +1457,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -1471,7 +1471,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }
@@ -1485,7 +1485,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -1541,7 +1541,7 @@ public class TimeLine extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -1660,7 +1660,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSfontColor() {
         if (fontColor != null) {
-            return String.format(Locale.US, "fontColor: \"%s\",", fontColor);
+            return String.format(Locale.US, "fontColor: %s,", fontColor);
         }
         return "";
     }
@@ -1674,14 +1674,14 @@ public class TimeLine extends JsObject {
 
     private String generateJSfontDecoration1() {
         if (fontDecoration1 != null) {
-            return String.format(Locale.US, "fontDecoration: \"%s\",", fontDecoration1);
+            return String.format(Locale.US, "fontDecoration: %s,", fontDecoration1);
         }
         return "";
     }
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
@@ -1702,14 +1702,14 @@ public class TimeLine extends JsObject {
 
     private String generateJSfontSize1() {
         if (fontSize1 != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize1);
+            return String.format(Locale.US, "fontSize: %s,", fontSize1);
         }
         return "";
     }
 
     private String generateJSfontStyle() {
         if (fontStyle != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle);
         }
         return "";
     }
@@ -1723,7 +1723,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSfontVariant() {
         if (fontVariant != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant);
         }
         return "";
     }
@@ -1737,7 +1737,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }
@@ -1751,14 +1751,14 @@ public class TimeLine extends JsObject {
 
     private String generateJSformat() {
         if (format != null) {
-            return String.format(Locale.US, "format: \"%s\",", format);
+            return String.format(Locale.US, "format: %s,", format);
         }
         return "";
     }
 
     private String generateJShAlign() {
         if (hAlign != null) {
-            return String.format(Locale.US, "hAlign: \"%s\",", hAlign);
+            return String.format(Locale.US, "hAlign: %s,", hAlign);
         }
         return "";
     }
@@ -1779,7 +1779,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSheight3() {
         if (height3 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height3);
+            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -1793,7 +1793,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSleft1() {
         if (left1 != null) {
-            return String.format(Locale.US, "left: \"%s\",", left1);
+            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
@@ -1807,7 +1807,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSletterSpacing1() {
         if (letterSpacing1 != null) {
-            return String.format(Locale.US, "letterSpacing: \"%s\",", letterSpacing1);
+            return String.format(Locale.US, "letterSpacing: %s,", letterSpacing1);
         }
         return "";
     }
@@ -1828,14 +1828,14 @@ public class TimeLine extends JsObject {
 
     private String generateJSlineHeight1() {
         if (lineHeight1 != null) {
-            return String.format(Locale.US, "lineHeight: \"%s\",", lineHeight1);
+            return String.format(Locale.US, "lineHeight: %s,", lineHeight1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -1849,7 +1849,7 @@ public class TimeLine extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -1870,7 +1870,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSmaxFontSize1() {
         if (maxFontSize1 != null) {
-            return String.format(Locale.US, "maxFontSize: \"%s\",", maxFontSize1);
+            return String.format(Locale.US, "maxFontSize: %s,", maxFontSize1);
         }
         return "";
     }
@@ -1884,7 +1884,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -1898,7 +1898,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -1912,7 +1912,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSminFontSize1() {
         if (minFontSize1 != null) {
-            return String.format(Locale.US, "minFontSize: \"%s\",", minFontSize1);
+            return String.format(Locale.US, "minFontSize: %s,", minFontSize1);
         }
         return "";
     }
@@ -1926,7 +1926,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSminHeight1() {
         if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: \"%s\",", minHeight1);
+            return String.format(Locale.US, "minHeight: %s,", minHeight1);
         }
         return "";
     }
@@ -1940,7 +1940,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSminWidth1() {
         if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: \"%s\",", minWidth1);
+            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
@@ -1968,7 +1968,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -1982,7 +1982,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -1996,7 +1996,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -2010,7 +2010,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -2038,7 +2038,7 @@ public class TimeLine extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -2052,7 +2052,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSright1() {
         if (right1 != null) {
-            return String.format(Locale.US, "right: \"%s\",", right1);
+            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -2080,7 +2080,7 @@ public class TimeLine extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color3);
+            return String.format(Locale.US, "color: %s,", color3);
         }
         return "";
     }
@@ -2094,7 +2094,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -2115,7 +2115,7 @@ public class TimeLine extends JsObject {
 
     private String generateJStextDirection() {
         if (textDirection != null) {
-            return String.format(Locale.US, "textDirection: \"%s\",", textDirection);
+            return String.format(Locale.US, "textDirection: %s,", textDirection);
         }
         return "";
     }
@@ -2143,14 +2143,14 @@ public class TimeLine extends JsObject {
 
     private String generateJStextOverflow1() {
         if (textOverflow1 != null) {
-            return String.format(Locale.US, "textOverflow: \"%s\",", textOverflow1);
+            return String.format(Locale.US, "textOverflow: %s,", textOverflow1);
         }
         return "";
     }
 
     private String generateJStextWrap() {
         if (textWrap != null) {
-            return String.format(Locale.US, "textWrap: \"%s\",", textWrap);
+            return String.format(Locale.US, "textWrap: %s,", textWrap);
         }
         return "";
     }
@@ -2171,14 +2171,14 @@ public class TimeLine extends JsObject {
 
     private String generateJStop1() {
         if (top1 != null) {
-            return String.format(Locale.US, "top: \"%s\",", top1);
+            return String.format(Locale.US, "top: %s,", top1);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -2199,7 +2199,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSvAlign() {
         if (vAlign != null) {
-            return String.format(Locale.US, "vAlign: \"%s\",", vAlign);
+            return String.format(Locale.US, "vAlign: %s,", vAlign);
         }
         return "";
     }
@@ -2220,7 +2220,7 @@ public class TimeLine extends JsObject {
 
     private String generateJSwidth3() {
         if (width3 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width3);
+            return String.format(Locale.US, "width: %s,", width3);
         }
         return "";
     }

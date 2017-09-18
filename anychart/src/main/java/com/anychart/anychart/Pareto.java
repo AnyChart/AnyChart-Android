@@ -217,10 +217,10 @@ public class Pareto extends Chart {
         this.data4 = data4;
         this.csvSettings = csvSettings;
 
-        js.append(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -230,10 +230,10 @@ public class Pareto extends Chart {
         this.data4 = data4;
         this.csvSettings1 = csvSettings1;
 
-        js.append(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(\"%s\", %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -244,10 +244,10 @@ public class Pareto extends Chart {
     public void setDefaultseriestype(String defaultSeriesType) {
         this.defaultSeriesType = defaultSeriesType;
 
-        js.append(String.format(Locale.US, "chart.defaultSeriesType(\"%s\");", defaultSeriesType));
+        js.append(String.format(Locale.US, "chart.defaultSeriesType(%s);", defaultSeriesType));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.defaultSeriesType(\"%s\");", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, "chart.defaultSeriesType(%s);", defaultSeriesType));
             js.setLength(0);
         }
     }
@@ -282,10 +282,10 @@ public class Pareto extends Chart {
     public void setGetseries(String id1) {
         this.id1 = id1;
 
-        js.append(String.format(Locale.US, "chart.getSeries(\"%s\");", id1));
+        js.append(String.format(Locale.US, "chart.getSeries(%s);", id1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getSeries(\"%s\");", id1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getSeries(%s);", id1));
             js.setLength(0);
         }
     }
@@ -309,10 +309,10 @@ public class Pareto extends Chart {
     public void setGetstat(String key) {
         this.key = key;
 
-        js.append(String.format(Locale.US, "chart.getStat(\"%s\");", key));
+        js.append(String.format(Locale.US, "chart.getStat(%s);", key));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(\"%s\");", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(%s);", key));
             js.setLength(0);
         }
     }
@@ -507,10 +507,10 @@ public class Pareto extends Chart {
     public void setMaxbubblesize(String maxBubbleSize1) {
         this.maxBubbleSize1 = maxBubbleSize1;
 
-        js.append(String.format(Locale.US, "chart.maxBubbleSize(\"%s\");", maxBubbleSize1));
+        js.append(String.format(Locale.US, "chart.maxBubbleSize(%s);", maxBubbleSize1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxBubbleSize(\"%s\");", maxBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.maxBubbleSize(%s);", maxBubbleSize1));
             js.setLength(0);
         }
     }
@@ -533,10 +533,10 @@ public class Pareto extends Chart {
     public void setMinbubblesize(String minBubbleSize1) {
         this.minBubbleSize1 = minBubbleSize1;
 
-        js.append(String.format(Locale.US, "chart.minBubbleSize(\"%s\");", minBubbleSize1));
+        js.append(String.format(Locale.US, "chart.minBubbleSize(%s);", minBubbleSize1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minBubbleSize(\"%s\");", minBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minBubbleSize(%s);", minBubbleSize1));
             js.setLength(0);
         }
     }
@@ -680,10 +680,10 @@ public class Pareto extends Chart {
     public void setRemoveseries(String id3) {
         this.id3 = id3;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(\"%s\");", id3));
+        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(\"%s\");", id3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id3));
             js.setLength(0);
         }
     }
@@ -734,10 +734,10 @@ public class Pareto extends Chart {
         this.color = color;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(\"%s\", %f);", color, opacity));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color, opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(\"%s\", %f);", color, opacity));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color, opacity));
             js.setLength(0);
         }
     }
@@ -868,10 +868,10 @@ public class Pareto extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -884,10 +884,10 @@ public class Pareto extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -900,10 +900,10 @@ public class Pareto extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(\"%s\", %f, \"%s\", %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(\"%s\", %f, \"%s\", %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }

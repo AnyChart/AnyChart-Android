@@ -28,7 +28,7 @@ public class LinearGradientStroke extends JsObject implements Stroke {
         this.opacity = opacity;
         this.thickness = thickness;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %f,dash: \"%s\",lineCap: \"%s\",lineJoin: \"%s\",opacity: %f,thickness: %f}",  arrayToString(keys), mode, angle, dash, lineCap, lineJoin, opacity, thickness));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %f,dash: %s,lineCap: %s,lineJoin: %s,opacity: %f,thickness: %f}",  arrayToString(keys), mode, angle, dash, lineCap, lineJoin, opacity, thickness));
     }
 
     public LinearGradientStroke(GradientKey[] keys, Rect mode1, Double angle, String dash, String lineCap, String lineJoin, Double opacity, Double thickness) {
@@ -41,7 +41,7 @@ public class LinearGradientStroke extends JsObject implements Stroke {
         this.opacity = opacity;
         this.thickness = thickness;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %f,dash: \"%s\",lineCap: \"%s\",lineJoin: \"%s\",opacity: %f,thickness: %f}",  arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, dash, lineCap, lineJoin, opacity, thickness));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %f,dash: %s,lineCap: %s,lineJoin: %s,opacity: %f,thickness: %f}",  arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, dash, lineCap, lineJoin, opacity, thickness));
     }
 
     public LinearGradientStroke(String[] keys1, Boolean mode, Double angle, String dash, String lineCap, String lineJoin, Double opacity, Double thickness) {
@@ -54,7 +54,7 @@ public class LinearGradientStroke extends JsObject implements Stroke {
         this.opacity = opacity;
         this.thickness = thickness;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %f,dash: \"%s\",lineCap: \"%s\",lineJoin: \"%s\",opacity: %f,thickness: %f}",  Arrays.toString(keys1), mode, angle, dash, lineCap, lineJoin, opacity, thickness));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %f,dash: %s,lineCap: %s,lineJoin: %s,opacity: %f,thickness: %f}",  Arrays.toString(keys1), mode, angle, dash, lineCap, lineJoin, opacity, thickness));
     }
 
     public LinearGradientStroke(String[] keys1, Rect mode1, Double angle, String dash, String lineCap, String lineJoin, Double opacity, Double thickness) {
@@ -67,7 +67,7 @@ public class LinearGradientStroke extends JsObject implements Stroke {
         this.opacity = opacity;
         this.thickness = thickness;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %f,dash: \"%s\",lineCap: \"%s\",lineJoin: \"%s\",opacity: %f,thickness: %f}",  Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, dash, lineCap, lineJoin, opacity, thickness));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %f,dash: %s,lineCap: %s,lineJoin: %s,opacity: %f,thickness: %f}",  Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, dash, lineCap, lineJoin, opacity, thickness));
     }
 
 

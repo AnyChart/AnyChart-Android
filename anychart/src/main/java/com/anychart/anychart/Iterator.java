@@ -27,21 +27,21 @@ public class Iterator extends JsObject {
 
     private String generateJSfieldName() {
         if (fieldName != null) {
-            return String.format(Locale.US, "fieldName: \"%s\",", fieldName);
+            return String.format(Locale.US, "fieldName: %s,", fieldName);
         }
         return "";
     }
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
 
     private String generateJSname1() {
         if (name1 != null) {
-            return String.format(Locale.US, "name: \"%s\",", name1);
+            return String.format(Locale.US, "name: %s,", name1);
         }
         return "";
     }

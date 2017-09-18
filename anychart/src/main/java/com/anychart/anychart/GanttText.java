@@ -565,7 +565,7 @@ public class GanttText extends JsObject {
 
     private String generateJSalign1() {
         if (align1 != null) {
-            return String.format(Locale.US, "align: \"%s\",", align1);
+            return String.format(Locale.US, "align: %s,", align1);
         }
         return "";
     }
@@ -579,7 +579,7 @@ public class GanttText extends JsObject {
 
     private String generateJSanchor1() {
         if (anchor1 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor1);
+            return String.format(Locale.US, "anchor: %s,", anchor1);
         }
         return "";
     }
@@ -600,7 +600,7 @@ public class GanttText extends JsObject {
 
     private String generateJSfontColor() {
         if (fontColor != null) {
-            return String.format(Locale.US, "fontColor: \"%s\",", fontColor);
+            return String.format(Locale.US, "fontColor: %s,", fontColor);
         }
         return "";
     }
@@ -614,14 +614,14 @@ public class GanttText extends JsObject {
 
     private String generateJSfontDecoration1() {
         if (fontDecoration1 != null) {
-            return String.format(Locale.US, "fontDecoration: \"%s\",", fontDecoration1);
+            return String.format(Locale.US, "fontDecoration: %s,", fontDecoration1);
         }
         return "";
     }
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
@@ -635,7 +635,7 @@ public class GanttText extends JsObject {
 
     private String generateJSfontSize() {
         if (fontSize != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize);
+            return String.format(Locale.US, "fontSize: %s,", fontSize);
         }
         return "";
     }
@@ -656,7 +656,7 @@ public class GanttText extends JsObject {
 
     private String generateJSfontStyle1() {
         if (fontStyle1 != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle1);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle1);
         }
         return "";
     }
@@ -670,14 +670,14 @@ public class GanttText extends JsObject {
 
     private String generateJSfontVariant1() {
         if (fontVariant1 != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant1);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant1);
         }
         return "";
     }
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }
@@ -698,7 +698,7 @@ public class GanttText extends JsObject {
 
     private String generateJShAlign1() {
         if (hAlign1 != null) {
-            return String.format(Locale.US, "hAlign: \"%s\",", hAlign1);
+            return String.format(Locale.US, "hAlign: %s,", hAlign1);
         }
         return "";
     }
@@ -712,7 +712,7 @@ public class GanttText extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -726,14 +726,14 @@ public class GanttText extends JsObject {
 
     private String generateJSlayout1() {
         if (layout1 != null) {
-            return String.format(Locale.US, "layout: \"%s\",", layout1);
+            return String.format(Locale.US, "layout: %s,", layout1);
         }
         return "";
     }
 
     private String generateJSletterSpacing() {
         if (letterSpacing != null) {
-            return String.format(Locale.US, "letterSpacing: \"%s\",", letterSpacing);
+            return String.format(Locale.US, "letterSpacing: %s,", letterSpacing);
         }
         return "";
     }
@@ -747,7 +747,7 @@ public class GanttText extends JsObject {
 
     private String generateJSlineHeight() {
         if (lineHeight != null) {
-            return String.format(Locale.US, "lineHeight: \"%s\",", lineHeight);
+            return String.format(Locale.US, "lineHeight: %s,", lineHeight);
         }
         return "";
     }
@@ -761,7 +761,7 @@ public class GanttText extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -775,7 +775,7 @@ public class GanttText extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -796,7 +796,7 @@ public class GanttText extends JsObject {
 
     private String generateJSoffsetX1() {
         if (offsetX1 != null) {
-            return String.format(Locale.US, "offsetX: \"%s\",", offsetX1);
+            return String.format(Locale.US, "offsetX: %s,", offsetX1);
         }
         return "";
     }
@@ -810,7 +810,7 @@ public class GanttText extends JsObject {
 
     private String generateJSoffsetY1() {
         if (offsetY1 != null) {
-            return String.format(Locale.US, "offsetY: \"%s\",", offsetY1);
+            return String.format(Locale.US, "offsetY: %s,", offsetY1);
         }
         return "";
     }
@@ -831,7 +831,7 @@ public class GanttText extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -859,7 +859,7 @@ public class GanttText extends JsObject {
 
     private String generateJStext() {
         if (text != null) {
-            return String.format(Locale.US, "text: \"%s\",", text);
+            return String.format(Locale.US, "text: %s,", text);
         }
         return "";
     }
@@ -873,7 +873,7 @@ public class GanttText extends JsObject {
 
     private String generateJStextDirection1() {
         if (textDirection1 != null) {
-            return String.format(Locale.US, "textDirection: \"%s\",", textDirection1);
+            return String.format(Locale.US, "textDirection: %s,", textDirection1);
         }
         return "";
     }
@@ -894,28 +894,28 @@ public class GanttText extends JsObject {
 
     private String generateJStextOverflow1() {
         if (textOverflow1 != null) {
-            return String.format(Locale.US, "textOverflow: \"%s\",", textOverflow1);
+            return String.format(Locale.US, "textOverflow: %s,", textOverflow1);
         }
         return "";
     }
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
 
     private String generateJSname1() {
         if (name1 != null) {
-            return String.format(Locale.US, "name: \"%s\",", name1);
+            return String.format(Locale.US, "name: %s,", name1);
         }
         return "";
     }
 
     private String generateJStextSettings() {
         if (textSettings != null) {
-            return String.format(Locale.US, "textSettings: \"%s\",", textSettings);
+            return String.format(Locale.US, "textSettings: %s,", textSettings);
         }
         return "";
     }
@@ -943,14 +943,14 @@ public class GanttText extends JsObject {
 
     private String generateJStextWrap1() {
         if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: \"%s\",", textWrap1);
+            return String.format(Locale.US, "textWrap: %s,", textWrap1);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -978,7 +978,7 @@ public class GanttText extends JsObject {
 
     private String generateJSvAlign1() {
         if (vAlign1 != null) {
-            return String.format(Locale.US, "vAlign: \"%s\",", vAlign1);
+            return String.format(Locale.US, "vAlign: %s,", vAlign1);
         }
         return "";
     }
@@ -999,7 +999,7 @@ public class GanttText extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -1013,7 +1013,7 @@ public class GanttText extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }

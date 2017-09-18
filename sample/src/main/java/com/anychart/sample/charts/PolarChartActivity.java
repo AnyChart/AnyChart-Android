@@ -73,7 +73,6 @@ public class PolarChartActivity extends AppCompatActivity {
         polar.setDefaultseriestype(PolarSeriesType.COLUMN);
         polar.setYaxis(false);
         polar.setXscale(ScaleTypes.ORDINAL);
-//        chart.yScale().stackMode('value');
 
         anyChartView.setChart(polar);
     }

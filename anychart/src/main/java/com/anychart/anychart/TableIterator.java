@@ -14,7 +14,7 @@ public class TableIterator extends JsObject {
 
     private String generateJSfield() {
         if (field != null) {
-            return String.format(Locale.US, "field: \"%s\",", field);
+            return String.format(Locale.US, "field: %s,", field);
         }
         return "";
     }

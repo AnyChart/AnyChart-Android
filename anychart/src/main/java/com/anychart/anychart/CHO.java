@@ -58,7 +58,7 @@ public class CHO extends JsObject {
 
     private String generateJSmaType1() {
         if (maType1 != null) {
-            return String.format(Locale.US, "maType: \"%s\",", maType1);
+            return String.format(Locale.US, "maType: %s,", maType1);
         }
         return "";
     }

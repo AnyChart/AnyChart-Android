@@ -559,7 +559,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSfontColor() {
         if (fontColor != null) {
-            return String.format(Locale.US, "fontColor: \"%s\",", fontColor);
+            return String.format(Locale.US, "fontColor: %s,", fontColor);
         }
         return "";
     }
@@ -573,14 +573,14 @@ public class LegendItem extends JsObject {
 
     private String generateJSfontDecoration1() {
         if (fontDecoration1 != null) {
-            return String.format(Locale.US, "fontDecoration: \"%s\",", fontDecoration1);
+            return String.format(Locale.US, "fontDecoration: %s,", fontDecoration1);
         }
         return "";
     }
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
@@ -594,7 +594,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSfontSize() {
         if (fontSize != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize);
+            return String.format(Locale.US, "fontSize: %s,", fontSize);
         }
         return "";
     }
@@ -615,7 +615,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSfontStyle1() {
         if (fontStyle1 != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle1);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle1);
         }
         return "";
     }
@@ -629,14 +629,14 @@ public class LegendItem extends JsObject {
 
     private String generateJSfontVariant1() {
         if (fontVariant1 != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant1);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant1);
         }
         return "";
     }
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }
@@ -657,7 +657,7 @@ public class LegendItem extends JsObject {
 
     private String generateJShAlign1() {
         if (hAlign1 != null) {
-            return String.format(Locale.US, "hAlign: \"%s\",", hAlign1);
+            return String.format(Locale.US, "hAlign: %s,", hAlign1);
         }
         return "";
     }
@@ -692,14 +692,14 @@ public class LegendItem extends JsObject {
 
     private String generateJSpatternFillOrType3() {
         if (patternFillOrType3 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType3);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType3);
         }
         return "";
     }
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -734,14 +734,14 @@ public class LegendItem extends JsObject {
 
     private String generateJSiconType() {
         if (iconType != null) {
-            return String.format(Locale.US, "iconType: \"%s\",", iconType);
+            return String.format(Locale.US, "iconType: %s,", iconType);
         }
         return "";
     }
 
     private String generateJSletterSpacing() {
         if (letterSpacing != null) {
-            return String.format(Locale.US, "letterSpacing: \"%s\",", letterSpacing);
+            return String.format(Locale.US, "letterSpacing: %s,", letterSpacing);
         }
         return "";
     }
@@ -755,7 +755,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSlineHeight() {
         if (lineHeight != null) {
-            return String.format(Locale.US, "lineHeight: \"%s\",", lineHeight);
+            return String.format(Locale.US, "lineHeight: %s,", lineHeight);
         }
         return "";
     }
@@ -769,7 +769,7 @@ public class LegendItem extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -783,7 +783,7 @@ public class LegendItem extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -804,7 +804,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSmaxHeight1() {
         if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: \"%s\",", maxHeight1);
+            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
         }
         return "";
     }
@@ -818,7 +818,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: \"%s\",", maxWidth1);
+            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
         }
         return "";
     }
@@ -839,7 +839,7 @@ public class LegendItem extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -853,7 +853,7 @@ public class LegendItem extends JsObject {
 
     private String generateJStext() {
         if (text != null) {
-            return String.format(Locale.US, "text: \"%s\",", text);
+            return String.format(Locale.US, "text: %s,", text);
         }
         return "";
     }
@@ -867,7 +867,7 @@ public class LegendItem extends JsObject {
 
     private String generateJStextDirection1() {
         if (textDirection1 != null) {
-            return String.format(Locale.US, "textDirection: \"%s\",", textDirection1);
+            return String.format(Locale.US, "textDirection: %s,", textDirection1);
         }
         return "";
     }
@@ -888,28 +888,28 @@ public class LegendItem extends JsObject {
 
     private String generateJStextOverflow1() {
         if (textOverflow1 != null) {
-            return String.format(Locale.US, "textOverflow: \"%s\",", textOverflow1);
+            return String.format(Locale.US, "textOverflow: %s,", textOverflow1);
         }
         return "";
     }
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
 
     private String generateJSname1() {
         if (name1 != null) {
-            return String.format(Locale.US, "name: \"%s\",", name1);
+            return String.format(Locale.US, "name: %s,", name1);
         }
         return "";
     }
 
     private String generateJStextSettings() {
         if (textSettings != null) {
-            return String.format(Locale.US, "textSettings: \"%s\",", textSettings);
+            return String.format(Locale.US, "textSettings: %s,", textSettings);
         }
         return "";
     }
@@ -937,14 +937,14 @@ public class LegendItem extends JsObject {
 
     private String generateJStextWrap1() {
         if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: \"%s\",", textWrap1);
+            return String.format(Locale.US, "textWrap: %s,", textWrap1);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -972,7 +972,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSvAlign1() {
         if (vAlign1 != null) {
-            return String.format(Locale.US, "vAlign: \"%s\",", vAlign1);
+            return String.format(Locale.US, "vAlign: %s,", vAlign1);
         }
         return "";
     }
@@ -986,7 +986,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSx1() {
         if (x1 != null) {
-            return String.format(Locale.US, "x: \"%s\",", x1);
+            return String.format(Locale.US, "x: %s,", x1);
         }
         return "";
     }
@@ -1000,7 +1000,7 @@ public class LegendItem extends JsObject {
 
     private String generateJSy1() {
         if (y1 != null) {
-            return String.format(Locale.US, "y: \"%s\",", y1);
+            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }

@@ -332,7 +332,7 @@ public class Error extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -346,7 +346,7 @@ public class Error extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -360,7 +360,7 @@ public class Error extends JsObject {
 
     private String generateJSmode() {
         if (mode != null) {
-            return String.format(Locale.US, "mode: \"%s\",", mode);
+            return String.format(Locale.US, "mode: %s,", mode);
         }
         return "";
     }
@@ -374,14 +374,14 @@ public class Error extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -395,7 +395,7 @@ public class Error extends JsObject {
 
     private String generateJSvalueError() {
         if (valueError != null) {
-            return String.format(Locale.US, "valueError: \"%s\",", valueError);
+            return String.format(Locale.US, "valueError: %s,", valueError);
         }
         return "";
     }
@@ -423,7 +423,7 @@ public class Error extends JsObject {
 
     private String generateJSstrokeOrFill2() {
         if (strokeOrFill2 != null) {
-            return String.format(Locale.US, "strokeOrFill: \"%s\",", strokeOrFill2);
+            return String.format(Locale.US, "strokeOrFill: %s,", strokeOrFill2);
         }
         return "";
     }
@@ -437,7 +437,7 @@ public class Error extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -465,7 +465,7 @@ public class Error extends JsObject {
 
     private String generateJSvalueLowerError() {
         if (valueLowerError != null) {
-            return String.format(Locale.US, "valueLowerError: \"%s\",", valueLowerError);
+            return String.format(Locale.US, "valueLowerError: %s,", valueLowerError);
         }
         return "";
     }
@@ -479,7 +479,7 @@ public class Error extends JsObject {
 
     private String generateJSvalueUpperError() {
         if (valueUpperError != null) {
-            return String.format(Locale.US, "valueUpperError: \"%s\",", valueUpperError);
+            return String.format(Locale.US, "valueUpperError: %s,", valueUpperError);
         }
         return "";
     }
@@ -493,7 +493,7 @@ public class Error extends JsObject {
 
     private String generateJSxError() {
         if (xError != null) {
-            return String.format(Locale.US, "xError: \"%s\",", xError);
+            return String.format(Locale.US, "xError: %s,", xError);
         }
         return "";
     }
@@ -521,7 +521,7 @@ public class Error extends JsObject {
 
     private String generateJSstrokeOrFill5() {
         if (strokeOrFill5 != null) {
-            return String.format(Locale.US, "strokeOrFill: \"%s\",", strokeOrFill5);
+            return String.format(Locale.US, "strokeOrFill: %s,", strokeOrFill5);
         }
         return "";
     }
@@ -535,7 +535,7 @@ public class Error extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -563,7 +563,7 @@ public class Error extends JsObject {
 
     private String generateJSxLowerError() {
         if (xLowerError != null) {
-            return String.format(Locale.US, "xLowerError: \"%s\",", xLowerError);
+            return String.format(Locale.US, "xLowerError: %s,", xLowerError);
         }
         return "";
     }
@@ -577,7 +577,7 @@ public class Error extends JsObject {
 
     private String generateJSxUpperError() {
         if (xUpperError != null) {
-            return String.format(Locale.US, "xUpperError: \"%s\",", xUpperError);
+            return String.format(Locale.US, "xUpperError: %s,", xUpperError);
         }
         return "";
     }

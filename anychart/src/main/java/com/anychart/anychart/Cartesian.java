@@ -179,10 +179,10 @@ public class Cartesian extends Chart {
     public void setBackground(String background) {
         this.background = background;
 
-        js.append(String.format(Locale.US, "chart.background(\"%s\");", background));
+        js.append(String.format(Locale.US, "chart.background(%s);", background));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.background(\"%s\");", background));
+            onChangeListener.onChange(String.format(Locale.US, "chart.background(%s);", background));
             js.setLength(0);
         }
     }
@@ -288,10 +288,10 @@ public class Cartesian extends Chart {
         this.data6 = data6;
         this.csvSettings2 = csvSettings2;
 
-        js.append(String.format(Locale.US, "chart.bar(\"%s\", %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.bar(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bar(\"%s\", %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bar(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -301,10 +301,10 @@ public class Cartesian extends Chart {
         this.data6 = data6;
         this.csvSettings3 = csvSettings3;
 
-        js.append(String.format(Locale.US, "chart.bar(\"%s\", %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bar(\"%s\", %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -353,10 +353,10 @@ public class Cartesian extends Chart {
     public void setBottom(String bottom1) {
         this.bottom1 = bottom1;
 
-        js.append(String.format(Locale.US, "chart.bottom(\"%s\");", bottom1));
+        js.append(String.format(Locale.US, "chart.bottom(%s);", bottom1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bottom(\"%s\");", bottom1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bottom(%s);", bottom1));
             js.setLength(0);
         }
     }
@@ -430,10 +430,10 @@ public class Cartesian extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %f, \"%s\");", x, y, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %f, %s);", x, y, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %f, \"%s\");", x, y, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %f, %s);", x, y, width, height1));
             js.setLength(0);
         }
     }
@@ -445,10 +445,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", %f);", x, y, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %s, %f);", x, y, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", %f);", x, y, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %s, %f);", x, y, width1, height));
             js.setLength(0);
         }
     }
@@ -460,10 +460,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", \"%s\");", x, y, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %s, %s);", x, y, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, \"%s\", \"%s\");", x, y, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %s, %s);", x, y, width1, height1));
             js.setLength(0);
         }
     }
@@ -475,10 +475,10 @@ public class Cartesian extends Chart {
         this.width = width;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, %f);", x, y1, width, height));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %f, %f);", x, y1, width, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, %f);", x, y1, width, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %f, %f);", x, y1, width, height));
             js.setLength(0);
         }
     }
@@ -490,10 +490,10 @@ public class Cartesian extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, \"%s\");", x, y1, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %f, %s);", x, y1, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", %f, \"%s\");", x, y1, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %f, %s);", x, y1, width, height1));
             js.setLength(0);
         }
     }
@@ -505,10 +505,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", %f);", x, y1, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %s, %f);", x, y1, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", %f);", x, y1, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %s, %f);", x, y1, width1, height));
             js.setLength(0);
         }
     }
@@ -520,10 +520,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", \"%s\");", x, y1, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %s, %s);", x, y1, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, \"%s\", \"%s\", \"%s\");", x, y1, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %s, %s);", x, y1, width1, height1));
             js.setLength(0);
         }
     }
@@ -535,10 +535,10 @@ public class Cartesian extends Chart {
         this.width = width;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, %f);", x1, y, width, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %f, %f);", x1, y, width, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, %f);", x1, y, width, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %f, %f);", x1, y, width, height));
             js.setLength(0);
         }
     }
@@ -550,10 +550,10 @@ public class Cartesian extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, \"%s\");", x1, y, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %f, %s);", x1, y, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, %f, \"%s\");", x1, y, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %f, %s);", x1, y, width, height1));
             js.setLength(0);
         }
     }
@@ -565,10 +565,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", %f);", x1, y, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %s, %f);", x1, y, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", %f);", x1, y, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %s, %f);", x1, y, width1, height));
             js.setLength(0);
         }
     }
@@ -580,10 +580,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", \"%s\");", x1, y, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %s, %s);", x1, y, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", %f, \"%s\", \"%s\");", x1, y, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %s, %s);", x1, y, width1, height1));
             js.setLength(0);
         }
     }
@@ -595,10 +595,10 @@ public class Cartesian extends Chart {
         this.width = width;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, %f);", x1, y1, width, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %f, %f);", x1, y1, width, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, %f);", x1, y1, width, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %f, %f);", x1, y1, width, height));
             js.setLength(0);
         }
     }
@@ -610,10 +610,10 @@ public class Cartesian extends Chart {
         this.width = width;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, \"%s\");", x1, y1, width, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %f, %s);", x1, y1, width, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", %f, \"%s\");", x1, y1, width, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %f, %s);", x1, y1, width, height1));
             js.setLength(0);
         }
     }
@@ -625,10 +625,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height = height;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", %f);", x1, y1, width1, height));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %s, %f);", x1, y1, width1, height));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", %f);", x1, y1, width1, height));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %s, %f);", x1, y1, width1, height));
             js.setLength(0);
         }
     }
@@ -640,10 +640,10 @@ public class Cartesian extends Chart {
         this.width1 = width1;
         this.height1 = height1;
 
-        js.append(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", \"%s\");", x1, y1, width1, height1));
+        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(\"%s\", \"%s\", \"%s\", \"%s\");", x1, y1, width1, height1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
             js.setLength(0);
         }
     }
@@ -737,10 +737,10 @@ public class Cartesian extends Chart {
         this.data10 = data10;
         this.csvSettings4 = csvSettings4;
 
-        js.append(String.format(Locale.US, "chart.box(\"%s\", %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.box(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.box(\"%s\", %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.box(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -750,10 +750,10 @@ public class Cartesian extends Chart {
         this.data10 = data10;
         this.csvSettings5 = csvSettings5;
 
-        js.append(String.format(Locale.US, "chart.box(\"%s\", %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.box(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.box(\"%s\", %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.box(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -847,10 +847,10 @@ public class Cartesian extends Chart {
         this.data14 = data14;
         this.csvSettings6 = csvSettings6;
 
-        js.append(String.format(Locale.US, "chart.bubble(\"%s\", %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.bubble(%s, %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bubble(\"%s\", %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bubble(%s, %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -860,10 +860,10 @@ public class Cartesian extends Chart {
         this.data14 = data14;
         this.csvSettings7 = csvSettings7;
 
-        js.append(String.format(Locale.US, "chart.bubble(\"%s\", %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.bubble(%s, %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bubble(\"%s\", %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bubble(%s, %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -957,10 +957,10 @@ public class Cartesian extends Chart {
         this.data18 = data18;
         this.csvSettings8 = csvSettings8;
 
-        js.append(String.format(Locale.US, "chart.candlestick(\"%s\", %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.candlestick(%s, %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.candlestick(\"%s\", %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.candlestick(%s, %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -970,10 +970,10 @@ public class Cartesian extends Chart {
         this.data18 = data18;
         this.csvSettings9 = csvSettings9;
 
-        js.append(String.format(Locale.US, "chart.candlestick(\"%s\", %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.candlestick(%s, %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.candlestick(\"%s\", %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.candlestick(%s, %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1067,10 +1067,10 @@ public class Cartesian extends Chart {
         this.data22 = data22;
         this.csvSettings10 = csvSettings10;
 
-        js.append(String.format(Locale.US, "chart.column(\"%s\", %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.column(%s, %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.column(\"%s\", %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.column(%s, %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1080,10 +1080,10 @@ public class Cartesian extends Chart {
         this.data22 = data22;
         this.csvSettings11 = csvSettings11;
 
-        js.append(String.format(Locale.US, "chart.column(\"%s\", %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.column(%s, %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.column(\"%s\", %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.column(%s, %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1120,10 +1120,10 @@ public class Cartesian extends Chart {
     public void setContainer(String container2) {
         this.container2 = container2;
 
-        js.append(String.format(Locale.US, "chart.container(\"%s\");", container2));
+        js.append(String.format(Locale.US, "chart.container(%s);", container2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.container(\"%s\");", container2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.container(%s);", container2));
             js.setLength(0);
         }
     }
@@ -1224,10 +1224,10 @@ public class Cartesian extends Chart {
     public void setDefaultseriestype(String defaultSeriesType) {
         this.defaultSeriesType = defaultSeriesType;
 
-        js.append(String.format(Locale.US, "chart.defaultSeriesType(\"%s\");", defaultSeriesType));
+        js.append(String.format(Locale.US, "chart.defaultSeriesType(%s);", defaultSeriesType));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.defaultSeriesType(\"%s\");", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, "chart.defaultSeriesType(%s);", defaultSeriesType));
             js.setLength(0);
         }
     }
@@ -1275,10 +1275,10 @@ public class Cartesian extends Chart {
     public void setGetseries(String id1) {
         this.id1 = id1;
 
-        js.append(String.format(Locale.US, "chart.getSeries(\"%s\");", id1));
+        js.append(String.format(Locale.US, "chart.getSeries(%s);", id1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getSeries(\"%s\");", id1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getSeries(%s);", id1));
             js.setLength(0);
         }
     }
@@ -1302,10 +1302,10 @@ public class Cartesian extends Chart {
     public void setGetstat(String key) {
         this.key = key;
 
-        js.append(String.format(Locale.US, "chart.getStat(\"%s\");", key));
+        js.append(String.format(Locale.US, "chart.getStat(%s);", key));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(\"%s\");", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(%s);", key));
             js.setLength(0);
         }
     }
@@ -1422,10 +1422,10 @@ public class Cartesian extends Chart {
     public void setHeight(String height3) {
         this.height3 = height3;
 
-        js.append(String.format(Locale.US, "chart.height(\"%s\");", height3));
+        js.append(String.format(Locale.US, "chart.height(%s);", height3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.height(\"%s\");", height3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.height(%s);", height3));
             js.setLength(0);
         }
     }
@@ -1519,10 +1519,10 @@ public class Cartesian extends Chart {
         this.data29 = data29;
         this.csvSettings12 = csvSettings12;
 
-        js.append(String.format(Locale.US, "chart.hilo(\"%s\", %s);", data29, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hilo(%s, %s);", data29, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hilo(\"%s\", %s);", data29, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hilo(%s, %s);", data29, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1532,10 +1532,10 @@ public class Cartesian extends Chart {
         this.data29 = data29;
         this.csvSettings13 = csvSettings13;
 
-        js.append(String.format(Locale.US, "chart.hilo(\"%s\", %s);", data29, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hilo(%s, %s);", data29, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hilo(\"%s\", %s);", data29, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hilo(%s, %s);", data29, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1655,10 +1655,10 @@ public class Cartesian extends Chart {
         this.data33 = data33;
         this.csvSettings14 = csvSettings14;
 
-        js.append(String.format(Locale.US, "chart.jumpLine(\"%s\", %s);", data33, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.jumpLine(%s, %s);", data33, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.jumpLine(\"%s\", %s);", data33, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.jumpLine(%s, %s);", data33, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1668,10 +1668,10 @@ public class Cartesian extends Chart {
         this.data33 = data33;
         this.csvSettings15 = csvSettings15;
 
-        js.append(String.format(Locale.US, "chart.jumpLine(\"%s\", %s);", data33, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.jumpLine(%s, %s);", data33, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.jumpLine(\"%s\", %s);", data33, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.jumpLine(%s, %s);", data33, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1682,10 +1682,10 @@ public class Cartesian extends Chart {
     public void setLabel(String index3) {
         this.index3 = index3;
 
-        js.append(String.format(Locale.US, "chart.label(\"%s\");", index3));
+        js.append(String.format(Locale.US, "chart.label(%s);", index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(\"%s\");", index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s);", index3));
             js.setLength(0);
         }
     }
@@ -1725,10 +1725,10 @@ public class Cartesian extends Chart {
         this.index5 = index5;
         this.label2 = label2;
 
-        js.append(String.format(Locale.US, "chart.label(\"%s\", %b);", index5, label2));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index5, label2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(\"%s\", %b);", index5, label2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index5, label2));
             js.setLength(0);
         }
     }
@@ -1738,10 +1738,10 @@ public class Cartesian extends Chart {
         this.index5 = index5;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(\"%s\", \"%s\");", index5, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index5, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(\"%s\", \"%s\");", index5, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index5, label3));
             js.setLength(0);
         }
     }
@@ -1764,10 +1764,10 @@ public class Cartesian extends Chart {
         this.index6 = index6;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, \"%s\");", index6, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index6, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, \"%s\");", index6, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index6, label3));
             js.setLength(0);
         }
     }
@@ -1803,10 +1803,10 @@ public class Cartesian extends Chart {
     public void setLeft(String left1) {
         this.left1 = left1;
 
-        js.append(String.format(Locale.US, "chart.left(\"%s\");", left1));
+        js.append(String.format(Locale.US, "chart.left(%s);", left1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.left(\"%s\");", left1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.left(%s);", left1));
             js.setLength(0);
         }
     }
@@ -1913,10 +1913,10 @@ public class Cartesian extends Chart {
         this.data37 = data37;
         this.csvSettings16 = csvSettings16;
 
-        js.append(String.format(Locale.US, "chart.line(\"%s\", %s);", data37, (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.line(%s, %s);", data37, (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.line(\"%s\", %s);", data37, (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.line(%s, %s);", data37, (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1926,10 +1926,10 @@ public class Cartesian extends Chart {
         this.data37 = data37;
         this.csvSettings17 = csvSettings17;
 
-        js.append(String.format(Locale.US, "chart.line(\"%s\", %s);", data37, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.line(%s, %s);", data37, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.line(\"%s\", %s);", data37, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.line(%s, %s);", data37, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1982,10 +1982,10 @@ public class Cartesian extends Chart {
         this.type = type;
         this.useCapture = useCapture;
 
-        js.append(String.format(Locale.US, "chart.listen(\"%s\", %b);", type, useCapture));
+        js.append(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listen(\"%s\", %b);", type, useCapture));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
             js.setLength(0);
         }
     }
@@ -1997,10 +1997,10 @@ public class Cartesian extends Chart {
         this.type1 = type1;
         this.useCapture1 = useCapture1;
 
-        js.append(String.format(Locale.US, "chart.listenOnce(\"%s\", %b);", type1, useCapture1));
+        js.append(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(\"%s\", %b);", type1, useCapture1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
             js.setLength(0);
         }
     }
@@ -2064,10 +2064,10 @@ public class Cartesian extends Chart {
         this.value4 = value4;
         this.value5 = value5;
 
-        js.append(String.format(Locale.US, "chart.margin(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value6, value, value1, value2, value3, value4, value5));
+        js.append(String.format(Locale.US, "chart.margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value6, value, value1, value2, value3, value4, value5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
             js.setLength(0);
         }
     }
@@ -2082,10 +2082,10 @@ public class Cartesian extends Chart {
         this.value4 = value4;
         this.value5 = value5;
 
-        js.append(String.format(Locale.US, "chart.margin(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value7, value, value1, value2, value3, value4, value5));
+        js.append(String.format(Locale.US, "chart.margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value7, value, value1, value2, value3, value4, value5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
             js.setLength(0);
         }
     }
@@ -2179,10 +2179,10 @@ public class Cartesian extends Chart {
         this.data41 = data41;
         this.csvSettings18 = csvSettings18;
 
-        js.append(String.format(Locale.US, "chart.marker(\"%s\", %s);", data41, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", data41, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(\"%s\", %s);", data41, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", data41, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2192,10 +2192,10 @@ public class Cartesian extends Chart {
         this.data41 = data41;
         this.csvSettings19 = csvSettings19;
 
-        js.append(String.format(Locale.US, "chart.marker(\"%s\", %s);", data41, (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", data41, (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(\"%s\", %s);", data41, (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", data41, (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2244,10 +2244,10 @@ public class Cartesian extends Chart {
     public void setMaxbubblesize(String maxBubbleSize1) {
         this.maxBubbleSize1 = maxBubbleSize1;
 
-        js.append(String.format(Locale.US, "chart.maxBubbleSize(\"%s\");", maxBubbleSize1));
+        js.append(String.format(Locale.US, "chart.maxBubbleSize(%s);", maxBubbleSize1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxBubbleSize(\"%s\");", maxBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.maxBubbleSize(%s);", maxBubbleSize1));
             js.setLength(0);
         }
     }
@@ -2270,10 +2270,10 @@ public class Cartesian extends Chart {
     public void setMaxheight(String maxHeight1) {
         this.maxHeight1 = maxHeight1;
 
-        js.append(String.format(Locale.US, "chart.maxHeight(\"%s\");", maxHeight1));
+        js.append(String.format(Locale.US, "chart.maxHeight(%s);", maxHeight1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHeight(\"%s\");", maxHeight1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.maxHeight(%s);", maxHeight1));
             js.setLength(0);
         }
     }
@@ -2296,10 +2296,10 @@ public class Cartesian extends Chart {
     public void setMaxwidth(String maxWidth1) {
         this.maxWidth1 = maxWidth1;
 
-        js.append(String.format(Locale.US, "chart.maxWidth(\"%s\");", maxWidth1));
+        js.append(String.format(Locale.US, "chart.maxWidth(%s);", maxWidth1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxWidth(\"%s\");", maxWidth1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.maxWidth(%s);", maxWidth1));
             js.setLength(0);
         }
     }
@@ -2322,10 +2322,10 @@ public class Cartesian extends Chart {
     public void setMinbubblesize(String minBubbleSize1) {
         this.minBubbleSize1 = minBubbleSize1;
 
-        js.append(String.format(Locale.US, "chart.minBubbleSize(\"%s\");", minBubbleSize1));
+        js.append(String.format(Locale.US, "chart.minBubbleSize(%s);", minBubbleSize1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minBubbleSize(\"%s\");", minBubbleSize1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minBubbleSize(%s);", minBubbleSize1));
             js.setLength(0);
         }
     }
@@ -2348,10 +2348,10 @@ public class Cartesian extends Chart {
     public void setMinheight(String minHeight1) {
         this.minHeight1 = minHeight1;
 
-        js.append(String.format(Locale.US, "chart.minHeight(\"%s\");", minHeight1));
+        js.append(String.format(Locale.US, "chart.minHeight(%s);", minHeight1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHeight(\"%s\");", minHeight1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minHeight(%s);", minHeight1));
             js.setLength(0);
         }
     }
@@ -2374,10 +2374,10 @@ public class Cartesian extends Chart {
     public void setMinwidth(String minWidth1) {
         this.minWidth1 = minWidth1;
 
-        js.append(String.format(Locale.US, "chart.minWidth(\"%s\");", minWidth1));
+        js.append(String.format(Locale.US, "chart.minWidth(%s);", minWidth1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minWidth(\"%s\");", minWidth1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minWidth(%s);", minWidth1));
             js.setLength(0);
         }
     }
@@ -2512,10 +2512,10 @@ public class Cartesian extends Chart {
         this.data45 = data45;
         this.csvSettings20 = csvSettings20;
 
-        js.append(String.format(Locale.US, "chart.ohlc(\"%s\", %s);", data45, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.ohlc(%s, %s);", data45, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.ohlc(\"%s\", %s);", data45, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.ohlc(%s, %s);", data45, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2525,10 +2525,10 @@ public class Cartesian extends Chart {
         this.data45 = data45;
         this.csvSettings21 = csvSettings21;
 
-        js.append(String.format(Locale.US, "chart.ohlc(\"%s\", %s);", data45, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.ohlc(%s, %s);", data45, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.ohlc(\"%s\", %s);", data45, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.ohlc(%s, %s);", data45, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2577,10 +2577,10 @@ public class Cartesian extends Chart {
         this.value12 = value12;
         this.value13 = value13;
 
-        js.append(String.format(Locale.US, "chart.padding(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value14, value8, value9, value10, value11, value12, value13));
+        js.append(String.format(Locale.US, "chart.padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(\"%s\", \"%s\", %f, \"%s\", %f, \"%s\", %f);", value14, value8, value9, value10, value11, value12, value13));
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
             js.setLength(0);
         }
     }
@@ -2595,10 +2595,10 @@ public class Cartesian extends Chart {
         this.value12 = value12;
         this.value13 = value13;
 
-        js.append(String.format(Locale.US, "chart.padding(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value15, value8, value9, value10, value11, value12, value13));
+        js.append(String.format(Locale.US, "chart.padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, \"%s\", %f, \"%s\", %f, \"%s\", %f);", value15, value8, value9, value10, value11, value12, value13));
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
             js.setLength(0);
         }
     }
@@ -2746,10 +2746,10 @@ public class Cartesian extends Chart {
         this.data49 = data49;
         this.csvSettings22 = csvSettings22;
 
-        js.append(String.format(Locale.US, "chart.rangeArea(\"%s\", %s);", data49, (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeArea(%s, %s);", data49, (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeArea(\"%s\", %s);", data49, (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeArea(%s, %s);", data49, (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2759,10 +2759,10 @@ public class Cartesian extends Chart {
         this.data49 = data49;
         this.csvSettings23 = csvSettings23;
 
-        js.append(String.format(Locale.US, "chart.rangeArea(\"%s\", %s);", data49, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeArea(%s, %s);", data49, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeArea(\"%s\", %s);", data49, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeArea(%s, %s);", data49, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2856,10 +2856,10 @@ public class Cartesian extends Chart {
         this.data53 = data53;
         this.csvSettings24 = csvSettings24;
 
-        js.append(String.format(Locale.US, "chart.rangeBar(\"%s\", %s);", data53, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeBar(%s, %s);", data53, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeBar(\"%s\", %s);", data53, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeBar(%s, %s);", data53, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2869,10 +2869,10 @@ public class Cartesian extends Chart {
         this.data53 = data53;
         this.csvSettings25 = csvSettings25;
 
-        js.append(String.format(Locale.US, "chart.rangeBar(\"%s\", %s);", data53, (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeBar(%s, %s);", data53, (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeBar(\"%s\", %s);", data53, (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeBar(%s, %s);", data53, (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2966,10 +2966,10 @@ public class Cartesian extends Chart {
         this.data57 = data57;
         this.csvSettings26 = csvSettings26;
 
-        js.append(String.format(Locale.US, "chart.rangeColumn(\"%s\", %s);", data57, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeColumn(%s, %s);", data57, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeColumn(\"%s\", %s);", data57, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeColumn(%s, %s);", data57, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -2979,10 +2979,10 @@ public class Cartesian extends Chart {
         this.data57 = data57;
         this.csvSettings27 = csvSettings27;
 
-        js.append(String.format(Locale.US, "chart.rangeColumn(\"%s\", %s);", data57, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeColumn(%s, %s);", data57, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeColumn(\"%s\", %s);", data57, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeColumn(%s, %s);", data57, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3117,10 +3117,10 @@ public class Cartesian extends Chart {
         this.data61 = data61;
         this.csvSettings28 = csvSettings28;
 
-        js.append(String.format(Locale.US, "chart.rangeSplineArea(\"%s\", %s);", data61, (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeSplineArea(%s, %s);", data61, (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeSplineArea(\"%s\", %s);", data61, (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeSplineArea(%s, %s);", data61, (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3130,10 +3130,10 @@ public class Cartesian extends Chart {
         this.data61 = data61;
         this.csvSettings29 = csvSettings29;
 
-        js.append(String.format(Locale.US, "chart.rangeSplineArea(\"%s\", %s);", data61, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeSplineArea(%s, %s);", data61, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeSplineArea(\"%s\", %s);", data61, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeSplineArea(%s, %s);", data61, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3227,10 +3227,10 @@ public class Cartesian extends Chart {
         this.data65 = data65;
         this.csvSettings30 = csvSettings30;
 
-        js.append(String.format(Locale.US, "chart.rangeStepArea(\"%s\", %s);", data65, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeStepArea(%s, %s);", data65, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeStepArea(\"%s\", %s);", data65, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeStepArea(%s, %s);", data65, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3240,10 +3240,10 @@ public class Cartesian extends Chart {
         this.data65 = data65;
         this.csvSettings31 = csvSettings31;
 
-        js.append(String.format(Locale.US, "chart.rangeStepArea(\"%s\", %s);", data65, (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.rangeStepArea(%s, %s);", data65, (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeStepArea(\"%s\", %s);", data65, (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeStepArea(%s, %s);", data65, (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3253,10 +3253,10 @@ public class Cartesian extends Chart {
     public void setRemovealllisteners(String type2) {
         this.type2 = type2;
 
-        js.append(String.format(Locale.US, "chart.removeAllListeners(\"%s\");", type2));
+        js.append(String.format(Locale.US, "chart.removeAllListeners(%s);", type2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeAllListeners(\"%s\");", type2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeAllListeners(%s);", type2));
             js.setLength(0);
         }
     }
@@ -3279,10 +3279,10 @@ public class Cartesian extends Chart {
     public void setRemoveseries(String id3) {
         this.id3 = id3;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(\"%s\");", id3));
+        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(\"%s\");", id3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id3));
             js.setLength(0);
         }
     }
@@ -3318,10 +3318,10 @@ public class Cartesian extends Chart {
     public void setRight(String right1) {
         this.right1 = right1;
 
-        js.append(String.format(Locale.US, "chart.right(\"%s\");", right1));
+        js.append(String.format(Locale.US, "chart.right(%s);", right1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.right(\"%s\");", right1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.right(%s);", right1));
             js.setLength(0);
         }
     }
@@ -3336,10 +3336,10 @@ public class Cartesian extends Chart {
         this.csvSettings32 = csvSettings32;
         this.filename = filename;
 
-        js.append(String.format(Locale.US, "chart.saveAsCsv(\"%s\", \"%s\", \"%s\");", chartDataExportMode, csvSettings32, filename));
+        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", chartDataExportMode, csvSettings32, filename));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(\"%s\", \"%s\", \"%s\");", chartDataExportMode, csvSettings32, filename));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", chartDataExportMode, csvSettings32, filename));
             js.setLength(0);
         }
     }
@@ -3350,10 +3350,10 @@ public class Cartesian extends Chart {
         this.csvSettings32 = csvSettings32;
         this.filename = filename;
 
-        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, \"%s\", \"%s\");", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings32, filename));
+        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings32, filename));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, \"%s\", \"%s\");", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings32, filename));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings32, filename));
             js.setLength(0);
         }
     }
@@ -3384,10 +3384,10 @@ public class Cartesian extends Chart {
         this.includeTheme = includeTheme;
         this.filename1 = filename1;
 
-        js.append(String.format(Locale.US, "chart.saveAsJson(%b, \"%s\");", includeTheme, filename1));
+        js.append(String.format(Locale.US, "chart.saveAsJson(%b, %s);", includeTheme, filename1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJson(%b, \"%s\");", includeTheme, filename1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJson(%b, %s);", includeTheme, filename1));
             js.setLength(0);
         }
     }
@@ -3403,10 +3403,10 @@ public class Cartesian extends Chart {
         this.x2 = x2;
         this.y2 = y2;
 
-        js.append(String.format(Locale.US, "chart.saveAsPdf(\"%s\", %b, %f, %f);", paperSize1, landscape1, x2, y2));
+        js.append(String.format(Locale.US, "chart.saveAsPdf(%s, %b, %f, %f);", paperSize1, landscape1, x2, y2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(\"%s\", %b, %f, %f);", paperSize1, landscape1, x2, y2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(%s, %b, %f, %f);", paperSize1, landscape1, x2, y2));
             js.setLength(0);
         }
     }
@@ -3435,10 +3435,10 @@ public class Cartesian extends Chart {
         this.paperSize2 = paperSize2;
         this.landscape2 = landscape2;
 
-        js.append(String.format(Locale.US, "chart.saveAsSvg(\"%s\", %b);", paperSize2, landscape2));
+        js.append(String.format(Locale.US, "chart.saveAsSvg(%s, %b);", paperSize2, landscape2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(\"%s\", %b);", paperSize2, landscape2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%s, %b);", paperSize2, landscape2));
             js.setLength(0);
         }
     }
@@ -3466,10 +3466,10 @@ public class Cartesian extends Chart {
         this.chartDataExportMode2 = chartDataExportMode2;
         this.filename2 = filename2;
 
-        js.append(String.format(Locale.US, "chart.saveAsXlsx(\"%s\", \"%s\");", chartDataExportMode2, filename2));
+        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", chartDataExportMode2, filename2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(\"%s\", \"%s\");", chartDataExportMode2, filename2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", chartDataExportMode2, filename2));
             js.setLength(0);
         }
     }
@@ -3479,10 +3479,10 @@ public class Cartesian extends Chart {
         this.chartDataExportMode3 = chartDataExportMode3;
         this.filename2 = filename2;
 
-        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, \"%s\");", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename2));
+        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, \"%s\");", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename2));
             js.setLength(0);
         }
     }
@@ -3494,10 +3494,10 @@ public class Cartesian extends Chart {
         this.includeTheme1 = includeTheme1;
         this.filename3 = filename3;
 
-        js.append(String.format(Locale.US, "chart.saveAsXml(%b, \"%s\");", includeTheme1, filename3));
+        js.append(String.format(Locale.US, "chart.saveAsXml(%b, %s);", includeTheme1, filename3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXml(%b, \"%s\");", includeTheme1, filename3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXml(%b, %s);", includeTheme1, filename3));
             js.setLength(0);
         }
     }
@@ -3535,10 +3535,10 @@ public class Cartesian extends Chart {
         this.color = color;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(\"%s\", %f);", color, opacity));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color, opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(\"%s\", %f);", color, opacity));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color, opacity));
             js.setLength(0);
         }
     }
@@ -3669,10 +3669,10 @@ public class Cartesian extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3685,10 +3685,10 @@ public class Cartesian extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, \"%s\", %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3701,10 +3701,10 @@ public class Cartesian extends Chart {
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(\"%s\", %f, \"%s\", %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(\"%s\", %f, \"%s\", %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3798,10 +3798,10 @@ public class Cartesian extends Chart {
         this.data69 = data69;
         this.csvSettings33 = csvSettings33;
 
-        js.append(String.format(Locale.US, "chart.spline(\"%s\", %s);", data69, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.spline(%s, %s);", data69, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.spline(\"%s\", %s);", data69, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.spline(%s, %s);", data69, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3811,10 +3811,10 @@ public class Cartesian extends Chart {
         this.data69 = data69;
         this.csvSettings34 = csvSettings34;
 
-        js.append(String.format(Locale.US, "chart.spline(\"%s\", %s);", data69, (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.spline(%s, %s);", data69, (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.spline(\"%s\", %s);", data69, (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.spline(%s, %s);", data69, (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3908,10 +3908,10 @@ public class Cartesian extends Chart {
         this.data73 = data73;
         this.csvSettings35 = csvSettings35;
 
-        js.append(String.format(Locale.US, "chart.splineArea(\"%s\", %s);", data73, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.splineArea(%s, %s);", data73, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.splineArea(\"%s\", %s);", data73, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.splineArea(%s, %s);", data73, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -3921,10 +3921,10 @@ public class Cartesian extends Chart {
         this.data73 = data73;
         this.csvSettings36 = csvSettings36;
 
-        js.append(String.format(Locale.US, "chart.splineArea(\"%s\", %s);", data73, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.splineArea(%s, %s);", data73, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.splineArea(\"%s\", %s);", data73, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.splineArea(%s, %s);", data73, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -4031,10 +4031,10 @@ public class Cartesian extends Chart {
         this.data77 = data77;
         this.csvSettings37 = csvSettings37;
 
-        js.append(String.format(Locale.US, "chart.stepArea(\"%s\", %s);", data77, (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stepArea(%s, %s);", data77, (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stepArea(\"%s\", %s);", data77, (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stepArea(%s, %s);", data77, (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -4044,10 +4044,10 @@ public class Cartesian extends Chart {
         this.data77 = data77;
         this.csvSettings38 = csvSettings38;
 
-        js.append(String.format(Locale.US, "chart.stepArea(\"%s\", %s);", data77, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stepArea(%s, %s);", data77, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stepArea(\"%s\", %s);", data77, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stepArea(%s, %s);", data77, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -4141,10 +4141,10 @@ public class Cartesian extends Chart {
         this.data81 = data81;
         this.csvSettings39 = csvSettings39;
 
-        js.append(String.format(Locale.US, "chart.stepLine(\"%s\", %s);", data81, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stepLine(%s, %s);", data81, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stepLine(\"%s\", %s);", data81, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stepLine(%s, %s);", data81, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -4154,10 +4154,10 @@ public class Cartesian extends Chart {
         this.data81 = data81;
         this.csvSettings40 = csvSettings40;
 
-        js.append(String.format(Locale.US, "chart.stepLine(\"%s\", %s);", data81, (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stepLine(%s, %s);", data81, (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stepLine(\"%s\", %s);", data81, (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stepLine(%s, %s);", data81, (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -4251,10 +4251,10 @@ public class Cartesian extends Chart {
         this.data85 = data85;
         this.csvSettings41 = csvSettings41;
 
-        js.append(String.format(Locale.US, "chart.stick(\"%s\", %s);", data85, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stick(%s, %s);", data85, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stick(\"%s\", %s);", data85, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stick(%s, %s);", data85, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -4264,10 +4264,10 @@ public class Cartesian extends Chart {
         this.data85 = data85;
         this.csvSettings42 = csvSettings42;
 
-        js.append(String.format(Locale.US, "chart.stick(\"%s\", %s);", data85, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.stick(%s, %s);", data85, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stick(\"%s\", %s);", data85, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.stick(%s, %s);", data85, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -4331,10 +4331,10 @@ public class Cartesian extends Chart {
     public void setTitle(String title1) {
         this.title1 = title1;
 
-        js.append(String.format(Locale.US, "chart.title(\"%s\");", title1));
+        js.append(String.format(Locale.US, "chart.title(%s);", title1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.title(\"%s\");", title1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.title(%s);", title1));
             js.setLength(0);
         }
     }
@@ -4347,10 +4347,10 @@ public class Cartesian extends Chart {
         this.chartDataExportMode4 = chartDataExportMode4;
         this.csvSettings43 = csvSettings43;
 
-        js.append(String.format(Locale.US, "chart.toCsv(\"%s\", \"%s\");", chartDataExportMode4, csvSettings43));
+        js.append(String.format(Locale.US, "chart.toCsv(%s, %s);", chartDataExportMode4, csvSettings43));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(\"%s\", \"%s\");", chartDataExportMode4, csvSettings43));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, %s);", chartDataExportMode4, csvSettings43));
             js.setLength(0);
         }
     }
@@ -4360,10 +4360,10 @@ public class Cartesian extends Chart {
         this.chartDataExportMode5 = chartDataExportMode5;
         this.csvSettings43 = csvSettings43;
 
-        js.append(String.format(Locale.US, "chart.toCsv(%s, \"%s\");", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings43));
+        js.append(String.format(Locale.US, "chart.toCsv(%s, %s);", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings43));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, \"%s\");", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings43));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, %s);", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings43));
             js.setLength(0);
         }
     }
@@ -4390,10 +4390,10 @@ public class Cartesian extends Chart {
         this.paperSize3 = paperSize3;
         this.landscape3 = landscape3;
 
-        js.append(String.format(Locale.US, "chart.toSvg(\"%s\", %b);", paperSize3, landscape3));
+        js.append(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize3, landscape3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(\"%s\", %b);", paperSize3, landscape3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize3, landscape3));
             js.setLength(0);
         }
     }
@@ -4459,10 +4459,10 @@ public class Cartesian extends Chart {
     public void setTop(String top1) {
         this.top1 = top1;
 
-        js.append(String.format(Locale.US, "chart.top(\"%s\");", top1));
+        js.append(String.format(Locale.US, "chart.top(%s);", top1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.top(\"%s\");", top1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.top(%s);", top1));
             js.setLength(0);
         }
     }
@@ -4474,10 +4474,10 @@ public class Cartesian extends Chart {
         this.type3 = type3;
         this.useCapture2 = useCapture2;
 
-        js.append(String.format(Locale.US, "chart.unlisten(\"%s\", %b);", type3, useCapture2));
+        js.append(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(\"%s\", %b);", type3, useCapture2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
             js.setLength(0);
         }
     }
@@ -4500,10 +4500,10 @@ public class Cartesian extends Chart {
     public void setWidth(String width7) {
         this.width7 = width7;
 
-        js.append(String.format(Locale.US, "chart.width(\"%s\");", width7));
+        js.append(String.format(Locale.US, "chart.width(%s);", width7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(\"%s\");", width7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.width(%s);", width7));
             js.setLength(0);
         }
     }

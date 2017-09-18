@@ -381,7 +381,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSanchor1() {
         if (anchor1 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor1);
+            return String.format(Locale.US, "anchor: %s,", anchor1);
         }
         return "";
     }
@@ -395,7 +395,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSbackground() {
         if (background != null) {
-            return String.format(Locale.US, "background: \"%s\",", background);
+            return String.format(Locale.US, "background: %s,", background);
         }
         return "";
     }
@@ -416,7 +416,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSheight1() {
         if (height1 != null) {
-            return String.format(Locale.US, "height: \"%s\",", height1);
+            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -430,7 +430,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSmaxFontSize1() {
         if (maxFontSize1 != null) {
-            return String.format(Locale.US, "maxFontSize: \"%s\",", maxFontSize1);
+            return String.format(Locale.US, "maxFontSize: %s,", maxFontSize1);
         }
         return "";
     }
@@ -444,7 +444,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSminFontSize1() {
         if (minFontSize1 != null) {
-            return String.format(Locale.US, "minFontSize: \"%s\",", minFontSize1);
+            return String.format(Locale.US, "minFontSize: %s,", minFontSize1);
         }
         return "";
     }
@@ -458,7 +458,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSoffsetX1() {
         if (offsetX1 != null) {
-            return String.format(Locale.US, "offsetX: \"%s\",", offsetX1);
+            return String.format(Locale.US, "offsetX: %s,", offsetX1);
         }
         return "";
     }
@@ -472,7 +472,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSoffsetY1() {
         if (offsetY1 != null) {
-            return String.format(Locale.US, "offsetY: \"%s\",", offsetY1);
+            return String.format(Locale.US, "offsetY: %s,", offsetY1);
         }
         return "";
     }
@@ -493,7 +493,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -507,7 +507,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -521,7 +521,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -535,7 +535,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -556,7 +556,7 @@ public class CrosshairLabel extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }

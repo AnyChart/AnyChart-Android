@@ -847,7 +847,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSanchor1() {
         if (anchor1 != null) {
-            return String.format(Locale.US, "anchor: \"%s\",", anchor1);
+            return String.format(Locale.US, "anchor: %s,", anchor1);
         }
         return "";
     }
@@ -861,7 +861,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSbackground1() {
         if (background1 != null) {
-            return String.format(Locale.US, "background: \"%s\",", background1);
+            return String.format(Locale.US, "background: %s,", background1);
         }
         return "";
     }
@@ -882,7 +882,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSdisplayMode1() {
         if (displayMode1 != null) {
-            return String.format(Locale.US, "displayMode: \"%s\",", displayMode1);
+            return String.format(Locale.US, "displayMode: %s,", displayMode1);
         }
         return "";
     }
@@ -896,7 +896,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSfontColor() {
         if (fontColor != null) {
-            return String.format(Locale.US, "fontColor: \"%s\",", fontColor);
+            return String.format(Locale.US, "fontColor: %s,", fontColor);
         }
         return "";
     }
@@ -910,14 +910,14 @@ public class Tooltip extends JsObject {
 
     private String generateJSfontDecoration1() {
         if (fontDecoration1 != null) {
-            return String.format(Locale.US, "fontDecoration: \"%s\",", fontDecoration1);
+            return String.format(Locale.US, "fontDecoration: %s,", fontDecoration1);
         }
         return "";
     }
 
     private String generateJSfontFamily() {
         if (fontFamily != null) {
-            return String.format(Locale.US, "fontFamily: \"%s\",", fontFamily);
+            return String.format(Locale.US, "fontFamily: %s,", fontFamily);
         }
         return "";
     }
@@ -938,14 +938,14 @@ public class Tooltip extends JsObject {
 
     private String generateJSfontSize1() {
         if (fontSize1 != null) {
-            return String.format(Locale.US, "fontSize: \"%s\",", fontSize1);
+            return String.format(Locale.US, "fontSize: %s,", fontSize1);
         }
         return "";
     }
 
     private String generateJSfontStyle() {
         if (fontStyle != null) {
-            return String.format(Locale.US, "fontStyle: \"%s\",", fontStyle);
+            return String.format(Locale.US, "fontStyle: %s,", fontStyle);
         }
         return "";
     }
@@ -959,7 +959,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSfontVariant() {
         if (fontVariant != null) {
-            return String.format(Locale.US, "fontVariant: \"%s\",", fontVariant);
+            return String.format(Locale.US, "fontVariant: %s,", fontVariant);
         }
         return "";
     }
@@ -973,7 +973,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSfontWeight() {
         if (fontWeight != null) {
-            return String.format(Locale.US, "fontWeight: \"%s\",", fontWeight);
+            return String.format(Locale.US, "fontWeight: %s,", fontWeight);
         }
         return "";
     }
@@ -987,14 +987,14 @@ public class Tooltip extends JsObject {
 
     private String generateJSformat() {
         if (format != null) {
-            return String.format(Locale.US, "format: \"%s\",", format);
+            return String.format(Locale.US, "format: %s,", format);
         }
         return "";
     }
 
     private String generateJShAlign() {
         if (hAlign != null) {
-            return String.format(Locale.US, "hAlign: \"%s\",", hAlign);
+            return String.format(Locale.US, "hAlign: %s,", hAlign);
         }
         return "";
     }
@@ -1008,7 +1008,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSheight() {
         if (height != null) {
-            return String.format(Locale.US, "height: \"%s\",", height);
+            return String.format(Locale.US, "height: %s,", height);
         }
         return "";
     }
@@ -1050,14 +1050,14 @@ public class Tooltip extends JsObject {
 
     private String generateJSlineHeight1() {
         if (lineHeight1 != null) {
-            return String.format(Locale.US, "lineHeight: \"%s\",", lineHeight1);
+            return String.format(Locale.US, "lineHeight: %s,", lineHeight1);
         }
         return "";
     }
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -1071,7 +1071,7 @@ public class Tooltip extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -1092,7 +1092,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSmaxFontSize1() {
         if (maxFontSize1 != null) {
-            return String.format(Locale.US, "maxFontSize: \"%s\",", maxFontSize1);
+            return String.format(Locale.US, "maxFontSize: %s,", maxFontSize1);
         }
         return "";
     }
@@ -1106,7 +1106,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSminFontSize1() {
         if (minFontSize1 != null) {
-            return String.format(Locale.US, "minFontSize: \"%s\",", minFontSize1);
+            return String.format(Locale.US, "minFontSize: %s,", minFontSize1);
         }
         return "";
     }
@@ -1141,7 +1141,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -1155,7 +1155,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -1169,7 +1169,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -1183,7 +1183,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -1204,14 +1204,14 @@ public class Tooltip extends JsObject {
 
     private String generateJSposition1() {
         if (position1 != null) {
-            return String.format(Locale.US, "position: \"%s\",", position1);
+            return String.format(Locale.US, "position: %s,", position1);
         }
         return "";
     }
 
     private String generateJSpositionMode() {
         if (positionMode != null) {
-            return String.format(Locale.US, "positionMode: \"%s\",", positionMode);
+            return String.format(Locale.US, "positionMode: %s,", positionMode);
         }
         return "";
     }
@@ -1239,7 +1239,7 @@ public class Tooltip extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -1260,7 +1260,7 @@ public class Tooltip extends JsObject {
 
     private String generateJStextDirection() {
         if (textDirection != null) {
-            return String.format(Locale.US, "textDirection: \"%s\",", textDirection);
+            return String.format(Locale.US, "textDirection: %s,", textDirection);
         }
         return "";
     }
@@ -1288,21 +1288,21 @@ public class Tooltip extends JsObject {
 
     private String generateJStextOverflow1() {
         if (textOverflow1 != null) {
-            return String.format(Locale.US, "textOverflow: \"%s\",", textOverflow1);
+            return String.format(Locale.US, "textOverflow: %s,", textOverflow1);
         }
         return "";
     }
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
 
     private String generateJStextSettings() {
         if (textSettings != null) {
-            return String.format(Locale.US, "textSettings: \"%s\",", textSettings);
+            return String.format(Locale.US, "textSettings: %s,", textSettings);
         }
         return "";
     }
@@ -1323,7 +1323,7 @@ public class Tooltip extends JsObject {
 
     private String generateJStextWrap() {
         if (textWrap != null) {
-            return String.format(Locale.US, "textWrap: \"%s\",", textWrap);
+            return String.format(Locale.US, "textWrap: %s,", textWrap);
         }
         return "";
     }
@@ -1344,21 +1344,21 @@ public class Tooltip extends JsObject {
 
     private String generateJStitleFormat() {
         if (titleFormat != null) {
-            return String.format(Locale.US, "titleFormat: \"%s\",", titleFormat);
+            return String.format(Locale.US, "titleFormat: %s,", titleFormat);
         }
         return "";
     }
 
     private String generateJSunionFormat() {
         if (unionFormat != null) {
-            return String.format(Locale.US, "unionFormat: \"%s\",", unionFormat);
+            return String.format(Locale.US, "unionFormat: %s,", unionFormat);
         }
         return "";
     }
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -1379,7 +1379,7 @@ public class Tooltip extends JsObject {
 
     private String generateJSvAlign() {
         if (vAlign != null) {
-            return String.format(Locale.US, "vAlign: \"%s\",", vAlign);
+            return String.format(Locale.US, "vAlign: %s,", vAlign);
         }
         return "";
     }
@@ -1393,21 +1393,21 @@ public class Tooltip extends JsObject {
 
     private String generateJSvaluePostfix() {
         if (valuePostfix != null) {
-            return String.format(Locale.US, "valuePostfix: \"%s\",", valuePostfix);
+            return String.format(Locale.US, "valuePostfix: %s,", valuePostfix);
         }
         return "";
     }
 
     private String generateJSvaluePrefix() {
         if (valuePrefix != null) {
-            return String.format(Locale.US, "valuePrefix: \"%s\",", valuePrefix);
+            return String.format(Locale.US, "valuePrefix: %s,", valuePrefix);
         }
         return "";
     }
 
     private String generateJSwidth() {
         if (width != null) {
-            return String.format(Locale.US, "width: \"%s\",", width);
+            return String.format(Locale.US, "width: %s,", width);
         }
         return "";
     }

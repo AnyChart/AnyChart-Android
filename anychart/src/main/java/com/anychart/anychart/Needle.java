@@ -527,7 +527,7 @@ public class Needle extends JsObject {
 
     private String generateJSendRadius1() {
         if (endRadius1 != null) {
-            return String.format(Locale.US, "endRadius: \"%s\",", endRadius1);
+            return String.format(Locale.US, "endRadius: %s,", endRadius1);
         }
         return "";
     }
@@ -541,7 +541,7 @@ public class Needle extends JsObject {
 
     private String generateJSendWidth1() {
         if (endWidth1 != null) {
-            return String.format(Locale.US, "endWidth: \"%s\",", endWidth1);
+            return String.format(Locale.US, "endWidth: %s,", endWidth1);
         }
         return "";
     }
@@ -555,7 +555,7 @@ public class Needle extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -695,7 +695,7 @@ public class Needle extends JsObject {
 
     private String generateJSpatternFillOrType3() {
         if (patternFillOrType3 != null) {
-            return String.format(Locale.US, "patternFillOrType: \"%s\",", patternFillOrType3);
+            return String.format(Locale.US, "patternFillOrType: %s,", patternFillOrType3);
         }
         return "";
     }
@@ -709,7 +709,7 @@ public class Needle extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -730,7 +730,7 @@ public class Needle extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -744,7 +744,7 @@ public class Needle extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -765,7 +765,7 @@ public class Needle extends JsObject {
 
     private String generateJSmiddleRadius1() {
         if (middleRadius1 != null) {
-            return String.format(Locale.US, "middleRadius: \"%s\",", middleRadius1);
+            return String.format(Locale.US, "middleRadius: %s,", middleRadius1);
         }
         return "";
     }
@@ -779,7 +779,7 @@ public class Needle extends JsObject {
 
     private String generateJSmiddleWidth1() {
         if (middleWidth1 != null) {
-            return String.format(Locale.US, "middleWidth: \"%s\",", middleWidth1);
+            return String.format(Locale.US, "middleWidth: %s,", middleWidth1);
         }
         return "";
     }
@@ -800,7 +800,7 @@ public class Needle extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -814,7 +814,7 @@ public class Needle extends JsObject {
 
     private String generateJSstartRadius1() {
         if (startRadius1 != null) {
-            return String.format(Locale.US, "startRadius: \"%s\",", startRadius1);
+            return String.format(Locale.US, "startRadius: %s,", startRadius1);
         }
         return "";
     }
@@ -828,7 +828,7 @@ public class Needle extends JsObject {
 
     private String generateJSstartWidth1() {
         if (startWidth1 != null) {
-            return String.format(Locale.US, "startWidth: \"%s\",", startWidth1);
+            return String.format(Locale.US, "startWidth: %s,", startWidth1);
         }
         return "";
     }
@@ -849,7 +849,7 @@ public class Needle extends JsObject {
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color4);
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -863,7 +863,7 @@ public class Needle extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -884,7 +884,7 @@ public class Needle extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

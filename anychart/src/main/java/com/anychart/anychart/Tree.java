@@ -264,14 +264,14 @@ public class Tree extends JsObject {
 
     private String generateJSdata() {
         if (data != null) {
-            return String.format(Locale.US, "data: \"%s\",", data);
+            return String.format(Locale.US, "data: %s,", data);
         }
         return "";
     }
 
     private String generateJSdata1() {
         if (data1 != null) {
-            return String.format(Locale.US, "data: \"%s\",", data1);
+            return String.format(Locale.US, "data: %s,", data1);
         }
         return "";
     }
@@ -285,7 +285,7 @@ public class Tree extends JsObject {
 
     private String generateJSfillingMethod1() {
         if (fillingMethod1 != null) {
-            return String.format(Locale.US, "fillingMethod: \"%s\",", fillingMethod1);
+            return String.format(Locale.US, "fillingMethod: %s,", fillingMethod1);
         }
         return "";
     }
@@ -299,7 +299,7 @@ public class Tree extends JsObject {
 
     private String generateJSfield() {
         if (field != null) {
-            return String.format(Locale.US, "field: \"%s\",", field);
+            return String.format(Locale.US, "field: %s,", field);
         }
         return "";
     }
@@ -341,7 +341,7 @@ public class Tree extends JsObject {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: \"%s\",", type);
+            return String.format(Locale.US, "type: %s,", type);
         }
         return "";
     }
@@ -355,7 +355,7 @@ public class Tree extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type1);
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -369,7 +369,7 @@ public class Tree extends JsObject {
 
     private String generateJStype2() {
         if (type2 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type2);
+            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -390,21 +390,21 @@ public class Tree extends JsObject {
 
     private String generateJSfield1() {
         if (field1 != null) {
-            return String.format(Locale.US, "field: \"%s\",", field1);
+            return String.format(Locale.US, "field: %s,", field1);
         }
         return "";
     }
 
     private String generateJSsoughtField() {
         if (soughtField != null) {
-            return String.format(Locale.US, "soughtField: \"%s\",", soughtField);
+            return String.format(Locale.US, "soughtField: %s,", soughtField);
         }
         return "";
     }
 
     private String generateJSsearch() {
         if (search != null) {
-            return String.format(Locale.US, "search: \"%s\",", search);
+            return String.format(Locale.US, "search: %s,", search);
         }
         return "";
     }
@@ -425,14 +425,14 @@ public class Tree extends JsObject {
 
     private String generateJSsoughtField1() {
         if (soughtField1 != null) {
-            return String.format(Locale.US, "soughtField: \"%s\",", soughtField1);
+            return String.format(Locale.US, "soughtField: %s,", soughtField1);
         }
         return "";
     }
 
     private String generateJSsearchItems() {
         if (searchItems != null) {
-            return String.format(Locale.US, "searchItems: \"%s\",", searchItems);
+            return String.format(Locale.US, "searchItems: %s,", searchItems);
         }
         return "";
     }
@@ -453,7 +453,7 @@ public class Tree extends JsObject {
 
     private String generateJStype3() {
         if (type3 != null) {
-            return String.format(Locale.US, "type: \"%s\",", type3);
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }

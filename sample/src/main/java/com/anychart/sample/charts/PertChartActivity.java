@@ -19,8 +19,8 @@ public class PertChartActivity extends AppCompatActivity {
 
         Pert pert = new Pert();
 
-        pert.setTitle("Airplane Design Process with PERT Chart");
-        pert.setHorizontalspacing("18.7%");
+        pert.setTitle("'Airplane Design Process with PERT Chart'");
+        pert.setHorizontalspacing("'18.7%'");
         pert.setPadding(new Double[] { 25d, 50d, 0d, 50d });
 
         pert.setData(getData(), TreeFillingMethod.AS_TABLE, null);

@@ -85,7 +85,7 @@ public class RangeSelector extends JsObject {
 
     private String generateJSzoomLabelText() {
         if (zoomLabelText != null) {
-            return String.format(Locale.US, "zoomLabelText: \"%s\",", zoomLabelText);
+            return String.format(Locale.US, "zoomLabelText: %s,", zoomLabelText);
         }
         return "";
     }

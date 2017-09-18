@@ -99,21 +99,21 @@ public class ChoroplethPoint extends JsObject {
 
     private String generateJScrs() {
         if (crs != null) {
-            return String.format(Locale.US, "crs: \"%s\",", crs);
+            return String.format(Locale.US, "crs: %s,", crs);
         }
         return "";
     }
 
     private String generateJSfield() {
         if (field != null) {
-            return String.format(Locale.US, "field: \"%s\",", field);
+            return String.format(Locale.US, "field: %s,", field);
         }
         return "";
     }
 
     private String generateJSkey() {
         if (key != null) {
-            return String.format(Locale.US, "key: \"%s\",", key);
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
@@ -162,7 +162,7 @@ public class ChoroplethPoint extends JsObject {
 
     private String generateJSfield1() {
         if (field1 != null) {
-            return String.format(Locale.US, "field: \"%s\",", field1);
+            return String.format(Locale.US, "field: %s,", field1);
         }
         return "";
     }

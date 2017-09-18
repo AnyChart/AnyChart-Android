@@ -1083,7 +1083,7 @@ public class Milestones extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -1097,7 +1097,7 @@ public class Milestones extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -1223,7 +1223,7 @@ public class Milestones extends JsObject {
 
     private String generateJScolor2() {
         if (color2 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color2);
+            return String.format(Locale.US, "color: %s,", color2);
         }
         return "";
     }
@@ -1363,7 +1363,7 @@ public class Milestones extends JsObject {
 
     private String generateJScolor5() {
         if (color5 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color5);
+            return String.format(Locale.US, "color: %s,", color5);
         }
         return "";
     }
@@ -1377,7 +1377,7 @@ public class Milestones extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -1412,7 +1412,7 @@ public class Milestones extends JsObject {
 
     private String generateJScolor6() {
         if (color6 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color6);
+            return String.format(Locale.US, "color: %s,", color6);
         }
         return "";
     }
@@ -1552,7 +1552,7 @@ public class Milestones extends JsObject {
 
     private String generateJScolor9() {
         if (color9 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color9);
+            return String.format(Locale.US, "color: %s,", color9);
         }
         return "";
     }
@@ -1566,7 +1566,7 @@ public class Milestones extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -1594,7 +1594,7 @@ public class Milestones extends JsObject {
 
     private String generateJSshape1() {
         if (shape1 != null) {
-            return String.format(Locale.US, "shape: \"%s\",", shape1);
+            return String.format(Locale.US, "shape: %s,", shape1);
         }
         return "";
     }
@@ -1608,7 +1608,7 @@ public class Milestones extends JsObject {
 
     private String generateJSsize1() {
         if (size1 != null) {
-            return String.format(Locale.US, "size: \"%s\",", size1);
+            return String.format(Locale.US, "size: %s,", size1);
         }
         return "";
     }
@@ -1629,7 +1629,7 @@ public class Milestones extends JsObject {
 
     private String generateJScolor12() {
         if (color12 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color12);
+            return String.format(Locale.US, "color: %s,", color12);
         }
         return "";
     }
@@ -1643,7 +1643,7 @@ public class Milestones extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }

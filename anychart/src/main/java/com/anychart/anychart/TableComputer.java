@@ -25,21 +25,21 @@ public class TableComputer extends JsObject {
 
     private String generateJSname() {
         if (name != null) {
-            return String.format(Locale.US, "name: \"%s\",", name);
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
 
     private String generateJSuid() {
         if (uid != null) {
-            return String.format(Locale.US, "uid: \"%s\",", uid);
+            return String.format(Locale.US, "uid: %s,", uid);
         }
         return "";
     }
 
     private String generateJSname1() {
         if (name1 != null) {
-            return String.format(Locale.US, "name: \"%s\",", name1);
+            return String.format(Locale.US, "name: %s,", name1);
         }
         return "";
     }

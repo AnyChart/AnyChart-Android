@@ -563,7 +563,7 @@ public class Thumbs extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -689,7 +689,7 @@ public class Thumbs extends JsObject {
 
     private String generateJScolor1() {
         if (color1 != null) {
-            return String.format(Locale.US, "color: \"%s\",", color1);
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -822,7 +822,7 @@ public class Thumbs extends JsObject {
 
     private String generateJShoverStroke2() {
         if (hoverStroke2 != null) {
-            return String.format(Locale.US, "hoverStroke: \"%s\",", hoverStroke2);
+            return String.format(Locale.US, "hoverStroke: %s,", hoverStroke2);
         }
         return "";
     }
@@ -836,7 +836,7 @@ public class Thumbs extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -871,7 +871,7 @@ public class Thumbs extends JsObject {
 
     private String generateJSstroke2() {
         if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: \"%s\",", stroke2);
+            return String.format(Locale.US, "stroke: %s,", stroke2);
         }
         return "";
     }
@@ -885,7 +885,7 @@ public class Thumbs extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }

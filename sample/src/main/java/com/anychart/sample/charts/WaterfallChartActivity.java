@@ -18,7 +18,7 @@ public class WaterfallChartActivity extends AppCompatActivity {
 
         Waterfall waterfall = new Waterfall();
 
-        waterfall.setTitle("ACME corp. Revenue Flow 2017");
+        waterfall.setTitle("'ACME corp. Revenue Flow 2017'");
 
         waterfall.setData(new String[] {
                 "{x: 'Start', value: 23000000}",

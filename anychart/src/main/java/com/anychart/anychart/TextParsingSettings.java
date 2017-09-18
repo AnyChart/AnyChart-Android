@@ -30,7 +30,7 @@ public class TextParsingSettings extends JsObject  {
         this.mode = mode;
         this.rowsSeparator = rowsSeparator;
 
-        js.append(String.format(Locale.US, "{columnsSeparator: \"%s\",cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,mode: %s,rowsSeparator: \"%s\"}",  columnsSeparator, cutLength, ignoreFirstRow, Arrays.toString(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, (mode != null) ? mode.generateJs() : "null", rowsSeparator));
+        js.append(String.format(Locale.US, "{columnsSeparator: %s,cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,mode: %s,rowsSeparator: %s}",  columnsSeparator, cutLength, ignoreFirstRow, Arrays.toString(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, (mode != null) ? mode.generateJs() : "null", rowsSeparator));
     }
 
 

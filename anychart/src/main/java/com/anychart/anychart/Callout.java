@@ -607,14 +607,14 @@ public class Callout extends JsObject {
 
     private String generateJSalign1() {
         if (align1 != null) {
-            return String.format(Locale.US, "align: \"%s\",", align1);
+            return String.format(Locale.US, "align: %s,", align1);
         }
         return "";
     }
 
     private String generateJSbackground() {
         if (background != null) {
-            return String.format(Locale.US, "background: \"%s\",", background);
+            return String.format(Locale.US, "background: %s,", background);
         }
         return "";
     }
@@ -649,7 +649,7 @@ public class Callout extends JsObject {
 
     private String generateJSlength() {
         if (length != null) {
-            return String.format(Locale.US, "length: \"%s\",", length);
+            return String.format(Locale.US, "length: %s,", length);
         }
         return "";
     }
@@ -677,7 +677,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -691,7 +691,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -705,7 +705,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -719,7 +719,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -733,7 +733,7 @@ public class Callout extends JsObject {
 
     private String generateJSorientation() {
         if (orientation != null) {
-            return String.format(Locale.US, "orientation: \"%s\",", orientation);
+            return String.format(Locale.US, "orientation: %s,", orientation);
         }
         return "";
     }
@@ -761,7 +761,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue8() {
         if (value8 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value8);
+            return String.format(Locale.US, "value: %s,", value8);
         }
         return "";
     }
@@ -775,7 +775,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue10() {
         if (value10 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value10);
+            return String.format(Locale.US, "value: %s,", value10);
         }
         return "";
     }
@@ -789,7 +789,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue12() {
         if (value12 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value12);
+            return String.format(Locale.US, "value: %s,", value12);
         }
         return "";
     }
@@ -803,7 +803,7 @@ public class Callout extends JsObject {
 
     private String generateJSvalue14() {
         if (value14 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value14);
+            return String.format(Locale.US, "value: %s,", value14);
         }
         return "";
     }
@@ -831,7 +831,7 @@ public class Callout extends JsObject {
 
     private String generateJStitle1() {
         if (title1 != null) {
-            return String.format(Locale.US, "title: \"%s\",", title1);
+            return String.format(Locale.US, "title: %s,", title1);
         }
         return "";
     }
@@ -845,7 +845,7 @@ public class Callout extends JsObject {
 
     private String generateJSwidth1() {
         if (width1 != null) {
-            return String.format(Locale.US, "width: \"%s\",", width1);
+            return String.format(Locale.US, "width: %s,", width1);
         }
         return "";
     }

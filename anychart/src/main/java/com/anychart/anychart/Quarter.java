@@ -1564,7 +1564,7 @@ public class Quarter extends JsObject {
 
     private String generateJSbottomStroke2() {
         if (bottomStroke2 != null) {
-            return String.format(Locale.US, "bottomStroke: \"%s\",", bottomStroke2);
+            return String.format(Locale.US, "bottomStroke: %s,", bottomStroke2);
         }
         return "";
     }
@@ -1578,7 +1578,7 @@ public class Quarter extends JsObject {
 
     private String generateJSbottomStroke4() {
         if (bottomStroke4 != null) {
-            return String.format(Locale.US, "bottomStroke: \"%s\",", bottomStroke4);
+            return String.format(Locale.US, "bottomStroke: %s,", bottomStroke4);
         }
         return "";
     }
@@ -1592,7 +1592,7 @@ public class Quarter extends JsObject {
 
     private String generateJSdashpattern() {
         if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
         }
         return "";
     }
@@ -1627,7 +1627,7 @@ public class Quarter extends JsObject {
 
     private String generateJScorners1() {
         if (corners1 != null) {
-            return String.format(Locale.US, "corners: \"%s\",", corners1);
+            return String.format(Locale.US, "corners: %s,", corners1);
         }
         return "";
     }
@@ -1648,7 +1648,7 @@ public class Quarter extends JsObject {
 
     private String generateJStopLeft1() {
         if (topLeft1 != null) {
-            return String.format(Locale.US, "topLeft: \"%s\",", topLeft1);
+            return String.format(Locale.US, "topLeft: %s,", topLeft1);
         }
         return "";
     }
@@ -1662,7 +1662,7 @@ public class Quarter extends JsObject {
 
     private String generateJStopRight1() {
         if (topRight1 != null) {
-            return String.format(Locale.US, "topRight: \"%s\",", topRight1);
+            return String.format(Locale.US, "topRight: %s,", topRight1);
         }
         return "";
     }
@@ -1676,7 +1676,7 @@ public class Quarter extends JsObject {
 
     private String generateJSbottomRight1() {
         if (bottomRight1 != null) {
-            return String.format(Locale.US, "bottomRight: \"%s\",", bottomRight1);
+            return String.format(Locale.US, "bottomRight: %s,", bottomRight1);
         }
         return "";
     }
@@ -1690,7 +1690,7 @@ public class Quarter extends JsObject {
 
     private String generateJSbottomLeft1() {
         if (bottomLeft1 != null) {
-            return String.format(Locale.US, "bottomLeft: \"%s\",", bottomLeft1);
+            return String.format(Locale.US, "bottomLeft: %s,", bottomLeft1);
         }
         return "";
     }
@@ -1704,7 +1704,7 @@ public class Quarter extends JsObject {
 
     private String generateJScolor() {
         if (color != null) {
-            return String.format(Locale.US, "color: \"%s\",", color);
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -1816,7 +1816,7 @@ public class Quarter extends JsObject {
 
     private String generateJSindex() {
         if (index != null) {
-            return String.format(Locale.US, "index: \"%s\",", index);
+            return String.format(Locale.US, "index: %s,", index);
         }
         return "";
     }
@@ -1837,14 +1837,14 @@ public class Quarter extends JsObject {
 
     private String generateJSlabel1() {
         if (label1 != null) {
-            return String.format(Locale.US, "label: \"%s\",", label1);
+            return String.format(Locale.US, "label: %s,", label1);
         }
         return "";
     }
 
     private String generateJSindex2() {
         if (index2 != null) {
-            return String.format(Locale.US, "index: \"%s\",", index2);
+            return String.format(Locale.US, "index: %s,", index2);
         }
         return "";
     }
@@ -1865,7 +1865,7 @@ public class Quarter extends JsObject {
 
     private String generateJSlabel3() {
         if (label3 != null) {
-            return String.format(Locale.US, "label: \"%s\",", label3);
+            return String.format(Locale.US, "label: %s,", label3);
         }
         return "";
     }
@@ -1879,7 +1879,7 @@ public class Quarter extends JsObject {
 
     private String generateJSleftStroke1() {
         if (leftStroke1 != null) {
-            return String.format(Locale.US, "leftStroke: \"%s\",", leftStroke1);
+            return String.format(Locale.US, "leftStroke: %s,", leftStroke1);
         }
         return "";
     }
@@ -1893,7 +1893,7 @@ public class Quarter extends JsObject {
 
     private String generateJSleftStroke3() {
         if (leftStroke3 != null) {
-            return String.format(Locale.US, "leftStroke: \"%s\",", leftStroke3);
+            return String.format(Locale.US, "leftStroke: %s,", leftStroke3);
         }
         return "";
     }
@@ -1907,7 +1907,7 @@ public class Quarter extends JsObject {
 
     private String generateJSdashpattern1() {
         if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern1);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
         }
         return "";
     }
@@ -1942,7 +1942,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: \"%s\",", value);
+            return String.format(Locale.US, "value: %s,", value);
         }
         return "";
     }
@@ -1956,7 +1956,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue2() {
         if (value2 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value2);
+            return String.format(Locale.US, "value: %s,", value2);
         }
         return "";
     }
@@ -1970,7 +1970,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue4() {
         if (value4 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value4);
+            return String.format(Locale.US, "value: %s,", value4);
         }
         return "";
     }
@@ -1984,7 +1984,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue6() {
         if (value6 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value6);
+            return String.format(Locale.US, "value: %s,", value6);
         }
         return "";
     }
@@ -2012,7 +2012,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue8() {
         if (value8 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value8);
+            return String.format(Locale.US, "value: %s,", value8);
         }
         return "";
     }
@@ -2026,7 +2026,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue10() {
         if (value10 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value10);
+            return String.format(Locale.US, "value: %s,", value10);
         }
         return "";
     }
@@ -2040,7 +2040,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue12() {
         if (value12 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value12);
+            return String.format(Locale.US, "value: %s,", value12);
         }
         return "";
     }
@@ -2054,7 +2054,7 @@ public class Quarter extends JsObject {
 
     private String generateJSvalue14() {
         if (value14 != null) {
-            return String.format(Locale.US, "value: \"%s\",", value14);
+            return String.format(Locale.US, "value: %s,", value14);
         }
         return "";
     }
@@ -2082,7 +2082,7 @@ public class Quarter extends JsObject {
 
     private String generateJSrightStroke2() {
         if (rightStroke2 != null) {
-            return String.format(Locale.US, "rightStroke: \"%s\",", rightStroke2);
+            return String.format(Locale.US, "rightStroke: %s,", rightStroke2);
         }
         return "";
     }
@@ -2096,7 +2096,7 @@ public class Quarter extends JsObject {
 
     private String generateJSrightStroke4() {
         if (rightStroke4 != null) {
-            return String.format(Locale.US, "rightStroke: \"%s\",", rightStroke4);
+            return String.format(Locale.US, "rightStroke: %s,", rightStroke4);
         }
         return "";
     }
@@ -2110,7 +2110,7 @@ public class Quarter extends JsObject {
 
     private String generateJSdashpattern2() {
         if (dashpattern2 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern2);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern2);
         }
         return "";
     }
@@ -2145,7 +2145,7 @@ public class Quarter extends JsObject {
 
     private String generateJSstroke2() {
         if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: \"%s\",", stroke2);
+            return String.format(Locale.US, "stroke: %s,", stroke2);
         }
         return "";
     }
@@ -2159,7 +2159,7 @@ public class Quarter extends JsObject {
 
     private String generateJSstroke4() {
         if (stroke4 != null) {
-            return String.format(Locale.US, "stroke: \"%s\",", stroke4);
+            return String.format(Locale.US, "stroke: %s,", stroke4);
         }
         return "";
     }
@@ -2173,7 +2173,7 @@ public class Quarter extends JsObject {
 
     private String generateJSdashpattern3() {
         if (dashpattern3 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern3);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern3);
         }
         return "";
     }
@@ -2201,7 +2201,7 @@ public class Quarter extends JsObject {
 
     private String generateJStitle1() {
         if (title1 != null) {
-            return String.format(Locale.US, "title: \"%s\",", title1);
+            return String.format(Locale.US, "title: %s,", title1);
         }
         return "";
     }
@@ -2222,7 +2222,7 @@ public class Quarter extends JsObject {
 
     private String generateJStopStroke2() {
         if (topStroke2 != null) {
-            return String.format(Locale.US, "topStroke: \"%s\",", topStroke2);
+            return String.format(Locale.US, "topStroke: %s,", topStroke2);
         }
         return "";
     }
@@ -2236,7 +2236,7 @@ public class Quarter extends JsObject {
 
     private String generateJStopStroke4() {
         if (topStroke4 != null) {
-            return String.format(Locale.US, "topStroke: \"%s\",", topStroke4);
+            return String.format(Locale.US, "topStroke: %s,", topStroke4);
         }
         return "";
     }
@@ -2250,7 +2250,7 @@ public class Quarter extends JsObject {
 
     private String generateJSdashpattern4() {
         if (dashpattern4 != null) {
-            return String.format(Locale.US, "dashpattern: \"%s\",", dashpattern4);
+            return String.format(Locale.US, "dashpattern: %s,", dashpattern4);
         }
         return "";
     }
