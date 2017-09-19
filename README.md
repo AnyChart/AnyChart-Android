@@ -104,7 +104,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Pie Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png"  alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PieChartActivity.java">Code Snippet</a> /
@@ -114,7 +114,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Column Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/columnchart.png"  alt="Column Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/columnchart.png" width="320px" height="400px" alt="Column Chart - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ColumnChartActivity.java">Code Snippet</a> /
@@ -124,7 +124,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Line Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linechart.png"  alt="Line Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linechart.png" width="320px" height="400px" alt="Line Chart - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/LineChartActivity.java">Code Snippet</a> /
@@ -136,7 +136,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Venn Diagram</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/venndiagram.png" width="320px" height="300px" alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/venndiagram.png" width="320px" height="300px" alt="Venn Diagram - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/VennDiagramActivity.java">Code Snippet</a> /
@@ -146,7 +146,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Heat Map Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/heatmapchart.png" width="320px" height="300px" alt="Column Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/heatmapchart.png" width="320px" height="300px" alt="Heat Map Chart - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/HeatMapChartActivity.java">Code Snippet</a> /
@@ -156,7 +156,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Tag Cloud</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/tagcloud.png" width="320px" height="300px" alt="Line Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/tagcloud.png" width="320px" height="300px" alt="Tag Cloud - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TagCloudActivity.java">Code Snippet</a> /
@@ -168,7 +168,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Waterfall Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/waterfallchart.png" width="320px" height="300px" alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/waterfallchart.png" width="320px" height="400px" alt="Waterfall Chart - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WaterfallChartActivity.java">Code Snippet</a> /
@@ -178,7 +178,7 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Tree Map Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/treemapchart.png" width="320px" height="300px" alt="Column Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/treemapchart.png" width="320px" height="400px" alt="Tree Map Chart - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TreeMapChartActivity.java">Code Snippet</a> /
@@ -188,13 +188,90 @@ AnyChart product family includes more than 60 different chart types and we're co
         <td>
             <h3 align="center">Scatter Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/scatterchart.png" width="320px" height="300px" alt="Line Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/scatterchart.png" width="320px" height="400px" alt="Scatter Chart - AnyChart">
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ScatterChartActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
+    </tr>
+    <tr>
+        <td>
+            <h3 align="center">Resource Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/resourcechart.png" width="320px" height="250px" alt="Resource Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ResourceChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Radar Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/radarchart.png" width="320px" height="250px" alt="Radar Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Polar Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/polarchart.png" width="320px" height="250px" alt="Polar Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PolarChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3 align="center">Range Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/rangechart.png" width="320px" height="400px" alt="Range Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RangeChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Vertical Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/verticalchart.png" width="320px" height="400px" alt="Vertical Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Funnel Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/funnelchart.png" width="320px" height="400px" alt="Funnel Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/FunnelChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3 align="center">Pert Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pertchart.png" width="320px" height="250px" alt="Pert Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PertChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        
     </tr>
 </table>  
 
