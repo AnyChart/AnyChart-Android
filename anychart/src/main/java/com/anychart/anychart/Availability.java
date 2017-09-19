@@ -1,6 +1,7 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 public class Availability extends JsObject  {
 

@@ -7,9 +7,9 @@ import java.lang.reflect.Method;
  * Created by arseny on 8/9/17.
  */
 
-public abstract class JsObject {
+abstract class JsObject {
 
-    public interface JsObjectInterface {
+    interface JsObjectInterface {
         String generateJs();
     }
 
