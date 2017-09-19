@@ -8,11 +8,11 @@ TODO Description
 
 ### Leiningen
 Add it in your project.clj at the end of repositories:
-```leiningen
+```clojure
 :repositories [["jitpack" "https://jitpack.io"]]
 ```
 Add the dependency:
-```leiningen
+```clojure
 :dependencies [[com.github.AnyChart/AnyChart-Android "v0.0.1"]]	
 ```
 
