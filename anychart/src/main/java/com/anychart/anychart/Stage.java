@@ -97,9 +97,9 @@ public class Stage extends JsObject {
         this.radius = radius;
     }
 
-    private Rect clip;
+    private GraphicsMathRect clip;
 
-    public void setClip(Rect clip) {
+    public void setClip(GraphicsMathRect clip) {
         this.clip = clip;
     }
 
@@ -110,7 +110,7 @@ public class Stage extends JsObject {
     }
 
     private Double[] rect;
-    private Rect rect1;
+    private GraphicsMathRect rect1;
 
     public void setCreateclip(Double[] rect) {
         this.rect = null;
@@ -120,7 +120,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setCreateclip(Rect rect1) {
+    public void setCreateclip(GraphicsMathRect rect1) {
         this.rect = null;
         this.rect1 = null;
         
@@ -484,9 +484,9 @@ public class Stage extends JsObject {
         this.maxResizeDelay = maxResizeDelay;
     }
 
-    private Rect bounds;
+    private GraphicsMathRect bounds;
 
-    public void setPattern(Rect bounds) {
+    public void setPattern(GraphicsMathRect bounds) {
         this.bounds = bounds;
     }
 
@@ -760,10 +760,10 @@ public class Stage extends JsObject {
     }
 
     private Double degrees1;
-    private Anchor anchor;
+    private VectorAnchor anchor;
     private String anchor1;
 
-    public void setRotatebyanchor(Anchor anchor, Double degrees1) {
+    public void setRotatebyanchor(VectorAnchor anchor, Double degrees1) {
         this.anchor = null;
         this.anchor1 = null;
         
@@ -976,10 +976,10 @@ public class Stage extends JsObject {
 
     private Double sx1;
     private Double sy1;
-    private Anchor anchor2;
+    private VectorAnchor anchor2;
     private String anchor3;
 
-    public void setScalebyanchor(Anchor anchor2, Double sx1, Double sy1) {
+    public void setScalebyanchor(VectorAnchor anchor2, Double sx1, Double sy1) {
         this.anchor = null;
         this.anchor1 = null;
         this.anchor2 = null;
@@ -1063,10 +1063,10 @@ public class Stage extends JsObject {
     }
 
     private Double degrees3;
-    private Anchor anchor4;
+    private VectorAnchor anchor4;
     private String anchor5;
 
-    public void setSetrotationbyanchor(Anchor anchor4, Double degrees3) {
+    public void setSetrotationbyanchor(VectorAnchor anchor4, Double degrees3) {
         this.anchor = null;
         this.anchor1 = null;
         this.anchor2 = null;

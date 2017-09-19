@@ -12,10 +12,10 @@ public class Zoom extends JsObject {
         this.decorate = decorate;
     }
 
-    private Map parentElement;
+    private ChartsMap parentElement;
     private Element parentElement1;
 
-    public void setRender(Map parentElement) {
+    public void setRender(ChartsMap parentElement) {
         this.parentElement = null;
         this.parentElement1 = null;
         
@@ -30,9 +30,9 @@ public class Zoom extends JsObject {
         this.parentElement1 = parentElement1;
     }
 
-    private Map chart;
+    private ChartsMap chart;
 
-    public void setTarget(Map chart) {
+    public void setTarget(ChartsMap chart) {
         this.chart = chart;
     }
 

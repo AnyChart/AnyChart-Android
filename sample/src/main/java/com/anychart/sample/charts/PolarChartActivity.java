@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Polar;
+import com.anychart.anychart.ChartsPolar;
 import com.anychart.anychart.PolarSeriesType;
 import com.anychart.anychart.ScaleTypes;
 import com.anychart.anychart.TextParsingMode;
@@ -19,7 +19,7 @@ public class PolarChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Polar polar = new Polar();
+        ChartsPolar polar = new ChartsPolar();
         polar.setColumn(new String[] {
                 "['Nail polish', 12814]",
                 "['Eyebrow pencil', 13012]",

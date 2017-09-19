@@ -112,7 +112,7 @@ public class Cell extends JsObject {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -132,7 +132,7 @@ public class Cell extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -166,7 +166,7 @@ public class Cell extends JsObject {
     }
 
 
-    public void setFill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -186,12 +186,12 @@ public class Cell extends JsObject {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -215,7 +215,7 @@ public class Cell extends JsObject {
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -293,10 +293,10 @@ public class Cell extends JsObject {
         this.fontSize1 = fontSize1;
     }
 
-    private FontStyle fontStyle;
+    private TextFontStyle fontStyle;
     private String fontStyle1;
 
-    public void setFontstyle(FontStyle fontStyle) {
+    public void setFontstyle(TextFontStyle fontStyle) {
         this.fontStyle = null;
         this.fontStyle1 = null;
         
@@ -311,10 +311,10 @@ public class Cell extends JsObject {
         this.fontStyle1 = fontStyle1;
     }
 
-    private FontVariant fontVariant;
+    private TextFontVariant fontVariant;
     private String fontVariant1;
 
-    public void setFontvariant(FontVariant fontVariant) {
+    public void setFontvariant(TextFontVariant fontVariant) {
         this.fontVariant = null;
         this.fontVariant1 = null;
         
@@ -347,10 +347,10 @@ public class Cell extends JsObject {
         this.fontWeight1 = fontWeight1;
     }
 
-    private HAlign hAlign;
+    private TextHAlign hAlign;
     private String hAlign1;
 
-    public void setHalign(HAlign hAlign) {
+    public void setHalign(TextHAlign hAlign) {
         this.hAlign = null;
         this.hAlign1 = null;
         
@@ -629,10 +629,10 @@ public class Cell extends JsObject {
         this.textOverflow1 = textOverflow1;
     }
 
-    private TextWrap textWrap;
+    private TextTextWrap textWrap;
     private String textWrap1;
 
-    public void setTextwrap(TextWrap textWrap) {
+    public void setTextwrap(TextTextWrap textWrap) {
         this.textWrap = null;
         this.textWrap1 = null;
         
@@ -653,10 +653,10 @@ public class Cell extends JsObject {
         this.useHtml = useHtml;
     }
 
-    private VAlign vAlign;
+    private TextVAlign vAlign;
     private String vAlign1;
 
-    public void setValign(VAlign vAlign) {
+    public void setValign(TextVAlign vAlign) {
         this.vAlign = null;
         this.vAlign1 = null;
         

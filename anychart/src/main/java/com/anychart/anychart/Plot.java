@@ -65,7 +65,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data;
-    private Table data1;
+    private DataTable data1;
     private String data2;
     private String data3;
     private String mappingSettings;
@@ -81,7 +81,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setArea(Table data1, String mappingSettings) {
+    public void setArea(DataTable data1, String mappingSettings) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -575,7 +575,7 @@ public class Plot extends JsObject {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -587,7 +587,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds = null;
         this.bounds1 = null;
         this.bounds2 = null;
@@ -933,7 +933,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data4;
-    private Table data5;
+    private DataTable data5;
     private String data6;
     private String data7;
     private String mappingSettings1;
@@ -956,7 +956,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setCandlestick(Table data5, String mappingSettings1) {
+    public void setCandlestick(DataTable data5, String mappingSettings1) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -1155,7 +1155,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data8;
-    private Table data9;
+    private DataTable data9;
     private String data10;
     private String data11;
     private String mappingSettings2;
@@ -1183,7 +1183,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setColumn(Table data9, String mappingSettings2) {
+    public void setColumn(DataTable data9, String mappingSettings2) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -1527,7 +1527,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data12;
-    private Table data13;
+    private DataTable data13;
     private String data14;
     private String data15;
     private String mappingSettings3;
@@ -1560,7 +1560,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setHilo(Table data13, String mappingSettings3) {
+    public void setHilo(DataTable data13, String mappingSettings3) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -1616,7 +1616,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data16;
-    private Table data17;
+    private DataTable data17;
     private String data18;
     private String data19;
     private String mappingSettings4;
@@ -1654,7 +1654,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setJumpline(Table data17, String mappingSettings4) {
+    public void setJumpline(DataTable data17, String mappingSettings4) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -1784,7 +1784,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data20;
-    private Table data21;
+    private DataTable data21;
     private String data22;
     private String data23;
     private String mappingSettings5;
@@ -1827,7 +1827,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setLine(Table data21, String mappingSettings5) {
+    public void setLine(DataTable data21, String mappingSettings5) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -2279,7 +2279,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data24;
-    private Table data25;
+    private DataTable data25;
     private String data26;
     private String data27;
     private String mappingSettings6;
@@ -2327,7 +2327,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setMarker(Table data25, String mappingSettings6) {
+    public void setMarker(DataTable data25, String mappingSettings6) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -2637,7 +2637,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data28;
-    private Table data29;
+    private DataTable data29;
     private String data30;
     private String data31;
     private String mappingSettings7;
@@ -2690,7 +2690,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setOhlc(Table data29, String mappingSettings7) {
+    public void setOhlc(DataTable data29, String mappingSettings7) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -2824,7 +2824,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data32;
-    private Table data33;
+    private DataTable data33;
     private String data34;
     private String data35;
     private String mappingSettings8;
@@ -2882,7 +2882,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setRangearea(Table data33, String mappingSettings8) {
+    public void setRangearea(DataTable data33, String mappingSettings8) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -2988,7 +2988,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data36;
-    private Table data37;
+    private DataTable data37;
     private String data38;
     private String data39;
     private String mappingSettings9;
@@ -3051,7 +3051,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setRangecolumn(Table data37, String mappingSettings9) {
+    public void setRangecolumn(DataTable data37, String mappingSettings9) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -3167,7 +3167,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data40;
-    private Table data41;
+    private DataTable data41;
     private String data42;
     private String data43;
     private String mappingSettings10;
@@ -3235,7 +3235,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setRangesplinearea(Table data41, String mappingSettings10) {
+    public void setRangesplinearea(DataTable data41, String mappingSettings10) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -3361,7 +3361,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data44;
-    private Table data45;
+    private DataTable data45;
     private String data46;
     private String data47;
     private String mappingSettings11;
@@ -3434,7 +3434,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setRangesteparea(Table data45, String mappingSettings11) {
+    public void setRangesteparea(DataTable data45, String mappingSettings11) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -3998,7 +3998,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data48;
-    private Table data49;
+    private DataTable data49;
     private String data50;
     private String data51;
     private String mappingSettings12;
@@ -4076,7 +4076,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setSpline(Table data49, String mappingSettings12) {
+    public void setSpline(DataTable data49, String mappingSettings12) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -4222,7 +4222,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data52;
-    private Table data53;
+    private DataTable data53;
     private String data54;
     private String data55;
     private String mappingSettings13;
@@ -4305,7 +4305,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setSplinearea(Table data53, String mappingSettings13) {
+    public void setSplinearea(DataTable data53, String mappingSettings13) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -4461,7 +4461,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data56;
-    private Table data57;
+    private DataTable data57;
     private String data58;
     private String data59;
     private String mappingSettings14;
@@ -4549,7 +4549,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setSteparea(Table data57, String mappingSettings14) {
+    public void setSteparea(DataTable data57, String mappingSettings14) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -4715,7 +4715,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data60;
-    private Table data61;
+    private DataTable data61;
     private String data62;
     private String data63;
     private String mappingSettings15;
@@ -4808,7 +4808,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setStepline(Table data61, String mappingSettings15) {
+    public void setStepline(DataTable data61, String mappingSettings15) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;
@@ -4984,7 +4984,7 @@ public class Plot extends JsObject {
     }
 
     private TableMapping data64;
-    private Table data65;
+    private DataTable data65;
     private String data66;
     private String data67;
     private String mappingSettings16;
@@ -5082,7 +5082,7 @@ public class Plot extends JsObject {
     }
 
 
-    public void setStick(Table data65, String mappingSettings16) {
+    public void setStick(DataTable data65, String mappingSettings16) {
         this.data = null;
         this.data1 = null;
         this.data2 = null;

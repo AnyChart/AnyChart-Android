@@ -6,27 +6,46 @@ import java.util.Arrays;
 public class TreeView extends JsObject {
 
     
-    private DataItem child;
-    private DataItem child1;
+    private TreeDataItem child;
+    private TreeviewDataItem child1;
 
-    public void setAddchild(DataItem child) {
+    public void setAddchild(TreeDataItem child) {
         this.child = null;
         this.child1 = null;
         
         this.child = child;
     }
 
-    private DataItem child2;
-    private DataItem child3;
+
+    public void setAddchild(TreeviewDataItem child1) {
+        this.child = null;
+        this.child1 = null;
+        
+        this.child1 = child1;
+    }
+
+    private TreeDataItem child2;
+    private TreeviewDataItem child3;
     private Double index;
 
-    public void setAddchildat(DataItem child2, Double index) {
+    public void setAddchildat(TreeDataItem child2, Double index) {
         this.child = null;
         this.child1 = null;
         this.child2 = null;
         this.child3 = null;
         
         this.child2 = child2;
+        this.index = index;
+    }
+
+
+    public void setAddchildat(TreeviewDataItem child3, Double index) {
+        this.child = null;
+        this.child1 = null;
+        this.child2 = null;
+        this.child3 = null;
+        
+        this.child3 = child3;
         this.index = index;
     }
 
@@ -53,10 +72,10 @@ public class TreeView extends JsObject {
         this.index1 = index1;
     }
 
-    private DataItem child4;
-    private DataItem child5;
+    private TreeDataItem child4;
+    private TreeviewDataItem child5;
 
-    public void setIndexofchild(DataItem child4) {
+    public void setIndexofchild(TreeDataItem child4) {
         this.child = null;
         this.child1 = null;
         this.child2 = null;
@@ -67,10 +86,22 @@ public class TreeView extends JsObject {
         this.child4 = child4;
     }
 
-    private DataItem child6;
-    private DataItem child7;
 
-    public void setRemovechild(DataItem child6) {
+    public void setIndexofchild(TreeviewDataItem child5) {
+        this.child = null;
+        this.child1 = null;
+        this.child2 = null;
+        this.child3 = null;
+        this.child4 = null;
+        this.child5 = null;
+        
+        this.child5 = child5;
+    }
+
+    private TreeDataItem child6;
+    private TreeviewDataItem child7;
+
+    public void setRemovechild(TreeDataItem child6) {
         this.child = null;
         this.child1 = null;
         this.child2 = null;
@@ -81,6 +112,20 @@ public class TreeView extends JsObject {
         this.child7 = null;
         
         this.child6 = child6;
+    }
+
+
+    public void setRemovechild(TreeviewDataItem child7) {
+        this.child = null;
+        this.child1 = null;
+        this.child2 = null;
+        this.child3 = null;
+        this.child4 = null;
+        this.child5 = null;
+        this.child6 = null;
+        this.child7 = null;
+        
+        this.child7 = child7;
     }
 
     private Double index2;

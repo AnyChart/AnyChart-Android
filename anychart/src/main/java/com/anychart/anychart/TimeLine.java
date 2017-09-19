@@ -64,7 +64,7 @@ public class TimeLine extends JsObject {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -76,7 +76,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds = null;
         this.bounds1 = null;
         this.bounds2 = null;
@@ -475,7 +475,7 @@ public class TimeLine extends JsObject {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -495,7 +495,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -529,7 +529,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setFill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -549,12 +549,12 @@ public class TimeLine extends JsObject {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -578,7 +578,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -657,7 +657,7 @@ public class TimeLine extends JsObject {
     }
 
     private String fontStyle;
-    private FontStyle fontStyle1;
+    private TextFontStyle fontStyle1;
 
     public void setFontstyle(String fontStyle) {
         this.fontStyle = null;
@@ -667,7 +667,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setFontstyle(FontStyle fontStyle1) {
+    public void setFontstyle(TextFontStyle fontStyle1) {
         this.fontStyle = null;
         this.fontStyle1 = null;
         
@@ -675,7 +675,7 @@ public class TimeLine extends JsObject {
     }
 
     private String fontVariant;
-    private FontVariant fontVariant1;
+    private TextFontVariant fontVariant1;
 
     public void setFontvariant(String fontVariant) {
         this.fontVariant = null;
@@ -685,7 +685,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setFontvariant(FontVariant fontVariant1) {
+    public void setFontvariant(TextFontVariant fontVariant1) {
         this.fontVariant = null;
         this.fontVariant1 = null;
         
@@ -717,7 +717,7 @@ public class TimeLine extends JsObject {
     }
 
     private String hAlign;
-    private HAlign hAlign1;
+    private TextHAlign hAlign1;
 
     public void setHalign(String hAlign) {
         this.hAlign = null;
@@ -727,7 +727,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setHalign(HAlign hAlign1) {
+    public void setHalign(TextHAlign hAlign1) {
         this.hAlign = null;
         this.hAlign1 = null;
         
@@ -1260,7 +1260,7 @@ public class TimeLine extends JsObject {
     }
 
     private String textWrap;
-    private TextWrap textWrap1;
+    private TextTextWrap textWrap1;
 
     public void setTextwrap(String textWrap) {
         this.textWrap = null;
@@ -1270,7 +1270,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setTextwrap(TextWrap textWrap1) {
+    public void setTextwrap(TextTextWrap textWrap1) {
         this.textWrap = null;
         this.textWrap1 = null;
         
@@ -1319,7 +1319,7 @@ public class TimeLine extends JsObject {
     }
 
     private String vAlign;
-    private VAlign vAlign1;
+    private TextVAlign vAlign1;
 
     public void setValign(String vAlign) {
         this.vAlign = null;
@@ -1329,7 +1329,7 @@ public class TimeLine extends JsObject {
     }
 
 
-    public void setValign(VAlign vAlign1) {
+    public void setValign(TextVAlign vAlign1) {
         this.vAlign = null;
         this.vAlign1 = null;
         

@@ -159,7 +159,7 @@ public class Bounds extends JsObject {
     private Double[] xOrRect2;
     private String[] xOrRect3;
     private RectObj xOrRect4;
-    private Rect xOrRect5;
+    private AnychartMathRect xOrRect5;
     private Bounds xOrRect6;
     private Double y;
     private String y1;
@@ -1248,7 +1248,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, Double y, Double width, Double height2) {
+    public void setSet(AnychartMathRect xOrRect5, Double y, Double width, Double height2) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1275,7 +1275,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, Double y, Double width, String height3) {
+    public void setSet(AnychartMathRect xOrRect5, Double y, Double width, String height3) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1302,7 +1302,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, Double y, String width1, Double height2) {
+    public void setSet(AnychartMathRect xOrRect5, Double y, String width1, Double height2) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1329,7 +1329,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, Double y, String width1, String height3) {
+    public void setSet(AnychartMathRect xOrRect5, Double y, String width1, String height3) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1356,7 +1356,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, String y1, Double width, Double height2) {
+    public void setSet(AnychartMathRect xOrRect5, String y1, Double width, Double height2) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1383,7 +1383,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, String y1, Double width, String height3) {
+    public void setSet(AnychartMathRect xOrRect5, String y1, Double width, String height3) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1410,7 +1410,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, String y1, String width1, Double height2) {
+    public void setSet(AnychartMathRect xOrRect5, String y1, String width1, Double height2) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1437,7 +1437,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setSet(Rect xOrRect5, String y1, String width1, String height3) {
+    public void setSet(AnychartMathRect xOrRect5, String y1, String width1, String height3) {
         this.xOrRect = null;
         this.xOrRect1 = null;
         this.xOrRect2 = null;
@@ -1680,7 +1680,7 @@ public class Bounds extends JsObject {
     }
 
     private Double parentLeftOrRect;
-    private Rect parentLeftOrRect1;
+    private AnychartMathRect parentLeftOrRect1;
     private Double parentTop;
     private Double parentWidth;
     private Double parentHeight;
@@ -1696,7 +1696,7 @@ public class Bounds extends JsObject {
     }
 
 
-    public void setTorect(Rect parentLeftOrRect1, Double parentTop, Double parentWidth, Double parentHeight) {
+    public void setTorect(AnychartMathRect parentLeftOrRect1, Double parentTop, Double parentWidth, Double parentHeight) {
         this.parentLeftOrRect = null;
         this.parentLeftOrRect1 = null;
         

@@ -7,7 +7,7 @@ public class ImageSettings extends JsObject {
 
     
     private String align;
-    private Align align1;
+    private ImageAlign align1;
 
     public void setAlign(String align) {
         this.align = null;
@@ -17,7 +17,7 @@ public class ImageSettings extends JsObject {
     }
 
 
-    public void setAlign(Align align1) {
+    public void setAlign(ImageAlign align1) {
         this.align = null;
         this.align1 = null;
         

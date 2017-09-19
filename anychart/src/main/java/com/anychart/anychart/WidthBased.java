@@ -25,7 +25,7 @@ public class WidthBased extends JsObject {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -37,7 +37,7 @@ public class WidthBased extends JsObject {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds = null;
         this.bounds1 = null;
         this.bounds2 = null;
@@ -383,7 +383,7 @@ public class WidthBased extends JsObject {
     }
 
     private Boolean clip;
-    private Rect clip1;
+    private AnychartMathRect clip1;
 
     public void setClip(Boolean clip) {
         this.clip = null;
@@ -393,7 +393,7 @@ public class WidthBased extends JsObject {
     }
 
 
-    public void setClip(Rect clip1) {
+    public void setClip(AnychartMathRect clip1) {
         this.clip = null;
         this.clip1 = null;
         
@@ -1114,15 +1114,15 @@ public class WidthBased extends JsObject {
         this.position = position;
     }
 
-    private Base xScale;
+    private ScalesBase xScale;
 
-    public void setXscale(Base xScale) {
+    public void setXscale(ScalesBase xScale) {
         this.xScale = xScale;
     }
 
-    private Base yScale;
+    private ScalesBase yScale;
 
-    public void setYscale(Base yScale) {
+    public void setYscale(ScalesBase yScale) {
         this.yScale = yScale;
     }
 

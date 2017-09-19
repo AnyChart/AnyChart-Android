@@ -48,10 +48,10 @@ public class TagCloudStateSettings extends JsObject {
         this.fontSize1 = fontSize1;
     }
 
-    private FontStyle fontStyle;
+    private TextFontStyle fontStyle;
     private String fontStyle1;
 
-    public void setFontstyle(FontStyle fontStyle) {
+    public void setFontstyle(TextFontStyle fontStyle) {
         this.fontStyle = null;
         this.fontStyle1 = null;
         
@@ -66,10 +66,10 @@ public class TagCloudStateSettings extends JsObject {
         this.fontStyle1 = fontStyle1;
     }
 
-    private FontVariant fontVariant;
+    private TextFontVariant fontVariant;
     private String fontVariant1;
 
-    public void setFontvariant(FontVariant fontVariant) {
+    public void setFontvariant(TextFontVariant fontVariant) {
         this.fontVariant = null;
         this.fontVariant1 = null;
         

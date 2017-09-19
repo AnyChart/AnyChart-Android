@@ -1,10 +1,10 @@
 package com.anychart.sample.charts;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Radar;
+import com.anychart.anychart.ChartsRadar;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
 
@@ -17,7 +17,7 @@ public class RadarChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Radar radar = new Radar();
+        ChartsRadar radar = new ChartsRadar();
         radar.setTitle("'WoW base stats comparison radar chart: Shaman vs Warrior vs Priest'");
         radar.setLine(new String[]{
                 "['Strength', 136]",

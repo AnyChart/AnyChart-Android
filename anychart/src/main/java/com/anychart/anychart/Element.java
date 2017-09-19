@@ -71,10 +71,10 @@ public class Element extends JsObject {
     }
 
     private String key1;
-    private Rect clip;
+    private GraphicsMathRect clip;
     private String clip1;
 
-    public void setClip(Rect clip) {
+    public void setClip(GraphicsMathRect clip) {
         this.clip = null;
         this.clip1 = null;
         
@@ -89,9 +89,9 @@ public class Element extends JsObject {
         this.clip1 = clip1;
     }
 
-    private Cursor cursor;
+    private VectorCursor cursor;
 
-    public void setCursor(Cursor cursor) {
+    public void setCursor(VectorCursor cursor) {
         this.cursor = cursor;
     }
 
@@ -114,7 +114,7 @@ public class Element extends JsObject {
     }
 
     private Boolean drag;
-    private Rect drag1;
+    private GraphicsMathRect drag1;
 
     public void setDrag(Boolean drag) {
         this.drag = null;
@@ -124,7 +124,7 @@ public class Element extends JsObject {
     }
 
 
-    public void setDrag(Rect drag1) {
+    public void setDrag(GraphicsMathRect drag1) {
         this.drag = null;
         this.drag1 = null;
         
@@ -198,10 +198,10 @@ public class Element extends JsObject {
     }
 
     private Double degrees1;
-    private Anchor anchor;
+    private VectorAnchor anchor;
     private String anchor1;
 
-    public void setRotatebyanchor(Anchor anchor, Double degrees1) {
+    public void setRotatebyanchor(VectorAnchor anchor, Double degrees1) {
         this.anchor = null;
         this.anchor1 = null;
         
@@ -244,10 +244,10 @@ public class Element extends JsObject {
 
     private Double sx1;
     private Double sy1;
-    private Anchor anchor2;
+    private VectorAnchor anchor2;
     private String anchor3;
 
-    public void setScalebyanchor(Anchor anchor2, Double sx1, Double sy1) {
+    public void setScalebyanchor(VectorAnchor anchor2, Double sx1, Double sy1) {
         this.anchor = null;
         this.anchor1 = null;
         this.anchor2 = null;
@@ -313,10 +313,10 @@ public class Element extends JsObject {
     }
 
     private Double degrees3;
-    private Anchor anchor4;
+    private VectorAnchor anchor4;
     private String anchor5;
 
-    public void setSetrotationbyanchor(Anchor anchor4, Double degrees3) {
+    public void setSetrotationbyanchor(VectorAnchor anchor4, Double degrees3) {
         this.anchor = null;
         this.anchor1 = null;
         this.anchor2 = null;

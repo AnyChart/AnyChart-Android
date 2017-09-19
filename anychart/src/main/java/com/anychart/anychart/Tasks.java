@@ -18,9 +18,9 @@ public class Tasks extends JsObject {
     private Double opacityOrAngleOrCx;
     private Double modeOrCy;
     private Boolean modeOrCy1;
-    private Rect modeOrCy2;
+    private AnychartMathRect modeOrCy2;
     private Double opacityOrMode;
-    private Rect opacityOrMode1;
+    private AnychartMathRect opacityOrMode1;
     private Double opacity;
     private Double fx;
     private Double fy;
@@ -47,7 +47,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(Fill fillOrColorOrKeys, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(Fill fillOrColorOrKeys, Double modeOrCy, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -91,7 +91,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(Fill fillOrColorOrKeys, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(Fill fillOrColorOrKeys, Boolean modeOrCy1, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -113,7 +113,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(Fill fillOrColorOrKeys, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(Fill fillOrColorOrKeys, AnychartMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -135,7 +135,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(Fill fillOrColorOrKeys, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(Fill fillOrColorOrKeys, AnychartMathRect modeOrCy2, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -179,7 +179,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -223,7 +223,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -245,7 +245,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, AnychartMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -267,7 +267,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(GradientKey[] fillOrColorOrKeys1, AnychartMathRect modeOrCy2, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -311,7 +311,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(String[] fillOrColorOrKeys2, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(String[] fillOrColorOrKeys2, Double modeOrCy, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -355,7 +355,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -377,7 +377,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(String[] fillOrColorOrKeys2, AnychartMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -399,7 +399,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setDummyfill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setDummyfill(String[] fillOrColorOrKeys2, AnychartMathRect modeOrCy2, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -475,9 +475,9 @@ public class Tasks extends JsObject {
     private Double opacityOrAngleOrCx1;
     private Double modeOrCy3;
     private Boolean modeOrCy4;
-    private Rect modeOrCy5;
+    private AnychartMathRect modeOrCy5;
     private Double opacityOrMode2;
-    private Rect opacityOrMode3;
+    private AnychartMathRect opacityOrMode3;
     private Double opacity1;
     private Double fx1;
     private Double fy1;
@@ -524,7 +524,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys3, Double modeOrCy3, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(Fill fillOrColorOrKeys3, Double modeOrCy3, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -608,7 +608,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys3, Boolean modeOrCy4, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(Fill fillOrColorOrKeys3, Boolean modeOrCy4, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -650,7 +650,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys3, Rect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(Fill fillOrColorOrKeys3, AnychartMathRect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -692,7 +692,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys3, Rect modeOrCy5, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(Fill fillOrColorOrKeys3, AnychartMathRect modeOrCy5, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -776,7 +776,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys4, Double modeOrCy3, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(GradientKey[] fillOrColorOrKeys4, Double modeOrCy3, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -860,7 +860,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys4, Boolean modeOrCy4, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(GradientKey[] fillOrColorOrKeys4, Boolean modeOrCy4, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -902,7 +902,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys4, Rect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(GradientKey[] fillOrColorOrKeys4, AnychartMathRect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -944,7 +944,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys4, Rect modeOrCy5, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(GradientKey[] fillOrColorOrKeys4, AnychartMathRect modeOrCy5, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1028,7 +1028,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys5, Double modeOrCy3, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(String[] fillOrColorOrKeys5, Double modeOrCy3, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1112,7 +1112,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys5, Boolean modeOrCy4, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(String[] fillOrColorOrKeys5, Boolean modeOrCy4, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1154,7 +1154,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys5, Rect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(String[] fillOrColorOrKeys5, AnychartMathRect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1196,7 +1196,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys5, Rect modeOrCy5, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setFill(String[] fillOrColorOrKeys5, AnychartMathRect modeOrCy5, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1243,9 +1243,9 @@ public class Tasks extends JsObject {
     private Double opacityOrAngleOrCx2;
     private Double modeOrCy6;
     private Boolean modeOrCy7;
-    private Rect modeOrCy8;
+    private AnychartMathRect modeOrCy8;
     private Double opacityOrMode4;
-    private Rect opacityOrMode5;
+    private AnychartMathRect opacityOrMode5;
     private Double opacity2;
     private Double fx2;
     private Double fy2;
@@ -1304,7 +1304,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(Fill fillOrColorOrKeys6, Double modeOrCy6, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(Fill fillOrColorOrKeys6, Double modeOrCy6, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1412,7 +1412,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(Fill fillOrColorOrKeys6, Boolean modeOrCy7, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(Fill fillOrColorOrKeys6, Boolean modeOrCy7, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1466,7 +1466,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(Fill fillOrColorOrKeys6, Rect modeOrCy8, Double opacityOrMode4, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(Fill fillOrColorOrKeys6, AnychartMathRect modeOrCy8, Double opacityOrMode4, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1520,7 +1520,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(Fill fillOrColorOrKeys6, Rect modeOrCy8, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(Fill fillOrColorOrKeys6, AnychartMathRect modeOrCy8, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1628,7 +1628,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, Double modeOrCy6, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, Double modeOrCy6, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1736,7 +1736,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, Boolean modeOrCy7, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, Boolean modeOrCy7, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1790,7 +1790,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, Rect modeOrCy8, Double opacityOrMode4, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, AnychartMathRect modeOrCy8, Double opacityOrMode4, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1844,7 +1844,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, Rect modeOrCy8, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(GradientKey[] fillOrColorOrKeys7, AnychartMathRect modeOrCy8, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1952,7 +1952,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(String[] fillOrColorOrKeys8, Double modeOrCy6, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(String[] fillOrColorOrKeys8, Double modeOrCy6, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2060,7 +2060,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(String[] fillOrColorOrKeys8, Boolean modeOrCy7, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(String[] fillOrColorOrKeys8, Boolean modeOrCy7, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2114,7 +2114,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(String[] fillOrColorOrKeys8, Rect modeOrCy8, Double opacityOrMode4, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(String[] fillOrColorOrKeys8, AnychartMathRect modeOrCy8, Double opacityOrMode4, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2168,7 +2168,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setHoverfill(String[] fillOrColorOrKeys8, Rect modeOrCy8, Rect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
+    public void setHoverfill(String[] fillOrColorOrKeys8, AnychartMathRect modeOrCy8, AnychartMathRect opacityOrMode5, Double opacityOrAngleOrCx2, Double opacity2, Double fx2, Double fy2) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2339,9 +2339,9 @@ public class Tasks extends JsObject {
     private Double opacityOrAngleOrCx3;
     private Double modeOrCy9;
     private Boolean modeOrCy10;
-    private Rect modeOrCy11;
+    private AnychartMathRect modeOrCy11;
     private Double opacityOrMode6;
-    private Rect opacityOrMode7;
+    private AnychartMathRect opacityOrMode7;
     private Double opacity3;
     private Double fx3;
     private Double fy3;
@@ -2412,7 +2412,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(Fill fillOrColorOrKeys9, Double modeOrCy9, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(Fill fillOrColorOrKeys9, Double modeOrCy9, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2544,7 +2544,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(Fill fillOrColorOrKeys9, Boolean modeOrCy10, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(Fill fillOrColorOrKeys9, Boolean modeOrCy10, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2610,7 +2610,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(Fill fillOrColorOrKeys9, Rect modeOrCy11, Double opacityOrMode6, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(Fill fillOrColorOrKeys9, AnychartMathRect modeOrCy11, Double opacityOrMode6, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2676,7 +2676,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(Fill fillOrColorOrKeys9, Rect modeOrCy11, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(Fill fillOrColorOrKeys9, AnychartMathRect modeOrCy11, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2808,7 +2808,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, Double modeOrCy9, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, Double modeOrCy9, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -2940,7 +2940,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, Boolean modeOrCy10, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, Boolean modeOrCy10, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -3006,7 +3006,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, Rect modeOrCy11, Double opacityOrMode6, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, AnychartMathRect modeOrCy11, Double opacityOrMode6, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -3072,7 +3072,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, Rect modeOrCy11, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(GradientKey[] fillOrColorOrKeys10, AnychartMathRect modeOrCy11, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -3204,7 +3204,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(String[] fillOrColorOrKeys11, Double modeOrCy9, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(String[] fillOrColorOrKeys11, Double modeOrCy9, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -3336,7 +3336,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(String[] fillOrColorOrKeys11, Boolean modeOrCy10, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(String[] fillOrColorOrKeys11, Boolean modeOrCy10, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -3402,7 +3402,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(String[] fillOrColorOrKeys11, Rect modeOrCy11, Double opacityOrMode6, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(String[] fillOrColorOrKeys11, AnychartMathRect modeOrCy11, Double opacityOrMode6, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -3468,7 +3468,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public void setSelectfill(String[] fillOrColorOrKeys11, Rect modeOrCy11, Rect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
+    public void setSelectfill(String[] fillOrColorOrKeys11, AnychartMathRect modeOrCy11, AnychartMathRect opacityOrMode7, Double opacityOrAngleOrCx3, Double opacity3, Double fx3, Double fy3) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;

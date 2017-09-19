@@ -6,10 +6,10 @@ import java.util.Arrays;
 public class Callout extends JsObject {
 
     
-    private Align align;
+    private EnumsAlign align;
     private String align1;
 
-    public void setAlign(Align align) {
+    public void setAlign(EnumsAlign align) {
         this.align = null;
         this.align1 = null;
         

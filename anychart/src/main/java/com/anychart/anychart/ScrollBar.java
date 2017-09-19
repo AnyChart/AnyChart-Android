@@ -12,9 +12,9 @@ public class ScrollBar extends JsObject {
     private Double opacityOrAngleOrCx;
     private Double modeOrCy;
     private Boolean modeOrCy1;
-    private Rect modeOrCy2;
+    private AnychartMathRect modeOrCy2;
     private Double opacityOrMode;
-    private Rect opacityOrMode1;
+    private AnychartMathRect opacityOrMode1;
     private Double opacity;
     private Double fx;
     private Double fy;
@@ -41,7 +41,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(Fill fillOrColorOrKeys, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(Fill fillOrColorOrKeys, Double modeOrCy, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -85,7 +85,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(Fill fillOrColorOrKeys, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(Fill fillOrColorOrKeys, Boolean modeOrCy1, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -107,7 +107,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(Fill fillOrColorOrKeys, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(Fill fillOrColorOrKeys, AnychartMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -129,7 +129,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(Fill fillOrColorOrKeys, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(Fill fillOrColorOrKeys, AnychartMathRect modeOrCy2, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -173,7 +173,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -217,7 +217,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -239,7 +239,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, AnychartMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -261,7 +261,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(GradientKey[] fillOrColorOrKeys1, AnychartMathRect modeOrCy2, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -305,7 +305,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(String[] fillOrColorOrKeys2, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(String[] fillOrColorOrKeys2, Double modeOrCy, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -349,7 +349,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -371,7 +371,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(String[] fillOrColorOrKeys2, AnychartMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -393,7 +393,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBackgroundfill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setBackgroundfill(String[] fillOrColorOrKeys2, AnychartMathRect modeOrCy2, AnychartMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -485,7 +485,7 @@ public class ScrollBar extends JsObject {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -497,7 +497,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds = null;
         this.bounds1 = null;
         this.bounds2 = null;
@@ -1042,9 +1042,9 @@ public class ScrollBar extends JsObject {
     private Double opacityOrAngleOrCx1;
     private Double modeOrCy3;
     private Boolean modeOrCy4;
-    private Rect modeOrCy5;
+    private AnychartMathRect modeOrCy5;
     private Double opacityOrMode2;
-    private Rect opacityOrMode3;
+    private AnychartMathRect opacityOrMode3;
     private Double opacity1;
     private Double fx1;
     private Double fy1;
@@ -1091,7 +1091,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(Fill fillOrColorOrKeys3, Double modeOrCy3, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(Fill fillOrColorOrKeys3, Double modeOrCy3, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1175,7 +1175,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(Fill fillOrColorOrKeys3, Boolean modeOrCy4, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(Fill fillOrColorOrKeys3, Boolean modeOrCy4, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1217,7 +1217,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(Fill fillOrColorOrKeys3, Rect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(Fill fillOrColorOrKeys3, AnychartMathRect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1259,7 +1259,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(Fill fillOrColorOrKeys3, Rect modeOrCy5, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(Fill fillOrColorOrKeys3, AnychartMathRect modeOrCy5, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1343,7 +1343,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, Double modeOrCy3, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, Double modeOrCy3, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1427,7 +1427,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, Boolean modeOrCy4, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, Boolean modeOrCy4, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1469,7 +1469,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, Rect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, AnychartMathRect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1511,7 +1511,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, Rect modeOrCy5, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(GradientKey[] fillOrColorOrKeys4, AnychartMathRect modeOrCy5, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1595,7 +1595,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(String[] fillOrColorOrKeys5, Double modeOrCy3, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(String[] fillOrColorOrKeys5, Double modeOrCy3, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1679,7 +1679,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(String[] fillOrColorOrKeys5, Boolean modeOrCy4, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(String[] fillOrColorOrKeys5, Boolean modeOrCy4, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1721,7 +1721,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(String[] fillOrColorOrKeys5, Rect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(String[] fillOrColorOrKeys5, AnychartMathRect modeOrCy5, Double opacityOrMode2, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1763,7 +1763,7 @@ public class ScrollBar extends JsObject {
     }
 
 
-    public void setSliderfill(String[] fillOrColorOrKeys5, Rect modeOrCy5, Rect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
+    public void setSliderfill(String[] fillOrColorOrKeys5, AnychartMathRect modeOrCy5, AnychartMathRect opacityOrMode3, Double opacityOrAngleOrCx1, Double opacity1, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;

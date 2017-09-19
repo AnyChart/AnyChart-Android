@@ -69,7 +69,7 @@ public class Knob extends JsObject {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -89,7 +89,7 @@ public class Knob extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -123,7 +123,7 @@ public class Knob extends JsObject {
     }
 
 
-    public void setFill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -143,12 +143,12 @@ public class Knob extends JsObject {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -172,7 +172,7 @@ public class Knob extends JsObject {
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;

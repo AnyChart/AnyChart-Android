@@ -65,7 +65,7 @@ public class Pie extends Chart {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -80,7 +80,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds1 = bounds1;
 
         js.append(String.format(Locale.US, "chart.bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
@@ -746,7 +746,7 @@ public class Pie extends Chart {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -764,7 +764,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setFill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = keys;
         this.mode1 = mode1;
         this.angle = angle;
@@ -794,7 +794,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setFill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys1 = keys1;
         this.mode1 = mode1;
         this.angle = angle;
@@ -812,12 +812,12 @@ public class Pie extends Chart {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys2 = keys2;
         this.cx = cx;
         this.cy = cy;
@@ -835,7 +835,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys3 = keys3;
         this.cx = cx;
         this.cy = cy;
@@ -1101,7 +1101,7 @@ public class Pie extends Chart {
     private String[] keys5;
     private Double angle1;
     private Boolean mode3;
-    private Rect mode4;
+    private VectorRect mode4;
     private Double opacity4;
 
     public void setHoverfill(GradientKey[] keys4, Boolean mode3, Double angle1, Double opacity4) {
@@ -1119,7 +1119,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setHoverfill(GradientKey[] keys4, Rect mode4, Double angle1, Double opacity4) {
+    public void setHoverfill(GradientKey[] keys4, VectorRect mode4, Double angle1, Double opacity4) {
         this.keys4 = keys4;
         this.mode4 = mode4;
         this.angle1 = angle1;
@@ -1149,7 +1149,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setHoverfill(String[] keys5, Rect mode4, Double angle1, Double opacity4) {
+    public void setHoverfill(String[] keys5, VectorRect mode4, Double angle1, Double opacity4) {
         this.keys5 = keys5;
         this.mode4 = mode4;
         this.angle1 = angle1;
@@ -1167,12 +1167,12 @@ public class Pie extends Chart {
     private String[] keys7;
     private Double cx1;
     private Double cy1;
-    private Rect mode5;
+    private GraphicsMathRect mode5;
     private Double opacity5;
     private Double fx1;
     private Double fy1;
 
-    public void setHoverfill(GradientKey[] keys6, Double cx1, Double cy1, Rect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setHoverfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
         this.keys6 = keys6;
         this.cx1 = cx1;
         this.cy1 = cy1;
@@ -1190,7 +1190,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setHoverfill(String[] keys7, Double cx1, Double cy1, Rect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setHoverfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
         this.keys7 = keys7;
         this.cx1 = cx1;
         this.cy1 = cy1;
@@ -2304,7 +2304,7 @@ public class Pie extends Chart {
     private String[] keys9;
     private Double angle2;
     private Boolean mode6;
-    private Rect mode7;
+    private VectorRect mode7;
     private Double opacity7;
 
     public void setSelectmarqueefill(GradientKey[] keys8, Boolean mode6, Double angle2, Double opacity7) {
@@ -2322,7 +2322,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setSelectmarqueefill(GradientKey[] keys8, Rect mode7, Double angle2, Double opacity7) {
+    public void setSelectmarqueefill(GradientKey[] keys8, VectorRect mode7, Double angle2, Double opacity7) {
         this.keys8 = keys8;
         this.mode7 = mode7;
         this.angle2 = angle2;
@@ -2352,7 +2352,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setSelectmarqueefill(String[] keys9, Rect mode7, Double angle2, Double opacity7) {
+    public void setSelectmarqueefill(String[] keys9, VectorRect mode7, Double angle2, Double opacity7) {
         this.keys9 = keys9;
         this.mode7 = mode7;
         this.angle2 = angle2;
@@ -2370,12 +2370,12 @@ public class Pie extends Chart {
     private String[] keys11;
     private Double cx2;
     private Double cy2;
-    private Rect mode8;
+    private GraphicsMathRect mode8;
     private Double opacity8;
     private Double fx2;
     private Double fy2;
 
-    public void setSelectmarqueefill(GradientKey[] keys10, Double cx2, Double cy2, Rect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setSelectmarqueefill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
         this.keys10 = keys10;
         this.cx2 = cx2;
         this.cy2 = cy2;
@@ -2393,7 +2393,7 @@ public class Pie extends Chart {
     }
 
 
-    public void setSelectmarqueefill(String[] keys11, Double cx2, Double cy2, Rect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setSelectmarqueefill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
         this.keys11 = keys11;
         this.cx2 = cx2;
         this.cy2 = cy2;

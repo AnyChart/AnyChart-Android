@@ -24,7 +24,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setBackgroundfill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -44,7 +44,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBackgroundfill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setBackgroundfill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -78,7 +78,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBackgroundfill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setBackgroundfill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -98,12 +98,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setBackgroundfill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setBackgroundfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -127,7 +127,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBackgroundfill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setBackgroundfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -177,7 +177,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys5;
     private Double angle1;
     private Boolean mode3;
-    private Rect mode4;
+    private VectorRect mode4;
     private Double opacity4;
 
     public void setBasefill(GradientKey[] keys4, Boolean mode3, Double angle1, Double opacity4) {
@@ -210,7 +210,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBasefill(GradientKey[] keys4, Rect mode4, Double angle1, Double opacity4) {
+    public void setBasefill(GradientKey[] keys4, VectorRect mode4, Double angle1, Double opacity4) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -270,7 +270,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBasefill(String[] keys5, Rect mode4, Double angle1, Double opacity4) {
+    public void setBasefill(String[] keys5, VectorRect mode4, Double angle1, Double opacity4) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -303,12 +303,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys7;
     private Double cx1;
     private Double cy1;
-    private Rect mode5;
+    private GraphicsMathRect mode5;
     private Double opacity5;
     private Double fx1;
     private Double fy1;
 
-    public void setBasefill(GradientKey[] keys6, Double cx1, Double cy1, Rect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setBasefill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -354,7 +354,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBasefill(String[] keys7, Double cx1, Double cy1, Rect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setBasefill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -482,7 +482,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys9;
     private Double angle2;
     private Boolean mode6;
-    private Rect mode7;
+    private VectorRect mode7;
     private Double opacity7;
 
     public void setBaselinefill(GradientKey[] keys8, Boolean mode6, Double angle2, Double opacity7) {
@@ -526,7 +526,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBaselinefill(GradientKey[] keys8, Rect mode7, Double angle2, Double opacity7) {
+    public void setBaselinefill(GradientKey[] keys8, VectorRect mode7, Double angle2, Double opacity7) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -608,7 +608,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBaselinefill(String[] keys9, Rect mode7, Double angle2, Double opacity7) {
+    public void setBaselinefill(String[] keys9, VectorRect mode7, Double angle2, Double opacity7) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -652,12 +652,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys11;
     private Double cx2;
     private Double cy2;
-    private Rect mode8;
+    private GraphicsMathRect mode8;
     private Double opacity8;
     private Double fx2;
     private Double fy2;
 
-    public void setBaselinefill(GradientKey[] keys10, Double cx2, Double cy2, Rect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setBaselinefill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -717,7 +717,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setBaselinefill(String[] keys11, Double cx2, Double cy2, Rect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setBaselinefill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -882,12 +882,12 @@ public class ResourceTimeline extends JsObject {
     private String[] connectorFill2;
     private Double cx3;
     private Double cy3;
-    private Rect opacityOrMode;
+    private GraphicsMathRect opacityOrMode;
     private Double opacity9;
     private Double fx3;
     private Double fy3;
 
-    public void setConnectorfill(Fill connectorFill, Double cx3, Double cy3, Rect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
+    public void setConnectorfill(Fill connectorFill, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
         this.connectorFill = null;
         this.connectorFill1 = null;
         this.connectorFill2 = null;
@@ -933,7 +933,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setConnectorfill(GradientKey[] connectorFill1, Double cx3, Double cy3, Rect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
+    public void setConnectorfill(GradientKey[] connectorFill1, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
         this.connectorFill = null;
         this.connectorFill1 = null;
         this.connectorFill2 = null;
@@ -979,7 +979,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setConnectorfill(String[] connectorFill2, Double cx3, Double cy3, Rect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
+    public void setConnectorfill(String[] connectorFill2, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
         this.connectorFill = null;
         this.connectorFill1 = null;
         this.connectorFill2 = null;
@@ -1265,7 +1265,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys13;
     private Double angle3;
     private Boolean mode9;
-    private Rect mode10;
+    private VectorRect mode10;
     private Double opacity11;
 
     public void setEditconnectorthumbfill(GradientKey[] keys12, Boolean mode9, Double angle3, Double opacity11) {
@@ -1321,7 +1321,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditconnectorthumbfill(GradientKey[] keys12, Rect mode10, Double angle3, Double opacity11) {
+    public void setEditconnectorthumbfill(GradientKey[] keys12, VectorRect mode10, Double angle3, Double opacity11) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1427,7 +1427,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditconnectorthumbfill(String[] keys13, Rect mode10, Double angle3, Double opacity11) {
+    public void setEditconnectorthumbfill(String[] keys13, VectorRect mode10, Double angle3, Double opacity11) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1483,12 +1483,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys15;
     private Double cx4;
     private Double cy4;
-    private Rect mode11;
+    private GraphicsMathRect mode11;
     private Double opacity12;
     private Double fx4;
     private Double fy4;
 
-    public void setEditconnectorthumbfill(GradientKey[] keys14, Double cx4, Double cy4, Rect mode11, Double opacity12, Double fx4, Double fy4) {
+    public void setEditconnectorthumbfill(GradientKey[] keys14, Double cx4, Double cy4, GraphicsMathRect mode11, Double opacity12, Double fx4, Double fy4) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1567,7 +1567,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditconnectorthumbfill(String[] keys15, Double cx4, Double cy4, Rect mode11, Double opacity12, Double fx4, Double fy4) {
+    public void setEditconnectorthumbfill(String[] keys15, Double cx4, Double cy4, GraphicsMathRect mode11, Double opacity12, Double fx4, Double fy4) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1803,7 +1803,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys17;
     private Double angle4;
     private Boolean mode12;
-    private Rect mode13;
+    private VectorRect mode13;
     private Double opacity14;
 
     public void setEditintervalthumbfill(GradientKey[] keys16, Boolean mode12, Double angle4, Double opacity14) {
@@ -1870,7 +1870,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditintervalthumbfill(GradientKey[] keys16, Rect mode13, Double angle4, Double opacity14) {
+    public void setEditintervalthumbfill(GradientKey[] keys16, VectorRect mode13, Double angle4, Double opacity14) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1998,7 +1998,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditintervalthumbfill(String[] keys17, Rect mode13, Double angle4, Double opacity14) {
+    public void setEditintervalthumbfill(String[] keys17, VectorRect mode13, Double angle4, Double opacity14) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -2065,12 +2065,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys19;
     private Double cx5;
     private Double cy5;
-    private Rect mode14;
+    private GraphicsMathRect mode14;
     private Double opacity15;
     private Double fx5;
     private Double fy5;
 
-    public void setEditintervalthumbfill(GradientKey[] keys18, Double cx5, Double cy5, Rect mode14, Double opacity15, Double fx5, Double fy5) {
+    public void setEditintervalthumbfill(GradientKey[] keys18, Double cx5, Double cy5, GraphicsMathRect mode14, Double opacity15, Double fx5, Double fy5) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -2163,7 +2163,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditintervalthumbfill(String[] keys19, Double cx5, Double cy5, Rect mode14, Double opacity15, Double fx5, Double fy5) {
+    public void setEditintervalthumbfill(String[] keys19, Double cx5, Double cy5, GraphicsMathRect mode14, Double opacity15, Double fx5, Double fy5) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -2429,7 +2429,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys21;
     private Double angle5;
     private Boolean mode15;
-    private Rect mode16;
+    private VectorRect mode16;
     private Double opacity17;
 
     public void setEditpreviewfill(GradientKey[] keys20, Boolean mode15, Double angle5, Double opacity17) {
@@ -2507,7 +2507,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditpreviewfill(GradientKey[] keys20, Rect mode16, Double angle5, Double opacity17) {
+    public void setEditpreviewfill(GradientKey[] keys20, VectorRect mode16, Double angle5, Double opacity17) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -2657,7 +2657,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditpreviewfill(String[] keys21, Rect mode16, Double angle5, Double opacity17) {
+    public void setEditpreviewfill(String[] keys21, VectorRect mode16, Double angle5, Double opacity17) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -2735,12 +2735,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys23;
     private Double cx6;
     private Double cy6;
-    private Rect mode17;
+    private GraphicsMathRect mode17;
     private Double opacity18;
     private Double fx6;
     private Double fy6;
 
-    public void setEditpreviewfill(GradientKey[] keys22, Double cx6, Double cy6, Rect mode17, Double opacity18, Double fx6, Double fy6) {
+    public void setEditpreviewfill(GradientKey[] keys22, Double cx6, Double cy6, GraphicsMathRect mode17, Double opacity18, Double fx6, Double fy6) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -2847,7 +2847,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditpreviewfill(String[] keys23, Double cx6, Double cy6, Rect mode17, Double opacity18, Double fx6, Double fy6) {
+    public void setEditpreviewfill(String[] keys23, Double cx6, Double cy6, GraphicsMathRect mode17, Double opacity18, Double fx6, Double fy6) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -3143,7 +3143,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys25;
     private Double angle6;
     private Boolean mode18;
-    private Rect mode19;
+    private VectorRect mode19;
     private Double opacity20;
 
     public void setEditprogressfill(GradientKey[] keys24, Boolean mode18, Double angle6, Double opacity20) {
@@ -3232,7 +3232,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditprogressfill(GradientKey[] keys24, Rect mode19, Double angle6, Double opacity20) {
+    public void setEditprogressfill(GradientKey[] keys24, VectorRect mode19, Double angle6, Double opacity20) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -3404,7 +3404,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditprogressfill(String[] keys25, Rect mode19, Double angle6, Double opacity20) {
+    public void setEditprogressfill(String[] keys25, VectorRect mode19, Double angle6, Double opacity20) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -3493,12 +3493,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys27;
     private Double cx7;
     private Double cy7;
-    private Rect mode20;
+    private GraphicsMathRect mode20;
     private Double opacity21;
     private Double fx7;
     private Double fy7;
 
-    public void setEditprogressfill(GradientKey[] keys26, Double cx7, Double cy7, Rect mode20, Double opacity21, Double fx7, Double fy7) {
+    public void setEditprogressfill(GradientKey[] keys26, Double cx7, Double cy7, GraphicsMathRect mode20, Double opacity21, Double fx7, Double fy7) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -3619,7 +3619,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditprogressfill(String[] keys27, Double cx7, Double cy7, Rect mode20, Double opacity21, Double fx7, Double fy7) {
+    public void setEditprogressfill(String[] keys27, Double cx7, Double cy7, GraphicsMathRect mode20, Double opacity21, Double fx7, Double fy7) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -4111,7 +4111,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys29;
     private Double angle7;
     private Boolean mode21;
-    private Rect mode22;
+    private VectorRect mode22;
     private Double opacity23;
 
     public void setEditstructurepreviewfill(GradientKey[] keys28, Boolean mode21, Double angle7, Double opacity23) {
@@ -4211,7 +4211,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditstructurepreviewfill(GradientKey[] keys28, Rect mode22, Double angle7, Double opacity23) {
+    public void setEditstructurepreviewfill(GradientKey[] keys28, VectorRect mode22, Double angle7, Double opacity23) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -4405,7 +4405,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditstructurepreviewfill(String[] keys29, Rect mode22, Double angle7, Double opacity23) {
+    public void setEditstructurepreviewfill(String[] keys29, VectorRect mode22, Double angle7, Double opacity23) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -4505,12 +4505,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys31;
     private Double cx8;
     private Double cy8;
-    private Rect mode23;
+    private GraphicsMathRect mode23;
     private Double opacity24;
     private Double fx8;
     private Double fy8;
 
-    public void setEditstructurepreviewfill(GradientKey[] keys30, Double cx8, Double cy8, Rect mode23, Double opacity24, Double fx8, Double fy8) {
+    public void setEditstructurepreviewfill(GradientKey[] keys30, Double cx8, Double cy8, GraphicsMathRect mode23, Double opacity24, Double fx8, Double fy8) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -4645,7 +4645,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setEditstructurepreviewfill(String[] keys31, Double cx8, Double cy8, Rect mode23, Double opacity24, Double fx8, Double fy8) {
+    public void setEditstructurepreviewfill(String[] keys31, Double cx8, Double cy8, GraphicsMathRect mode23, Double opacity24, Double fx8, Double fy8) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -5060,7 +5060,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys33;
     private Double angle8;
     private Boolean mode24;
-    private Rect mode25;
+    private VectorRect mode25;
     private Double opacity26;
 
     public void setMilestonefill(GradientKey[] keys32, Boolean mode24, Double angle8, Double opacity26) {
@@ -5171,7 +5171,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setMilestonefill(GradientKey[] keys32, Rect mode25, Double angle8, Double opacity26) {
+    public void setMilestonefill(GradientKey[] keys32, VectorRect mode25, Double angle8, Double opacity26) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -5387,7 +5387,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setMilestonefill(String[] keys33, Rect mode25, Double angle8, Double opacity26) {
+    public void setMilestonefill(String[] keys33, VectorRect mode25, Double angle8, Double opacity26) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -5498,12 +5498,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys35;
     private Double cx9;
     private Double cy9;
-    private Rect mode26;
+    private GraphicsMathRect mode26;
     private Double opacity27;
     private Double fx9;
     private Double fy9;
 
-    public void setMilestonefill(GradientKey[] keys34, Double cx9, Double cy9, Rect mode26, Double opacity27, Double fx9, Double fy9) {
+    public void setMilestonefill(GradientKey[] keys34, Double cx9, Double cy9, GraphicsMathRect mode26, Double opacity27, Double fx9, Double fy9) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -5652,7 +5652,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setMilestonefill(String[] keys35, Double cx9, Double cy9, Rect mode26, Double opacity27, Double fx9, Double fy9) {
+    public void setMilestonefill(String[] keys35, Double cx9, Double cy9, GraphicsMathRect mode26, Double opacity27, Double fx9, Double fy9) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -6050,7 +6050,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys37;
     private Double angle9;
     private Boolean mode27;
-    private Rect mode28;
+    private VectorRect mode28;
     private Double opacity29;
 
     public void setParentfill(GradientKey[] keys36, Boolean mode27, Double angle9, Double opacity29) {
@@ -6172,7 +6172,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setParentfill(GradientKey[] keys36, Rect mode28, Double angle9, Double opacity29) {
+    public void setParentfill(GradientKey[] keys36, VectorRect mode28, Double angle9, Double opacity29) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -6410,7 +6410,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setParentfill(String[] keys37, Rect mode28, Double angle9, Double opacity29) {
+    public void setParentfill(String[] keys37, VectorRect mode28, Double angle9, Double opacity29) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -6532,12 +6532,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys39;
     private Double cx10;
     private Double cy10;
-    private Rect mode29;
+    private GraphicsMathRect mode29;
     private Double opacity30;
     private Double fx10;
     private Double fy10;
 
-    public void setParentfill(GradientKey[] keys38, Double cx10, Double cy10, Rect mode29, Double opacity30, Double fx10, Double fy10) {
+    public void setParentfill(GradientKey[] keys38, Double cx10, Double cy10, GraphicsMathRect mode29, Double opacity30, Double fx10, Double fy10) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -6700,7 +6700,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setParentfill(String[] keys39, Double cx10, Double cy10, Rect mode29, Double opacity30, Double fx10, Double fy10) {
+    public void setParentfill(String[] keys39, Double cx10, Double cy10, GraphicsMathRect mode29, Double opacity30, Double fx10, Double fy10) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -7128,7 +7128,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys41;
     private Double angle10;
     private Boolean mode30;
-    private Rect mode31;
+    private VectorRect mode31;
     private Double opacity32;
 
     public void setProgressfill(GradientKey[] keys40, Boolean mode30, Double angle10, Double opacity32) {
@@ -7261,7 +7261,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setProgressfill(GradientKey[] keys40, Rect mode31, Double angle10, Double opacity32) {
+    public void setProgressfill(GradientKey[] keys40, VectorRect mode31, Double angle10, Double opacity32) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -7521,7 +7521,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setProgressfill(String[] keys41, Rect mode31, Double angle10, Double opacity32) {
+    public void setProgressfill(String[] keys41, VectorRect mode31, Double angle10, Double opacity32) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -7654,12 +7654,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys43;
     private Double cx11;
     private Double cy11;
-    private Rect mode32;
+    private GraphicsMathRect mode32;
     private Double opacity33;
     private Double fx11;
     private Double fy11;
 
-    public void setProgressfill(GradientKey[] keys42, Double cx11, Double cy11, Rect mode32, Double opacity33, Double fx11, Double fy11) {
+    public void setProgressfill(GradientKey[] keys42, Double cx11, Double cy11, GraphicsMathRect mode32, Double opacity33, Double fx11, Double fy11) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -7836,7 +7836,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setProgressfill(String[] keys43, Double cx11, Double cy11, Rect mode32, Double opacity33, Double fx11, Double fy11) {
+    public void setProgressfill(String[] keys43, Double cx11, Double cy11, GraphicsMathRect mode32, Double opacity33, Double fx11, Double fy11) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -8343,7 +8343,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys45;
     private Double angle11;
     private Boolean mode33;
-    private Rect mode34;
+    private VectorRect mode34;
     private Double opacity35;
 
     public void setRowevenfill(GradientKey[] keys44, Boolean mode33, Double angle11, Double opacity35) {
@@ -8487,7 +8487,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowevenfill(GradientKey[] keys44, Rect mode34, Double angle11, Double opacity35) {
+    public void setRowevenfill(GradientKey[] keys44, VectorRect mode34, Double angle11, Double opacity35) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -8769,7 +8769,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowevenfill(String[] keys45, Rect mode34, Double angle11, Double opacity35) {
+    public void setRowevenfill(String[] keys45, VectorRect mode34, Double angle11, Double opacity35) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -8913,12 +8913,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys47;
     private Double cx12;
     private Double cy12;
-    private Rect mode35;
+    private GraphicsMathRect mode35;
     private Double opacity36;
     private Double fx12;
     private Double fy12;
 
-    public void setRowevenfill(GradientKey[] keys46, Double cx12, Double cy12, Rect mode35, Double opacity36, Double fx12, Double fy12) {
+    public void setRowevenfill(GradientKey[] keys46, Double cx12, Double cy12, GraphicsMathRect mode35, Double opacity36, Double fx12, Double fy12) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -9109,7 +9109,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowevenfill(String[] keys47, Double cx12, Double cy12, Rect mode35, Double opacity36, Double fx12, Double fy12) {
+    public void setRowevenfill(String[] keys47, Double cx12, Double cy12, GraphicsMathRect mode35, Double opacity36, Double fx12, Double fy12) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -9371,7 +9371,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys49;
     private Double angle12;
     private Boolean mode36;
-    private Rect mode37;
+    private VectorRect mode37;
     private Double opacity38;
 
     public void setRowfill(GradientKey[] keys48, Boolean mode36, Double angle12, Double opacity38) {
@@ -9526,7 +9526,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowfill(GradientKey[] keys48, Rect mode37, Double angle12, Double opacity38) {
+    public void setRowfill(GradientKey[] keys48, VectorRect mode37, Double angle12, Double opacity38) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -9830,7 +9830,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowfill(String[] keys49, Rect mode37, Double angle12, Double opacity38) {
+    public void setRowfill(String[] keys49, VectorRect mode37, Double angle12, Double opacity38) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -9985,12 +9985,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys51;
     private Double cx13;
     private Double cy13;
-    private Rect mode38;
+    private GraphicsMathRect mode38;
     private Double opacity39;
     private Double fx13;
     private Double fy13;
 
-    public void setRowfill(GradientKey[] keys50, Double cx13, Double cy13, Rect mode38, Double opacity39, Double fx13, Double fy13) {
+    public void setRowfill(GradientKey[] keys50, Double cx13, Double cy13, GraphicsMathRect mode38, Double opacity39, Double fx13, Double fy13) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -10195,7 +10195,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowfill(String[] keys51, Double cx13, Double cy13, Rect mode38, Double opacity39, Double fx13, Double fy13) {
+    public void setRowfill(String[] keys51, Double cx13, Double cy13, GraphicsMathRect mode38, Double opacity39, Double fx13, Double fy13) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -10475,7 +10475,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys53;
     private Double angle13;
     private Boolean mode39;
-    private Rect mode40;
+    private VectorRect mode40;
     private Double opacity41;
 
     public void setRowhoverfill(GradientKey[] keys52, Boolean mode39, Double angle13, Double opacity41) {
@@ -10641,7 +10641,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowhoverfill(GradientKey[] keys52, Rect mode40, Double angle13, Double opacity41) {
+    public void setRowhoverfill(GradientKey[] keys52, VectorRect mode40, Double angle13, Double opacity41) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -10967,7 +10967,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowhoverfill(String[] keys53, Rect mode40, Double angle13, Double opacity41) {
+    public void setRowhoverfill(String[] keys53, VectorRect mode40, Double angle13, Double opacity41) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -11133,12 +11133,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys55;
     private Double cx14;
     private Double cy14;
-    private Rect mode41;
+    private GraphicsMathRect mode41;
     private Double opacity42;
     private Double fx14;
     private Double fy14;
 
-    public void setRowhoverfill(GradientKey[] keys54, Double cx14, Double cy14, Rect mode41, Double opacity42, Double fx14, Double fy14) {
+    public void setRowhoverfill(GradientKey[] keys54, Double cx14, Double cy14, GraphicsMathRect mode41, Double opacity42, Double fx14, Double fy14) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -11357,7 +11357,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowhoverfill(String[] keys55, Double cx14, Double cy14, Rect mode41, Double opacity42, Double fx14, Double fy14) {
+    public void setRowhoverfill(String[] keys55, Double cx14, Double cy14, GraphicsMathRect mode41, Double opacity42, Double fx14, Double fy14) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -11654,7 +11654,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys57;
     private Double angle14;
     private Boolean mode42;
-    private Rect mode43;
+    private VectorRect mode43;
     private Double opacity44;
 
     public void setRowoddfill(GradientKey[] keys56, Boolean mode42, Double angle14, Double opacity44) {
@@ -11831,7 +11831,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowoddfill(GradientKey[] keys56, Rect mode43, Double angle14, Double opacity44) {
+    public void setRowoddfill(GradientKey[] keys56, VectorRect mode43, Double angle14, Double opacity44) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -12179,7 +12179,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowoddfill(String[] keys57, Rect mode43, Double angle14, Double opacity44) {
+    public void setRowoddfill(String[] keys57, VectorRect mode43, Double angle14, Double opacity44) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -12356,12 +12356,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys59;
     private Double cx15;
     private Double cy15;
-    private Rect mode44;
+    private GraphicsMathRect mode44;
     private Double opacity45;
     private Double fx15;
     private Double fy15;
 
-    public void setRowoddfill(GradientKey[] keys58, Double cx15, Double cy15, Rect mode44, Double opacity45, Double fx15, Double fy15) {
+    public void setRowoddfill(GradientKey[] keys58, Double cx15, Double cy15, GraphicsMathRect mode44, Double opacity45, Double fx15, Double fy15) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -12594,7 +12594,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowoddfill(String[] keys59, Double cx15, Double cy15, Rect mode44, Double opacity45, Double fx15, Double fy15) {
+    public void setRowoddfill(String[] keys59, Double cx15, Double cy15, GraphicsMathRect mode44, Double opacity45, Double fx15, Double fy15) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -12910,7 +12910,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys61;
     private Double angle15;
     private Boolean mode45;
-    private Rect mode46;
+    private VectorRect mode46;
 
     public void setRowselectedfill(GradientKey[] keys60, Boolean mode45, Double angle15) {
         this.keys = null;
@@ -13047,7 +13047,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowselectedfill(GradientKey[] keys60, Rect mode46, Double angle15) {
+    public void setRowselectedfill(GradientKey[] keys60, VectorRect mode46, Double angle15) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -13317,7 +13317,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowselectedfill(String[] keys61, Rect mode46, Double angle15) {
+    public void setRowselectedfill(String[] keys61, VectorRect mode46, Double angle15) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -13455,12 +13455,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys63;
     private Double cx16;
     private Double cy16;
-    private Rect mode47;
+    private GraphicsMathRect mode47;
     private Double opacity47;
     private Double fx16;
     private Double fy16;
 
-    public void setRowselectedfill(GradientKey[] keys62, Double cx16, Double cy16, Rect mode47, Double opacity47, Double fx16, Double fy16) {
+    public void setRowselectedfill(GradientKey[] keys62, Double cx16, Double cy16, GraphicsMathRect mode47, Double opacity47, Double fx16, Double fy16) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -13706,7 +13706,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setRowselectedfill(String[] keys63, Double cx16, Double cy16, Rect mode47, Double opacity47, Double fx16, Double fy16) {
+    public void setRowselectedfill(String[] keys63, Double cx16, Double cy16, GraphicsMathRect mode47, Double opacity47, Double fx16, Double fy16) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -14038,7 +14038,7 @@ public class ResourceTimeline extends JsObject {
     private String[] keys65;
     private Double angle16;
     private Boolean mode48;
-    private Rect mode49;
+    private VectorRect mode49;
     private Double opacity49;
 
     public void setSelectedelementfill(GradientKey[] keys64, Boolean mode48, Double angle16, Double opacity49) {
@@ -14236,7 +14236,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setSelectedelementfill(GradientKey[] keys64, Rect mode49, Double angle16, Double opacity49) {
+    public void setSelectedelementfill(GradientKey[] keys64, VectorRect mode49, Double angle16, Double opacity49) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -14626,7 +14626,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setSelectedelementfill(String[] keys65, Rect mode49, Double angle16, Double opacity49) {
+    public void setSelectedelementfill(String[] keys65, VectorRect mode49, Double angle16, Double opacity49) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -14824,12 +14824,12 @@ public class ResourceTimeline extends JsObject {
     private String[] keys67;
     private Double cx17;
     private Double cy17;
-    private Rect mode50;
+    private GraphicsMathRect mode50;
     private Double opacity50;
     private Double fx17;
     private Double fy17;
 
-    public void setSelectedelementfill(GradientKey[] keys66, Double cx17, Double cy17, Rect mode50, Double opacity50, Double fx17, Double fy17) {
+    public void setSelectedelementfill(GradientKey[] keys66, Double cx17, Double cy17, GraphicsMathRect mode50, Double opacity50, Double fx17, Double fy17) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -15089,7 +15089,7 @@ public class ResourceTimeline extends JsObject {
     }
 
 
-    public void setSelectedelementfill(String[] keys67, Double cx17, Double cy17, Rect mode50, Double opacity50, Double fx17, Double fy17) {
+    public void setSelectedelementfill(String[] keys67, Double cx17, Double cy17, GraphicsMathRect mode50, Double opacity50, Double fx17, Double fy17) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;

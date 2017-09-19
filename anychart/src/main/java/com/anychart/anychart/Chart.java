@@ -45,7 +45,7 @@ public class Chart extends JsObject {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -57,7 +57,7 @@ public class Chart extends JsObject {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds = null;
         this.bounds1 = null;
         this.bounds2 = null;
@@ -1739,7 +1739,7 @@ public class Chart extends JsObject {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setSelectmarqueefill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -1759,7 +1759,7 @@ public class Chart extends JsObject {
     }
 
 
-    public void setSelectmarqueefill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setSelectmarqueefill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -1793,7 +1793,7 @@ public class Chart extends JsObject {
     }
 
 
-    public void setSelectmarqueefill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setSelectmarqueefill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -1813,12 +1813,12 @@ public class Chart extends JsObject {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setSelectmarqueefill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setSelectmarqueefill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1842,7 +1842,7 @@ public class Chart extends JsObject {
     }
 
 
-    public void setSelectmarqueefill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setSelectmarqueefill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;

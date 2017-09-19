@@ -78,10 +78,10 @@ public class LegendItemSettings extends JsObject {
         this.fontSize1 = fontSize1;
     }
 
-    private FontStyle fontStyle;
+    private TextFontStyle fontStyle;
     private String fontStyle1;
 
-    public void setFontstyle(FontStyle fontStyle) {
+    public void setFontstyle(TextFontStyle fontStyle) {
         this.fontStyle = null;
         this.fontStyle1 = null;
         
@@ -96,10 +96,10 @@ public class LegendItemSettings extends JsObject {
         this.fontStyle1 = fontStyle1;
     }
 
-    private FontVariant fontVariant;
+    private TextFontVariant fontVariant;
     private String fontVariant1;
 
-    public void setFontvariant(FontVariant fontVariant) {
+    public void setFontvariant(TextFontVariant fontVariant) {
         this.fontVariant = null;
         this.fontVariant1 = null;
         
@@ -138,10 +138,10 @@ public class LegendItemSettings extends JsObject {
         this.format = format;
     }
 
-    private HAlign hAlign;
+    private TextHAlign hAlign;
     private String hAlign1;
 
-    public void setHalign(HAlign hAlign) {
+    public void setHalign(TextHAlign hAlign) {
         this.hAlign = null;
         this.hAlign1 = null;
         
@@ -180,7 +180,7 @@ public class LegendItemSettings extends JsObject {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setIconfill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -200,7 +200,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconfill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setIconfill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -234,7 +234,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconfill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setIconfill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -254,12 +254,12 @@ public class LegendItemSettings extends JsObject {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setIconfill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setIconfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -283,7 +283,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconfill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setIconfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -383,9 +383,9 @@ public class LegendItemSettings extends JsObject {
     private Double opacityOrAngleOrCx;
     private Double modeOrCy;
     private Boolean modeOrCy1;
-    private Rect modeOrCy2;
+    private GraphicsMathRect modeOrCy2;
     private Double opacityOrMode;
-    private Rect opacityOrMode1;
+    private GraphicsMathRect opacityOrMode1;
     private Double opacity3;
     private Double fx1;
     private Double fy1;
@@ -423,7 +423,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(Fill fillOrColorOrKeys, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(Fill fillOrColorOrKeys, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -489,7 +489,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(Fill fillOrColorOrKeys, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(Fill fillOrColorOrKeys, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -522,7 +522,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(Fill fillOrColorOrKeys, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(Fill fillOrColorOrKeys, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -555,7 +555,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(Fill fillOrColorOrKeys, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(Fill fillOrColorOrKeys, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -621,7 +621,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -687,7 +687,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -720,7 +720,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -753,7 +753,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(GradientKey[] fillOrColorOrKeys1, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -819,7 +819,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(String[] fillOrColorOrKeys2, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(String[] fillOrColorOrKeys2, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -885,7 +885,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -918,7 +918,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(String[] fillOrColorOrKeys2, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -951,7 +951,7 @@ public class LegendItemSettings extends JsObject {
     }
 
 
-    public void setIconmarkerfill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
+    public void setIconmarkerfill(String[] fillOrColorOrKeys2, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity3, Double fx1, Double fy1) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -1368,10 +1368,10 @@ public class LegendItemSettings extends JsObject {
         this.name1 = name1;
     }
 
-    private TextWrap textWrap;
+    private TextTextWrap textWrap;
     private String textWrap1;
 
-    public void setTextwrap(TextWrap textWrap) {
+    public void setTextwrap(TextTextWrap textWrap) {
         this.textWrap = null;
         this.textWrap1 = null;
         
@@ -1409,10 +1409,10 @@ public class LegendItemSettings extends JsObject {
         this.useHtml = useHtml;
     }
 
-    private VAlign vAlign;
+    private TextVAlign vAlign;
     private String vAlign1;
 
-    public void setValign(VAlign vAlign) {
+    public void setValign(TextVAlign vAlign) {
         this.vAlign = null;
         this.vAlign1 = null;
         

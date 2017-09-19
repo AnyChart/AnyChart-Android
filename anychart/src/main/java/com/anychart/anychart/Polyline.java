@@ -25,7 +25,7 @@ public class Polyline extends JsObject {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -37,7 +37,7 @@ public class Polyline extends JsObject {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds = null;
         this.bounds1 = null;
         this.bounds2 = null;
@@ -1211,15 +1211,15 @@ public class Polyline extends JsObject {
         this.width3 = width3;
     }
 
-    private Base xScale;
+    private ScalesBase xScale;
 
-    public void setXscale(Base xScale) {
+    public void setXscale(ScalesBase xScale) {
         this.xScale = xScale;
     }
 
-    private Base yScale;
+    private ScalesBase yScale;
 
-    public void setYscale(Base yScale) {
+    public void setYscale(ScalesBase yScale) {
         this.yScale = yScale;
     }
 

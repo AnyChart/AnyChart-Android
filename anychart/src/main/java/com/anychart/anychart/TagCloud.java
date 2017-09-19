@@ -91,7 +91,7 @@ public class TagCloud extends Chart {
     }
 
     private RectObj bounds;
-    private Rect bounds1;
+    private AnychartMathRect bounds1;
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
@@ -106,7 +106,7 @@ public class TagCloud extends Chart {
     }
 
 
-    public void setBounds(Rect bounds1) {
+    public void setBounds(AnychartMathRect bounds1) {
         this.bounds1 = bounds1;
 
         js.append(String.format(Locale.US, "chart.bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
@@ -1521,7 +1521,7 @@ public class TagCloud extends Chart {
     }
 
     private ScaleTypes scale;
-    private Base scale1;
+    private ScalesBase scale1;
 
     public void setScale(ScaleTypes scale) {
         this.scale = scale;
@@ -1535,7 +1535,7 @@ public class TagCloud extends Chart {
     }
 
 
-    public void setScale(Base scale1) {
+    public void setScale(ScalesBase scale1) {
         this.scale1 = scale1;
 
         js.append(String.format(Locale.US, "chart.scale(%s);", (scale1 != null) ? scale1.generateJs() : "null"));

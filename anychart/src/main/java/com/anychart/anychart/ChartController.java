@@ -38,15 +38,15 @@ public class ChartController extends JsObject {
         this.type2 = type2;
     }
 
-    private Base annotation;
+    private AnnotationsBase annotation;
 
-    public void setRemoveannotation(Base annotation) {
+    public void setRemoveannotation(AnnotationsBase annotation) {
         this.annotation = annotation;
     }
 
-    private Base annotation1;
+    private AnnotationsBase annotation1;
 
-    public void setSelect(Base annotation1) {
+    public void setSelect(AnnotationsBase annotation1) {
         this.annotation = null;
         this.annotation1 = null;
         

@@ -22,17 +22,17 @@ public class OrdinalZoom extends JsObject {
 
     private Double pointsCount;
     private Boolean fromEnd;
-    private Base scale;
+    private ScalesBase scale;
 
-    public void setSettopointscount(Double pointsCount, Boolean fromEnd, Base scale) {
+    public void setSettopointscount(Double pointsCount, Boolean fromEnd, ScalesBase scale) {
         this.pointsCount = pointsCount;
         this.fromEnd = fromEnd;
         this.scale = scale;
     }
 
-    private Base scale1;
+    private ScalesBase scale1;
 
-    public void setSettovalues(Base scale1) {
+    public void setSettovalues(ScalesBase scale1) {
         this.scale = null;
         this.scale1 = null;
         

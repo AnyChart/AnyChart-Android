@@ -18,9 +18,9 @@ public class Separator extends JsObject {
     private Double opacityOrAngleOrCx;
     private Double modeOrCy;
     private Boolean modeOrCy1;
-    private Rect modeOrCy2;
+    private GraphicsMathRect modeOrCy2;
     private Double opacityOrMode;
-    private Rect opacityOrMode1;
+    private GraphicsMathRect opacityOrMode1;
     private Double opacity;
     private Double fx;
     private Double fy;
@@ -47,7 +47,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(Fill fillOrColorOrKeys, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -91,7 +91,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(Fill fillOrColorOrKeys, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -113,7 +113,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(Fill fillOrColorOrKeys, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -135,7 +135,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(Fill fillOrColorOrKeys, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -179,7 +179,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -223,7 +223,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -245,7 +245,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(GradientKey[] fillOrColorOrKeys1, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -267,7 +267,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(GradientKey[] fillOrColorOrKeys1, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -311,7 +311,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys2, Double modeOrCy, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(String[] fillOrColorOrKeys2, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -355,7 +355,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -377,7 +377,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(String[] fillOrColorOrKeys2, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;
@@ -399,7 +399,7 @@ public class Separator extends JsObject {
     }
 
 
-    public void setFill(String[] fillOrColorOrKeys2, Rect modeOrCy2, Rect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public void setFill(String[] fillOrColorOrKeys2, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
         this.fillOrColorOrKeys = null;
         this.fillOrColorOrKeys1 = null;
         this.fillOrColorOrKeys2 = null;

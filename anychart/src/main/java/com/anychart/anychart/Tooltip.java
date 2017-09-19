@@ -45,10 +45,10 @@ public class Tooltip extends JsObject {
         this.allowLeaveStage = allowLeaveStage;
     }
 
-    private Anchor anchor;
+    private EnumsAnchor anchor;
     private String anchor1;
 
-    public void setAnchor(Anchor anchor) {
+    public void setAnchor(EnumsAnchor anchor) {
         this.anchor = null;
         this.anchor1 = null;
         
@@ -166,7 +166,7 @@ public class Tooltip extends JsObject {
     }
 
     private String fontStyle;
-    private FontStyle fontStyle1;
+    private TextFontStyle fontStyle1;
 
     public void setFontstyle(String fontStyle) {
         this.fontStyle = null;
@@ -176,7 +176,7 @@ public class Tooltip extends JsObject {
     }
 
 
-    public void setFontstyle(FontStyle fontStyle1) {
+    public void setFontstyle(TextFontStyle fontStyle1) {
         this.fontStyle = null;
         this.fontStyle1 = null;
         
@@ -184,7 +184,7 @@ public class Tooltip extends JsObject {
     }
 
     private String fontVariant;
-    private FontVariant fontVariant1;
+    private TextFontVariant fontVariant1;
 
     public void setFontvariant(String fontVariant) {
         this.fontVariant = null;
@@ -194,7 +194,7 @@ public class Tooltip extends JsObject {
     }
 
 
-    public void setFontvariant(FontVariant fontVariant1) {
+    public void setFontvariant(TextFontVariant fontVariant1) {
         this.fontVariant = null;
         this.fontVariant1 = null;
         
@@ -226,7 +226,7 @@ public class Tooltip extends JsObject {
     }
 
     private String hAlign;
-    private HAlign hAlign1;
+    private TextHAlign hAlign1;
 
     public void setHalign(String hAlign) {
         this.hAlign = null;
@@ -236,7 +236,7 @@ public class Tooltip extends JsObject {
     }
 
 
-    public void setHalign(HAlign hAlign1) {
+    public void setHalign(TextHAlign hAlign1) {
         this.hAlign = null;
         this.hAlign1 = null;
         
@@ -684,7 +684,7 @@ public class Tooltip extends JsObject {
     }
 
     private String textWrap;
-    private TextWrap textWrap1;
+    private TextTextWrap textWrap1;
 
     public void setTextwrap(String textWrap) {
         this.textWrap = null;
@@ -694,7 +694,7 @@ public class Tooltip extends JsObject {
     }
 
 
-    public void setTextwrap(TextWrap textWrap1) {
+    public void setTextwrap(TextTextWrap textWrap1) {
         this.textWrap = null;
         this.textWrap1 = null;
         
@@ -743,7 +743,7 @@ public class Tooltip extends JsObject {
     }
 
     private String vAlign;
-    private VAlign vAlign1;
+    private TextVAlign vAlign1;
 
     public void setValign(String vAlign) {
         this.vAlign = null;
@@ -753,7 +753,7 @@ public class Tooltip extends JsObject {
     }
 
 
-    public void setValign(VAlign vAlign1) {
+    public void setValign(TextVAlign vAlign1) {
         this.vAlign = null;
         this.vAlign1 = null;
         

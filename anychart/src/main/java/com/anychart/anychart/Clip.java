@@ -8,7 +8,7 @@ public class Clip extends JsObject {
     
     private Double[] shape;
     private Shape shape1;
-    private Rect shape2;
+    private GraphicsMathRect shape2;
 
     public void setShape(Double[] shape) {
         this.shape = null;
@@ -28,7 +28,7 @@ public class Clip extends JsObject {
     }
 
 
-    public void setShape(Rect shape2) {
+    public void setShape(GraphicsMathRect shape2) {
         this.shape = null;
         this.shape1 = null;
         this.shape2 = null;

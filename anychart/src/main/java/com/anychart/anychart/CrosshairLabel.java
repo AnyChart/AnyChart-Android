@@ -27,10 +27,10 @@ public class CrosshairLabel extends JsObject {
         this.byHeight = byHeight;
     }
 
-    private Anchor anchor;
+    private EnumsAnchor anchor;
     private String anchor1;
 
-    public void setAnchor(Anchor anchor) {
+    public void setAnchor(EnumsAnchor anchor) {
         this.anchor = null;
         this.anchor1 = null;
         

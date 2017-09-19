@@ -1170,10 +1170,10 @@ public class FibonacciFan extends JsObject {
         this.lineCap8 = lineCap8;
     }
 
-    private Base xScale;
+    private ScalesBase xScale;
     private StockScatterDateTime xScale1;
 
-    public void setXscale(Base xScale) {
+    public void setXscale(ScalesBase xScale) {
         this.xScale = null;
         this.xScale1 = null;
         
@@ -1188,9 +1188,9 @@ public class FibonacciFan extends JsObject {
         this.xScale1 = xScale1;
     }
 
-    private Base yScale;
+    private ScalesBase yScale;
 
-    public void setYscale(Base yScale) {
+    public void setYscale(ScalesBase yScale) {
         this.yScale = yScale;
     }
 

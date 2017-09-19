@@ -7,7 +7,7 @@ public class AnnotationJSONFormat extends JsObject  {
 
     
     private Boolean allowEdit;
-    private Anchor anchor;
+    private EnumsAnchor anchor;
     private AnyColor color;
     private Fill fill;
     private Stroke grid;
@@ -39,7 +39,7 @@ public class AnnotationJSONFormat extends JsObject  {
     private Double xAnchor;
 
     
-    public AnnotationJSONFormat(Boolean allowEdit, Anchor anchor, AnyColor color, Fill fill, Stroke grid, PatternFill hatchFill, Fill hoverFill, Double hoverGap, Stroke hoverGrid, PatternFill hoverHatchFill, Double hoverSize, Stroke hoverStroke, Stroke hoverTrend, MarkerType markerType, Double offsetX, Double offsetY, Double secondValueAnchor, Double secondXAnchor, Fill selectFill, Stroke selectGrid, PatternFill selectHatchFill, Double selectSize, Stroke selectStroke, Stroke selectTrend, Double size, Stroke stroke, Double thirdValueAnchor, Double thirdXAnchor, Stroke trend, Double valueAnchor, Double xAnchor) {
+    public AnnotationJSONFormat(Boolean allowEdit, EnumsAnchor anchor, AnyColor color, Fill fill, Stroke grid, PatternFill hatchFill, Fill hoverFill, Double hoverGap, Stroke hoverGrid, PatternFill hoverHatchFill, Double hoverSize, Stroke hoverStroke, Stroke hoverTrend, MarkerType markerType, Double offsetX, Double offsetY, Double secondValueAnchor, Double secondXAnchor, Fill selectFill, Stroke selectGrid, PatternFill selectHatchFill, Double selectSize, Stroke selectStroke, Stroke selectTrend, Double size, Stroke stroke, Double thirdValueAnchor, Double thirdXAnchor, Stroke trend, Double valueAnchor, Double xAnchor) {
         this.allowEdit = allowEdit;
         this.anchor = anchor;
         this.color = color;

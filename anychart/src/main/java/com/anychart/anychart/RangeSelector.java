@@ -18,10 +18,10 @@ public class RangeSelector extends JsObject {
         this.ranges = ranges;
     }
 
-    private Stock parentElement;
+    private ChartsStock parentElement;
     private Element parentElement1;
 
-    public void setRender(Stock parentElement) {
+    public void setRender(ChartsStock parentElement) {
         this.parentElement = null;
         this.parentElement1 = null;
         
@@ -36,9 +36,9 @@ public class RangeSelector extends JsObject {
         this.parentElement1 = parentElement1;
     }
 
-    private Stock chart;
+    private ChartsStock chart;
 
-    public void setTarget(Stock chart) {
+    public void setTarget(ChartsStock chart) {
         this.chart = chart;
     }
 

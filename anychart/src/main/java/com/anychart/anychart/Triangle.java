@@ -33,7 +33,7 @@ public class Triangle extends JsObject {
     private String[] keys1;
     private Double angle;
     private Boolean mode;
-    private Rect mode1;
+    private VectorRect mode1;
     private Double opacity1;
 
     public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -53,7 +53,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setFill(GradientKey[] keys, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -87,7 +87,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setFill(String[] keys1, Rect mode1, Double angle, Double opacity1) {
+    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = null;
         this.keys1 = null;
         
@@ -107,12 +107,12 @@ public class Triangle extends JsObject {
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private Rect mode2;
+    private GraphicsMathRect mode2;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -136,7 +136,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, Rect mode2, Double opacity2, Double fx, Double fy) {
+    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -286,7 +286,7 @@ public class Triangle extends JsObject {
     private String[] keys5;
     private Double angle1;
     private Boolean mode3;
-    private Rect mode4;
+    private VectorRect mode4;
     private Double opacity4;
 
     public void setHoverfill(GradientKey[] keys4, Boolean mode3, Double angle1, Double opacity4) {
@@ -319,7 +319,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setHoverfill(GradientKey[] keys4, Rect mode4, Double angle1, Double opacity4) {
+    public void setHoverfill(GradientKey[] keys4, VectorRect mode4, Double angle1, Double opacity4) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -379,7 +379,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setHoverfill(String[] keys5, Rect mode4, Double angle1, Double opacity4) {
+    public void setHoverfill(String[] keys5, VectorRect mode4, Double angle1, Double opacity4) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -412,12 +412,12 @@ public class Triangle extends JsObject {
     private String[] keys7;
     private Double cx1;
     private Double cy1;
-    private Rect mode5;
+    private GraphicsMathRect mode5;
     private Double opacity5;
     private Double fx1;
     private Double fy1;
 
-    public void setHoverfill(GradientKey[] keys6, Double cx1, Double cy1, Rect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setHoverfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -463,7 +463,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setHoverfill(String[] keys7, Double cx1, Double cy1, Rect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setHoverfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -817,7 +817,7 @@ public class Triangle extends JsObject {
     private String[] keys9;
     private Double angle2;
     private Boolean mode6;
-    private Rect mode7;
+    private VectorRect mode7;
     private Double opacity7;
 
     public void setSelectfill(GradientKey[] keys8, Boolean mode6, Double angle2, Double opacity7) {
@@ -861,7 +861,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setSelectfill(GradientKey[] keys8, Rect mode7, Double angle2, Double opacity7) {
+    public void setSelectfill(GradientKey[] keys8, VectorRect mode7, Double angle2, Double opacity7) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -943,7 +943,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setSelectfill(String[] keys9, Rect mode7, Double angle2, Double opacity7) {
+    public void setSelectfill(String[] keys9, VectorRect mode7, Double angle2, Double opacity7) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -987,12 +987,12 @@ public class Triangle extends JsObject {
     private String[] keys11;
     private Double cx2;
     private Double cy2;
-    private Rect mode8;
+    private GraphicsMathRect mode8;
     private Double opacity8;
     private Double fx2;
     private Double fy2;
 
-    public void setSelectfill(GradientKey[] keys10, Double cx2, Double cy2, Rect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setSelectfill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1052,7 +1052,7 @@ public class Triangle extends JsObject {
     }
 
 
-    public void setSelectfill(String[] keys11, Double cx2, Double cy2, Rect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setSelectfill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
         this.keys = null;
         this.keys1 = null;
         this.keys2 = null;
@@ -1621,10 +1621,10 @@ public class Triangle extends JsObject {
         this.lineCap2 = lineCap2;
     }
 
-    private Base xScale;
+    private ScalesBase xScale;
     private StockScatterDateTime xScale1;
 
-    public void setXscale(Base xScale) {
+    public void setXscale(ScalesBase xScale) {
         this.xScale = null;
         this.xScale1 = null;
         
@@ -1639,9 +1639,9 @@ public class Triangle extends JsObject {
         this.xScale1 = xScale1;
     }
 
-    private Base yScale;
+    private ScalesBase yScale;
 
-    public void setYscale(Base yScale) {
+    public void setYscale(ScalesBase yScale) {
         this.yScale = yScale;
     }
 

@@ -32,10 +32,10 @@ public class CircularLabelsFactory extends JsObject {
         this.adjustFontSize1 = adjustFontSize1;
     }
 
-    private Anchor anchor;
+    private EnumsAnchor anchor;
     private String anchor1;
 
-    public void setAnchor(Anchor anchor) {
+    public void setAnchor(EnumsAnchor anchor) {
         this.anchor = null;
         this.anchor1 = null;
         
@@ -140,10 +140,10 @@ public class CircularLabelsFactory extends JsObject {
         this.fontSize1 = fontSize1;
     }
 
-    private FontStyle fontStyle;
+    private TextFontStyle fontStyle;
     private String fontStyle1;
 
-    public void setFontstyle(FontStyle fontStyle) {
+    public void setFontstyle(TextFontStyle fontStyle) {
         this.fontStyle = null;
         this.fontStyle1 = null;
         
@@ -158,10 +158,10 @@ public class CircularLabelsFactory extends JsObject {
         this.fontStyle1 = fontStyle1;
     }
 
-    private FontVariant fontVariant;
+    private TextFontVariant fontVariant;
     private String fontVariant1;
 
-    public void setFontvariant(FontVariant fontVariant) {
+    public void setFontvariant(TextFontVariant fontVariant) {
         this.fontVariant = null;
         this.fontVariant1 = null;
         
@@ -194,10 +194,10 @@ public class CircularLabelsFactory extends JsObject {
         this.fontWeight1 = fontWeight1;
     }
 
-    private HAlign hAlign;
+    private TextHAlign hAlign;
     private String hAlign1;
 
-    public void setHalign(HAlign hAlign) {
+    public void setHalign(TextHAlign hAlign) {
         this.hAlign = null;
         this.hAlign1 = null;
         
@@ -687,10 +687,10 @@ public class CircularLabelsFactory extends JsObject {
         this.name1 = name1;
     }
 
-    private TextWrap textWrap;
+    private TextTextWrap textWrap;
     private String textWrap1;
 
-    public void setTextwrap(TextWrap textWrap) {
+    public void setTextwrap(TextTextWrap textWrap) {
         this.textWrap = null;
         this.textWrap1 = null;
         
@@ -728,10 +728,10 @@ public class CircularLabelsFactory extends JsObject {
         this.useHtml = useHtml;
     }
 
-    private VAlign vAlign;
+    private TextVAlign vAlign;
     private String vAlign1;
 
-    public void setValign(VAlign vAlign) {
+    public void setValign(TextVAlign vAlign) {
         this.vAlign = null;
         this.vAlign1 = null;
         
