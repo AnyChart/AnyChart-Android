@@ -25,7 +25,6 @@ public class SolidStroke extends JsObject implements Stroke {
         js.append(String.format(Locale.US, "{color: %s,dash: %s,lineCap: %s,lineJoin: %s,opacity: %f,thickness: %f}",  color, dash, lineCap, lineJoin, opacity, thickness));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

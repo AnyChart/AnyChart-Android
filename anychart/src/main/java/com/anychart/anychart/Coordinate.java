@@ -7,7 +7,8 @@ public class Coordinate extends JsObject  {
 
     
     private Double[] XYCoordinates;
-    private CoordinateObject XYCoordinates1;
+    private String XYCoordinates1;
+    private CoordinateObject XYCoordinates2;
 
     
     public Coordinate(Double[] XYCoordinates) {
@@ -15,13 +16,16 @@ public class Coordinate extends JsObject  {
 
         js.append(String.format(Locale.US, "{XYCoordinates: %s}",  Arrays.toString(XYCoordinates)));
     }
-
-    public Coordinate(CoordinateObject XYCoordinates1) {
+    public Coordinate(String XYCoordinates1) {
         this.XYCoordinates1 = XYCoordinates1;
 
-        js.append(String.format(Locale.US, "{XYCoordinates: %s}",  (XYCoordinates1 != null) ? XYCoordinates1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{XYCoordinates: %s}",  XYCoordinates1));
     }
+    public Coordinate(CoordinateObject XYCoordinates2) {
+        this.XYCoordinates2 = XYCoordinates2;
 
+        js.append(String.format(Locale.US, "{XYCoordinates: %s}",  (XYCoordinates2 != null) ? XYCoordinates2.generateJs() : "null"));
+    }
 
     @Override
     public String generateJs() {

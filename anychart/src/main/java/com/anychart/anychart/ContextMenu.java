@@ -3,13 +3,35 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class ContextMenu extends JsObject {
+
+    private String jsBase;
+
+    public ContextMenu() {
+
+    }
+
+    protected ContextMenu(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private String className;
 
     public void setAddclassname(String className) {
-        this.className = className;
+        if (jsBase == null) {
+            this.className = className;
+        } else {
+            this.className = className;
+
+            js.append(String.format(Locale.US, jsBase + ".addClassName(%s);", className));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addClassName(%s);", className));
+                js.setLength(0);
+            }
+        }
     }
 
     private Element target;
@@ -17,130 +39,293 @@ public class ContextMenu extends JsObject {
     private Boolean capture;
 
     public void setAttach(Element target, Boolean capture) {
-        this.target = null;
-        this.target1 = null;
-        
-        this.target = target;
-        this.capture = capture;
+        if (jsBase == null) {
+            this.target = null;
+            this.target1 = null;
+            
+            this.target = target;
+            this.capture = capture;
+        } else {
+            this.target = target;
+            this.capture = capture;
+
+            js.append(String.format(Locale.US, jsBase + ".attach(%s, %b);", (target != null) ? target.generateJs() : "null", capture));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attach(%s, %b);", (target != null) ? target.generateJs() : "null", capture));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setAttach(Chart target1, Boolean capture) {
-        this.target = null;
-        this.target1 = null;
-        
-        this.target1 = target1;
-        this.capture = capture;
+        if (jsBase == null) {
+            this.target = null;
+            this.target1 = null;
+            
+            this.target1 = target1;
+            this.capture = capture;
+        } else {
+            this.target1 = target1;
+            this.capture = capture;
+
+            js.append(String.format(Locale.US, jsBase + ".attach(%s, %b);", (target1 != null) ? target1.generateJs() : "null", capture));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attach(%s, %b);", (target1 != null) ? target1.generateJs() : "null", capture));
+                js.setLength(0);
+            }
+        }
     }
 
     private Element target2;
     private Boolean capture1;
 
     public void setDetach(Element target2, Boolean capture1) {
-        this.target = null;
-        this.target1 = null;
-        this.target2 = null;
-        
-        this.target2 = target2;
-        this.capture = null;
-        this.capture1 = null;
-        
-        this.capture1 = capture1;
+        if (jsBase == null) {
+            this.target = null;
+            this.target1 = null;
+            this.target2 = null;
+            
+            this.target2 = target2;
+            this.capture = null;
+            this.capture1 = null;
+            
+            this.capture1 = capture1;
+        } else {
+            this.target2 = target2;
+            this.capture1 = capture1;
+
+            js.append(String.format(Locale.US, jsBase + ".detach(%s, %b);", (target2 != null) ? target2.generateJs() : "null", capture1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".detach(%s, %b);", (target2 != null) ? target2.generateJs() : "null", capture1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private Item[] items;
 
     public void setItems(Item[] items) {
-        this.items = items;
+        if (jsBase == null) {
+            this.items = items;
+        } else {
+            this.items = items;
+
+            js.append(String.format(Locale.US, jsBase + ".items(%s);", arrayToString(items)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s);", arrayToString(items)));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String className1;
 
     public void setRemoveclassname(String className1) {
-        this.className = null;
-        this.className1 = null;
-        
-        this.className1 = className1;
+        if (jsBase == null) {
+            this.className = null;
+            this.className1 = null;
+            
+            this.className1 = className1;
+        } else {
+            this.className1 = className1;
+
+            js.append(String.format(Locale.US, jsBase + ".removeClassName(%s);", className1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeClassName(%s);", className1));
+                js.setLength(0);
+            }
+        }
     }
 
-    private String[] var_args;
-    private Double var_args1;
-    private String var_args2;
-    private Boolean var_args3;
+    private String var_args;
+    private String[] var_args1;
+    private Double var_args2;
+    private String var_args3;
+    private Boolean var_args4;
 
-    public void setSetup(String[] var_args) {
-        this.var_args = null;
-        this.var_args1 = null;
-        this.var_args2 = null;
-        this.var_args3 = null;
-        
-        this.var_args = var_args;
+    public void setSetup(String var_args) {
+        if (jsBase == null) {
+            this.var_args = null;
+            this.var_args1 = null;
+            this.var_args2 = null;
+            this.var_args3 = null;
+            this.var_args4 = null;
+            
+            this.var_args = var_args;
+        } else {
+            this.var_args = var_args;
+
+            js.append(String.format(Locale.US, jsBase + ".setup(%s);", var_args));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%s);", var_args));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSetup(Double var_args1) {
-        this.var_args = null;
-        this.var_args1 = null;
-        this.var_args2 = null;
-        this.var_args3 = null;
-        
-        this.var_args1 = var_args1;
+    public void setSetup(String[] var_args1) {
+        if (jsBase == null) {
+            this.var_args = null;
+            this.var_args1 = null;
+            this.var_args2 = null;
+            this.var_args3 = null;
+            this.var_args4 = null;
+            
+            this.var_args1 = var_args1;
+        } else {
+            this.var_args1 = var_args1;
+
+            js.append(String.format(Locale.US, jsBase + ".setup(%s);", Arrays.toString(var_args1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%s);", Arrays.toString(var_args1)));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSetup(String var_args2) {
-        this.var_args = null;
-        this.var_args1 = null;
-        this.var_args2 = null;
-        this.var_args3 = null;
-        
-        this.var_args2 = var_args2;
+    public void setSetup(Double var_args2) {
+        if (jsBase == null) {
+            this.var_args = null;
+            this.var_args1 = null;
+            this.var_args2 = null;
+            this.var_args3 = null;
+            this.var_args4 = null;
+            
+            this.var_args2 = var_args2;
+        } else {
+            this.var_args2 = var_args2;
+
+            js.append(String.format(Locale.US, jsBase + ".setup(%f);", var_args2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%f);", var_args2));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSetup(Boolean var_args3) {
-        this.var_args = null;
-        this.var_args1 = null;
-        this.var_args2 = null;
-        this.var_args3 = null;
-        
-        this.var_args3 = var_args3;
+    public void setSetup(Boolean var_args4) {
+        if (jsBase == null) {
+            this.var_args = null;
+            this.var_args1 = null;
+            this.var_args2 = null;
+            this.var_args3 = null;
+            this.var_args4 = null;
+            
+            this.var_args4 = var_args4;
+        } else {
+            this.var_args4 = var_args4;
+
+            js.append(String.format(Locale.US, jsBase + ".setup(%b);", var_args4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%b);", var_args4));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double x;
     private Double y;
 
     public void setShow(Double x, Double y) {
-        this.x = x;
-        this.y = y;
+        if (jsBase == null) {
+            this.x = x;
+            this.y = y;
+        } else {
+            this.x = x;
+            this.y = y;
+
+            js.append(String.format(Locale.US, jsBase + ".show(%f, %f);", x, y));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%f, %f);", x, y));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setUnlisten(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setUnlisten(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSclassName() {
@@ -213,6 +398,13 @@ public class ContextMenu extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJSclassName1() {
         if (className1 != null) {
             return String.format(Locale.US, "className: %s,", className1);
@@ -222,28 +414,35 @@ public class ContextMenu extends JsObject {
 
     private String generateJSvar_args() {
         if (var_args != null) {
-            return String.format(Locale.US, "var_args: %s,", Arrays.toString(var_args));
+            return String.format(Locale.US, "var_args: %s,", var_args);
         }
         return "";
     }
 
     private String generateJSvar_args1() {
         if (var_args1 != null) {
-            return String.format(Locale.US, "var_args: %f,", var_args1);
+            return String.format(Locale.US, "var_args: %s,", Arrays.toString(var_args1));
         }
         return "";
     }
 
     private String generateJSvar_args2() {
         if (var_args2 != null) {
-            return String.format(Locale.US, "var_args: %s,", var_args2);
+            return String.format(Locale.US, "var_args: %f,", var_args2);
         }
         return "";
     }
 
     private String generateJSvar_args3() {
         if (var_args3 != null) {
-            return String.format(Locale.US, "var_args: %b,", var_args3);
+            return String.format(Locale.US, "var_args: %s,", var_args3);
+        }
+        return "";
+    }
+
+    private String generateJSvar_args4() {
+        if (var_args4 != null) {
+            return String.format(Locale.US, "var_args: %b,", var_args4);
         }
         return "";
     }
@@ -276,31 +475,42 @@ public class ContextMenu extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
+        }
+        return "";
+    }
+
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSclassName());
-        js.append(generateJStarget());
-        js.append(generateJStarget1());
-        js.append(generateJScapture());
-        js.append(generateJStarget2());
-        js.append(generateJScapture1());
-        js.append(generateJSenabled());
-        js.append(generateJSitems());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJSclassName1());
-        js.append(generateJSvar_args());
-        js.append(generateJSvar_args1());
-        js.append(generateJSvar_args2());
-        js.append(generateJSvar_args3());
-        js.append(generateJSx());
-        js.append(generateJSy());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSclassName());
+            js.append(generateJStarget());
+            js.append(generateJStarget1());
+            js.append(generateJScapture());
+            js.append(generateJStarget2());
+            js.append(generateJScapture1());
+            js.append(generateJSenabled());
+            js.append(generateJSitems());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJSclassName1());
+            js.append(generateJSvar_args());
+            js.append(generateJSvar_args1());
+            js.append(generateJSvar_args2());
+            js.append(generateJSvar_args3());
+            js.append(generateJSvar_args4());
+            js.append(generateJSx());
+            js.append(generateJSy());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

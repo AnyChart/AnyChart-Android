@@ -3,31 +3,116 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class AnychartSeriesBase extends JsObject {
 
+    private String jsBase;
+
+    public AnychartSeriesBase() {
+
+    }
+
+    protected AnychartSeriesBase(String jsBase) {
+        this.jsBase = jsBase;
+    }
+
     
+    private SeriesA11y geta11y;
+
+    public SeriesA11y getA11Y() {
+        if (geta11y == null)
+            geta11y = new SeriesA11y(jsBase + ".a11y()");
+
+        return geta11y;
+    }
+
     private Boolean ay;
+    private String ay1;
 
     public void setA11Y(Boolean ay) {
-        this.ay = ay;
+        if (jsBase == null) {
+            this.ay = null;
+            this.ay1 = null;
+            
+            this.ay = ay;
+        } else {
+            this.ay = ay;
+
+            js.append(String.format(Locale.US, jsBase + ".a11y(%b);", ay));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".a11y(%b);", ay));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setA11Y(String ay1) {
+        if (jsBase == null) {
+            this.ay = null;
+            this.ay1 = null;
+            
+            this.ay1 = ay1;
+        } else {
+            this.ay1 = ay1;
+
+            js.append(String.format(Locale.US, jsBase + ".a11y(%s);", ay1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".a11y(%s);", ay1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double bottom;
     private String bottom1;
 
     public void setBottom(Double bottom) {
-        this.bottom = null;
-        this.bottom1 = null;
-        
-        this.bottom = bottom;
+        if (jsBase == null) {
+            this.bottom = null;
+            this.bottom1 = null;
+            
+            this.bottom = bottom;
+        } else {
+            this.bottom = bottom;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottom(String bottom1) {
-        this.bottom = null;
-        this.bottom1 = null;
-        
-        this.bottom1 = bottom1;
+        if (jsBase == null) {
+            this.bottom = null;
+            this.bottom1 = null;
+            
+            this.bottom1 = bottom1;
+        } else {
+            this.bottom1 = bottom1;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private Bounds getbounds;
+
+    public Bounds getBounds() {
+        if (getbounds == null)
+            getbounds = new Bounds(jsBase + ".bounds()");
+
+        return getbounds;
     }
 
     private RectObj bounds;
@@ -35,29 +120,62 @@ public class AnychartSeriesBase extends JsObject {
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds = bounds;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds = bounds;
+        } else {
+            this.bounds = bounds;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(AnychartMathRect bounds1) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds1 = bounds1;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds1 = bounds1;
+        } else {
+            this.bounds1 = bounds1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Bounds bounds2) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds2 = bounds2;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds2 = bounds2;
+        } else {
+            this.bounds2 = bounds2;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double x;
@@ -70,328 +188,572 @@ public class AnychartSeriesBase extends JsObject {
     private String height1;
 
     public void setBounds(Double x, Double y, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color;
 
     public void setColor(String color) {
-        this.color = color;
+        if (jsBase == null) {
+            this.color = color;
+        } else {
+            this.color = color;
+
+            js.append(String.format(Locale.US, jsBase + ".color(%s);", color));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".color(%s);", color));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private View getdata;
+
+    public View getData() {
+        if (getdata == null)
+            getdata = new View(jsBase + ".data()");
+
+        return getdata;
     }
 
     private View data;
@@ -402,524 +764,1334 @@ public class AnychartSeriesBase extends JsObject {
     private TextParsingSettings csvSettings1;
 
     public void setData(View data, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data = data;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data = data;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data = data;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(View data, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data = data;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data = data;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data = data;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(Set data1, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data1 = data1;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data1 = data1;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data1 = data1;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data1 = data1;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data1 = data1;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data1 = data1;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String[] data2, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data2 = data2;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data2 = data2;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data2 = data2;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String[] data2, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data2 = data2;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data2 = data2;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data2 = data2;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String data3, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data3 = data3;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data3 = data3;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data3 = data3;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String data3, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data3 = data3;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data3 = data3;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data3 = data3;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index;
 
     public void setGetpoint(Double index) {
-        this.index = index;
+        if (jsBase == null) {
+            this.index = index;
+        } else {
+            this.index = index;
+
+            js.append(String.format(Locale.US, jsBase + ".getPoint(%f);", index));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPoint(%f);", index));
+                js.setLength(0);
+            }
+        }
     }
 
     private String key;
     private Statistics key1;
 
     public void setGetstat(String key) {
-        this.key = null;
-        this.key1 = null;
-        
-        this.key = key;
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setGetstat(Statistics key1) {
-        this.key = null;
-        this.key1 = null;
-        
-        this.key1 = key1;
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
+            this.key1 = key1;
+        } else {
+            this.key1 = key1;
+
+            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double height2;
     private String height3;
 
     public void setHeight(Double height2) {
-        this.height = null;
-        this.height1 = null;
-        this.height2 = null;
-        this.height3 = null;
-        
-        this.height2 = height2;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            this.height2 = null;
+            this.height3 = null;
+            
+            this.height2 = height2;
+        } else {
+            this.height2 = height2;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%f);", height2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHeight(String height3) {
-        this.height = null;
-        this.height1 = null;
-        this.height2 = null;
-        this.height3 = null;
-        
-        this.height3 = height3;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            this.height2 = null;
+            this.height3 = null;
+            
+            this.height3 = height3;
+        } else {
+            this.height3 = height3;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%s);", height3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index1;
 
     public void setHover(Double index1) {
-        this.index = null;
-        this.index1 = null;
-        
-        this.index1 = index1;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+        } else {
+            this.index1 = index1;
+
+            js.append(String.format(Locale.US, jsBase + ".hover(%f);", index1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hover(%f);", index1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double[] indexes;
 
     public void setHover(Double[] indexes) {
-        this.indexes = indexes;
+        if (jsBase == null) {
+            this.indexes = indexes;
+        } else {
+            this.indexes = indexes;
+
+            js.append(String.format(Locale.US, jsBase + ".hover(%s);", Arrays.toString(indexes)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hover(%s);", Arrays.toString(indexes)));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean hoverLabels;
+    private String hoverLabels;
+    private Boolean hoverLabels1;
 
-    public void setHoverlabels(Boolean hoverLabels) {
-        this.hoverLabels = hoverLabels;
+    public void setHoverlabels(String hoverLabels) {
+        if (jsBase == null) {
+            this.hoverLabels = null;
+            this.hoverLabels1 = null;
+            
+            this.hoverLabels = hoverLabels;
+        } else {
+            this.hoverLabels = hoverLabels;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverLabels(%s);", hoverLabels));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverLabels(%s);", hoverLabels));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setHoverlabels(Boolean hoverLabels1) {
+        if (jsBase == null) {
+            this.hoverLabels = null;
+            this.hoverLabels1 = null;
+            
+            this.hoverLabels1 = hoverLabels1;
+        } else {
+            this.hoverLabels1 = hoverLabels1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverLabels(%b);", hoverLabels1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverLabels(%b);", hoverLabels1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String id;
     private Double id1;
 
     public void setId(String id) {
-        this.id = null;
-        this.id1 = null;
-        
-        this.id = id;
+        if (jsBase == null) {
+            this.id = null;
+            this.id1 = null;
+            
+            this.id = id;
+        } else {
+            this.id = id;
+
+            js.append(String.format(Locale.US, jsBase + ".id(%s);", id));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", id));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setId(Double id1) {
-        this.id = null;
-        this.id1 = null;
-        
-        this.id1 = id1;
+        if (jsBase == null) {
+            this.id = null;
+            this.id1 = null;
+            
+            this.id1 = id1;
+        } else {
+            this.id1 = id1;
+
+            js.append(String.format(Locale.US, jsBase + ".id(%f);", id1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%f);", id1));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean labels;
+    private UiLabelsFactory getlabels;
 
-    public void setLabels(Boolean labels) {
-        this.labels = labels;
+    public UiLabelsFactory getLabels() {
+        if (getlabels == null)
+            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+
+        return getlabels;
+    }
+
+    private String labels;
+    private Boolean labels1;
+
+    public void setLabels(String labels) {
+        if (jsBase == null) {
+            this.labels = null;
+            this.labels1 = null;
+            
+            this.labels = labels;
+        } else {
+            this.labels = labels;
+
+            js.append(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setLabels(Boolean labels1) {
+        if (jsBase == null) {
+            this.labels = null;
+            this.labels1 = null;
+            
+            this.labels1 = labels1;
+        } else {
+            this.labels1 = labels1;
+
+            js.append(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double left;
     private String left1;
 
     public void setLeft(Double left) {
-        this.left = null;
-        this.left1 = null;
-        
-        this.left = left;
+        if (jsBase == null) {
+            this.left = null;
+            this.left1 = null;
+            
+            this.left = left;
+        } else {
+            this.left = left;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLeft(String left1) {
-        this.left = null;
-        this.left1 = null;
-        
-        this.left1 = left1;
+        if (jsBase == null) {
+            this.left = null;
+            this.left1 = null;
+            
+            this.left1 = left1;
+        } else {
+            this.left1 = left1;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String legendItem;
+
+    public void setLegenditem(String legendItem) {
+        if (jsBase == null) {
+            this.legendItem = legendItem;
+        } else {
+            this.legendItem = legendItem;
+
+            js.append(String.format(Locale.US, jsBase + ".legendItem(%s);", legendItem));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legendItem(%s);", legendItem));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double maxHeight;
     private String maxHeight1;
 
     public void setMaxheight(Double maxHeight) {
-        this.maxHeight = null;
-        this.maxHeight1 = null;
-        
-        this.maxHeight = maxHeight;
+        if (jsBase == null) {
+            this.maxHeight = null;
+            this.maxHeight1 = null;
+            
+            this.maxHeight = maxHeight;
+        } else {
+            this.maxHeight = maxHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMaxheight(String maxHeight1) {
-        this.maxHeight = null;
-        this.maxHeight1 = null;
-        
-        this.maxHeight1 = maxHeight1;
+        if (jsBase == null) {
+            this.maxHeight = null;
+            this.maxHeight1 = null;
+            
+            this.maxHeight1 = maxHeight1;
+        } else {
+            this.maxHeight1 = maxHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double maxWidth;
     private String maxWidth1;
 
     public void setMaxwidth(Double maxWidth) {
-        this.maxWidth = null;
-        this.maxWidth1 = null;
-        
-        this.maxWidth = maxWidth;
+        if (jsBase == null) {
+            this.maxWidth = null;
+            this.maxWidth1 = null;
+            
+            this.maxWidth = maxWidth;
+        } else {
+            this.maxWidth = maxWidth;
+
+            js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMaxwidth(String maxWidth1) {
-        this.maxWidth = null;
-        this.maxWidth1 = null;
-        
-        this.maxWidth1 = maxWidth1;
+        if (jsBase == null) {
+            this.maxWidth = null;
+            this.maxWidth1 = null;
+            
+            this.maxWidth1 = maxWidth1;
+        } else {
+            this.maxWidth1 = maxWidth1;
+
+            js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double minHeight;
     private String minHeight1;
 
     public void setMinheight(Double minHeight) {
-        this.minHeight = null;
-        this.minHeight1 = null;
-        
-        this.minHeight = minHeight;
+        if (jsBase == null) {
+            this.minHeight = null;
+            this.minHeight1 = null;
+            
+            this.minHeight = minHeight;
+        } else {
+            this.minHeight = minHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMinheight(String minHeight1) {
-        this.minHeight = null;
-        this.minHeight1 = null;
-        
-        this.minHeight1 = minHeight1;
+        if (jsBase == null) {
+            this.minHeight = null;
+            this.minHeight1 = null;
+            
+            this.minHeight1 = minHeight1;
+        } else {
+            this.minHeight1 = minHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double minWidth;
     private String minWidth1;
 
     public void setMinwidth(Double minWidth) {
-        this.minWidth = null;
-        this.minWidth1 = null;
-        
-        this.minWidth = minWidth;
+        if (jsBase == null) {
+            this.minWidth = null;
+            this.minWidth1 = null;
+            
+            this.minWidth = minWidth;
+        } else {
+            this.minWidth = minWidth;
+
+            js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMinwidth(String minWidth1) {
-        this.minWidth = null;
-        this.minWidth1 = null;
-        
-        this.minWidth1 = minWidth1;
+        if (jsBase == null) {
+            this.minWidth = null;
+            this.minWidth1 = null;
+            
+            this.minWidth1 = minWidth1;
+        } else {
+            this.minWidth1 = minWidth1;
+
+            js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String name;
 
     public void setName(String name) {
-        this.name = name;
+        if (jsBase == null) {
+            this.name = name;
+        } else {
+            this.name = name;
+
+            js.append(String.format(Locale.US, jsBase + ".name(%s);", name));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".name(%s);", name));
+                js.setLength(0);
+            }
+        }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double right;
     private String right1;
 
     public void setRight(Double right) {
-        this.right = null;
-        this.right1 = null;
-        
-        this.right = right;
+        if (jsBase == null) {
+            this.right = null;
+            this.right1 = null;
+            
+            this.right = right;
+        } else {
+            this.right = right;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRight(String right1) {
-        this.right = null;
-        this.right1 = null;
-        
-        this.right1 = right1;
+        if (jsBase == null) {
+            this.right = null;
+            this.right1 = null;
+            
+            this.right1 = right1;
+        } else {
+            this.right1 = right1;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index2;
 
     public void setSelect(Double index2) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        
-        this.index2 = index2;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
+        } else {
+            this.index2 = index2;
+
+            js.append(String.format(Locale.US, jsBase + ".select(%f);", index2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f);", index2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double indexes1;
     private Double[] indexes2;
 
     public void setSelect(Double[] indexes2) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        
-        this.indexes2 = indexes2;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            
+            this.indexes2 = indexes2;
+        } else {
+            this.indexes2 = indexes2;
+
+            js.append(String.format(Locale.US, jsBase + ".select(%s);", Arrays.toString(indexes2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%s);", Arrays.toString(indexes2)));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean selectLabels;
+    private String selectLabels;
+    private Boolean selectLabels1;
 
-    public void setSelectlabels(Boolean selectLabels) {
-        this.selectLabels = selectLabels;
+    public void setSelectlabels(String selectLabels) {
+        if (jsBase == null) {
+            this.selectLabels = null;
+            this.selectLabels1 = null;
+            
+            this.selectLabels = selectLabels;
+        } else {
+            this.selectLabels = selectLabels;
+
+            js.append(String.format(Locale.US, jsBase + ".selectLabels(%s);", selectLabels));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectLabels(%s);", selectLabels));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setSelectlabels(Boolean selectLabels1) {
+        if (jsBase == null) {
+            this.selectLabels = null;
+            this.selectLabels1 = null;
+            
+            this.selectLabels1 = selectLabels1;
+        } else {
+            this.selectLabels1 = selectLabels1;
+
+            js.append(String.format(Locale.US, jsBase + ".selectLabels(%b);", selectLabels1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectLabels(%b);", selectLabels1));
+                js.setLength(0);
+            }
+        }
     }
 
     private SelectionMode selectionMode;
     private String selectionMode1;
 
     public void setSelectionmode(SelectionMode selectionMode) {
-        this.selectionMode = null;
-        this.selectionMode1 = null;
-        
-        this.selectionMode = selectionMode;
+        if (jsBase == null) {
+            this.selectionMode = null;
+            this.selectionMode1 = null;
+            
+            this.selectionMode = selectionMode;
+        } else {
+            this.selectionMode = selectionMode;
+
+            js.append(String.format(Locale.US, jsBase + ".selectionMode(%s);", (selectionMode != null) ? selectionMode.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectionMode(%s);", (selectionMode != null) ? selectionMode.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectionmode(String selectionMode1) {
-        this.selectionMode = null;
-        this.selectionMode1 = null;
-        
-        this.selectionMode1 = selectionMode1;
+        if (jsBase == null) {
+            this.selectionMode = null;
+            this.selectionMode1 = null;
+            
+            this.selectionMode1 = selectionMode1;
+        } else {
+            this.selectionMode1 = selectionMode1;
+
+            js.append(String.format(Locale.US, jsBase + ".selectionMode(%s);", selectionMode1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectionMode(%s);", selectionMode1));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean tooltip;
+    private String tooltip;
+    private Boolean tooltip1;
 
-    public void setTooltip(Boolean tooltip) {
-        this.tooltip = tooltip;
+    public void setTooltip(String tooltip) {
+        if (jsBase == null) {
+            this.tooltip = null;
+            this.tooltip1 = null;
+            
+            this.tooltip = tooltip;
+        } else {
+            this.tooltip = tooltip;
+
+            js.append(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltip));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltip));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setTooltip(Boolean tooltip1) {
+        if (jsBase == null) {
+            this.tooltip = null;
+            this.tooltip1 = null;
+            
+            this.tooltip1 = tooltip1;
+        } else {
+            this.tooltip1 = tooltip1;
+
+            js.append(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double top;
     private String top1;
 
     public void setTop(Double top) {
-        this.top = null;
-        this.top1 = null;
-        
-        this.top = top;
+        if (jsBase == null) {
+            this.top = null;
+            this.top1 = null;
+            
+            this.top = top;
+        } else {
+            this.top = top;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTop(String top1) {
-        this.top = null;
-        this.top1 = null;
-        
-        this.top1 = top1;
+        if (jsBase == null) {
+            this.top = null;
+            this.top1 = null;
+            
+            this.top1 = top1;
+        } else {
+            this.top1 = top1;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double indexOrIndexes;
     private Double[] indexOrIndexes1;
 
     public void setUnhover(Double indexOrIndexes) {
-        this.indexOrIndexes = null;
-        this.indexOrIndexes1 = null;
-        
-        this.indexOrIndexes = indexOrIndexes;
+        if (jsBase == null) {
+            this.indexOrIndexes = null;
+            this.indexOrIndexes1 = null;
+            
+            this.indexOrIndexes = indexOrIndexes;
+        } else {
+            this.indexOrIndexes = indexOrIndexes;
+
+            js.append(String.format(Locale.US, jsBase + ".unhover(%f);", indexOrIndexes));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unhover(%f);", indexOrIndexes));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setUnhover(Double[] indexOrIndexes1) {
-        this.indexOrIndexes = null;
-        this.indexOrIndexes1 = null;
-        
-        this.indexOrIndexes1 = indexOrIndexes1;
+        if (jsBase == null) {
+            this.indexOrIndexes = null;
+            this.indexOrIndexes1 = null;
+            
+            this.indexOrIndexes1 = indexOrIndexes1;
+        } else {
+            this.indexOrIndexes1 = indexOrIndexes1;
+
+            js.append(String.format(Locale.US, jsBase + ".unhover(%s);", Arrays.toString(indexOrIndexes1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unhover(%s);", Arrays.toString(indexOrIndexes1)));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key2;
+
+    public void setUnlistenbykey(String key2) {
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            this.key2 = null;
+            
+            this.key2 = key2;
+        } else {
+            this.key2 = key2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index3;
 
     public void setUnselect(Double index3) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        this.index3 = null;
-        
-        this.index3 = index3;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            
+            this.index3 = index3;
+        } else {
+            this.index3 = index3;
+
+            js.append(String.format(Locale.US, jsBase + ".unselect(%f);", index3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%f);", index3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double[] indexes3;
 
     public void setUnselect(Double[] indexes3) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        this.indexes3 = null;
-        
-        this.indexes3 = indexes3;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            this.indexes3 = null;
+            
+            this.indexes3 = indexes3;
+        } else {
+            this.indexes3 = indexes3;
+
+            js.append(String.format(Locale.US, jsBase + ".unselect(%s);", Arrays.toString(indexes3)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s);", Arrays.toString(indexes3)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double width2;
     private String width3;
 
     public void setWidth(Double width2) {
-        this.width = null;
-        this.width1 = null;
-        this.width2 = null;
-        this.width3 = null;
-        
-        this.width2 = width2;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            this.width2 = null;
+            this.width3 = null;
+            
+            this.width2 = width2;
+        } else {
+            this.width2 = width2;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%f);", width2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setWidth(String width3) {
-        this.width = null;
-        this.width1 = null;
-        this.width2 = null;
-        this.width3 = null;
-        
-        this.width3 = width3;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            this.width2 = null;
+            this.width3 = null;
+            
+            this.width3 = width3;
+        } else {
+            this.width3 = width3;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%s);", width3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
+        if (jsBase == null) {
+            this.zIndex = zIndex;
+        } else {
+            this.zIndex = zIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgeta11y() {
+        if (geta11y != null) {
+            return geta11y.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetbounds() {
+        if (getbounds != null) {
+            return getbounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetdata() {
+        if (getdata != null) {
+            return getdata.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetlabels() {
+        if (getlabels != null) {
+            return getlabels.generateJs();
+        }
+        return "";
     }
 
     private String generateJSay() {
         if (ay != null) {
             return String.format(Locale.US, "ay: %b,", ay);
+        }
+        return "";
+    }
+
+    private String generateJSay1() {
+        if (ay1 != null) {
+            return String.format(Locale.US, "ay: %s,", ay1);
         }
         return "";
     }
@@ -1122,7 +2294,14 @@ public class AnychartSeriesBase extends JsObject {
 
     private String generateJShoverLabels() {
         if (hoverLabels != null) {
-            return String.format(Locale.US, "hoverLabels: %b,", hoverLabels);
+            return String.format(Locale.US, "hoverLabels: %s,", hoverLabels);
+        }
+        return "";
+    }
+
+    private String generateJShoverLabels1() {
+        if (hoverLabels1 != null) {
+            return String.format(Locale.US, "hoverLabels: %b,", hoverLabels1);
         }
         return "";
     }
@@ -1143,7 +2322,14 @@ public class AnychartSeriesBase extends JsObject {
 
     private String generateJSlabels() {
         if (labels != null) {
-            return String.format(Locale.US, "labels: %b,", labels);
+            return String.format(Locale.US, "labels: %s,", labels);
+        }
+        return "";
+    }
+
+    private String generateJSlabels1() {
+        if (labels1 != null) {
+            return String.format(Locale.US, "labels: %b,", labels1);
         }
         return "";
     }
@@ -1162,6 +2348,13 @@ public class AnychartSeriesBase extends JsObject {
         return "";
     }
 
+    private String generateJSlegendItem() {
+        if (legendItem != null) {
+            return String.format(Locale.US, "legendItem: %s,", legendItem);
+        }
+        return "";
+    }
+
     private String generateJStype() {
         if (type != null) {
             return String.format(Locale.US, "type: %s,", type);
@@ -1176,6 +2369,13 @@ public class AnychartSeriesBase extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJStype1() {
         if (type1 != null) {
             return String.format(Locale.US, "type: %s,", type1);
@@ -1186,6 +2386,13 @@ public class AnychartSeriesBase extends JsObject {
     private String generateJSuseCapture1() {
         if (useCapture1 != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture1);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -1260,6 +2467,13 @@ public class AnychartSeriesBase extends JsObject {
         return "";
     }
 
+    private String generateJSpaperSizeOrOptions1() {
+        if (paperSizeOrOptions1 != null) {
+            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
+        }
+        return "";
+    }
+
     private String generateJSlandscape() {
         if (landscape != null) {
             return String.format(Locale.US, "landscape: %b,", landscape);
@@ -1311,7 +2525,14 @@ public class AnychartSeriesBase extends JsObject {
 
     private String generateJSselectLabels() {
         if (selectLabels != null) {
-            return String.format(Locale.US, "selectLabels: %b,", selectLabels);
+            return String.format(Locale.US, "selectLabels: %s,", selectLabels);
+        }
+        return "";
+    }
+
+    private String generateJSselectLabels1() {
+        if (selectLabels1 != null) {
+            return String.format(Locale.US, "selectLabels: %b,", selectLabels1);
         }
         return "";
     }
@@ -1332,7 +2553,14 @@ public class AnychartSeriesBase extends JsObject {
 
     private String generateJStooltip() {
         if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip);
+            return String.format(Locale.US, "tooltip: %s,", tooltip);
+        }
+        return "";
+    }
+
+    private String generateJStooltip1() {
+        if (tooltip1 != null) {
+            return String.format(Locale.US, "tooltip: %b,", tooltip1);
         }
         return "";
     }
@@ -1379,6 +2607,20 @@ public class AnychartSeriesBase extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey2() {
+        if (key2 != null) {
+            return String.format(Locale.US, "key: %s,", key2);
+        }
+        return "";
+    }
+
     private String generateJSindex3() {
         if (index3 != null) {
             return String.format(Locale.US, "index: %f,", index3);
@@ -1417,80 +2659,96 @@ public class AnychartSeriesBase extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSay());
-        js.append(generateJSbottom());
-        js.append(generateJSbottom1());
-        js.append(generateJSbounds());
-        js.append(generateJSbounds1());
-        js.append(generateJSbounds2());
-        js.append(generateJSx());
-        js.append(generateJSx1());
-        js.append(generateJSy());
-        js.append(generateJSy1());
-        js.append(generateJSwidth());
-        js.append(generateJSwidth1());
-        js.append(generateJSheight());
-        js.append(generateJSheight1());
-        js.append(generateJScolor());
-        js.append(generateJSdata());
-        js.append(generateJSdata1());
-        js.append(generateJSdata2());
-        js.append(generateJSdata3());
-        js.append(generateJScsvSettings());
-        js.append(generateJScsvSettings1());
-        js.append(generateJSenabled());
-        js.append(generateJSindex());
-        js.append(generateJSkey());
-        js.append(generateJSkey1());
-        js.append(generateJSheight2());
-        js.append(generateJSheight3());
-        js.append(generateJSindex1());
-        js.append(generateJSindexes());
-        js.append(generateJShoverLabels());
-        js.append(generateJSid());
-        js.append(generateJSid1());
-        js.append(generateJSlabels());
-        js.append(generateJSleft());
-        js.append(generateJSleft1());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSmaxHeight());
-        js.append(generateJSmaxHeight1());
-        js.append(generateJSmaxWidth());
-        js.append(generateJSmaxWidth1());
-        js.append(generateJSminHeight());
-        js.append(generateJSminHeight1());
-        js.append(generateJSminWidth());
-        js.append(generateJSminWidth1());
-        js.append(generateJSname());
-        js.append(generateJSpaperSizeOrOptions());
-        js.append(generateJSlandscape());
-        js.append(generateJStype2());
-        js.append(generateJSright());
-        js.append(generateJSright1());
-        js.append(generateJSindex2());
-        js.append(generateJSindexes1());
-        js.append(generateJSindexes2());
-        js.append(generateJSselectLabels());
-        js.append(generateJSselectionMode());
-        js.append(generateJSselectionMode1());
-        js.append(generateJStooltip());
-        js.append(generateJStop());
-        js.append(generateJStop1());
-        js.append(generateJSindexOrIndexes());
-        js.append(generateJSindexOrIndexes1());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSindex3());
-        js.append(generateJSindexes3());
-        js.append(generateJSwidth2());
-        js.append(generateJSwidth3());
-        js.append(generateJSzIndex());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSay());
+            js.append(generateJSay1());
+            js.append(generateJSbottom());
+            js.append(generateJSbottom1());
+            js.append(generateJSbounds());
+            js.append(generateJSbounds1());
+            js.append(generateJSbounds2());
+            js.append(generateJSx());
+            js.append(generateJSx1());
+            js.append(generateJSy());
+            js.append(generateJSy1());
+            js.append(generateJSwidth());
+            js.append(generateJSwidth1());
+            js.append(generateJSheight());
+            js.append(generateJSheight1());
+            js.append(generateJScolor());
+            js.append(generateJSdata());
+            js.append(generateJSdata1());
+            js.append(generateJSdata2());
+            js.append(generateJSdata3());
+            js.append(generateJScsvSettings());
+            js.append(generateJScsvSettings1());
+            js.append(generateJSenabled());
+            js.append(generateJSindex());
+            js.append(generateJSkey());
+            js.append(generateJSkey1());
+            js.append(generateJSheight2());
+            js.append(generateJSheight3());
+            js.append(generateJSindex1());
+            js.append(generateJSindexes());
+            js.append(generateJShoverLabels());
+            js.append(generateJShoverLabels1());
+            js.append(generateJSid());
+            js.append(generateJSid1());
+            js.append(generateJSlabels());
+            js.append(generateJSlabels1());
+            js.append(generateJSleft());
+            js.append(generateJSleft1());
+            js.append(generateJSlegendItem());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSmaxHeight());
+            js.append(generateJSmaxHeight1());
+            js.append(generateJSmaxWidth());
+            js.append(generateJSmaxWidth1());
+            js.append(generateJSminHeight());
+            js.append(generateJSminHeight1());
+            js.append(generateJSminWidth());
+            js.append(generateJSminWidth1());
+            js.append(generateJSname());
+            js.append(generateJSpaperSizeOrOptions());
+            js.append(generateJSpaperSizeOrOptions1());
+            js.append(generateJSlandscape());
+            js.append(generateJStype2());
+            js.append(generateJSright());
+            js.append(generateJSright1());
+            js.append(generateJSindex2());
+            js.append(generateJSindexes1());
+            js.append(generateJSindexes2());
+            js.append(generateJSselectLabels());
+            js.append(generateJSselectLabels1());
+            js.append(generateJSselectionMode());
+            js.append(generateJSselectionMode1());
+            js.append(generateJStooltip());
+            js.append(generateJStooltip1());
+            js.append(generateJStop());
+            js.append(generateJStop1());
+            js.append(generateJSindexOrIndexes());
+            js.append(generateJSindexOrIndexes1());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey2());
+            js.append(generateJSindex3());
+            js.append(generateJSindexes3());
+            js.append(generateJSwidth2());
+            js.append(generateJSwidth3());
+            js.append(generateJSzIndex());
+            js.append("}");
+        }
+            js.append(generateJSgeta11y());
+            js.append(generateJSgetbounds());
+            js.append(generateJSgetdata());
+            js.append(generateJSgetlabels());
 
         String result = js.toString();
         js.setLength(0);

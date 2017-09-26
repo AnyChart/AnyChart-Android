@@ -3,6 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// chart class
 public class ChartsMap extends Chart {
 
     public ChartsMap() {
@@ -49,7 +50,17 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private Animation getanimation;
+
+    public Animation getAnimation() {
+        if (getanimation == null)
+            getanimation = new Animation("chart.animation()");
+
+        return getanimation;
+    }
+
     private Boolean animation;
+    private String animation1;
 
     public void setAnimation(Boolean animation) {
         this.animation = animation;
@@ -58,6 +69,18 @@ public class ChartsMap extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.animation(%b);", animation));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setAnimation(String animation1) {
+        this.animation1 = animation1;
+
+        js.append(String.format(Locale.US, "chart.animation(%s);", animation1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.animation(%s);", animation1));
             js.setLength(0);
         }
     }
@@ -77,15 +100,59 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean axes;
+    private AxesMapSettings getaxes;
 
-    public void setAxes(Boolean axes) {
+    public AxesMapSettings getAxes() {
+        if (getaxes == null)
+            getaxes = new AxesMapSettings("chart.axes()");
+
+        return getaxes;
+    }
+
+    private String axes;
+    private Boolean axes1;
+
+    public void setAxes(String axes) {
         this.axes = axes;
 
-        js.append(String.format(Locale.US, "chart.axes(%b);", axes));
+        js.append(String.format(Locale.US, "chart.axes(%s);", axes));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.axes(%b);", axes));
+            onChangeListener.onChange(String.format(Locale.US, "chart.axes(%s);", axes));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setAxes(Boolean axes1) {
+        this.axes1 = axes1;
+
+        js.append(String.format(Locale.US, "chart.axes(%b);", axes1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.axes(%b);", axes1));
+            js.setLength(0);
+        }
+    }
+
+    private UiBackground getbackground;
+
+    public UiBackground getBackground() {
+        if (getbackground == null)
+            getbackground = new UiBackground("chart.background()");
+
+        return getbackground;
+    }
+
+    private String background;
+
+    public void setBackground(String background) {
+        this.background = background;
+
+        js.append(String.format(Locale.US, "chart.background(%s);", background));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.background(%s);", background));
             js.setLength(0);
         }
     }
@@ -114,6 +181,15 @@ public class ChartsMap extends Chart {
             onChangeListener.onChange(String.format(Locale.US, "chart.bottom(%s);", bottom1));
             js.setLength(0);
         }
+    }
+
+    private Bounds getbounds;
+
+    public Bounds getBounds() {
+        if (getbounds == null)
+            getbounds = new Bounds("chart.bounds()");
+
+        return getbounds;
     }
 
     private RectObj bounds;
@@ -526,30 +602,57 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean callout;
+    private String callout;
+    private Boolean callout1;
 
-    public void setCallout(Boolean callout) {
+    public void setCallout(String callout) {
         this.callout = callout;
 
-        js.append(String.format(Locale.US, "chart.callout(%b);", callout));
+        js.append(String.format(Locale.US, "chart.callout(%s);", callout));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%b);", callout));
+            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%s);", callout));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setCallout(Boolean callout1) {
+        this.callout1 = callout1;
+
+        js.append(String.format(Locale.US, "chart.callout(%b);", callout1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%b);", callout1));
             js.setLength(0);
         }
     }
 
     private Double index1;
-    private Boolean callout1;
+    private String callout2;
+    private Boolean callout3;
 
-    public void setCallout(Double index1, Boolean callout1) {
+    public void setCallout(String callout2, Double index1) {
+        this.callout2 = callout2;
         this.index1 = index1;
-        this.callout1 = callout1;
 
-        js.append(String.format(Locale.US, "chart.callout(%f, %b);", index1, callout1));
+        js.append(String.format(Locale.US, "chart.callout(%s, %f);", callout2, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%f, %b);", index1, callout1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%s, %f);", callout2, index1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setCallout(Boolean callout3, Double index1) {
+        this.callout3 = callout3;
+        this.index1 = index1;
+
+        js.append(String.format(Locale.US, "chart.callout(%b, %f);", callout3, index1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%b, %f);", callout3, index1));
             js.setLength(0);
         }
     }
@@ -664,6 +767,28 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private UiColorRange getcolorRange;
+
+    public UiColorRange getColorrange() {
+        if (getcolorRange == null)
+            getcolorRange = new UiColorRange("chart.colorRange()");
+
+        return getcolorRange;
+    }
+
+    private String colorRange;
+
+    public void setColorrange(String colorRange) {
+        this.colorRange = colorRange;
+
+        js.append(String.format(Locale.US, "chart.colorRange(%s);", colorRange));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.colorRange(%s);", colorRange));
+            js.setLength(0);
+        }
+    }
+
     private View data8;
     private Set data9;
     private String[] data10;
@@ -774,6 +899,15 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private Layer getcontainer;
+
+    public Layer getContainer() {
+        if (getcontainer == null)
+            getcontainer = new Layer("chart.container()");
+
+        return getcontainer;
+    }
+
     private Layer container;
     private Stage container1;
     private String container2;
@@ -826,72 +960,149 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean contextMenu;
+    private ContextMenu getcontextMenu;
 
-    public void setContextmenu(Boolean contextMenu) {
+    public ContextMenu getContextmenu() {
+        if (getcontextMenu == null)
+            getcontextMenu = new ContextMenu("chart.contextMenu()");
+
+        return getcontextMenu;
+    }
+
+    private String contextMenu;
+    private Boolean contextMenu1;
+
+    public void setContextmenu(String contextMenu) {
         this.contextMenu = contextMenu;
 
-        js.append(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu));
+        js.append(String.format(Locale.US, "chart.contextMenu(%s);", contextMenu));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu));
+            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%s);", contextMenu));
             js.setLength(0);
         }
     }
 
-    private Boolean credits;
 
-    public void setCredits(Boolean credits) {
+    public void setContextmenu(Boolean contextMenu1) {
+        this.contextMenu1 = contextMenu1;
+
+        js.append(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu1));
+            js.setLength(0);
+        }
+    }
+
+    private ChartCredits getcredits;
+
+    public ChartCredits getCredits() {
+        if (getcredits == null)
+            getcredits = new ChartCredits("chart.credits()");
+
+        return getcredits;
+    }
+
+    private String credits;
+    private Boolean credits1;
+
+    public void setCredits(String credits) {
         this.credits = credits;
 
-        js.append(String.format(Locale.US, "chart.credits(%b);", credits));
+        js.append(String.format(Locale.US, "chart.credits(%s);", credits));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.credits(%b);", credits));
+            onChangeListener.onChange(String.format(Locale.US, "chart.credits(%s);", credits));
             js.setLength(0);
         }
     }
 
-    private Boolean crosshair;
 
-    public void setCrosshair(Boolean crosshair) {
+    public void setCredits(Boolean credits1) {
+        this.credits1 = credits1;
+
+        js.append(String.format(Locale.US, "chart.credits(%b);", credits1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.credits(%b);", credits1));
+            js.setLength(0);
+        }
+    }
+
+    private Crosshair getcrosshair;
+
+    public Crosshair getCrosshair() {
+        if (getcrosshair == null)
+            getcrosshair = new Crosshair("chart.crosshair()");
+
+        return getcrosshair;
+    }
+
+    private String crosshair;
+    private Boolean crosshair1;
+
+    public void setCrosshair(String crosshair) {
         this.crosshair = crosshair;
 
-        js.append(String.format(Locale.US, "chart.crosshair(%b);", crosshair));
+        js.append(String.format(Locale.US, "chart.crosshair(%s);", crosshair));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.crosshair(%b);", crosshair));
+            onChangeListener.onChange(String.format(Locale.US, "chart.crosshair(%s);", crosshair));
             js.setLength(0);
         }
     }
 
-    private MapProjections crs;
-    private String crs1;
 
-    public void setCrs(MapProjections crs) {
+    public void setCrosshair(Boolean crosshair1) {
+        this.crosshair1 = crosshair1;
+
+        js.append(String.format(Locale.US, "chart.crosshair(%b);", crosshair1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.crosshair(%b);", crosshair1));
+            js.setLength(0);
+        }
+    }
+
+    private String crs;
+    private MapProjections crs1;
+    private String crs2;
+
+    public void setCrs(String crs) {
         this.crs = crs;
 
-        js.append(String.format(Locale.US, "chart.crs(%s);", (crs != null) ? crs.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.crs(%s);", crs));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.crs(%s);", (crs != null) ? crs.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.crs(%s);", crs));
             js.setLength(0);
         }
     }
 
 
-    public void setCrs(String crs1) {
+    public void setCrs(MapProjections crs1) {
         this.crs1 = crs1;
 
-        js.append(String.format(Locale.US, "chart.crs(%s);", crs1));
+        js.append(String.format(Locale.US, "chart.crs(%s);", (crs1 != null) ? crs1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.crs(%s);", crs1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.crs(%s);", (crs1 != null) ? crs1.generateJs() : "null"));
             js.setLength(0);
         }
+    }
+
+    private Animation getcrsAnimation;
+
+    public Animation getCrsanimation() {
+        if (getcrsAnimation == null)
+            getcrsAnimation = new Animation("chart.crsAnimation()");
+
+        return getcrsAnimation;
     }
 
     private Boolean crsAnimation;
+    private String crsAnimation1;
     private Double duration1;
 
     public void setCrsanimation(Boolean crsAnimation, Double duration1) {
@@ -902,6 +1113,19 @@ public class ChartsMap extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.crsAnimation(%b, %f);", crsAnimation, duration1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setCrsanimation(String crsAnimation1, Double duration1) {
+        this.crsAnimation1 = crsAnimation1;
+        this.duration1 = duration1;
+
+        js.append(String.format(Locale.US, "chart.crsAnimation(%s, %f);", crsAnimation1, duration1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.crsAnimation(%s, %f);", crsAnimation1, duration1));
             js.setLength(0);
         }
     }
@@ -987,16 +1211,16 @@ public class ChartsMap extends Chart {
     }
 
     private String id2;
-    private String crs2;
+    private String crs3;
 
-    public void setFeaturecrs(String id2, String crs2) {
+    public void setFeaturecrs(String id2, String crs3) {
         this.id2 = id2;
-        this.crs2 = crs2;
+        this.crs3 = crs3;
 
-        js.append(String.format(Locale.US, "chart.featureCrs(%s, %s);", id2, crs2));
+        js.append(String.format(Locale.US, "chart.featureCrs(%s, %s);", id2, crs3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.featureCrs(%s, %s);", id2, crs2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.featureCrs(%s, %s);", id2, crs3));
             js.setLength(0);
         }
     }
@@ -1060,14 +1284,16 @@ public class ChartsMap extends Chart {
     }
 
     private String data12;
+    private String data13;
 
-    public void setGeodata(String data12) {
+    public void setGeodata(String data12, String data13) {
         this.data12 = data12;
+        this.data13 = data13;
 
-        js.append(String.format(Locale.US, "chart.geoData(%s);", data12));
+        js.append(String.format(Locale.US, "chart.geoData(%s, %s);", data12, data13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.geoData(%s);", data12));
+            onChangeListener.onChange(String.format(Locale.US, "chart.geoData(%s, %s);", data12, data13));
             js.setLength(0);
         }
     }
@@ -1083,6 +1309,15 @@ public class ChartsMap extends Chart {
             onChangeListener.onChange(String.format(Locale.US, "chart.geoIdField(%s);", geoIdField));
             js.setLength(0);
         }
+    }
+
+    private AnychartMathRect getgetPlotBounds;
+
+    public AnychartMathRect getGetplotbounds() {
+        if (getgetPlotBounds == null)
+            getgetPlotBounds = new AnychartMathRect("chart.getPlotBounds()");
+
+        return getgetPlotBounds;
     }
 
     private Double id7;
@@ -1165,21 +1400,53 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean grids;
+    private GridsMapSettings getgrids;
 
-    public void setGrids(Boolean grids) {
+    public GridsMapSettings getGrids() {
+        if (getgrids == null)
+            getgrids = new GridsMapSettings("chart.grids()");
+
+        return getgrids;
+    }
+
+    private String grids;
+    private Boolean grids1;
+
+    public void setGrids(String grids) {
         this.grids = grids;
 
-        js.append(String.format(Locale.US, "chart.grids(%b);", grids));
+        js.append(String.format(Locale.US, "chart.grids(%s);", grids));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grids(%b);", grids));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grids(%s);", grids));
             js.setLength(0);
         }
     }
 
+
+    public void setGrids(Boolean grids1) {
+        this.grids1 = grids1;
+
+        js.append(String.format(Locale.US, "chart.grids(%b);", grids1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.grids(%b);", grids1));
+            js.setLength(0);
+        }
+    }
+
+    private HatchFills gethatchFillPalette;
+
+    public HatchFills getHatchfillpalette() {
+        if (gethatchFillPalette == null)
+            gethatchFillPalette = new HatchFills("chart.hatchFillPalette()");
+
+        return gethatchFillPalette;
+    }
+
     private HatchFillType[] hatchFillPalette;
-    private HatchFills hatchFillPalette1;
+    private String hatchFillPalette1;
+    private HatchFills hatchFillPalette2;
 
     public void setHatchfillpalette(HatchFillType[] hatchFillPalette) {
         this.hatchFillPalette = hatchFillPalette;
@@ -1193,13 +1460,25 @@ public class ChartsMap extends Chart {
     }
 
 
-    public void setHatchfillpalette(HatchFills hatchFillPalette1) {
+    public void setHatchfillpalette(String hatchFillPalette1) {
         this.hatchFillPalette1 = hatchFillPalette1;
 
-        js.append(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette1 != null) ? hatchFillPalette1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hatchFillPalette(%s);", hatchFillPalette1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette1 != null) ? hatchFillPalette1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFillPalette(%s);", hatchFillPalette1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setHatchfillpalette(HatchFills hatchFillPalette2) {
+        this.hatchFillPalette2 = hatchFillPalette2;
+
+        js.append(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1230,28 +1509,63 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean hoverLabels;
+    private UiLabelsFactory gethoverLabels;
 
-    public void setHoverlabels(Boolean hoverLabels) {
+    public UiLabelsFactory getHoverlabels() {
+        if (gethoverLabels == null)
+            gethoverLabels = new UiLabelsFactory("chart.hoverLabels()");
+
+        return gethoverLabels;
+    }
+
+    private String hoverLabels;
+    private Boolean hoverLabels1;
+
+    public void setHoverlabels(String hoverLabels) {
         this.hoverLabels = hoverLabels;
 
-        js.append(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels));
+        js.append(String.format(Locale.US, "chart.hoverLabels(%s);", hoverLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverLabels(%s);", hoverLabels));
             js.setLength(0);
         }
     }
 
-    private HoverMode interactivity;
 
-    public void setInteractivity(HoverMode interactivity) {
-        this.interactivity = interactivity;
+    public void setHoverlabels(Boolean hoverLabels1) {
+        this.hoverLabels1 = hoverLabels1;
 
-        js.append(String.format(Locale.US, "chart.interactivity(%s);", (interactivity != null) ? interactivity.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.interactivity(%s);", (interactivity != null) ? interactivity.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels1));
+            js.setLength(0);
+        }
+    }
+
+    private String interactivity;
+    private HoverMode interactivity1;
+
+    public void setInteractivity(String interactivity) {
+        this.interactivity = interactivity;
+
+        js.append(String.format(Locale.US, "chart.interactivity(%s);", interactivity));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.interactivity(%s);", interactivity));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setInteractivity(HoverMode interactivity1) {
+        this.interactivity1 = interactivity1;
+
+        js.append(String.format(Locale.US, "chart.interactivity(%s);", (interactivity1 != null) ? interactivity1.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.interactivity(%s);", (interactivity1 != null) ? interactivity1.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -1299,6 +1613,7 @@ public class ChartsMap extends Chart {
 
     private Boolean label;
     private String label1;
+    private String label2;
 
     public void setLabel(Boolean label) {
         this.label = label;
@@ -1313,69 +1628,92 @@ public class ChartsMap extends Chart {
 
     private String index5;
     private Double index6;
-    private Boolean label2;
-    private String label3;
+    private Boolean label3;
+    private String label4;
+    private String label5;
 
-    public void setLabel(String index5, Boolean label2) {
-        this.index5 = index5;
-        this.label2 = label2;
-
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index5, label2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index5, label2));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setLabel(String index5, String label3) {
+    public void setLabel(String index5, Boolean label3) {
         this.index5 = index5;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index5, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index5, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index6, Boolean label2) {
-        this.index6 = index6;
-        this.label2 = label2;
+    public void setLabel(String index5, String label4) {
+        this.index5 = index5;
+        this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index6, label2));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index6, label2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index6, String label3) {
+    public void setLabel(Double index6, Boolean label3) {
         this.index6 = index6;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index6, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index6, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
             js.setLength(0);
         }
     }
 
-    private Boolean labels;
 
-    public void setLabels(Boolean labels) {
+    public void setLabel(Double index6, String label4) {
+        this.index6 = index6;
+        this.label4 = label4;
+
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
+            js.setLength(0);
+        }
+    }
+
+    private UiLabelsFactory getlabels;
+
+    public UiLabelsFactory getLabels() {
+        if (getlabels == null)
+            getlabels = new UiLabelsFactory("chart.labels()");
+
+        return getlabels;
+    }
+
+    private String labels;
+    private Boolean labels1;
+
+    public void setLabels(String labels) {
         this.labels = labels;
 
-        js.append(String.format(Locale.US, "chart.labels(%b);", labels));
+        js.append(String.format(Locale.US, "chart.labels(%s);", labels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%b);", labels));
+            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%s);", labels));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setLabels(Boolean labels1) {
+        this.labels1 = labels1;
+
+        js.append(String.format(Locale.US, "chart.labels(%b);", labels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%b);", labels1));
             js.setLength(0);
         }
     }
@@ -1406,45 +1744,71 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean legend;
+    private UiLegend getlegend;
 
-    public void setLegend(Boolean legend) {
+    public UiLegend getLegend() {
+        if (getlegend == null)
+            getlegend = new UiLegend("chart.legend()");
+
+        return getlegend;
+    }
+
+    private String legend;
+    private Boolean legend1;
+
+    public void setLegend(String legend) {
         this.legend = legend;
 
-        js.append(String.format(Locale.US, "chart.legend(%b);", legend));
+        js.append(String.format(Locale.US, "chart.legend(%s);", legend));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.legend(%b);", legend));
+            onChangeListener.onChange(String.format(Locale.US, "chart.legend(%s);", legend));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setLegend(Boolean legend1) {
+        this.legend1 = legend1;
+
+        js.append(String.format(Locale.US, "chart.legend(%b);", legend1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.legend(%b);", legend1));
             js.setLength(0);
         }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
         this.type = type;
         this.useCapture = useCapture;
+        this.listenerScope = listenerScope;
 
-        js.append(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
+        js.append(String.format(Locale.US, "chart.listen(%s, %b, %s);", type, useCapture, listenerScope));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listen(%s, %b, %s);", type, useCapture, listenerScope));
             js.setLength(0);
         }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
         this.type1 = type1;
         this.useCapture1 = useCapture1;
+        this.listenerScope1 = listenerScope1;
 
-        js.append(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
+        js.append(String.format(Locale.US, "chart.listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
             js.setLength(0);
         }
     }
@@ -1464,8 +1828,18 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private Margin getmargin;
+
+    public Margin getMargin() {
+        if (getmargin == null)
+            getmargin = new Margin("chart.margin()");
+
+        return getmargin;
+    }
+
     private Double[] margin;
     private String[] margin1;
+    private String margin2;
 
     public void setMargin(Double[] margin) {
         this.margin = margin;
@@ -1486,6 +1860,18 @@ public class ChartsMap extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s);", Arrays.toString(margin1)));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String margin2) {
+        this.margin2 = margin2;
+
+        js.append(String.format(Locale.US, "chart.margin(%s);", margin2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s);", margin2));
             js.setLength(0);
         }
     }
@@ -1534,40 +1920,14 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private View data13;
-    private Set data14;
-    private String[] data15;
-    private String data16;
+    private View data14;
+    private Set data15;
+    private String[] data16;
+    private String data17;
     private TextParsingMode csvSettings6;
     private TextParsingSettings csvSettings7;
 
-    public void setMarker(View data13, TextParsingMode csvSettings6) {
-        this.data13 = data13;
-        this.csvSettings6 = csvSettings6;
-
-        js.append(String.format(Locale.US, "chart.marker(%s, %s);", (data13 != null) ? data13.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", (data13 != null) ? data13.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMarker(View data13, TextParsingSettings csvSettings7) {
-        this.data13 = data13;
-        this.csvSettings7 = csvSettings7;
-
-        js.append(String.format(Locale.US, "chart.marker(%s, %s);", (data13 != null) ? data13.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", (data13 != null) ? data13.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMarker(Set data14, TextParsingMode csvSettings6) {
+    public void setMarker(View data14, TextParsingMode csvSettings6) {
         this.data14 = data14;
         this.csvSettings6 = csvSettings6;
 
@@ -1580,7 +1940,7 @@ public class ChartsMap extends Chart {
     }
 
 
-    public void setMarker(Set data14, TextParsingSettings csvSettings7) {
+    public void setMarker(View data14, TextParsingSettings csvSettings7) {
         this.data14 = data14;
         this.csvSettings7 = csvSettings7;
 
@@ -1593,59 +1953,95 @@ public class ChartsMap extends Chart {
     }
 
 
-    public void setMarker(String[] data15, TextParsingMode csvSettings6) {
+    public void setMarker(Set data15, TextParsingMode csvSettings6) {
         this.data15 = data15;
         this.csvSettings6 = csvSettings6;
 
-        js.append(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data15), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data15), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
     }
 
 
-    public void setMarker(String[] data15, TextParsingSettings csvSettings7) {
+    public void setMarker(Set data15, TextParsingSettings csvSettings7) {
         this.data15 = data15;
         this.csvSettings7 = csvSettings7;
 
-        js.append(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data15), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data15), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
             js.setLength(0);
         }
     }
 
 
-    public void setMarker(String data16, TextParsingMode csvSettings6) {
+    public void setMarker(String[] data16, TextParsingMode csvSettings6) {
         this.data16 = data16;
         this.csvSettings6 = csvSettings6;
 
-        js.append(String.format(Locale.US, "chart.marker(%s, %s);", data16, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data16), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", data16, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data16), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
     }
 
 
-    public void setMarker(String data16, TextParsingSettings csvSettings7) {
+    public void setMarker(String[] data16, TextParsingSettings csvSettings7) {
         this.data16 = data16;
         this.csvSettings7 = csvSettings7;
 
-        js.append(String.format(Locale.US, "chart.marker(%s, %s);", data16, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data16), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", data16, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", Arrays.toString(data16), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
             js.setLength(0);
         }
+    }
+
+
+    public void setMarker(String data17, TextParsingMode csvSettings6) {
+        this.data17 = data17;
+        this.csvSettings6 = csvSettings6;
+
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", data17, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", data17, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMarker(String data17, TextParsingSettings csvSettings7) {
+        this.data17 = data17;
+        this.csvSettings7 = csvSettings7;
+
+        js.append(String.format(Locale.US, "chart.marker(%s, %s);", data17, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %s);", data17, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            js.setLength(0);
+        }
+    }
+
+    private Markers getmarkerPalette;
+
+    public Markers getMarkerpalette() {
+        if (getmarkerPalette == null)
+            getmarkerPalette = new Markers("chart.markerPalette()");
+
+        return getmarkerPalette;
     }
 
     private Markers markerPalette;
-    private MarkerType[] markerPalette1;
+    private String markerPalette1;
+    private MarkerType[] markerPalette2;
 
     public void setMarkerpalette(Markers markerPalette) {
         this.markerPalette = markerPalette;
@@ -1659,13 +2055,25 @@ public class ChartsMap extends Chart {
     }
 
 
-    public void setMarkerpalette(MarkerType[] markerPalette1) {
+    public void setMarkerpalette(String markerPalette1) {
         this.markerPalette1 = markerPalette1;
 
-        js.append(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette1)));
+        js.append(String.format(Locale.US, "chart.markerPalette(%s);", markerPalette1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette1)));
+            onChangeListener.onChange(String.format(Locale.US, "chart.markerPalette(%s);", markerPalette1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMarkerpalette(MarkerType[] markerPalette2) {
+        this.markerPalette2 = markerPalette2;
+
+        js.append(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette2)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette2)));
             js.setLength(0);
         }
     }
@@ -1893,8 +2301,18 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private UtilsPadding getpadding;
+
+    public UtilsPadding getPadding() {
+        if (getpadding == null)
+            getpadding = new UtilsPadding("chart.padding()");
+
+        return getpadding;
+    }
+
     private Double[] padding;
     private String[] padding1;
+    private String padding2;
 
     public void setPadding(Double[] padding) {
         this.padding = padding;
@@ -1915,6 +2333,18 @@ public class ChartsMap extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s);", Arrays.toString(padding1)));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(String padding2) {
+        this.padding2 = padding2;
+
+        js.append(String.format(Locale.US, "chart.padding(%s);", padding2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s);", padding2));
             js.setLength(0);
         }
     }
@@ -1963,9 +2393,19 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private RangeColors getpalette;
+
+    public RangeColors getPalette() {
+        if (getpalette == null)
+            getpalette = new RangeColors("chart.palette()");
+
+        return getpalette;
+    }
+
     private RangeColors palette;
     private DistinctColors palette1;
-    private String[] palette2;
+    private String palette2;
+    private String[] palette3;
 
     public void setPalette(RangeColors palette) {
         this.palette = palette;
@@ -1991,18 +2431,31 @@ public class ChartsMap extends Chart {
     }
 
 
-    public void setPalette(String[] palette2) {
+    public void setPalette(String palette2) {
         this.palette2 = palette2;
 
-        js.append(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette2)));
+        js.append(String.format(Locale.US, "chart.palette(%s);", palette2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette2)));
+            onChangeListener.onChange(String.format(Locale.US, "chart.palette(%s);", palette2));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPalette(String[] palette3) {
+        this.palette3 = palette3;
+
+        js.append(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette3)));
             js.setLength(0);
         }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
@@ -2013,6 +2466,19 @@ public class ChartsMap extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        this.paperSizeOrOptions1 = paperSizeOrOptions1;
+        this.landscape = landscape;
+
+        js.append(String.format(Locale.US, "chart.print(%s, %b);", paperSizeOrOptions1, landscape));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.print(%s, %b);", paperSizeOrOptions1, landscape));
             js.setLength(0);
         }
     }
@@ -2128,6 +2594,7 @@ public class ChartsMap extends Chart {
     }
 
     private Double width2;
+    private String width3;
     private Double height4;
     private Double quality;
     private Boolean forceTransparentWhite;
@@ -2144,6 +2611,22 @@ public class ChartsMap extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, %s);", width2, height4, quality, forceTransparentWhite, filename1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSaveasjpg(String width3, Double height4, Double quality, Boolean forceTransparentWhite, String filename1) {
+        this.width3 = width3;
+        this.height4 = height4;
+        this.quality = quality;
+        this.forceTransparentWhite = forceTransparentWhite;
+        this.filename1 = filename1;
+
+        js.append(String.format(Locale.US, "chart.saveAsJpg(%s, %f, %f, %b, %s);", width3, height4, quality, forceTransparentWhite, filename1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%s, %f, %f, %b, %s);", width3, height4, quality, forceTransparentWhite, filename1));
             js.setLength(0);
         }
     }
@@ -2165,6 +2648,7 @@ public class ChartsMap extends Chart {
 
     private Double paperSizeOrWidthOrOptions;
     private String paperSizeOrWidthOrOptions1;
+    private String paperSizeOrWidthOrOptions2;
     private Boolean landscape1;
     private Double x3;
     private Double y3;
@@ -2201,26 +2685,43 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Double width3;
+    private Double width4;
+    private String width5;
     private Double height5;
     private Double quality1;
     private String filename4;
 
-    public void setSaveaspng(Double width3, Double height5, Double quality1, String filename4) {
-        this.width3 = width3;
+    public void setSaveaspng(Double width4, Double height5, Double quality1, String filename4) {
+        this.width4 = width4;
         this.height5 = height5;
         this.quality1 = quality1;
         this.filename4 = filename4;
 
-        js.append(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width3, height5, quality1, filename4));
+        js.append(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width4, height5, quality1, filename4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width3, height5, quality1, filename4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width4, height5, quality1, filename4));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSaveaspng(String width5, Double height5, Double quality1, String filename4) {
+        this.width5 = width5;
+        this.height5 = height5;
+        this.quality1 = quality1;
+        this.filename4 = filename4;
+
+        js.append(String.format(Locale.US, "chart.saveAsPng(%s, %f, %f, %s);", width5, height5, quality1, filename4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%s, %f, %f, %s);", width5, height5, quality1, filename4));
             js.setLength(0);
         }
     }
 
     private String paperSize;
+    private String paperSize1;
     private Boolean landscape2;
     private String filename5;
 
@@ -2237,17 +2738,17 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Double width4;
+    private Double width6;
     private Double height6;
 
-    public void setSaveassvg(Double width4, Double height6) {
-        this.width4 = width4;
+    public void setSaveassvg(Double width6, Double height6) {
+        this.width6 = width6;
         this.height6 = height6;
 
-        js.append(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width4, height6));
+        js.append(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width6, height6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width4, height6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width6, height6));
             js.setLength(0);
         }
     }
@@ -2296,15 +2797,37 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean selectLabels;
+    private UiLabelsFactory getselectLabels;
 
-    public void setSelectlabels(Boolean selectLabels) {
+    public UiLabelsFactory getSelectlabels() {
+        if (getselectLabels == null)
+            getselectLabels = new UiLabelsFactory("chart.selectLabels()");
+
+        return getselectLabels;
+    }
+
+    private String selectLabels;
+    private Boolean selectLabels1;
+
+    public void setSelectlabels(String selectLabels) {
         this.selectLabels = selectLabels;
 
-        js.append(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels));
+        js.append(String.format(Locale.US, "chart.selectLabels(%s);", selectLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectLabels(%s);", selectLabels));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSelectlabels(Boolean selectLabels1) {
+        this.selectLabels1 = selectLabels1;
+
+        js.append(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels1));
             js.setLength(0);
         }
     }
@@ -2342,6 +2865,7 @@ public class ChartsMap extends Chart {
     private Double angle;
     private Boolean mode;
     private VectorRect mode1;
+    private String mode2;
     private Double opacity1;
 
     public void setSelectmarqueefill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -2369,6 +2893,21 @@ public class ChartsMap extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSelectmarqueefill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+        this.keys = keys;
+        this.mode2 = mode2;
+        this.angle = angle;
+        this.opacity1 = opacity1;
+
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
         }
     }
@@ -2403,46 +2942,61 @@ public class ChartsMap extends Chart {
         }
     }
 
+
+    public void setSelectmarqueefill(String[] keys1, String mode2, Double angle, Double opacity1) {
+        this.keys1 = keys1;
+        this.mode2 = mode2;
+        this.angle = angle;
+        this.opacity1 = opacity1;
+
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.setLength(0);
+        }
+    }
+
     private GradientKey[] keys2;
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private GraphicsMathRect mode2;
+    private GraphicsMathRect mode3;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setSelectmarqueefill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
+    public void setSelectmarqueefill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys2 = keys2;
         this.cx = cx;
         this.cy = cy;
-        this.mode2 = mode2;
+        this.mode3 = mode3;
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
     }
 
 
-    public void setSelectmarqueefill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
+    public void setSelectmarqueefill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys3 = keys3;
         this.cx = cx;
         this.cy = cy;
-        this.mode2 = mode2;
+        this.mode3 = mode3;
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
     }
@@ -2516,8 +3070,18 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private UiTitle gettitle;
+
+    public UiTitle getTitle() {
+        if (gettitle == null)
+            gettitle = new UiTitle("chart.title()");
+
+        return gettitle;
+    }
+
     private Boolean title;
     private String title1;
+    private String title2;
 
     public void setTitle(Boolean title) {
         this.title = title;
@@ -2586,32 +3150,33 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private String paperSize1;
+    private String paperSize2;
+    private String paperSize3;
     private Boolean landscape3;
 
-    public void setTosvg(String paperSize1, Boolean landscape3) {
-        this.paperSize1 = paperSize1;
+    public void setTosvg(String paperSize2, Boolean landscape3) {
+        this.paperSize2 = paperSize2;
         this.landscape3 = landscape3;
 
-        js.append(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize1, landscape3));
+        js.append(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize2, landscape3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize1, landscape3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize2, landscape3));
             js.setLength(0);
         }
     }
 
-    private Double width5;
+    private Double width7;
     private Double height7;
 
-    public void setTosvg(Double width5, Double height7) {
-        this.width5 = width5;
+    public void setTosvg(Double width7, Double height7) {
+        this.width7 = width7;
         this.height7 = height7;
 
-        js.append(String.format(Locale.US, "chart.toSvg(%f, %f);", width5, height7));
+        js.append(String.format(Locale.US, "chart.toSvg(%f, %f);", width7, height7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%f, %f);", width5, height7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%f, %f);", width7, height7));
             js.setLength(0);
         }
     }
@@ -2631,15 +3196,37 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Boolean tooltip;
+    private Tooltip gettooltip;
 
-    public void setTooltip(Boolean tooltip) {
+    public Tooltip getTooltip() {
+        if (gettooltip == null)
+            gettooltip = new Tooltip("chart.tooltip()");
+
+        return gettooltip;
+    }
+
+    private String tooltip;
+    private Boolean tooltip1;
+
+    public void setTooltip(String tooltip) {
         this.tooltip = tooltip;
 
-        js.append(String.format(Locale.US, "chart.tooltip(%b);", tooltip));
+        js.append(String.format(Locale.US, "chart.tooltip(%s);", tooltip));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%b);", tooltip));
+            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%s);", tooltip));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setTooltip(Boolean tooltip1) {
+        this.tooltip1 = tooltip1;
+
+        js.append(String.format(Locale.US, "chart.tooltip(%b);", tooltip1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%b);", tooltip1));
             js.setLength(0);
         }
     }
@@ -2702,82 +3289,107 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private MapUnboundRegionsMode unboundRegions;
-    private String unboundRegions1;
-    private Boolean unboundRegions2;
+    private UnboundRegionsSettings getunboundRegions;
 
-    public void setUnboundregions(MapUnboundRegionsMode unboundRegions) {
+    public UnboundRegionsSettings getUnboundregions() {
+        if (getunboundRegions == null)
+            getunboundRegions = new UnboundRegionsSettings("chart.unboundRegions()");
+
+        return getunboundRegions;
+    }
+
+    private String unboundRegions;
+    private MapUnboundRegionsMode unboundRegions1;
+    private String unboundRegions2;
+    private Boolean unboundRegions3;
+
+    public void setUnboundregions(String unboundRegions) {
         this.unboundRegions = unboundRegions;
 
-        js.append(String.format(Locale.US, "chart.unboundRegions(%s);", (unboundRegions != null) ? unboundRegions.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.unboundRegions(%s);", unboundRegions));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unboundRegions(%s);", (unboundRegions != null) ? unboundRegions.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unboundRegions(%s);", unboundRegions));
             js.setLength(0);
         }
     }
 
 
-    public void setUnboundregions(String unboundRegions1) {
+    public void setUnboundregions(MapUnboundRegionsMode unboundRegions1) {
         this.unboundRegions1 = unboundRegions1;
 
-        js.append(String.format(Locale.US, "chart.unboundRegions(%s);", unboundRegions1));
+        js.append(String.format(Locale.US, "chart.unboundRegions(%s);", (unboundRegions1 != null) ? unboundRegions1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unboundRegions(%s);", unboundRegions1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unboundRegions(%s);", (unboundRegions1 != null) ? unboundRegions1.generateJs() : "null"));
             js.setLength(0);
         }
     }
 
 
-    public void setUnboundregions(Boolean unboundRegions2) {
-        this.unboundRegions2 = unboundRegions2;
+    public void setUnboundregions(Boolean unboundRegions3) {
+        this.unboundRegions3 = unboundRegions3;
 
-        js.append(String.format(Locale.US, "chart.unboundRegions(%b);", unboundRegions2));
+        js.append(String.format(Locale.US, "chart.unboundRegions(%b);", unboundRegions3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unboundRegions(%b);", unboundRegions2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unboundRegions(%b);", unboundRegions3));
             js.setLength(0);
         }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
         this.type3 = type3;
         this.useCapture2 = useCapture2;
+        this.listenerScope2 = listenerScope2;
 
-        js.append(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
+        js.append(String.format(Locale.US, "chart.unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
             js.setLength(0);
         }
     }
 
-    private Double width6;
-    private String width7;
+    private String key2;
 
-    public void setWidth(Double width6) {
-        this.width6 = width6;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.width(%f);", width6));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(%f);", width6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
+            js.setLength(0);
+        }
+    }
+
+    private Double width8;
+    private String width9;
+
+    public void setWidth(Double width8) {
+        this.width8 = width8;
+
+        js.append(String.format(Locale.US, "chart.width(%f);", width8));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.width(%f);", width8));
             js.setLength(0);
         }
     }
 
 
-    public void setWidth(String width7) {
-        this.width7 = width7;
+    public void setWidth(String width9) {
+        this.width9 = width9;
 
-        js.append(String.format(Locale.US, "chart.width(%s);", width7));
+        js.append(String.format(Locale.US, "chart.width(%s);", width9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(%s);", width7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.width(%s);", width9));
             js.setLength(0);
         }
     }
@@ -2844,5 +3456,205 @@ public class ChartsMap extends Chart {
         }
     }
 
+    private String generateJSgetanimation() {
+        if (getanimation != null) {
+            return getanimation.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetaxes() {
+        if (getaxes != null) {
+            return getaxes.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetbackground() {
+        if (getbackground != null) {
+            return getbackground.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetbounds() {
+        if (getbounds != null) {
+            return getbounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcolorRange() {
+        if (getcolorRange != null) {
+            return getcolorRange.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcontainer() {
+        if (getcontainer != null) {
+            return getcontainer.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcontextMenu() {
+        if (getcontextMenu != null) {
+            return getcontextMenu.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcredits() {
+        if (getcredits != null) {
+            return getcredits.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcrosshair() {
+        if (getcrosshair != null) {
+            return getcrosshair.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcrsAnimation() {
+        if (getcrsAnimation != null) {
+            return getcrsAnimation.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetgetPlotBounds() {
+        if (getgetPlotBounds != null) {
+            return getgetPlotBounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetgrids() {
+        if (getgrids != null) {
+            return getgrids.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethatchFillPalette() {
+        if (gethatchFillPalette != null) {
+            return gethatchFillPalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethoverLabels() {
+        if (gethoverLabels != null) {
+            return gethoverLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetlabels() {
+        if (getlabels != null) {
+            return getlabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetlegend() {
+        if (getlegend != null) {
+            return getlegend.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetmargin() {
+        if (getmargin != null) {
+            return getmargin.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetmarkerPalette() {
+        if (getmarkerPalette != null) {
+            return getmarkerPalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetpadding() {
+        if (getpadding != null) {
+            return getpadding.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetpalette() {
+        if (getpalette != null) {
+            return getpalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetselectLabels() {
+        if (getselectLabels != null) {
+            return getselectLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgettitle() {
+        if (gettitle != null) {
+            return gettitle.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgettooltip() {
+        if (gettooltip != null) {
+            return gettooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetunboundRegions() {
+        if (getunboundRegions != null) {
+            return getunboundRegions.generateJs();
+        }
+        return "";
+    }
+
+
+    @Override
+    protected String generateJs() {
+        js.append(generateJSgetanimation());
+        js.append(generateJSgetaxes());
+        js.append(generateJSgetbackground());
+        js.append(generateJSgetbounds());
+        js.append(generateJSgetcolorRange());
+        js.append(generateJSgetcontainer());
+        js.append(generateJSgetcontextMenu());
+        js.append(generateJSgetcredits());
+        js.append(generateJSgetcrosshair());
+        js.append(generateJSgetcrsAnimation());
+        js.append(generateJSgetgetPlotBounds());
+        js.append(generateJSgetgrids());
+        js.append(generateJSgethatchFillPalette());
+        js.append(generateJSgethoverLabels());
+        js.append(generateJSgetlabels());
+        js.append(generateJSgetlegend());
+        js.append(generateJSgetmargin());
+        js.append(generateJSgetmarkerPalette());
+        js.append(generateJSgetpadding());
+        js.append(generateJSgetpalette());
+        js.append(generateJSgetselectLabels());
+        js.append(generateJSgettitle());
+        js.append(generateJSgettooltip());
+        js.append(generateJSgetunboundRegions());
+
+        String result = js.toString();
+        js.setLength(0);
+        return result;
+    }
 
 }

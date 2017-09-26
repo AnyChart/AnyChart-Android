@@ -17,7 +17,6 @@ public class RocContext extends JsObject  {
         js.append(String.format(Locale.US, "{period: %f,queue: %s}",  period, (queue != null) ? queue.generateJs() : "null"));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

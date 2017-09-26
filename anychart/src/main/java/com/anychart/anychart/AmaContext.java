@@ -25,7 +25,6 @@ public class AmaContext extends JsObject  {
         js.append(String.format(Locale.US, "{fastPeriod: %f,period: %f,prevNoise: %f,prevResult: %f,queue: %s,slowPeriod: %f}",  fastPeriod, period, prevNoise, prevResult, (queue != null) ? queue.generateJs() : "null", slowPeriod));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

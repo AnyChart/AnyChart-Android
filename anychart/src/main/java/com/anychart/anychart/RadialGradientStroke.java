@@ -35,7 +35,6 @@ public class RadialGradientStroke extends JsObject implements Stroke {
 
         js.append(String.format(Locale.US, "{keys: %s,cx: %f,cy: %f,dash: %s,fx: %f,fy: %f,lineCap: %s,lineJoin: %s,mode: %s,opacity: %f,thickness: %f}",  arrayToString(keys), cx, cy, dash, fx, fy, lineCap, lineJoin, (mode != null) ? mode.generateJs() : "null", opacity, thickness));
     }
-
     public RadialGradientStroke(String[] keys1, Double cx, Double cy, String dash, Double fx, Double fy, String lineCap, String lineJoin, GraphicsMathRect mode, Double opacity, Double thickness) {
         this.keys1 = keys1;
         this.cx = cx;
@@ -51,7 +50,6 @@ public class RadialGradientStroke extends JsObject implements Stroke {
 
         js.append(String.format(Locale.US, "{keys: %s,cx: %f,cy: %f,dash: %s,fx: %f,fy: %f,lineCap: %s,lineJoin: %s,mode: %s,opacity: %f,thickness: %f}",  Arrays.toString(keys1), cx, cy, dash, fx, fy, lineCap, lineJoin, (mode != null) ? mode.generateJs() : "null", opacity, thickness));
     }
-
 
     @Override
     public String generateJs() {

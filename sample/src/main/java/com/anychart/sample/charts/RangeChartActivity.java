@@ -23,6 +23,12 @@ public class RangeChartActivity extends AppCompatActivity {
         cartesian.setXaxis(true);
         cartesian.setYaxis(true);
 
+        cartesian.setLegend(true);
+        cartesian.setGrid(true);
+        cartesian.setMinorgrid(true);
+
+//        cartesian.getYscale().setMini
+
         cartesian.setRangecolumn(getEdinburghData(), TextParsingMode.CSV);
         cartesian.setRangecolumn(getLondonData(), TextParsingMode.CSV);
 

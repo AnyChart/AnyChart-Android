@@ -3,91 +3,249 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class MACD extends JsObject {
+
+    private String jsBase;
+
+    public MACD() {
+
+    }
+
+    protected MACD(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Double fastPeriod;
 
     public void setFastperiod(Double fastPeriod) {
-        this.fastPeriod = fastPeriod;
+        if (jsBase == null) {
+            this.fastPeriod = fastPeriod;
+        } else {
+            this.fastPeriod = fastPeriod;
+
+            js.append(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase gethistogramSeries;
+
+    public StockSeriesBase getHistogramseries() {
+        if (gethistogramSeries == null)
+            gethistogramSeries = new StockSeriesBase(jsBase + ".histogramSeries()");
+
+        return gethistogramSeries;
     }
 
     private String type;
     private StockSeriesType type1;
 
     public void setHistogramseries(String type) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type = type;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type = type;
+        } else {
+            this.type = type;
+
+            js.append(String.format(Locale.US, jsBase + ".histogramSeries(%s);", type));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".histogramSeries(%s);", type));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHistogramseries(StockSeriesType type1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+
+            js.append(String.format(Locale.US, jsBase + ".histogramSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".histogramSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getmacdSeries;
+
+    public StockSeriesBase getMacdseries() {
+        if (getmacdSeries == null)
+            getmacdSeries = new StockSeriesBase(jsBase + ".macdSeries()");
+
+        return getmacdSeries;
     }
 
     private String type2;
     private StockSeriesType type3;
 
     public void setMacdseries(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".macdSeries(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macdSeries(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMacdseries(StockSeriesType type3) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+        } else {
+            this.type3 = type3;
+
+            js.append(String.format(Locale.US, jsBase + ".macdSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macdSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double signalPeriod;
 
     public void setSignalperiod(Double signalPeriod) {
-        this.signalPeriod = signalPeriod;
+        if (jsBase == null) {
+            this.signalPeriod = signalPeriod;
+        } else {
+            this.signalPeriod = signalPeriod;
+
+            js.append(String.format(Locale.US, jsBase + ".signalPeriod(%f);", signalPeriod));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".signalPeriod(%f);", signalPeriod));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getsignalSeries;
+
+    public StockSeriesBase getSignalseries() {
+        if (getsignalSeries == null)
+            getsignalSeries = new StockSeriesBase(jsBase + ".signalSeries()");
+
+        return getsignalSeries;
     }
 
     private String type4;
     private StockSeriesType type5;
 
     public void setSignalseries(String type4) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        this.type4 = null;
-        this.type5 = null;
-        
-        this.type4 = type4;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            this.type4 = null;
+            this.type5 = null;
+            
+            this.type4 = type4;
+        } else {
+            this.type4 = type4;
+
+            js.append(String.format(Locale.US, jsBase + ".signalSeries(%s);", type4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".signalSeries(%s);", type4));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSignalseries(StockSeriesType type5) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        this.type4 = null;
-        this.type5 = null;
-        
-        this.type5 = type5;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            this.type4 = null;
+            this.type5 = null;
+            
+            this.type5 = type5;
+        } else {
+            this.type5 = type5;
+
+            js.append(String.format(Locale.US, jsBase + ".signalSeries(%s);", (type5 != null) ? type5.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".signalSeries(%s);", (type5 != null) ? type5.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double slowPeriod;
 
     public void setSlowperiod(Double slowPeriod) {
-        this.slowPeriod = slowPeriod;
+        if (jsBase == null) {
+            this.slowPeriod = slowPeriod;
+        } else {
+            this.slowPeriod = slowPeriod;
+
+            js.append(String.format(Locale.US, jsBase + ".slowPeriod(%f);", slowPeriod));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".slowPeriod(%f);", slowPeriod));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgethistogramSeries() {
+        if (gethistogramSeries != null) {
+            return gethistogramSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetmacdSeries() {
+        if (getmacdSeries != null) {
+            return getmacdSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetsignalSeries() {
+        if (getsignalSeries != null) {
+            return getsignalSeries.generateJs();
+        }
+        return "";
     }
 
     private String generateJSfastPeriod() {
@@ -156,18 +314,22 @@ public class MACD extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSfastPeriod());
-        js.append(generateJStype());
-        js.append(generateJStype1());
-        js.append(generateJStype2());
-        js.append(generateJStype3());
-        js.append(generateJSsignalPeriod());
-        js.append(generateJStype4());
-        js.append(generateJStype5());
-        js.append(generateJSslowPeriod());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSfastPeriod());
+            js.append(generateJStype());
+            js.append(generateJStype1());
+            js.append(generateJStype2());
+            js.append(generateJStype3());
+            js.append(generateJSsignalPeriod());
+            js.append(generateJStype4());
+            js.append(generateJStype5());
+            js.append(generateJSslowPeriod());
+            js.append("}");
+        }
+            js.append(generateJSgethistogramSeries());
+            js.append(generateJSgetmacdSeries());
+            js.append(generateJSgetsignalSeries());
 
         String result = js.toString();
         js.setLength(0);

@@ -19,7 +19,6 @@ public class ControlPoint extends JsObject  {
         js.append(String.format(Locale.US, "{height: %f,left: %f,right: %f}",  height, left, right));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

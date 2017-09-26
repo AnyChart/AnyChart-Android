@@ -3,6 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// chart class
 public class Pareto extends Chart {
 
     public Pareto() {
@@ -49,6 +50,15 @@ public class Pareto extends Chart {
         }
     }
 
+    private PlotController getannotations;
+
+    public PlotController getAnnotations() {
+        if (getannotations == null)
+            getannotations = new PlotController("chart.annotations()");
+
+        return getannotations;
+    }
+
     private String[] annotationsList;
 
     public void setAnnotations(String[] annotationsList) {
@@ -88,17 +98,48 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean crosshair;
+    private Crosshair getcrosshair;
 
-    public void setCrosshair(Boolean crosshair) {
+    public Crosshair getCrosshair() {
+        if (getcrosshair == null)
+            getcrosshair = new Crosshair("chart.crosshair()");
+
+        return getcrosshair;
+    }
+
+    private String crosshair;
+    private Boolean crosshair1;
+
+    public void setCrosshair(String crosshair) {
         this.crosshair = crosshair;
 
-        js.append(String.format(Locale.US, "chart.crosshair(%b);", crosshair));
+        js.append(String.format(Locale.US, "chart.crosshair(%s);", crosshair));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.crosshair(%b);", crosshair));
+            onChangeListener.onChange(String.format(Locale.US, "chart.crosshair(%s);", crosshair));
             js.setLength(0);
         }
+    }
+
+
+    public void setCrosshair(Boolean crosshair1) {
+        this.crosshair1 = crosshair1;
+
+        js.append(String.format(Locale.US, "chart.crosshair(%b);", crosshair1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.crosshair(%b);", crosshair1));
+            js.setLength(0);
+        }
+    }
+
+    private View getdata;
+
+    public View getData() {
+        if (getdata == null)
+            getdata = new View("chart.data()");
+
+        return getdata;
     }
 
     private View data;
@@ -264,6 +305,15 @@ public class Pareto extends Chart {
         }
     }
 
+    private AnychartMathRect getgetPlotBounds;
+
+    public AnychartMathRect getGetplotbounds() {
+        if (getgetPlotBounds == null)
+            getgetPlotBounds = new AnychartMathRect("chart.getPlotBounds()");
+
+        return getgetPlotBounds;
+    }
+
     private Double id;
     private String id1;
 
@@ -342,36 +392,73 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean grid;
+    private String grid;
+    private Boolean grid1;
 
-    public void setGrid(Boolean grid) {
+    public void setGrid(String grid) {
         this.grid = grid;
 
-        js.append(String.format(Locale.US, "chart.grid(%b);", grid));
+        js.append(String.format(Locale.US, "chart.grid(%s);", grid));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b);", grid));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s);", grid));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setGrid(Boolean grid1) {
+        this.grid1 = grid1;
+
+        js.append(String.format(Locale.US, "chart.grid(%b);", grid1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b);", grid1));
             js.setLength(0);
         }
     }
 
     private Double index2;
-    private Boolean grid1;
+    private String grid2;
+    private Boolean grid3;
 
-    public void setGrid(Double index2, Boolean grid1) {
+    public void setGrid(String grid2, Double index2) {
+        this.grid2 = grid2;
         this.index2 = index2;
-        this.grid1 = grid1;
 
-        js.append(String.format(Locale.US, "chart.grid(%f, %b);", index2, grid1));
+        js.append(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%f, %b);", index2, grid1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index2));
             js.setLength(0);
         }
     }
 
+
+    public void setGrid(Boolean grid3, Double index2) {
+        this.grid3 = grid3;
+        this.index2 = index2;
+
+        js.append(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index2));
+            js.setLength(0);
+        }
+    }
+
+    private HatchFills gethatchFillPalette;
+
+    public HatchFills getHatchfillpalette() {
+        if (gethatchFillPalette == null)
+            gethatchFillPalette = new HatchFills("chart.hatchFillPalette()");
+
+        return gethatchFillPalette;
+    }
+
     private HatchFillType[] hatchFillPalette;
-    private HatchFills hatchFillPalette1;
+    private String hatchFillPalette1;
+    private HatchFills hatchFillPalette2;
 
     public void setHatchfillpalette(HatchFillType[] hatchFillPalette) {
         this.hatchFillPalette = hatchFillPalette;
@@ -385,39 +472,95 @@ public class Pareto extends Chart {
     }
 
 
-    public void setHatchfillpalette(HatchFills hatchFillPalette1) {
+    public void setHatchfillpalette(String hatchFillPalette1) {
         this.hatchFillPalette1 = hatchFillPalette1;
 
-        js.append(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette1 != null) ? hatchFillPalette1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.hatchFillPalette(%s);", hatchFillPalette1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette1 != null) ? hatchFillPalette1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFillPalette(%s);", hatchFillPalette1));
             js.setLength(0);
         }
     }
 
-    private Boolean hoverLabels;
 
-    public void setHoverlabels(Boolean hoverLabels) {
+    public void setHatchfillpalette(HatchFills hatchFillPalette2) {
+        this.hatchFillPalette2 = hatchFillPalette2;
+
+        js.append(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+            js.setLength(0);
+        }
+    }
+
+    private UiLabelsFactory gethoverLabels;
+
+    public UiLabelsFactory getHoverlabels() {
+        if (gethoverLabels == null)
+            gethoverLabels = new UiLabelsFactory("chart.hoverLabels()");
+
+        return gethoverLabels;
+    }
+
+    private String hoverLabels;
+    private Boolean hoverLabels1;
+
+    public void setHoverlabels(String hoverLabels) {
         this.hoverLabels = hoverLabels;
 
-        js.append(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels));
+        js.append(String.format(Locale.US, "chart.hoverLabels(%s);", hoverLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverLabels(%s);", hoverLabels));
             js.setLength(0);
         }
     }
 
-    private Boolean labels;
 
-    public void setLabels(Boolean labels) {
-        this.labels = labels;
+    public void setHoverlabels(Boolean hoverLabels1) {
+        this.hoverLabels1 = hoverLabels1;
 
-        js.append(String.format(Locale.US, "chart.labels(%b);", labels));
+        js.append(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%b);", labels));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hoverLabels(%b);", hoverLabels1));
+            js.setLength(0);
+        }
+    }
+
+    private UiLabelsFactory getlabels;
+
+    public UiLabelsFactory getLabels() {
+        if (getlabels == null)
+            getlabels = new UiLabelsFactory("chart.labels()");
+
+        return getlabels;
+    }
+
+    private String labels;
+    private Boolean labels1;
+
+    public void setLabels(String labels) {
+        this.labels = labels;
+
+        js.append(String.format(Locale.US, "chart.labels(%s);", labels));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%s);", labels));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setLabels(Boolean labels1) {
+        this.labels1 = labels1;
+
+        js.append(String.format(Locale.US, "chart.labels(%b);", labels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%b);", labels1));
             js.setLength(0);
         }
     }
@@ -435,36 +578,73 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean lineMarker;
+    private String lineMarker;
+    private Boolean lineMarker1;
 
-    public void setLinemarker(Boolean lineMarker) {
+    public void setLinemarker(String lineMarker) {
         this.lineMarker = lineMarker;
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%b);", lineMarker));
+        js.append(String.format(Locale.US, "chart.lineMarker(%s);", lineMarker));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b);", lineMarker));
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s);", lineMarker));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setLinemarker(Boolean lineMarker1) {
+        this.lineMarker1 = lineMarker1;
+
+        js.append(String.format(Locale.US, "chart.lineMarker(%b);", lineMarker1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b);", lineMarker1));
             js.setLength(0);
         }
     }
 
     private Double index4;
-    private Boolean lineMarker1;
+    private String lineMarker2;
+    private Boolean lineMarker3;
 
-    public void setLinemarker(Double index4, Boolean lineMarker1) {
+    public void setLinemarker(String lineMarker2, Double index4) {
+        this.lineMarker2 = lineMarker2;
         this.index4 = index4;
-        this.lineMarker1 = lineMarker1;
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%f, %b);", index4, lineMarker1));
+        js.append(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%f, %b);", index4, lineMarker1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index4));
             js.setLength(0);
         }
     }
 
+
+    public void setLinemarker(Boolean lineMarker3, Double index4) {
+        this.lineMarker3 = lineMarker3;
+        this.index4 = index4;
+
+        js.append(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index4));
+            js.setLength(0);
+        }
+    }
+
+    private Markers getmarkerPalette;
+
+    public Markers getMarkerpalette() {
+        if (getmarkerPalette == null)
+            getmarkerPalette = new Markers("chart.markerPalette()");
+
+        return getmarkerPalette;
+    }
+
     private Markers markerPalette;
-    private MarkerType[] markerPalette1;
+    private String markerPalette1;
+    private MarkerType[] markerPalette2;
 
     public void setMarkerpalette(Markers markerPalette) {
         this.markerPalette = markerPalette;
@@ -478,13 +658,25 @@ public class Pareto extends Chart {
     }
 
 
-    public void setMarkerpalette(MarkerType[] markerPalette1) {
+    public void setMarkerpalette(String markerPalette1) {
         this.markerPalette1 = markerPalette1;
 
-        js.append(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette1)));
+        js.append(String.format(Locale.US, "chart.markerPalette(%s);", markerPalette1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette1)));
+            onChangeListener.onChange(String.format(Locale.US, "chart.markerPalette(%s);", markerPalette1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMarkerpalette(MarkerType[] markerPalette2) {
+        this.markerPalette2 = markerPalette2;
+
+        js.append(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette2)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.markerPalette(%s);", arrayToString(markerPalette2)));
             js.setLength(0);
         }
     }
@@ -554,37 +746,74 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean minorGrid;
+    private String minorGrid;
+    private Boolean minorGrid1;
 
-    public void setMinorgrid(Boolean minorGrid) {
+    public void setMinorgrid(String minorGrid) {
         this.minorGrid = minorGrid;
 
-        js.append(String.format(Locale.US, "chart.minorGrid(%b);", minorGrid));
+        js.append(String.format(Locale.US, "chart.minorGrid(%s);", minorGrid));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%b);", minorGrid));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%s);", minorGrid));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMinorgrid(Boolean minorGrid1) {
+        this.minorGrid1 = minorGrid1;
+
+        js.append(String.format(Locale.US, "chart.minorGrid(%b);", minorGrid1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%b);", minorGrid1));
             js.setLength(0);
         }
     }
 
     private Double index6;
-    private Boolean minorGrid1;
+    private String minorGrid2;
+    private Boolean minorGrid3;
 
-    public void setMinorgrid(Double index6, Boolean minorGrid1) {
+    public void setMinorgrid(String minorGrid2, Double index6) {
+        this.minorGrid2 = minorGrid2;
         this.index6 = index6;
-        this.minorGrid1 = minorGrid1;
 
-        js.append(String.format(Locale.US, "chart.minorGrid(%f, %b);", index6, minorGrid1));
+        js.append(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%f, %b);", index6, minorGrid1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index6));
             js.setLength(0);
         }
     }
 
+
+    public void setMinorgrid(Boolean minorGrid3, Double index6) {
+        this.minorGrid3 = minorGrid3;
+        this.index6 = index6;
+
+        js.append(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index6));
+            js.setLength(0);
+        }
+    }
+
+    private RangeColors getpalette;
+
+    public RangeColors getPalette() {
+        if (getpalette == null)
+            getpalette = new RangeColors("chart.palette()");
+
+        return getpalette;
+    }
+
     private RangeColors palette;
     private DistinctColors palette1;
-    private String[] palette2;
+    private String palette2;
+    private String[] palette3;
 
     public void setPalette(RangeColors palette) {
         this.palette = palette;
@@ -610,13 +839,25 @@ public class Pareto extends Chart {
     }
 
 
-    public void setPalette(String[] palette2) {
+    public void setPalette(String palette2) {
         this.palette2 = palette2;
 
-        js.append(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette2)));
+        js.append(String.format(Locale.US, "chart.palette(%s);", palette2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette2)));
+            onChangeListener.onChange(String.format(Locale.US, "chart.palette(%s);", palette2));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPalette(String[] palette3) {
+        this.palette3 = palette3;
+
+        js.append(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.palette(%s);", Arrays.toString(palette3)));
             js.setLength(0);
         }
     }
@@ -634,30 +875,57 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean rangeMarker;
+    private String rangeMarker;
+    private Boolean rangeMarker1;
 
-    public void setRangemarker(Boolean rangeMarker) {
+    public void setRangemarker(String rangeMarker) {
         this.rangeMarker = rangeMarker;
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%b);", rangeMarker));
+        js.append(String.format(Locale.US, "chart.rangeMarker(%s);", rangeMarker));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b);", rangeMarker));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s);", rangeMarker));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setRangemarker(Boolean rangeMarker1) {
+        this.rangeMarker1 = rangeMarker1;
+
+        js.append(String.format(Locale.US, "chart.rangeMarker(%b);", rangeMarker1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b);", rangeMarker1));
             js.setLength(0);
         }
     }
 
     private Double index8;
-    private Boolean rangeMarker1;
+    private String rangeMarker2;
+    private Boolean rangeMarker3;
 
-    public void setRangemarker(Double index8, Boolean rangeMarker1) {
+    public void setRangemarker(String rangeMarker2, Double index8) {
+        this.rangeMarker2 = rangeMarker2;
         this.index8 = index8;
-        this.rangeMarker1 = rangeMarker1;
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%f, %b);", index8, rangeMarker1));
+        js.append(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%f, %b);", index8, rangeMarker1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index8));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setRangemarker(Boolean rangeMarker3, Double index8) {
+        this.rangeMarker3 = rangeMarker3;
+        this.index8 = index8;
+
+        js.append(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index8));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index8));
             js.setLength(0);
         }
     }
@@ -701,15 +969,37 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean selectLabels;
+    private UiLabelsFactory getselectLabels;
 
-    public void setSelectlabels(Boolean selectLabels) {
+    public UiLabelsFactory getSelectlabels() {
+        if (getselectLabels == null)
+            getselectLabels = new UiLabelsFactory("chart.selectLabels()");
+
+        return getselectLabels;
+    }
+
+    private String selectLabels;
+    private Boolean selectLabels1;
+
+    public void setSelectlabels(String selectLabels) {
         this.selectLabels = selectLabels;
 
-        js.append(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels));
+        js.append(String.format(Locale.US, "chart.selectLabels(%s);", selectLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectLabels(%s);", selectLabels));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSelectlabels(Boolean selectLabels1) {
+        this.selectLabels1 = selectLabels1;
+
+        js.append(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectLabels(%b);", selectLabels1));
             js.setLength(0);
         }
     }
@@ -747,6 +1037,7 @@ public class Pareto extends Chart {
     private Double angle;
     private Boolean mode;
     private VectorRect mode1;
+    private String mode2;
     private Double opacity1;
 
     public void setSelectmarqueefill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -774,6 +1065,21 @@ public class Pareto extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSelectmarqueefill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+        this.keys = keys;
+        this.mode2 = mode2;
+        this.angle = angle;
+        this.opacity1 = opacity1;
+
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
         }
     }
@@ -808,46 +1114,61 @@ public class Pareto extends Chart {
         }
     }
 
+
+    public void setSelectmarqueefill(String[] keys1, String mode2, Double angle, Double opacity1) {
+        this.keys1 = keys1;
+        this.mode2 = mode2;
+        this.angle = angle;
+        this.opacity1 = opacity1;
+
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.setLength(0);
+        }
+    }
+
     private GradientKey[] keys2;
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private GraphicsMathRect mode2;
+    private GraphicsMathRect mode3;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setSelectmarqueefill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
+    public void setSelectmarqueefill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys2 = keys2;
         this.cx = cx;
         this.cy = cy;
-        this.mode2 = mode2;
+        this.mode3 = mode3;
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
     }
 
 
-    public void setSelectmarqueefill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
+    public void setSelectmarqueefill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys3 = keys3;
         this.cx = cx;
         this.cy = cy;
-        this.mode2 = mode2;
+        this.mode3 = mode3;
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
     }
@@ -934,30 +1255,57 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean textMarker;
+    private String textMarker;
+    private Boolean textMarker1;
 
-    public void setTextmarker(Boolean textMarker) {
+    public void setTextmarker(String textMarker) {
         this.textMarker = textMarker;
 
-        js.append(String.format(Locale.US, "chart.textMarker(%b);", textMarker));
+        js.append(String.format(Locale.US, "chart.textMarker(%s);", textMarker));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b);", textMarker));
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s);", textMarker));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setTextmarker(Boolean textMarker1) {
+        this.textMarker1 = textMarker1;
+
+        js.append(String.format(Locale.US, "chart.textMarker(%b);", textMarker1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b);", textMarker1));
             js.setLength(0);
         }
     }
 
     private Double index11;
-    private Boolean textMarker1;
+    private String textMarker2;
+    private Boolean textMarker3;
 
-    public void setTextmarker(Double index11, Boolean textMarker1) {
+    public void setTextmarker(String textMarker2, Double index11) {
+        this.textMarker2 = textMarker2;
         this.index11 = index11;
-        this.textMarker1 = textMarker1;
 
-        js.append(String.format(Locale.US, "chart.textMarker(%f, %b);", index11, textMarker1));
+        js.append(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%f, %b);", index11, textMarker1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index11));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setTextmarker(Boolean textMarker3, Double index11) {
+        this.textMarker3 = textMarker3;
+        this.index11 = index11;
+
+        js.append(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index11));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index11));
             js.setLength(0);
         }
     }
@@ -975,32 +1323,68 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean xAxis;
+    private String xAxis;
+    private Boolean xAxis1;
 
-    public void setXaxis(Boolean xAxis) {
+    public void setXaxis(String xAxis) {
         this.xAxis = xAxis;
 
-        js.append(String.format(Locale.US, "chart.xAxis(%b);", xAxis));
+        js.append(String.format(Locale.US, "chart.xAxis(%s);", xAxis));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%b);", xAxis));
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%s);", xAxis));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setXaxis(Boolean xAxis1) {
+        this.xAxis1 = xAxis1;
+
+        js.append(String.format(Locale.US, "chart.xAxis(%b);", xAxis1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%b);", xAxis1));
             js.setLength(0);
         }
     }
 
     private Double index13;
-    private Boolean xAxis1;
+    private String xAxis2;
+    private Boolean xAxis3;
 
-    public void setXaxis(Double index13, Boolean xAxis1) {
+    public void setXaxis(String xAxis2, Double index13) {
+        this.xAxis2 = xAxis2;
         this.index13 = index13;
-        this.xAxis1 = xAxis1;
 
-        js.append(String.format(Locale.US, "chart.xAxis(%f, %b);", index13, xAxis1));
+        js.append(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%f, %b);", index13, xAxis1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index13));
             js.setLength(0);
         }
+    }
+
+
+    public void setXaxis(Boolean xAxis3, Double index13) {
+        this.xAxis3 = xAxis3;
+        this.index13 = index13;
+
+        js.append(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index13));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index13));
+            js.setLength(0);
+        }
+    }
+
+    private ScalesBase getxScale;
+
+    public ScalesBase getXscale() {
+        if (getxScale == null)
+            getxScale = new ScalesBase("chart.xScale()");
+
+        return getxScale;
     }
 
     private ScaleTypes xScale;
@@ -1029,21 +1413,53 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean xScroller;
+    private ChartScroller getxScroller;
 
-    public void setXscroller(Boolean xScroller) {
+    public ChartScroller getXscroller() {
+        if (getxScroller == null)
+            getxScroller = new ChartScroller("chart.xScroller()");
+
+        return getxScroller;
+    }
+
+    private String xScroller;
+    private Boolean xScroller1;
+
+    public void setXscroller(String xScroller) {
         this.xScroller = xScroller;
 
-        js.append(String.format(Locale.US, "chart.xScroller(%b);", xScroller));
+        js.append(String.format(Locale.US, "chart.xScroller(%s);", xScroller));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xScroller(%b);", xScroller));
+            onChangeListener.onChange(String.format(Locale.US, "chart.xScroller(%s);", xScroller));
             js.setLength(0);
         }
     }
 
+
+    public void setXscroller(Boolean xScroller1) {
+        this.xScroller1 = xScroller1;
+
+        js.append(String.format(Locale.US, "chart.xScroller(%b);", xScroller1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.xScroller(%b);", xScroller1));
+            js.setLength(0);
+        }
+    }
+
+    private OrdinalZoom getxZoom;
+
+    public OrdinalZoom getXzoom() {
+        if (getxZoom == null)
+            getxZoom = new OrdinalZoom("chart.xZoom()");
+
+        return getxZoom;
+    }
+
     private Double xZoom;
     private Boolean xZoom1;
+    private String xZoom2;
 
     public void setXzoom(Double xZoom) {
         this.xZoom = xZoom;
@@ -1068,6 +1484,18 @@ public class Pareto extends Chart {
         }
     }
 
+
+    public void setXzoom(String xZoom2) {
+        this.xZoom2 = xZoom2;
+
+        js.append(String.format(Locale.US, "chart.xZoom(%s);", xZoom2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.xZoom(%s);", xZoom2));
+            js.setLength(0);
+        }
+    }
+
     private Double index14;
 
     public void setYaxis(Double index14) {
@@ -1081,32 +1509,68 @@ public class Pareto extends Chart {
         }
     }
 
-    private Boolean yAxis;
+    private String yAxis;
+    private Boolean yAxis1;
 
-    public void setYaxis(Boolean yAxis) {
+    public void setYaxis(String yAxis) {
         this.yAxis = yAxis;
 
-        js.append(String.format(Locale.US, "chart.yAxis(%b);", yAxis));
+        js.append(String.format(Locale.US, "chart.yAxis(%s);", yAxis));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%b);", yAxis));
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%s);", yAxis));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setYaxis(Boolean yAxis1) {
+        this.yAxis1 = yAxis1;
+
+        js.append(String.format(Locale.US, "chart.yAxis(%b);", yAxis1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%b);", yAxis1));
             js.setLength(0);
         }
     }
 
     private Double index15;
-    private Boolean yAxis1;
+    private String yAxis2;
+    private Boolean yAxis3;
 
-    public void setYaxis(Double index15, Boolean yAxis1) {
+    public void setYaxis(String yAxis2, Double index15) {
+        this.yAxis2 = yAxis2;
         this.index15 = index15;
-        this.yAxis1 = yAxis1;
 
-        js.append(String.format(Locale.US, "chart.yAxis(%f, %b);", index15, yAxis1));
+        js.append(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%f, %b);", index15, yAxis1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index15));
             js.setLength(0);
         }
+    }
+
+
+    public void setYaxis(Boolean yAxis3, Double index15) {
+        this.yAxis3 = yAxis3;
+        this.index15 = index15;
+
+        js.append(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index15));
+            js.setLength(0);
+        }
+    }
+
+    private ScalesBase getyScale;
+
+    public ScalesBase getYscale() {
+        if (getyScale == null)
+            getyScale = new ScalesBase("chart.yScale()");
+
+        return getyScale;
     }
 
     private ScaleTypes yScale;
@@ -1135,5 +1599,125 @@ public class Pareto extends Chart {
         }
     }
 
+    private String generateJSgetannotations() {
+        if (getannotations != null) {
+            return getannotations.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcrosshair() {
+        if (getcrosshair != null) {
+            return getcrosshair.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetdata() {
+        if (getdata != null) {
+            return getdata.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetgetPlotBounds() {
+        if (getgetPlotBounds != null) {
+            return getgetPlotBounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethatchFillPalette() {
+        if (gethatchFillPalette != null) {
+            return gethatchFillPalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethoverLabels() {
+        if (gethoverLabels != null) {
+            return gethoverLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetlabels() {
+        if (getlabels != null) {
+            return getlabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetmarkerPalette() {
+        if (getmarkerPalette != null) {
+            return getmarkerPalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetpalette() {
+        if (getpalette != null) {
+            return getpalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetselectLabels() {
+        if (getselectLabels != null) {
+            return getselectLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetxScale() {
+        if (getxScale != null) {
+            return getxScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetxScroller() {
+        if (getxScroller != null) {
+            return getxScroller.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetxZoom() {
+        if (getxZoom != null) {
+            return getxZoom.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetyScale() {
+        if (getyScale != null) {
+            return getyScale.generateJs();
+        }
+        return "";
+    }
+
+
+    @Override
+    protected String generateJs() {
+        js.append(generateJSgetannotations());
+        js.append(generateJSgetcrosshair());
+        js.append(generateJSgetdata());
+        js.append(generateJSgetgetPlotBounds());
+        js.append(generateJSgethatchFillPalette());
+        js.append(generateJSgethoverLabels());
+        js.append(generateJSgetlabels());
+        js.append(generateJSgetmarkerPalette());
+        js.append(generateJSgetpalette());
+        js.append(generateJSgetselectLabels());
+        js.append(generateJSgetxScale());
+        js.append(generateJSgetxScroller());
+        js.append(generateJSgetxZoom());
+        js.append(generateJSgetyScale());
+
+        String result = js.toString();
+        js.setLength(0);
+        return result;
+    }
 
 }

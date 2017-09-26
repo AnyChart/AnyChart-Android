@@ -31,7 +31,6 @@ public class MacdContext extends JsObject  {
         js.append(String.format(Locale.US, "{fastPeriod: %f,fastQueue: %s,fastResult: %f,signalPeriod: %f,signalQueue: %s,signalResult: %f,slowPeriod: %f,slowQueue: %s,slowResult: %f}",  fastPeriod, (fastQueue != null) ? fastQueue.generateJs() : "null", fastResult, signalPeriod, (signalQueue != null) ? signalQueue.generateJs() : "null", signalResult, slowPeriod, (slowQueue != null) ? slowQueue.generateJs() : "null", slowResult));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

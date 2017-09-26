@@ -19,7 +19,6 @@ public class Tick extends JsObject  {
         js.append(String.format(Locale.US, "{end: %f,holiday: %b,start: %f}",  end, holiday, start));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

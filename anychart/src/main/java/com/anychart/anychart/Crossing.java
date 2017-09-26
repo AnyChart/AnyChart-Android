@@ -3,7 +3,18 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class Crossing extends JsObject {
+
+    private String jsBase;
+
+    public Crossing() {
+
+    }
+
+    protected Crossing(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Stroke color;
@@ -15,41 +26,86 @@ public class Crossing extends JsObject {
     private StrokeLineCap lineCap;
 
     public void setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color = color;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color = color;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color = color;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color1 = color1;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color2 = color2;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJScolor() {
@@ -104,16 +160,17 @@ public class Crossing extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJScolor());
-        js.append(generateJScolor1());
-        js.append(generateJScolor2());
-        js.append(generateJSthickness());
-        js.append(generateJSdashpattern());
-        js.append(generateJSlineJoin());
-        js.append(generateJSlineCap());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJScolor());
+            js.append(generateJScolor1());
+            js.append(generateJScolor2());
+            js.append(generateJSthickness());
+            js.append(generateJSdashpattern());
+            js.append(generateJSlineJoin());
+            js.append(generateJSlineCap());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

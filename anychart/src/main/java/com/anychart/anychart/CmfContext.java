@@ -23,7 +23,6 @@ public class CmfContext extends JsObject  {
         js.append(String.format(Locale.US, "{mfvQueue: %s,period: %f,prevMFVSum: %f,prevVolumeSum: %f,volumeQueue: %s}",  (mfvQueue != null) ? mfvQueue.generateJs() : "null", period, prevMFVSum, prevVolumeSum, (volumeQueue != null) ? volumeQueue.generateJs() : "null"));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

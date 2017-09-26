@@ -21,7 +21,6 @@ public class RsiContext extends JsObject  {
         js.append(String.format(Locale.US, "{downwardChange: %f,period: %f,queue: %s,upwardChange: %f}",  downwardChange, period, (queue != null) ? queue.generateJs() : "null", upwardChange));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

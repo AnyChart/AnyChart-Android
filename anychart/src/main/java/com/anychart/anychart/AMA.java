@@ -3,31 +3,102 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class AMA extends JsObject {
+
+    private String jsBase;
+
+    public AMA() {
+
+    }
+
+    protected AMA(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Double fastPeriod;
 
     public void setFastperiod(Double fastPeriod) {
-        this.fastPeriod = fastPeriod;
+        if (jsBase == null) {
+            this.fastPeriod = fastPeriod;
+        } else {
+            this.fastPeriod = fastPeriod;
+
+            js.append(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double period;
 
     public void setPeriod(Double period) {
-        this.period = period;
+        if (jsBase == null) {
+            this.period = period;
+        } else {
+            this.period = period;
+
+            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getseries;
+
+    public StockSeriesBase getSeries() {
+        if (getseries == null)
+            getseries = new StockSeriesBase(jsBase + ".series()");
+
+        return getseries;
     }
 
     private StockSeriesType type;
 
     public void setSeries(StockSeriesType type) {
-        this.type = type;
+        if (jsBase == null) {
+            this.type = type;
+        } else {
+            this.type = type;
+
+            js.append(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double slowPeriod;
 
     public void setSlowperiod(Double slowPeriod) {
-        this.slowPeriod = slowPeriod;
+        if (jsBase == null) {
+            this.slowPeriod = slowPeriod;
+        } else {
+            this.slowPeriod = slowPeriod;
+
+            js.append(String.format(Locale.US, jsBase + ".slowPeriod(%f);", slowPeriod));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".slowPeriod(%f);", slowPeriod));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetseries() {
+        if (getseries != null) {
+            return getseries.generateJs();
+        }
+        return "";
     }
 
     private String generateJSfastPeriod() {
@@ -61,13 +132,15 @@ public class AMA extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSfastPeriod());
-        js.append(generateJSperiod());
-        js.append(generateJStype());
-        js.append(generateJSslowPeriod());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSfastPeriod());
+            js.append(generateJSperiod());
+            js.append(generateJStype());
+            js.append(generateJSslowPeriod());
+            js.append("}");
+        }
+            js.append(generateJSgetseries());
 
         String result = js.toString();
         js.setLength(0);

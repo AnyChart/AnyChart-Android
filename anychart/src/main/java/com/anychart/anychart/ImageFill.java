@@ -17,7 +17,6 @@ public class ImageFill extends JsObject implements Fill {
         js.append(String.format(Locale.US, "{mode: %s,src: %s}",  (mode != null) ? mode.generateJs() : "null", src));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

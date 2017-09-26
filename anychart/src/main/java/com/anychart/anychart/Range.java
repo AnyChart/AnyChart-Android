@@ -27,7 +27,6 @@ public class Range extends JsObject  {
         js.append(String.format(Locale.US, "{anchor: %s,count: %f,endDate: %s,startDate: %s,text: %s,type: %s,unit: %s}",  (anchor != null) ? anchor.generateJs() : "null", count, endDate, startDate, text, (type != null) ? type.generateJs() : "null", (unit != null) ? unit.generateJs() : "null"));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

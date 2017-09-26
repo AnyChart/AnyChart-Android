@@ -3,128 +3,374 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class OrdinalColor extends JsObject {
+
+    private String jsBase;
+
+    public OrdinalColor() {
+
+    }
+
+    protected OrdinalColor(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private String colorToValue;
 
     public void setColortovalue(String colorToValue) {
-        this.colorToValue = colorToValue;
+        if (jsBase == null) {
+            this.colorToValue = colorToValue;
+        } else {
+            this.colorToValue = colorToValue;
+
+            js.append(String.format(Locale.US, jsBase + ".colorToValue(%s);", colorToValue));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorToValue(%s);", colorToValue));
+                js.setLength(0);
+            }
+        }
     }
 
     private String[] colors;
 
     public void setColors(String[] colors) {
-        this.colors = colors;
+        if (jsBase == null) {
+            this.colors = colors;
+        } else {
+            this.colors = colors;
+
+            js.append(String.format(Locale.US, jsBase + ".colors(%s);", Arrays.toString(colors)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", Arrays.toString(colors)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean silently;
 
     public void setFinishautocalc(Boolean silently) {
-        this.silently = silently;
+        if (jsBase == null) {
+            this.silently = silently;
+        } else {
+            this.silently = silently;
+
+            js.append(String.format(Locale.US, jsBase + ".finishAutoCalc(%b);", silently));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".finishAutoCalc(%b);", silently));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double getIndexByValue;
 
     public void setGetindexbyvalue(Double getIndexByValue) {
-        this.getIndexByValue = getIndexByValue;
+        if (jsBase == null) {
+            this.getIndexByValue = getIndexByValue;
+        } else {
+            this.getIndexByValue = getIndexByValue;
+
+            js.append(String.format(Locale.US, jsBase + ".getIndexByValue(%f);", getIndexByValue));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getIndexByValue(%f);", getIndexByValue));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double getRangeByValue;
 
     public void setGetrangebyvalue(Double getRangeByValue) {
-        this.getRangeByValue = getRangeByValue;
+        if (jsBase == null) {
+            this.getRangeByValue = getRangeByValue;
+        } else {
+            this.getRangeByValue = getRangeByValue;
+
+            js.append(String.format(Locale.US, jsBase + ".getRangeByValue(%f);", getRangeByValue));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRangeByValue(%f);", getRangeByValue));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double ratio;
 
     public void setInversetransform(Double ratio) {
-        this.ratio = ratio;
+        if (jsBase == null) {
+            this.ratio = ratio;
+        } else {
+            this.ratio = ratio;
+
+            js.append(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean inverted;
 
     public void setInverted(Boolean inverted) {
-        this.inverted = inverted;
+        if (jsBase == null) {
+            this.inverted = inverted;
+        } else {
+            this.inverted = inverted;
+
+            js.append(String.format(Locale.US, jsBase + ".inverted(%b);", inverted));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverted(%b);", inverted));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String names;
 
     public void setNames(String names) {
-        this.names = names;
+        if (jsBase == null) {
+            this.names = names;
+        } else {
+            this.names = names;
+
+            js.append(String.format(Locale.US, jsBase + ".names(%s);", names));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".names(%s);", names));
+                js.setLength(0);
+            }
+        }
     }
 
     private String ranges;
 
     public void setRanges(String ranges) {
-        this.ranges = ranges;
+        if (jsBase == null) {
+            this.ranges = ranges;
+        } else {
+            this.ranges = ranges;
+
+            js.append(String.format(Locale.US, jsBase + ".ranges(%s);", ranges));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ranges(%s);", ranges));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
-    private String[] ticks;
+    private String ticks;
+    private String[] ticks1;
 
-    public void setTicks(String[] ticks) {
-        this.ticks = ticks;
+    public void setTicks(String ticks) {
+        if (jsBase == null) {
+            this.ticks = null;
+            this.ticks1 = null;
+            
+            this.ticks = ticks;
+        } else {
+            this.ticks = ticks;
+
+            js.append(String.format(Locale.US, jsBase + ".ticks(%s);", ticks));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", ticks));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setTicks(String[] ticks1) {
+        if (jsBase == null) {
+            this.ticks = null;
+            this.ticks1 = null;
+            
+            this.ticks1 = ticks1;
+        } else {
+            this.ticks1 = ticks1;
+
+            js.append(String.format(Locale.US, jsBase + ".ticks(%s);", Arrays.toString(ticks1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", Arrays.toString(ticks1)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double subRangeRatio;
 
     public void setTransform(Double subRangeRatio) {
-        this.subRangeRatio = subRangeRatio;
+        if (jsBase == null) {
+            this.subRangeRatio = subRangeRatio;
+        } else {
+            this.subRangeRatio = subRangeRatio;
+
+            js.append(String.format(Locale.US, jsBase + ".transform(%f);", subRangeRatio));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f);", subRangeRatio));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key;
+
+    public void setUnlistenbykey(String key) {
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double valueToColor;
 
     public void setValuetocolor(Double valueToColor) {
-        this.valueToColor = valueToColor;
+        if (jsBase == null) {
+            this.valueToColor = valueToColor;
+        } else {
+            this.valueToColor = valueToColor;
+
+            js.append(String.format(Locale.US, jsBase + ".valueToColor(%f);", valueToColor));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%f);", valueToColor));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJScolorToValue() {
@@ -190,6 +436,13 @@ public class OrdinalColor extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJStype1() {
         if (type1 != null) {
             return String.format(Locale.US, "type: %s,", type1);
@@ -200,6 +453,13 @@ public class OrdinalColor extends JsObject {
     private String generateJSuseCapture1() {
         if (useCapture1 != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture1);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -227,7 +487,14 @@ public class OrdinalColor extends JsObject {
 
     private String generateJSticks() {
         if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", Arrays.toString(ticks));
+            return String.format(Locale.US, "ticks: %s,", ticks);
+        }
+        return "";
+    }
+
+    private String generateJSticks1() {
+        if (ticks1 != null) {
+            return String.format(Locale.US, "ticks: %s,", Arrays.toString(ticks1));
         }
         return "";
     }
@@ -253,6 +520,20 @@ public class OrdinalColor extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey() {
+        if (key != null) {
+            return String.format(Locale.US, "key: %s,", key);
+        }
+        return "";
+    }
+
     private String generateJSvalueToColor() {
         if (valueToColor != null) {
             return String.format(Locale.US, "valueToColor: %f,", valueToColor);
@@ -263,28 +544,34 @@ public class OrdinalColor extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJScolorToValue());
-        js.append(generateJScolors());
-        js.append(generateJSsilently());
-        js.append(generateJSgetIndexByValue());
-        js.append(generateJSgetRangeByValue());
-        js.append(generateJSratio());
-        js.append(generateJSinverted());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSnames());
-        js.append(generateJSranges());
-        js.append(generateJStype2());
-        js.append(generateJSticks());
-        js.append(generateJSsubRangeRatio());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSvalueToColor());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJScolorToValue());
+            js.append(generateJScolors());
+            js.append(generateJSsilently());
+            js.append(generateJSgetIndexByValue());
+            js.append(generateJSgetRangeByValue());
+            js.append(generateJSratio());
+            js.append(generateJSinverted());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSnames());
+            js.append(generateJSranges());
+            js.append(generateJStype2());
+            js.append(generateJSticks());
+            js.append(generateJSticks1());
+            js.append(generateJSsubRangeRatio());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey());
+            js.append(generateJSvalueToColor());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

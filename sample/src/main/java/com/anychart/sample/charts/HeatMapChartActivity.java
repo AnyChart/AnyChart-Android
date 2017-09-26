@@ -19,6 +19,11 @@ public class HeatMapChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         HeatMap riskMap = new HeatMap();
+        riskMap.getTooltip().setUsehtml(true);
+        riskMap.getTooltip().setFormat("function () {\n" +
+                "                return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
+                "                        '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
+                "            }");
         riskMap.setTitle("'Risk Matrix in Project Server'");
         riskMap.setStroke("'#fff'", 1d, null, null, null);
         riskMap.setHoverstroke("'#fff'", 6d, null, null, null);

@@ -3,89 +3,236 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class MapTicks extends JsObject {
+
+    private String jsBase;
+
+    public MapTicks() {
+
+    }
+
+    protected MapTicks(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double length;
     private String length1;
 
     public void setLength(Double length) {
-        this.length = null;
-        this.length1 = null;
-        
-        this.length = length;
+        if (jsBase == null) {
+            this.length = null;
+            this.length1 = null;
+            
+            this.length = length;
+        } else {
+            this.length = length;
+
+            js.append(String.format(Locale.US, jsBase + ".length(%f);", length));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%f);", length));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLength(String length1) {
-        this.length = null;
-        this.length1 = null;
-        
-        this.length1 = length1;
+        if (jsBase == null) {
+            this.length = null;
+            this.length1 = null;
+            
+            this.length1 = length1;
+        } else {
+            this.length1 = length1;
+
+            js.append(String.format(Locale.US, jsBase + ".length(%s);", length1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%s);", length1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private SidePosition position;
     private String position1;
 
     public void setPosition(SidePosition position) {
-        this.position = null;
-        this.position1 = null;
-        
-        this.position = position;
+        if (jsBase == null) {
+            this.position = null;
+            this.position1 = null;
+            
+            this.position = position;
+        } else {
+            this.position = position;
+
+            js.append(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setPosition(String position1) {
-        this.position = null;
-        this.position1 = null;
-        
-        this.position1 = position1;
+        if (jsBase == null) {
+            this.position = null;
+            this.position1 = null;
+            
+            this.position1 = position1;
+        } else {
+            this.position1 = position1;
+
+            js.append(String.format(Locale.US, jsBase + ".position(%s);", position1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", position1));
+                js.setLength(0);
+            }
+        }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color;
@@ -96,49 +243,126 @@ public class MapTicks extends JsObject {
     private StrokeLineCap lineCap;
 
     public void setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        
-        this.color = color;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            
+            this.color = color;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color = color;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(String color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        
-        this.color1 = color1;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color1, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color1, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key;
+
+    public void setUnlistenbykey(String key) {
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
+        if (jsBase == null) {
+            this.zIndex = zIndex;
+        } else {
+            this.zIndex = zIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSenabled() {
@@ -176,6 +400,13 @@ public class MapTicks extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJStype1() {
         if (type1 != null) {
             return String.format(Locale.US, "type: %s,", type1);
@@ -186,6 +417,13 @@ public class MapTicks extends JsObject {
     private String generateJSuseCapture1() {
         if (useCapture1 != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture1);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -207,6 +445,13 @@ public class MapTicks extends JsObject {
     private String generateJSpaperSizeOrOptions() {
         if (paperSizeOrOptions != null) {
             return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSpaperSizeOrOptions1() {
+        if (paperSizeOrOptions1 != null) {
+            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
         }
         return "";
     }
@@ -281,6 +526,20 @@ public class MapTicks extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey() {
+        if (key != null) {
+            return String.format(Locale.US, "key: %s,", key);
+        }
+        return "";
+    }
+
     private String generateJSzIndex() {
         if (zIndex != null) {
             return String.format(Locale.US, "zIndex: %f,", zIndex);
@@ -291,30 +550,36 @@ public class MapTicks extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSenabled());
-        js.append(generateJSlength());
-        js.append(generateJSlength1());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSposition());
-        js.append(generateJSposition1());
-        js.append(generateJSpaperSizeOrOptions());
-        js.append(generateJSlandscape());
-        js.append(generateJStype2());
-        js.append(generateJScolor());
-        js.append(generateJScolor1());
-        js.append(generateJSthickness());
-        js.append(generateJSdashpattern());
-        js.append(generateJSlineJoin());
-        js.append(generateJSlineCap());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSzIndex());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSenabled());
+            js.append(generateJSlength());
+            js.append(generateJSlength1());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSposition());
+            js.append(generateJSposition1());
+            js.append(generateJSpaperSizeOrOptions());
+            js.append(generateJSpaperSizeOrOptions1());
+            js.append(generateJSlandscape());
+            js.append(generateJStype2());
+            js.append(generateJScolor());
+            js.append(generateJScolor1());
+            js.append(generateJSthickness());
+            js.append(generateJSdashpattern());
+            js.append(generateJSlineJoin());
+            js.append(generateJSlineCap());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey());
+            js.append(generateJSzIndex());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

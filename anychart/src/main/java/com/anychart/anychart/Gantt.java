@@ -3,6 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// chart class
 public class Gantt extends Chart {
 
     public Gantt() {
@@ -10,7 +11,17 @@ public class Gantt extends Chart {
     }
 
     
+    private Animation getanimation;
+
+    public Animation getAnimation() {
+        if (getanimation == null)
+            getanimation = new Animation("chart.animation()");
+
+        return getanimation;
+    }
+
     private Boolean animation;
+    private String animation1;
 
     public void setAnimation(Boolean animation) {
         this.animation = animation;
@@ -19,6 +30,18 @@ public class Gantt extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.animation(%b);", animation));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setAnimation(String animation1) {
+        this.animation1 = animation1;
+
+        js.append(String.format(Locale.US, "chart.animation(%s);", animation1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.animation(%s);", animation1));
             js.setLength(0);
         }
     }
@@ -34,6 +57,28 @@ public class Gantt extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.animation(%b, %f);", enabled, duration));
+            js.setLength(0);
+        }
+    }
+
+    private UiBackground getbackground;
+
+    public UiBackground getBackground() {
+        if (getbackground == null)
+            getbackground = new UiBackground("chart.background()");
+
+        return getbackground;
+    }
+
+    private String background;
+
+    public void setBackground(String background) {
+        this.background = background;
+
+        js.append(String.format(Locale.US, "chart.background(%s);", background));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.background(%s);", background));
             js.setLength(0);
         }
     }
@@ -62,6 +107,15 @@ public class Gantt extends Chart {
             onChangeListener.onChange(String.format(Locale.US, "chart.bottom(%s);", bottom1));
             js.setLength(0);
         }
+    }
+
+    private Bounds getbounds;
+
+    public Bounds getBounds() {
+        if (getbounds == null)
+            getbounds = new Bounds("chart.bounds()");
+
+        return getbounds;
     }
 
     private RectObj bounds;
@@ -390,6 +444,15 @@ public class Gantt extends Chart {
         }
     }
 
+    private Layer getcontainer;
+
+    public Layer getContainer() {
+        if (getcontainer == null)
+            getcontainer = new Layer("chart.container()");
+
+        return getcontainer;
+    }
+
     private Layer container;
     private Stage container1;
     private String container2;
@@ -442,30 +505,83 @@ public class Gantt extends Chart {
         }
     }
 
-    private Boolean contextMenu;
+    private ContextMenu getcontextMenu;
 
-    public void setContextmenu(Boolean contextMenu) {
+    public ContextMenu getContextmenu() {
+        if (getcontextMenu == null)
+            getcontextMenu = new ContextMenu("chart.contextMenu()");
+
+        return getcontextMenu;
+    }
+
+    private String contextMenu;
+    private Boolean contextMenu1;
+
+    public void setContextmenu(String contextMenu) {
         this.contextMenu = contextMenu;
 
-        js.append(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu));
+        js.append(String.format(Locale.US, "chart.contextMenu(%s);", contextMenu));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu));
+            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%s);", contextMenu));
             js.setLength(0);
         }
     }
 
-    private Boolean credits;
 
-    public void setCredits(Boolean credits) {
-        this.credits = credits;
+    public void setContextmenu(Boolean contextMenu1) {
+        this.contextMenu1 = contextMenu1;
 
-        js.append(String.format(Locale.US, "chart.credits(%b);", credits));
+        js.append(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.credits(%b);", credits));
+            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu1));
             js.setLength(0);
         }
+    }
+
+    private ChartCredits getcredits;
+
+    public ChartCredits getCredits() {
+        if (getcredits == null)
+            getcredits = new ChartCredits("chart.credits()");
+
+        return getcredits;
+    }
+
+    private String credits;
+    private Boolean credits1;
+
+    public void setCredits(String credits) {
+        this.credits = credits;
+
+        js.append(String.format(Locale.US, "chart.credits(%s);", credits));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.credits(%s);", credits));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setCredits(Boolean credits1) {
+        this.credits1 = credits1;
+
+        js.append(String.format(Locale.US, "chart.credits(%b);", credits1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.credits(%b);", credits1));
+            js.setLength(0);
+        }
+    }
+
+    private Tree getdata;
+
+    public Tree getData() {
+        if (getdata == null)
+            getdata = new Tree("chart.data()");
+
+        return getdata;
     }
 
     private Tree data;
@@ -549,6 +665,15 @@ public class Gantt extends Chart {
             onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", data2, fillMethod1));
             js.setLength(0);
         }
+    }
+
+    private UiDataGrid getdataGrid;
+
+    public UiDataGrid getDatagrid() {
+        if (getdataGrid == null)
+            getdataGrid = new UiDataGrid("chart.dataGrid()");
+
+        return getdataGrid;
     }
 
     private Boolean enabled1;
@@ -655,6 +780,15 @@ public class Gantt extends Chart {
         }
     }
 
+    private Timeline getgetTimeline;
+
+    public Timeline getGettimeline() {
+        if (getgetTimeline == null)
+            getgetTimeline = new Timeline("chart.getTimeline()");
+
+        return getgetTimeline;
+    }
+
     private Double xCoord;
     private Double yCoord;
 
@@ -722,15 +856,28 @@ public class Gantt extends Chart {
         }
     }
 
-    private HoverMode interactivity;
+    private String interactivity;
+    private HoverMode interactivity1;
 
-    public void setInteractivity(HoverMode interactivity) {
+    public void setInteractivity(String interactivity) {
         this.interactivity = interactivity;
 
-        js.append(String.format(Locale.US, "chart.interactivity(%s);", (interactivity != null) ? interactivity.generateJs() : "null"));
+        js.append(String.format(Locale.US, "chart.interactivity(%s);", interactivity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.interactivity(%s);", (interactivity != null) ? interactivity.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.interactivity(%s);", interactivity));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setInteractivity(HoverMode interactivity1) {
+        this.interactivity1 = interactivity1;
+
+        js.append(String.format(Locale.US, "chart.interactivity(%s);", (interactivity1 != null) ? interactivity1.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.interactivity(%s);", (interactivity1 != null) ? interactivity1.generateJs() : "null"));
             js.setLength(0);
         }
     }
@@ -763,6 +910,7 @@ public class Gantt extends Chart {
 
     private Boolean label;
     private String label1;
+    private String label2;
 
     public void setLabel(Boolean label) {
         this.label = label;
@@ -777,56 +925,57 @@ public class Gantt extends Chart {
 
     private String index2;
     private Double index3;
-    private Boolean label2;
-    private String label3;
+    private Boolean label3;
+    private String label4;
+    private String label5;
 
-    public void setLabel(String index2, Boolean label2) {
-        this.index2 = index2;
-        this.label2 = label2;
-
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label2));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setLabel(String index2, String label3) {
+    public void setLabel(String index2, Boolean label3) {
         this.index2 = index2;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, Boolean label2) {
-        this.index3 = index3;
-        this.label2 = label2;
+    public void setLabel(String index2, String label4) {
+        this.index2 = index2;
+        this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label2));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, String label3) {
+    public void setLabel(Double index3, Boolean label3) {
         this.index3 = index3;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setLabel(Double index3, String label4) {
+        this.index3 = index3;
+        this.label4 = label4;
+
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
             js.setLength(0);
         }
     }
@@ -857,45 +1006,71 @@ public class Gantt extends Chart {
         }
     }
 
-    private Boolean legend;
+    private UiLegend getlegend;
 
-    public void setLegend(Boolean legend) {
+    public UiLegend getLegend() {
+        if (getlegend == null)
+            getlegend = new UiLegend("chart.legend()");
+
+        return getlegend;
+    }
+
+    private String legend;
+    private Boolean legend1;
+
+    public void setLegend(String legend) {
         this.legend = legend;
 
-        js.append(String.format(Locale.US, "chart.legend(%b);", legend));
+        js.append(String.format(Locale.US, "chart.legend(%s);", legend));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.legend(%b);", legend));
+            onChangeListener.onChange(String.format(Locale.US, "chart.legend(%s);", legend));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setLegend(Boolean legend1) {
+        this.legend1 = legend1;
+
+        js.append(String.format(Locale.US, "chart.legend(%b);", legend1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.legend(%b);", legend1));
             js.setLength(0);
         }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
         this.type = type;
         this.useCapture = useCapture;
+        this.listenerScope = listenerScope;
 
-        js.append(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
+        js.append(String.format(Locale.US, "chart.listen(%s, %b, %s);", type, useCapture, listenerScope));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listen(%s, %b);", type, useCapture));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listen(%s, %b, %s);", type, useCapture, listenerScope));
             js.setLength(0);
         }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
         this.type1 = type1;
         this.useCapture1 = useCapture1;
+        this.listenerScope1 = listenerScope1;
 
-        js.append(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
+        js.append(String.format(Locale.US, "chart.listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(%s, %b);", type1, useCapture1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
             js.setLength(0);
         }
     }
@@ -915,8 +1090,18 @@ public class Gantt extends Chart {
         }
     }
 
+    private Margin getmargin;
+
+    public Margin getMargin() {
+        if (getmargin == null)
+            getmargin = new Margin("chart.margin()");
+
+        return getmargin;
+    }
+
     private Double[] margin;
     private String[] margin1;
+    private String margin2;
 
     public void setMargin(Double[] margin) {
         this.margin = margin;
@@ -937,6 +1122,18 @@ public class Gantt extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s);", Arrays.toString(margin1)));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String margin2) {
+        this.margin2 = margin2;
+
+        js.append(String.format(Locale.US, "chart.margin(%s);", margin2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s);", margin2));
             js.setLength(0);
         }
     }
@@ -1089,8 +1286,18 @@ public class Gantt extends Chart {
         }
     }
 
+    private UtilsPadding getpadding;
+
+    public UtilsPadding getPadding() {
+        if (getpadding == null)
+            getpadding = new UtilsPadding("chart.padding()");
+
+        return getpadding;
+    }
+
     private Double[] padding;
     private String[] padding1;
+    private String padding2;
 
     public void setPadding(Double[] padding) {
         this.padding = padding;
@@ -1111,6 +1318,18 @@ public class Gantt extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s);", Arrays.toString(padding1)));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(String padding2) {
+        this.padding2 = padding2;
+
+        js.append(String.format(Locale.US, "chart.padding(%s);", padding2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s);", padding2));
             js.setLength(0);
         }
     }
@@ -1160,6 +1379,7 @@ public class Gantt extends Chart {
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
@@ -1170,6 +1390,19 @@ public class Gantt extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        this.paperSizeOrOptions1 = paperSizeOrOptions1;
+        this.landscape = landscape;
+
+        js.append(String.format(Locale.US, "chart.print(%s, %b);", paperSizeOrOptions1, landscape));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.print(%s, %b);", paperSizeOrOptions1, landscape));
             js.setLength(0);
         }
     }
@@ -1246,6 +1479,7 @@ public class Gantt extends Chart {
     private Double angle;
     private Boolean mode;
     private VectorRect mode1;
+    private String mode2;
     private Double opacity1;
 
     public void setRowhoverfill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
@@ -1273,6 +1507,21 @@ public class Gantt extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.rowHoverFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setRowhoverfill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+        this.keys = keys;
+        this.mode2 = mode2;
+        this.angle = angle;
+        this.opacity1 = opacity1;
+
+        js.append(String.format(Locale.US, "chart.rowHoverFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowHoverFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
         }
     }
@@ -1307,46 +1556,61 @@ public class Gantt extends Chart {
         }
     }
 
+
+    public void setRowhoverfill(String[] keys1, String mode2, Double angle, Double opacity1) {
+        this.keys1 = keys1;
+        this.mode2 = mode2;
+        this.angle = angle;
+        this.opacity1 = opacity1;
+
+        js.append(String.format(Locale.US, "chart.rowHoverFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowHoverFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+            js.setLength(0);
+        }
+    }
+
     private GradientKey[] keys2;
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private GraphicsMathRect mode2;
+    private GraphicsMathRect mode3;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setRowhoverfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
+    public void setRowhoverfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys2 = keys2;
         this.cx = cx;
         this.cy = cy;
-        this.mode2 = mode2;
+        this.mode3 = mode3;
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
 
-        js.append(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
     }
 
 
-    public void setRowhoverfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
+    public void setRowhoverfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys3 = keys3;
         this.cx = cx;
         this.cy = cy;
-        this.mode2 = mode2;
+        this.mode3 = mode3;
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
 
-        js.append(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+        js.append(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode2 != null) ? mode2.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
     }
@@ -1382,65 +1646,96 @@ public class Gantt extends Chart {
     private GradientKey[] keys4;
     private String[] keys5;
     private Double angle1;
-    private Boolean mode3;
-    private VectorRect mode4;
+    private Boolean mode4;
+    private VectorRect mode5;
+    private String mode6;
     private Double opacity4;
 
-    public void setRowselectedfill(GradientKey[] keys4, Boolean mode3, Double angle1, Double opacity4) {
-        this.keys4 = keys4;
-        this.mode3 = mode3;
-        this.angle1 = angle1;
-        this.opacity4 = opacity4;
-
-        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", arrayToString(keys4), mode3, angle1, opacity4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", arrayToString(keys4), mode3, angle1, opacity4));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setRowselectedfill(GradientKey[] keys4, VectorRect mode4, Double angle1, Double opacity4) {
+    public void setRowselectedfill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         this.keys4 = keys4;
         this.mode4 = mode4;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
 
-        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", arrayToString(keys4), (mode4 != null) ? mode4.generateJs() : "null", angle1, opacity4));
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", arrayToString(keys4), (mode4 != null) ? mode4.generateJs() : "null", angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
             js.setLength(0);
         }
     }
 
 
-    public void setRowselectedfill(String[] keys5, Boolean mode3, Double angle1, Double opacity4) {
-        this.keys5 = keys5;
-        this.mode3 = mode3;
+    public void setRowselectedfill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+        this.keys4 = keys4;
+        this.mode5 = mode5;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
 
-        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode3, angle1, opacity4));
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode3, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
             js.setLength(0);
         }
     }
 
 
-    public void setRowselectedfill(String[] keys5, VectorRect mode4, Double angle1, Double opacity4) {
+    public void setRowselectedfill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+        this.keys4 = keys4;
+        this.mode6 = mode6;
+        this.angle1 = angle1;
+        this.opacity4 = opacity4;
+
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setRowselectedfill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         this.keys5 = keys5;
         this.mode4 = mode4;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
 
-        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode4 != null) ? mode4.generateJs() : "null", angle1, opacity4));
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode4 != null) ? mode4.generateJs() : "null", angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setRowselectedfill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+        this.keys5 = keys5;
+        this.mode5 = mode5;
+        this.angle1 = angle1;
+        this.opacity4 = opacity4;
+
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setRowselectedfill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+        this.keys5 = keys5;
+        this.mode6 = mode6;
+        this.angle1 = angle1;
+        this.opacity4 = opacity4;
+
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
             js.setLength(0);
         }
     }
@@ -1449,42 +1744,42 @@ public class Gantt extends Chart {
     private String[] keys7;
     private Double cx1;
     private Double cy1;
-    private GraphicsMathRect mode5;
+    private GraphicsMathRect mode7;
     private Double opacity5;
     private Double fx1;
     private Double fy1;
 
-    public void setRowselectedfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setRowselectedfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         this.keys6 = keys6;
         this.cx1 = cx1;
         this.cy1 = cy1;
-        this.mode5 = mode5;
+        this.mode7 = mode7;
         this.opacity5 = opacity5;
         this.fx1 = fx1;
         this.fy1 = fy1;
 
-        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode5 != null) ? mode5.generateJs() : "null", opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode5 != null) ? mode5.generateJs() : "null", opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
             js.setLength(0);
         }
     }
 
 
-    public void setRowselectedfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
+    public void setRowselectedfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         this.keys7 = keys7;
         this.cx1 = cx1;
         this.cy1 = cy1;
-        this.mode5 = mode5;
+        this.mode7 = mode7;
         this.opacity5 = opacity5;
         this.fx1 = fx1;
         this.fy1 = fy1;
 
-        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode5 != null) ? mode5.generateJs() : "null", opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode5 != null) ? mode5.generateJs() : "null", opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
             js.setLength(0);
         }
     }
@@ -1548,6 +1843,7 @@ public class Gantt extends Chart {
     }
 
     private Double width2;
+    private String width3;
     private Double height4;
     private Double quality;
     private Boolean forceTransparentWhite;
@@ -1564,6 +1860,22 @@ public class Gantt extends Chart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, %s);", width2, height4, quality, forceTransparentWhite, filename1));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSaveasjpg(String width3, Double height4, Double quality, Boolean forceTransparentWhite, String filename1) {
+        this.width3 = width3;
+        this.height4 = height4;
+        this.quality = quality;
+        this.forceTransparentWhite = forceTransparentWhite;
+        this.filename1 = filename1;
+
+        js.append(String.format(Locale.US, "chart.saveAsJpg(%s, %f, %f, %b, %s);", width3, height4, quality, forceTransparentWhite, filename1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%s, %f, %f, %b, %s);", width3, height4, quality, forceTransparentWhite, filename1));
             js.setLength(0);
         }
     }
@@ -1585,6 +1897,7 @@ public class Gantt extends Chart {
 
     private Double paperSizeOrWidthOrOptions;
     private String paperSizeOrWidthOrOptions1;
+    private String paperSizeOrWidthOrOptions2;
     private Boolean landscape1;
     private Double x2;
     private Double y2;
@@ -1621,26 +1934,43 @@ public class Gantt extends Chart {
         }
     }
 
-    private Double width3;
+    private Double width4;
+    private String width5;
     private Double height5;
     private Double quality1;
     private String filename4;
 
-    public void setSaveaspng(Double width3, Double height5, Double quality1, String filename4) {
-        this.width3 = width3;
+    public void setSaveaspng(Double width4, Double height5, Double quality1, String filename4) {
+        this.width4 = width4;
         this.height5 = height5;
         this.quality1 = quality1;
         this.filename4 = filename4;
 
-        js.append(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width3, height5, quality1, filename4));
+        js.append(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width4, height5, quality1, filename4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width3, height5, quality1, filename4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width4, height5, quality1, filename4));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSaveaspng(String width5, Double height5, Double quality1, String filename4) {
+        this.width5 = width5;
+        this.height5 = height5;
+        this.quality1 = quality1;
+        this.filename4 = filename4;
+
+        js.append(String.format(Locale.US, "chart.saveAsPng(%s, %f, %f, %s);", width5, height5, quality1, filename4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%s, %f, %f, %s);", width5, height5, quality1, filename4));
             js.setLength(0);
         }
     }
 
     private String paperSize;
+    private String paperSize1;
     private Boolean landscape2;
     private String filename5;
 
@@ -1657,17 +1987,17 @@ public class Gantt extends Chart {
         }
     }
 
-    private Double width4;
+    private Double width6;
     private Double height6;
 
-    public void setSaveassvg(Double width4, Double height6) {
-        this.width4 = width4;
+    public void setSaveassvg(Double width6, Double height6) {
+        this.width6 = width6;
         this.height6 = height6;
 
-        js.append(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width4, height6));
+        js.append(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width6, height6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width4, height6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width6, height6));
             js.setLength(0);
         }
     }
@@ -1786,65 +2116,96 @@ public class Gantt extends Chart {
     private GradientKey[] keys8;
     private String[] keys9;
     private Double angle2;
-    private Boolean mode6;
-    private VectorRect mode7;
+    private Boolean mode8;
+    private VectorRect mode9;
+    private String mode10;
     private Double opacity7;
 
-    public void setSelectmarqueefill(GradientKey[] keys8, Boolean mode6, Double angle2, Double opacity7) {
+    public void setSelectmarqueefill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         this.keys8 = keys8;
-        this.mode6 = mode6;
+        this.mode8 = mode8;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", arrayToString(keys8), mode6, angle2, opacity7));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", arrayToString(keys8), mode6, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
             js.setLength(0);
         }
     }
 
 
-    public void setSelectmarqueefill(GradientKey[] keys8, VectorRect mode7, Double angle2, Double opacity7) {
+    public void setSelectmarqueefill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         this.keys8 = keys8;
-        this.mode7 = mode7;
+        this.mode9 = mode9;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys8), (mode7 != null) ? mode7.generateJs() : "null", angle2, opacity7));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys8), (mode7 != null) ? mode7.generateJs() : "null", angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
             js.setLength(0);
         }
     }
 
 
-    public void setSelectmarqueefill(String[] keys9, Boolean mode6, Double angle2, Double opacity7) {
-        this.keys9 = keys9;
-        this.mode6 = mode6;
+    public void setSelectmarqueefill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+        this.keys8 = keys8;
+        this.mode10 = mode10;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode6, angle2, opacity7));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode6, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
             js.setLength(0);
         }
     }
 
 
-    public void setSelectmarqueefill(String[] keys9, VectorRect mode7, Double angle2, Double opacity7) {
+    public void setSelectmarqueefill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         this.keys9 = keys9;
-        this.mode7 = mode7;
+        this.mode8 = mode8;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode7 != null) ? mode7.generateJs() : "null", angle2, opacity7));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode7 != null) ? mode7.generateJs() : "null", angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSelectmarqueefill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+        this.keys9 = keys9;
+        this.mode9 = mode9;
+        this.angle2 = angle2;
+        this.opacity7 = opacity7;
+
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setSelectmarqueefill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+        this.keys9 = keys9;
+        this.mode10 = mode10;
+        this.angle2 = angle2;
+        this.opacity7 = opacity7;
+
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
             js.setLength(0);
         }
     }
@@ -1853,42 +2214,42 @@ public class Gantt extends Chart {
     private String[] keys11;
     private Double cx2;
     private Double cy2;
-    private GraphicsMathRect mode8;
+    private GraphicsMathRect mode11;
     private Double opacity8;
     private Double fx2;
     private Double fy2;
 
-    public void setSelectmarqueefill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setSelectmarqueefill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         this.keys10 = keys10;
         this.cx2 = cx2;
         this.cy2 = cy2;
-        this.mode8 = mode8;
+        this.mode11 = mode11;
         this.opacity8 = opacity8;
         this.fx2 = fx2;
         this.fy2 = fy2;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode8 != null) ? mode8.generateJs() : "null", opacity8, fx2, fy2));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode8 != null) ? mode8.generateJs() : "null", opacity8, fx2, fy2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
             js.setLength(0);
         }
     }
 
 
-    public void setSelectmarqueefill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
+    public void setSelectmarqueefill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         this.keys11 = keys11;
         this.cx2 = cx2;
         this.cy2 = cy2;
-        this.mode8 = mode8;
+        this.mode11 = mode11;
         this.opacity8 = opacity8;
         this.fx2 = fx2;
         this.fy2 = fy2;
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode8 != null) ? mode8.generateJs() : "null", opacity8, fx2, fy2));
+        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode8 != null) ? mode8.generateJs() : "null", opacity8, fx2, fy2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
             js.setLength(0);
         }
     }
@@ -1988,8 +2349,18 @@ public class Gantt extends Chart {
         }
     }
 
+    private UiTitle gettitle;
+
+    public UiTitle getTitle() {
+        if (gettitle == null)
+            gettitle = new UiTitle("chart.title()");
+
+        return gettitle;
+    }
+
     private Boolean title;
     private String title1;
+    private String title2;
 
     public void setTitle(Boolean title) {
         this.title = title;
@@ -2058,32 +2429,33 @@ public class Gantt extends Chart {
         }
     }
 
-    private String paperSize1;
+    private String paperSize2;
+    private String paperSize3;
     private Boolean landscape3;
 
-    public void setTosvg(String paperSize1, Boolean landscape3) {
-        this.paperSize1 = paperSize1;
+    public void setTosvg(String paperSize2, Boolean landscape3) {
+        this.paperSize2 = paperSize2;
         this.landscape3 = landscape3;
 
-        js.append(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize1, landscape3));
+        js.append(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize2, landscape3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize1, landscape3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize2, landscape3));
             js.setLength(0);
         }
     }
 
-    private Double width5;
+    private Double width7;
     private Double height7;
 
-    public void setTosvg(Double width5, Double height7) {
-        this.width5 = width5;
+    public void setTosvg(Double width7, Double height7) {
+        this.width7 = width7;
         this.height7 = height7;
 
-        js.append(String.format(Locale.US, "chart.toSvg(%f, %f);", width5, height7));
+        js.append(String.format(Locale.US, "chart.toSvg(%f, %f);", width7, height7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%f, %f);", width5, height7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%f, %f);", width7, height7));
             js.setLength(0);
         }
     }
@@ -2103,15 +2475,37 @@ public class Gantt extends Chart {
         }
     }
 
-    private Boolean tooltip;
+    private Tooltip gettooltip;
 
-    public void setTooltip(Boolean tooltip) {
+    public Tooltip getTooltip() {
+        if (gettooltip == null)
+            gettooltip = new Tooltip("chart.tooltip()");
+
+        return gettooltip;
+    }
+
+    private String tooltip;
+    private Boolean tooltip1;
+
+    public void setTooltip(String tooltip) {
         this.tooltip = tooltip;
 
-        js.append(String.format(Locale.US, "chart.tooltip(%b);", tooltip));
+        js.append(String.format(Locale.US, "chart.tooltip(%s);", tooltip));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%b);", tooltip));
+            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%s);", tooltip));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setTooltip(Boolean tooltip1) {
+        this.tooltip1 = tooltip1;
+
+        js.append(String.format(Locale.US, "chart.tooltip(%b);", tooltip1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%b);", tooltip1));
             js.setLength(0);
         }
     }
@@ -2144,41 +2538,78 @@ public class Gantt extends Chart {
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
         this.type3 = type3;
         this.useCapture2 = useCapture2;
+        this.listenerScope2 = listenerScope2;
 
-        js.append(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
+        js.append(String.format(Locale.US, "chart.unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(%s, %b);", type3, useCapture2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
             js.setLength(0);
         }
     }
 
-    private Double width6;
-    private String width7;
+    private String key2;
 
-    public void setWidth(Double width6) {
-        this.width6 = width6;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.width(%f);", width6));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(%f);", width6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
+            js.setLength(0);
+        }
+    }
+
+    private Double width8;
+    private String width9;
+
+    public void setWidth(Double width8) {
+        this.width8 = width8;
+
+        js.append(String.format(Locale.US, "chart.width(%f);", width8));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.width(%f);", width8));
             js.setLength(0);
         }
     }
 
 
-    public void setWidth(String width7) {
-        this.width7 = width7;
+    public void setWidth(String width9) {
+        this.width9 = width9;
 
-        js.append(String.format(Locale.US, "chart.width(%s);", width7));
+        js.append(String.format(Locale.US, "chart.width(%s);", width9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(%s);", width7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.width(%s);", width9));
+            js.setLength(0);
+        }
+    }
+
+    private GanttDateTime getxScale;
+
+    public GanttDateTime getXscale() {
+        if (getxScale == null)
+            getxScale = new GanttDateTime("chart.xScale()");
+
+        return getxScale;
+    }
+
+    private String xScale;
+
+    public void setXscale(String xScale) {
+        this.xScale = xScale;
+
+        js.append(String.format(Locale.US, "chart.xScale(%s);", xScale));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.xScale(%s);", xScale));
             js.setLength(0);
         }
     }
@@ -2254,5 +2685,133 @@ public class Gantt extends Chart {
         }
     }
 
+    private String generateJSgetanimation() {
+        if (getanimation != null) {
+            return getanimation.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetbackground() {
+        if (getbackground != null) {
+            return getbackground.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetbounds() {
+        if (getbounds != null) {
+            return getbounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcontainer() {
+        if (getcontainer != null) {
+            return getcontainer.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcontextMenu() {
+        if (getcontextMenu != null) {
+            return getcontextMenu.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetcredits() {
+        if (getcredits != null) {
+            return getcredits.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetdata() {
+        if (getdata != null) {
+            return getdata.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetdataGrid() {
+        if (getdataGrid != null) {
+            return getdataGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetgetTimeline() {
+        if (getgetTimeline != null) {
+            return getgetTimeline.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetlegend() {
+        if (getlegend != null) {
+            return getlegend.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetmargin() {
+        if (getmargin != null) {
+            return getmargin.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetpadding() {
+        if (getpadding != null) {
+            return getpadding.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgettitle() {
+        if (gettitle != null) {
+            return gettitle.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgettooltip() {
+        if (gettooltip != null) {
+            return gettooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetxScale() {
+        if (getxScale != null) {
+            return getxScale.generateJs();
+        }
+        return "";
+    }
+
+
+    @Override
+    protected String generateJs() {
+        js.append(generateJSgetanimation());
+        js.append(generateJSgetbackground());
+        js.append(generateJSgetbounds());
+        js.append(generateJSgetcontainer());
+        js.append(generateJSgetcontextMenu());
+        js.append(generateJSgetcredits());
+        js.append(generateJSgetdata());
+        js.append(generateJSgetdataGrid());
+        js.append(generateJSgetgetTimeline());
+        js.append(generateJSgetlegend());
+        js.append(generateJSgetmargin());
+        js.append(generateJSgetpadding());
+        js.append(generateJSgettitle());
+        js.append(generateJSgettooltip());
+        js.append(generateJSgetxScale());
+
+        String result = js.toString();
+        js.setLength(0);
+        return result;
+    }
 
 }

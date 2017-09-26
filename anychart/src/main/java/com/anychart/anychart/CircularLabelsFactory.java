@@ -3,405 +3,972 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class CircularLabelsFactory extends JsObject {
+
+    private String jsBase;
+
+    public CircularLabelsFactory() {
+
+    }
+
+    protected CircularLabelsFactory(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Boolean adjustByWidth;
     private Boolean adjustByHeight;
 
     public void setAdjustfontsize(Boolean adjustByWidth, Boolean adjustByHeight) {
-        this.adjustByWidth = adjustByWidth;
-        this.adjustByHeight = adjustByHeight;
+        if (jsBase == null) {
+            this.adjustByWidth = adjustByWidth;
+            this.adjustByHeight = adjustByHeight;
+        } else {
+            this.adjustByWidth = adjustByWidth;
+            this.adjustByHeight = adjustByHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustByWidth, adjustByHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustByWidth, adjustByHeight));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean[] adjustFontSize;
-    private Boolean adjustFontSize1;
+    private String adjustFontSize;
+    private Boolean[] adjustFontSize1;
+    private Boolean adjustFontSize2;
 
-    public void setAdjustfontsize(Boolean[] adjustFontSize) {
-        this.adjustFontSize = null;
-        this.adjustFontSize1 = null;
-        
-        this.adjustFontSize = adjustFontSize;
+    public void setAdjustfontsize(String adjustFontSize) {
+        if (jsBase == null) {
+            this.adjustFontSize = null;
+            this.adjustFontSize1 = null;
+            this.adjustFontSize2 = null;
+            
+            this.adjustFontSize = adjustFontSize;
+        } else {
+            this.adjustFontSize = adjustFontSize;
+
+            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s);", adjustFontSize));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s);", adjustFontSize));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setAdjustfontsize(Boolean adjustFontSize1) {
-        this.adjustFontSize = null;
-        this.adjustFontSize1 = null;
-        
-        this.adjustFontSize1 = adjustFontSize1;
+    public void setAdjustfontsize(Boolean[] adjustFontSize1) {
+        if (jsBase == null) {
+            this.adjustFontSize = null;
+            this.adjustFontSize1 = null;
+            this.adjustFontSize2 = null;
+            
+            this.adjustFontSize1 = adjustFontSize1;
+        } else {
+            this.adjustFontSize1 = adjustFontSize1;
+
+            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s);", Arrays.toString(adjustFontSize1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s);", Arrays.toString(adjustFontSize1)));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setAdjustfontsize(Boolean adjustFontSize2) {
+        if (jsBase == null) {
+            this.adjustFontSize = null;
+            this.adjustFontSize1 = null;
+            this.adjustFontSize2 = null;
+            
+            this.adjustFontSize2 = adjustFontSize2;
+        } else {
+            this.adjustFontSize2 = adjustFontSize2;
+
+            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%b);", adjustFontSize2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b);", adjustFontSize2));
+                js.setLength(0);
+            }
+        }
     }
 
     private EnumsAnchor anchor;
     private String anchor1;
 
     public void setAnchor(EnumsAnchor anchor) {
-        this.anchor = null;
-        this.anchor1 = null;
-        
-        this.anchor = anchor;
+        if (jsBase == null) {
+            this.anchor = null;
+            this.anchor1 = null;
+            
+            this.anchor = anchor;
+        } else {
+            this.anchor = anchor;
+
+            js.append(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setAnchor(String anchor1) {
-        this.anchor = null;
-        this.anchor1 = null;
-        
-        this.anchor1 = anchor1;
+        if (jsBase == null) {
+            this.anchor = null;
+            this.anchor1 = null;
+            
+            this.anchor1 = anchor1;
+        } else {
+            this.anchor1 = anchor1;
+
+            js.append(String.format(Locale.US, jsBase + ".anchor(%s);", anchor1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", anchor1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean autoRotate;
 
     public void setAutorotate(Boolean autoRotate) {
-        this.autoRotate = autoRotate;
+        if (jsBase == null) {
+            this.autoRotate = autoRotate;
+        } else {
+            this.autoRotate = autoRotate;
+
+            js.append(String.format(Locale.US, jsBase + ".autoRotate(%b);", autoRotate));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".autoRotate(%b);", autoRotate));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private UiBackground getbackground;
+
+    public UiBackground getBackground() {
+        if (getbackground == null)
+            getbackground = new UiBackground(jsBase + ".background()");
+
+        return getbackground;
     }
 
     private String background;
-    private Boolean background1;
+    private String background1;
+    private Boolean background2;
 
     public void setBackground(String background) {
-        this.background = null;
-        this.background1 = null;
-        
-        this.background = background;
+        if (jsBase == null) {
+            this.background = null;
+            this.background1 = null;
+            this.background2 = null;
+            
+            this.background = background;
+        } else {
+            this.background = background;
+
+            js.append(String.format(Locale.US, jsBase + ".background(%s);", background));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", background));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setBackground(Boolean background1) {
-        this.background = null;
-        this.background1 = null;
-        
-        this.background1 = background1;
+    public void setBackground(Boolean background2) {
+        if (jsBase == null) {
+            this.background = null;
+            this.background1 = null;
+            this.background2 = null;
+            
+            this.background2 = background2;
+        } else {
+            this.background2 = background2;
+
+            js.append(String.format(Locale.US, jsBase + ".background(%b);", background2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean disablePointerEvents;
 
     public void setDisablepointerevents(Boolean disablePointerEvents) {
-        this.disablePointerEvents = disablePointerEvents;
+        if (jsBase == null) {
+            this.disablePointerEvents = disablePointerEvents;
+        } else {
+            this.disablePointerEvents = disablePointerEvents;
+
+            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontColor;
 
     public void setFontcolor(String fontColor) {
-        this.fontColor = fontColor;
+        if (jsBase == null) {
+            this.fontColor = fontColor;
+        } else {
+            this.fontColor = fontColor;
+
+            js.append(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+                js.setLength(0);
+            }
+        }
     }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
 
     public void setFontdecoration(Decoration fontDecoration) {
-        this.fontDecoration = null;
-        this.fontDecoration1 = null;
-        
-        this.fontDecoration = fontDecoration;
+        if (jsBase == null) {
+            this.fontDecoration = null;
+            this.fontDecoration1 = null;
+            
+            this.fontDecoration = fontDecoration;
+        } else {
+            this.fontDecoration = fontDecoration;
+
+            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontdecoration(String fontDecoration1) {
-        this.fontDecoration = null;
-        this.fontDecoration1 = null;
-        
-        this.fontDecoration1 = fontDecoration1;
+        if (jsBase == null) {
+            this.fontDecoration = null;
+            this.fontDecoration1 = null;
+            
+            this.fontDecoration1 = fontDecoration1;
+        } else {
+            this.fontDecoration1 = fontDecoration1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontFamily;
 
     public void setFontfamily(String fontFamily) {
-        this.fontFamily = fontFamily;
+        if (jsBase == null) {
+            this.fontFamily = fontFamily;
+        } else {
+            this.fontFamily = fontFamily;
+
+            js.append(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double fontOpacity;
 
     public void setFontopacity(Double fontOpacity) {
-        this.fontOpacity = fontOpacity;
+        if (jsBase == null) {
+            this.fontOpacity = fontOpacity;
+        } else {
+            this.fontOpacity = fontOpacity;
+
+            js.append(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontSize;
     private Double fontSize1;
 
     public void setFontsize(String fontSize) {
-        this.fontSize = null;
-        this.fontSize1 = null;
-        
-        this.fontSize = fontSize;
+        if (jsBase == null) {
+            this.fontSize = null;
+            this.fontSize1 = null;
+            
+            this.fontSize = fontSize;
+        } else {
+            this.fontSize = fontSize;
+
+            js.append(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontsize(Double fontSize1) {
-        this.fontSize = null;
-        this.fontSize1 = null;
-        
-        this.fontSize1 = fontSize1;
+        if (jsBase == null) {
+            this.fontSize = null;
+            this.fontSize1 = null;
+            
+            this.fontSize1 = fontSize1;
+        } else {
+            this.fontSize1 = fontSize1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
     public void setFontstyle(TextFontStyle fontStyle) {
-        this.fontStyle = null;
-        this.fontStyle1 = null;
-        
-        this.fontStyle = fontStyle;
+        if (jsBase == null) {
+            this.fontStyle = null;
+            this.fontStyle1 = null;
+            
+            this.fontStyle = fontStyle;
+        } else {
+            this.fontStyle = fontStyle;
+
+            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontstyle(String fontStyle1) {
-        this.fontStyle = null;
-        this.fontStyle1 = null;
-        
-        this.fontStyle1 = fontStyle1;
+        if (jsBase == null) {
+            this.fontStyle = null;
+            this.fontStyle1 = null;
+            
+            this.fontStyle1 = fontStyle1;
+        } else {
+            this.fontStyle1 = fontStyle1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
     public void setFontvariant(TextFontVariant fontVariant) {
-        this.fontVariant = null;
-        this.fontVariant1 = null;
-        
-        this.fontVariant = fontVariant;
+        if (jsBase == null) {
+            this.fontVariant = null;
+            this.fontVariant1 = null;
+            
+            this.fontVariant = fontVariant;
+        } else {
+            this.fontVariant = fontVariant;
+
+            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontvariant(String fontVariant1) {
-        this.fontVariant = null;
-        this.fontVariant1 = null;
-        
-        this.fontVariant1 = fontVariant1;
+        if (jsBase == null) {
+            this.fontVariant = null;
+            this.fontVariant1 = null;
+            
+            this.fontVariant1 = fontVariant1;
+        } else {
+            this.fontVariant1 = fontVariant1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontWeight;
     private Double fontWeight1;
 
     public void setFontweight(String fontWeight) {
-        this.fontWeight = null;
-        this.fontWeight1 = null;
-        
-        this.fontWeight = fontWeight;
+        if (jsBase == null) {
+            this.fontWeight = null;
+            this.fontWeight1 = null;
+            
+            this.fontWeight = fontWeight;
+        } else {
+            this.fontWeight = fontWeight;
+
+            js.append(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontweight(Double fontWeight1) {
-        this.fontWeight = null;
-        this.fontWeight1 = null;
-        
-        this.fontWeight1 = fontWeight1;
+        if (jsBase == null) {
+            this.fontWeight = null;
+            this.fontWeight1 = null;
+            
+            this.fontWeight1 = fontWeight1;
+        } else {
+            this.fontWeight1 = fontWeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextHAlign hAlign;
     private String hAlign1;
 
     public void setHalign(TextHAlign hAlign) {
-        this.hAlign = null;
-        this.hAlign1 = null;
-        
-        this.hAlign = hAlign;
+        if (jsBase == null) {
+            this.hAlign = null;
+            this.hAlign1 = null;
+            
+            this.hAlign = hAlign;
+        } else {
+            this.hAlign = hAlign;
+
+            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHalign(String hAlign1) {
-        this.hAlign = null;
-        this.hAlign1 = null;
-        
-        this.hAlign1 = hAlign1;
+        if (jsBase == null) {
+            this.hAlign = null;
+            this.hAlign1 = null;
+            
+            this.hAlign1 = hAlign1;
+        } else {
+            this.hAlign1 = hAlign1;
+
+            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double height;
     private String height1;
 
     public void setHeight(Double height) {
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%f);", height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHeight(String height1) {
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%s);", height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String letterSpacing;
     private Double letterSpacing1;
 
     public void setLetterspacing(String letterSpacing) {
-        this.letterSpacing = null;
-        this.letterSpacing1 = null;
-        
-        this.letterSpacing = letterSpacing;
+        if (jsBase == null) {
+            this.letterSpacing = null;
+            this.letterSpacing1 = null;
+            
+            this.letterSpacing = letterSpacing;
+        } else {
+            this.letterSpacing = letterSpacing;
+
+            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLetterspacing(Double letterSpacing1) {
-        this.letterSpacing = null;
-        this.letterSpacing1 = null;
-        
-        this.letterSpacing1 = letterSpacing1;
+        if (jsBase == null) {
+            this.letterSpacing = null;
+            this.letterSpacing1 = null;
+            
+            this.letterSpacing1 = letterSpacing1;
+        } else {
+            this.letterSpacing1 = letterSpacing1;
+
+            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String lineHeight;
     private Double lineHeight1;
 
     public void setLineheight(String lineHeight) {
-        this.lineHeight = null;
-        this.lineHeight1 = null;
-        
-        this.lineHeight = lineHeight;
+        if (jsBase == null) {
+            this.lineHeight = null;
+            this.lineHeight1 = null;
+            
+            this.lineHeight = lineHeight;
+        } else {
+            this.lineHeight = lineHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLineheight(Double lineHeight1) {
-        this.lineHeight = null;
-        this.lineHeight1 = null;
-        
-        this.lineHeight1 = lineHeight1;
+        if (jsBase == null) {
+            this.lineHeight = null;
+            this.lineHeight1 = null;
+            
+            this.lineHeight1 = lineHeight1;
+        } else {
+            this.lineHeight1 = lineHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double maxFontSize;
     private String maxFontSize1;
 
     public void setMaxfontsize(Double maxFontSize) {
-        this.maxFontSize = null;
-        this.maxFontSize1 = null;
-        
-        this.maxFontSize = maxFontSize;
+        if (jsBase == null) {
+            this.maxFontSize = null;
+            this.maxFontSize1 = null;
+            
+            this.maxFontSize = maxFontSize;
+        } else {
+            this.maxFontSize = maxFontSize;
+
+            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMaxfontsize(String maxFontSize1) {
-        this.maxFontSize = null;
-        this.maxFontSize1 = null;
-        
-        this.maxFontSize1 = maxFontSize1;
+        if (jsBase == null) {
+            this.maxFontSize = null;
+            this.maxFontSize1 = null;
+            
+            this.maxFontSize1 = maxFontSize1;
+        } else {
+            this.maxFontSize1 = maxFontSize1;
+
+            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double minFontSize;
     private String minFontSize1;
 
     public void setMinfontsize(Double minFontSize) {
-        this.minFontSize = null;
-        this.minFontSize1 = null;
-        
-        this.minFontSize = minFontSize;
+        if (jsBase == null) {
+            this.minFontSize = null;
+            this.minFontSize1 = null;
+            
+            this.minFontSize = minFontSize;
+        } else {
+            this.minFontSize = minFontSize;
+
+            js.append(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMinfontsize(String minFontSize1) {
-        this.minFontSize = null;
-        this.minFontSize1 = null;
-        
-        this.minFontSize1 = minFontSize1;
+        if (jsBase == null) {
+            this.minFontSize = null;
+            this.minFontSize1 = null;
+            
+            this.minFontSize1 = minFontSize1;
+        } else {
+            this.minFontSize1 = minFontSize1;
+
+            js.append(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double offsetX;
     private String offsetX1;
 
     public void setOffsetx(Double offsetX) {
-        this.offsetX = null;
-        this.offsetX1 = null;
-        
-        this.offsetX = offsetX;
+        if (jsBase == null) {
+            this.offsetX = null;
+            this.offsetX1 = null;
+            
+            this.offsetX = offsetX;
+        } else {
+            this.offsetX = offsetX;
+
+            js.append(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setOffsetx(String offsetX1) {
-        this.offsetX = null;
-        this.offsetX1 = null;
-        
-        this.offsetX1 = offsetX1;
+        if (jsBase == null) {
+            this.offsetX = null;
+            this.offsetX1 = null;
+            
+            this.offsetX1 = offsetX1;
+        } else {
+            this.offsetX1 = offsetX1;
+
+            js.append(String.format(Locale.US, jsBase + ".offsetX(%s);", offsetX1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%s);", offsetX1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double offsetY;
     private String offsetY1;
 
     public void setOffsety(Double offsetY) {
-        this.offsetY = null;
-        this.offsetY1 = null;
-        
-        this.offsetY = offsetY;
+        if (jsBase == null) {
+            this.offsetY = null;
+            this.offsetY1 = null;
+            
+            this.offsetY = offsetY;
+        } else {
+            this.offsetY = offsetY;
+
+            js.append(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setOffsety(String offsetY1) {
-        this.offsetY = null;
-        this.offsetY1 = null;
-        
-        this.offsetY1 = offsetY1;
+        if (jsBase == null) {
+            this.offsetY = null;
+            this.offsetY1 = null;
+            
+            this.offsetY1 = offsetY1;
+        } else {
+            this.offsetY1 = offsetY1;
+
+            js.append(String.format(Locale.US, jsBase + ".offsetY(%s);", offsetY1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%s);", offsetY1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private UtilsPadding getpadding;
+
+    public UtilsPadding getPadding() {
+        if (getpadding == null)
+            getpadding = new UtilsPadding(jsBase + ".padding()");
+
+        return getpadding;
     }
 
     private Double[] padding;
     private String[] padding1;
-    private Double padding2;
-    private String padding3;
+    private String padding2;
+    private Double padding3;
+    private String padding4;
 
     public void setPadding(Double[] padding) {
-        this.padding = null;
-        this.padding1 = null;
-        this.padding2 = null;
-        this.padding3 = null;
-        
-        this.padding = padding;
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            this.padding3 = null;
+            this.padding4 = null;
+            
+            this.padding = padding;
+        } else {
+            this.padding = padding;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setPadding(String[] padding1) {
-        this.padding = null;
-        this.padding1 = null;
-        this.padding2 = null;
-        this.padding3 = null;
-        
-        this.padding1 = padding1;
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            this.padding3 = null;
+            this.padding4 = null;
+            
+            this.padding1 = padding1;
+        } else {
+            this.padding1 = padding1;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setPadding(Double padding2) {
-        this.padding = null;
-        this.padding1 = null;
-        this.padding2 = null;
-        this.padding3 = null;
-        
-        this.padding2 = padding2;
+    public void setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            this.padding3 = null;
+            this.padding4 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setPadding(String padding3) {
-        this.padding = null;
-        this.padding1 = null;
-        this.padding2 = null;
-        this.padding3 = null;
-        
-        this.padding3 = padding3;
+    public void setPadding(Double padding3) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            this.padding3 = null;
+            this.padding4 = null;
+            
+            this.padding3 = padding3;
+        } else {
+            this.padding3 = padding3;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f);", padding3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f);", padding3));
+                js.setLength(0);
+            }
+        }
     }
 
     private String value;
@@ -414,360 +981,716 @@ public class CircularLabelsFactory extends JsObject {
     private Double value7;
 
     public void setPadding(String value6, String value, Double value1, String value2, Double value3, String value4, Double value5) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value6 = value6;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value = value;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value1 = value1;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value2 = value2;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value3 = value3;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value4 = value4;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value5 = value5;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+        } else {
+            this.value6 = value6;
+            this.value = value;
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value5 = value5;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setPadding(Double value7, String value, Double value1, String value2, Double value3, String value4, Double value5) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value7 = value7;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value = value;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value1 = value1;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value2 = value2;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value3 = value3;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value4 = value4;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value5 = value5;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+        } else {
+            this.value7 = value7;
+            this.value = value;
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value5 = value5;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+                js.setLength(0);
+            }
+        }
     }
 
     private String position;
 
     public void setPosition(String position) {
-        this.position = position;
+        if (jsBase == null) {
+            this.position = position;
+        } else {
+            this.position = position;
+
+            js.append(String.format(Locale.US, jsBase + ".position(%s);", position));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", position));
+                js.setLength(0);
+            }
+        }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double rotation;
 
     public void setRotation(Double rotation) {
-        this.rotation = rotation;
+        if (jsBase == null) {
+            this.rotation = rotation;
+        } else {
+            this.rotation = rotation;
+
+            js.append(String.format(Locale.US, jsBase + ".rotation(%f);", rotation));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%f);", rotation));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean selectable;
 
     public void setSelectable(Boolean selectable) {
-        this.selectable = selectable;
+        if (jsBase == null) {
+            this.selectable = selectable;
+        } else {
+            this.selectable = selectable;
+
+            js.append(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+                js.setLength(0);
+            }
+        }
     }
 
     private Direction textDirection;
     private String textDirection1;
 
     public void setTextdirection(Direction textDirection) {
-        this.textDirection = null;
-        this.textDirection1 = null;
-        
-        this.textDirection = textDirection;
+        if (jsBase == null) {
+            this.textDirection = null;
+            this.textDirection1 = null;
+            
+            this.textDirection = textDirection;
+        } else {
+            this.textDirection = textDirection;
+
+            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextdirection(String textDirection1) {
-        this.textDirection = null;
-        this.textDirection1 = null;
-        
-        this.textDirection1 = textDirection1;
+        if (jsBase == null) {
+            this.textDirection = null;
+            this.textDirection1 = null;
+            
+            this.textDirection1 = textDirection1;
+        } else {
+            this.textDirection1 = textDirection1;
+
+            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double textIndent;
 
     public void setTextindent(Double textIndent) {
-        this.textIndent = textIndent;
+        if (jsBase == null) {
+            this.textIndent = textIndent;
+        } else {
+            this.textIndent = textIndent;
+
+            js.append(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
 
     public void setTextoverflow(TextOverflow textOverflow) {
-        this.textOverflow = null;
-        this.textOverflow1 = null;
-        
-        this.textOverflow = textOverflow;
+        if (jsBase == null) {
+            this.textOverflow = null;
+            this.textOverflow1 = null;
+            
+            this.textOverflow = textOverflow;
+        } else {
+            this.textOverflow = textOverflow;
+
+            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextoverflow(String textOverflow1) {
-        this.textOverflow = null;
-        this.textOverflow1 = null;
-        
-        this.textOverflow1 = textOverflow1;
+        if (jsBase == null) {
+            this.textOverflow = null;
+            this.textOverflow1 = null;
+            
+            this.textOverflow1 = textOverflow1;
+        } else {
+            this.textOverflow1 = textOverflow1;
+
+            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String name;
 
     public void setTextsettings(String name) {
-        this.name = name;
+        if (jsBase == null) {
+            this.name = name;
+        } else {
+            this.name = name;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%s);", name));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s);", name));
+                js.setLength(0);
+            }
+        }
     }
 
+    private String objectWithSettings;
     private String name1;
     private String textSettings;
     private Double textSettings1;
     private Boolean textSettings2;
 
     public void setTextsettings(String textSettings, String name1) {
-        this.textSettings = null;
-        this.textSettings1 = null;
-        this.textSettings2 = null;
-        
-        this.textSettings = textSettings;
-        this.name = null;
-        this.name1 = null;
-        
-        this.name1 = name1;
+        if (jsBase == null) {
+            this.textSettings = null;
+            this.textSettings1 = null;
+            this.textSettings2 = null;
+            
+            this.textSettings = textSettings;
+            this.name = null;
+            this.name1 = null;
+            
+            this.name1 = name1;
+        } else {
+            this.textSettings = textSettings;
+            this.name1 = name1;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings, name1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings, name1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextsettings(Double textSettings1, String name1) {
-        this.textSettings = null;
-        this.textSettings1 = null;
-        this.textSettings2 = null;
-        
-        this.textSettings1 = textSettings1;
-        this.name = null;
-        this.name1 = null;
-        
-        this.name1 = name1;
+        if (jsBase == null) {
+            this.textSettings = null;
+            this.textSettings1 = null;
+            this.textSettings2 = null;
+            
+            this.textSettings1 = textSettings1;
+            this.name = null;
+            this.name1 = null;
+            
+            this.name1 = name1;
+        } else {
+            this.textSettings1 = textSettings1;
+            this.name1 = name1;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings1, name1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings1, name1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextsettings(Boolean textSettings2, String name1) {
-        this.textSettings = null;
-        this.textSettings1 = null;
-        this.textSettings2 = null;
-        
-        this.textSettings2 = textSettings2;
-        this.name = null;
-        this.name1 = null;
-        
-        this.name1 = name1;
+        if (jsBase == null) {
+            this.textSettings = null;
+            this.textSettings1 = null;
+            this.textSettings2 = null;
+            
+            this.textSettings2 = textSettings2;
+            this.name = null;
+            this.name1 = null;
+            
+            this.name1 = name1;
+        } else {
+            this.textSettings2 = textSettings2;
+            this.name1 = name1;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings2, name1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings2, name1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextTextWrap textWrap;
     private String textWrap1;
 
     public void setTextwrap(TextTextWrap textWrap) {
-        this.textWrap = null;
-        this.textWrap1 = null;
-        
-        this.textWrap = textWrap;
+        if (jsBase == null) {
+            this.textWrap = null;
+            this.textWrap1 = null;
+            
+            this.textWrap = textWrap;
+        } else {
+            this.textWrap = textWrap;
+
+            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextwrap(String textWrap1) {
-        this.textWrap = null;
-        this.textWrap1 = null;
-        
-        this.textWrap1 = textWrap1;
+        if (jsBase == null) {
+            this.textWrap = null;
+            this.textWrap1 = null;
+            
+            this.textWrap1 = textWrap1;
+        } else {
+            this.textWrap1 = textWrap1;
+
+            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key;
+
+    public void setUnlistenbykey(String key) {
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean useHtml;
 
     public void setUsehtml(Boolean useHtml) {
-        this.useHtml = useHtml;
+        if (jsBase == null) {
+            this.useHtml = useHtml;
+        } else {
+            this.useHtml = useHtml;
+
+            js.append(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextVAlign vAlign;
     private String vAlign1;
 
     public void setValign(TextVAlign vAlign) {
-        this.vAlign = null;
-        this.vAlign1 = null;
-        
-        this.vAlign = vAlign;
+        if (jsBase == null) {
+            this.vAlign = null;
+            this.vAlign1 = null;
+            
+            this.vAlign = vAlign;
+        } else {
+            this.vAlign = vAlign;
+
+            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setValign(String vAlign1) {
-        this.vAlign = null;
-        this.vAlign1 = null;
-        
-        this.vAlign1 = vAlign1;
+        if (jsBase == null) {
+            this.vAlign = null;
+            this.vAlign1 = null;
+            
+            this.vAlign1 = vAlign1;
+        } else {
+            this.vAlign1 = vAlign1;
+
+            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double width;
     private String width1;
 
     public void setWidth(Double width) {
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+        } else {
+            this.width = width;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%f);", width));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setWidth(String width1) {
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+        } else {
+            this.width1 = width1;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%s);", width1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
+        if (jsBase == null) {
+            this.zIndex = zIndex;
+        } else {
+            this.zIndex = zIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetbackground() {
+        if (getbackground != null) {
+            return getbackground.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetpadding() {
+        if (getpadding != null) {
+            return getpadding.generateJs();
+        }
+        return "";
     }
 
     private String generateJSadjustByWidth() {
@@ -786,14 +1709,21 @@ public class CircularLabelsFactory extends JsObject {
 
     private String generateJSadjustFontSize() {
         if (adjustFontSize != null) {
-            return String.format(Locale.US, "adjustFontSize: %s,", Arrays.toString(adjustFontSize));
+            return String.format(Locale.US, "adjustFontSize: %s,", adjustFontSize);
         }
         return "";
     }
 
     private String generateJSadjustFontSize1() {
         if (adjustFontSize1 != null) {
-            return String.format(Locale.US, "adjustFontSize: %b,", adjustFontSize1);
+            return String.format(Locale.US, "adjustFontSize: %s,", Arrays.toString(adjustFontSize1));
+        }
+        return "";
+    }
+
+    private String generateJSadjustFontSize2() {
+        if (adjustFontSize2 != null) {
+            return String.format(Locale.US, "adjustFontSize: %b,", adjustFontSize2);
         }
         return "";
     }
@@ -828,7 +1758,14 @@ public class CircularLabelsFactory extends JsObject {
 
     private String generateJSbackground1() {
         if (background1 != null) {
-            return String.format(Locale.US, "background: %b,", background1);
+            return String.format(Locale.US, "background: %s,", background1);
+        }
+        return "";
+    }
+
+    private String generateJSbackground2() {
+        if (background2 != null) {
+            return String.format(Locale.US, "background: %b,", background2);
         }
         return "";
     }
@@ -1008,6 +1945,13 @@ public class CircularLabelsFactory extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJStype1() {
         if (type1 != null) {
             return String.format(Locale.US, "type: %s,", type1);
@@ -1018,6 +1962,13 @@ public class CircularLabelsFactory extends JsObject {
     private String generateJSuseCapture1() {
         if (useCapture1 != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture1);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -1094,14 +2045,21 @@ public class CircularLabelsFactory extends JsObject {
 
     private String generateJSpadding2() {
         if (padding2 != null) {
-            return String.format(Locale.US, "padding: %f,", padding2);
+            return String.format(Locale.US, "padding: %s,", padding2);
         }
         return "";
     }
 
     private String generateJSpadding3() {
         if (padding3 != null) {
-            return String.format(Locale.US, "padding: %s,", padding3);
+            return String.format(Locale.US, "padding: %f,", padding3);
+        }
+        return "";
+    }
+
+    private String generateJSpadding4() {
+        if (padding4 != null) {
+            return String.format(Locale.US, "padding: %s,", padding4);
         }
         return "";
     }
@@ -1176,6 +2134,13 @@ public class CircularLabelsFactory extends JsObject {
         return "";
     }
 
+    private String generateJSpaperSizeOrOptions1() {
+        if (paperSizeOrOptions1 != null) {
+            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
+        }
+        return "";
+    }
+
     private String generateJSlandscape() {
         if (landscape != null) {
             return String.format(Locale.US, "landscape: %b,", landscape);
@@ -1246,6 +2211,13 @@ public class CircularLabelsFactory extends JsObject {
         return "";
     }
 
+    private String generateJSobjectWithSettings() {
+        if (objectWithSettings != null) {
+            return String.format(Locale.US, "objectWithSettings: %s,", objectWithSettings);
+        }
+        return "";
+    }
+
     private String generateJSname1() {
         if (name1 != null) {
             return String.format(Locale.US, "name: %s,", name1);
@@ -1302,6 +2274,20 @@ public class CircularLabelsFactory extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey() {
+        if (key != null) {
+            return String.format(Locale.US, "key: %s,", key);
+        }
+        return "";
+    }
+
     private String generateJSuseHtml() {
         if (useHtml != null) {
             return String.format(Locale.US, "useHtml: %b,", useHtml);
@@ -1347,91 +2333,103 @@ public class CircularLabelsFactory extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSadjustByWidth());
-        js.append(generateJSadjustByHeight());
-        js.append(generateJSadjustFontSize());
-        js.append(generateJSadjustFontSize1());
-        js.append(generateJSanchor());
-        js.append(generateJSanchor1());
-        js.append(generateJSautoRotate());
-        js.append(generateJSbackground());
-        js.append(generateJSbackground1());
-        js.append(generateJSdisablePointerEvents());
-        js.append(generateJSenabled());
-        js.append(generateJSfontColor());
-        js.append(generateJSfontDecoration());
-        js.append(generateJSfontDecoration1());
-        js.append(generateJSfontFamily());
-        js.append(generateJSfontOpacity());
-        js.append(generateJSfontSize());
-        js.append(generateJSfontSize1());
-        js.append(generateJSfontStyle());
-        js.append(generateJSfontStyle1());
-        js.append(generateJSfontVariant());
-        js.append(generateJSfontVariant1());
-        js.append(generateJSfontWeight());
-        js.append(generateJSfontWeight1());
-        js.append(generateJShAlign());
-        js.append(generateJShAlign1());
-        js.append(generateJSheight());
-        js.append(generateJSheight1());
-        js.append(generateJSletterSpacing());
-        js.append(generateJSletterSpacing1());
-        js.append(generateJSlineHeight());
-        js.append(generateJSlineHeight1());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSmaxFontSize());
-        js.append(generateJSmaxFontSize1());
-        js.append(generateJSminFontSize());
-        js.append(generateJSminFontSize1());
-        js.append(generateJSoffsetX());
-        js.append(generateJSoffsetX1());
-        js.append(generateJSoffsetY());
-        js.append(generateJSoffsetY1());
-        js.append(generateJSpadding());
-        js.append(generateJSpadding1());
-        js.append(generateJSpadding2());
-        js.append(generateJSpadding3());
-        js.append(generateJSvalue());
-        js.append(generateJSvalue1());
-        js.append(generateJSvalue2());
-        js.append(generateJSvalue3());
-        js.append(generateJSvalue4());
-        js.append(generateJSvalue5());
-        js.append(generateJSvalue6());
-        js.append(generateJSvalue7());
-        js.append(generateJSposition());
-        js.append(generateJSpaperSizeOrOptions());
-        js.append(generateJSlandscape());
-        js.append(generateJStype2());
-        js.append(generateJSrotation());
-        js.append(generateJSselectable());
-        js.append(generateJStextDirection());
-        js.append(generateJStextDirection1());
-        js.append(generateJStextIndent());
-        js.append(generateJStextOverflow());
-        js.append(generateJStextOverflow1());
-        js.append(generateJSname());
-        js.append(generateJSname1());
-        js.append(generateJStextSettings());
-        js.append(generateJStextSettings1());
-        js.append(generateJStextSettings2());
-        js.append(generateJStextWrap());
-        js.append(generateJStextWrap1());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSuseHtml());
-        js.append(generateJSvAlign());
-        js.append(generateJSvAlign1());
-        js.append(generateJSwidth());
-        js.append(generateJSwidth1());
-        js.append(generateJSzIndex());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSadjustByWidth());
+            js.append(generateJSadjustByHeight());
+            js.append(generateJSadjustFontSize());
+            js.append(generateJSadjustFontSize1());
+            js.append(generateJSadjustFontSize2());
+            js.append(generateJSanchor());
+            js.append(generateJSanchor1());
+            js.append(generateJSautoRotate());
+            js.append(generateJSbackground());
+            js.append(generateJSbackground1());
+            js.append(generateJSbackground2());
+            js.append(generateJSdisablePointerEvents());
+            js.append(generateJSenabled());
+            js.append(generateJSfontColor());
+            js.append(generateJSfontDecoration());
+            js.append(generateJSfontDecoration1());
+            js.append(generateJSfontFamily());
+            js.append(generateJSfontOpacity());
+            js.append(generateJSfontSize());
+            js.append(generateJSfontSize1());
+            js.append(generateJSfontStyle());
+            js.append(generateJSfontStyle1());
+            js.append(generateJSfontVariant());
+            js.append(generateJSfontVariant1());
+            js.append(generateJSfontWeight());
+            js.append(generateJSfontWeight1());
+            js.append(generateJShAlign());
+            js.append(generateJShAlign1());
+            js.append(generateJSheight());
+            js.append(generateJSheight1());
+            js.append(generateJSletterSpacing());
+            js.append(generateJSletterSpacing1());
+            js.append(generateJSlineHeight());
+            js.append(generateJSlineHeight1());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSmaxFontSize());
+            js.append(generateJSmaxFontSize1());
+            js.append(generateJSminFontSize());
+            js.append(generateJSminFontSize1());
+            js.append(generateJSoffsetX());
+            js.append(generateJSoffsetX1());
+            js.append(generateJSoffsetY());
+            js.append(generateJSoffsetY1());
+            js.append(generateJSpadding());
+            js.append(generateJSpadding1());
+            js.append(generateJSpadding2());
+            js.append(generateJSpadding3());
+            js.append(generateJSpadding4());
+            js.append(generateJSvalue());
+            js.append(generateJSvalue1());
+            js.append(generateJSvalue2());
+            js.append(generateJSvalue3());
+            js.append(generateJSvalue4());
+            js.append(generateJSvalue5());
+            js.append(generateJSvalue6());
+            js.append(generateJSvalue7());
+            js.append(generateJSposition());
+            js.append(generateJSpaperSizeOrOptions());
+            js.append(generateJSpaperSizeOrOptions1());
+            js.append(generateJSlandscape());
+            js.append(generateJStype2());
+            js.append(generateJSrotation());
+            js.append(generateJSselectable());
+            js.append(generateJStextDirection());
+            js.append(generateJStextDirection1());
+            js.append(generateJStextIndent());
+            js.append(generateJStextOverflow());
+            js.append(generateJStextOverflow1());
+            js.append(generateJSname());
+            js.append(generateJSobjectWithSettings());
+            js.append(generateJSname1());
+            js.append(generateJStextSettings());
+            js.append(generateJStextSettings1());
+            js.append(generateJStextSettings2());
+            js.append(generateJStextWrap());
+            js.append(generateJStextWrap1());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey());
+            js.append(generateJSuseHtml());
+            js.append(generateJSvAlign());
+            js.append(generateJSvAlign1());
+            js.append(generateJSwidth());
+            js.append(generateJSwidth1());
+            js.append(generateJSzIndex());
+            js.append("}");
+        }
+            js.append(generateJSgetbackground());
+            js.append(generateJSgetpadding());
 
         String result = js.toString();
         js.setLength(0);

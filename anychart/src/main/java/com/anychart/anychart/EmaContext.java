@@ -19,7 +19,6 @@ public class EmaContext extends JsObject  {
         js.append(String.format(Locale.US, "{period: %f,prevResult: %f,queue: %s}",  period, prevResult, (queue != null) ? queue.generateJs() : "null"));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

@@ -32,6 +32,9 @@ public class VennDiagramActivity extends AppCompatActivity {
                 "{x: ['B', 'C', 'D'], name: 'Unicorn', value: 5}"
         }, null);
 
+        venn.getIntersections().getLabels().setFontweight("'bold'");
+        venn.getIntersections().getLabels().setFormat("'{%Name}'");
+
         anyChartView.setChart(venn);
     }
 }

@@ -25,7 +25,6 @@ public class ShapeConfig extends JsObject  {
         js.append(String.format(Locale.US, "{fillNames: %s,isHatchFill: %b,name: %s,shapeType: %s,strokeNames: %s,zIndex: %f}",  Arrays.toString(fillNames), isHatchFill, name, (shapeType != null) ? shapeType.generateJs() : "null", Arrays.toString(strokeNames), zIndex));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

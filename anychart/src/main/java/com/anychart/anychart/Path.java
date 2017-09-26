@@ -3,7 +3,18 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class Path extends JsObject {
+
+    private String jsBase;
+
+    public Path() {
+
+    }
+
+    protected Path(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Double rx;
@@ -12,10 +23,24 @@ public class Path extends JsObject {
     private Double extent;
 
     public void setArcto(Double rx, Double ry, Double fromAngle, Double extent) {
-        this.rx = rx;
-        this.ry = ry;
-        this.fromAngle = fromAngle;
-        this.extent = extent;
+        if (jsBase == null) {
+            this.rx = rx;
+            this.ry = ry;
+            this.fromAngle = fromAngle;
+            this.extent = extent;
+        } else {
+            this.rx = rx;
+            this.ry = ry;
+            this.fromAngle = fromAngle;
+            this.extent = extent;
+
+            js.append(String.format(Locale.US, jsBase + ".arcTo(%f, %f, %f, %f);", rx, ry, fromAngle, extent));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcTo(%f, %f, %f, %f);", rx, ry, fromAngle, extent));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double rx1;
@@ -24,22 +49,36 @@ public class Path extends JsObject {
     private Double extent1;
 
     public void setArctoascurves(Double rx1, Double ry1, Double fromAngle1, Double extent1) {
-        this.rx = null;
-        this.rx1 = null;
-        
-        this.rx1 = rx1;
-        this.ry = null;
-        this.ry1 = null;
-        
-        this.ry1 = ry1;
-        this.fromAngle = null;
-        this.fromAngle1 = null;
-        
-        this.fromAngle1 = fromAngle1;
-        this.extent = null;
-        this.extent1 = null;
-        
-        this.extent1 = extent1;
+        if (jsBase == null) {
+            this.rx = null;
+            this.rx1 = null;
+            
+            this.rx1 = rx1;
+            this.ry = null;
+            this.ry1 = null;
+            
+            this.ry1 = ry1;
+            this.fromAngle = null;
+            this.fromAngle1 = null;
+            
+            this.fromAngle1 = fromAngle1;
+            this.extent = null;
+            this.extent1 = null;
+            
+            this.extent1 = extent1;
+        } else {
+            this.rx1 = rx1;
+            this.ry1 = ry1;
+            this.fromAngle1 = fromAngle1;
+            this.extent1 = extent1;
+
+            js.append(String.format(Locale.US, jsBase + ".arcToAsCurves(%f, %f, %f, %f);", rx1, ry1, fromAngle1, extent1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToAsCurves(%f, %f, %f, %f);", rx1, ry1, fromAngle1, extent1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double x;
@@ -50,20 +89,36 @@ public class Path extends JsObject {
     private Boolean clockwiseArc;
 
     public void setArctobyendpoint(Double x, Double y, Double rx2, Double ry2, Boolean largeArc, Boolean clockwiseArc) {
-        this.x = x;
-        this.y = y;
-        this.rx = null;
-        this.rx1 = null;
-        this.rx2 = null;
-        
-        this.rx2 = rx2;
-        this.ry = null;
-        this.ry1 = null;
-        this.ry2 = null;
-        
-        this.ry2 = ry2;
-        this.largeArc = largeArc;
-        this.clockwiseArc = clockwiseArc;
+        if (jsBase == null) {
+            this.x = x;
+            this.y = y;
+            this.rx = null;
+            this.rx1 = null;
+            this.rx2 = null;
+            
+            this.rx2 = rx2;
+            this.ry = null;
+            this.ry1 = null;
+            this.ry2 = null;
+            
+            this.ry2 = ry2;
+            this.largeArc = largeArc;
+            this.clockwiseArc = clockwiseArc;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.rx2 = rx2;
+            this.ry2 = ry2;
+            this.largeArc = largeArc;
+            this.clockwiseArc = clockwiseArc;
+
+            js.append(String.format(Locale.US, jsBase + ".arcToByEndPoint(%f, %f, %f, %f, %b, %b);", x, y, rx2, ry2, largeArc, clockwiseArc));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToByEndPoint(%f, %f, %f, %f, %b, %b);", x, y, rx2, ry2, largeArc, clockwiseArc));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double cx;
@@ -75,27 +130,44 @@ public class Path extends JsObject {
     private Boolean lineTo;
 
     public void setCirculararc(Double cx, Double cy, Double rx3, Double ry3, Double fromAngle2, Double sweep, Boolean lineTo) {
-        this.cx = cx;
-        this.cy = cy;
-        this.rx = null;
-        this.rx1 = null;
-        this.rx2 = null;
-        this.rx3 = null;
-        
-        this.rx3 = rx3;
-        this.ry = null;
-        this.ry1 = null;
-        this.ry2 = null;
-        this.ry3 = null;
-        
-        this.ry3 = ry3;
-        this.fromAngle = null;
-        this.fromAngle1 = null;
-        this.fromAngle2 = null;
-        
-        this.fromAngle2 = fromAngle2;
-        this.sweep = sweep;
-        this.lineTo = lineTo;
+        if (jsBase == null) {
+            this.cx = cx;
+            this.cy = cy;
+            this.rx = null;
+            this.rx1 = null;
+            this.rx2 = null;
+            this.rx3 = null;
+            
+            this.rx3 = rx3;
+            this.ry = null;
+            this.ry1 = null;
+            this.ry2 = null;
+            this.ry3 = null;
+            
+            this.ry3 = ry3;
+            this.fromAngle = null;
+            this.fromAngle1 = null;
+            this.fromAngle2 = null;
+            
+            this.fromAngle2 = fromAngle2;
+            this.sweep = sweep;
+            this.lineTo = lineTo;
+        } else {
+            this.cx = cx;
+            this.cy = cy;
+            this.rx3 = rx3;
+            this.ry3 = ry3;
+            this.fromAngle2 = fromAngle2;
+            this.sweep = sweep;
+            this.lineTo = lineTo;
+
+            js.append(String.format(Locale.US, jsBase + ".circularArc(%f, %f, %f, %f, %f, %f, %b);", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".circularArc(%f, %f, %f, %f, %f, %f, %b);", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double controlX;
@@ -107,25 +179,42 @@ public class Path extends JsObject {
     private Double var_args;
 
     public void setCurveto(Double controlX, Double controlY, Double controlX1, Double controlY1, Double endX, Double endY, Double var_args) {
-        this.controlX = null;
-        this.controlX1 = null;
-        
-        this.controlX = controlX;
-        this.controlY = null;
-        this.controlY1 = null;
-        
-        this.controlY = controlY;
-        this.controlX = null;
-        this.controlX1 = null;
-        
-        this.controlX1 = controlX1;
-        this.controlY = null;
-        this.controlY1 = null;
-        
-        this.controlY1 = controlY1;
-        this.endX = endX;
-        this.endY = endY;
-        this.var_args = var_args;
+        if (jsBase == null) {
+            this.controlX = null;
+            this.controlX1 = null;
+            
+            this.controlX = controlX;
+            this.controlY = null;
+            this.controlY1 = null;
+            
+            this.controlY = controlY;
+            this.controlX = null;
+            this.controlX1 = null;
+            
+            this.controlX1 = controlX1;
+            this.controlY = null;
+            this.controlY1 = null;
+            
+            this.controlY1 = controlY1;
+            this.endX = endX;
+            this.endY = endY;
+            this.var_args = var_args;
+        } else {
+            this.controlX = controlX;
+            this.controlY = controlY;
+            this.controlX1 = controlX1;
+            this.controlY1 = controlY1;
+            this.endX = endX;
+            this.endY = endY;
+            this.var_args = var_args;
+
+            js.append(String.format(Locale.US, jsBase + ".curveTo(%f, %f, %f, %f, %f, %f, %f);", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curveTo(%f, %f, %f, %f, %f, %f, %f);", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double x1;
@@ -133,34 +222,59 @@ public class Path extends JsObject {
     private Double var_args1;
 
     public void setLineto(Double x1, Double y1, Double var_args1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.var_args = null;
-        this.var_args1 = null;
-        
-        this.var_args1 = var_args1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.var_args = null;
+            this.var_args1 = null;
+            
+            this.var_args1 = var_args1;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.var_args1 = var_args1;
+
+            js.append(String.format(Locale.US, jsBase + ".lineTo(%f, %f, %f);", x1, y1, var_args1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineTo(%f, %f, %f);", x1, y1, var_args1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double x2;
     private Double y2;
 
     public void setMoveto(Double x2, Double y2) {
-        this.x = null;
-        this.x1 = null;
-        this.x2 = null;
-        
-        this.x2 = x2;
-        this.y = null;
-        this.y1 = null;
-        this.y2 = null;
-        
-        this.y2 = y2;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            this.x2 = null;
+            
+            this.x2 = x2;
+            this.y = null;
+            this.y1 = null;
+            this.y2 = null;
+            
+            this.y2 = y2;
+        } else {
+            this.x2 = x2;
+            this.y2 = y2;
+
+            js.append(String.format(Locale.US, jsBase + ".moveTo(%f, %f);", x2, y2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".moveTo(%f, %f);", x2, y2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double controlX2;
@@ -170,29 +284,44 @@ public class Path extends JsObject {
     private Double var_args2;
 
     public void setQuadraticcurveto(Double controlX2, Double controlY2, Double endX1, Double endY1, Double var_args2) {
-        this.controlX = null;
-        this.controlX1 = null;
-        this.controlX2 = null;
-        
-        this.controlX2 = controlX2;
-        this.controlY = null;
-        this.controlY1 = null;
-        this.controlY2 = null;
-        
-        this.controlY2 = controlY2;
-        this.endX = null;
-        this.endX1 = null;
-        
-        this.endX1 = endX1;
-        this.endY = null;
-        this.endY1 = null;
-        
-        this.endY1 = endY1;
-        this.var_args = null;
-        this.var_args1 = null;
-        this.var_args2 = null;
-        
-        this.var_args2 = var_args2;
+        if (jsBase == null) {
+            this.controlX = null;
+            this.controlX1 = null;
+            this.controlX2 = null;
+            
+            this.controlX2 = controlX2;
+            this.controlY = null;
+            this.controlY1 = null;
+            this.controlY2 = null;
+            
+            this.controlY2 = controlY2;
+            this.endX = null;
+            this.endX1 = null;
+            
+            this.endX1 = endX1;
+            this.endY = null;
+            this.endY1 = null;
+            
+            this.endY1 = endY1;
+            this.var_args = null;
+            this.var_args1 = null;
+            this.var_args2 = null;
+            
+            this.var_args2 = var_args2;
+        } else {
+            this.controlX2 = controlX2;
+            this.controlY2 = controlY2;
+            this.endX1 = endX1;
+            this.endY1 = endY1;
+            this.var_args2 = var_args2;
+
+            js.append(String.format(Locale.US, jsBase + ".quadraticCurveTo(%f, %f, %f, %f, %f);", controlX2, controlY2, endX1, endY1, var_args2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".quadraticCurveTo(%f, %f, %f, %f, %f);", controlX2, controlY2, endX1, endY1, var_args2));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSrx() {
@@ -464,47 +593,48 @@ public class Path extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSrx());
-        js.append(generateJSry());
-        js.append(generateJSfromAngle());
-        js.append(generateJSextent());
-        js.append(generateJSrx1());
-        js.append(generateJSry1());
-        js.append(generateJSfromAngle1());
-        js.append(generateJSextent1());
-        js.append(generateJSx());
-        js.append(generateJSy());
-        js.append(generateJSrx2());
-        js.append(generateJSry2());
-        js.append(generateJSlargeArc());
-        js.append(generateJSclockwiseArc());
-        js.append(generateJScx());
-        js.append(generateJScy());
-        js.append(generateJSrx3());
-        js.append(generateJSry3());
-        js.append(generateJSfromAngle2());
-        js.append(generateJSsweep());
-        js.append(generateJSlineTo());
-        js.append(generateJScontrolX());
-        js.append(generateJScontrolY());
-        js.append(generateJScontrolX1());
-        js.append(generateJScontrolY1());
-        js.append(generateJSendX());
-        js.append(generateJSendY());
-        js.append(generateJSvar_args());
-        js.append(generateJSx1());
-        js.append(generateJSy1());
-        js.append(generateJSvar_args1());
-        js.append(generateJSx2());
-        js.append(generateJSy2());
-        js.append(generateJScontrolX2());
-        js.append(generateJScontrolY2());
-        js.append(generateJSendX1());
-        js.append(generateJSendY1());
-        js.append(generateJSvar_args2());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSrx());
+            js.append(generateJSry());
+            js.append(generateJSfromAngle());
+            js.append(generateJSextent());
+            js.append(generateJSrx1());
+            js.append(generateJSry1());
+            js.append(generateJSfromAngle1());
+            js.append(generateJSextent1());
+            js.append(generateJSx());
+            js.append(generateJSy());
+            js.append(generateJSrx2());
+            js.append(generateJSry2());
+            js.append(generateJSlargeArc());
+            js.append(generateJSclockwiseArc());
+            js.append(generateJScx());
+            js.append(generateJScy());
+            js.append(generateJSrx3());
+            js.append(generateJSry3());
+            js.append(generateJSfromAngle2());
+            js.append(generateJSsweep());
+            js.append(generateJSlineTo());
+            js.append(generateJScontrolX());
+            js.append(generateJScontrolY());
+            js.append(generateJScontrolX1());
+            js.append(generateJScontrolY1());
+            js.append(generateJSendX());
+            js.append(generateJSendY());
+            js.append(generateJSvar_args());
+            js.append(generateJSx1());
+            js.append(generateJSy1());
+            js.append(generateJSvar_args1());
+            js.append(generateJSx2());
+            js.append(generateJSy2());
+            js.append(generateJScontrolX2());
+            js.append(generateJScontrolY2());
+            js.append(generateJSendX1());
+            js.append(generateJSendY1());
+            js.append(generateJSvar_args2());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

@@ -3,13 +3,35 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class PointContext extends JsObject {
+
+    private String jsBase;
+
+    public PointContext() {
+
+    }
+
+    protected PointContext(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private String name;
 
     public void setGetdatavalue(String name) {
-        this.name = name;
+        if (jsBase == null) {
+            this.name = name;
+        } else {
+            this.name = name;
+
+            js.append(String.format(Locale.US, jsBase + ".getDataValue(%s);", name));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getDataValue(%s);", name));
+                js.setLength(0);
+            }
+        }
     }
 
     private PointState state;
@@ -17,15 +39,39 @@ public class PointContext extends JsObject {
     private String restrictShapes;
 
     public void setGetshapesgroup(PointState state, Double baseZIndex, String restrictShapes) {
-        this.state = state;
-        this.baseZIndex = baseZIndex;
-        this.restrictShapes = restrictShapes;
+        if (jsBase == null) {
+            this.state = state;
+            this.baseZIndex = baseZIndex;
+            this.restrictShapes = restrictShapes;
+        } else {
+            this.state = state;
+            this.baseZIndex = baseZIndex;
+            this.restrictShapes = restrictShapes;
+
+            js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", (state != null) ? state.generateJs() : "null", baseZIndex, restrictShapes));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", (state != null) ? state.generateJs() : "null", baseZIndex, restrictShapes));
+                js.setLength(0);
+            }
+        }
     }
 
     private String key;
 
     public void setGetstat(String key) {
-        this.key = key;
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSname() {
@@ -66,14 +112,15 @@ public class PointContext extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSname());
-        js.append(generateJSstate());
-        js.append(generateJSbaseZIndex());
-        js.append(generateJSrestrictShapes());
-        js.append(generateJSkey());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSname());
+            js.append(generateJSstate());
+            js.append(generateJSbaseZIndex());
+            js.append(generateJSrestrictShapes());
+            js.append(generateJSkey());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

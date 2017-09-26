@@ -3,91 +3,249 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class DMI extends JsObject {
+
+    private String jsBase;
+
+    public DMI() {
+
+    }
+
+    protected DMI(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Double adxPeriod;
 
     public void setAdxperiod(Double adxPeriod) {
-        this.adxPeriod = adxPeriod;
+        if (jsBase == null) {
+            this.adxPeriod = adxPeriod;
+        } else {
+            this.adxPeriod = adxPeriod;
+
+            js.append(String.format(Locale.US, jsBase + ".adxPeriod(%f);", adxPeriod));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adxPeriod(%f);", adxPeriod));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getadxSeries;
+
+    public StockSeriesBase getAdxseries() {
+        if (getadxSeries == null)
+            getadxSeries = new StockSeriesBase(jsBase + ".adxSeries()");
+
+        return getadxSeries;
     }
 
     private StockSeriesType type;
     private String type1;
 
     public void setAdxseries(StockSeriesType type) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type = type;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type = type;
+        } else {
+            this.type = type;
+
+            js.append(String.format(Locale.US, jsBase + ".adxSeries(%s);", (type != null) ? type.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adxSeries(%s);", (type != null) ? type.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setAdxseries(String type1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+
+            js.append(String.format(Locale.US, jsBase + ".adxSeries(%s);", type1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adxSeries(%s);", type1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getndiSeries;
+
+    public StockSeriesBase getNdiseries() {
+        if (getndiSeries == null)
+            getndiSeries = new StockSeriesBase(jsBase + ".ndiSeries()");
+
+        return getndiSeries;
     }
 
     private StockSeriesType type2;
     private String type3;
 
     public void setNdiseries(StockSeriesType type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".ndiSeries(%s);", (type2 != null) ? type2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ndiSeries(%s);", (type2 != null) ? type2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setNdiseries(String type3) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+        } else {
+            this.type3 = type3;
+
+            js.append(String.format(Locale.US, jsBase + ".ndiSeries(%s);", type3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ndiSeries(%s);", type3));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getpdiSeries;
+
+    public StockSeriesBase getPdiseries() {
+        if (getpdiSeries == null)
+            getpdiSeries = new StockSeriesBase(jsBase + ".pdiSeries()");
+
+        return getpdiSeries;
     }
 
     private StockSeriesType type4;
     private String type5;
 
     public void setPdiseries(StockSeriesType type4) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        this.type4 = null;
-        this.type5 = null;
-        
-        this.type4 = type4;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            this.type4 = null;
+            this.type5 = null;
+            
+            this.type4 = type4;
+        } else {
+            this.type4 = type4;
+
+            js.append(String.format(Locale.US, jsBase + ".pdiSeries(%s);", (type4 != null) ? type4.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pdiSeries(%s);", (type4 != null) ? type4.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setPdiseries(String type5) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        this.type4 = null;
-        this.type5 = null;
-        
-        this.type5 = type5;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            this.type4 = null;
+            this.type5 = null;
+            
+            this.type5 = type5;
+        } else {
+            this.type5 = type5;
+
+            js.append(String.format(Locale.US, jsBase + ".pdiSeries(%s);", type5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pdiSeries(%s);", type5));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double period;
 
     public void setPeriod(Double period) {
-        this.period = period;
+        if (jsBase == null) {
+            this.period = period;
+        } else {
+            this.period = period;
+
+            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean useWildersSmoothing;
 
     public void setUsewilderssmoothing(Boolean useWildersSmoothing) {
-        this.useWildersSmoothing = useWildersSmoothing;
+        if (jsBase == null) {
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.useWildersSmoothing = useWildersSmoothing;
+
+            js.append(String.format(Locale.US, jsBase + ".useWildersSmoothing(%b);", useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useWildersSmoothing(%b);", useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetadxSeries() {
+        if (getadxSeries != null) {
+            return getadxSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetndiSeries() {
+        if (getndiSeries != null) {
+            return getndiSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetpdiSeries() {
+        if (getpdiSeries != null) {
+            return getpdiSeries.generateJs();
+        }
+        return "";
     }
 
     private String generateJSadxPeriod() {
@@ -156,18 +314,22 @@ public class DMI extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSadxPeriod());
-        js.append(generateJStype());
-        js.append(generateJStype1());
-        js.append(generateJStype2());
-        js.append(generateJStype3());
-        js.append(generateJStype4());
-        js.append(generateJStype5());
-        js.append(generateJSperiod());
-        js.append(generateJSuseWildersSmoothing());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSadxPeriod());
+            js.append(generateJStype());
+            js.append(generateJStype1());
+            js.append(generateJStype2());
+            js.append(generateJStype3());
+            js.append(generateJStype4());
+            js.append(generateJStype5());
+            js.append(generateJSperiod());
+            js.append(generateJSuseWildersSmoothing());
+            js.append("}");
+        }
+            js.append(generateJSgetadxSeries());
+            js.append(generateJSgetndiSeries());
+            js.append(generateJSgetpdiSeries());
 
         String result = js.toString();
         js.setLength(0);

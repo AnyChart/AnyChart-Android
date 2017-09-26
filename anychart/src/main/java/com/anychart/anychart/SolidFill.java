@@ -17,7 +17,6 @@ public class SolidFill extends JsObject implements ColoredFill, Fill {
         js.append(String.format(Locale.US, "{color: %s,opacity: %f}",  color, opacity));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

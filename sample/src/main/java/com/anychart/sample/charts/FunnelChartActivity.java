@@ -31,6 +31,9 @@ public class FunnelChartActivity extends AppCompatActivity {
         funnel.setNeckwidth("'17%'");
         funnel.setAnimation(true);
 
+        funnel.getLabels().setPosition("'outsideleft'");
+        funnel.getLabels().setFormat("'{%X} - {%Value}'");
+
         anyChartView.setChart(funnel);
     }
 }

@@ -3,21 +3,55 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class OrdinalZoom extends JsObject {
+
+    private String jsBase;
+
+    public OrdinalZoom() {
+
+    }
+
+    protected OrdinalZoom(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Boolean continuous;
 
     public void setContinuous(Boolean continuous) {
-        this.continuous = continuous;
+        if (jsBase == null) {
+            this.continuous = continuous;
+        } else {
+            this.continuous = continuous;
+
+            js.append(String.format(Locale.US, jsBase + ".continuous(%b);", continuous));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".continuous(%b);", continuous));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double startRatio;
     private Double endRatio;
 
     public void setSetto(Double startRatio, Double endRatio) {
-        this.startRatio = startRatio;
-        this.endRatio = endRatio;
+        if (jsBase == null) {
+            this.startRatio = startRatio;
+            this.endRatio = endRatio;
+        } else {
+            this.startRatio = startRatio;
+            this.endRatio = endRatio;
+
+            js.append(String.format(Locale.US, jsBase + ".setTo(%f, %f);", startRatio, endRatio));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setTo(%f, %f);", startRatio, endRatio));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double pointsCount;
@@ -25,18 +59,42 @@ public class OrdinalZoom extends JsObject {
     private ScalesBase scale;
 
     public void setSettopointscount(Double pointsCount, Boolean fromEnd, ScalesBase scale) {
-        this.pointsCount = pointsCount;
-        this.fromEnd = fromEnd;
-        this.scale = scale;
+        if (jsBase == null) {
+            this.pointsCount = pointsCount;
+            this.fromEnd = fromEnd;
+            this.scale = scale;
+        } else {
+            this.pointsCount = pointsCount;
+            this.fromEnd = fromEnd;
+            this.scale = scale;
+
+            js.append(String.format(Locale.US, jsBase + ".setToPointsCount(%f, %b, %s);", pointsCount, fromEnd, (scale != null) ? scale.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setToPointsCount(%f, %b, %s);", pointsCount, fromEnd, (scale != null) ? scale.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private ScalesBase scale1;
 
     public void setSettovalues(ScalesBase scale1) {
-        this.scale = null;
-        this.scale1 = null;
-        
-        this.scale1 = scale1;
+        if (jsBase == null) {
+            this.scale = null;
+            this.scale1 = null;
+            
+            this.scale1 = scale1;
+        } else {
+            this.scale1 = scale1;
+
+            js.append(String.format(Locale.US, jsBase + ".setToValues(%s);", (scale1 != null) ? scale1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setToValues(%s);", (scale1 != null) ? scale1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJScontinuous() {
@@ -91,16 +149,17 @@ public class OrdinalZoom extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJScontinuous());
-        js.append(generateJSstartRatio());
-        js.append(generateJSendRatio());
-        js.append(generateJSpointsCount());
-        js.append(generateJSfromEnd());
-        js.append(generateJSscale());
-        js.append(generateJSscale1());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJScontinuous());
+            js.append(generateJSstartRatio());
+            js.append(generateJSendRatio());
+            js.append(generateJSpointsCount());
+            js.append(generateJSfromEnd());
+            js.append(generateJSscale());
+            js.append(generateJSscale1());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

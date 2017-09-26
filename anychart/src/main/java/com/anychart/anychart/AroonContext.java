@@ -19,7 +19,6 @@ public class AroonContext extends JsObject  {
         js.append(String.format(Locale.US, "{highQueue: %s,lowQueue: %s,period: %f}",  (highQueue != null) ? highQueue.generateJs() : "null", (lowQueue != null) ? lowQueue.generateJs() : "null", period));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

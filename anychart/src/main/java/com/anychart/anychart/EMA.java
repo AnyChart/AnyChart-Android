@@ -3,31 +3,91 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class EMA extends JsObject {
+
+    private String jsBase;
+
+    public EMA() {
+
+    }
+
+    protected EMA(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Double period;
 
     public void setPeriod(Double period) {
-        this.period = period;
+        if (jsBase == null) {
+            this.period = period;
+        } else {
+            this.period = period;
+
+            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getseries;
+
+    public StockSeriesBase getSeries() {
+        if (getseries == null)
+            getseries = new StockSeriesBase(jsBase + ".series()");
+
+        return getseries;
     }
 
     private String type;
     private StockSeriesType type1;
 
     public void setSeries(String type) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type = type;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type = type;
+        } else {
+            this.type = type;
+
+            js.append(String.format(Locale.US, jsBase + ".series(%s);", type));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", type));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSeries(StockSeriesType type1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+
+            js.append(String.format(Locale.US, jsBase + ".series(%s);", (type1 != null) ? type1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", (type1 != null) ? type1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetseries() {
+        if (getseries != null) {
+            return getseries.generateJs();
+        }
+        return "";
     }
 
     private String generateJSperiod() {
@@ -54,12 +114,14 @@ public class EMA extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSperiod());
-        js.append(generateJStype());
-        js.append(generateJStype1());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSperiod());
+            js.append(generateJStype());
+            js.append(generateJStype1());
+            js.append("}");
+        }
+            js.append(generateJSgetseries());
 
         String result = js.toString();
         js.setLength(0);

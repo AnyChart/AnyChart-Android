@@ -41,6 +41,12 @@ public class RadarChartActivity extends AppCompatActivity {
                 "['Spirit', 196]"
         }, TextParsingMode.CSV);
 
+//        radar.setLine().setName().getMarkers();
+//        radar.getYscale().setMinimum
+        radar.getXaxis().getLabels().setPadding(5d);
+        radar.getLabels().setEnabled(true);
+//        radar.getLabels().setAlign
+
         anyChartView.setChart(radar);
     }
 }

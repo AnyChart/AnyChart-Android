@@ -19,7 +19,6 @@ public class ScheduleItem extends JsObject  {
         js.append(String.format(Locale.US, "{end: %f,start: %f,workingTime: %s}",  end, start, workingTime));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

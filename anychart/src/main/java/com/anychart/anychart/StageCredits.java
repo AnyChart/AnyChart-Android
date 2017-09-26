@@ -3,37 +3,103 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class StageCredits extends JsObject {
+
+    private String jsBase;
+
+    public StageCredits() {
+
+    }
+
+    protected StageCredits(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private String alt;
 
     public void setAlt(String alt) {
-        this.alt = alt;
+        if (jsBase == null) {
+            this.alt = alt;
+        } else {
+            this.alt = alt;
+
+            js.append(String.format(Locale.US, jsBase + ".alt(%s);", alt));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".alt(%s);", alt));
+                js.setLength(0);
+            }
+        }
     }
 
     private String imgAlt;
 
     public void setImgalt(String imgAlt) {
-        this.imgAlt = imgAlt;
+        if (jsBase == null) {
+            this.imgAlt = imgAlt;
+        } else {
+            this.imgAlt = imgAlt;
+
+            js.append(String.format(Locale.US, jsBase + ".imgAlt(%s);", imgAlt));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".imgAlt(%s);", imgAlt));
+                js.setLength(0);
+            }
+        }
     }
 
     private String logoSrc;
 
     public void setLogosrc(String logoSrc) {
-        this.logoSrc = logoSrc;
+        if (jsBase == null) {
+            this.logoSrc = logoSrc;
+        } else {
+            this.logoSrc = logoSrc;
+
+            js.append(String.format(Locale.US, jsBase + ".logoSrc(%s);", logoSrc));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".logoSrc(%s);", logoSrc));
+                js.setLength(0);
+            }
+        }
     }
 
     private String text;
 
     public void setText(String text) {
-        this.text = text;
+        if (jsBase == null) {
+            this.text = text;
+        } else {
+            this.text = text;
+
+            js.append(String.format(Locale.US, jsBase + ".text(%s);", text));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%s);", text));
+                js.setLength(0);
+            }
+        }
     }
 
     private String url;
 
     public void setUrl(String url) {
-        this.url = url;
+        if (jsBase == null) {
+            this.url = url;
+        } else {
+            this.url = url;
+
+            js.append(String.format(Locale.US, jsBase + ".url(%s);", url));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".url(%s);", url));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSalt() {
@@ -74,14 +140,15 @@ public class StageCredits extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSalt());
-        js.append(generateJSimgAlt());
-        js.append(generateJSlogoSrc());
-        js.append(generateJStext());
-        js.append(generateJSurl());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSalt());
+            js.append(generateJSimgAlt());
+            js.append(generateJSlogoSrc());
+            js.append(generateJStext());
+            js.append(generateJSurl());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

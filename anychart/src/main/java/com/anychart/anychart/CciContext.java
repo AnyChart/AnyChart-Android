@@ -21,7 +21,6 @@ public class CciContext extends JsObject  {
         js.append(String.format(Locale.US, "{dequeuedValue: %f,period: %f,prevResult: %f,queue: %s}",  dequeuedValue, period, prevResult, (queue != null) ? queue.generateJs() : "null"));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

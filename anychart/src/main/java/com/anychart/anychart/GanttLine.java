@@ -3,77 +3,222 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class GanttLine extends JsObject {
+
+    private String jsBase;
+
+    public GanttLine() {
+
+    }
+
+    protected GanttLine(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private Layout layout;
     private String layout1;
 
     public void setLayout(Layout layout) {
-        this.layout = null;
-        this.layout1 = null;
-        
-        this.layout = layout;
+        if (jsBase == null) {
+            this.layout = null;
+            this.layout1 = null;
+            
+            this.layout = layout;
+        } else {
+            this.layout = layout;
+
+            js.append(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLayout(String layout1) {
-        this.layout = null;
-        this.layout1 = null;
-        
-        this.layout1 = layout1;
+        if (jsBase == null) {
+            this.layout = null;
+            this.layout1 = null;
+            
+            this.layout1 = layout1;
+        } else {
+            this.layout1 = layout1;
+
+            js.append(String.format(Locale.US, jsBase + ".layout(%s);", layout1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", layout1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private GanttDateTime getscale;
+
+    public GanttDateTime getScale() {
+        if (getscale == null)
+            getscale = new GanttDateTime(jsBase + ".scale()");
+
+        return getscale;
     }
 
     private GanttDateTime scale;
 
     public void setScale(GanttDateTime scale) {
-        this.scale = scale;
+        if (jsBase == null) {
+            this.scale = scale;
+        } else {
+            this.scale = scale;
+
+            js.append(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke stroke;
@@ -85,58 +230,139 @@ public class GanttLine extends JsObject {
     private StrokeLineCap lineCap;
 
     public void setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        
-        this.stroke = stroke;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            
+            this.stroke = stroke;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.stroke = stroke;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        
-        this.stroke1 = stroke1;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            
+            this.stroke1 = stroke1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.stroke1 = stroke1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        
-        this.stroke2 = stroke2;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            
+            this.stroke2 = stroke2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.stroke2 = stroke2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key;
+
+    public void setUnlistenbykey(String key) {
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double value;
@@ -144,35 +370,86 @@ public class GanttLine extends JsObject {
     private String value2;
 
     public void setValue(Double value) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        
-        this.value = value;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            
+            this.value = value;
+        } else {
+            this.value = value;
+
+            js.append(String.format(Locale.US, jsBase + ".value(%f);", value));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".value(%f);", value));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setValue(GanttDateTimeMarkers value1) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        
-        this.value1 = value1;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            
+            this.value1 = value1;
+        } else {
+            this.value1 = value1;
+
+            js.append(String.format(Locale.US, jsBase + ".value(%s);", (value1 != null) ? value1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".value(%s);", (value1 != null) ? value1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setValue(String value2) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        
-        this.value2 = value2;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            
+            this.value2 = value2;
+        } else {
+            this.value2 = value2;
+
+            js.append(String.format(Locale.US, jsBase + ".value(%s);", value2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".value(%s);", value2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
+        if (jsBase == null) {
+            this.zIndex = zIndex;
+        } else {
+            this.zIndex = zIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetscale() {
+        if (getscale != null) {
+            return getscale.generateJs();
+        }
+        return "";
     }
 
     private String generateJSenabled() {
@@ -210,6 +487,13 @@ public class GanttLine extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJStype1() {
         if (type1 != null) {
             return String.format(Locale.US, "type: %s,", type1);
@@ -224,9 +508,23 @@ public class GanttLine extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
+        }
+        return "";
+    }
+
     private String generateJSpaperSizeOrOptions() {
         if (paperSizeOrOptions != null) {
             return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSpaperSizeOrOptions1() {
+        if (paperSizeOrOptions1 != null) {
+            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
         }
         return "";
     }
@@ -315,6 +613,20 @@ public class GanttLine extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey() {
+        if (key != null) {
+            return String.format(Locale.US, "key: %s,", key);
+        }
+        return "";
+    }
+
     private String generateJSvalue() {
         if (value != null) {
             return String.format(Locale.US, "value: %f,", value);
@@ -346,33 +658,40 @@ public class GanttLine extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSenabled());
-        js.append(generateJSlayout());
-        js.append(generateJSlayout1());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSpaperSizeOrOptions());
-        js.append(generateJSlandscape());
-        js.append(generateJStype2());
-        js.append(generateJSscale());
-        js.append(generateJSstroke());
-        js.append(generateJSstroke1());
-        js.append(generateJSstroke2());
-        js.append(generateJSthickness());
-        js.append(generateJSdashpattern());
-        js.append(generateJSlineJoin());
-        js.append(generateJSlineCap());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSvalue());
-        js.append(generateJSvalue1());
-        js.append(generateJSvalue2());
-        js.append(generateJSzIndex());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSenabled());
+            js.append(generateJSlayout());
+            js.append(generateJSlayout1());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSpaperSizeOrOptions());
+            js.append(generateJSpaperSizeOrOptions1());
+            js.append(generateJSlandscape());
+            js.append(generateJStype2());
+            js.append(generateJSscale());
+            js.append(generateJSstroke());
+            js.append(generateJSstroke1());
+            js.append(generateJSstroke2());
+            js.append(generateJSthickness());
+            js.append(generateJSdashpattern());
+            js.append(generateJSlineJoin());
+            js.append(generateJSlineCap());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey());
+            js.append(generateJSvalue());
+            js.append(generateJSvalue1());
+            js.append(generateJSvalue2());
+            js.append(generateJSzIndex());
+            js.append("}");
+        }
+            js.append(generateJSgetscale());
 
         String result = js.toString();
         js.setLength(0);

@@ -3,21 +3,55 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class UiDataGrid extends JsObject {
+
+    private String jsBase;
+
+    public UiDataGrid() {
+
+    }
+
+    protected UiDataGrid(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Fill backgroundFill;
 
     public void setBackgroundfill(Fill backgroundFill) {
-        this.backgroundFill = backgroundFill;
+        if (jsBase == null) {
+            this.backgroundFill = backgroundFill;
+        } else {
+            this.backgroundFill = backgroundFill;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s);", (backgroundFill != null) ? backgroundFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s);", (backgroundFill != null) ? backgroundFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color;
     private Double opacity;
 
     public void setBackgroundfill(String color, Double opacity) {
-        this.color = color;
-        this.opacity = opacity;
+        if (jsBase == null) {
+            this.color = color;
+            this.opacity = opacity;
+        } else {
+            this.color = color;
+            this.opacity = opacity;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f);", color, opacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f);", color, opacity));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys;
@@ -25,129 +59,290 @@ public class UiDataGrid extends JsObject {
     private Double angle;
     private Boolean mode;
     private VectorRect mode1;
+    private String mode2;
     private Double opacity1;
 
     public void setBackgroundfill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys = keys;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBackgroundfill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys = keys;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setBackgroundfill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBackgroundfill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys1 = keys1;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBackgroundfill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys1 = keys1;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setBackgroundfill(String[] keys1, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys2;
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private GraphicsMathRect mode2;
+    private GraphicsMathRect mode3;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setBackgroundfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        
-        this.keys2 = keys2;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        
-        this.mode2 = mode2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
+    public void setBackgroundfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+        } else {
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setBackgroundfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        
-        this.keys3 = keys3;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        
-        this.mode2 = mode2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
+    public void setBackgroundfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+        } else {
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+
+            js.append(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings;
@@ -155,18 +350,49 @@ public class UiDataGrid extends JsObject {
     private String bottom1;
 
     public void setBottom(Double bottom) {
-        this.bottom = null;
-        this.bottom1 = null;
-        
-        this.bottom = bottom;
+        if (jsBase == null) {
+            this.bottom = null;
+            this.bottom1 = null;
+            
+            this.bottom = bottom;
+        } else {
+            this.bottom = bottom;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottom(String bottom1) {
-        this.bottom = null;
-        this.bottom1 = null;
-        
-        this.bottom1 = bottom1;
+        if (jsBase == null) {
+            this.bottom = null;
+            this.bottom1 = null;
+            
+            this.bottom1 = bottom1;
+        } else {
+            this.bottom1 = bottom1;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private Bounds getbounds;
+
+    public Bounds getBounds() {
+        if (getbounds == null)
+            getbounds = new Bounds(jsBase + ".bounds()");
+
+        return getbounds;
     }
 
     private RectObj bounds;
@@ -174,29 +400,62 @@ public class UiDataGrid extends JsObject {
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds = bounds;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds = bounds;
+        } else {
+            this.bounds = bounds;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(AnychartMathRect bounds1) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds1 = bounds1;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds1 = bounds1;
+        } else {
+            this.bounds1 = bounds1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Bounds bounds2) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds2 = bounds2;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds2 = bounds2;
+        } else {
+            this.bounds2 = bounds2;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double x;
@@ -209,638 +468,1178 @@ public class UiDataGrid extends JsObject {
     private String height1;
 
     public void setBounds(Double x, Double y, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index;
 
     public void setColumn(Double index) {
-        this.index = index;
+        if (jsBase == null) {
+            this.index = index;
+        } else {
+            this.index = index;
+
+            js.append(String.format(Locale.US, jsBase + ".column(%f);", index));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%f);", index));
+                js.setLength(0);
+            }
+        }
     }
 
     private DatagridColumn column;
 
     public void setColumn(DatagridColumn column) {
-        this.column = column;
+        if (jsBase == null) {
+            this.column = column;
+        } else {
+            this.column = column;
+
+            js.append(String.format(Locale.US, jsBase + ".column(%s);", (column != null) ? column.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", (column != null) ? column.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index1;
     private DatagridColumn column1;
 
     public void setColumn(Double index1, DatagridColumn column1) {
-        this.index = null;
-        this.index1 = null;
-        
-        this.index1 = index1;
-        this.column = null;
-        this.column1 = null;
-        
-        this.column1 = column1;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+            this.column = null;
+            this.column1 = null;
+            
+            this.column1 = column1;
+        } else {
+            this.index1 = index1;
+            this.column1 = column1;
+
+            js.append(String.format(Locale.US, jsBase + ".column(%f, %s);", index1, (column1 != null) ? column1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%f, %s);", index1, (column1 != null) ? column1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke columnStroke;
     private String columnStroke1;
 
     public void setColumnstroke(Stroke columnStroke) {
-        this.columnStroke = null;
-        this.columnStroke1 = null;
-        
-        this.columnStroke = columnStroke;
+        if (jsBase == null) {
+            this.columnStroke = null;
+            this.columnStroke1 = null;
+            
+            this.columnStroke = columnStroke;
+        } else {
+            this.columnStroke = columnStroke;
+
+            js.append(String.format(Locale.US, jsBase + ".columnStroke(%s);", (columnStroke != null) ? columnStroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".columnStroke(%s);", (columnStroke != null) ? columnStroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setColumnstroke(String columnStroke1) {
-        this.columnStroke = null;
-        this.columnStroke1 = null;
-        
-        this.columnStroke1 = columnStroke1;
+        if (jsBase == null) {
+            this.columnStroke = null;
+            this.columnStroke1 = null;
+            
+            this.columnStroke1 = columnStroke1;
+        } else {
+            this.columnStroke1 = columnStroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".columnStroke(%s);", columnStroke1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".columnStroke(%s);", columnStroke1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private Tree getdata;
+
+    public Tree getData() {
+        if (getdata == null)
+            getdata = new Tree(jsBase + ".data()");
+
+        return getdata;
     }
 
     private Tree data;
 
     public void setData(Tree data) {
-        this.data = data;
+        if (jsBase == null) {
+            this.data = data;
+        } else {
+            this.data = data;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s);", (data != null) ? data.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", (data != null) ? data.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke editStructurePreviewDashStroke;
     private String editStructurePreviewDashStroke1;
 
     public void setEditstructurepreviewdashstroke(Stroke editStructurePreviewDashStroke) {
-        this.editStructurePreviewDashStroke = null;
-        this.editStructurePreviewDashStroke1 = null;
-        
-        this.editStructurePreviewDashStroke = editStructurePreviewDashStroke;
+        if (jsBase == null) {
+            this.editStructurePreviewDashStroke = null;
+            this.editStructurePreviewDashStroke1 = null;
+            
+            this.editStructurePreviewDashStroke = editStructurePreviewDashStroke;
+        } else {
+            this.editStructurePreviewDashStroke = editStructurePreviewDashStroke;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s);", (editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s);", (editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setEditstructurepreviewdashstroke(String editStructurePreviewDashStroke1) {
-        this.editStructurePreviewDashStroke = null;
-        this.editStructurePreviewDashStroke1 = null;
-        
-        this.editStructurePreviewDashStroke1 = editStructurePreviewDashStroke1;
+        if (jsBase == null) {
+            this.editStructurePreviewDashStroke = null;
+            this.editStructurePreviewDashStroke1 = null;
+            
+            this.editStructurePreviewDashStroke1 = editStructurePreviewDashStroke1;
+        } else {
+            this.editStructurePreviewDashStroke1 = editStructurePreviewDashStroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s);", editStructurePreviewDashStroke1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s);", editStructurePreviewDashStroke1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill editStructurePreviewFill;
 
     public void setEditstructurepreviewfill(Fill editStructurePreviewFill) {
-        this.editStructurePreviewFill = editStructurePreviewFill;
+        if (jsBase == null) {
+            this.editStructurePreviewFill = editStructurePreviewFill;
+        } else {
+            this.editStructurePreviewFill = editStructurePreviewFill;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s);", (editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s);", (editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color1;
     private Double opacity3;
 
     public void setEditstructurepreviewfill(String color1, Double opacity3) {
-        this.color = null;
-        this.color1 = null;
-        
-        this.color1 = color1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        
-        this.opacity3 = opacity3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            
+            this.color1 = color1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            
+            this.opacity3 = opacity3;
+        } else {
+            this.color1 = color1;
+            this.opacity3 = opacity3;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f);", color1, opacity3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f);", color1, opacity3));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys4;
     private String[] keys5;
     private Double angle1;
-    private Boolean mode3;
-    private VectorRect mode4;
+    private Boolean mode4;
+    private VectorRect mode5;
+    private String mode6;
     private Double opacity4;
 
-    public void setEditstructurepreviewfill(GradientKey[] keys4, Boolean mode3, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys4 = keys4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode3 = mode3;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setEditstructurepreviewfill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys4 = keys4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys4 = keys4;
+            this.mode4 = mode4;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setEditstructurepreviewfill(GradientKey[] keys4, VectorRect mode4, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys4 = keys4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode4 = mode4;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setEditstructurepreviewfill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys4 = keys4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys4 = keys4;
+            this.mode5 = mode5;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setEditstructurepreviewfill(String[] keys5, Boolean mode3, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys5 = keys5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode3 = mode3;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setEditstructurepreviewfill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys4 = keys4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys4 = keys4;
+            this.mode6 = mode6;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setEditstructurepreviewfill(String[] keys5, VectorRect mode4, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys5 = keys5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode4 = mode4;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setEditstructurepreviewfill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys5 = keys5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys5 = keys5;
+            this.mode4 = mode4;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setEditstructurepreviewfill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys5 = keys5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys5 = keys5;
+            this.mode5 = mode5;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setEditstructurepreviewfill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys5 = keys5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys5 = keys5;
+            this.mode6 = mode6;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys6;
     private String[] keys7;
     private Double cx1;
     private Double cy1;
-    private GraphicsMathRect mode5;
+    private GraphicsMathRect mode7;
     private Double opacity5;
     private Double fx1;
     private Double fy1;
 
-    public void setEditstructurepreviewfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        
-        this.keys6 = keys6;
-        this.cx = null;
-        this.cx1 = null;
-        
-        this.cx1 = cx1;
-        this.cy = null;
-        this.cy1 = null;
-        
-        this.cy1 = cy1;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        
-        this.mode5 = mode5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        
-        this.opacity5 = opacity5;
-        this.fx = null;
-        this.fx1 = null;
-        
-        this.fx1 = fx1;
-        this.fy = null;
-        this.fy1 = null;
-        
-        this.fy1 = fy1;
+    public void setEditstructurepreviewfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            
+            this.keys6 = keys6;
+            this.cx = null;
+            this.cx1 = null;
+            
+            this.cx1 = cx1;
+            this.cy = null;
+            this.cy1 = null;
+            
+            this.cy1 = cy1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            
+            this.mode7 = mode7;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            
+            this.opacity5 = opacity5;
+            this.fx = null;
+            this.fx1 = null;
+            
+            this.fx1 = fx1;
+            this.fy = null;
+            this.fy1 = null;
+            
+            this.fy1 = fy1;
+        } else {
+            this.keys6 = keys6;
+            this.cx1 = cx1;
+            this.cy1 = cy1;
+            this.mode7 = mode7;
+            this.opacity5 = opacity5;
+            this.fx1 = fx1;
+            this.fy1 = fy1;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setEditstructurepreviewfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        
-        this.keys7 = keys7;
-        this.cx = null;
-        this.cx1 = null;
-        
-        this.cx1 = cx1;
-        this.cy = null;
-        this.cy1 = null;
-        
-        this.cy1 = cy1;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        
-        this.mode5 = mode5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        
-        this.opacity5 = opacity5;
-        this.fx = null;
-        this.fx1 = null;
-        
-        this.fx1 = fx1;
-        this.fy = null;
-        this.fy1 = null;
-        
-        this.fy1 = fy1;
+    public void setEditstructurepreviewfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            
+            this.keys7 = keys7;
+            this.cx = null;
+            this.cx1 = null;
+            
+            this.cx1 = cx1;
+            this.cy = null;
+            this.cy1 = null;
+            
+            this.cy1 = cy1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            
+            this.mode7 = mode7;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            
+            this.opacity5 = opacity5;
+            this.fx = null;
+            this.fx1 = null;
+            
+            this.fx1 = fx1;
+            this.fy = null;
+            this.fy1 = null;
+            
+            this.fy1 = fy1;
+        } else {
+            this.keys7 = keys7;
+            this.cx1 = cx1;
+            this.cy1 = cy1;
+            this.mode7 = mode7;
+            this.opacity5 = opacity5;
+            this.fx1 = fx1;
+            this.fy1 = fy1;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings1;
@@ -848,2587 +1647,4588 @@ public class UiDataGrid extends JsObject {
     private String editStructurePreviewStroke1;
 
     public void setEditstructurepreviewstroke(Stroke editStructurePreviewStroke) {
-        this.editStructurePreviewStroke = null;
-        this.editStructurePreviewStroke1 = null;
-        
-        this.editStructurePreviewStroke = editStructurePreviewStroke;
+        if (jsBase == null) {
+            this.editStructurePreviewStroke = null;
+            this.editStructurePreviewStroke1 = null;
+            
+            this.editStructurePreviewStroke = editStructurePreviewStroke;
+        } else {
+            this.editStructurePreviewStroke = editStructurePreviewStroke;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s);", (editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s);", (editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setEditstructurepreviewstroke(String editStructurePreviewStroke1) {
-        this.editStructurePreviewStroke = null;
-        this.editStructurePreviewStroke1 = null;
-        
-        this.editStructurePreviewStroke1 = editStructurePreviewStroke1;
+        if (jsBase == null) {
+            this.editStructurePreviewStroke = null;
+            this.editStructurePreviewStroke1 = null;
+            
+            this.editStructurePreviewStroke1 = editStructurePreviewStroke1;
+        } else {
+            this.editStructurePreviewStroke1 = editStructurePreviewStroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s);", editStructurePreviewStroke1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s);", editStructurePreviewStroke1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean editing;
 
     public void setEditing(Boolean editing) {
-        this.editing = editing;
+        if (jsBase == null) {
+            this.editing = editing;
+        } else {
+            this.editing = editing;
+
+            js.append(String.format(Locale.US, jsBase + ".editing(%b);", editing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editing(%b);", editing));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double endIndex;
 
     public void setEndindex(Double endIndex) {
-        this.endIndex = endIndex;
+        if (jsBase == null) {
+            this.endIndex = endIndex;
+        } else {
+            this.endIndex = endIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".endIndex(%f);", endIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endIndex(%f);", endIndex));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double height2;
     private String height3;
 
     public void setHeight(Double height2) {
-        this.height = null;
-        this.height1 = null;
-        this.height2 = null;
-        this.height3 = null;
-        
-        this.height2 = height2;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            this.height2 = null;
+            this.height3 = null;
+            
+            this.height2 = height2;
+        } else {
+            this.height2 = height2;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%f);", height2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHeight(String height3) {
-        this.height = null;
-        this.height1 = null;
-        this.height2 = null;
-        this.height3 = null;
-        
-        this.height3 = height3;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            this.height2 = null;
+            this.height3 = null;
+            
+            this.height3 = height3;
+        } else {
+            this.height3 = height3;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%s);", height3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double horizontalOffset;
 
     public void setHorizontaloffset(Double horizontalOffset) {
-        this.horizontalOffset = horizontalOffset;
+        if (jsBase == null) {
+            this.horizontalOffset = horizontalOffset;
+        } else {
+            this.horizontalOffset = horizontalOffset;
+
+            js.append(String.format(Locale.US, jsBase + ".horizontalOffset(%f);", horizontalOffset));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalOffset(%f);", horizontalOffset));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private ScrollBar gethorizontalScrollBar;
+
+    public ScrollBar getHorizontalscrollbar() {
+        if (gethorizontalScrollBar == null)
+            gethorizontalScrollBar = new ScrollBar(jsBase + ".horizontalScrollBar()");
+
+        return gethorizontalScrollBar;
+    }
+
+    private String horizontalScrollBar;
+
+    public void setHorizontalscrollbar(String horizontalScrollBar) {
+        if (jsBase == null) {
+            this.horizontalScrollBar = horizontalScrollBar;
+        } else {
+            this.horizontalScrollBar = horizontalScrollBar;
+
+            js.append(String.format(Locale.US, jsBase + ".horizontalScrollBar(%s);", horizontalScrollBar));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalScrollBar(%s);", horizontalScrollBar));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double left;
     private String left1;
 
     public void setLeft(Double left) {
-        this.left = null;
-        this.left1 = null;
-        
-        this.left = left;
+        if (jsBase == null) {
+            this.left = null;
+            this.left1 = null;
+            
+            this.left = left;
+        } else {
+            this.left = left;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLeft(String left1) {
-        this.left = null;
-        this.left1 = null;
-        
-        this.left1 = left1;
+        if (jsBase == null) {
+            this.left = null;
+            this.left1 = null;
+            
+            this.left1 = left1;
+        } else {
+            this.left1 = left1;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double maxHeight;
     private String maxHeight1;
 
     public void setMaxheight(Double maxHeight) {
-        this.maxHeight = null;
-        this.maxHeight1 = null;
-        
-        this.maxHeight = maxHeight;
+        if (jsBase == null) {
+            this.maxHeight = null;
+            this.maxHeight1 = null;
+            
+            this.maxHeight = maxHeight;
+        } else {
+            this.maxHeight = maxHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMaxheight(String maxHeight1) {
-        this.maxHeight = null;
-        this.maxHeight1 = null;
-        
-        this.maxHeight1 = maxHeight1;
+        if (jsBase == null) {
+            this.maxHeight = null;
+            this.maxHeight1 = null;
+            
+            this.maxHeight1 = maxHeight1;
+        } else {
+            this.maxHeight1 = maxHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double maxWidth;
     private String maxWidth1;
 
     public void setMaxwidth(Double maxWidth) {
-        this.maxWidth = null;
-        this.maxWidth1 = null;
-        
-        this.maxWidth = maxWidth;
+        if (jsBase == null) {
+            this.maxWidth = null;
+            this.maxWidth1 = null;
+            
+            this.maxWidth = maxWidth;
+        } else {
+            this.maxWidth = maxWidth;
+
+            js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMaxwidth(String maxWidth1) {
-        this.maxWidth = null;
-        this.maxWidth1 = null;
-        
-        this.maxWidth1 = maxWidth1;
+        if (jsBase == null) {
+            this.maxWidth = null;
+            this.maxWidth1 = null;
+            
+            this.maxWidth1 = maxWidth1;
+        } else {
+            this.maxWidth1 = maxWidth1;
+
+            js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double minHeight;
     private String minHeight1;
 
     public void setMinheight(Double minHeight) {
-        this.minHeight = null;
-        this.minHeight1 = null;
-        
-        this.minHeight = minHeight;
+        if (jsBase == null) {
+            this.minHeight = null;
+            this.minHeight1 = null;
+            
+            this.minHeight = minHeight;
+        } else {
+            this.minHeight = minHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMinheight(String minHeight1) {
-        this.minHeight = null;
-        this.minHeight1 = null;
-        
-        this.minHeight1 = minHeight1;
+        if (jsBase == null) {
+            this.minHeight = null;
+            this.minHeight1 = null;
+            
+            this.minHeight1 = minHeight1;
+        } else {
+            this.minHeight1 = minHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double minWidth;
     private String minWidth1;
 
     public void setMinwidth(Double minWidth) {
-        this.minWidth = null;
-        this.minWidth1 = null;
-        
-        this.minWidth = minWidth;
+        if (jsBase == null) {
+            this.minWidth = null;
+            this.minWidth1 = null;
+            
+            this.minWidth = minWidth;
+        } else {
+            this.minWidth = minWidth;
+
+            js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMinwidth(String minWidth1) {
-        this.minWidth = null;
-        this.minWidth1 = null;
-        
-        this.minWidth1 = minWidth1;
+        if (jsBase == null) {
+            this.minWidth = null;
+            this.minWidth1 = null;
+            
+            this.minWidth1 = minWidth1;
+        } else {
+            this.minWidth1 = minWidth1;
+
+            js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
+                js.setLength(0);
+            }
+        }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double right;
     private String right1;
 
     public void setRight(Double right) {
-        this.right = null;
-        this.right1 = null;
-        
-        this.right = right;
+        if (jsBase == null) {
+            this.right = null;
+            this.right1 = null;
+            
+            this.right = right;
+        } else {
+            this.right = right;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRight(String right1) {
-        this.right = null;
-        this.right1 = null;
-        
-        this.right1 = right1;
+        if (jsBase == null) {
+            this.right = null;
+            this.right1 = null;
+            
+            this.right1 = right1;
+        } else {
+            this.right1 = right1;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill rowEvenFill;
 
     public void setRowevenfill(Fill rowEvenFill) {
-        this.rowEvenFill = rowEvenFill;
+        if (jsBase == null) {
+            this.rowEvenFill = rowEvenFill;
+        } else {
+            this.rowEvenFill = rowEvenFill;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color2;
     private Double opacity6;
 
     public void setRowevenfill(String color2, Double opacity6) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color2 = color2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        
-        this.opacity6 = opacity6;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color2 = color2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            
+            this.opacity6 = opacity6;
+        } else {
+            this.color2 = color2;
+            this.opacity6 = opacity6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f);", color2, opacity6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f);", color2, opacity6));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys8;
     private String[] keys9;
     private Double angle2;
-    private Boolean mode6;
-    private VectorRect mode7;
+    private Boolean mode8;
+    private VectorRect mode9;
+    private String mode10;
     private Double opacity7;
 
-    public void setRowevenfill(GradientKey[] keys8, Boolean mode6, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys8 = keys8;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode6 = mode6;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setRowevenfill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys8 = keys8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys8 = keys8;
+            this.mode8 = mode8;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowevenfill(GradientKey[] keys8, VectorRect mode7, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys8 = keys8;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode7 = mode7;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setRowevenfill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys8 = keys8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys8 = keys8;
+            this.mode9 = mode9;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowevenfill(String[] keys9, Boolean mode6, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys9 = keys9;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode6 = mode6;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setRowevenfill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys8 = keys8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys8 = keys8;
+            this.mode10 = mode10;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowevenfill(String[] keys9, VectorRect mode7, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys9 = keys9;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode7 = mode7;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setRowevenfill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys9 = keys9;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys9 = keys9;
+            this.mode8 = mode8;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowevenfill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys9 = keys9;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys9 = keys9;
+            this.mode9 = mode9;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowevenfill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys9 = keys9;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys9 = keys9;
+            this.mode10 = mode10;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys10;
     private String[] keys11;
     private Double cx2;
     private Double cy2;
-    private GraphicsMathRect mode8;
+    private GraphicsMathRect mode11;
     private Double opacity8;
     private Double fx2;
     private Double fy2;
 
-    public void setRowevenfill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        
-        this.keys10 = keys10;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        
-        this.cx2 = cx2;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        
-        this.cy2 = cy2;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        
-        this.mode8 = mode8;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        
-        this.opacity8 = opacity8;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        
-        this.fx2 = fx2;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        
-        this.fy2 = fy2;
+    public void setRowevenfill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            
+            this.keys10 = keys10;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            
+            this.cx2 = cx2;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            
+            this.cy2 = cy2;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            
+            this.mode11 = mode11;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            
+            this.opacity8 = opacity8;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            
+            this.fx2 = fx2;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            
+            this.fy2 = fy2;
+        } else {
+            this.keys10 = keys10;
+            this.cx2 = cx2;
+            this.cy2 = cy2;
+            this.mode11 = mode11;
+            this.opacity8 = opacity8;
+            this.fx2 = fx2;
+            this.fy2 = fy2;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowevenfill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        
-        this.keys11 = keys11;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        
-        this.cx2 = cx2;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        
-        this.cy2 = cy2;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        
-        this.mode8 = mode8;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        
-        this.opacity8 = opacity8;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        
-        this.fx2 = fx2;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        
-        this.fy2 = fy2;
+    public void setRowevenfill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            
+            this.keys11 = keys11;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            
+            this.cx2 = cx2;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            
+            this.cy2 = cy2;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            
+            this.mode11 = mode11;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            
+            this.opacity8 = opacity8;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            
+            this.fx2 = fx2;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            
+            this.fy2 = fy2;
+        } else {
+            this.keys11 = keys11;
+            this.cx2 = cx2;
+            this.cy2 = cy2;
+            this.mode11 = mode11;
+            this.opacity8 = opacity8;
+            this.fx2 = fx2;
+            this.fy2 = fy2;
+
+            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings2;
     private Fill rowFill;
 
     public void setRowfill(Fill rowFill) {
-        this.rowFill = rowFill;
+        if (jsBase == null) {
+            this.rowFill = rowFill;
+        } else {
+            this.rowFill = rowFill;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s);", (rowFill != null) ? rowFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s);", (rowFill != null) ? rowFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color3;
     private Double opacity9;
 
     public void setRowfill(String color3, Double opacity9) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        
-        this.color3 = color3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        
-        this.opacity9 = opacity9;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            
+            this.color3 = color3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            
+            this.opacity9 = opacity9;
+        } else {
+            this.color3 = color3;
+            this.opacity9 = opacity9;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %f);", color3, opacity9));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f);", color3, opacity9));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys12;
     private String[] keys13;
     private Double angle3;
-    private Boolean mode9;
-    private VectorRect mode10;
+    private Boolean mode12;
+    private VectorRect mode13;
+    private String mode14;
     private Double opacity10;
 
-    public void setRowfill(GradientKey[] keys12, Boolean mode9, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys12 = keys12;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode9 = mode9;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setRowfill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys12 = keys12;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys12 = keys12;
+            this.mode12 = mode12;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %b, %f, %f);", arrayToString(keys12), mode12, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %b, %f, %f);", arrayToString(keys12), mode12, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowfill(GradientKey[] keys12, VectorRect mode10, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys12 = keys12;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode10 = mode10;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setRowfill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys12 = keys12;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys12 = keys12;
+            this.mode13 = mode13;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowfill(String[] keys13, Boolean mode9, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys13 = keys13;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode9 = mode9;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setRowfill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys12 = keys12;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys12 = keys12;
+            this.mode14 = mode14;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", arrayToString(keys12), mode14, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", arrayToString(keys12), mode14, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowfill(String[] keys13, VectorRect mode10, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys13 = keys13;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode10 = mode10;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setRowfill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys13 = keys13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys13 = keys13;
+            this.mode12 = mode12;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %b, %f, %f);", Arrays.toString(keys13), mode12, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %b, %f, %f);", Arrays.toString(keys13), mode12, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowfill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys13 = keys13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys13 = keys13;
+            this.mode13 = mode13;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowfill(String[] keys13, String mode14, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys13 = keys13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys13 = keys13;
+            this.mode14 = mode14;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", Arrays.toString(keys13), mode14, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %f, %f);", Arrays.toString(keys13), mode14, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys14;
     private String[] keys15;
     private Double cx3;
     private Double cy3;
-    private GraphicsMathRect mode11;
+    private GraphicsMathRect mode15;
     private Double opacity11;
     private Double fx3;
     private Double fy3;
 
-    public void setRowfill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode11, Double opacity11, Double fx3, Double fy3) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        
-        this.keys14 = keys14;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        
-        this.cx3 = cx3;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        
-        this.cy3 = cy3;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        
-        this.mode11 = mode11;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        
-        this.opacity11 = opacity11;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        
-        this.fx3 = fx3;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        
-        this.fy3 = fy3;
+    public void setRowfill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            
+            this.keys14 = keys14;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            
+            this.cx3 = cx3;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            
+            this.cy3 = cy3;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            
+            this.mode15 = mode15;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            
+            this.opacity11 = opacity11;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            
+            this.fx3 = fx3;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            
+            this.fy3 = fy3;
+        } else {
+            this.keys14 = keys14;
+            this.cx3 = cx3;
+            this.cy3 = cy3;
+            this.mode15 = mode15;
+            this.opacity11 = opacity11;
+            this.fx3 = fx3;
+            this.fy3 = fy3;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowfill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode11, Double opacity11, Double fx3, Double fy3) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        
-        this.keys15 = keys15;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        
-        this.cx3 = cx3;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        
-        this.cy3 = cy3;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        
-        this.mode11 = mode11;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        
-        this.opacity11 = opacity11;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        
-        this.fx3 = fx3;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        
-        this.fy3 = fy3;
+    public void setRowfill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            
+            this.keys15 = keys15;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            
+            this.cx3 = cx3;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            
+            this.cy3 = cy3;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            
+            this.mode15 = mode15;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            
+            this.opacity11 = opacity11;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            
+            this.fx3 = fx3;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            
+            this.fy3 = fy3;
+        } else {
+            this.keys15 = keys15;
+            this.cx3 = cx3;
+            this.cy3 = cy3;
+            this.mode15 = mode15;
+            this.opacity11 = opacity11;
+            this.fx3 = fx3;
+            this.fy3 = fy3;
+
+            js.append(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings3;
     private Fill rowHoverFill;
 
     public void setRowhoverfill(Fill rowHoverFill) {
-        this.rowHoverFill = rowHoverFill;
+        if (jsBase == null) {
+            this.rowHoverFill = rowHoverFill;
+        } else {
+            this.rowHoverFill = rowHoverFill;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s);", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s);", (rowHoverFill != null) ? rowHoverFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color4;
     private Double opacity12;
 
     public void setRowhoverfill(String color4, Double opacity12) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        
-        this.color4 = color4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        
-        this.opacity12 = opacity12;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            
+            this.color4 = color4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            
+            this.opacity12 = opacity12;
+        } else {
+            this.color4 = color4;
+            this.opacity12 = opacity12;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f);", color4, opacity12));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f);", color4, opacity12));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys16;
     private String[] keys17;
     private Double angle4;
-    private Boolean mode12;
-    private VectorRect mode13;
+    private Boolean mode16;
+    private VectorRect mode17;
+    private String mode18;
     private Double opacity13;
 
-    public void setRowhoverfill(GradientKey[] keys16, Boolean mode12, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys16 = keys16;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode12 = mode12;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setRowhoverfill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys16 = keys16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys16 = keys16;
+            this.mode16 = mode16;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowhoverfill(GradientKey[] keys16, VectorRect mode13, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys16 = keys16;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode13 = mode13;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setRowhoverfill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys16 = keys16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys16 = keys16;
+            this.mode17 = mode17;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowhoverfill(String[] keys17, Boolean mode12, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys17 = keys17;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode12 = mode12;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setRowhoverfill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys16 = keys16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys16 = keys16;
+            this.mode18 = mode18;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", arrayToString(keys16), mode18, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", arrayToString(keys16), mode18, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowhoverfill(String[] keys17, VectorRect mode13, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys17 = keys17;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode13 = mode13;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setRowhoverfill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys17 = keys17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys17 = keys17;
+            this.mode16 = mode16;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %b, %f, %f);", Arrays.toString(keys17), mode16, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %b, %f, %f);", Arrays.toString(keys17), mode16, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowhoverfill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys17 = keys17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys17 = keys17;
+            this.mode17 = mode17;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowhoverfill(String[] keys17, String mode18, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys17 = keys17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys17 = keys17;
+            this.mode18 = mode18;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", Arrays.toString(keys17), mode18, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %f, %f);", Arrays.toString(keys17), mode18, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys18;
     private String[] keys19;
     private Double cx4;
     private Double cy4;
-    private GraphicsMathRect mode14;
+    private GraphicsMathRect mode19;
     private Double opacity14;
     private Double fx4;
     private Double fy4;
 
-    public void setRowhoverfill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode14, Double opacity14, Double fx4, Double fy4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        
-        this.keys18 = keys18;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        
-        this.cx4 = cx4;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        
-        this.cy4 = cy4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        
-        this.mode14 = mode14;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        
-        this.opacity14 = opacity14;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        
-        this.fx4 = fx4;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        
-        this.fy4 = fy4;
+    public void setRowhoverfill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            
+            this.keys18 = keys18;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            
+            this.cx4 = cx4;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            
+            this.cy4 = cy4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            
+            this.mode19 = mode19;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            
+            this.opacity14 = opacity14;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            
+            this.fx4 = fx4;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            
+            this.fy4 = fy4;
+        } else {
+            this.keys18 = keys18;
+            this.cx4 = cx4;
+            this.cy4 = cy4;
+            this.mode19 = mode19;
+            this.opacity14 = opacity14;
+            this.fx4 = fx4;
+            this.fy4 = fy4;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowhoverfill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode14, Double opacity14, Double fx4, Double fy4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        
-        this.keys19 = keys19;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        
-        this.cx4 = cx4;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        
-        this.cy4 = cy4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        
-        this.mode14 = mode14;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        
-        this.opacity14 = opacity14;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        
-        this.fx4 = fx4;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        
-        this.fy4 = fy4;
+    public void setRowhoverfill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            
+            this.keys19 = keys19;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            
+            this.cx4 = cx4;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            
+            this.cy4 = cy4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            
+            this.mode19 = mode19;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            
+            this.opacity14 = opacity14;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            
+            this.fx4 = fx4;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            
+            this.fy4 = fy4;
+        } else {
+            this.keys19 = keys19;
+            this.cx4 = cx4;
+            this.cy4 = cy4;
+            this.mode19 = mode19;
+            this.opacity14 = opacity14;
+            this.fx4 = fx4;
+            this.fy4 = fy4;
+
+            js.append(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings4;
     private Fill rowOddFill;
 
     public void setRowoddfill(Fill rowOddFill) {
-        this.rowOddFill = rowOddFill;
+        if (jsBase == null) {
+            this.rowOddFill = rowOddFill;
+        } else {
+            this.rowOddFill = rowOddFill;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color5;
     private Double opacity15;
 
     public void setRowoddfill(String color5, Double opacity15) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        
-        this.color5 = color5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        
-        this.opacity15 = opacity15;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            
+            this.color5 = color5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            
+            this.opacity15 = opacity15;
+        } else {
+            this.color5 = color5;
+            this.opacity15 = opacity15;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f);", color5, opacity15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f);", color5, opacity15));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys20;
     private String[] keys21;
     private Double angle5;
-    private Boolean mode15;
-    private VectorRect mode16;
+    private Boolean mode20;
+    private VectorRect mode21;
+    private String mode22;
     private Double opacity16;
 
-    public void setRowoddfill(GradientKey[] keys20, Boolean mode15, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys20 = keys20;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode15 = mode15;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setRowoddfill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys20 = keys20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys20 = keys20;
+            this.mode20 = mode20;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", arrayToString(keys20), mode20, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", arrayToString(keys20), mode20, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowoddfill(GradientKey[] keys20, VectorRect mode16, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys20 = keys20;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode16 = mode16;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setRowoddfill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys20 = keys20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys20 = keys20;
+            this.mode21 = mode21;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowoddfill(String[] keys21, Boolean mode15, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys21 = keys21;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode15 = mode15;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setRowoddfill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys20 = keys20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys20 = keys20;
+            this.mode22 = mode22;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys20), mode22, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys20), mode22, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowoddfill(String[] keys21, VectorRect mode16, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys21 = keys21;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode16 = mode16;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setRowoddfill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys21 = keys21;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys21 = keys21;
+            this.mode20 = mode20;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", Arrays.toString(keys21), mode20, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", Arrays.toString(keys21), mode20, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowoddfill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys21 = keys21;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys21 = keys21;
+            this.mode21 = mode21;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowoddfill(String[] keys21, String mode22, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys21 = keys21;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys21 = keys21;
+            this.mode22 = mode22;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys21), mode22, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys21), mode22, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys22;
     private String[] keys23;
     private Double cx5;
     private Double cy5;
-    private GraphicsMathRect mode17;
+    private GraphicsMathRect mode23;
     private Double opacity17;
     private Double fx5;
     private Double fy5;
 
-    public void setRowoddfill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode17, Double opacity17, Double fx5, Double fy5) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        
-        this.keys22 = keys22;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        this.cx5 = null;
-        
-        this.cx5 = cx5;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        this.cy5 = null;
-        
-        this.cy5 = cy5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        
-        this.mode17 = mode17;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        this.opacity17 = null;
-        
-        this.opacity17 = opacity17;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        this.fx5 = null;
-        
-        this.fx5 = fx5;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        this.fy5 = null;
-        
-        this.fy5 = fy5;
+    public void setRowoddfill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            
+            this.keys22 = keys22;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            this.cx5 = null;
+            
+            this.cx5 = cx5;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            this.cy5 = null;
+            
+            this.cy5 = cy5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            
+            this.mode23 = mode23;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            this.opacity17 = null;
+            
+            this.opacity17 = opacity17;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            this.fx5 = null;
+            
+            this.fx5 = fx5;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            this.fy5 = null;
+            
+            this.fy5 = fy5;
+        } else {
+            this.keys22 = keys22;
+            this.cx5 = cx5;
+            this.cy5 = cy5;
+            this.mode23 = mode23;
+            this.opacity17 = opacity17;
+            this.fx5 = fx5;
+            this.fy5 = fy5;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowoddfill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode17, Double opacity17, Double fx5, Double fy5) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        
-        this.keys23 = keys23;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        this.cx5 = null;
-        
-        this.cx5 = cx5;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        this.cy5 = null;
-        
-        this.cy5 = cy5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        
-        this.mode17 = mode17;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        this.opacity17 = null;
-        
-        this.opacity17 = opacity17;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        this.fx5 = null;
-        
-        this.fx5 = fx5;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        this.fy5 = null;
-        
-        this.fy5 = fy5;
+    public void setRowoddfill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            
+            this.keys23 = keys23;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            this.cx5 = null;
+            
+            this.cx5 = cx5;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            this.cy5 = null;
+            
+            this.cy5 = cy5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            
+            this.mode23 = mode23;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            this.opacity17 = null;
+            
+            this.opacity17 = opacity17;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            this.fx5 = null;
+            
+            this.fx5 = fx5;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            this.fy5 = null;
+            
+            this.fy5 = fy5;
+        } else {
+            this.keys23 = keys23;
+            this.cx5 = cx5;
+            this.cy5 = cy5;
+            this.mode23 = mode23;
+            this.opacity17 = opacity17;
+            this.fx5 = fx5;
+            this.fy5 = fy5;
+
+            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings5;
     private Fill rowSelectedFill;
 
     public void setRowselectedfill(Fill rowSelectedFill) {
-        this.rowSelectedFill = rowSelectedFill;
+        if (jsBase == null) {
+            this.rowSelectedFill = rowSelectedFill;
+        } else {
+            this.rowSelectedFill = rowSelectedFill;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s);", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s);", (rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color6;
     private Double opacity18;
 
     public void setRowselectedfill(String color6, Double opacity18) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        
-        this.color6 = color6;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        this.opacity17 = null;
-        this.opacity18 = null;
-        
-        this.opacity18 = opacity18;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            
+            this.color6 = color6;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            this.opacity17 = null;
+            this.opacity18 = null;
+            
+            this.opacity18 = opacity18;
+        } else {
+            this.color6 = color6;
+            this.opacity18 = opacity18;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f);", color6, opacity18));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f);", color6, opacity18));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys24;
     private String[] keys25;
     private Double angle6;
-    private Boolean mode18;
-    private VectorRect mode19;
+    private Boolean mode24;
+    private VectorRect mode25;
+    private String mode26;
 
-    public void setRowselectedfill(GradientKey[] keys24, Boolean mode18, Double angle6) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        this.keys24 = null;
-        this.keys25 = null;
-        
-        this.keys24 = keys24;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        this.mode18 = null;
-        this.mode19 = null;
-        
-        this.mode18 = mode18;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        this.angle6 = null;
-        
-        this.angle6 = angle6;
+    public void setRowselectedfill(GradientKey[] keys24, Boolean mode24, Double angle6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            
+            this.keys24 = keys24;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode24 = mode24;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
+        } else {
+            this.keys24 = keys24;
+            this.mode24 = mode24;
+            this.angle6 = angle6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %b, %f);", arrayToString(keys24), mode24, angle6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %b, %f);", arrayToString(keys24), mode24, angle6));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowselectedfill(GradientKey[] keys24, VectorRect mode19, Double angle6) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        this.keys24 = null;
-        this.keys25 = null;
-        
-        this.keys24 = keys24;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        this.mode18 = null;
-        this.mode19 = null;
-        
-        this.mode19 = mode19;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        this.angle6 = null;
-        
-        this.angle6 = angle6;
+    public void setRowselectedfill(GradientKey[] keys24, VectorRect mode25, Double angle6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            
+            this.keys24 = keys24;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode25 = mode25;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
+        } else {
+            this.keys24 = keys24;
+            this.mode25 = mode25;
+            this.angle6 = angle6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", arrayToString(keys24), (mode25 != null) ? mode25.generateJs() : "null", angle6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", arrayToString(keys24), (mode25 != null) ? mode25.generateJs() : "null", angle6));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowselectedfill(String[] keys25, Boolean mode18, Double angle6) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        this.keys24 = null;
-        this.keys25 = null;
-        
-        this.keys25 = keys25;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        this.mode18 = null;
-        this.mode19 = null;
-        
-        this.mode18 = mode18;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        this.angle6 = null;
-        
-        this.angle6 = angle6;
+    public void setRowselectedfill(GradientKey[] keys24, String mode26, Double angle6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            
+            this.keys24 = keys24;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode26 = mode26;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
+        } else {
+            this.keys24 = keys24;
+            this.mode26 = mode26;
+            this.angle6 = angle6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", arrayToString(keys24), mode26, angle6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", arrayToString(keys24), mode26, angle6));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowselectedfill(String[] keys25, VectorRect mode19, Double angle6) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        this.keys24 = null;
-        this.keys25 = null;
-        
-        this.keys25 = keys25;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        this.mode18 = null;
-        this.mode19 = null;
-        
-        this.mode19 = mode19;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        this.angle6 = null;
-        
-        this.angle6 = angle6;
+    public void setRowselectedfill(String[] keys25, Boolean mode24, Double angle6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            
+            this.keys25 = keys25;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode24 = mode24;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
+        } else {
+            this.keys25 = keys25;
+            this.mode24 = mode24;
+            this.angle6 = angle6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %b, %f);", Arrays.toString(keys25), mode24, angle6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %b, %f);", Arrays.toString(keys25), mode24, angle6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowselectedfill(String[] keys25, VectorRect mode25, Double angle6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            
+            this.keys25 = keys25;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode25 = mode25;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
+        } else {
+            this.keys25 = keys25;
+            this.mode25 = mode25;
+            this.angle6 = angle6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", Arrays.toString(keys25), (mode25 != null) ? mode25.generateJs() : "null", angle6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", Arrays.toString(keys25), (mode25 != null) ? mode25.generateJs() : "null", angle6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setRowselectedfill(String[] keys25, String mode26, Double angle6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            
+            this.keys25 = keys25;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode26 = mode26;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
+        } else {
+            this.keys25 = keys25;
+            this.mode26 = mode26;
+            this.angle6 = angle6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", Arrays.toString(keys25), mode26, angle6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %f);", Arrays.toString(keys25), mode26, angle6));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys26;
     private String[] keys27;
     private Double cx6;
     private Double cy6;
-    private GraphicsMathRect mode20;
+    private GraphicsMathRect mode27;
     private Double opacity19;
     private Double fx6;
     private Double fy6;
 
-    public void setRowselectedfill(GradientKey[] keys26, Double cx6, Double cy6, GraphicsMathRect mode20, Double opacity19, Double fx6, Double fy6) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        this.keys24 = null;
-        this.keys25 = null;
-        this.keys26 = null;
-        this.keys27 = null;
-        
-        this.keys26 = keys26;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        this.cx5 = null;
-        this.cx6 = null;
-        
-        this.cx6 = cx6;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        this.cy5 = null;
-        this.cy6 = null;
-        
-        this.cy6 = cy6;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        this.mode18 = null;
-        this.mode19 = null;
-        this.mode20 = null;
-        
-        this.mode20 = mode20;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        this.opacity17 = null;
-        this.opacity18 = null;
-        this.opacity19 = null;
-        
-        this.opacity19 = opacity19;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        this.fx5 = null;
-        this.fx6 = null;
-        
-        this.fx6 = fx6;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        this.fy5 = null;
-        this.fy6 = null;
-        
-        this.fy6 = fy6;
+    public void setRowselectedfill(GradientKey[] keys26, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            this.keys26 = null;
+            this.keys27 = null;
+            
+            this.keys26 = keys26;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            this.cx5 = null;
+            this.cx6 = null;
+            
+            this.cx6 = cx6;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            this.cy5 = null;
+            this.cy6 = null;
+            
+            this.cy6 = cy6;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            
+            this.mode27 = mode27;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            this.opacity17 = null;
+            this.opacity18 = null;
+            this.opacity19 = null;
+            
+            this.opacity19 = opacity19;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            this.fx5 = null;
+            this.fx6 = null;
+            
+            this.fx6 = fx6;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            this.fy5 = null;
+            this.fy6 = null;
+            
+            this.fy6 = fy6;
+        } else {
+            this.keys26 = keys26;
+            this.cx6 = cx6;
+            this.cy6 = cy6;
+            this.mode27 = mode27;
+            this.opacity19 = opacity19;
+            this.fx6 = fx6;
+            this.fy6 = fy6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys26), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity19, fx6, fy6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys26), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity19, fx6, fy6));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setRowselectedfill(String[] keys27, Double cx6, Double cy6, GraphicsMathRect mode20, Double opacity19, Double fx6, Double fy6) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        this.keys24 = null;
-        this.keys25 = null;
-        this.keys26 = null;
-        this.keys27 = null;
-        
-        this.keys27 = keys27;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        this.cx5 = null;
-        this.cx6 = null;
-        
-        this.cx6 = cx6;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        this.cy5 = null;
-        this.cy6 = null;
-        
-        this.cy6 = cy6;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        this.mode18 = null;
-        this.mode19 = null;
-        this.mode20 = null;
-        
-        this.mode20 = mode20;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        this.opacity17 = null;
-        this.opacity18 = null;
-        this.opacity19 = null;
-        
-        this.opacity19 = opacity19;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        this.fx5 = null;
-        this.fx6 = null;
-        
-        this.fx6 = fx6;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        this.fy5 = null;
-        this.fy6 = null;
-        
-        this.fy6 = fy6;
+    public void setRowselectedfill(String[] keys27, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            this.keys24 = null;
+            this.keys25 = null;
+            this.keys26 = null;
+            this.keys27 = null;
+            
+            this.keys27 = keys27;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            this.cx5 = null;
+            this.cx6 = null;
+            
+            this.cx6 = cx6;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            this.cy5 = null;
+            this.cy6 = null;
+            
+            this.cy6 = cy6;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            
+            this.mode27 = mode27;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            this.opacity17 = null;
+            this.opacity18 = null;
+            this.opacity19 = null;
+            
+            this.opacity19 = opacity19;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            this.fx5 = null;
+            this.fx6 = null;
+            
+            this.fx6 = fx6;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            this.fy5 = null;
+            this.fy6 = null;
+            
+            this.fy6 = fy6;
+        } else {
+            this.keys27 = keys27;
+            this.cx6 = cx6;
+            this.cy6 = cy6;
+            this.mode27 = mode27;
+            this.opacity19 = opacity19;
+            this.fx6 = fx6;
+            this.fy6 = fy6;
+
+            js.append(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys27), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity19, fx6, fy6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys27), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity19, fx6, fy6));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings6;
     private Double startIndex;
 
     public void setStartindex(Double startIndex) {
-        this.startIndex = startIndex;
+        if (jsBase == null) {
+            this.startIndex = startIndex;
+        } else {
+            this.startIndex = startIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".startIndex(%f);", startIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startIndex(%f);", startIndex));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean tooltip;
+    private Tooltip gettooltip;
 
-    public void setTooltip(Boolean tooltip) {
-        this.tooltip = tooltip;
+    public Tooltip getTooltip() {
+        if (gettooltip == null)
+            gettooltip = new Tooltip(jsBase + ".tooltip()");
+
+        return gettooltip;
+    }
+
+    private String tooltip;
+    private Boolean tooltip1;
+
+    public void setTooltip(String tooltip) {
+        if (jsBase == null) {
+            this.tooltip = null;
+            this.tooltip1 = null;
+            
+            this.tooltip = tooltip;
+        } else {
+            this.tooltip = tooltip;
+
+            js.append(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltip));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltip));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setTooltip(Boolean tooltip1) {
+        if (jsBase == null) {
+            this.tooltip = null;
+            this.tooltip1 = null;
+            
+            this.tooltip1 = tooltip1;
+        } else {
+            this.tooltip1 = tooltip1;
+
+            js.append(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double top;
     private String top1;
 
     public void setTop(Double top) {
-        this.top = null;
-        this.top1 = null;
-        
-        this.top = top;
+        if (jsBase == null) {
+            this.top = null;
+            this.top1 = null;
+            
+            this.top = top;
+        } else {
+            this.top = top;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTop(String top1) {
-        this.top = null;
-        this.top1 = null;
-        
-        this.top1 = top1;
+        if (jsBase == null) {
+            this.top = null;
+            this.top1 = null;
+            
+            this.top1 = top1;
+        } else {
+            this.top1 = top1;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key;
+
+    public void setUnlistenbykey(String key) {
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double verticalOffset;
 
     public void setVerticaloffset(Double verticalOffset) {
-        this.verticalOffset = verticalOffset;
+        if (jsBase == null) {
+            this.verticalOffset = verticalOffset;
+        } else {
+            this.verticalOffset = verticalOffset;
+
+            js.append(String.format(Locale.US, jsBase + ".verticalOffset(%f);", verticalOffset));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalOffset(%f);", verticalOffset));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double width2;
     private String width3;
 
     public void setWidth(Double width2) {
-        this.width = null;
-        this.width1 = null;
-        this.width2 = null;
-        this.width3 = null;
-        
-        this.width2 = width2;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            this.width2 = null;
+            this.width3 = null;
+            
+            this.width2 = width2;
+        } else {
+            this.width2 = width2;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%f);", width2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setWidth(String width3) {
-        this.width = null;
-        this.width1 = null;
-        this.width2 = null;
-        this.width3 = null;
-        
-        this.width3 = width3;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            this.width2 = null;
+            this.width3 = null;
+            
+            this.width3 = width3;
+        } else {
+            this.width3 = width3;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%s);", width3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
+        if (jsBase == null) {
+            this.zIndex = zIndex;
+        } else {
+            this.zIndex = zIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetbounds() {
+        if (getbounds != null) {
+            return getbounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetdata() {
+        if (getdata != null) {
+            return getdata.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethorizontalScrollBar() {
+        if (gethorizontalScrollBar != null) {
+            return gethorizontalScrollBar.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgettooltip() {
+        if (gettooltip != null) {
+            return gettooltip.generateJs();
+        }
+        return "";
     }
 
     private String generateJSbackgroundFill() {
@@ -3487,6 +6287,13 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
+    private String generateJSmode2() {
+        if (mode2 != null) {
+            return String.format(Locale.US, "mode: %s,", mode2);
+        }
+        return "";
+    }
+
     private String generateJSopacity1() {
         if (opacity1 != null) {
             return String.format(Locale.US, "opacity: %f,", opacity1);
@@ -3522,9 +6329,9 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode2 != null) ? mode2.generateJs() : "null");
+    private String generateJSmode3() {
+        if (mode3 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
         }
         return "";
     }
@@ -3753,16 +6560,23 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %b,", mode3);
+    private String generateJSmode4() {
+        if (mode4 != null) {
+            return String.format(Locale.US, "mode: %b,", mode4);
         }
         return "";
     }
 
-    private String generateJSmode4() {
-        if (mode4 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode4 != null) ? mode4.generateJs() : "null");
+    private String generateJSmode5() {
+        if (mode5 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode6() {
+        if (mode6 != null) {
+            return String.format(Locale.US, "mode: %s,", mode6);
         }
         return "";
     }
@@ -3802,9 +6616,9 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode5() {
-        if (mode5 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
+    private String generateJSmode7() {
+        if (mode7 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
         }
         return "";
     }
@@ -3893,6 +6707,13 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
+    private String generateJShorizontalScrollBar() {
+        if (horizontalScrollBar != null) {
+            return String.format(Locale.US, "horizontalScrollBar: %s,", horizontalScrollBar);
+        }
+        return "";
+    }
+
     private String generateJSleft() {
         if (left != null) {
             return String.format(Locale.US, "left: %f,", left);
@@ -3921,6 +6742,13 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJStype1() {
         if (type1 != null) {
             return String.format(Locale.US, "type: %s,", type1);
@@ -3931,6 +6759,13 @@ public class UiDataGrid extends JsObject {
     private String generateJSuseCapture1() {
         if (useCapture1 != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture1);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -3994,6 +6829,13 @@ public class UiDataGrid extends JsObject {
     private String generateJSpaperSizeOrOptions() {
         if (paperSizeOrOptions != null) {
             return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSpaperSizeOrOptions1() {
+        if (paperSizeOrOptions1 != null) {
+            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
         }
         return "";
     }
@@ -4068,16 +6910,23 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode6() {
-        if (mode6 != null) {
-            return String.format(Locale.US, "mode: %b,", mode6);
+    private String generateJSmode8() {
+        if (mode8 != null) {
+            return String.format(Locale.US, "mode: %b,", mode8);
         }
         return "";
     }
 
-    private String generateJSmode7() {
-        if (mode7 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
+    private String generateJSmode9() {
+        if (mode9 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode9 != null) ? mode9.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode10() {
+        if (mode10 != null) {
+            return String.format(Locale.US, "mode: %s,", mode10);
         }
         return "";
     }
@@ -4117,9 +6966,9 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode8() {
-        if (mode8 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode8 != null) ? mode8.generateJs() : "null");
+    private String generateJSmode11() {
+        if (mode11 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode11 != null) ? mode11.generateJs() : "null");
         }
         return "";
     }
@@ -4194,16 +7043,23 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode9() {
-        if (mode9 != null) {
-            return String.format(Locale.US, "mode: %b,", mode9);
+    private String generateJSmode12() {
+        if (mode12 != null) {
+            return String.format(Locale.US, "mode: %b,", mode12);
         }
         return "";
     }
 
-    private String generateJSmode10() {
-        if (mode10 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode10 != null) ? mode10.generateJs() : "null");
+    private String generateJSmode13() {
+        if (mode13 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode13 != null) ? mode13.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode14() {
+        if (mode14 != null) {
+            return String.format(Locale.US, "mode: %s,", mode14);
         }
         return "";
     }
@@ -4243,9 +7099,9 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode11() {
-        if (mode11 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode11 != null) ? mode11.generateJs() : "null");
+    private String generateJSmode15() {
+        if (mode15 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode15 != null) ? mode15.generateJs() : "null");
         }
         return "";
     }
@@ -4320,16 +7176,23 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode12() {
-        if (mode12 != null) {
-            return String.format(Locale.US, "mode: %b,", mode12);
+    private String generateJSmode16() {
+        if (mode16 != null) {
+            return String.format(Locale.US, "mode: %b,", mode16);
         }
         return "";
     }
 
-    private String generateJSmode13() {
-        if (mode13 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode13 != null) ? mode13.generateJs() : "null");
+    private String generateJSmode17() {
+        if (mode17 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode17 != null) ? mode17.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode18() {
+        if (mode18 != null) {
+            return String.format(Locale.US, "mode: %s,", mode18);
         }
         return "";
     }
@@ -4369,9 +7232,9 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode14() {
-        if (mode14 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode14 != null) ? mode14.generateJs() : "null");
+    private String generateJSmode19() {
+        if (mode19 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode19 != null) ? mode19.generateJs() : "null");
         }
         return "";
     }
@@ -4446,16 +7309,23 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode15() {
-        if (mode15 != null) {
-            return String.format(Locale.US, "mode: %b,", mode15);
+    private String generateJSmode20() {
+        if (mode20 != null) {
+            return String.format(Locale.US, "mode: %b,", mode20);
         }
         return "";
     }
 
-    private String generateJSmode16() {
-        if (mode16 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode16 != null) ? mode16.generateJs() : "null");
+    private String generateJSmode21() {
+        if (mode21 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode21 != null) ? mode21.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode22() {
+        if (mode22 != null) {
+            return String.format(Locale.US, "mode: %s,", mode22);
         }
         return "";
     }
@@ -4495,9 +7365,9 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode17() {
-        if (mode17 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode17 != null) ? mode17.generateJs() : "null");
+    private String generateJSmode23() {
+        if (mode23 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode23 != null) ? mode23.generateJs() : "null");
         }
         return "";
     }
@@ -4572,16 +7442,23 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode18() {
-        if (mode18 != null) {
-            return String.format(Locale.US, "mode: %b,", mode18);
+    private String generateJSmode24() {
+        if (mode24 != null) {
+            return String.format(Locale.US, "mode: %b,", mode24);
         }
         return "";
     }
 
-    private String generateJSmode19() {
-        if (mode19 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode19 != null) ? mode19.generateJs() : "null");
+    private String generateJSmode25() {
+        if (mode25 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode25 != null) ? mode25.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode26() {
+        if (mode26 != null) {
+            return String.format(Locale.US, "mode: %s,", mode26);
         }
         return "";
     }
@@ -4614,9 +7491,9 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
-    private String generateJSmode20() {
-        if (mode20 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode20 != null) ? mode20.generateJs() : "null");
+    private String generateJSmode27() {
+        if (mode27 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode27 != null) ? mode27.generateJs() : "null");
         }
         return "";
     }
@@ -4658,7 +7535,14 @@ public class UiDataGrid extends JsObject {
 
     private String generateJStooltip() {
         if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip);
+            return String.format(Locale.US, "tooltip: %s,", tooltip);
+        }
+        return "";
+    }
+
+    private String generateJStooltip1() {
+        if (tooltip1 != null) {
+            return String.format(Locale.US, "tooltip: %b,", tooltip1);
         }
         return "";
     }
@@ -4687,6 +7571,20 @@ public class UiDataGrid extends JsObject {
     private String generateJSuseCapture2() {
         if (useCapture2 != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture2);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey() {
+        if (key != null) {
+            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
@@ -4722,193 +7620,212 @@ public class UiDataGrid extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSbackgroundFill());
-        js.append(generateJScolor());
-        js.append(generateJSopacity());
-        js.append(generateJSkeys());
-        js.append(generateJSkeys1());
-        js.append(generateJSangle());
-        js.append(generateJSmode());
-        js.append(generateJSmode1());
-        js.append(generateJSopacity1());
-        js.append(generateJSkeys2());
-        js.append(generateJSkeys3());
-        js.append(generateJScx());
-        js.append(generateJScy());
-        js.append(generateJSmode2());
-        js.append(generateJSopacity2());
-        js.append(generateJSfx());
-        js.append(generateJSfy());
-        js.append(generateJSimageSettings());
-        js.append(generateJSbottom());
-        js.append(generateJSbottom1());
-        js.append(generateJSbounds());
-        js.append(generateJSbounds1());
-        js.append(generateJSbounds2());
-        js.append(generateJSx());
-        js.append(generateJSx1());
-        js.append(generateJSy());
-        js.append(generateJSy1());
-        js.append(generateJSwidth());
-        js.append(generateJSwidth1());
-        js.append(generateJSheight());
-        js.append(generateJSheight1());
-        js.append(generateJSindex());
-        js.append(generateJScolumn());
-        js.append(generateJSindex1());
-        js.append(generateJScolumn1());
-        js.append(generateJScolumnStroke());
-        js.append(generateJScolumnStroke1());
-        js.append(generateJSdata());
-        js.append(generateJSeditStructurePreviewDashStroke());
-        js.append(generateJSeditStructurePreviewDashStroke1());
-        js.append(generateJSeditStructurePreviewFill());
-        js.append(generateJScolor1());
-        js.append(generateJSopacity3());
-        js.append(generateJSkeys4());
-        js.append(generateJSkeys5());
-        js.append(generateJSangle1());
-        js.append(generateJSmode3());
-        js.append(generateJSmode4());
-        js.append(generateJSopacity4());
-        js.append(generateJSkeys6());
-        js.append(generateJSkeys7());
-        js.append(generateJScx1());
-        js.append(generateJScy1());
-        js.append(generateJSmode5());
-        js.append(generateJSopacity5());
-        js.append(generateJSfx1());
-        js.append(generateJSfy1());
-        js.append(generateJSimageSettings1());
-        js.append(generateJSeditStructurePreviewStroke());
-        js.append(generateJSeditStructurePreviewStroke1());
-        js.append(generateJSediting());
-        js.append(generateJSenabled());
-        js.append(generateJSendIndex());
-        js.append(generateJSheight2());
-        js.append(generateJSheight3());
-        js.append(generateJShorizontalOffset());
-        js.append(generateJSleft());
-        js.append(generateJSleft1());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSmaxHeight());
-        js.append(generateJSmaxHeight1());
-        js.append(generateJSmaxWidth());
-        js.append(generateJSmaxWidth1());
-        js.append(generateJSminHeight());
-        js.append(generateJSminHeight1());
-        js.append(generateJSminWidth());
-        js.append(generateJSminWidth1());
-        js.append(generateJSpaperSizeOrOptions());
-        js.append(generateJSlandscape());
-        js.append(generateJStype2());
-        js.append(generateJSright());
-        js.append(generateJSright1());
-        js.append(generateJSrowEvenFill());
-        js.append(generateJScolor2());
-        js.append(generateJSopacity6());
-        js.append(generateJSkeys8());
-        js.append(generateJSkeys9());
-        js.append(generateJSangle2());
-        js.append(generateJSmode6());
-        js.append(generateJSmode7());
-        js.append(generateJSopacity7());
-        js.append(generateJSkeys10());
-        js.append(generateJSkeys11());
-        js.append(generateJScx2());
-        js.append(generateJScy2());
-        js.append(generateJSmode8());
-        js.append(generateJSopacity8());
-        js.append(generateJSfx2());
-        js.append(generateJSfy2());
-        js.append(generateJSimageSettings2());
-        js.append(generateJSrowFill());
-        js.append(generateJScolor3());
-        js.append(generateJSopacity9());
-        js.append(generateJSkeys12());
-        js.append(generateJSkeys13());
-        js.append(generateJSangle3());
-        js.append(generateJSmode9());
-        js.append(generateJSmode10());
-        js.append(generateJSopacity10());
-        js.append(generateJSkeys14());
-        js.append(generateJSkeys15());
-        js.append(generateJScx3());
-        js.append(generateJScy3());
-        js.append(generateJSmode11());
-        js.append(generateJSopacity11());
-        js.append(generateJSfx3());
-        js.append(generateJSfy3());
-        js.append(generateJSimageSettings3());
-        js.append(generateJSrowHoverFill());
-        js.append(generateJScolor4());
-        js.append(generateJSopacity12());
-        js.append(generateJSkeys16());
-        js.append(generateJSkeys17());
-        js.append(generateJSangle4());
-        js.append(generateJSmode12());
-        js.append(generateJSmode13());
-        js.append(generateJSopacity13());
-        js.append(generateJSkeys18());
-        js.append(generateJSkeys19());
-        js.append(generateJScx4());
-        js.append(generateJScy4());
-        js.append(generateJSmode14());
-        js.append(generateJSopacity14());
-        js.append(generateJSfx4());
-        js.append(generateJSfy4());
-        js.append(generateJSimageSettings4());
-        js.append(generateJSrowOddFill());
-        js.append(generateJScolor5());
-        js.append(generateJSopacity15());
-        js.append(generateJSkeys20());
-        js.append(generateJSkeys21());
-        js.append(generateJSangle5());
-        js.append(generateJSmode15());
-        js.append(generateJSmode16());
-        js.append(generateJSopacity16());
-        js.append(generateJSkeys22());
-        js.append(generateJSkeys23());
-        js.append(generateJScx5());
-        js.append(generateJScy5());
-        js.append(generateJSmode17());
-        js.append(generateJSopacity17());
-        js.append(generateJSfx5());
-        js.append(generateJSfy5());
-        js.append(generateJSimageSettings5());
-        js.append(generateJSrowSelectedFill());
-        js.append(generateJScolor6());
-        js.append(generateJSopacity18());
-        js.append(generateJSkeys24());
-        js.append(generateJSkeys25());
-        js.append(generateJSangle6());
-        js.append(generateJSmode18());
-        js.append(generateJSmode19());
-        js.append(generateJSkeys26());
-        js.append(generateJSkeys27());
-        js.append(generateJScx6());
-        js.append(generateJScy6());
-        js.append(generateJSmode20());
-        js.append(generateJSopacity19());
-        js.append(generateJSfx6());
-        js.append(generateJSfy6());
-        js.append(generateJSimageSettings6());
-        js.append(generateJSstartIndex());
-        js.append(generateJStooltip());
-        js.append(generateJStop());
-        js.append(generateJStop1());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSverticalOffset());
-        js.append(generateJSwidth2());
-        js.append(generateJSwidth3());
-        js.append(generateJSzIndex());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSbackgroundFill());
+            js.append(generateJScolor());
+            js.append(generateJSopacity());
+            js.append(generateJSkeys());
+            js.append(generateJSkeys1());
+            js.append(generateJSangle());
+            js.append(generateJSmode());
+            js.append(generateJSmode1());
+            js.append(generateJSmode2());
+            js.append(generateJSopacity1());
+            js.append(generateJSkeys2());
+            js.append(generateJSkeys3());
+            js.append(generateJScx());
+            js.append(generateJScy());
+            js.append(generateJSmode3());
+            js.append(generateJSopacity2());
+            js.append(generateJSfx());
+            js.append(generateJSfy());
+            js.append(generateJSimageSettings());
+            js.append(generateJSbottom());
+            js.append(generateJSbottom1());
+            js.append(generateJSbounds());
+            js.append(generateJSbounds1());
+            js.append(generateJSbounds2());
+            js.append(generateJSx());
+            js.append(generateJSx1());
+            js.append(generateJSy());
+            js.append(generateJSy1());
+            js.append(generateJSwidth());
+            js.append(generateJSwidth1());
+            js.append(generateJSheight());
+            js.append(generateJSheight1());
+            js.append(generateJSindex());
+            js.append(generateJScolumn());
+            js.append(generateJSindex1());
+            js.append(generateJScolumn1());
+            js.append(generateJScolumnStroke());
+            js.append(generateJScolumnStroke1());
+            js.append(generateJSdata());
+            js.append(generateJSeditStructurePreviewDashStroke());
+            js.append(generateJSeditStructurePreviewDashStroke1());
+            js.append(generateJSeditStructurePreviewFill());
+            js.append(generateJScolor1());
+            js.append(generateJSopacity3());
+            js.append(generateJSkeys4());
+            js.append(generateJSkeys5());
+            js.append(generateJSangle1());
+            js.append(generateJSmode4());
+            js.append(generateJSmode5());
+            js.append(generateJSmode6());
+            js.append(generateJSopacity4());
+            js.append(generateJSkeys6());
+            js.append(generateJSkeys7());
+            js.append(generateJScx1());
+            js.append(generateJScy1());
+            js.append(generateJSmode7());
+            js.append(generateJSopacity5());
+            js.append(generateJSfx1());
+            js.append(generateJSfy1());
+            js.append(generateJSimageSettings1());
+            js.append(generateJSeditStructurePreviewStroke());
+            js.append(generateJSeditStructurePreviewStroke1());
+            js.append(generateJSediting());
+            js.append(generateJSenabled());
+            js.append(generateJSendIndex());
+            js.append(generateJSheight2());
+            js.append(generateJSheight3());
+            js.append(generateJShorizontalOffset());
+            js.append(generateJShorizontalScrollBar());
+            js.append(generateJSleft());
+            js.append(generateJSleft1());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSmaxHeight());
+            js.append(generateJSmaxHeight1());
+            js.append(generateJSmaxWidth());
+            js.append(generateJSmaxWidth1());
+            js.append(generateJSminHeight());
+            js.append(generateJSminHeight1());
+            js.append(generateJSminWidth());
+            js.append(generateJSminWidth1());
+            js.append(generateJSpaperSizeOrOptions());
+            js.append(generateJSpaperSizeOrOptions1());
+            js.append(generateJSlandscape());
+            js.append(generateJStype2());
+            js.append(generateJSright());
+            js.append(generateJSright1());
+            js.append(generateJSrowEvenFill());
+            js.append(generateJScolor2());
+            js.append(generateJSopacity6());
+            js.append(generateJSkeys8());
+            js.append(generateJSkeys9());
+            js.append(generateJSangle2());
+            js.append(generateJSmode8());
+            js.append(generateJSmode9());
+            js.append(generateJSmode10());
+            js.append(generateJSopacity7());
+            js.append(generateJSkeys10());
+            js.append(generateJSkeys11());
+            js.append(generateJScx2());
+            js.append(generateJScy2());
+            js.append(generateJSmode11());
+            js.append(generateJSopacity8());
+            js.append(generateJSfx2());
+            js.append(generateJSfy2());
+            js.append(generateJSimageSettings2());
+            js.append(generateJSrowFill());
+            js.append(generateJScolor3());
+            js.append(generateJSopacity9());
+            js.append(generateJSkeys12());
+            js.append(generateJSkeys13());
+            js.append(generateJSangle3());
+            js.append(generateJSmode12());
+            js.append(generateJSmode13());
+            js.append(generateJSmode14());
+            js.append(generateJSopacity10());
+            js.append(generateJSkeys14());
+            js.append(generateJSkeys15());
+            js.append(generateJScx3());
+            js.append(generateJScy3());
+            js.append(generateJSmode15());
+            js.append(generateJSopacity11());
+            js.append(generateJSfx3());
+            js.append(generateJSfy3());
+            js.append(generateJSimageSettings3());
+            js.append(generateJSrowHoverFill());
+            js.append(generateJScolor4());
+            js.append(generateJSopacity12());
+            js.append(generateJSkeys16());
+            js.append(generateJSkeys17());
+            js.append(generateJSangle4());
+            js.append(generateJSmode16());
+            js.append(generateJSmode17());
+            js.append(generateJSmode18());
+            js.append(generateJSopacity13());
+            js.append(generateJSkeys18());
+            js.append(generateJSkeys19());
+            js.append(generateJScx4());
+            js.append(generateJScy4());
+            js.append(generateJSmode19());
+            js.append(generateJSopacity14());
+            js.append(generateJSfx4());
+            js.append(generateJSfy4());
+            js.append(generateJSimageSettings4());
+            js.append(generateJSrowOddFill());
+            js.append(generateJScolor5());
+            js.append(generateJSopacity15());
+            js.append(generateJSkeys20());
+            js.append(generateJSkeys21());
+            js.append(generateJSangle5());
+            js.append(generateJSmode20());
+            js.append(generateJSmode21());
+            js.append(generateJSmode22());
+            js.append(generateJSopacity16());
+            js.append(generateJSkeys22());
+            js.append(generateJSkeys23());
+            js.append(generateJScx5());
+            js.append(generateJScy5());
+            js.append(generateJSmode23());
+            js.append(generateJSopacity17());
+            js.append(generateJSfx5());
+            js.append(generateJSfy5());
+            js.append(generateJSimageSettings5());
+            js.append(generateJSrowSelectedFill());
+            js.append(generateJScolor6());
+            js.append(generateJSopacity18());
+            js.append(generateJSkeys24());
+            js.append(generateJSkeys25());
+            js.append(generateJSangle6());
+            js.append(generateJSmode24());
+            js.append(generateJSmode25());
+            js.append(generateJSmode26());
+            js.append(generateJSkeys26());
+            js.append(generateJSkeys27());
+            js.append(generateJScx6());
+            js.append(generateJScy6());
+            js.append(generateJSmode27());
+            js.append(generateJSopacity19());
+            js.append(generateJSfx6());
+            js.append(generateJSfy6());
+            js.append(generateJSimageSettings6());
+            js.append(generateJSstartIndex());
+            js.append(generateJStooltip());
+            js.append(generateJStooltip1());
+            js.append(generateJStop());
+            js.append(generateJStop1());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey());
+            js.append(generateJSverticalOffset());
+            js.append(generateJSwidth2());
+            js.append(generateJSwidth3());
+            js.append(generateJSzIndex());
+            js.append("}");
+        }
+            js.append(generateJSgetbounds());
+            js.append(generateJSgetdata());
+            js.append(generateJSgethorizontalScrollBar());
+            js.append(generateJSgettooltip());
 
         String result = js.toString();
         js.setLength(0);

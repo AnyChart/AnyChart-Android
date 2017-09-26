@@ -3,24 +3,75 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class TableComputer extends JsObject {
+
+    private String jsBase;
+
+    public TableComputer() {
+
+    }
+
+    protected TableComputer(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private String name;
     private String uid;
 
     public void setAddoutputfield(String name, String uid) {
-        this.name = name;
-        this.uid = uid;
+        if (jsBase == null) {
+            this.name = name;
+            this.uid = uid;
+        } else {
+            this.name = name;
+            this.uid = uid;
+
+            js.append(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", name, uid));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", name, uid));
+                js.setLength(0);
+            }
+        }
     }
 
     private String name1;
 
     public void setGetfieldindex(String name1) {
-        this.name = null;
-        this.name1 = null;
-        
-        this.name1 = name1;
+        if (jsBase == null) {
+            this.name = null;
+            this.name1 = null;
+            
+            this.name1 = name1;
+        } else {
+            this.name1 = name1;
+
+            js.append(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", name1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", name1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String setContext;
+
+    public void setSetcontext(String setContext) {
+        if (jsBase == null) {
+            this.setContext = setContext;
+        } else {
+            this.setContext = setContext;
+
+            js.append(String.format(Locale.US, jsBase + ".setContext(%s);", setContext));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s);", setContext));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSname() {
@@ -44,15 +95,24 @@ public class TableComputer extends JsObject {
         return "";
     }
 
+    private String generateJSsetContext() {
+        if (setContext != null) {
+            return String.format(Locale.US, "setContext: %s,", setContext);
+        }
+        return "";
+    }
+
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSname());
-        js.append(generateJSuid());
-        js.append(generateJSname1());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSname());
+            js.append(generateJSuid());
+            js.append(generateJSname1());
+            js.append(generateJSsetContext());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

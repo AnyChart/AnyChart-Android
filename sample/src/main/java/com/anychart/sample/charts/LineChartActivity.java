@@ -22,6 +22,8 @@ public class LineChartActivity extends AppCompatActivity {
         cartesian.setLabels(true);
         cartesian.setXaxis(true);
         cartesian.setYaxis(true);
+        cartesian.getCrosshair().setEnabled(true);
+        cartesian.getCrosshair().setYlabel(false);
 
         anyChartView.setChart(cartesian);
     }

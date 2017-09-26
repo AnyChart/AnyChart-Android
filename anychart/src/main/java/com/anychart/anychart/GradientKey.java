@@ -19,7 +19,6 @@ public class GradientKey extends JsObject  {
         js.append(String.format(Locale.US, "{color: %s,offset: %f,opacity: %f}",  color, offset, opacity));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

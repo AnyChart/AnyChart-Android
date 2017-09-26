@@ -37,7 +37,6 @@ public class Availability extends JsObject  {
         js.append(String.format(Locale.US, "{each: %s,ends: %f,ends: %s,from: %f,from: %s,isWorking: %b,on: %f,on: %s,starts: %f,starts: %s,to: %f,to: %s}",  (each != null) ? each.generateJs() : "null", ends, ends1, from, from1, isWorking, on, on1, starts, starts1, to, to1));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

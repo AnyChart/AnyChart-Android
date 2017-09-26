@@ -28,12 +28,14 @@ public class PieChartActivity extends AppCompatActivity {
         pie.setAnimation(true, 2000d);
         pie.setStartangle(30d);
 
+        pie.getLabels().setPosition("'outside'");
+
         SolidFill[] a = {
-                new SolidFill("'#F44336'", 1d),
-                new SolidFill("'#F4A742'", 1d),
-                new SolidFill("'#795548'", 1d),
-                new SolidFill("'#4CAF50'", 1d),
-                new SolidFill("'#504CAF'", 0.4d)};
+                new SolidFill("'#789'", 1d),
+                new SolidFill("'#456'", 1d),
+                new SolidFill("'#987'", 1d),
+                new SolidFill("'#321'", 1d),
+                new SolidFill("'#123'", 0.4d)};
         DistinctColors distinctColors = new DistinctColors();
         distinctColors.setItems(a, null);
         pie.setPalette(distinctColors);

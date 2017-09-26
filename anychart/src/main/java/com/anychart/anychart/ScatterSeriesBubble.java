@@ -3,25 +3,67 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class ScatterSeriesBubble extends JsObject {
+
+    private String jsBase;
+
+    public ScatterSeriesBubble() {
+
+    }
+
+    protected ScatterSeriesBubble(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Double bottom;
     private String bottom1;
 
     public void setBottom(Double bottom) {
-        this.bottom = null;
-        this.bottom1 = null;
-        
-        this.bottom = bottom;
+        if (jsBase == null) {
+            this.bottom = null;
+            this.bottom1 = null;
+            
+            this.bottom = bottom;
+        } else {
+            this.bottom = bottom;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottom(String bottom1) {
-        this.bottom = null;
-        this.bottom1 = null;
-        
-        this.bottom1 = bottom1;
+        if (jsBase == null) {
+            this.bottom = null;
+            this.bottom1 = null;
+            
+            this.bottom1 = bottom1;
+        } else {
+            this.bottom1 = bottom1;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private Bounds getbounds;
+
+    public Bounds getBounds() {
+        if (getbounds == null)
+            getbounds = new Bounds(jsBase + ".bounds()");
+
+        return getbounds;
     }
 
     private RectObj bounds;
@@ -29,29 +71,62 @@ public class ScatterSeriesBubble extends JsObject {
     private Bounds bounds2;
 
     public void setBounds(RectObj bounds) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds = bounds;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds = bounds;
+        } else {
+            this.bounds = bounds;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(AnychartMathRect bounds1) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds1 = bounds1;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds1 = bounds1;
+        } else {
+            this.bounds1 = bounds1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Bounds bounds2) {
-        this.bounds = null;
-        this.bounds1 = null;
-        this.bounds2 = null;
-        
-        this.bounds2 = bounds2;
+        if (jsBase == null) {
+            this.bounds = null;
+            this.bounds1 = null;
+            this.bounds2 = null;
+            
+            this.bounds2 = bounds2;
+        } else {
+            this.bounds2 = bounds2;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double x;
@@ -64,346 +139,612 @@ public class ScatterSeriesBubble extends JsObject {
     private String height1;
 
     public void setBounds(Double x, Double y, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, Double y, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y = y;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(Double x, String y1, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x = x;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x = x;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x = x;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, Double y, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y = y;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y = y;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y = y;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, Double width, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width = width;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, Double width, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width = width;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width = width;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, String width1, Double height) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height = height;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height = height;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBounds(String x1, String y1, String width1, String height1) {
-        this.x = null;
-        this.x1 = null;
-        
-        this.x1 = x1;
-        this.y = null;
-        this.y1 = null;
-        
-        this.y1 = y1;
-        this.width = null;
-        this.width1 = null;
-        
-        this.width1 = width1;
-        this.height = null;
-        this.height1 = null;
-        
-        this.height1 = height1;
+        if (jsBase == null) {
+            this.x = null;
+            this.x1 = null;
+            
+            this.x1 = x1;
+            this.y = null;
+            this.y1 = null;
+            
+            this.y1 = y1;
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.width1 = width1;
+            this.height1 = height1;
+
+            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean clip;
     private AnychartMathRect clip1;
 
     public void setClip(Boolean clip) {
-        this.clip = null;
-        this.clip1 = null;
-        
-        this.clip = clip;
+        if (jsBase == null) {
+            this.clip = null;
+            this.clip1 = null;
+            
+            this.clip = clip;
+        } else {
+            this.clip = clip;
+
+            js.append(String.format(Locale.US, jsBase + ".clip(%b);", clip));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%b);", clip));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setClip(AnychartMathRect clip1) {
-        this.clip = null;
-        this.clip1 = null;
-        
-        this.clip1 = clip1;
+        if (jsBase == null) {
+            this.clip = null;
+            this.clip1 = null;
+            
+            this.clip1 = clip1;
+        } else {
+            this.clip1 = clip1;
+
+            js.append(String.format(Locale.US, jsBase + ".clip(%s);", (clip1 != null) ? clip1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%s);", (clip1 != null) ? clip1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color;
 
     public void setColor(String color) {
-        this.color = color;
+        if (jsBase == null) {
+            this.color = color;
+        } else {
+            this.color = color;
+
+            js.append(String.format(Locale.US, jsBase + ".color(%s);", color));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".color(%s);", color));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private View getdata;
+
+    public View getData() {
+        if (getdata == null)
+            getdata = new View(jsBase + ".data()");
+
+        return getdata;
     }
 
     private View data;
@@ -414,161 +755,324 @@ public class ScatterSeriesBubble extends JsObject {
     private TextParsingSettings csvSettings1;
 
     public void setData(View data, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data = data;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data = data;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data = data;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(View data, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data = data;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data = data;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data = data;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(Set data1, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data1 = data1;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data1 = data1;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data1 = data1;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data1 = data1;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data1 = data1;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data1 = data1;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String[] data2, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data2 = data2;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data2 = data2;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data2 = data2;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String[] data2, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data2 = data2;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data2 = data2;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data2 = data2;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String data3, TextParsingMode csvSettings) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data3 = data3;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings = csvSettings;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data3 = data3;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings = csvSettings;
+        } else {
+            this.data3 = data3;
+            this.csvSettings = csvSettings;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setData(String data3, TextParsingSettings csvSettings1) {
-        this.data = null;
-        this.data1 = null;
-        this.data2 = null;
-        this.data3 = null;
-        
-        this.data3 = data3;
-        this.csvSettings = null;
-        this.csvSettings1 = null;
-        
-        this.csvSettings1 = csvSettings1;
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            this.data2 = null;
+            this.data3 = null;
+            
+            this.data3 = data3;
+            this.csvSettings = null;
+            this.csvSettings1 = null;
+            
+            this.csvSettings1 = csvSettings1;
+        } else {
+            this.data3 = data3;
+            this.csvSettings1 = csvSettings1;
+
+            js.append(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean displayNegative;
 
     public void setDisplaynegative(Boolean displayNegative) {
-        this.displayNegative = displayNegative;
+        if (jsBase == null) {
+            this.displayNegative = displayNegative;
+        } else {
+            this.displayNegative = displayNegative;
+
+            js.append(String.format(Locale.US, jsBase + ".displayNegative(%b);", displayNegative));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".displayNegative(%b);", displayNegative));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double indexes;
     private Double[] indexes1;
 
     public void setExcludepoint(Double indexes) {
-        this.indexes = null;
-        this.indexes1 = null;
-        
-        this.indexes = indexes;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            
+            this.indexes = indexes;
+        } else {
+            this.indexes = indexes;
+
+            js.append(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setExcludepoint(Double[] indexes1) {
-        this.indexes = null;
-        this.indexes1 = null;
-        
-        this.indexes1 = indexes1;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            
+            this.indexes1 = indexes1;
+        } else {
+            this.indexes1 = indexes1;
+
+            js.append(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes1)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill fill;
 
     public void setFill(Fill fill) {
-        this.fill = fill;
+        if (jsBase == null) {
+            this.fill = fill;
+        } else {
+            this.fill = fill;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color1;
     private Double opacity;
 
     public void setFill(String color1, Double opacity) {
-        this.color = null;
-        this.color1 = null;
-        
-        this.color1 = color1;
-        this.opacity = opacity;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            
+            this.color1 = color1;
+            this.opacity = opacity;
+        } else {
+            this.color1 = color1;
+            this.opacity = opacity;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f);", color1, opacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", color1, opacity));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys;
@@ -576,154 +1080,357 @@ public class ScatterSeriesBubble extends JsObject {
     private Double angle;
     private Boolean mode;
     private VectorRect mode1;
+    private String mode2;
     private Double opacity1;
 
     public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys = keys;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys = keys;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys1 = keys1;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys1 = keys1;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys2;
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private GraphicsMathRect mode2;
+    private GraphicsMathRect mode3;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        
-        this.keys2 = keys2;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        
-        this.mode2 = mode2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
+    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+        } else {
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        
-        this.keys3 = keys3;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        
-        this.mode2 = mode2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
+    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+        } else {
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings;
     private Double index;
 
     public void setGetpoint(Double index) {
-        this.index = index;
+        if (jsBase == null) {
+            this.index = index;
+        } else {
+            this.index = index;
+
+            js.append(String.format(Locale.US, jsBase + ".getPoint(%f);", index));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPoint(%f);", index));
+                js.setLength(0);
+            }
+        }
     }
 
     private String key;
     private Statistics key1;
 
     public void setGetstat(String key) {
-        this.key = null;
-        this.key1 = null;
-        
-        this.key = key;
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setGetstat(Statistics key1) {
-        this.key = null;
-        this.key1 = null;
-        
-        this.key1 = key1;
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
+            this.key1 = key1;
+        } else {
+            this.key1 = key1;
+
+            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private PatternFill gethatchFill;
+
+    public PatternFill getHatchfill() {
+        if (gethatchFill == null)
+            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+
+        return gethatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -735,364 +1442,691 @@ public class ScatterSeriesBubble extends JsObject {
     private Double size;
 
     public void setHatchfill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        
-        this.patternFillOrType = patternFillOrType;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color2 = color2;
-        this.thickness = thickness;
-        this.size = size;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            
+            this.patternFillOrType = patternFillOrType;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+        } else {
+            this.patternFillOrType = patternFillOrType;
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+
+            js.append(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHatchfill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        
-        this.patternFillOrType1 = patternFillOrType1;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color2 = color2;
-        this.thickness = thickness;
-        this.size = size;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            
+            this.patternFillOrType1 = patternFillOrType1;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+        } else {
+            this.patternFillOrType1 = patternFillOrType1;
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+
+            js.append(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHatchfill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        
-        this.patternFillOrType2 = patternFillOrType2;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color2 = color2;
-        this.thickness = thickness;
-        this.size = size;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            
+            this.patternFillOrType2 = patternFillOrType2;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+        } else {
+            this.patternFillOrType2 = patternFillOrType2;
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+
+            js.append(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHatchfill(String patternFillOrType3, String color2, Double thickness, Double size) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        
-        this.patternFillOrType3 = patternFillOrType3;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color2 = color2;
-        this.thickness = thickness;
-        this.size = size;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            
+            this.patternFillOrType3 = patternFillOrType3;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+        } else {
+            this.patternFillOrType3 = patternFillOrType3;
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.size = size;
+
+            js.append(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", patternFillOrType3, color2, thickness, size));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", patternFillOrType3, color2, thickness, size));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double height2;
     private String height3;
 
     public void setHeight(Double height2) {
-        this.height = null;
-        this.height1 = null;
-        this.height2 = null;
-        this.height3 = null;
-        
-        this.height2 = height2;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            this.height2 = null;
+            this.height3 = null;
+            
+            this.height2 = height2;
+        } else {
+            this.height2 = height2;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%f);", height2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHeight(String height3) {
-        this.height = null;
-        this.height1 = null;
-        this.height2 = null;
-        this.height3 = null;
-        
-        this.height3 = height3;
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            this.height2 = null;
+            this.height3 = null;
+            
+            this.height3 = height3;
+        } else {
+            this.height3 = height3;
+
+            js.append(String.format(Locale.US, jsBase + ".height(%s);", height3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index1;
 
     public void setHover(Double index1) {
-        this.index = null;
-        this.index1 = null;
-        
-        this.index1 = index1;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+        } else {
+            this.index1 = index1;
+
+            js.append(String.format(Locale.US, jsBase + ".hover(%f);", index1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hover(%f);", index1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double[] indexes2;
 
     public void setHover(Double[] indexes2) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        
-        this.indexes2 = indexes2;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            
+            this.indexes2 = indexes2;
+        } else {
+            this.indexes2 = indexes2;
+
+            js.append(String.format(Locale.US, jsBase + ".hover(%s);", Arrays.toString(indexes2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hover(%s);", Arrays.toString(indexes2)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill hoverFill;
 
     public void setHoverfill(Fill hoverFill) {
-        this.hoverFill = hoverFill;
+        if (jsBase == null) {
+            this.hoverFill = hoverFill;
+        } else {
+            this.hoverFill = hoverFill;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s);", (hoverFill != null) ? hoverFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s);", (hoverFill != null) ? hoverFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color3;
     private Double opacity3;
 
     public void setHoverfill(String color3, Double opacity3) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        
-        this.color3 = color3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        
-        this.opacity3 = opacity3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            
+            this.color3 = color3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            
+            this.opacity3 = opacity3;
+        } else {
+            this.color3 = color3;
+            this.opacity3 = opacity3;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %f);", color3, opacity3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %f);", color3, opacity3));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys4;
     private String[] keys5;
     private Double angle1;
-    private Boolean mode3;
-    private VectorRect mode4;
+    private Boolean mode4;
+    private VectorRect mode5;
+    private String mode6;
     private Double opacity4;
 
-    public void setHoverfill(GradientKey[] keys4, Boolean mode3, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys4 = keys4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode3 = mode3;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setHoverfill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys4 = keys4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys4 = keys4;
+            this.mode4 = mode4;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHoverfill(GradientKey[] keys4, VectorRect mode4, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys4 = keys4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode4 = mode4;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setHoverfill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys4 = keys4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys4 = keys4;
+            this.mode5 = mode5;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHoverfill(String[] keys5, Boolean mode3, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys5 = keys5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode3 = mode3;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setHoverfill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys4 = keys4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys4 = keys4;
+            this.mode6 = mode6;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHoverfill(String[] keys5, VectorRect mode4, Double angle1, Double opacity4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        
-        this.keys5 = keys5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        
-        this.mode4 = mode4;
-        this.angle = null;
-        this.angle1 = null;
-        
-        this.angle1 = angle1;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        
-        this.opacity4 = opacity4;
+    public void setHoverfill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys5 = keys5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys5 = keys5;
+            this.mode4 = mode4;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setHoverfill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys5 = keys5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys5 = keys5;
+            this.mode5 = mode5;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setHoverfill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            
+            this.keys5 = keys5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
+            this.angle = null;
+            this.angle1 = null;
+            
+            this.angle1 = angle1;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            
+            this.opacity4 = opacity4;
+        } else {
+            this.keys5 = keys5;
+            this.mode6 = mode6;
+            this.angle1 = angle1;
+            this.opacity4 = opacity4;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys6;
     private String[] keys7;
     private Double cx1;
     private Double cy1;
-    private GraphicsMathRect mode5;
+    private GraphicsMathRect mode7;
     private Double opacity5;
     private Double fx1;
     private Double fy1;
 
-    public void setHoverfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        
-        this.keys6 = keys6;
-        this.cx = null;
-        this.cx1 = null;
-        
-        this.cx1 = cx1;
-        this.cy = null;
-        this.cy1 = null;
-        
-        this.cy1 = cy1;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        
-        this.mode5 = mode5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        
-        this.opacity5 = opacity5;
-        this.fx = null;
-        this.fx1 = null;
-        
-        this.fx1 = fx1;
-        this.fy = null;
-        this.fy1 = null;
-        
-        this.fy1 = fy1;
+    public void setHoverfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            
+            this.keys6 = keys6;
+            this.cx = null;
+            this.cx1 = null;
+            
+            this.cx1 = cx1;
+            this.cy = null;
+            this.cy1 = null;
+            
+            this.cy1 = cy1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            
+            this.mode7 = mode7;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            
+            this.opacity5 = opacity5;
+            this.fx = null;
+            this.fx1 = null;
+            
+            this.fx1 = fx1;
+            this.fy = null;
+            this.fy1 = null;
+            
+            this.fy1 = fy1;
+        } else {
+            this.keys6 = keys6;
+            this.cx1 = cx1;
+            this.cy1 = cy1;
+            this.mode7 = mode7;
+            this.opacity5 = opacity5;
+            this.fx1 = fx1;
+            this.fy1 = fy1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHoverfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode5, Double opacity5, Double fx1, Double fy1) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        
-        this.keys7 = keys7;
-        this.cx = null;
-        this.cx1 = null;
-        
-        this.cx1 = cx1;
-        this.cy = null;
-        this.cy1 = null;
-        
-        this.cy1 = cy1;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        
-        this.mode5 = mode5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        
-        this.opacity5 = opacity5;
-        this.fx = null;
-        this.fx1 = null;
-        
-        this.fx1 = fx1;
-        this.fy = null;
-        this.fy1 = null;
-        
-        this.fy1 = fy1;
+    public void setHoverfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            
+            this.keys7 = keys7;
+            this.cx = null;
+            this.cx1 = null;
+            
+            this.cx1 = cx1;
+            this.cy = null;
+            this.cy1 = null;
+            
+            this.cy1 = cy1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            
+            this.mode7 = mode7;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            
+            this.opacity5 = opacity5;
+            this.fx = null;
+            this.fx1 = null;
+            
+            this.fx1 = fx1;
+            this.fy = null;
+            this.fy1 = null;
+            
+            this.fy1 = fy1;
+        } else {
+            this.keys7 = keys7;
+            this.cx1 = cx1;
+            this.cy1 = cy1;
+            this.mode7 = mode7;
+            this.opacity5 = opacity5;
+            this.fx1 = fx1;
+            this.fy1 = fy1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings1;
+    private PatternFill gethoverHatchFill;
+
+    public PatternFill getHoverhatchfill() {
+        if (gethoverHatchFill == null)
+            gethoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
+
+        return gethoverHatchFill;
+    }
+
     private PatternFill patternFillOrType4;
     private HatchFill patternFillOrType5;
     private HatchFillType patternFillOrType6;
@@ -1102,472 +2136,853 @@ public class ScatterSeriesBubble extends JsObject {
     private Double size1;
 
     public void setHoverhatchfill(PatternFill patternFillOrType4, String color4, Double thickness1, Double size1) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        
-        this.patternFillOrType4 = patternFillOrType4;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        
-        this.color4 = color4;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.size = null;
-        this.size1 = null;
-        
-        this.size1 = size1;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            
+            this.patternFillOrType4 = patternFillOrType4;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            
+            this.color4 = color4;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrType4 = patternFillOrType4;
+            this.color4 = color4;
+            this.thickness1 = thickness1;
+            this.size1 = size1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color4, thickness1, size1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color4, thickness1, size1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHoverhatchfill(HatchFill patternFillOrType5, String color4, Double thickness1, Double size1) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        
-        this.patternFillOrType5 = patternFillOrType5;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        
-        this.color4 = color4;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.size = null;
-        this.size1 = null;
-        
-        this.size1 = size1;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            
+            this.patternFillOrType5 = patternFillOrType5;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            
+            this.color4 = color4;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrType5 = patternFillOrType5;
+            this.color4 = color4;
+            this.thickness1 = thickness1;
+            this.size1 = size1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color4, thickness1, size1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color4, thickness1, size1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHoverhatchfill(HatchFillType patternFillOrType6, String color4, Double thickness1, Double size1) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        
-        this.patternFillOrType6 = patternFillOrType6;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        
-        this.color4 = color4;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.size = null;
-        this.size1 = null;
-        
-        this.size1 = size1;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            
+            this.patternFillOrType6 = patternFillOrType6;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            
+            this.color4 = color4;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrType6 = patternFillOrType6;
+            this.color4 = color4;
+            this.thickness1 = thickness1;
+            this.size1 = size1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color4, thickness1, size1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color4, thickness1, size1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHoverhatchfill(String patternFillOrType7, String color4, Double thickness1, Double size1) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        
-        this.patternFillOrType7 = patternFillOrType7;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        
-        this.color4 = color4;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.size = null;
-        this.size1 = null;
-        
-        this.size1 = size1;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            
+            this.patternFillOrType7 = patternFillOrType7;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            
+            this.color4 = color4;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.size = null;
+            this.size1 = null;
+            
+            this.size1 = size1;
+        } else {
+            this.patternFillOrType7 = patternFillOrType7;
+            this.color4 = color4;
+            this.thickness1 = thickness1;
+            this.size1 = size1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", patternFillOrType7, color4, thickness1, size1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverHatchFill(%s, %s, %f, %f);", patternFillOrType7, color4, thickness1, size1));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean hoverLabels;
+    private String hoverLabels;
+    private Boolean hoverLabels1;
 
-    public void setHoverlabels(Boolean hoverLabels) {
-        this.hoverLabels = hoverLabels;
+    public void setHoverlabels(String hoverLabels) {
+        if (jsBase == null) {
+            this.hoverLabels = null;
+            this.hoverLabels1 = null;
+            
+            this.hoverLabels = hoverLabels;
+        } else {
+            this.hoverLabels = hoverLabels;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverLabels(%s);", hoverLabels));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverLabels(%s);", hoverLabels));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean hoverMarkers;
-    private String hoverMarkers1;
 
-    public void setHovermarkers(Boolean hoverMarkers) {
-        this.hoverMarkers = null;
-        this.hoverMarkers1 = null;
-        
-        this.hoverMarkers = hoverMarkers;
+    public void setHoverlabels(Boolean hoverLabels1) {
+        if (jsBase == null) {
+            this.hoverLabels = null;
+            this.hoverLabels1 = null;
+            
+            this.hoverLabels1 = hoverLabels1;
+        } else {
+            this.hoverLabels1 = hoverLabels1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverLabels(%b);", hoverLabels1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverLabels(%b);", hoverLabels1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private UiMarkersFactory gethoverMarkers;
+
+    public UiMarkersFactory getHovermarkers() {
+        if (gethoverMarkers == null)
+            gethoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
+
+        return gethoverMarkers;
+    }
+
+    private String hoverMarkers;
+    private Boolean hoverMarkers1;
+    private String hoverMarkers2;
+
+    public void setHovermarkers(String hoverMarkers) {
+        if (jsBase == null) {
+            this.hoverMarkers = null;
+            this.hoverMarkers1 = null;
+            this.hoverMarkers2 = null;
+            
+            this.hoverMarkers = hoverMarkers;
+        } else {
+            this.hoverMarkers = hoverMarkers;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverMarkers(%s);", hoverMarkers));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverMarkers(%s);", hoverMarkers));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHovermarkers(String hoverMarkers1) {
-        this.hoverMarkers = null;
-        this.hoverMarkers1 = null;
-        
-        this.hoverMarkers1 = hoverMarkers1;
+    public void setHovermarkers(Boolean hoverMarkers1) {
+        if (jsBase == null) {
+            this.hoverMarkers = null;
+            this.hoverMarkers1 = null;
+            this.hoverMarkers2 = null;
+            
+            this.hoverMarkers1 = hoverMarkers1;
+        } else {
+            this.hoverMarkers1 = hoverMarkers1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverMarkers(%b);", hoverMarkers1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverMarkers(%b);", hoverMarkers1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill hoverNegativeFill;
 
     public void setHovernegativefill(Fill hoverNegativeFill) {
-        this.hoverNegativeFill = hoverNegativeFill;
+        if (jsBase == null) {
+            this.hoverNegativeFill = hoverNegativeFill;
+        } else {
+            this.hoverNegativeFill = hoverNegativeFill;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s);", (hoverNegativeFill != null) ? hoverNegativeFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s);", (hoverNegativeFill != null) ? hoverNegativeFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color5;
     private Double opacity6;
 
     public void setHovernegativefill(String color5, Double opacity6) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        
-        this.color5 = color5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        
-        this.opacity6 = opacity6;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            
+            this.color5 = color5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            
+            this.opacity6 = opacity6;
+        } else {
+            this.color5 = color5;
+            this.opacity6 = opacity6;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %f);", color5, opacity6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %f);", color5, opacity6));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys8;
     private String[] keys9;
     private Double angle2;
-    private Boolean mode6;
-    private VectorRect mode7;
+    private Boolean mode8;
+    private VectorRect mode9;
+    private String mode10;
     private Double opacity7;
 
-    public void setHovernegativefill(GradientKey[] keys8, Boolean mode6, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys8 = keys8;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode6 = mode6;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setHovernegativefill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys8 = keys8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys8 = keys8;
+            this.mode8 = mode8;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHovernegativefill(GradientKey[] keys8, VectorRect mode7, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys8 = keys8;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode7 = mode7;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setHovernegativefill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys8 = keys8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys8 = keys8;
+            this.mode9 = mode9;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHovernegativefill(String[] keys9, Boolean mode6, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys9 = keys9;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode6 = mode6;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setHovernegativefill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys8 = keys8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys8 = keys8;
+            this.mode10 = mode10;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHovernegativefill(String[] keys9, VectorRect mode7, Double angle2, Double opacity7) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        
-        this.keys9 = keys9;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        
-        this.mode7 = mode7;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        
-        this.angle2 = angle2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        
-        this.opacity7 = opacity7;
+    public void setHovernegativefill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys9 = keys9;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys9 = keys9;
+            this.mode8 = mode8;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setHovernegativefill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys9 = keys9;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys9 = keys9;
+            this.mode9 = mode9;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setHovernegativefill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            
+            this.keys9 = keys9;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            
+            this.angle2 = angle2;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            
+            this.opacity7 = opacity7;
+        } else {
+            this.keys9 = keys9;
+            this.mode10 = mode10;
+            this.angle2 = angle2;
+            this.opacity7 = opacity7;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys10;
     private String[] keys11;
     private Double cx2;
     private Double cy2;
-    private GraphicsMathRect mode8;
+    private GraphicsMathRect mode11;
     private Double opacity8;
     private Double fx2;
     private Double fy2;
 
-    public void setHovernegativefill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        
-        this.keys10 = keys10;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        
-        this.cx2 = cx2;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        
-        this.cy2 = cy2;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        
-        this.mode8 = mode8;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        
-        this.opacity8 = opacity8;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        
-        this.fx2 = fx2;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        
-        this.fy2 = fy2;
+    public void setHovernegativefill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            
+            this.keys10 = keys10;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            
+            this.cx2 = cx2;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            
+            this.cy2 = cy2;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            
+            this.mode11 = mode11;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            
+            this.opacity8 = opacity8;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            
+            this.fx2 = fx2;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            
+            this.fy2 = fy2;
+        } else {
+            this.keys10 = keys10;
+            this.cx2 = cx2;
+            this.cy2 = cy2;
+            this.mode11 = mode11;
+            this.opacity8 = opacity8;
+            this.fx2 = fx2;
+            this.fy2 = fy2;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setHovernegativefill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode8, Double opacity8, Double fx2, Double fy2) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        
-        this.keys11 = keys11;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        
-        this.cx2 = cx2;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        
-        this.cy2 = cy2;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        
-        this.mode8 = mode8;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        
-        this.opacity8 = opacity8;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        
-        this.fx2 = fx2;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        
-        this.fy2 = fy2;
+    public void setHovernegativefill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            
+            this.keys11 = keys11;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            
+            this.cx2 = cx2;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            
+            this.cy2 = cy2;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            
+            this.mode11 = mode11;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            
+            this.opacity8 = opacity8;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            
+            this.fx2 = fx2;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            
+            this.fy2 = fy2;
+        } else {
+            this.keys11 = keys11;
+            this.cx2 = cx2;
+            this.cy2 = cy2;
+            this.mode11 = mode11;
+            this.opacity8 = opacity8;
+            this.fx2 = fx2;
+            this.fy2 = fy2;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings2;
+    private PatternFill gethoverNegativeHatchFill;
+
+    public PatternFill getHovernegativehatchfill() {
+        if (gethoverNegativeHatchFill == null)
+            gethoverNegativeHatchFill = new PatternFill(jsBase + ".hoverNegativeHatchFill()");
+
+        return gethoverNegativeHatchFill;
+    }
+
     private PatternFill patternFillOrType8;
     private HatchFill patternFillOrType9;
     private HatchFillType patternFillOrType10;
@@ -1577,150 +2992,206 @@ public class ScatterSeriesBubble extends JsObject {
     private Double size2;
 
     public void setHovernegativehatchfill(PatternFill patternFillOrType8, String color6, Double thickness2, Double size2) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        
-        this.patternFillOrType8 = patternFillOrType8;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        
-        this.color6 = color6;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        
-        this.size2 = size2;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            
+            this.patternFillOrType8 = patternFillOrType8;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            
+            this.color6 = color6;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            
+            this.size2 = size2;
+        } else {
+            this.patternFillOrType8 = patternFillOrType8;
+            this.color6 = color6;
+            this.thickness2 = thickness2;
+            this.size2 = size2;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color6, thickness2, size2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color6, thickness2, size2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHovernegativehatchfill(HatchFill patternFillOrType9, String color6, Double thickness2, Double size2) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        
-        this.patternFillOrType9 = patternFillOrType9;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        
-        this.color6 = color6;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        
-        this.size2 = size2;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            
+            this.patternFillOrType9 = patternFillOrType9;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            
+            this.color6 = color6;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            
+            this.size2 = size2;
+        } else {
+            this.patternFillOrType9 = patternFillOrType9;
+            this.color6 = color6;
+            this.thickness2 = thickness2;
+            this.size2 = size2;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color6, thickness2, size2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color6, thickness2, size2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHovernegativehatchfill(HatchFillType patternFillOrType10, String color6, Double thickness2, Double size2) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        
-        this.patternFillOrType10 = patternFillOrType10;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        
-        this.color6 = color6;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        
-        this.size2 = size2;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            
+            this.patternFillOrType10 = patternFillOrType10;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            
+            this.color6 = color6;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            
+            this.size2 = size2;
+        } else {
+            this.patternFillOrType10 = patternFillOrType10;
+            this.color6 = color6;
+            this.thickness2 = thickness2;
+            this.size2 = size2;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color6, thickness2, size2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color6, thickness2, size2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHovernegativehatchfill(String patternFillOrType11, String color6, Double thickness2, Double size2) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        
-        this.patternFillOrType11 = patternFillOrType11;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        
-        this.color6 = color6;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        
-        this.size2 = size2;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            
+            this.patternFillOrType11 = patternFillOrType11;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            
+            this.color6 = color6;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            
+            this.size2 = size2;
+        } else {
+            this.patternFillOrType11 = patternFillOrType11;
+            this.color6 = color6;
+            this.thickness2 = thickness2;
+            this.size2 = size2;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", patternFillOrType11, color6, thickness2, size2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeHatchFill(%s, %s, %f, %f);", patternFillOrType11, color6, thickness2, size2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color7;
@@ -1732,77 +3203,122 @@ public class ScatterSeriesBubble extends JsObject {
     private StrokeLineCap lineCap;
 
     public void setHovernegativestroke(Stroke color7, Double thickness3, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        
-        this.color7 = color7;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            
+            this.color7 = color7;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color7 = color7;
+            this.thickness3 = thickness3;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeStroke(%s, %f, %s, %s, %s);", (color7 != null) ? color7.generateJs() : "null", thickness3, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeStroke(%s, %f, %s, %s, %s);", (color7 != null) ? color7.generateJs() : "null", thickness3, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHovernegativestroke(ColoredFill color8, Double thickness3, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        
-        this.color8 = color8;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            
+            this.color8 = color8;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color8 = color8;
+            this.thickness3 = thickness3;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeStroke(%s, %f, %s, %s, %s);", (color8 != null) ? color8.generateJs() : "null", thickness3, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeStroke(%s, %f, %s, %s, %s);", (color8 != null) ? color8.generateJs() : "null", thickness3, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHovernegativestroke(String color9, Double thickness3, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        
-        this.color9 = color9;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            
+            this.color9 = color9;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color9 = color9;
+            this.thickness3 = thickness3;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverNegativeStroke(%s, %f, %s, %s, %s);", color9, thickness3, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverNegativeStroke(%s, %f, %s, %s, %s);", color9, thickness3, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color10;
@@ -1814,741 +3330,1387 @@ public class ScatterSeriesBubble extends JsObject {
     private StrokeLineCap lineCap1;
 
     public void setHoverstroke(Stroke color10, Double thickness4, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        
-        this.color10 = color10;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        
-        this.thickness4 = thickness4;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            
+            this.color10 = color10;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            
+            this.thickness4 = thickness4;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.color10 = color10;
+            this.thickness4 = thickness4;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness4, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness4, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHoverstroke(ColoredFill color11, Double thickness4, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        
-        this.color11 = color11;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        
-        this.thickness4 = thickness4;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            
+            this.color11 = color11;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            
+            this.thickness4 = thickness4;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.color11 = color11;
+            this.thickness4 = thickness4;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (color11 != null) ? color11.generateJs() : "null", thickness4, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (color11 != null) ? color11.generateJs() : "null", thickness4, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHoverstroke(String color12, Double thickness4, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        
-        this.color12 = color12;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        
-        this.thickness4 = thickness4;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            
+            this.color12 = color12;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            
+            this.thickness4 = thickness4;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.color12 = color12;
+            this.thickness4 = thickness4;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", color12, thickness4, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", color12, thickness4, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String id;
     private Double id1;
 
     public void setId(String id) {
-        this.id = null;
-        this.id1 = null;
-        
-        this.id = id;
+        if (jsBase == null) {
+            this.id = null;
+            this.id1 = null;
+            
+            this.id = id;
+        } else {
+            this.id = id;
+
+            js.append(String.format(Locale.US, jsBase + ".id(%s);", id));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", id));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setId(Double id1) {
-        this.id = null;
-        this.id1 = null;
-        
-        this.id1 = id1;
+        if (jsBase == null) {
+            this.id = null;
+            this.id1 = null;
+            
+            this.id1 = id1;
+        } else {
+            this.id1 = id1;
+
+            js.append(String.format(Locale.US, jsBase + ".id(%f);", id1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%f);", id1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double indexes3;
     private Double[] indexes4;
 
     public void setIncludepoint(Double indexes3) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        this.indexes3 = null;
-        this.indexes4 = null;
-        
-        this.indexes3 = indexes3;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            this.indexes3 = null;
+            this.indexes4 = null;
+            
+            this.indexes3 = indexes3;
+        } else {
+            this.indexes3 = indexes3;
+
+            js.append(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes3));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setIncludepoint(Double[] indexes4) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        this.indexes3 = null;
-        this.indexes4 = null;
-        
-        this.indexes4 = indexes4;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            this.indexes3 = null;
+            this.indexes4 = null;
+            
+            this.indexes4 = indexes4;
+        } else {
+            this.indexes4 = indexes4;
+
+            js.append(String.format(Locale.US, jsBase + ".includePoint(%s);", Arrays.toString(indexes4)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s);", Arrays.toString(indexes4)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double indexes5;
     private Double[] indexes6;
 
     public void setKeeponlypoints(Double indexes5) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        this.indexes3 = null;
-        this.indexes4 = null;
-        this.indexes5 = null;
-        this.indexes6 = null;
-        
-        this.indexes5 = indexes5;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            this.indexes3 = null;
+            this.indexes4 = null;
+            this.indexes5 = null;
+            this.indexes6 = null;
+            
+            this.indexes5 = indexes5;
+        } else {
+            this.indexes5 = indexes5;
+
+            js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes5));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setKeeponlypoints(Double[] indexes6) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        this.indexes3 = null;
-        this.indexes4 = null;
-        this.indexes5 = null;
-        this.indexes6 = null;
-        
-        this.indexes6 = indexes6;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            this.indexes3 = null;
+            this.indexes4 = null;
+            this.indexes5 = null;
+            this.indexes6 = null;
+            
+            this.indexes6 = indexes6;
+        } else {
+            this.indexes6 = indexes6;
+
+            js.append(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes6)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes6)));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean labels;
+    private UiLabelsFactory getlabels;
 
-    public void setLabels(Boolean labels) {
-        this.labels = labels;
+    public UiLabelsFactory getLabels() {
+        if (getlabels == null)
+            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+
+        return getlabels;
+    }
+
+    private String labels;
+    private Boolean labels1;
+
+    public void setLabels(String labels) {
+        if (jsBase == null) {
+            this.labels = null;
+            this.labels1 = null;
+            
+            this.labels = labels;
+        } else {
+            this.labels = labels;
+
+            js.append(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setLabels(Boolean labels1) {
+        if (jsBase == null) {
+            this.labels = null;
+            this.labels1 = null;
+            
+            this.labels1 = labels1;
+        } else {
+            this.labels1 = labels1;
+
+            js.append(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double left;
     private String left1;
 
     public void setLeft(Double left) {
-        this.left = null;
-        this.left1 = null;
-        
-        this.left = left;
+        if (jsBase == null) {
+            this.left = null;
+            this.left1 = null;
+            
+            this.left = left;
+        } else {
+            this.left = left;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLeft(String left1) {
-        this.left = null;
-        this.left1 = null;
-        
-        this.left1 = left1;
+        if (jsBase == null) {
+            this.left = null;
+            this.left1 = null;
+            
+            this.left1 = left1;
+        } else {
+            this.left1 = left1;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String legendItem;
+
+    public void setLegenditem(String legendItem) {
+        if (jsBase == null) {
+            this.legendItem = legendItem;
+        } else {
+            this.legendItem = legendItem;
+
+            js.append(String.format(Locale.US, jsBase + ".legendItem(%s);", legendItem));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legendItem(%s);", legendItem));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean markers;
-    private String markers1;
+    private UiMarkersFactory getmarkers;
 
-    public void setMarkers(Boolean markers) {
-        this.markers = null;
-        this.markers1 = null;
-        
-        this.markers = markers;
+    public UiMarkersFactory getMarkers() {
+        if (getmarkers == null)
+            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+
+        return getmarkers;
+    }
+
+    private String markers;
+    private Boolean markers1;
+    private String markers2;
+
+    public void setMarkers(String markers) {
+        if (jsBase == null) {
+            this.markers = null;
+            this.markers1 = null;
+            this.markers2 = null;
+            
+            this.markers = markers;
+        } else {
+            this.markers = markers;
+
+            js.append(String.format(Locale.US, jsBase + ".markers(%s);", markers));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markers(%s);", markers));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setMarkers(String markers1) {
-        this.markers = null;
-        this.markers1 = null;
-        
-        this.markers1 = markers1;
+    public void setMarkers(Boolean markers1) {
+        if (jsBase == null) {
+            this.markers = null;
+            this.markers1 = null;
+            this.markers2 = null;
+            
+            this.markers1 = markers1;
+        } else {
+            this.markers1 = markers1;
+
+            js.append(String.format(Locale.US, jsBase + ".markers(%b);", markers1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markers(%b);", markers1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double maxHeight;
     private String maxHeight1;
 
     public void setMaxheight(Double maxHeight) {
-        this.maxHeight = null;
-        this.maxHeight1 = null;
-        
-        this.maxHeight = maxHeight;
+        if (jsBase == null) {
+            this.maxHeight = null;
+            this.maxHeight1 = null;
+            
+            this.maxHeight = maxHeight;
+        } else {
+            this.maxHeight = maxHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMaxheight(String maxHeight1) {
-        this.maxHeight = null;
-        this.maxHeight1 = null;
-        
-        this.maxHeight1 = maxHeight1;
+        if (jsBase == null) {
+            this.maxHeight = null;
+            this.maxHeight1 = null;
+            
+            this.maxHeight1 = maxHeight1;
+        } else {
+            this.maxHeight1 = maxHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double maxWidth;
     private String maxWidth1;
 
     public void setMaxwidth(Double maxWidth) {
-        this.maxWidth = null;
-        this.maxWidth1 = null;
-        
-        this.maxWidth = maxWidth;
+        if (jsBase == null) {
+            this.maxWidth = null;
+            this.maxWidth1 = null;
+            
+            this.maxWidth = maxWidth;
+        } else {
+            this.maxWidth = maxWidth;
+
+            js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMaxwidth(String maxWidth1) {
-        this.maxWidth = null;
-        this.maxWidth1 = null;
-        
-        this.maxWidth1 = maxWidth1;
+        if (jsBase == null) {
+            this.maxWidth = null;
+            this.maxWidth1 = null;
+            
+            this.maxWidth1 = maxWidth1;
+        } else {
+            this.maxWidth1 = maxWidth1;
+
+            js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double minHeight;
     private String minHeight1;
 
     public void setMinheight(Double minHeight) {
-        this.minHeight = null;
-        this.minHeight1 = null;
-        
-        this.minHeight = minHeight;
+        if (jsBase == null) {
+            this.minHeight = null;
+            this.minHeight1 = null;
+            
+            this.minHeight = minHeight;
+        } else {
+            this.minHeight = minHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMinheight(String minHeight1) {
-        this.minHeight = null;
-        this.minHeight1 = null;
-        
-        this.minHeight1 = minHeight1;
+        if (jsBase == null) {
+            this.minHeight = null;
+            this.minHeight1 = null;
+            
+            this.minHeight1 = minHeight1;
+        } else {
+            this.minHeight1 = minHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double minWidth;
     private String minWidth1;
 
     public void setMinwidth(Double minWidth) {
-        this.minWidth = null;
-        this.minWidth1 = null;
-        
-        this.minWidth = minWidth;
+        if (jsBase == null) {
+            this.minWidth = null;
+            this.minWidth1 = null;
+            
+            this.minWidth = minWidth;
+        } else {
+            this.minWidth = minWidth;
+
+            js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMinwidth(String minWidth1) {
-        this.minWidth = null;
-        this.minWidth1 = null;
-        
-        this.minWidth1 = minWidth1;
+        if (jsBase == null) {
+            this.minWidth = null;
+            this.minWidth1 = null;
+            
+            this.minWidth1 = minWidth1;
+        } else {
+            this.minWidth1 = minWidth1;
+
+            js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String name;
 
     public void setName(String name) {
-        this.name = name;
+        if (jsBase == null) {
+            this.name = name;
+        } else {
+            this.name = name;
+
+            js.append(String.format(Locale.US, jsBase + ".name(%s);", name));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".name(%s);", name));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill negativeFill;
 
     public void setNegativefill(Fill negativeFill) {
-        this.negativeFill = negativeFill;
+        if (jsBase == null) {
+            this.negativeFill = negativeFill;
+        } else {
+            this.negativeFill = negativeFill;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s);", (negativeFill != null) ? negativeFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s);", (negativeFill != null) ? negativeFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color13;
     private Double opacity9;
 
     public void setNegativefill(String color13, Double opacity9) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        
-        this.color13 = color13;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        
-        this.opacity9 = opacity9;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            
+            this.color13 = color13;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            
+            this.opacity9 = opacity9;
+        } else {
+            this.color13 = color13;
+            this.opacity9 = opacity9;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %f);", color13, opacity9));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %f);", color13, opacity9));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys12;
     private String[] keys13;
     private Double angle3;
-    private Boolean mode9;
-    private VectorRect mode10;
+    private Boolean mode12;
+    private VectorRect mode13;
+    private String mode14;
     private Double opacity10;
 
-    public void setNegativefill(GradientKey[] keys12, Boolean mode9, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys12 = keys12;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode9 = mode9;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setNegativefill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys12 = keys12;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys12 = keys12;
+            this.mode12 = mode12;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %b, %f, %f);", arrayToString(keys12), mode12, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %b, %f, %f);", arrayToString(keys12), mode12, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setNegativefill(GradientKey[] keys12, VectorRect mode10, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys12 = keys12;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode10 = mode10;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setNegativefill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys12 = keys12;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys12 = keys12;
+            this.mode13 = mode13;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setNegativefill(String[] keys13, Boolean mode9, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys13 = keys13;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode9 = mode9;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setNegativefill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys12 = keys12;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys12 = keys12;
+            this.mode14 = mode14;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", arrayToString(keys12), mode14, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", arrayToString(keys12), mode14, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setNegativefill(String[] keys13, VectorRect mode10, Double angle3, Double opacity10) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        
-        this.keys13 = keys13;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        
-        this.mode10 = mode10;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        
-        this.angle3 = angle3;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        
-        this.opacity10 = opacity10;
+    public void setNegativefill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys13 = keys13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys13 = keys13;
+            this.mode12 = mode12;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %b, %f, %f);", Arrays.toString(keys13), mode12, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %b, %f, %f);", Arrays.toString(keys13), mode12, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setNegativefill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys13 = keys13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys13 = keys13;
+            this.mode13 = mode13;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setNegativefill(String[] keys13, String mode14, Double angle3, Double opacity10) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            
+            this.keys13 = keys13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            
+            this.angle3 = angle3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            
+            this.opacity10 = opacity10;
+        } else {
+            this.keys13 = keys13;
+            this.mode14 = mode14;
+            this.angle3 = angle3;
+            this.opacity10 = opacity10;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", Arrays.toString(keys13), mode14, angle3, opacity10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %s, %f, %f);", Arrays.toString(keys13), mode14, angle3, opacity10));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys14;
     private String[] keys15;
     private Double cx3;
     private Double cy3;
-    private GraphicsMathRect mode11;
+    private GraphicsMathRect mode15;
     private Double opacity11;
     private Double fx3;
     private Double fy3;
 
-    public void setNegativefill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode11, Double opacity11, Double fx3, Double fy3) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        
-        this.keys14 = keys14;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        
-        this.cx3 = cx3;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        
-        this.cy3 = cy3;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        
-        this.mode11 = mode11;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        
-        this.opacity11 = opacity11;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        
-        this.fx3 = fx3;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        
-        this.fy3 = fy3;
+    public void setNegativefill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            
+            this.keys14 = keys14;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            
+            this.cx3 = cx3;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            
+            this.cy3 = cy3;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            
+            this.mode15 = mode15;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            
+            this.opacity11 = opacity11;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            
+            this.fx3 = fx3;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            
+            this.fy3 = fy3;
+        } else {
+            this.keys14 = keys14;
+            this.cx3 = cx3;
+            this.cy3 = cy3;
+            this.mode15 = mode15;
+            this.opacity11 = opacity11;
+            this.fx3 = fx3;
+            this.fy3 = fy3;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setNegativefill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode11, Double opacity11, Double fx3, Double fy3) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        
-        this.keys15 = keys15;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        
-        this.cx3 = cx3;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        
-        this.cy3 = cy3;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        
-        this.mode11 = mode11;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        
-        this.opacity11 = opacity11;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        
-        this.fx3 = fx3;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        
-        this.fy3 = fy3;
+    public void setNegativefill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            
+            this.keys15 = keys15;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            
+            this.cx3 = cx3;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            
+            this.cy3 = cy3;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            
+            this.mode15 = mode15;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            
+            this.opacity11 = opacity11;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            
+            this.fx3 = fx3;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            
+            this.fy3 = fy3;
+        } else {
+            this.keys15 = keys15;
+            this.cx3 = cx3;
+            this.cy3 = cy3;
+            this.mode15 = mode15;
+            this.opacity11 = opacity11;
+            this.fx3 = fx3;
+            this.fy3 = fy3;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings3;
+    private PatternFill getnegativeHatchFill;
+
+    public PatternFill getNegativehatchfill() {
+        if (getnegativeHatchFill == null)
+            getnegativeHatchFill = new PatternFill(jsBase + ".negativeHatchFill()");
+
+        return getnegativeHatchFill;
+    }
+
     private PatternFill patternFillOrType12;
     private HatchFill patternFillOrType13;
     private HatchFillType patternFillOrType14;
@@ -2558,214 +4720,270 @@ public class ScatterSeriesBubble extends JsObject {
     private Double size3;
 
     public void setNegativehatchfill(PatternFill patternFillOrType12, String color14, Double thickness5, Double size3) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        
-        this.patternFillOrType12 = patternFillOrType12;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        
-        this.color14 = color14;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        
-        this.thickness5 = thickness5;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        
-        this.size3 = size3;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            
+            this.patternFillOrType12 = patternFillOrType12;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            
+            this.color14 = color14;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            
+            this.thickness5 = thickness5;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType12 = patternFillOrType12;
+            this.color14 = color14;
+            this.thickness5 = thickness5;
+            this.size3 = size3;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color14, thickness5, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color14, thickness5, size3));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setNegativehatchfill(HatchFill patternFillOrType13, String color14, Double thickness5, Double size3) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        
-        this.patternFillOrType13 = patternFillOrType13;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        
-        this.color14 = color14;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        
-        this.thickness5 = thickness5;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        
-        this.size3 = size3;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            
+            this.patternFillOrType13 = patternFillOrType13;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            
+            this.color14 = color14;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            
+            this.thickness5 = thickness5;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType13 = patternFillOrType13;
+            this.color14 = color14;
+            this.thickness5 = thickness5;
+            this.size3 = size3;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color14, thickness5, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color14, thickness5, size3));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setNegativehatchfill(HatchFillType patternFillOrType14, String color14, Double thickness5, Double size3) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        
-        this.patternFillOrType14 = patternFillOrType14;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        
-        this.color14 = color14;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        
-        this.thickness5 = thickness5;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        
-        this.size3 = size3;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            
+            this.patternFillOrType14 = patternFillOrType14;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            
+            this.color14 = color14;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            
+            this.thickness5 = thickness5;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType14 = patternFillOrType14;
+            this.color14 = color14;
+            this.thickness5 = thickness5;
+            this.size3 = size3;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color14, thickness5, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color14, thickness5, size3));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setNegativehatchfill(String patternFillOrType15, String color14, Double thickness5, Double size3) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        
-        this.patternFillOrType15 = patternFillOrType15;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        
-        this.color14 = color14;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        
-        this.thickness5 = thickness5;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        
-        this.size3 = size3;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            
+            this.patternFillOrType15 = patternFillOrType15;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            
+            this.color14 = color14;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            
+            this.thickness5 = thickness5;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            
+            this.size3 = size3;
+        } else {
+            this.patternFillOrType15 = patternFillOrType15;
+            this.color14 = color14;
+            this.thickness5 = thickness5;
+            this.size3 = size3;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", patternFillOrType15, color14, thickness5, size3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %f, %f);", patternFillOrType15, color14, thickness5, size3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color15;
@@ -2777,702 +4995,1156 @@ public class ScatterSeriesBubble extends JsObject {
     private StrokeLineCap lineCap2;
 
     public void setNegativestroke(Stroke color15, Double thickness6, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        
-        this.color15 = color15;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        
-        this.thickness6 = thickness6;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            
+            this.color15 = color15;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            
+            this.thickness6 = thickness6;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.color15 = color15;
+            this.thickness6 = thickness6;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeStroke(%s, %f, %s, %s, %s);", (color15 != null) ? color15.generateJs() : "null", thickness6, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeStroke(%s, %f, %s, %s, %s);", (color15 != null) ? color15.generateJs() : "null", thickness6, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setNegativestroke(ColoredFill color16, Double thickness6, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        
-        this.color16 = color16;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        
-        this.thickness6 = thickness6;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            
+            this.color16 = color16;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            
+            this.thickness6 = thickness6;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.color16 = color16;
+            this.thickness6 = thickness6;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeStroke(%s, %f, %s, %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness6, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeStroke(%s, %f, %s, %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness6, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setNegativestroke(String color17, Double thickness6, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        
-        this.color17 = color17;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        
-        this.thickness6 = thickness6;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            
+            this.color17 = color17;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            
+            this.thickness6 = thickness6;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.color17 = color17;
+            this.thickness6 = thickness6;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".negativeStroke(%s, %f, %s, %s, %s);", color17, thickness6, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".negativeStroke(%s, %f, %s, %s, %s);", color17, thickness6, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double right;
     private String right1;
 
     public void setRight(Double right) {
-        this.right = null;
-        this.right1 = null;
-        
-        this.right = right;
+        if (jsBase == null) {
+            this.right = null;
+            this.right1 = null;
+            
+            this.right = right;
+        } else {
+            this.right = right;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRight(String right1) {
-        this.right = null;
-        this.right1 = null;
-        
-        this.right1 = right1;
+        if (jsBase == null) {
+            this.right = null;
+            this.right1 = null;
+            
+            this.right1 = right1;
+        } else {
+            this.right1 = right1;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index2;
 
     public void setSelect(Double index2) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        
-        this.index2 = index2;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
+        } else {
+            this.index2 = index2;
+
+            js.append(String.format(Locale.US, jsBase + ".select(%f);", index2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f);", index2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double indexes7;
     private Double[] indexes8;
 
     public void setSelect(Double[] indexes8) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        this.indexes3 = null;
-        this.indexes4 = null;
-        this.indexes5 = null;
-        this.indexes6 = null;
-        this.indexes7 = null;
-        this.indexes8 = null;
-        
-        this.indexes8 = indexes8;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            this.indexes3 = null;
+            this.indexes4 = null;
+            this.indexes5 = null;
+            this.indexes6 = null;
+            this.indexes7 = null;
+            this.indexes8 = null;
+            
+            this.indexes8 = indexes8;
+        } else {
+            this.indexes8 = indexes8;
+
+            js.append(String.format(Locale.US, jsBase + ".select(%s);", Arrays.toString(indexes8)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%s);", Arrays.toString(indexes8)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill selectFill;
 
     public void setSelectfill(Fill selectFill) {
-        this.selectFill = selectFill;
+        if (jsBase == null) {
+            this.selectFill = selectFill;
+        } else {
+            this.selectFill = selectFill;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s);", (selectFill != null) ? selectFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s);", (selectFill != null) ? selectFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color18;
     private Double opacity12;
 
     public void setSelectfill(String color18, Double opacity12) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        
-        this.color18 = color18;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        
-        this.opacity12 = opacity12;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            
+            this.color18 = color18;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            
+            this.opacity12 = opacity12;
+        } else {
+            this.color18 = color18;
+            this.opacity12 = opacity12;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %f);", color18, opacity12));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %f);", color18, opacity12));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys16;
     private String[] keys17;
     private Double angle4;
-    private Boolean mode12;
-    private VectorRect mode13;
+    private Boolean mode16;
+    private VectorRect mode17;
+    private String mode18;
     private Double opacity13;
 
-    public void setSelectfill(GradientKey[] keys16, Boolean mode12, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys16 = keys16;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode12 = mode12;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setSelectfill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys16 = keys16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys16 = keys16;
+            this.mode16 = mode16;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectfill(GradientKey[] keys16, VectorRect mode13, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys16 = keys16;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode13 = mode13;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setSelectfill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys16 = keys16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys16 = keys16;
+            this.mode17 = mode17;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectfill(String[] keys17, Boolean mode12, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys17 = keys17;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode12 = mode12;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setSelectfill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys16 = keys16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys16 = keys16;
+            this.mode18 = mode18;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", arrayToString(keys16), mode18, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", arrayToString(keys16), mode18, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectfill(String[] keys17, VectorRect mode13, Double angle4, Double opacity13) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        
-        this.keys17 = keys17;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        
-        this.mode13 = mode13;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        
-        this.angle4 = angle4;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        
-        this.opacity13 = opacity13;
+    public void setSelectfill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys17 = keys17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys17 = keys17;
+            this.mode16 = mode16;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %b, %f, %f);", Arrays.toString(keys17), mode16, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %b, %f, %f);", Arrays.toString(keys17), mode16, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setSelectfill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys17 = keys17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys17 = keys17;
+            this.mode17 = mode17;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setSelectfill(String[] keys17, String mode18, Double angle4, Double opacity13) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            
+            this.keys17 = keys17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            
+            this.angle4 = angle4;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            
+            this.opacity13 = opacity13;
+        } else {
+            this.keys17 = keys17;
+            this.mode18 = mode18;
+            this.angle4 = angle4;
+            this.opacity13 = opacity13;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", Arrays.toString(keys17), mode18, angle4, opacity13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %s, %f, %f);", Arrays.toString(keys17), mode18, angle4, opacity13));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys18;
     private String[] keys19;
     private Double cx4;
     private Double cy4;
-    private GraphicsMathRect mode14;
+    private GraphicsMathRect mode19;
     private Double opacity14;
     private Double fx4;
     private Double fy4;
 
-    public void setSelectfill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode14, Double opacity14, Double fx4, Double fy4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        
-        this.keys18 = keys18;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        
-        this.cx4 = cx4;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        
-        this.cy4 = cy4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        
-        this.mode14 = mode14;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        
-        this.opacity14 = opacity14;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        
-        this.fx4 = fx4;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        
-        this.fy4 = fy4;
+    public void setSelectfill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            
+            this.keys18 = keys18;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            
+            this.cx4 = cx4;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            
+            this.cy4 = cy4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            
+            this.mode19 = mode19;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            
+            this.opacity14 = opacity14;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            
+            this.fx4 = fx4;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            
+            this.fy4 = fy4;
+        } else {
+            this.keys18 = keys18;
+            this.cx4 = cx4;
+            this.cy4 = cy4;
+            this.mode19 = mode19;
+            this.opacity14 = opacity14;
+            this.fx4 = fx4;
+            this.fy4 = fy4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectfill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode14, Double opacity14, Double fx4, Double fy4) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        
-        this.keys19 = keys19;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        
-        this.cx4 = cx4;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        
-        this.cy4 = cy4;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        
-        this.mode14 = mode14;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        
-        this.opacity14 = opacity14;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        
-        this.fx4 = fx4;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        
-        this.fy4 = fy4;
+    public void setSelectfill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            
+            this.keys19 = keys19;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            
+            this.cx4 = cx4;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            
+            this.cy4 = cy4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            
+            this.mode19 = mode19;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            
+            this.opacity14 = opacity14;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            
+            this.fx4 = fx4;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            
+            this.fy4 = fy4;
+        } else {
+            this.keys19 = keys19;
+            this.cx4 = cx4;
+            this.cy4 = cy4;
+            this.mode19 = mode19;
+            this.opacity14 = opacity14;
+            this.fx4 = fx4;
+            this.fy4 = fy4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings4;
+    private PatternFill getselectHatchFill;
+
+    public PatternFill getSelecthatchfill() {
+        if (getselectHatchFill == null)
+            getselectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
+
+        return getselectHatchFill;
+    }
+
     private PatternFill patternFillOrType16;
     private HatchFill patternFillOrType17;
     private HatchFillType patternFillOrType18;
@@ -3482,856 +6154,1327 @@ public class ScatterSeriesBubble extends JsObject {
     private Double size4;
 
     public void setSelecthatchfill(PatternFill patternFillOrType16, String color19, Double thickness7, Double size4) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        
-        this.patternFillOrType16 = patternFillOrType16;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        
-        this.color19 = color19;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        
-        this.thickness7 = thickness7;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        
-        this.size4 = size4;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            
+            this.patternFillOrType16 = patternFillOrType16;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            
+            this.color19 = color19;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            
+            this.thickness7 = thickness7;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrType16 = patternFillOrType16;
+            this.color19 = color19;
+            this.thickness7 = thickness7;
+            this.size4 = size4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color19, thickness7, size4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color19, thickness7, size4));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelecthatchfill(HatchFill patternFillOrType17, String color19, Double thickness7, Double size4) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        
-        this.patternFillOrType17 = patternFillOrType17;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        
-        this.color19 = color19;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        
-        this.thickness7 = thickness7;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        
-        this.size4 = size4;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            
+            this.patternFillOrType17 = patternFillOrType17;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            
+            this.color19 = color19;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            
+            this.thickness7 = thickness7;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrType17 = patternFillOrType17;
+            this.color19 = color19;
+            this.thickness7 = thickness7;
+            this.size4 = size4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color19, thickness7, size4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color19, thickness7, size4));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelecthatchfill(HatchFillType patternFillOrType18, String color19, Double thickness7, Double size4) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        
-        this.patternFillOrType18 = patternFillOrType18;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        
-        this.color19 = color19;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        
-        this.thickness7 = thickness7;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        
-        this.size4 = size4;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            
+            this.patternFillOrType18 = patternFillOrType18;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            
+            this.color19 = color19;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            
+            this.thickness7 = thickness7;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrType18 = patternFillOrType18;
+            this.color19 = color19;
+            this.thickness7 = thickness7;
+            this.size4 = size4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color19, thickness7, size4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color19, thickness7, size4));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelecthatchfill(String patternFillOrType19, String color19, Double thickness7, Double size4) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        
-        this.patternFillOrType19 = patternFillOrType19;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        
-        this.color19 = color19;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        
-        this.thickness7 = thickness7;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        
-        this.size4 = size4;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            
+            this.patternFillOrType19 = patternFillOrType19;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            
+            this.color19 = color19;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            
+            this.thickness7 = thickness7;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            
+            this.size4 = size4;
+        } else {
+            this.patternFillOrType19 = patternFillOrType19;
+            this.color19 = color19;
+            this.thickness7 = thickness7;
+            this.size4 = size4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", patternFillOrType19, color19, thickness7, size4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectHatchFill(%s, %s, %f, %f);", patternFillOrType19, color19, thickness7, size4));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean selectLabels;
+    private String selectLabels;
+    private Boolean selectLabels1;
 
-    public void setSelectlabels(Boolean selectLabels) {
-        this.selectLabels = selectLabels;
+    public void setSelectlabels(String selectLabels) {
+        if (jsBase == null) {
+            this.selectLabels = null;
+            this.selectLabels1 = null;
+            
+            this.selectLabels = selectLabels;
+        } else {
+            this.selectLabels = selectLabels;
+
+            js.append(String.format(Locale.US, jsBase + ".selectLabels(%s);", selectLabels));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectLabels(%s);", selectLabels));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean selectMarkers;
-    private String selectMarkers1;
 
-    public void setSelectmarkers(Boolean selectMarkers) {
-        this.selectMarkers = null;
-        this.selectMarkers1 = null;
-        
-        this.selectMarkers = selectMarkers;
+    public void setSelectlabels(Boolean selectLabels1) {
+        if (jsBase == null) {
+            this.selectLabels = null;
+            this.selectLabels1 = null;
+            
+            this.selectLabels1 = selectLabels1;
+        } else {
+            this.selectLabels1 = selectLabels1;
+
+            js.append(String.format(Locale.US, jsBase + ".selectLabels(%b);", selectLabels1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectLabels(%b);", selectLabels1));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private UiMarkersFactory getselectMarkers;
+
+    public UiMarkersFactory getSelectmarkers() {
+        if (getselectMarkers == null)
+            getselectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
+
+        return getselectMarkers;
+    }
+
+    private String selectMarkers;
+    private Boolean selectMarkers1;
+    private String selectMarkers2;
+
+    public void setSelectmarkers(String selectMarkers) {
+        if (jsBase == null) {
+            this.selectMarkers = null;
+            this.selectMarkers1 = null;
+            this.selectMarkers2 = null;
+            
+            this.selectMarkers = selectMarkers;
+        } else {
+            this.selectMarkers = selectMarkers;
+
+            js.append(String.format(Locale.US, jsBase + ".selectMarkers(%s);", selectMarkers));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarkers(%s);", selectMarkers));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectmarkers(String selectMarkers1) {
-        this.selectMarkers = null;
-        this.selectMarkers1 = null;
-        
-        this.selectMarkers1 = selectMarkers1;
+    public void setSelectmarkers(Boolean selectMarkers1) {
+        if (jsBase == null) {
+            this.selectMarkers = null;
+            this.selectMarkers1 = null;
+            this.selectMarkers2 = null;
+            
+            this.selectMarkers1 = selectMarkers1;
+        } else {
+            this.selectMarkers1 = selectMarkers1;
+
+            js.append(String.format(Locale.US, jsBase + ".selectMarkers(%b);", selectMarkers1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarkers(%b);", selectMarkers1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill selectNegativeFill;
 
     public void setSelectnegativefill(Fill selectNegativeFill) {
-        this.selectNegativeFill = selectNegativeFill;
+        if (jsBase == null) {
+            this.selectNegativeFill = selectNegativeFill;
+        } else {
+            this.selectNegativeFill = selectNegativeFill;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s);", (selectNegativeFill != null) ? selectNegativeFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s);", (selectNegativeFill != null) ? selectNegativeFill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color20;
     private Double opacity15;
 
     public void setSelectnegativefill(String color20, Double opacity15) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        
-        this.color20 = color20;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        
-        this.opacity15 = opacity15;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            
+            this.color20 = color20;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            
+            this.opacity15 = opacity15;
+        } else {
+            this.color20 = color20;
+            this.opacity15 = opacity15;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %f);", color20, opacity15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %f);", color20, opacity15));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys20;
     private String[] keys21;
     private Double angle5;
-    private Boolean mode15;
-    private VectorRect mode16;
+    private Boolean mode20;
+    private VectorRect mode21;
+    private String mode22;
     private Double opacity16;
 
-    public void setSelectnegativefill(GradientKey[] keys20, Boolean mode15, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys20 = keys20;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode15 = mode15;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setSelectnegativefill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys20 = keys20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys20 = keys20;
+            this.mode20 = mode20;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %b, %f, %f);", arrayToString(keys20), mode20, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %b, %f, %f);", arrayToString(keys20), mode20, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectnegativefill(GradientKey[] keys20, VectorRect mode16, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys20 = keys20;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode16 = mode16;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setSelectnegativefill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys20 = keys20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys20 = keys20;
+            this.mode21 = mode21;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectnegativefill(String[] keys21, Boolean mode15, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys21 = keys21;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode15 = mode15;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setSelectnegativefill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys20 = keys20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys20 = keys20;
+            this.mode22 = mode22;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", arrayToString(keys20), mode22, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", arrayToString(keys20), mode22, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectnegativefill(String[] keys21, VectorRect mode16, Double angle5, Double opacity16) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        
-        this.keys21 = keys21;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        
-        this.mode16 = mode16;
-        this.angle = null;
-        this.angle1 = null;
-        this.angle2 = null;
-        this.angle3 = null;
-        this.angle4 = null;
-        this.angle5 = null;
-        
-        this.angle5 = angle5;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        
-        this.opacity16 = opacity16;
+    public void setSelectnegativefill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys21 = keys21;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys21 = keys21;
+            this.mode20 = mode20;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %b, %f, %f);", Arrays.toString(keys21), mode20, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %b, %f, %f);", Arrays.toString(keys21), mode20, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setSelectnegativefill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys21 = keys21;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys21 = keys21;
+            this.mode21 = mode21;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setSelectnegativefill(String[] keys21, String mode22, Double angle5, Double opacity16) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            
+            this.keys21 = keys21;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            
+            this.angle5 = angle5;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            
+            this.opacity16 = opacity16;
+        } else {
+            this.keys21 = keys21;
+            this.mode22 = mode22;
+            this.angle5 = angle5;
+            this.opacity16 = opacity16;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), mode22, angle5, opacity16));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), mode22, angle5, opacity16));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys22;
     private String[] keys23;
     private Double cx5;
     private Double cy5;
-    private GraphicsMathRect mode17;
+    private GraphicsMathRect mode23;
     private Double opacity17;
     private Double fx5;
     private Double fy5;
 
-    public void setSelectnegativefill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode17, Double opacity17, Double fx5, Double fy5) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        
-        this.keys22 = keys22;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        this.cx5 = null;
-        
-        this.cx5 = cx5;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        this.cy5 = null;
-        
-        this.cy5 = cy5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        
-        this.mode17 = mode17;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        this.opacity17 = null;
-        
-        this.opacity17 = opacity17;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        this.fx5 = null;
-        
-        this.fx5 = fx5;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        this.fy5 = null;
-        
-        this.fy5 = fy5;
+    public void setSelectnegativefill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            
+            this.keys22 = keys22;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            this.cx5 = null;
+            
+            this.cx5 = cx5;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            this.cy5 = null;
+            
+            this.cy5 = cy5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            
+            this.mode23 = mode23;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            this.opacity17 = null;
+            
+            this.opacity17 = opacity17;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            this.fx5 = null;
+            
+            this.fx5 = fx5;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            this.fy5 = null;
+            
+            this.fy5 = fy5;
+        } else {
+            this.keys22 = keys22;
+            this.cx5 = cx5;
+            this.cy5 = cy5;
+            this.mode23 = mode23;
+            this.opacity17 = opacity17;
+            this.fx5 = fx5;
+            this.fy5 = fy5;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setSelectnegativefill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode17, Double opacity17, Double fx5, Double fy5) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        this.keys4 = null;
-        this.keys5 = null;
-        this.keys6 = null;
-        this.keys7 = null;
-        this.keys8 = null;
-        this.keys9 = null;
-        this.keys10 = null;
-        this.keys11 = null;
-        this.keys12 = null;
-        this.keys13 = null;
-        this.keys14 = null;
-        this.keys15 = null;
-        this.keys16 = null;
-        this.keys17 = null;
-        this.keys18 = null;
-        this.keys19 = null;
-        this.keys20 = null;
-        this.keys21 = null;
-        this.keys22 = null;
-        this.keys23 = null;
-        
-        this.keys23 = keys23;
-        this.cx = null;
-        this.cx1 = null;
-        this.cx2 = null;
-        this.cx3 = null;
-        this.cx4 = null;
-        this.cx5 = null;
-        
-        this.cx5 = cx5;
-        this.cy = null;
-        this.cy1 = null;
-        this.cy2 = null;
-        this.cy3 = null;
-        this.cy4 = null;
-        this.cy5 = null;
-        
-        this.cy5 = cy5;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        this.mode3 = null;
-        this.mode4 = null;
-        this.mode5 = null;
-        this.mode6 = null;
-        this.mode7 = null;
-        this.mode8 = null;
-        this.mode9 = null;
-        this.mode10 = null;
-        this.mode11 = null;
-        this.mode12 = null;
-        this.mode13 = null;
-        this.mode14 = null;
-        this.mode15 = null;
-        this.mode16 = null;
-        this.mode17 = null;
-        
-        this.mode17 = mode17;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        this.opacity3 = null;
-        this.opacity4 = null;
-        this.opacity5 = null;
-        this.opacity6 = null;
-        this.opacity7 = null;
-        this.opacity8 = null;
-        this.opacity9 = null;
-        this.opacity10 = null;
-        this.opacity11 = null;
-        this.opacity12 = null;
-        this.opacity13 = null;
-        this.opacity14 = null;
-        this.opacity15 = null;
-        this.opacity16 = null;
-        this.opacity17 = null;
-        
-        this.opacity17 = opacity17;
-        this.fx = null;
-        this.fx1 = null;
-        this.fx2 = null;
-        this.fx3 = null;
-        this.fx4 = null;
-        this.fx5 = null;
-        
-        this.fx5 = fx5;
-        this.fy = null;
-        this.fy1 = null;
-        this.fy2 = null;
-        this.fy3 = null;
-        this.fy4 = null;
-        this.fy5 = null;
-        
-        this.fy5 = fy5;
+    public void setSelectnegativefill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            this.keys4 = null;
+            this.keys5 = null;
+            this.keys6 = null;
+            this.keys7 = null;
+            this.keys8 = null;
+            this.keys9 = null;
+            this.keys10 = null;
+            this.keys11 = null;
+            this.keys12 = null;
+            this.keys13 = null;
+            this.keys14 = null;
+            this.keys15 = null;
+            this.keys16 = null;
+            this.keys17 = null;
+            this.keys18 = null;
+            this.keys19 = null;
+            this.keys20 = null;
+            this.keys21 = null;
+            this.keys22 = null;
+            this.keys23 = null;
+            
+            this.keys23 = keys23;
+            this.cx = null;
+            this.cx1 = null;
+            this.cx2 = null;
+            this.cx3 = null;
+            this.cx4 = null;
+            this.cx5 = null;
+            
+            this.cx5 = cx5;
+            this.cy = null;
+            this.cy1 = null;
+            this.cy2 = null;
+            this.cy3 = null;
+            this.cy4 = null;
+            this.cy5 = null;
+            
+            this.cy5 = cy5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            
+            this.mode23 = mode23;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            this.opacity4 = null;
+            this.opacity5 = null;
+            this.opacity6 = null;
+            this.opacity7 = null;
+            this.opacity8 = null;
+            this.opacity9 = null;
+            this.opacity10 = null;
+            this.opacity11 = null;
+            this.opacity12 = null;
+            this.opacity13 = null;
+            this.opacity14 = null;
+            this.opacity15 = null;
+            this.opacity16 = null;
+            this.opacity17 = null;
+            
+            this.opacity17 = opacity17;
+            this.fx = null;
+            this.fx1 = null;
+            this.fx2 = null;
+            this.fx3 = null;
+            this.fx4 = null;
+            this.fx5 = null;
+            
+            this.fx5 = fx5;
+            this.fy = null;
+            this.fy1 = null;
+            this.fy2 = null;
+            this.fy3 = null;
+            this.fy4 = null;
+            this.fy5 = null;
+            
+            this.fy5 = fy5;
+        } else {
+            this.keys23 = keys23;
+            this.cx5 = cx5;
+            this.cy5 = cy5;
+            this.mode23 = mode23;
+            this.opacity17 = opacity17;
+            this.fx5 = fx5;
+            this.fy5 = fy5;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill imageSettings5;
+    private PatternFill getselectNegativeHatchFill;
+
+    public PatternFill getSelectnegativehatchfill() {
+        if (getselectNegativeHatchFill == null)
+            getselectNegativeHatchFill = new PatternFill(jsBase + ".selectNegativeHatchFill()");
+
+        return getselectNegativeHatchFill;
+    }
+
     private PatternFill patternFillOrType20;
     private HatchFill patternFillOrType21;
     private HatchFillType patternFillOrType22;
@@ -4341,294 +7484,350 @@ public class ScatterSeriesBubble extends JsObject {
     private Double size5;
 
     public void setSelectnegativehatchfill(PatternFill patternFillOrType20, String color21, Double thickness8, Double size5) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        this.patternFillOrType20 = null;
-        this.patternFillOrType21 = null;
-        this.patternFillOrType22 = null;
-        this.patternFillOrType23 = null;
-        
-        this.patternFillOrType20 = patternFillOrType20;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        
-        this.color21 = color21;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        
-        this.thickness8 = thickness8;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        this.size5 = null;
-        
-        this.size5 = size5;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            this.patternFillOrType20 = null;
+            this.patternFillOrType21 = null;
+            this.patternFillOrType22 = null;
+            this.patternFillOrType23 = null;
+            
+            this.patternFillOrType20 = patternFillOrType20;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            
+            this.color21 = color21;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            
+            this.thickness8 = thickness8;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            this.size5 = null;
+            
+            this.size5 = size5;
+        } else {
+            this.patternFillOrType20 = patternFillOrType20;
+            this.color21 = color21;
+            this.thickness8 = thickness8;
+            this.size5 = size5;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color21, thickness8, size5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color21, thickness8, size5));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectnegativehatchfill(HatchFill patternFillOrType21, String color21, Double thickness8, Double size5) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        this.patternFillOrType20 = null;
-        this.patternFillOrType21 = null;
-        this.patternFillOrType22 = null;
-        this.patternFillOrType23 = null;
-        
-        this.patternFillOrType21 = patternFillOrType21;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        
-        this.color21 = color21;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        
-        this.thickness8 = thickness8;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        this.size5 = null;
-        
-        this.size5 = size5;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            this.patternFillOrType20 = null;
+            this.patternFillOrType21 = null;
+            this.patternFillOrType22 = null;
+            this.patternFillOrType23 = null;
+            
+            this.patternFillOrType21 = patternFillOrType21;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            
+            this.color21 = color21;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            
+            this.thickness8 = thickness8;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            this.size5 = null;
+            
+            this.size5 = size5;
+        } else {
+            this.patternFillOrType21 = patternFillOrType21;
+            this.color21 = color21;
+            this.thickness8 = thickness8;
+            this.size5 = size5;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color21, thickness8, size5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color21, thickness8, size5));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectnegativehatchfill(HatchFillType patternFillOrType22, String color21, Double thickness8, Double size5) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        this.patternFillOrType20 = null;
-        this.patternFillOrType21 = null;
-        this.patternFillOrType22 = null;
-        this.patternFillOrType23 = null;
-        
-        this.patternFillOrType22 = patternFillOrType22;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        
-        this.color21 = color21;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        
-        this.thickness8 = thickness8;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        this.size5 = null;
-        
-        this.size5 = size5;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            this.patternFillOrType20 = null;
+            this.patternFillOrType21 = null;
+            this.patternFillOrType22 = null;
+            this.patternFillOrType23 = null;
+            
+            this.patternFillOrType22 = patternFillOrType22;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            
+            this.color21 = color21;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            
+            this.thickness8 = thickness8;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            this.size5 = null;
+            
+            this.size5 = size5;
+        } else {
+            this.patternFillOrType22 = patternFillOrType22;
+            this.color21 = color21;
+            this.thickness8 = thickness8;
+            this.size5 = size5;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color21, thickness8, size5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color21, thickness8, size5));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectnegativehatchfill(String patternFillOrType23, String color21, Double thickness8, Double size5) {
-        this.patternFillOrType = null;
-        this.patternFillOrType1 = null;
-        this.patternFillOrType2 = null;
-        this.patternFillOrType3 = null;
-        this.patternFillOrType4 = null;
-        this.patternFillOrType5 = null;
-        this.patternFillOrType6 = null;
-        this.patternFillOrType7 = null;
-        this.patternFillOrType8 = null;
-        this.patternFillOrType9 = null;
-        this.patternFillOrType10 = null;
-        this.patternFillOrType11 = null;
-        this.patternFillOrType12 = null;
-        this.patternFillOrType13 = null;
-        this.patternFillOrType14 = null;
-        this.patternFillOrType15 = null;
-        this.patternFillOrType16 = null;
-        this.patternFillOrType17 = null;
-        this.patternFillOrType18 = null;
-        this.patternFillOrType19 = null;
-        this.patternFillOrType20 = null;
-        this.patternFillOrType21 = null;
-        this.patternFillOrType22 = null;
-        this.patternFillOrType23 = null;
-        
-        this.patternFillOrType23 = patternFillOrType23;
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        
-        this.color21 = color21;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        
-        this.thickness8 = thickness8;
-        this.size = null;
-        this.size1 = null;
-        this.size2 = null;
-        this.size3 = null;
-        this.size4 = null;
-        this.size5 = null;
-        
-        this.size5 = size5;
+        if (jsBase == null) {
+            this.patternFillOrType = null;
+            this.patternFillOrType1 = null;
+            this.patternFillOrType2 = null;
+            this.patternFillOrType3 = null;
+            this.patternFillOrType4 = null;
+            this.patternFillOrType5 = null;
+            this.patternFillOrType6 = null;
+            this.patternFillOrType7 = null;
+            this.patternFillOrType8 = null;
+            this.patternFillOrType9 = null;
+            this.patternFillOrType10 = null;
+            this.patternFillOrType11 = null;
+            this.patternFillOrType12 = null;
+            this.patternFillOrType13 = null;
+            this.patternFillOrType14 = null;
+            this.patternFillOrType15 = null;
+            this.patternFillOrType16 = null;
+            this.patternFillOrType17 = null;
+            this.patternFillOrType18 = null;
+            this.patternFillOrType19 = null;
+            this.patternFillOrType20 = null;
+            this.patternFillOrType21 = null;
+            this.patternFillOrType22 = null;
+            this.patternFillOrType23 = null;
+            
+            this.patternFillOrType23 = patternFillOrType23;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            
+            this.color21 = color21;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            
+            this.thickness8 = thickness8;
+            this.size = null;
+            this.size1 = null;
+            this.size2 = null;
+            this.size3 = null;
+            this.size4 = null;
+            this.size5 = null;
+            
+            this.size5 = size5;
+        } else {
+            this.patternFillOrType23 = patternFillOrType23;
+            this.color21 = color21;
+            this.thickness8 = thickness8;
+            this.size5 = size5;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", patternFillOrType23, color21, thickness8, size5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeHatchFill(%s, %s, %f, %f);", patternFillOrType23, color21, thickness8, size5));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color22;
@@ -4640,185 +7839,230 @@ public class ScatterSeriesBubble extends JsObject {
     private StrokeLineCap lineCap3;
 
     public void setSelectnegativestroke(Stroke color22, Double thickness9, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        
-        this.color22 = color22;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        
-        this.thickness9 = thickness9;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            
+            this.color22 = color22;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            
+            this.thickness9 = thickness9;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.color22 = color22;
+            this.thickness9 = thickness9;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeStroke(%s, %f, %s, %s, %s);", (color22 != null) ? color22.generateJs() : "null", thickness9, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeStroke(%s, %f, %s, %s, %s);", (color22 != null) ? color22.generateJs() : "null", thickness9, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectnegativestroke(ColoredFill color23, Double thickness9, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        
-        this.color23 = color23;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        
-        this.thickness9 = thickness9;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            
+            this.color23 = color23;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            
+            this.thickness9 = thickness9;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.color23 = color23;
+            this.thickness9 = thickness9;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeStroke(%s, %f, %s, %s, %s);", (color23 != null) ? color23.generateJs() : "null", thickness9, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeStroke(%s, %f, %s, %s, %s);", (color23 != null) ? color23.generateJs() : "null", thickness9, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectnegativestroke(String color24, Double thickness9, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        
-        this.color24 = color24;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        
-        this.thickness9 = thickness9;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            
+            this.color24 = color24;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            
+            this.thickness9 = thickness9;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.color24 = color24;
+            this.thickness9 = thickness9;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".selectNegativeStroke(%s, %f, %s, %s, %s);", color24, thickness9, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectNegativeStroke(%s, %f, %s, %s, %s);", color24, thickness9, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color25;
@@ -4830,224 +8074,291 @@ public class ScatterSeriesBubble extends JsObject {
     private StrokeLineCap lineCap4;
 
     public void setSelectstroke(Stroke color25, Double thickness10, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        this.color25 = null;
-        this.color26 = null;
-        this.color27 = null;
-        
-        this.color25 = color25;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        this.thickness10 = null;
-        
-        this.thickness10 = thickness10;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        
-        this.dashpattern4 = dashpattern4;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        
-        this.lineJoin4 = lineJoin4;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        
-        this.lineCap4 = lineCap4;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            this.color26 = null;
+            this.color27 = null;
+            
+            this.color25 = color25;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            
+            this.thickness10 = thickness10;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            
+            this.lineJoin4 = lineJoin4;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            
+            this.lineCap4 = lineCap4;
+        } else {
+            this.color25 = color25;
+            this.thickness10 = thickness10;
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin4 = lineJoin4;
+            this.lineCap4 = lineCap4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectStroke(%s, %f, %s, %s, %s);", (color25 != null) ? color25.generateJs() : "null", thickness10, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectStroke(%s, %f, %s, %s, %s);", (color25 != null) ? color25.generateJs() : "null", thickness10, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectstroke(ColoredFill color26, Double thickness10, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        this.color25 = null;
-        this.color26 = null;
-        this.color27 = null;
-        
-        this.color26 = color26;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        this.thickness10 = null;
-        
-        this.thickness10 = thickness10;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        
-        this.dashpattern4 = dashpattern4;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        
-        this.lineJoin4 = lineJoin4;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        
-        this.lineCap4 = lineCap4;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            this.color26 = null;
+            this.color27 = null;
+            
+            this.color26 = color26;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            
+            this.thickness10 = thickness10;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            
+            this.lineJoin4 = lineJoin4;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            
+            this.lineCap4 = lineCap4;
+        } else {
+            this.color26 = color26;
+            this.thickness10 = thickness10;
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin4 = lineJoin4;
+            this.lineCap4 = lineCap4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectStroke(%s, %f, %s, %s, %s);", (color26 != null) ? color26.generateJs() : "null", thickness10, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectStroke(%s, %f, %s, %s, %s);", (color26 != null) ? color26.generateJs() : "null", thickness10, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectstroke(String color27, Double thickness10, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        this.color25 = null;
-        this.color26 = null;
-        this.color27 = null;
-        
-        this.color27 = color27;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        this.thickness10 = null;
-        
-        this.thickness10 = thickness10;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        
-        this.dashpattern4 = dashpattern4;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        
-        this.lineJoin4 = lineJoin4;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        
-        this.lineCap4 = lineCap4;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            this.color26 = null;
+            this.color27 = null;
+            
+            this.color27 = color27;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            
+            this.thickness10 = thickness10;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            
+            this.lineJoin4 = lineJoin4;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            
+            this.lineCap4 = lineCap4;
+        } else {
+            this.color27 = color27;
+            this.thickness10 = thickness10;
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin4 = lineJoin4;
+            this.lineCap4 = lineCap4;
+
+            js.append(String.format(Locale.US, jsBase + ".selectStroke(%s, %f, %s, %s, %s);", color27, thickness10, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectStroke(%s, %f, %s, %s, %s);", color27, thickness10, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private SelectionMode selectionMode;
     private String selectionMode1;
 
     public void setSelectionmode(SelectionMode selectionMode) {
-        this.selectionMode = null;
-        this.selectionMode1 = null;
-        
-        this.selectionMode = selectionMode;
+        if (jsBase == null) {
+            this.selectionMode = null;
+            this.selectionMode1 = null;
+            
+            this.selectionMode = selectionMode;
+        } else {
+            this.selectionMode = selectionMode;
+
+            js.append(String.format(Locale.US, jsBase + ".selectionMode(%s);", (selectionMode != null) ? selectionMode.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectionMode(%s);", (selectionMode != null) ? selectionMode.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setSelectionmode(String selectionMode1) {
-        this.selectionMode = null;
-        this.selectionMode1 = null;
-        
-        this.selectionMode1 = selectionMode1;
+        if (jsBase == null) {
+            this.selectionMode = null;
+            this.selectionMode1 = null;
+            
+            this.selectionMode1 = selectionMode1;
+        } else {
+            this.selectionMode1 = selectionMode1;
+
+            js.append(String.format(Locale.US, jsBase + ".selectionMode(%s);", selectionMode1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectionMode(%s);", selectionMode1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color28;
@@ -5059,336 +8370,670 @@ public class ScatterSeriesBubble extends JsObject {
     private StrokeLineCap lineCap5;
 
     public void setStroke(Stroke color28, Double thickness11, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        this.color25 = null;
-        this.color26 = null;
-        this.color27 = null;
-        this.color28 = null;
-        this.color29 = null;
-        this.color30 = null;
-        
-        this.color28 = color28;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        this.thickness10 = null;
-        this.thickness11 = null;
-        
-        this.thickness11 = thickness11;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        this.dashpattern5 = null;
-        
-        this.dashpattern5 = dashpattern5;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        this.lineJoin5 = null;
-        
-        this.lineJoin5 = lineJoin5;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        this.lineCap5 = null;
-        
-        this.lineCap5 = lineCap5;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            this.color26 = null;
+            this.color27 = null;
+            this.color28 = null;
+            this.color29 = null;
+            this.color30 = null;
+            
+            this.color28 = color28;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            
+            this.lineJoin5 = lineJoin5;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            
+            this.lineCap5 = lineCap5;
+        } else {
+            this.color28 = color28;
+            this.thickness11 = thickness11;
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin5 = lineJoin5;
+            this.lineCap5 = lineCap5;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color28 != null) ? color28.generateJs() : "null", thickness11, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color28 != null) ? color28.generateJs() : "null", thickness11, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(ColoredFill color29, Double thickness11, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        this.color25 = null;
-        this.color26 = null;
-        this.color27 = null;
-        this.color28 = null;
-        this.color29 = null;
-        this.color30 = null;
-        
-        this.color29 = color29;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        this.thickness10 = null;
-        this.thickness11 = null;
-        
-        this.thickness11 = thickness11;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        this.dashpattern5 = null;
-        
-        this.dashpattern5 = dashpattern5;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        this.lineJoin5 = null;
-        
-        this.lineJoin5 = lineJoin5;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        this.lineCap5 = null;
-        
-        this.lineCap5 = lineCap5;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            this.color26 = null;
+            this.color27 = null;
+            this.color28 = null;
+            this.color29 = null;
+            this.color30 = null;
+            
+            this.color29 = color29;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            
+            this.lineJoin5 = lineJoin5;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            
+            this.lineCap5 = lineCap5;
+        } else {
+            this.color29 = color29;
+            this.thickness11 = thickness11;
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin5 = lineJoin5;
+            this.lineCap5 = lineCap5;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color29 != null) ? color29.generateJs() : "null", thickness11, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color29 != null) ? color29.generateJs() : "null", thickness11, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(String color30, Double thickness11, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        this.color12 = null;
-        this.color13 = null;
-        this.color14 = null;
-        this.color15 = null;
-        this.color16 = null;
-        this.color17 = null;
-        this.color18 = null;
-        this.color19 = null;
-        this.color20 = null;
-        this.color21 = null;
-        this.color22 = null;
-        this.color23 = null;
-        this.color24 = null;
-        this.color25 = null;
-        this.color26 = null;
-        this.color27 = null;
-        this.color28 = null;
-        this.color29 = null;
-        this.color30 = null;
-        
-        this.color30 = color30;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        this.thickness5 = null;
-        this.thickness6 = null;
-        this.thickness7 = null;
-        this.thickness8 = null;
-        this.thickness9 = null;
-        this.thickness10 = null;
-        this.thickness11 = null;
-        
-        this.thickness11 = thickness11;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        this.dashpattern5 = null;
-        
-        this.dashpattern5 = dashpattern5;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        this.lineJoin5 = null;
-        
-        this.lineJoin5 = lineJoin5;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        this.lineCap5 = null;
-        
-        this.lineCap5 = lineCap5;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            this.color12 = null;
+            this.color13 = null;
+            this.color14 = null;
+            this.color15 = null;
+            this.color16 = null;
+            this.color17 = null;
+            this.color18 = null;
+            this.color19 = null;
+            this.color20 = null;
+            this.color21 = null;
+            this.color22 = null;
+            this.color23 = null;
+            this.color24 = null;
+            this.color25 = null;
+            this.color26 = null;
+            this.color27 = null;
+            this.color28 = null;
+            this.color29 = null;
+            this.color30 = null;
+            
+            this.color30 = color30;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            
+            this.thickness11 = thickness11;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            
+            this.lineJoin5 = lineJoin5;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            
+            this.lineCap5 = lineCap5;
+        } else {
+            this.color30 = color30;
+            this.thickness11 = thickness11;
+            this.dashpattern5 = dashpattern5;
+            this.lineJoin5 = lineJoin5;
+            this.lineCap5 = lineCap5;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color30, thickness11, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color30, thickness11, dashpattern5, (lineJoin5 != null) ? lineJoin5.generateJs() : "null", (lineCap5 != null) ? lineCap5.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
-    private Boolean tooltip;
+    private String tooltip;
+    private Boolean tooltip1;
 
-    public void setTooltip(Boolean tooltip) {
-        this.tooltip = tooltip;
+    public void setTooltip(String tooltip) {
+        if (jsBase == null) {
+            this.tooltip = null;
+            this.tooltip1 = null;
+            
+            this.tooltip = tooltip;
+        } else {
+            this.tooltip = tooltip;
+
+            js.append(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltip));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltip));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setTooltip(Boolean tooltip1) {
+        if (jsBase == null) {
+            this.tooltip = null;
+            this.tooltip1 = null;
+            
+            this.tooltip1 = tooltip1;
+        } else {
+            this.tooltip1 = tooltip1;
+
+            js.append(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double top;
     private String top1;
 
     public void setTop(Double top) {
-        this.top = null;
-        this.top1 = null;
-        
-        this.top = top;
+        if (jsBase == null) {
+            this.top = null;
+            this.top1 = null;
+            
+            this.top = top;
+        } else {
+            this.top = top;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTop(String top1) {
-        this.top = null;
-        this.top1 = null;
-        
-        this.top1 = top1;
+        if (jsBase == null) {
+            this.top = null;
+            this.top1 = null;
+            
+            this.top1 = top1;
+        } else {
+            this.top1 = top1;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key2;
+
+    public void setUnlistenbykey(String key2) {
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            this.key2 = null;
+            
+            this.key2 = key2;
+        } else {
+            this.key2 = key2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double index3;
 
     public void setUnselect(Double index3) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        this.index3 = null;
-        
-        this.index3 = index3;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            
+            this.index3 = index3;
+        } else {
+            this.index3 = index3;
+
+            js.append(String.format(Locale.US, jsBase + ".unselect(%f);", index3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%f);", index3));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double[] indexes9;
 
     public void setUnselect(Double[] indexes9) {
-        this.indexes = null;
-        this.indexes1 = null;
-        this.indexes2 = null;
-        this.indexes3 = null;
-        this.indexes4 = null;
-        this.indexes5 = null;
-        this.indexes6 = null;
-        this.indexes7 = null;
-        this.indexes8 = null;
-        this.indexes9 = null;
-        
-        this.indexes9 = indexes9;
+        if (jsBase == null) {
+            this.indexes = null;
+            this.indexes1 = null;
+            this.indexes2 = null;
+            this.indexes3 = null;
+            this.indexes4 = null;
+            this.indexes5 = null;
+            this.indexes6 = null;
+            this.indexes7 = null;
+            this.indexes8 = null;
+            this.indexes9 = null;
+            
+            this.indexes9 = indexes9;
+        } else {
+            this.indexes9 = indexes9;
+
+            js.append(String.format(Locale.US, jsBase + ".unselect(%s);", Arrays.toString(indexes9)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s);", Arrays.toString(indexes9)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double width2;
     private String width3;
 
     public void setWidth(Double width2) {
-        this.width = null;
-        this.width1 = null;
-        this.width2 = null;
-        this.width3 = null;
-        
-        this.width2 = width2;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            this.width2 = null;
+            this.width3 = null;
+            
+            this.width2 = width2;
+        } else {
+            this.width2 = width2;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%f);", width2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setWidth(String width3) {
-        this.width = null;
-        this.width1 = null;
-        this.width2 = null;
-        this.width3 = null;
-        
-        this.width3 = width3;
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            this.width2 = null;
+            this.width3 = null;
+            
+            this.width3 = width3;
+        } else {
+            this.width3 = width3;
+
+            js.append(String.format(Locale.US, jsBase + ".width(%s);", width3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width3));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private ScatterBase getxScale;
+
+    public ScatterBase getXscale() {
+        if (getxScale == null)
+            getxScale = new ScatterBase(jsBase + ".xScale()");
+
+        return getxScale;
     }
 
     private ScalesBase xScale;
 
     public void setXscale(ScalesBase xScale) {
-        this.xScale = xScale;
+        if (jsBase == null) {
+            this.xScale = xScale;
+        } else {
+            this.xScale = xScale;
+
+            js.append(String.format(Locale.US, jsBase + ".xScale(%s);", (xScale != null) ? xScale.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xScale(%s);", (xScale != null) ? xScale.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private ScatterBase getyScale;
+
+    public ScatterBase getYscale() {
+        if (getyScale == null)
+            getyScale = new ScatterBase(jsBase + ".yScale()");
+
+        return getyScale;
     }
 
     private ScatterBase yScale;
 
     public void setYscale(ScatterBase yScale) {
-        this.yScale = yScale;
+        if (jsBase == null) {
+            this.yScale = yScale;
+        } else {
+            this.yScale = yScale;
+
+            js.append(String.format(Locale.US, jsBase + ".yScale(%s);", (yScale != null) ? yScale.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", (yScale != null) ? yScale.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
+        if (jsBase == null) {
+            this.zIndex = zIndex;
+        } else {
+            this.zIndex = zIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetbounds() {
+        if (getbounds != null) {
+            return getbounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetdata() {
+        if (getdata != null) {
+            return getdata.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethatchFill() {
+        if (gethatchFill != null) {
+            return gethatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethoverHatchFill() {
+        if (gethoverHatchFill != null) {
+            return gethoverHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethoverMarkers() {
+        if (gethoverMarkers != null) {
+            return gethoverMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgethoverNegativeHatchFill() {
+        if (gethoverNegativeHatchFill != null) {
+            return gethoverNegativeHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetlabels() {
+        if (getlabels != null) {
+            return getlabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetmarkers() {
+        if (getmarkers != null) {
+            return getmarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetnegativeHatchFill() {
+        if (getnegativeHatchFill != null) {
+            return getnegativeHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetselectHatchFill() {
+        if (getselectHatchFill != null) {
+            return getselectHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetselectMarkers() {
+        if (getselectMarkers != null) {
+            return getselectMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetselectNegativeHatchFill() {
+        if (getselectNegativeHatchFill != null) {
+            return getselectNegativeHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetxScale() {
+        if (getxScale != null) {
+            return getxScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetyScale() {
+        if (getyScale != null) {
+            return getyScale.generateJs();
+        }
+        return "";
     }
 
     private String generateJSbottom() {
@@ -5629,6 +9274,13 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
+    private String generateJSmode2() {
+        if (mode2 != null) {
+            return String.format(Locale.US, "mode: %s,", mode2);
+        }
+        return "";
+    }
+
     private String generateJSopacity1() {
         if (opacity1 != null) {
             return String.format(Locale.US, "opacity: %f,", opacity1);
@@ -5664,9 +9316,9 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode2 != null) ? mode2.generateJs() : "null");
+    private String generateJSmode3() {
+        if (mode3 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
         }
         return "";
     }
@@ -5839,16 +9491,23 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode3() {
-        if (mode3 != null) {
-            return String.format(Locale.US, "mode: %b,", mode3);
+    private String generateJSmode4() {
+        if (mode4 != null) {
+            return String.format(Locale.US, "mode: %b,", mode4);
         }
         return "";
     }
 
-    private String generateJSmode4() {
-        if (mode4 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode4 != null) ? mode4.generateJs() : "null");
+    private String generateJSmode5() {
+        if (mode5 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode6() {
+        if (mode6 != null) {
+            return String.format(Locale.US, "mode: %s,", mode6);
         }
         return "";
     }
@@ -5888,9 +9547,9 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode5() {
-        if (mode5 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
+    private String generateJSmode7() {
+        if (mode7 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
         }
         return "";
     }
@@ -5974,21 +9633,35 @@ public class ScatterSeriesBubble extends JsObject {
 
     private String generateJShoverLabels() {
         if (hoverLabels != null) {
-            return String.format(Locale.US, "hoverLabels: %b,", hoverLabels);
+            return String.format(Locale.US, "hoverLabels: %s,", hoverLabels);
+        }
+        return "";
+    }
+
+    private String generateJShoverLabels1() {
+        if (hoverLabels1 != null) {
+            return String.format(Locale.US, "hoverLabels: %b,", hoverLabels1);
         }
         return "";
     }
 
     private String generateJShoverMarkers() {
         if (hoverMarkers != null) {
-            return String.format(Locale.US, "hoverMarkers: %b,", hoverMarkers);
+            return String.format(Locale.US, "hoverMarkers: %s,", hoverMarkers);
         }
         return "";
     }
 
     private String generateJShoverMarkers1() {
         if (hoverMarkers1 != null) {
-            return String.format(Locale.US, "hoverMarkers: %s,", hoverMarkers1);
+            return String.format(Locale.US, "hoverMarkers: %b,", hoverMarkers1);
+        }
+        return "";
+    }
+
+    private String generateJShoverMarkers2() {
+        if (hoverMarkers2 != null) {
+            return String.format(Locale.US, "hoverMarkers: %s,", hoverMarkers2);
         }
         return "";
     }
@@ -6035,16 +9708,23 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode6() {
-        if (mode6 != null) {
-            return String.format(Locale.US, "mode: %b,", mode6);
+    private String generateJSmode8() {
+        if (mode8 != null) {
+            return String.format(Locale.US, "mode: %b,", mode8);
         }
         return "";
     }
 
-    private String generateJSmode7() {
-        if (mode7 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
+    private String generateJSmode9() {
+        if (mode9 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode9 != null) ? mode9.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode10() {
+        if (mode10 != null) {
+            return String.format(Locale.US, "mode: %s,", mode10);
         }
         return "";
     }
@@ -6084,9 +9764,9 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode8() {
-        if (mode8 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode8 != null) ? mode8.generateJs() : "null");
+    private String generateJSmode11() {
+        if (mode11 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode11 != null) ? mode11.generateJs() : "null");
         }
         return "";
     }
@@ -6310,7 +9990,14 @@ public class ScatterSeriesBubble extends JsObject {
 
     private String generateJSlabels() {
         if (labels != null) {
-            return String.format(Locale.US, "labels: %b,", labels);
+            return String.format(Locale.US, "labels: %s,", labels);
+        }
+        return "";
+    }
+
+    private String generateJSlabels1() {
+        if (labels1 != null) {
+            return String.format(Locale.US, "labels: %b,", labels1);
         }
         return "";
     }
@@ -6329,6 +10016,13 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
+    private String generateJSlegendItem() {
+        if (legendItem != null) {
+            return String.format(Locale.US, "legendItem: %s,", legendItem);
+        }
+        return "";
+    }
+
     private String generateJStype() {
         if (type != null) {
             return String.format(Locale.US, "type: %s,", type);
@@ -6339,6 +10033,13 @@ public class ScatterSeriesBubble extends JsObject {
     private String generateJSuseCapture() {
         if (useCapture != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
         }
         return "";
     }
@@ -6357,16 +10058,30 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
+        }
+        return "";
+    }
+
     private String generateJSmarkers() {
         if (markers != null) {
-            return String.format(Locale.US, "markers: %b,", markers);
+            return String.format(Locale.US, "markers: %s,", markers);
         }
         return "";
     }
 
     private String generateJSmarkers1() {
         if (markers1 != null) {
-            return String.format(Locale.US, "markers: %s,", markers1);
+            return String.format(Locale.US, "markers: %b,", markers1);
+        }
+        return "";
+    }
+
+    private String generateJSmarkers2() {
+        if (markers2 != null) {
+            return String.format(Locale.US, "markers: %s,", markers2);
         }
         return "";
     }
@@ -6476,16 +10191,23 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode9() {
-        if (mode9 != null) {
-            return String.format(Locale.US, "mode: %b,", mode9);
+    private String generateJSmode12() {
+        if (mode12 != null) {
+            return String.format(Locale.US, "mode: %b,", mode12);
         }
         return "";
     }
 
-    private String generateJSmode10() {
-        if (mode10 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode10 != null) ? mode10.generateJs() : "null");
+    private String generateJSmode13() {
+        if (mode13 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode13 != null) ? mode13.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode14() {
+        if (mode14 != null) {
+            return String.format(Locale.US, "mode: %s,", mode14);
         }
         return "";
     }
@@ -6525,9 +10247,9 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode11() {
-        if (mode11 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode11 != null) ? mode11.generateJs() : "null");
+    private String generateJSmode15() {
+        if (mode15 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode15 != null) ? mode15.generateJs() : "null");
         }
         return "";
     }
@@ -6665,6 +10387,13 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
+    private String generateJSpaperSizeOrOptions1() {
+        if (paperSizeOrOptions1 != null) {
+            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
+        }
+        return "";
+    }
+
     private String generateJSlandscape() {
         if (landscape != null) {
             return String.format(Locale.US, "landscape: %b,", landscape);
@@ -6756,16 +10485,23 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode12() {
-        if (mode12 != null) {
-            return String.format(Locale.US, "mode: %b,", mode12);
+    private String generateJSmode16() {
+        if (mode16 != null) {
+            return String.format(Locale.US, "mode: %b,", mode16);
         }
         return "";
     }
 
-    private String generateJSmode13() {
-        if (mode13 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode13 != null) ? mode13.generateJs() : "null");
+    private String generateJSmode17() {
+        if (mode17 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode17 != null) ? mode17.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode18() {
+        if (mode18 != null) {
+            return String.format(Locale.US, "mode: %s,", mode18);
         }
         return "";
     }
@@ -6805,9 +10541,9 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode14() {
-        if (mode14 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode14 != null) ? mode14.generateJs() : "null");
+    private String generateJSmode19() {
+        if (mode19 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode19 != null) ? mode19.generateJs() : "null");
         }
         return "";
     }
@@ -6891,21 +10627,35 @@ public class ScatterSeriesBubble extends JsObject {
 
     private String generateJSselectLabels() {
         if (selectLabels != null) {
-            return String.format(Locale.US, "selectLabels: %b,", selectLabels);
+            return String.format(Locale.US, "selectLabels: %s,", selectLabels);
+        }
+        return "";
+    }
+
+    private String generateJSselectLabels1() {
+        if (selectLabels1 != null) {
+            return String.format(Locale.US, "selectLabels: %b,", selectLabels1);
         }
         return "";
     }
 
     private String generateJSselectMarkers() {
         if (selectMarkers != null) {
-            return String.format(Locale.US, "selectMarkers: %b,", selectMarkers);
+            return String.format(Locale.US, "selectMarkers: %s,", selectMarkers);
         }
         return "";
     }
 
     private String generateJSselectMarkers1() {
         if (selectMarkers1 != null) {
-            return String.format(Locale.US, "selectMarkers: %s,", selectMarkers1);
+            return String.format(Locale.US, "selectMarkers: %b,", selectMarkers1);
+        }
+        return "";
+    }
+
+    private String generateJSselectMarkers2() {
+        if (selectMarkers2 != null) {
+            return String.format(Locale.US, "selectMarkers: %s,", selectMarkers2);
         }
         return "";
     }
@@ -6952,16 +10702,23 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode15() {
-        if (mode15 != null) {
-            return String.format(Locale.US, "mode: %b,", mode15);
+    private String generateJSmode20() {
+        if (mode20 != null) {
+            return String.format(Locale.US, "mode: %b,", mode20);
         }
         return "";
     }
 
-    private String generateJSmode16() {
-        if (mode16 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode16 != null) ? mode16.generateJs() : "null");
+    private String generateJSmode21() {
+        if (mode21 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode21 != null) ? mode21.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode22() {
+        if (mode22 != null) {
+            return String.format(Locale.US, "mode: %s,", mode22);
         }
         return "";
     }
@@ -7001,9 +10758,9 @@ public class ScatterSeriesBubble extends JsObject {
         return "";
     }
 
-    private String generateJSmode17() {
-        if (mode17 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode17 != null) ? mode17.generateJs() : "null");
+    private String generateJSmode23() {
+        if (mode23 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode23 != null) ? mode23.generateJs() : "null");
         }
         return "";
     }
@@ -7248,7 +11005,14 @@ public class ScatterSeriesBubble extends JsObject {
 
     private String generateJStooltip() {
         if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip);
+            return String.format(Locale.US, "tooltip: %s,", tooltip);
+        }
+        return "";
+    }
+
+    private String generateJStooltip1() {
+        if (tooltip1 != null) {
+            return String.format(Locale.US, "tooltip: %b,", tooltip1);
         }
         return "";
     }
@@ -7277,6 +11041,20 @@ public class ScatterSeriesBubble extends JsObject {
     private String generateJSuseCapture2() {
         if (useCapture2 != null) {
             return String.format(Locale.US, "useCapture: %b,", useCapture2);
+        }
+        return "";
+    }
+
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey2() {
+        if (key2 != null) {
+            return String.format(Locale.US, "key: %s,", key2);
         }
         return "";
     }
@@ -7333,286 +11111,320 @@ public class ScatterSeriesBubble extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSbottom());
-        js.append(generateJSbottom1());
-        js.append(generateJSbounds());
-        js.append(generateJSbounds1());
-        js.append(generateJSbounds2());
-        js.append(generateJSx());
-        js.append(generateJSx1());
-        js.append(generateJSy());
-        js.append(generateJSy1());
-        js.append(generateJSwidth());
-        js.append(generateJSwidth1());
-        js.append(generateJSheight());
-        js.append(generateJSheight1());
-        js.append(generateJSclip());
-        js.append(generateJSclip1());
-        js.append(generateJScolor());
-        js.append(generateJSdata());
-        js.append(generateJSdata1());
-        js.append(generateJSdata2());
-        js.append(generateJSdata3());
-        js.append(generateJScsvSettings());
-        js.append(generateJScsvSettings1());
-        js.append(generateJSdisplayNegative());
-        js.append(generateJSenabled());
-        js.append(generateJSindexes());
-        js.append(generateJSindexes1());
-        js.append(generateJSfill());
-        js.append(generateJScolor1());
-        js.append(generateJSopacity());
-        js.append(generateJSkeys());
-        js.append(generateJSkeys1());
-        js.append(generateJSangle());
-        js.append(generateJSmode());
-        js.append(generateJSmode1());
-        js.append(generateJSopacity1());
-        js.append(generateJSkeys2());
-        js.append(generateJSkeys3());
-        js.append(generateJScx());
-        js.append(generateJScy());
-        js.append(generateJSmode2());
-        js.append(generateJSopacity2());
-        js.append(generateJSfx());
-        js.append(generateJSfy());
-        js.append(generateJSimageSettings());
-        js.append(generateJSindex());
-        js.append(generateJSkey());
-        js.append(generateJSkey1());
-        js.append(generateJSpatternFillOrType());
-        js.append(generateJSpatternFillOrType1());
-        js.append(generateJSpatternFillOrType2());
-        js.append(generateJSpatternFillOrType3());
-        js.append(generateJScolor2());
-        js.append(generateJSthickness());
-        js.append(generateJSsize());
-        js.append(generateJSheight2());
-        js.append(generateJSheight3());
-        js.append(generateJSindex1());
-        js.append(generateJSindexes2());
-        js.append(generateJShoverFill());
-        js.append(generateJScolor3());
-        js.append(generateJSopacity3());
-        js.append(generateJSkeys4());
-        js.append(generateJSkeys5());
-        js.append(generateJSangle1());
-        js.append(generateJSmode3());
-        js.append(generateJSmode4());
-        js.append(generateJSopacity4());
-        js.append(generateJSkeys6());
-        js.append(generateJSkeys7());
-        js.append(generateJScx1());
-        js.append(generateJScy1());
-        js.append(generateJSmode5());
-        js.append(generateJSopacity5());
-        js.append(generateJSfx1());
-        js.append(generateJSfy1());
-        js.append(generateJSimageSettings1());
-        js.append(generateJSpatternFillOrType4());
-        js.append(generateJSpatternFillOrType5());
-        js.append(generateJSpatternFillOrType6());
-        js.append(generateJSpatternFillOrType7());
-        js.append(generateJScolor4());
-        js.append(generateJSthickness1());
-        js.append(generateJSsize1());
-        js.append(generateJShoverLabels());
-        js.append(generateJShoverMarkers());
-        js.append(generateJShoverMarkers1());
-        js.append(generateJShoverNegativeFill());
-        js.append(generateJScolor5());
-        js.append(generateJSopacity6());
-        js.append(generateJSkeys8());
-        js.append(generateJSkeys9());
-        js.append(generateJSangle2());
-        js.append(generateJSmode6());
-        js.append(generateJSmode7());
-        js.append(generateJSopacity7());
-        js.append(generateJSkeys10());
-        js.append(generateJSkeys11());
-        js.append(generateJScx2());
-        js.append(generateJScy2());
-        js.append(generateJSmode8());
-        js.append(generateJSopacity8());
-        js.append(generateJSfx2());
-        js.append(generateJSfy2());
-        js.append(generateJSimageSettings2());
-        js.append(generateJSpatternFillOrType8());
-        js.append(generateJSpatternFillOrType9());
-        js.append(generateJSpatternFillOrType10());
-        js.append(generateJSpatternFillOrType11());
-        js.append(generateJScolor6());
-        js.append(generateJSthickness2());
-        js.append(generateJSsize2());
-        js.append(generateJScolor7());
-        js.append(generateJScolor8());
-        js.append(generateJScolor9());
-        js.append(generateJSthickness3());
-        js.append(generateJSdashpattern());
-        js.append(generateJSlineJoin());
-        js.append(generateJSlineCap());
-        js.append(generateJScolor10());
-        js.append(generateJScolor11());
-        js.append(generateJScolor12());
-        js.append(generateJSthickness4());
-        js.append(generateJSdashpattern1());
-        js.append(generateJSlineJoin1());
-        js.append(generateJSlineCap1());
-        js.append(generateJSid());
-        js.append(generateJSid1());
-        js.append(generateJSindexes3());
-        js.append(generateJSindexes4());
-        js.append(generateJSindexes5());
-        js.append(generateJSindexes6());
-        js.append(generateJSlabels());
-        js.append(generateJSleft());
-        js.append(generateJSleft1());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSmarkers());
-        js.append(generateJSmarkers1());
-        js.append(generateJSmaxHeight());
-        js.append(generateJSmaxHeight1());
-        js.append(generateJSmaxWidth());
-        js.append(generateJSmaxWidth1());
-        js.append(generateJSminHeight());
-        js.append(generateJSminHeight1());
-        js.append(generateJSminWidth());
-        js.append(generateJSminWidth1());
-        js.append(generateJSname());
-        js.append(generateJSnegativeFill());
-        js.append(generateJScolor13());
-        js.append(generateJSopacity9());
-        js.append(generateJSkeys12());
-        js.append(generateJSkeys13());
-        js.append(generateJSangle3());
-        js.append(generateJSmode9());
-        js.append(generateJSmode10());
-        js.append(generateJSopacity10());
-        js.append(generateJSkeys14());
-        js.append(generateJSkeys15());
-        js.append(generateJScx3());
-        js.append(generateJScy3());
-        js.append(generateJSmode11());
-        js.append(generateJSopacity11());
-        js.append(generateJSfx3());
-        js.append(generateJSfy3());
-        js.append(generateJSimageSettings3());
-        js.append(generateJSpatternFillOrType12());
-        js.append(generateJSpatternFillOrType13());
-        js.append(generateJSpatternFillOrType14());
-        js.append(generateJSpatternFillOrType15());
-        js.append(generateJScolor14());
-        js.append(generateJSthickness5());
-        js.append(generateJSsize3());
-        js.append(generateJScolor15());
-        js.append(generateJScolor16());
-        js.append(generateJScolor17());
-        js.append(generateJSthickness6());
-        js.append(generateJSdashpattern2());
-        js.append(generateJSlineJoin2());
-        js.append(generateJSlineCap2());
-        js.append(generateJSpaperSizeOrOptions());
-        js.append(generateJSlandscape());
-        js.append(generateJStype2());
-        js.append(generateJSright());
-        js.append(generateJSright1());
-        js.append(generateJSindex2());
-        js.append(generateJSindexes7());
-        js.append(generateJSindexes8());
-        js.append(generateJSselectFill());
-        js.append(generateJScolor18());
-        js.append(generateJSopacity12());
-        js.append(generateJSkeys16());
-        js.append(generateJSkeys17());
-        js.append(generateJSangle4());
-        js.append(generateJSmode12());
-        js.append(generateJSmode13());
-        js.append(generateJSopacity13());
-        js.append(generateJSkeys18());
-        js.append(generateJSkeys19());
-        js.append(generateJScx4());
-        js.append(generateJScy4());
-        js.append(generateJSmode14());
-        js.append(generateJSopacity14());
-        js.append(generateJSfx4());
-        js.append(generateJSfy4());
-        js.append(generateJSimageSettings4());
-        js.append(generateJSpatternFillOrType16());
-        js.append(generateJSpatternFillOrType17());
-        js.append(generateJSpatternFillOrType18());
-        js.append(generateJSpatternFillOrType19());
-        js.append(generateJScolor19());
-        js.append(generateJSthickness7());
-        js.append(generateJSsize4());
-        js.append(generateJSselectLabels());
-        js.append(generateJSselectMarkers());
-        js.append(generateJSselectMarkers1());
-        js.append(generateJSselectNegativeFill());
-        js.append(generateJScolor20());
-        js.append(generateJSopacity15());
-        js.append(generateJSkeys20());
-        js.append(generateJSkeys21());
-        js.append(generateJSangle5());
-        js.append(generateJSmode15());
-        js.append(generateJSmode16());
-        js.append(generateJSopacity16());
-        js.append(generateJSkeys22());
-        js.append(generateJSkeys23());
-        js.append(generateJScx5());
-        js.append(generateJScy5());
-        js.append(generateJSmode17());
-        js.append(generateJSopacity17());
-        js.append(generateJSfx5());
-        js.append(generateJSfy5());
-        js.append(generateJSimageSettings5());
-        js.append(generateJSpatternFillOrType20());
-        js.append(generateJSpatternFillOrType21());
-        js.append(generateJSpatternFillOrType22());
-        js.append(generateJSpatternFillOrType23());
-        js.append(generateJScolor21());
-        js.append(generateJSthickness8());
-        js.append(generateJSsize5());
-        js.append(generateJScolor22());
-        js.append(generateJScolor23());
-        js.append(generateJScolor24());
-        js.append(generateJSthickness9());
-        js.append(generateJSdashpattern3());
-        js.append(generateJSlineJoin3());
-        js.append(generateJSlineCap3());
-        js.append(generateJScolor25());
-        js.append(generateJScolor26());
-        js.append(generateJScolor27());
-        js.append(generateJSthickness10());
-        js.append(generateJSdashpattern4());
-        js.append(generateJSlineJoin4());
-        js.append(generateJSlineCap4());
-        js.append(generateJSselectionMode());
-        js.append(generateJSselectionMode1());
-        js.append(generateJScolor28());
-        js.append(generateJScolor29());
-        js.append(generateJScolor30());
-        js.append(generateJSthickness11());
-        js.append(generateJSdashpattern5());
-        js.append(generateJSlineJoin5());
-        js.append(generateJSlineCap5());
-        js.append(generateJStooltip());
-        js.append(generateJStop());
-        js.append(generateJStop1());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSindex3());
-        js.append(generateJSindexes9());
-        js.append(generateJSwidth2());
-        js.append(generateJSwidth3());
-        js.append(generateJSxScale());
-        js.append(generateJSyScale());
-        js.append(generateJSzIndex());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSbottom());
+            js.append(generateJSbottom1());
+            js.append(generateJSbounds());
+            js.append(generateJSbounds1());
+            js.append(generateJSbounds2());
+            js.append(generateJSx());
+            js.append(generateJSx1());
+            js.append(generateJSy());
+            js.append(generateJSy1());
+            js.append(generateJSwidth());
+            js.append(generateJSwidth1());
+            js.append(generateJSheight());
+            js.append(generateJSheight1());
+            js.append(generateJSclip());
+            js.append(generateJSclip1());
+            js.append(generateJScolor());
+            js.append(generateJSdata());
+            js.append(generateJSdata1());
+            js.append(generateJSdata2());
+            js.append(generateJSdata3());
+            js.append(generateJScsvSettings());
+            js.append(generateJScsvSettings1());
+            js.append(generateJSdisplayNegative());
+            js.append(generateJSenabled());
+            js.append(generateJSindexes());
+            js.append(generateJSindexes1());
+            js.append(generateJSfill());
+            js.append(generateJScolor1());
+            js.append(generateJSopacity());
+            js.append(generateJSkeys());
+            js.append(generateJSkeys1());
+            js.append(generateJSangle());
+            js.append(generateJSmode());
+            js.append(generateJSmode1());
+            js.append(generateJSmode2());
+            js.append(generateJSopacity1());
+            js.append(generateJSkeys2());
+            js.append(generateJSkeys3());
+            js.append(generateJScx());
+            js.append(generateJScy());
+            js.append(generateJSmode3());
+            js.append(generateJSopacity2());
+            js.append(generateJSfx());
+            js.append(generateJSfy());
+            js.append(generateJSimageSettings());
+            js.append(generateJSindex());
+            js.append(generateJSkey());
+            js.append(generateJSkey1());
+            js.append(generateJSpatternFillOrType());
+            js.append(generateJSpatternFillOrType1());
+            js.append(generateJSpatternFillOrType2());
+            js.append(generateJSpatternFillOrType3());
+            js.append(generateJScolor2());
+            js.append(generateJSthickness());
+            js.append(generateJSsize());
+            js.append(generateJSheight2());
+            js.append(generateJSheight3());
+            js.append(generateJSindex1());
+            js.append(generateJSindexes2());
+            js.append(generateJShoverFill());
+            js.append(generateJScolor3());
+            js.append(generateJSopacity3());
+            js.append(generateJSkeys4());
+            js.append(generateJSkeys5());
+            js.append(generateJSangle1());
+            js.append(generateJSmode4());
+            js.append(generateJSmode5());
+            js.append(generateJSmode6());
+            js.append(generateJSopacity4());
+            js.append(generateJSkeys6());
+            js.append(generateJSkeys7());
+            js.append(generateJScx1());
+            js.append(generateJScy1());
+            js.append(generateJSmode7());
+            js.append(generateJSopacity5());
+            js.append(generateJSfx1());
+            js.append(generateJSfy1());
+            js.append(generateJSimageSettings1());
+            js.append(generateJSpatternFillOrType4());
+            js.append(generateJSpatternFillOrType5());
+            js.append(generateJSpatternFillOrType6());
+            js.append(generateJSpatternFillOrType7());
+            js.append(generateJScolor4());
+            js.append(generateJSthickness1());
+            js.append(generateJSsize1());
+            js.append(generateJShoverLabels());
+            js.append(generateJShoverLabels1());
+            js.append(generateJShoverMarkers());
+            js.append(generateJShoverMarkers1());
+            js.append(generateJShoverMarkers2());
+            js.append(generateJShoverNegativeFill());
+            js.append(generateJScolor5());
+            js.append(generateJSopacity6());
+            js.append(generateJSkeys8());
+            js.append(generateJSkeys9());
+            js.append(generateJSangle2());
+            js.append(generateJSmode8());
+            js.append(generateJSmode9());
+            js.append(generateJSmode10());
+            js.append(generateJSopacity7());
+            js.append(generateJSkeys10());
+            js.append(generateJSkeys11());
+            js.append(generateJScx2());
+            js.append(generateJScy2());
+            js.append(generateJSmode11());
+            js.append(generateJSopacity8());
+            js.append(generateJSfx2());
+            js.append(generateJSfy2());
+            js.append(generateJSimageSettings2());
+            js.append(generateJSpatternFillOrType8());
+            js.append(generateJSpatternFillOrType9());
+            js.append(generateJSpatternFillOrType10());
+            js.append(generateJSpatternFillOrType11());
+            js.append(generateJScolor6());
+            js.append(generateJSthickness2());
+            js.append(generateJSsize2());
+            js.append(generateJScolor7());
+            js.append(generateJScolor8());
+            js.append(generateJScolor9());
+            js.append(generateJSthickness3());
+            js.append(generateJSdashpattern());
+            js.append(generateJSlineJoin());
+            js.append(generateJSlineCap());
+            js.append(generateJScolor10());
+            js.append(generateJScolor11());
+            js.append(generateJScolor12());
+            js.append(generateJSthickness4());
+            js.append(generateJSdashpattern1());
+            js.append(generateJSlineJoin1());
+            js.append(generateJSlineCap1());
+            js.append(generateJSid());
+            js.append(generateJSid1());
+            js.append(generateJSindexes3());
+            js.append(generateJSindexes4());
+            js.append(generateJSindexes5());
+            js.append(generateJSindexes6());
+            js.append(generateJSlabels());
+            js.append(generateJSlabels1());
+            js.append(generateJSleft());
+            js.append(generateJSleft1());
+            js.append(generateJSlegendItem());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSmarkers());
+            js.append(generateJSmarkers1());
+            js.append(generateJSmarkers2());
+            js.append(generateJSmaxHeight());
+            js.append(generateJSmaxHeight1());
+            js.append(generateJSmaxWidth());
+            js.append(generateJSmaxWidth1());
+            js.append(generateJSminHeight());
+            js.append(generateJSminHeight1());
+            js.append(generateJSminWidth());
+            js.append(generateJSminWidth1());
+            js.append(generateJSname());
+            js.append(generateJSnegativeFill());
+            js.append(generateJScolor13());
+            js.append(generateJSopacity9());
+            js.append(generateJSkeys12());
+            js.append(generateJSkeys13());
+            js.append(generateJSangle3());
+            js.append(generateJSmode12());
+            js.append(generateJSmode13());
+            js.append(generateJSmode14());
+            js.append(generateJSopacity10());
+            js.append(generateJSkeys14());
+            js.append(generateJSkeys15());
+            js.append(generateJScx3());
+            js.append(generateJScy3());
+            js.append(generateJSmode15());
+            js.append(generateJSopacity11());
+            js.append(generateJSfx3());
+            js.append(generateJSfy3());
+            js.append(generateJSimageSettings3());
+            js.append(generateJSpatternFillOrType12());
+            js.append(generateJSpatternFillOrType13());
+            js.append(generateJSpatternFillOrType14());
+            js.append(generateJSpatternFillOrType15());
+            js.append(generateJScolor14());
+            js.append(generateJSthickness5());
+            js.append(generateJSsize3());
+            js.append(generateJScolor15());
+            js.append(generateJScolor16());
+            js.append(generateJScolor17());
+            js.append(generateJSthickness6());
+            js.append(generateJSdashpattern2());
+            js.append(generateJSlineJoin2());
+            js.append(generateJSlineCap2());
+            js.append(generateJSpaperSizeOrOptions());
+            js.append(generateJSpaperSizeOrOptions1());
+            js.append(generateJSlandscape());
+            js.append(generateJStype2());
+            js.append(generateJSright());
+            js.append(generateJSright1());
+            js.append(generateJSindex2());
+            js.append(generateJSindexes7());
+            js.append(generateJSindexes8());
+            js.append(generateJSselectFill());
+            js.append(generateJScolor18());
+            js.append(generateJSopacity12());
+            js.append(generateJSkeys16());
+            js.append(generateJSkeys17());
+            js.append(generateJSangle4());
+            js.append(generateJSmode16());
+            js.append(generateJSmode17());
+            js.append(generateJSmode18());
+            js.append(generateJSopacity13());
+            js.append(generateJSkeys18());
+            js.append(generateJSkeys19());
+            js.append(generateJScx4());
+            js.append(generateJScy4());
+            js.append(generateJSmode19());
+            js.append(generateJSopacity14());
+            js.append(generateJSfx4());
+            js.append(generateJSfy4());
+            js.append(generateJSimageSettings4());
+            js.append(generateJSpatternFillOrType16());
+            js.append(generateJSpatternFillOrType17());
+            js.append(generateJSpatternFillOrType18());
+            js.append(generateJSpatternFillOrType19());
+            js.append(generateJScolor19());
+            js.append(generateJSthickness7());
+            js.append(generateJSsize4());
+            js.append(generateJSselectLabels());
+            js.append(generateJSselectLabels1());
+            js.append(generateJSselectMarkers());
+            js.append(generateJSselectMarkers1());
+            js.append(generateJSselectMarkers2());
+            js.append(generateJSselectNegativeFill());
+            js.append(generateJScolor20());
+            js.append(generateJSopacity15());
+            js.append(generateJSkeys20());
+            js.append(generateJSkeys21());
+            js.append(generateJSangle5());
+            js.append(generateJSmode20());
+            js.append(generateJSmode21());
+            js.append(generateJSmode22());
+            js.append(generateJSopacity16());
+            js.append(generateJSkeys22());
+            js.append(generateJSkeys23());
+            js.append(generateJScx5());
+            js.append(generateJScy5());
+            js.append(generateJSmode23());
+            js.append(generateJSopacity17());
+            js.append(generateJSfx5());
+            js.append(generateJSfy5());
+            js.append(generateJSimageSettings5());
+            js.append(generateJSpatternFillOrType20());
+            js.append(generateJSpatternFillOrType21());
+            js.append(generateJSpatternFillOrType22());
+            js.append(generateJSpatternFillOrType23());
+            js.append(generateJScolor21());
+            js.append(generateJSthickness8());
+            js.append(generateJSsize5());
+            js.append(generateJScolor22());
+            js.append(generateJScolor23());
+            js.append(generateJScolor24());
+            js.append(generateJSthickness9());
+            js.append(generateJSdashpattern3());
+            js.append(generateJSlineJoin3());
+            js.append(generateJSlineCap3());
+            js.append(generateJScolor25());
+            js.append(generateJScolor26());
+            js.append(generateJScolor27());
+            js.append(generateJSthickness10());
+            js.append(generateJSdashpattern4());
+            js.append(generateJSlineJoin4());
+            js.append(generateJSlineCap4());
+            js.append(generateJSselectionMode());
+            js.append(generateJSselectionMode1());
+            js.append(generateJScolor28());
+            js.append(generateJScolor29());
+            js.append(generateJScolor30());
+            js.append(generateJSthickness11());
+            js.append(generateJSdashpattern5());
+            js.append(generateJSlineJoin5());
+            js.append(generateJSlineCap5());
+            js.append(generateJStooltip());
+            js.append(generateJStooltip1());
+            js.append(generateJStop());
+            js.append(generateJStop1());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey2());
+            js.append(generateJSindex3());
+            js.append(generateJSindexes9());
+            js.append(generateJSwidth2());
+            js.append(generateJSwidth3());
+            js.append(generateJSxScale());
+            js.append(generateJSyScale());
+            js.append(generateJSzIndex());
+            js.append("}");
+        }
+            js.append(generateJSgetbounds());
+            js.append(generateJSgetdata());
+            js.append(generateJSgethatchFill());
+            js.append(generateJSgethoverHatchFill());
+            js.append(generateJSgethoverMarkers());
+            js.append(generateJSgethoverNegativeHatchFill());
+            js.append(generateJSgetlabels());
+            js.append(generateJSgetmarkers());
+            js.append(generateJSgetnegativeHatchFill());
+            js.append(generateJSgetselectHatchFill());
+            js.append(generateJSgetselectMarkers());
+            js.append(generateJSgetselectNegativeHatchFill());
+            js.append(generateJSgetxScale());
+            js.append(generateJSgetyScale());
 
         String result = js.toString();
         js.setLength(0);

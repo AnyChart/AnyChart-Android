@@ -3,383 +3,922 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class CoreText extends JsObject {
+
+    private String jsBase;
+
+    public CoreText() {
+
+    }
+
+    protected CoreText(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Boolean disablePointerEvents;
 
     public void setDisablepointerevents(Boolean disablePointerEvents) {
-        this.disablePointerEvents = disablePointerEvents;
+        if (jsBase == null) {
+            this.disablePointerEvents = disablePointerEvents;
+        } else {
+            this.disablePointerEvents = disablePointerEvents;
+
+            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontColor;
 
     public void setFontcolor(String fontColor) {
-        this.fontColor = fontColor;
+        if (jsBase == null) {
+            this.fontColor = fontColor;
+        } else {
+            this.fontColor = fontColor;
+
+            js.append(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+                js.setLength(0);
+            }
+        }
     }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
 
     public void setFontdecoration(Decoration fontDecoration) {
-        this.fontDecoration = null;
-        this.fontDecoration1 = null;
-        
-        this.fontDecoration = fontDecoration;
+        if (jsBase == null) {
+            this.fontDecoration = null;
+            this.fontDecoration1 = null;
+            
+            this.fontDecoration = fontDecoration;
+        } else {
+            this.fontDecoration = fontDecoration;
+
+            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontdecoration(String fontDecoration1) {
-        this.fontDecoration = null;
-        this.fontDecoration1 = null;
-        
-        this.fontDecoration1 = fontDecoration1;
+        if (jsBase == null) {
+            this.fontDecoration = null;
+            this.fontDecoration1 = null;
+            
+            this.fontDecoration1 = fontDecoration1;
+        } else {
+            this.fontDecoration1 = fontDecoration1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontFamily;
 
     public void setFontfamily(String fontFamily) {
-        this.fontFamily = fontFamily;
+        if (jsBase == null) {
+            this.fontFamily = fontFamily;
+        } else {
+            this.fontFamily = fontFamily;
+
+            js.append(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double fontOpacity;
 
     public void setFontopacity(Double fontOpacity) {
-        this.fontOpacity = fontOpacity;
+        if (jsBase == null) {
+            this.fontOpacity = fontOpacity;
+        } else {
+            this.fontOpacity = fontOpacity;
+
+            js.append(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontSize;
     private Double fontSize1;
 
     public void setFontsize(String fontSize) {
-        this.fontSize = null;
-        this.fontSize1 = null;
-        
-        this.fontSize = fontSize;
+        if (jsBase == null) {
+            this.fontSize = null;
+            this.fontSize1 = null;
+            
+            this.fontSize = fontSize;
+        } else {
+            this.fontSize = fontSize;
+
+            js.append(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontsize(Double fontSize1) {
-        this.fontSize = null;
-        this.fontSize1 = null;
-        
-        this.fontSize1 = fontSize1;
+        if (jsBase == null) {
+            this.fontSize = null;
+            this.fontSize1 = null;
+            
+            this.fontSize1 = fontSize1;
+        } else {
+            this.fontSize1 = fontSize1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
     public void setFontstyle(TextFontStyle fontStyle) {
-        this.fontStyle = null;
-        this.fontStyle1 = null;
-        
-        this.fontStyle = fontStyle;
+        if (jsBase == null) {
+            this.fontStyle = null;
+            this.fontStyle1 = null;
+            
+            this.fontStyle = fontStyle;
+        } else {
+            this.fontStyle = fontStyle;
+
+            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontstyle(String fontStyle1) {
-        this.fontStyle = null;
-        this.fontStyle1 = null;
-        
-        this.fontStyle1 = fontStyle1;
+        if (jsBase == null) {
+            this.fontStyle = null;
+            this.fontStyle1 = null;
+            
+            this.fontStyle1 = fontStyle1;
+        } else {
+            this.fontStyle1 = fontStyle1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
     public void setFontvariant(TextFontVariant fontVariant) {
-        this.fontVariant = null;
-        this.fontVariant1 = null;
-        
-        this.fontVariant = fontVariant;
+        if (jsBase == null) {
+            this.fontVariant = null;
+            this.fontVariant1 = null;
+            
+            this.fontVariant = fontVariant;
+        } else {
+            this.fontVariant = fontVariant;
+
+            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontvariant(String fontVariant1) {
-        this.fontVariant = null;
-        this.fontVariant1 = null;
-        
-        this.fontVariant1 = fontVariant1;
+        if (jsBase == null) {
+            this.fontVariant = null;
+            this.fontVariant1 = null;
+            
+            this.fontVariant1 = fontVariant1;
+        } else {
+            this.fontVariant1 = fontVariant1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String fontWeight;
     private Double fontWeight1;
 
     public void setFontweight(String fontWeight) {
-        this.fontWeight = null;
-        this.fontWeight1 = null;
-        
-        this.fontWeight = fontWeight;
+        if (jsBase == null) {
+            this.fontWeight = null;
+            this.fontWeight1 = null;
+            
+            this.fontWeight = fontWeight;
+        } else {
+            this.fontWeight = fontWeight;
+
+            js.append(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFontweight(Double fontWeight1) {
-        this.fontWeight = null;
-        this.fontWeight1 = null;
-        
-        this.fontWeight1 = fontWeight1;
+        if (jsBase == null) {
+            this.fontWeight = null;
+            this.fontWeight1 = null;
+            
+            this.fontWeight1 = fontWeight1;
+        } else {
+            this.fontWeight1 = fontWeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextHAlign hAlign;
     private String hAlign1;
 
     public void setHalign(TextHAlign hAlign) {
-        this.hAlign = null;
-        this.hAlign1 = null;
-        
-        this.hAlign = hAlign;
+        if (jsBase == null) {
+            this.hAlign = null;
+            this.hAlign1 = null;
+            
+            this.hAlign = hAlign;
+        } else {
+            this.hAlign = hAlign;
+
+            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setHalign(String hAlign1) {
-        this.hAlign = null;
-        this.hAlign1 = null;
-        
-        this.hAlign1 = hAlign1;
+        if (jsBase == null) {
+            this.hAlign = null;
+            this.hAlign1 = null;
+            
+            this.hAlign1 = hAlign1;
+        } else {
+            this.hAlign1 = hAlign1;
+
+            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String letterSpacing;
     private Double letterSpacing1;
 
     public void setLetterspacing(String letterSpacing) {
-        this.letterSpacing = null;
-        this.letterSpacing1 = null;
-        
-        this.letterSpacing = letterSpacing;
+        if (jsBase == null) {
+            this.letterSpacing = null;
+            this.letterSpacing1 = null;
+            
+            this.letterSpacing = letterSpacing;
+        } else {
+            this.letterSpacing = letterSpacing;
+
+            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLetterspacing(Double letterSpacing1) {
-        this.letterSpacing = null;
-        this.letterSpacing1 = null;
-        
-        this.letterSpacing1 = letterSpacing1;
+        if (jsBase == null) {
+            this.letterSpacing = null;
+            this.letterSpacing1 = null;
+            
+            this.letterSpacing1 = letterSpacing1;
+        } else {
+            this.letterSpacing1 = letterSpacing1;
+
+            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String lineHeight;
     private Double lineHeight1;
 
     public void setLineheight(String lineHeight) {
-        this.lineHeight = null;
-        this.lineHeight1 = null;
-        
-        this.lineHeight = lineHeight;
+        if (jsBase == null) {
+            this.lineHeight = null;
+            this.lineHeight1 = null;
+            
+            this.lineHeight = lineHeight;
+        } else {
+            this.lineHeight = lineHeight;
+
+            js.append(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLineheight(Double lineHeight1) {
-        this.lineHeight = null;
-        this.lineHeight1 = null;
-        
-        this.lineHeight1 = lineHeight1;
+        if (jsBase == null) {
+            this.lineHeight = null;
+            this.lineHeight1 = null;
+            
+            this.lineHeight1 = lineHeight1;
+        } else {
+            this.lineHeight1 = lineHeight1;
+
+            js.append(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type;
     private Boolean useCapture;
+    private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture) {
-        this.type = type;
-        this.useCapture = useCapture;
+    public void setListen(String type, Boolean useCapture, String listenerScope) {
+        if (jsBase == null) {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+        } else {
+            this.type = type;
+            this.useCapture = useCapture;
+            this.listenerScope = listenerScope;
+
+            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type1;
     private Boolean useCapture1;
+    private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        
-        this.useCapture1 = useCapture1;
+    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            
+            this.useCapture1 = useCapture1;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            
+            this.listenerScope1 = listenerScope1;
+        } else {
+            this.type1 = type1;
+            this.useCapture1 = useCapture1;
+            this.listenerScope1 = listenerScope1;
+
+            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                js.setLength(0);
+            }
+        }
     }
 
     private PaperSize paperSizeOrOptions;
+    private String paperSizeOrOptions1;
     private Boolean landscape;
 
     public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions = paperSizeOrOptions;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+        if (jsBase == null) {
+            this.paperSizeOrOptions = null;
+            this.paperSizeOrOptions1 = null;
+            
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+        } else {
+            this.paperSizeOrOptions1 = paperSizeOrOptions1;
+            this.landscape = landscape;
+
+            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type2;
 
     public void setRemovealllisteners(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean selectable;
 
     public void setSelectable(Boolean selectable) {
-        this.selectable = selectable;
+        if (jsBase == null) {
+            this.selectable = selectable;
+        } else {
+            this.selectable = selectable;
+
+            js.append(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+                js.setLength(0);
+            }
+        }
     }
 
     private Direction textDirection;
     private String textDirection1;
 
     public void setTextdirection(Direction textDirection) {
-        this.textDirection = null;
-        this.textDirection1 = null;
-        
-        this.textDirection = textDirection;
+        if (jsBase == null) {
+            this.textDirection = null;
+            this.textDirection1 = null;
+            
+            this.textDirection = textDirection;
+        } else {
+            this.textDirection = textDirection;
+
+            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextdirection(String textDirection1) {
-        this.textDirection = null;
-        this.textDirection1 = null;
-        
-        this.textDirection1 = textDirection1;
+        if (jsBase == null) {
+            this.textDirection = null;
+            this.textDirection1 = null;
+            
+            this.textDirection1 = textDirection1;
+        } else {
+            this.textDirection1 = textDirection1;
+
+            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double textIndent;
 
     public void setTextindent(Double textIndent) {
-        this.textIndent = textIndent;
+        if (jsBase == null) {
+            this.textIndent = textIndent;
+        } else {
+            this.textIndent = textIndent;
+
+            js.append(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
 
     public void setTextoverflow(TextOverflow textOverflow) {
-        this.textOverflow = null;
-        this.textOverflow1 = null;
-        
-        this.textOverflow = textOverflow;
+        if (jsBase == null) {
+            this.textOverflow = null;
+            this.textOverflow1 = null;
+            
+            this.textOverflow = textOverflow;
+        } else {
+            this.textOverflow = textOverflow;
+
+            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextoverflow(String textOverflow1) {
-        this.textOverflow = null;
-        this.textOverflow1 = null;
-        
-        this.textOverflow1 = textOverflow1;
+        if (jsBase == null) {
+            this.textOverflow = null;
+            this.textOverflow1 = null;
+            
+            this.textOverflow1 = textOverflow1;
+        } else {
+            this.textOverflow1 = textOverflow1;
+
+            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String name;
 
     public void setTextsettings(String name) {
-        this.name = name;
+        if (jsBase == null) {
+            this.name = name;
+        } else {
+            this.name = name;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%s);", name));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s);", name));
+                js.setLength(0);
+            }
+        }
     }
 
+    private String objectWithSettings;
     private String name1;
     private String textSettings;
     private Double textSettings1;
     private Boolean textSettings2;
 
     public void setTextsettings(String textSettings, String name1) {
-        this.textSettings = null;
-        this.textSettings1 = null;
-        this.textSettings2 = null;
-        
-        this.textSettings = textSettings;
-        this.name = null;
-        this.name1 = null;
-        
-        this.name1 = name1;
+        if (jsBase == null) {
+            this.textSettings = null;
+            this.textSettings1 = null;
+            this.textSettings2 = null;
+            
+            this.textSettings = textSettings;
+            this.name = null;
+            this.name1 = null;
+            
+            this.name1 = name1;
+        } else {
+            this.textSettings = textSettings;
+            this.name1 = name1;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings, name1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings, name1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextsettings(Double textSettings1, String name1) {
-        this.textSettings = null;
-        this.textSettings1 = null;
-        this.textSettings2 = null;
-        
-        this.textSettings1 = textSettings1;
-        this.name = null;
-        this.name1 = null;
-        
-        this.name1 = name1;
+        if (jsBase == null) {
+            this.textSettings = null;
+            this.textSettings1 = null;
+            this.textSettings2 = null;
+            
+            this.textSettings1 = textSettings1;
+            this.name = null;
+            this.name1 = null;
+            
+            this.name1 = name1;
+        } else {
+            this.textSettings1 = textSettings1;
+            this.name1 = name1;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings1, name1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings1, name1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextsettings(Boolean textSettings2, String name1) {
-        this.textSettings = null;
-        this.textSettings1 = null;
-        this.textSettings2 = null;
-        
-        this.textSettings2 = textSettings2;
-        this.name = null;
-        this.name1 = null;
-        
-        this.name1 = name1;
+        if (jsBase == null) {
+            this.textSettings = null;
+            this.textSettings1 = null;
+            this.textSettings2 = null;
+            
+            this.textSettings2 = textSettings2;
+            this.name = null;
+            this.name1 = null;
+            
+            this.name1 = name1;
+        } else {
+            this.textSettings2 = textSettings2;
+            this.name1 = name1;
+
+            js.append(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings2, name1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings2, name1));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextTextWrap textWrap;
     private String textWrap1;
 
     public void setTextwrap(TextTextWrap textWrap) {
-        this.textWrap = null;
-        this.textWrap1 = null;
-        
-        this.textWrap = textWrap;
+        if (jsBase == null) {
+            this.textWrap = null;
+            this.textWrap1 = null;
+            
+            this.textWrap = textWrap;
+        } else {
+            this.textWrap = textWrap;
+
+            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTextwrap(String textWrap1) {
-        this.textWrap = null;
-        this.textWrap1 = null;
-        
-        this.textWrap1 = textWrap1;
+        if (jsBase == null) {
+            this.textWrap = null;
+            this.textWrap1 = null;
+            
+            this.textWrap1 = textWrap1;
+        } else {
+            this.textWrap1 = textWrap1;
+
+            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String type3;
     private Boolean useCapture2;
+    private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
-        this.useCapture = null;
-        this.useCapture1 = null;
-        this.useCapture2 = null;
-        
-        this.useCapture2 = useCapture2;
+    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+            this.useCapture = null;
+            this.useCapture1 = null;
+            this.useCapture2 = null;
+            
+            this.useCapture2 = useCapture2;
+            this.listenerScope = null;
+            this.listenerScope1 = null;
+            this.listenerScope2 = null;
+            
+            this.listenerScope2 = listenerScope2;
+        } else {
+            this.type3 = type3;
+            this.useCapture2 = useCapture2;
+            this.listenerScope2 = listenerScope2;
+
+            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String key;
+
+    public void setUnlistenbykey(String key) {
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean useHtml;
 
     public void setUsehtml(Boolean useHtml) {
-        this.useHtml = useHtml;
+        if (jsBase == null) {
+            this.useHtml = useHtml;
+        } else {
+            this.useHtml = useHtml;
+
+            js.append(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+                js.setLength(0);
+            }
+        }
     }
 
     private TextVAlign vAlign;
     private String vAlign1;
 
     public void setValign(TextVAlign vAlign) {
-        this.vAlign = null;
-        this.vAlign1 = null;
-        
-        this.vAlign = vAlign;
+        if (jsBase == null) {
+            this.vAlign = null;
+            this.vAlign1 = null;
+            
+            this.vAlign = vAlign;
+        } else {
+            this.vAlign = vAlign;
+
+            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setValign(String vAlign1) {
-        this.vAlign = null;
-        this.vAlign1 = null;
-        
-        this.vAlign1 = vAlign1;
+        if (jsBase == null) {
+            this.vAlign = null;
+            this.vAlign1 = null;
+            
+            this.vAlign1 = vAlign1;
+        } else {
+            this.vAlign1 = vAlign1;
+
+            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
+        if (jsBase == null) {
+            this.zIndex = zIndex;
+        } else {
+            this.zIndex = zIndex;
+
+            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSdisablePointerEvents() {
@@ -543,6 +1082,13 @@ public class CoreText extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope() {
+        if (listenerScope != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
+        }
+        return "";
+    }
+
     private String generateJStype1() {
         if (type1 != null) {
             return String.format(Locale.US, "type: %s,", type1);
@@ -557,9 +1103,23 @@ public class CoreText extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope1() {
+        if (listenerScope1 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
+        }
+        return "";
+    }
+
     private String generateJSpaperSizeOrOptions() {
         if (paperSizeOrOptions != null) {
             return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSpaperSizeOrOptions1() {
+        if (paperSizeOrOptions1 != null) {
+            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
         }
         return "";
     }
@@ -627,6 +1187,13 @@ public class CoreText extends JsObject {
         return "";
     }
 
+    private String generateJSobjectWithSettings() {
+        if (objectWithSettings != null) {
+            return String.format(Locale.US, "objectWithSettings: %s,", objectWithSettings);
+        }
+        return "";
+    }
+
     private String generateJSname1() {
         if (name1 != null) {
             return String.format(Locale.US, "name: %s,", name1);
@@ -683,6 +1250,20 @@ public class CoreText extends JsObject {
         return "";
     }
 
+    private String generateJSlistenerScope2() {
+        if (listenerScope2 != null) {
+            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
+        }
+        return "";
+    }
+
+    private String generateJSkey() {
+        if (key != null) {
+            return String.format(Locale.US, "key: %s,", key);
+        }
+        return "";
+    }
+
     private String generateJSuseHtml() {
         if (useHtml != null) {
             return String.format(Locale.US, "useHtml: %b,", useHtml);
@@ -714,56 +1295,63 @@ public class CoreText extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSdisablePointerEvents());
-        js.append(generateJSenabled());
-        js.append(generateJSfontColor());
-        js.append(generateJSfontDecoration());
-        js.append(generateJSfontDecoration1());
-        js.append(generateJSfontFamily());
-        js.append(generateJSfontOpacity());
-        js.append(generateJSfontSize());
-        js.append(generateJSfontSize1());
-        js.append(generateJSfontStyle());
-        js.append(generateJSfontStyle1());
-        js.append(generateJSfontVariant());
-        js.append(generateJSfontVariant1());
-        js.append(generateJSfontWeight());
-        js.append(generateJSfontWeight1());
-        js.append(generateJShAlign());
-        js.append(generateJShAlign1());
-        js.append(generateJSletterSpacing());
-        js.append(generateJSletterSpacing1());
-        js.append(generateJSlineHeight());
-        js.append(generateJSlineHeight1());
-        js.append(generateJStype());
-        js.append(generateJSuseCapture());
-        js.append(generateJStype1());
-        js.append(generateJSuseCapture1());
-        js.append(generateJSpaperSizeOrOptions());
-        js.append(generateJSlandscape());
-        js.append(generateJStype2());
-        js.append(generateJSselectable());
-        js.append(generateJStextDirection());
-        js.append(generateJStextDirection1());
-        js.append(generateJStextIndent());
-        js.append(generateJStextOverflow());
-        js.append(generateJStextOverflow1());
-        js.append(generateJSname());
-        js.append(generateJSname1());
-        js.append(generateJStextSettings());
-        js.append(generateJStextSettings1());
-        js.append(generateJStextSettings2());
-        js.append(generateJStextWrap());
-        js.append(generateJStextWrap1());
-        js.append(generateJStype3());
-        js.append(generateJSuseCapture2());
-        js.append(generateJSuseHtml());
-        js.append(generateJSvAlign());
-        js.append(generateJSvAlign1());
-        js.append(generateJSzIndex());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSdisablePointerEvents());
+            js.append(generateJSenabled());
+            js.append(generateJSfontColor());
+            js.append(generateJSfontDecoration());
+            js.append(generateJSfontDecoration1());
+            js.append(generateJSfontFamily());
+            js.append(generateJSfontOpacity());
+            js.append(generateJSfontSize());
+            js.append(generateJSfontSize1());
+            js.append(generateJSfontStyle());
+            js.append(generateJSfontStyle1());
+            js.append(generateJSfontVariant());
+            js.append(generateJSfontVariant1());
+            js.append(generateJSfontWeight());
+            js.append(generateJSfontWeight1());
+            js.append(generateJShAlign());
+            js.append(generateJShAlign1());
+            js.append(generateJSletterSpacing());
+            js.append(generateJSletterSpacing1());
+            js.append(generateJSlineHeight());
+            js.append(generateJSlineHeight1());
+            js.append(generateJStype());
+            js.append(generateJSuseCapture());
+            js.append(generateJSlistenerScope());
+            js.append(generateJStype1());
+            js.append(generateJSuseCapture1());
+            js.append(generateJSlistenerScope1());
+            js.append(generateJSpaperSizeOrOptions());
+            js.append(generateJSpaperSizeOrOptions1());
+            js.append(generateJSlandscape());
+            js.append(generateJStype2());
+            js.append(generateJSselectable());
+            js.append(generateJStextDirection());
+            js.append(generateJStextDirection1());
+            js.append(generateJStextIndent());
+            js.append(generateJStextOverflow());
+            js.append(generateJStextOverflow1());
+            js.append(generateJSname());
+            js.append(generateJSobjectWithSettings());
+            js.append(generateJSname1());
+            js.append(generateJStextSettings());
+            js.append(generateJStextSettings1());
+            js.append(generateJStextSettings2());
+            js.append(generateJStextWrap());
+            js.append(generateJStextWrap1());
+            js.append(generateJStype3());
+            js.append(generateJSuseCapture2());
+            js.append(generateJSlistenerScope2());
+            js.append(generateJSkey());
+            js.append(generateJSuseHtml());
+            js.append(generateJSvAlign());
+            js.append(generateJSvAlign1());
+            js.append(generateJSzIndex());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

@@ -43,7 +43,6 @@ public class DmiContext extends JsObject  {
         js.append(String.format(Locale.US, "{adxAlpha: %f,adxPeriod: %f,adxQueue: %s,adxValue: %f,alpha: %f,closeQueue: %s,highQueue: %s,lowQueue: %s,ndiSumValue: %f,ndiValue: %f,pdiSumValue: %f,pdiValue: %f,period: %f,trSumValue: %f,useWildersSmoothing: %b}",  adxAlpha, adxPeriod, (adxQueue != null) ? adxQueue.generateJs() : "null", adxValue, alpha, (closeQueue != null) ? closeQueue.generateJs() : "null", (highQueue != null) ? highQueue.generateJs() : "null", (lowQueue != null) ? lowQueue.generateJs() : "null", ndiSumValue, ndiValue, pdiSumValue, pdiValue, period, trSumValue, useWildersSmoothing));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

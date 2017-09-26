@@ -3,37 +3,92 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class ChartA11y extends JsObject {
+
+    private String jsBase;
+
+    public ChartA11y() {
+
+    }
+
+    protected ChartA11y(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Boolean enabled;
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                js.setLength(0);
+            }
+        }
     }
 
     private A11yMode mode;
     private String mode1;
 
     public void setMode(A11yMode mode) {
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode = mode;
+        if (jsBase == null) {
+            this.mode = null;
+            this.mode1 = null;
+            
+            this.mode = mode;
+        } else {
+            this.mode = mode;
+
+            js.append(String.format(Locale.US, jsBase + ".mode(%s);", (mode != null) ? mode.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", (mode != null) ? mode.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMode(String mode1) {
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode1 = mode1;
+        if (jsBase == null) {
+            this.mode = null;
+            this.mode1 = null;
+            
+            this.mode1 = mode1;
+        } else {
+            this.mode1 = mode1;
+
+            js.append(String.format(Locale.US, jsBase + ".mode(%s);", mode1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", mode1));
+                js.setLength(0);
+            }
+        }
     }
 
     private String titleFormat;
 
     public void setTitleformat(String titleFormat) {
-        this.titleFormat = titleFormat;
+        if (jsBase == null) {
+            this.titleFormat = titleFormat;
+        } else {
+            this.titleFormat = titleFormat;
+
+            js.append(String.format(Locale.US, jsBase + ".titleFormat(%s);", titleFormat));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".titleFormat(%s);", titleFormat));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJSenabled() {
@@ -67,13 +122,14 @@ public class ChartA11y extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSenabled());
-        js.append(generateJSmode());
-        js.append(generateJSmode1());
-        js.append(generateJStitleFormat());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSenabled());
+            js.append(generateJSmode());
+            js.append(generateJSmode1());
+            js.append(generateJStitleFormat());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

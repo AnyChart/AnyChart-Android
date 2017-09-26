@@ -21,6 +21,34 @@ public class TreeMapChartActivity extends AppCompatActivity {
         treeMap.setData(getData(), TreeFillingMethod.AS_TABLE);
         treeMap.setMaxdepth(2d);
 
+//        OrdinalColor ordinalColor = new OrdinalColor();
+//        ordinalColor.setRanges("[{\n" +
+//                "      less: 25000\n" +
+//                "    },\n" +
+//                "    {\n" +
+//                "      from: 25000,\n" +
+//                "      to: 30000\n" +
+//                "    },\n" +
+//                "    {\n" +
+//                "      from: 30000,\n" +
+//                "      to: 40000\n" +
+//                "    },\n" +
+//                "    {\n" +
+//                "      from: 40000,\n" +
+//                "      to: 50000\n" +
+//                "    },\n" +
+//                "    {\n" +
+//                "      from: 50000,\n" +
+//                "      to: 100000\n" +
+//                "    },\n" +
+//                "    {\n" +
+//                "      greater: 100000\n" +
+//                "    }\n" +
+//                "  ]");
+//        ordinalColor.setColors(new String[] { "'#ffee58'", "'#fbc02d'", "'#f57f17'", "'#c0ca33'", "'#689f38'", "'#2e7d32'" } );
+
+//        treeMap.setColorscale(ordinalColor);
+
         anyChart.setChart(treeMap);
     }
 

@@ -3,7 +3,18 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class Border extends JsObject {
+
+    private String jsBase;
+
+    public Border() {
+
+    }
+
+    protected Border(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Stroke color;
@@ -15,41 +26,86 @@ public class Border extends JsObject {
     private StrokeLineCap lineCap;
 
     public void setBottom(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color = color;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color = color;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color = color;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottom(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color1 = color1;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottom(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        
-        this.color2 = color2;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".bottom(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color3;
@@ -61,86 +117,131 @@ public class Border extends JsObject {
     private StrokeLineCap lineCap1;
 
     public void setLeft(Stroke color3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        
-        this.color3 = color3;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            
+            this.color3 = color3;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.color3 = color3;
+            this.thickness1 = thickness1;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%s, %f, %s, %s, %s);", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s, %f, %s, %s, %s);", (color3 != null) ? color3.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLeft(ColoredFill color4, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        
-        this.color4 = color4;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            
+            this.color4 = color4;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.color4 = color4;
+            this.thickness1 = thickness1;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%s, %f, %s, %s, %s);", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s, %f, %s, %s, %s);", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLeft(String color5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        
-        this.color5 = color5;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            
+            this.color5 = color5;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.color5 = color5;
+            this.thickness1 = thickness1;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".left(%s, %f, %s, %s, %s);", color5, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s, %f, %s, %s, %s);", color5, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color6;
@@ -152,107 +253,152 @@ public class Border extends JsObject {
     private StrokeLineCap lineCap2;
 
     public void setRight(Stroke color6, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        
-        this.color6 = color6;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            
+            this.color6 = color6;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.color6 = color6;
+            this.thickness2 = thickness2;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%s, %f, %s, %s, %s);", (color6 != null) ? color6.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s, %f, %s, %s, %s);", (color6 != null) ? color6.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRight(ColoredFill color7, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        
-        this.color7 = color7;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            
+            this.color7 = color7;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.color7 = color7;
+            this.thickness2 = thickness2;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%s, %f, %s, %s, %s);", (color7 != null) ? color7.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s, %f, %s, %s, %s);", (color7 != null) ? color7.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRight(String color8, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        
-        this.color8 = color8;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            
+            this.color8 = color8;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.color8 = color8;
+            this.thickness2 = thickness2;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".right(%s, %f, %s, %s, %s);", color8, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s, %f, %s, %s, %s);", color8, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke color9;
@@ -264,128 +410,173 @@ public class Border extends JsObject {
     private StrokeLineCap lineCap3;
 
     public void setTop(Stroke color9, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        
-        this.color9 = color9;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            
+            this.color9 = color9;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.color9 = color9;
+            this.thickness3 = thickness3;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%s, %f, %s, %s, %s);", (color9 != null) ? color9.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s, %f, %s, %s, %s);", (color9 != null) ? color9.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTop(ColoredFill color10, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        
-        this.color10 = color10;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            
+            this.color10 = color10;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.color10 = color10;
+            this.thickness3 = thickness3;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%s, %f, %s, %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s, %f, %s, %s, %s);", (color10 != null) ? color10.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTop(String color11, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.color = null;
-        this.color1 = null;
-        this.color2 = null;
-        this.color3 = null;
-        this.color4 = null;
-        this.color5 = null;
-        this.color6 = null;
-        this.color7 = null;
-        this.color8 = null;
-        this.color9 = null;
-        this.color10 = null;
-        this.color11 = null;
-        
-        this.color11 = color11;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
+            this.color9 = null;
+            this.color10 = null;
+            this.color11 = null;
+            
+            this.color11 = color11;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.color11 = color11;
+            this.thickness3 = thickness3;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".top(%s, %f, %s, %s, %s);", color11, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s, %f, %s, %s, %s);", color11, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String generateJScolor() {
@@ -587,37 +778,38 @@ public class Border extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJScolor());
-        js.append(generateJScolor1());
-        js.append(generateJScolor2());
-        js.append(generateJSthickness());
-        js.append(generateJSdashpattern());
-        js.append(generateJSlineJoin());
-        js.append(generateJSlineCap());
-        js.append(generateJScolor3());
-        js.append(generateJScolor4());
-        js.append(generateJScolor5());
-        js.append(generateJSthickness1());
-        js.append(generateJSdashpattern1());
-        js.append(generateJSlineJoin1());
-        js.append(generateJSlineCap1());
-        js.append(generateJScolor6());
-        js.append(generateJScolor7());
-        js.append(generateJScolor8());
-        js.append(generateJSthickness2());
-        js.append(generateJSdashpattern2());
-        js.append(generateJSlineJoin2());
-        js.append(generateJSlineCap2());
-        js.append(generateJScolor9());
-        js.append(generateJScolor10());
-        js.append(generateJScolor11());
-        js.append(generateJSthickness3());
-        js.append(generateJSdashpattern3());
-        js.append(generateJSlineJoin3());
-        js.append(generateJSlineCap3());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJScolor());
+            js.append(generateJScolor1());
+            js.append(generateJScolor2());
+            js.append(generateJSthickness());
+            js.append(generateJSdashpattern());
+            js.append(generateJSlineJoin());
+            js.append(generateJSlineCap());
+            js.append(generateJScolor3());
+            js.append(generateJScolor4());
+            js.append(generateJScolor5());
+            js.append(generateJSthickness1());
+            js.append(generateJSdashpattern1());
+            js.append(generateJSlineJoin1());
+            js.append(generateJSlineCap1());
+            js.append(generateJScolor6());
+            js.append(generateJScolor7());
+            js.append(generateJScolor8());
+            js.append(generateJSthickness2());
+            js.append(generateJSdashpattern2());
+            js.append(generateJSlineJoin2());
+            js.append(generateJSlineCap2());
+            js.append(generateJScolor9());
+            js.append(generateJScolor10());
+            js.append(generateJScolor11());
+            js.append(generateJSthickness3());
+            js.append(generateJSdashpattern3());
+            js.append(generateJSlineJoin3());
+            js.append(generateJSlineCap3());
+            js.append("}");
+        }
 
         String result = js.toString();
         js.setLength(0);

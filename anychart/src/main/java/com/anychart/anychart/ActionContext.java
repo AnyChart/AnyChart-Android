@@ -7,6 +7,7 @@ public class ActionContext extends JsObject  {
 
     
     private Chart chart;
+    private String event;
     private Item item;
     private Point[] selectedPoints;
     private Element target;
@@ -14,26 +15,26 @@ public class ActionContext extends JsObject  {
     private String type;
 
     
-    public ActionContext(Element target, Chart chart, Item item, Point[] selectedPoints, String type) {
+    public ActionContext(Element target, Chart chart, String event, Item item, Point[] selectedPoints, String type) {
         this.target = target;
         this.chart = chart;
+        this.event = event;
         this.item = item;
         this.selectedPoints = selectedPoints;
         this.type = type;
 
-        js.append(String.format(Locale.US, "{target: %s,chart: %s,item: %s,selectedPoints: %s,type: %s}",  (target != null) ? target.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
+        js.append(String.format(Locale.US, "{target: %s,chart: %s,event: %s,item: %s,selectedPoints: %s,type: %s}",  (target != null) ? target.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", event, (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
     }
-
-    public ActionContext(VisualBase target1, Chart chart, Item item, Point[] selectedPoints, String type) {
+    public ActionContext(VisualBase target1, Chart chart, String event, Item item, Point[] selectedPoints, String type) {
         this.target1 = target1;
         this.chart = chart;
+        this.event = event;
         this.item = item;
         this.selectedPoints = selectedPoints;
         this.type = type;
 
-        js.append(String.format(Locale.US, "{target: %s,chart: %s,item: %s,selectedPoints: %s,type: %s}",  (target1 != null) ? target1.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
+        js.append(String.format(Locale.US, "{target: %s,chart: %s,event: %s,item: %s,selectedPoints: %s,type: %s}",  (target1 != null) ? target1.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", event, (item != null) ? item.generateJs() : "null", arrayToString(selectedPoints), type));
     }
-
 
     @Override
     public String generateJs() {

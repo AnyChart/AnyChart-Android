@@ -21,7 +21,6 @@ public class PrepareItemsContext extends JsObject  {
 
         js.append(String.format(Locale.US, "{target: %s,chart: %s,menu: %s,selectedPoints: %s}",  (target != null) ? target.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (menu != null) ? menu.generateJs() : "null", arrayToString(selectedPoints)));
     }
-
     public PrepareItemsContext(VisualBase target1, Chart chart, ContextMenu menu, Point[] selectedPoints) {
         this.target1 = target1;
         this.chart = chart;
@@ -30,7 +29,6 @@ public class PrepareItemsContext extends JsObject  {
 
         js.append(String.format(Locale.US, "{target: %s,chart: %s,menu: %s,selectedPoints: %s}",  (target1 != null) ? target1.generateJs() : "null", (chart != null) ? chart.generateJs() : "null", (menu != null) ? menu.generateJs() : "null", arrayToString(selectedPoints)));
     }
-
 
     @Override
     public String generateJs() {

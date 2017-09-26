@@ -3,7 +3,18 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class Quarter extends JsObject {
+
+    private String jsBase;
+
+    public Quarter() {
+
+    }
+
+    protected Quarter(String jsBase) {
+        this.jsBase = jsBase;
+    }
 
     
     private Stroke bottomStroke;
@@ -11,29 +22,62 @@ public class Quarter extends JsObject {
     private String bottomStroke2;
 
     public void setBottomstroke(Stroke bottomStroke) {
-        this.bottomStroke = null;
-        this.bottomStroke1 = null;
-        this.bottomStroke2 = null;
-        
-        this.bottomStroke = bottomStroke;
+        if (jsBase == null) {
+            this.bottomStroke = null;
+            this.bottomStroke1 = null;
+            this.bottomStroke2 = null;
+            
+            this.bottomStroke = bottomStroke;
+        } else {
+            this.bottomStroke = bottomStroke;
+
+            js.append(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (bottomStroke != null) ? bottomStroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (bottomStroke != null) ? bottomStroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottomstroke(ColoredFill bottomStroke1) {
-        this.bottomStroke = null;
-        this.bottomStroke1 = null;
-        this.bottomStroke2 = null;
-        
-        this.bottomStroke1 = bottomStroke1;
+        if (jsBase == null) {
+            this.bottomStroke = null;
+            this.bottomStroke1 = null;
+            this.bottomStroke2 = null;
+            
+            this.bottomStroke1 = bottomStroke1;
+        } else {
+            this.bottomStroke1 = bottomStroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (bottomStroke1 != null) ? bottomStroke1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (bottomStroke1 != null) ? bottomStroke1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottomstroke(String bottomStroke2) {
-        this.bottomStroke = null;
-        this.bottomStroke1 = null;
-        this.bottomStroke2 = null;
-        
-        this.bottomStroke2 = bottomStroke2;
+        if (jsBase == null) {
+            this.bottomStroke = null;
+            this.bottomStroke1 = null;
+            this.bottomStroke2 = null;
+            
+            this.bottomStroke2 = bottomStroke2;
+        } else {
+            this.bottomStroke2 = bottomStroke2;
+
+            js.append(String.format(Locale.US, jsBase + ".bottomStroke(%s);", bottomStroke2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomStroke(%s);", bottomStroke2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke bottomStroke3;
@@ -44,38 +88,79 @@ public class Quarter extends JsObject {
     private StrokeLineCap lineCap;
 
     public void setBottomstroke(Stroke bottomStroke3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.bottomStroke = null;
-        this.bottomStroke1 = null;
-        this.bottomStroke2 = null;
-        this.bottomStroke3 = null;
-        this.bottomStroke4 = null;
-        
-        this.bottomStroke3 = bottomStroke3;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.bottomStroke = null;
+            this.bottomStroke1 = null;
+            this.bottomStroke2 = null;
+            this.bottomStroke3 = null;
+            this.bottomStroke4 = null;
+            
+            this.bottomStroke3 = bottomStroke3;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.bottomStroke3 = bottomStroke3;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".bottomStroke(%s, %f, %s, %s, %s);", (bottomStroke3 != null) ? bottomStroke3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomStroke(%s, %f, %s, %s, %s);", (bottomStroke3 != null) ? bottomStroke3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setBottomstroke(String bottomStroke4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.bottomStroke = null;
-        this.bottomStroke1 = null;
-        this.bottomStroke2 = null;
-        this.bottomStroke3 = null;
-        this.bottomStroke4 = null;
-        
-        this.bottomStroke4 = bottomStroke4;
-        this.thickness = thickness;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
+        if (jsBase == null) {
+            this.bottomStroke = null;
+            this.bottomStroke1 = null;
+            this.bottomStroke2 = null;
+            this.bottomStroke3 = null;
+            this.bottomStroke4 = null;
+            
+            this.bottomStroke4 = bottomStroke4;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.bottomStroke4 = bottomStroke4;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+
+            js.append(String.format(Locale.US, jsBase + ".bottomStroke(%s, %f, %s, %s, %s);", bottomStroke4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomStroke(%s, %f, %s, %s, %s);", bottomStroke4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private BackgroundCornersType cornerType;
 
     public void setCornertype(BackgroundCornersType cornerType) {
-        this.cornerType = cornerType;
+        if (jsBase == null) {
+            this.cornerType = cornerType;
+        } else {
+            this.cornerType = cornerType;
+
+            js.append(String.format(Locale.US, jsBase + ".cornerType(%s);", (cornerType != null) ? cornerType.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornerType(%s);", (cornerType != null) ? cornerType.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double corners;
@@ -83,29 +168,62 @@ public class Quarter extends JsObject {
     private Double[] corners2;
 
     public void setCorners(Double corners) {
-        this.corners = null;
-        this.corners1 = null;
-        this.corners2 = null;
-        
-        this.corners = corners;
+        if (jsBase == null) {
+            this.corners = null;
+            this.corners1 = null;
+            this.corners2 = null;
+            
+            this.corners = corners;
+        } else {
+            this.corners = corners;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f);", corners));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f);", corners));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String corners1) {
-        this.corners = null;
-        this.corners1 = null;
-        this.corners2 = null;
-        
-        this.corners1 = corners1;
+        if (jsBase == null) {
+            this.corners = null;
+            this.corners1 = null;
+            this.corners2 = null;
+            
+            this.corners1 = corners1;
+        } else {
+            this.corners1 = corners1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s);", corners1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s);", corners1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double[] corners2) {
-        this.corners = null;
-        this.corners1 = null;
-        this.corners2 = null;
-        
-        this.corners2 = corners2;
+        if (jsBase == null) {
+            this.corners = null;
+            this.corners1 = null;
+            this.corners2 = null;
+            
+            this.corners2 = corners2;
+        } else {
+            this.corners2 = corners2;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s);", Arrays.toString(corners2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s);", Arrays.toString(corners2)));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double topLeft;
@@ -118,336 +236,583 @@ public class Quarter extends JsObject {
     private String bottomLeft1;
 
     public void setCorners(Double topLeft, Double topRight, Double bottomRight, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight = topRight;
+            this.bottomRight = bottomRight;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %f, %f, %f);", topLeft, topRight, bottomRight, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %f, %f, %f);", topLeft, topRight, bottomRight, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double topLeft, Double topRight, Double bottomRight, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight = topRight;
+            this.bottomRight = bottomRight;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %f, %f, %s);", topLeft, topRight, bottomRight, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %f, %f, %s);", topLeft, topRight, bottomRight, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double topLeft, Double topRight, String bottomRight1, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight = topRight;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %f, %s, %f);", topLeft, topRight, bottomRight1, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %f, %s, %f);", topLeft, topRight, bottomRight1, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double topLeft, Double topRight, String bottomRight1, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight = topRight;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %f, %s, %s);", topLeft, topRight, bottomRight1, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %f, %s, %s);", topLeft, topRight, bottomRight1, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double topLeft, String topRight1, Double bottomRight, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight1 = topRight1;
+            this.bottomRight = bottomRight;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %s, %f, %f);", topLeft, topRight1, bottomRight, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %s, %f, %f);", topLeft, topRight1, bottomRight, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double topLeft, String topRight1, Double bottomRight, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight1 = topRight1;
+            this.bottomRight = bottomRight;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %s, %f, %s);", topLeft, topRight1, bottomRight, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %s, %f, %s);", topLeft, topRight1, bottomRight, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double topLeft, String topRight1, String bottomRight1, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight1 = topRight1;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %s, %s, %f);", topLeft, topRight1, bottomRight1, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %s, %s, %f);", topLeft, topRight1, bottomRight1, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(Double topLeft, String topRight1, String bottomRight1, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft = topLeft;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight1 = topRight1;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%f, %s, %s, %s);", topLeft, topRight1, bottomRight1, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%f, %s, %s, %s);", topLeft, topRight1, bottomRight1, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, Double topRight, Double bottomRight, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight = topRight;
+            this.bottomRight = bottomRight;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %f, %f, %f);", topLeft1, topRight, bottomRight, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %f, %f, %f);", topLeft1, topRight, bottomRight, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, Double topRight, Double bottomRight, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight = topRight;
+            this.bottomRight = bottomRight;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %f, %f, %s);", topLeft1, topRight, bottomRight, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %f, %f, %s);", topLeft1, topRight, bottomRight, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, Double topRight, String bottomRight1, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight = topRight;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %f, %s, %f);", topLeft1, topRight, bottomRight1, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %f, %s, %f);", topLeft1, topRight, bottomRight1, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, Double topRight, String bottomRight1, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight = topRight;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight = topRight;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %f, %s, %s);", topLeft1, topRight, bottomRight1, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %f, %s, %s);", topLeft1, topRight, bottomRight1, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, String topRight1, Double bottomRight, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight1 = topRight1;
+            this.bottomRight = bottomRight;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %s, %f, %f);", topLeft1, topRight1, bottomRight, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %s, %f, %f);", topLeft1, topRight1, bottomRight, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, String topRight1, Double bottomRight, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight = bottomRight;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight1 = topRight1;
+            this.bottomRight = bottomRight;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %s, %f, %s);", topLeft1, topRight1, bottomRight, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %s, %f, %s);", topLeft1, topRight1, bottomRight, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, String topRight1, String bottomRight1, Double bottomLeft) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft = bottomLeft;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight1 = topRight1;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = bottomLeft;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %s, %s, %f);", topLeft1, topRight1, bottomRight1, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %s, %s, %f);", topLeft1, topRight1, bottomRight1, bottomLeft));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setCorners(String topLeft1, String topRight1, String bottomRight1, String bottomLeft1) {
-        this.topLeft = null;
-        this.topLeft1 = null;
-        
-        this.topLeft1 = topLeft1;
-        this.topRight = null;
-        this.topRight1 = null;
-        
-        this.topRight1 = topRight1;
-        this.bottomRight = null;
-        this.bottomRight1 = null;
-        
-        this.bottomRight1 = bottomRight1;
-        this.bottomLeft = null;
-        this.bottomLeft1 = null;
-        
-        this.bottomLeft1 = bottomLeft1;
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft1 = topLeft1;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight1 = topRight1;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft1 = bottomLeft1;
+        } else {
+            this.topLeft1 = topLeft1;
+            this.topRight1 = topRight1;
+            this.bottomRight1 = bottomRight1;
+            this.bottomLeft1 = bottomLeft1;
+
+            js.append(String.format(Locale.US, jsBase + ".corners(%s, %s, %s, %s);", topLeft1, topRight1, bottomRight1, bottomLeft1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".corners(%s, %s, %s, %s);", topLeft1, topRight1, bottomRight1, bottomLeft1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Fill fill;
 
     public void setFill(Fill fill) {
-        this.fill = fill;
+        if (jsBase == null) {
+            this.fill = fill;
+        } else {
+            this.fill = fill;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private String color;
     private Double opacity;
 
     public void setFill(String color, Double opacity) {
-        this.color = color;
-        this.opacity = opacity;
+        if (jsBase == null) {
+            this.color = color;
+            this.opacity = opacity;
+        } else {
+            this.color = color;
+            this.opacity = opacity;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys;
@@ -455,243 +820,518 @@ public class Quarter extends JsObject {
     private Double angle;
     private Boolean mode;
     private VectorRect mode1;
+    private String mode2;
     private Double opacity1;
 
     public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys = keys;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys = keys;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys1 = keys1;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode = mode;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
-        this.keys = null;
-        this.keys1 = null;
-        
-        this.keys1 = keys1;
-        this.mode = null;
-        this.mode1 = null;
-        
-        this.mode1 = mode1;
-        this.angle = angle;
-        this.opacity = null;
-        this.opacity1 = null;
-        
-        this.opacity1 = opacity1;
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
     }
 
     private GradientKey[] keys2;
     private String[] keys3;
     private Double cx;
     private Double cy;
-    private GraphicsMathRect mode2;
+    private GraphicsMathRect mode3;
     private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        
-        this.keys2 = keys2;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        
-        this.mode2 = mode2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
+    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+        } else {
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode2, Double opacity2, Double fx, Double fy) {
-        this.keys = null;
-        this.keys1 = null;
-        this.keys2 = null;
-        this.keys3 = null;
-        
-        this.keys3 = keys3;
-        this.cx = cx;
-        this.cy = cy;
-        this.mode = null;
-        this.mode1 = null;
-        this.mode2 = null;
-        
-        this.mode2 = mode2;
-        this.opacity = null;
-        this.opacity1 = null;
-        this.opacity2 = null;
-        
-        this.opacity2 = opacity2;
-        this.fx = fx;
-        this.fy = fy;
+    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
+            
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+        } else {
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
+            this.fx = fx;
+            this.fy = fy;
+
+            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                js.setLength(0);
+            }
+        }
     }
 
     private String index;
     private Double index1;
 
     public void setLabel(String index) {
-        this.index = null;
-        this.index1 = null;
-        
-        this.index = index;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index = index;
+        } else {
+            this.index = index;
+
+            js.append(String.format(Locale.US, jsBase + ".label(%s);", index));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s);", index));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLabel(Double index1) {
-        this.index = null;
-        this.index1 = null;
-        
-        this.index1 = index1;
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+        } else {
+            this.index1 = index1;
+
+            js.append(String.format(Locale.US, jsBase + ".label(%f);", index1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f);", index1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Boolean label;
     private String label1;
+    private String label2;
 
     public void setLabel(Boolean label) {
-        this.label = null;
-        this.label1 = null;
-        
-        this.label = label;
+        if (jsBase == null) {
+            this.label = null;
+            this.label1 = null;
+            this.label2 = null;
+            
+            this.label = label;
+        } else {
+            this.label = label;
+
+            js.append(String.format(Locale.US, jsBase + ".label(%b);", label));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b);", label));
+                js.setLength(0);
+            }
+        }
     }
 
     private String index2;
     private Double index3;
-    private Boolean label2;
-    private String label3;
+    private Boolean label3;
+    private String label4;
+    private String label5;
 
-    public void setLabel(String index2, Boolean label2) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        this.index3 = null;
-        
-        this.index2 = index2;
-        this.label = null;
-        this.label1 = null;
-        this.label2 = null;
-        this.label3 = null;
-        
-        this.label2 = label2;
+    public void setLabel(String index2, Boolean label3) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            
+            this.index2 = index2;
+            this.label = null;
+            this.label1 = null;
+            this.label2 = null;
+            this.label3 = null;
+            this.label4 = null;
+            this.label5 = null;
+            
+            this.label3 = label3;
+        } else {
+            this.index2 = index2;
+            this.label3 = label3;
+
+            js.append(String.format(Locale.US, jsBase + ".label(%s, %b);", index2, label3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b);", index2, label3));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setLabel(String index2, String label3) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        this.index3 = null;
-        
-        this.index2 = index2;
-        this.label = null;
-        this.label1 = null;
-        this.label2 = null;
-        this.label3 = null;
-        
-        this.label3 = label3;
+    public void setLabel(String index2, String label4) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            
+            this.index2 = index2;
+            this.label = null;
+            this.label1 = null;
+            this.label2 = null;
+            this.label3 = null;
+            this.label4 = null;
+            this.label5 = null;
+            
+            this.label4 = label4;
+        } else {
+            this.index2 = index2;
+            this.label4 = label4;
+
+            js.append(String.format(Locale.US, jsBase + ".label(%s, %s);", index2, label4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s);", index2, label4));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setLabel(Double index3, Boolean label2) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        this.index3 = null;
-        
-        this.index3 = index3;
-        this.label = null;
-        this.label1 = null;
-        this.label2 = null;
-        this.label3 = null;
-        
-        this.label2 = label2;
+    public void setLabel(Double index3, Boolean label3) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            
+            this.index3 = index3;
+            this.label = null;
+            this.label1 = null;
+            this.label2 = null;
+            this.label3 = null;
+            this.label4 = null;
+            this.label5 = null;
+            
+            this.label3 = label3;
+        } else {
+            this.index3 = index3;
+            this.label3 = label3;
+
+            js.append(String.format(Locale.US, jsBase + ".label(%f, %b);", index3, label3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %b);", index3, label3));
+                js.setLength(0);
+            }
+        }
     }
 
 
-    public void setLabel(Double index3, String label3) {
-        this.index = null;
-        this.index1 = null;
-        this.index2 = null;
-        this.index3 = null;
-        
-        this.index3 = index3;
-        this.label = null;
-        this.label1 = null;
-        this.label2 = null;
-        this.label3 = null;
-        
-        this.label3 = label3;
+    public void setLabel(Double index3, String label4) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            
+            this.index3 = index3;
+            this.label = null;
+            this.label1 = null;
+            this.label2 = null;
+            this.label3 = null;
+            this.label4 = null;
+            this.label5 = null;
+            
+            this.label4 = label4;
+        } else {
+            this.index3 = index3;
+            this.label4 = label4;
+
+            js.append(String.format(Locale.US, jsBase + ".label(%f, %s);", index3, label4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s);", index3, label4));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke leftStroke;
     private String leftStroke1;
 
     public void setLeftstroke(Stroke leftStroke) {
-        this.leftStroke = null;
-        this.leftStroke1 = null;
-        
-        this.leftStroke = leftStroke;
+        if (jsBase == null) {
+            this.leftStroke = null;
+            this.leftStroke1 = null;
+            
+            this.leftStroke = leftStroke;
+        } else {
+            this.leftStroke = leftStroke;
+
+            js.append(String.format(Locale.US, jsBase + ".leftStroke(%s);", (leftStroke != null) ? leftStroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftStroke(%s);", (leftStroke != null) ? leftStroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLeftstroke(String leftStroke1) {
-        this.leftStroke = null;
-        this.leftStroke1 = null;
-        
-        this.leftStroke1 = leftStroke1;
+        if (jsBase == null) {
+            this.leftStroke = null;
+            this.leftStroke1 = null;
+            
+            this.leftStroke1 = leftStroke1;
+        } else {
+            this.leftStroke1 = leftStroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".leftStroke(%s);", leftStroke1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftStroke(%s);", leftStroke1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke leftStroke2;
@@ -702,72 +1342,156 @@ public class Quarter extends JsObject {
     private StrokeLineCap lineCap1;
 
     public void setLeftstroke(Stroke leftStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.leftStroke = null;
-        this.leftStroke1 = null;
-        this.leftStroke2 = null;
-        this.leftStroke3 = null;
-        
-        this.leftStroke2 = leftStroke2;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.leftStroke = null;
+            this.leftStroke1 = null;
+            this.leftStroke2 = null;
+            this.leftStroke3 = null;
+            
+            this.leftStroke2 = leftStroke2;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.leftStroke2 = leftStroke2;
+            this.thickness1 = thickness1;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".leftStroke(%s, %f, %s, %s, %s);", (leftStroke2 != null) ? leftStroke2.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftStroke(%s, %f, %s, %s, %s);", (leftStroke2 != null) ? leftStroke2.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setLeftstroke(String leftStroke3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.leftStroke = null;
-        this.leftStroke1 = null;
-        this.leftStroke2 = null;
-        this.leftStroke3 = null;
-        
-        this.leftStroke3 = leftStroke3;
-        this.thickness = null;
-        this.thickness1 = null;
-        
-        this.thickness1 = thickness1;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        
-        this.lineJoin1 = lineJoin1;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        
-        this.lineCap1 = lineCap1;
+        if (jsBase == null) {
+            this.leftStroke = null;
+            this.leftStroke1 = null;
+            this.leftStroke2 = null;
+            this.leftStroke3 = null;
+            
+            this.leftStroke3 = leftStroke3;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.leftStroke3 = leftStroke3;
+            this.thickness1 = thickness1;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+            js.append(String.format(Locale.US, jsBase + ".leftStroke(%s, %f, %s, %s, %s);", leftStroke3, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftStroke(%s, %f, %s, %s, %s);", leftStroke3, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private Margin getmargin;
+
+    public Margin getMargin() {
+        if (getmargin == null)
+            getmargin = new Margin(jsBase + ".margin()");
+
+        return getmargin;
     }
 
     private Double[] margin;
     private String[] margin1;
+    private String margin2;
 
     public void setMargin(Double[] margin) {
-        this.margin = null;
-        this.margin1 = null;
-        
-        this.margin = margin;
+        if (jsBase == null) {
+            this.margin = null;
+            this.margin1 = null;
+            this.margin2 = null;
+            
+            this.margin = margin;
+        } else {
+            this.margin = margin;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMargin(String[] margin1) {
-        this.margin = null;
-        this.margin1 = null;
-        
-        this.margin1 = margin1;
+        if (jsBase == null) {
+            this.margin = null;
+            this.margin1 = null;
+            this.margin2 = null;
+            
+            this.margin1 = margin1;
+        } else {
+            this.margin1 = margin1;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin1)));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(String margin2) {
+        if (jsBase == null) {
+            this.margin = null;
+            this.margin1 = null;
+            this.margin2 = null;
+            
+            this.margin2 = margin2;
+        } else {
+            this.margin2 = margin2;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s);", margin2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", margin2));
+                js.setLength(0);
+            }
+        }
     }
 
     private String value;
@@ -780,168 +1504,256 @@ public class Quarter extends JsObject {
     private Double value7;
 
     public void setMargin(String value6, String value, Double value1, String value2, Double value3, String value4, Double value5) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value6 = value6;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value = value;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value1 = value1;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value2 = value2;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value3 = value3;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value4 = value4;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value5 = value5;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+        } else {
+            this.value6 = value6;
+            this.value = value;
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value5 = value5;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setMargin(Double value7, String value, Double value1, String value2, Double value3, String value4, Double value5) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value7 = value7;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value = value;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value1 = value1;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value2 = value2;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value3 = value3;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value4 = value4;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        
-        this.value5 = value5;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+        } else {
+            this.value7 = value7;
+            this.value = value;
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value5 = value5;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private UtilsPadding getpadding;
+
+    public UtilsPadding getPadding() {
+        if (getpadding == null)
+            getpadding = new UtilsPadding(jsBase + ".padding()");
+
+        return getpadding;
     }
 
     private Double[] padding;
     private String[] padding1;
+    private String padding2;
 
     public void setPadding(Double[] padding) {
-        this.padding = null;
-        this.padding1 = null;
-        
-        this.padding = padding;
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding = padding;
+        } else {
+            this.padding = padding;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setPadding(String[] padding1) {
-        this.padding = null;
-        this.padding1 = null;
-        
-        this.padding1 = padding1;
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding1 = padding1;
+        } else {
+            this.padding1 = padding1;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+                js.setLength(0);
+            }
+        }
     }
 
     private String value8;
@@ -954,262 +1766,296 @@ public class Quarter extends JsObject {
     private Double value15;
 
     public void setPadding(String value14, String value8, Double value9, String value10, Double value11, String value12, Double value13) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value14 = value14;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value8 = value8;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value9 = value9;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value10 = value10;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value11 = value11;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value12 = value12;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value13 = value13;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+        } else {
+            this.value14 = value14;
+            this.value8 = value8;
+            this.value9 = value9;
+            this.value10 = value10;
+            this.value11 = value11;
+            this.value12 = value12;
+            this.value13 = value13;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setPadding(Double value15, String value8, Double value9, String value10, Double value11, String value12, Double value13) {
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value15 = value15;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value8 = value8;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value9 = value9;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value10 = value10;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value11 = value11;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value12 = value12;
-        this.value = null;
-        this.value1 = null;
-        this.value2 = null;
-        this.value3 = null;
-        this.value4 = null;
-        this.value5 = null;
-        this.value6 = null;
-        this.value7 = null;
-        this.value8 = null;
-        this.value9 = null;
-        this.value10 = null;
-        this.value11 = null;
-        this.value12 = null;
-        this.value13 = null;
-        this.value14 = null;
-        this.value15 = null;
-        
-        this.value13 = value13;
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+        } else {
+            this.value15 = value15;
+            this.value8 = value8;
+            this.value9 = value9;
+            this.value10 = value10;
+            this.value11 = value11;
+            this.value12 = value12;
+            this.value13 = value13;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke rightStroke;
@@ -1217,29 +2063,62 @@ public class Quarter extends JsObject {
     private String rightStroke2;
 
     public void setRightstroke(Stroke rightStroke) {
-        this.rightStroke = null;
-        this.rightStroke1 = null;
-        this.rightStroke2 = null;
-        
-        this.rightStroke = rightStroke;
+        if (jsBase == null) {
+            this.rightStroke = null;
+            this.rightStroke1 = null;
+            this.rightStroke2 = null;
+            
+            this.rightStroke = rightStroke;
+        } else {
+            this.rightStroke = rightStroke;
+
+            js.append(String.format(Locale.US, jsBase + ".rightStroke(%s);", (rightStroke != null) ? rightStroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightStroke(%s);", (rightStroke != null) ? rightStroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRightstroke(ColoredFill rightStroke1) {
-        this.rightStroke = null;
-        this.rightStroke1 = null;
-        this.rightStroke2 = null;
-        
-        this.rightStroke1 = rightStroke1;
+        if (jsBase == null) {
+            this.rightStroke = null;
+            this.rightStroke1 = null;
+            this.rightStroke2 = null;
+            
+            this.rightStroke1 = rightStroke1;
+        } else {
+            this.rightStroke1 = rightStroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".rightStroke(%s);", (rightStroke1 != null) ? rightStroke1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightStroke(%s);", (rightStroke1 != null) ? rightStroke1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRightstroke(String rightStroke2) {
-        this.rightStroke = null;
-        this.rightStroke1 = null;
-        this.rightStroke2 = null;
-        
-        this.rightStroke2 = rightStroke2;
+        if (jsBase == null) {
+            this.rightStroke = null;
+            this.rightStroke1 = null;
+            this.rightStroke2 = null;
+            
+            this.rightStroke2 = rightStroke2;
+        } else {
+            this.rightStroke2 = rightStroke2;
+
+            js.append(String.format(Locale.US, jsBase + ".rightStroke(%s);", rightStroke2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightStroke(%s);", rightStroke2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke rightStroke3;
@@ -1250,64 +2129,94 @@ public class Quarter extends JsObject {
     private StrokeLineCap lineCap2;
 
     public void setRightstroke(Stroke rightStroke3, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.rightStroke = null;
-        this.rightStroke1 = null;
-        this.rightStroke2 = null;
-        this.rightStroke3 = null;
-        this.rightStroke4 = null;
-        
-        this.rightStroke3 = rightStroke3;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.rightStroke = null;
+            this.rightStroke1 = null;
+            this.rightStroke2 = null;
+            this.rightStroke3 = null;
+            this.rightStroke4 = null;
+            
+            this.rightStroke3 = rightStroke3;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.rightStroke3 = rightStroke3;
+            this.thickness2 = thickness2;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".rightStroke(%s, %f, %s, %s, %s);", (rightStroke3 != null) ? rightStroke3.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightStroke(%s, %f, %s, %s, %s);", (rightStroke3 != null) ? rightStroke3.generateJs() : "null", thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setRightstroke(String rightStroke4, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
-        this.rightStroke = null;
-        this.rightStroke1 = null;
-        this.rightStroke2 = null;
-        this.rightStroke3 = null;
-        this.rightStroke4 = null;
-        
-        this.rightStroke4 = rightStroke4;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        
-        this.thickness2 = thickness2;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        
-        this.dashpattern2 = dashpattern2;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        
-        this.lineJoin2 = lineJoin2;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        
-        this.lineCap2 = lineCap2;
+        if (jsBase == null) {
+            this.rightStroke = null;
+            this.rightStroke1 = null;
+            this.rightStroke2 = null;
+            this.rightStroke3 = null;
+            this.rightStroke4 = null;
+            
+            this.rightStroke4 = rightStroke4;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            
+            this.thickness2 = thickness2;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            
+            this.lineJoin2 = lineJoin2;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            
+            this.lineCap2 = lineCap2;
+        } else {
+            this.rightStroke4 = rightStroke4;
+            this.thickness2 = thickness2;
+            this.dashpattern2 = dashpattern2;
+            this.lineJoin2 = lineJoin2;
+            this.lineCap2 = lineCap2;
+
+            js.append(String.format(Locale.US, jsBase + ".rightStroke(%s, %f, %s, %s, %s);", rightStroke4, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightStroke(%s, %f, %s, %s, %s);", rightStroke4, thickness2, dashpattern2, (lineJoin2 != null) ? lineJoin2.generateJs() : "null", (lineCap2 != null) ? lineCap2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke stroke;
@@ -1315,29 +2224,62 @@ public class Quarter extends JsObject {
     private String stroke2;
 
     public void setStroke(Stroke stroke) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        
-        this.stroke = stroke;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            
+            this.stroke = stroke;
+        } else {
+            this.stroke = stroke;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s);", (stroke != null) ? stroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", (stroke != null) ? stroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(ColoredFill stroke1) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        
-        this.stroke1 = stroke1;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            
+            this.stroke1 = stroke1;
+        } else {
+            this.stroke1 = stroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s);", (stroke1 != null) ? stroke1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", (stroke1 != null) ? stroke1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(String stroke2) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        
-        this.stroke2 = stroke2;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            
+            this.stroke2 = stroke2;
+        } else {
+            this.stroke2 = stroke2;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s);", stroke2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", stroke2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke stroke3;
@@ -1348,90 +2290,154 @@ public class Quarter extends JsObject {
     private StrokeLineCap lineCap3;
 
     public void setStroke(Stroke stroke3, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        this.stroke3 = null;
-        this.stroke4 = null;
-        
-        this.stroke3 = stroke3;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            this.stroke3 = null;
+            this.stroke4 = null;
+            
+            this.stroke3 = stroke3;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.stroke3 = stroke3;
+            this.thickness3 = thickness3;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke3 != null) ? stroke3.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke3 != null) ? stroke3.generateJs() : "null", thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setStroke(String stroke4, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
-        this.stroke = null;
-        this.stroke1 = null;
-        this.stroke2 = null;
-        this.stroke3 = null;
-        this.stroke4 = null;
-        
-        this.stroke4 = stroke4;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        
-        this.thickness3 = thickness3;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        
-        this.dashpattern3 = dashpattern3;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        
-        this.lineJoin3 = lineJoin3;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        
-        this.lineCap3 = lineCap3;
+        if (jsBase == null) {
+            this.stroke = null;
+            this.stroke1 = null;
+            this.stroke2 = null;
+            this.stroke3 = null;
+            this.stroke4 = null;
+            
+            this.stroke4 = stroke4;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            
+            this.thickness3 = thickness3;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            
+            this.lineJoin3 = lineJoin3;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            
+            this.lineCap3 = lineCap3;
+        } else {
+            this.stroke4 = stroke4;
+            this.thickness3 = thickness3;
+            this.dashpattern3 = dashpattern3;
+            this.lineJoin3 = lineJoin3;
+            this.lineCap3 = lineCap3;
+
+            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", stroke4, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", stroke4, thickness3, dashpattern3, (lineJoin3 != null) ? lineJoin3.generateJs() : "null", (lineCap3 != null) ? lineCap3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private UiTitle gettitle;
+
+    public UiTitle getTitle() {
+        if (gettitle == null)
+            gettitle = new UiTitle(jsBase + ".title()");
+
+        return gettitle;
     }
 
     private Boolean title;
     private String title1;
+    private String title2;
 
     public void setTitle(Boolean title) {
-        this.title = null;
-        this.title1 = null;
-        
-        this.title = title;
+        if (jsBase == null) {
+            this.title = null;
+            this.title1 = null;
+            this.title2 = null;
+            
+            this.title = title;
+        } else {
+            this.title = title;
+
+            js.append(String.format(Locale.US, jsBase + ".title(%b);", title));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%b);", title));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTitle(String title1) {
-        this.title = null;
-        this.title1 = null;
-        
-        this.title1 = title1;
+        if (jsBase == null) {
+            this.title = null;
+            this.title1 = null;
+            this.title2 = null;
+            
+            this.title1 = title1;
+        } else {
+            this.title1 = title1;
+
+            js.append(String.format(Locale.US, jsBase + ".title(%s);", title1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", title1));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke topStroke;
@@ -1439,29 +2445,62 @@ public class Quarter extends JsObject {
     private String topStroke2;
 
     public void setTopstroke(Stroke topStroke) {
-        this.topStroke = null;
-        this.topStroke1 = null;
-        this.topStroke2 = null;
-        
-        this.topStroke = topStroke;
+        if (jsBase == null) {
+            this.topStroke = null;
+            this.topStroke1 = null;
+            this.topStroke2 = null;
+            
+            this.topStroke = topStroke;
+        } else {
+            this.topStroke = topStroke;
+
+            js.append(String.format(Locale.US, jsBase + ".topStroke(%s);", (topStroke != null) ? topStroke.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topStroke(%s);", (topStroke != null) ? topStroke.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTopstroke(ColoredFill topStroke1) {
-        this.topStroke = null;
-        this.topStroke1 = null;
-        this.topStroke2 = null;
-        
-        this.topStroke1 = topStroke1;
+        if (jsBase == null) {
+            this.topStroke = null;
+            this.topStroke1 = null;
+            this.topStroke2 = null;
+            
+            this.topStroke1 = topStroke1;
+        } else {
+            this.topStroke1 = topStroke1;
+
+            js.append(String.format(Locale.US, jsBase + ".topStroke(%s);", (topStroke1 != null) ? topStroke1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topStroke(%s);", (topStroke1 != null) ? topStroke1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTopstroke(String topStroke2) {
-        this.topStroke = null;
-        this.topStroke1 = null;
-        this.topStroke2 = null;
-        
-        this.topStroke2 = topStroke2;
+        if (jsBase == null) {
+            this.topStroke = null;
+            this.topStroke1 = null;
+            this.topStroke2 = null;
+            
+            this.topStroke2 = topStroke2;
+        } else {
+            this.topStroke2 = topStroke2;
+
+            js.append(String.format(Locale.US, jsBase + ".topStroke(%s);", topStroke2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topStroke(%s);", topStroke2));
+                js.setLength(0);
+            }
+        }
     }
 
     private Stroke topStroke3;
@@ -1472,80 +2511,131 @@ public class Quarter extends JsObject {
     private StrokeLineCap lineCap4;
 
     public void setTopstroke(Stroke topStroke3, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
-        this.topStroke = null;
-        this.topStroke1 = null;
-        this.topStroke2 = null;
-        this.topStroke3 = null;
-        this.topStroke4 = null;
-        
-        this.topStroke3 = topStroke3;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        
-        this.thickness4 = thickness4;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        
-        this.dashpattern4 = dashpattern4;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        
-        this.lineJoin4 = lineJoin4;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        
-        this.lineCap4 = lineCap4;
+        if (jsBase == null) {
+            this.topStroke = null;
+            this.topStroke1 = null;
+            this.topStroke2 = null;
+            this.topStroke3 = null;
+            this.topStroke4 = null;
+            
+            this.topStroke3 = topStroke3;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            
+            this.thickness4 = thickness4;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            
+            this.lineJoin4 = lineJoin4;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            
+            this.lineCap4 = lineCap4;
+        } else {
+            this.topStroke3 = topStroke3;
+            this.thickness4 = thickness4;
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin4 = lineJoin4;
+            this.lineCap4 = lineCap4;
+
+            js.append(String.format(Locale.US, jsBase + ".topStroke(%s, %f, %s, %s, %s);", (topStroke3 != null) ? topStroke3.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topStroke(%s, %f, %s, %s, %s);", (topStroke3 != null) ? topStroke3.generateJs() : "null", thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setTopstroke(String topStroke4, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
-        this.topStroke = null;
-        this.topStroke1 = null;
-        this.topStroke2 = null;
-        this.topStroke3 = null;
-        this.topStroke4 = null;
-        
-        this.topStroke4 = topStroke4;
-        this.thickness = null;
-        this.thickness1 = null;
-        this.thickness2 = null;
-        this.thickness3 = null;
-        this.thickness4 = null;
-        
-        this.thickness4 = thickness4;
-        this.dashpattern = null;
-        this.dashpattern1 = null;
-        this.dashpattern2 = null;
-        this.dashpattern3 = null;
-        this.dashpattern4 = null;
-        
-        this.dashpattern4 = dashpattern4;
-        this.lineJoin = null;
-        this.lineJoin1 = null;
-        this.lineJoin2 = null;
-        this.lineJoin3 = null;
-        this.lineJoin4 = null;
-        
-        this.lineJoin4 = lineJoin4;
-        this.lineCap = null;
-        this.lineCap1 = null;
-        this.lineCap2 = null;
-        this.lineCap3 = null;
-        this.lineCap4 = null;
-        
-        this.lineCap4 = lineCap4;
+        if (jsBase == null) {
+            this.topStroke = null;
+            this.topStroke1 = null;
+            this.topStroke2 = null;
+            this.topStroke3 = null;
+            this.topStroke4 = null;
+            
+            this.topStroke4 = topStroke4;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            
+            this.thickness4 = thickness4;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            
+            this.lineJoin4 = lineJoin4;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            
+            this.lineCap4 = lineCap4;
+        } else {
+            this.topStroke4 = topStroke4;
+            this.thickness4 = thickness4;
+            this.dashpattern4 = dashpattern4;
+            this.lineJoin4 = lineJoin4;
+            this.lineCap4 = lineCap4;
+
+            js.append(String.format(Locale.US, jsBase + ".topStroke(%s, %f, %s, %s, %s);", topStroke4, thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topStroke(%s, %f, %s, %s, %s);", topStroke4, thickness4, dashpattern4, (lineJoin4 != null) ? lineJoin4.generateJs() : "null", (lineCap4 != null) ? lineCap4.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetmargin() {
+        if (getmargin != null) {
+            return getmargin.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetpadding() {
+        if (getpadding != null) {
+            return getpadding.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgettitle() {
+        if (gettitle != null) {
+            return gettitle.generateJs();
+        }
+        return "";
     }
 
     private String generateJSbottomStroke() {
@@ -1751,6 +2841,13 @@ public class Quarter extends JsObject {
         return "";
     }
 
+    private String generateJSmode2() {
+        if (mode2 != null) {
+            return String.format(Locale.US, "mode: %s,", mode2);
+        }
+        return "";
+    }
+
     private String generateJSopacity1() {
         if (opacity1 != null) {
             return String.format(Locale.US, "opacity: %f,", opacity1);
@@ -1786,9 +2883,9 @@ public class Quarter extends JsObject {
         return "";
     }
 
-    private String generateJSmode2() {
-        if (mode2 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode2 != null) ? mode2.generateJs() : "null");
+    private String generateJSmode3() {
+        if (mode3 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
         }
         return "";
     }
@@ -1842,6 +2939,13 @@ public class Quarter extends JsObject {
         return "";
     }
 
+    private String generateJSlabel2() {
+        if (label2 != null) {
+            return String.format(Locale.US, "label: %s,", label2);
+        }
+        return "";
+    }
+
     private String generateJSindex2() {
         if (index2 != null) {
             return String.format(Locale.US, "index: %s,", index2);
@@ -1856,16 +2960,23 @@ public class Quarter extends JsObject {
         return "";
     }
 
-    private String generateJSlabel2() {
-        if (label2 != null) {
-            return String.format(Locale.US, "label: %b,", label2);
+    private String generateJSlabel3() {
+        if (label3 != null) {
+            return String.format(Locale.US, "label: %b,", label3);
         }
         return "";
     }
 
-    private String generateJSlabel3() {
-        if (label3 != null) {
-            return String.format(Locale.US, "label: %s,", label3);
+    private String generateJSlabel4() {
+        if (label4 != null) {
+            return String.format(Locale.US, "label: %s,", label4);
+        }
+        return "";
+    }
+
+    private String generateJSlabel5() {
+        if (label5 != null) {
+            return String.format(Locale.US, "label: %s,", label5);
         }
         return "";
     }
@@ -1940,6 +3051,13 @@ public class Quarter extends JsObject {
         return "";
     }
 
+    private String generateJSmargin2() {
+        if (margin2 != null) {
+            return String.format(Locale.US, "margin: %s,", margin2);
+        }
+        return "";
+    }
+
     private String generateJSvalue() {
         if (value != null) {
             return String.format(Locale.US, "value: %s,", value);
@@ -2006,6 +3124,13 @@ public class Quarter extends JsObject {
     private String generateJSpadding1() {
         if (padding1 != null) {
             return String.format(Locale.US, "padding: %s,", Arrays.toString(padding1));
+        }
+        return "";
+    }
+
+    private String generateJSpadding2() {
+        if (padding2 != null) {
+            return String.format(Locale.US, "padding: %s,", padding2);
         }
         return "";
     }
@@ -2206,6 +3331,13 @@ public class Quarter extends JsObject {
         return "";
     }
 
+    private String generateJStitle2() {
+        if (title2 != null) {
+            return String.format(Locale.US, "title: %s,", title2);
+        }
+        return "";
+    }
+
     private String generateJStopStroke() {
         if (topStroke != null) {
             return String.format(Locale.US, "topStroke: %s,", (topStroke != null) ? topStroke.generateJs() : "null");
@@ -2272,112 +3404,122 @@ public class Quarter extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJSbottomStroke());
-        js.append(generateJSbottomStroke1());
-        js.append(generateJSbottomStroke2());
-        js.append(generateJSbottomStroke3());
-        js.append(generateJSbottomStroke4());
-        js.append(generateJSthickness());
-        js.append(generateJSdashpattern());
-        js.append(generateJSlineJoin());
-        js.append(generateJSlineCap());
-        js.append(generateJScornerType());
-        js.append(generateJScorners());
-        js.append(generateJScorners1());
-        js.append(generateJScorners2());
-        js.append(generateJStopLeft());
-        js.append(generateJStopLeft1());
-        js.append(generateJStopRight());
-        js.append(generateJStopRight1());
-        js.append(generateJSbottomRight());
-        js.append(generateJSbottomRight1());
-        js.append(generateJSbottomLeft());
-        js.append(generateJSbottomLeft1());
-        js.append(generateJSfill());
-        js.append(generateJScolor());
-        js.append(generateJSopacity());
-        js.append(generateJSkeys());
-        js.append(generateJSkeys1());
-        js.append(generateJSangle());
-        js.append(generateJSmode());
-        js.append(generateJSmode1());
-        js.append(generateJSopacity1());
-        js.append(generateJSkeys2());
-        js.append(generateJSkeys3());
-        js.append(generateJScx());
-        js.append(generateJScy());
-        js.append(generateJSmode2());
-        js.append(generateJSopacity2());
-        js.append(generateJSfx());
-        js.append(generateJSfy());
-        js.append(generateJSindex());
-        js.append(generateJSindex1());
-        js.append(generateJSlabel());
-        js.append(generateJSlabel1());
-        js.append(generateJSindex2());
-        js.append(generateJSindex3());
-        js.append(generateJSlabel2());
-        js.append(generateJSlabel3());
-        js.append(generateJSleftStroke());
-        js.append(generateJSleftStroke1());
-        js.append(generateJSleftStroke2());
-        js.append(generateJSleftStroke3());
-        js.append(generateJSthickness1());
-        js.append(generateJSdashpattern1());
-        js.append(generateJSlineJoin1());
-        js.append(generateJSlineCap1());
-        js.append(generateJSmargin());
-        js.append(generateJSmargin1());
-        js.append(generateJSvalue());
-        js.append(generateJSvalue1());
-        js.append(generateJSvalue2());
-        js.append(generateJSvalue3());
-        js.append(generateJSvalue4());
-        js.append(generateJSvalue5());
-        js.append(generateJSvalue6());
-        js.append(generateJSvalue7());
-        js.append(generateJSpadding());
-        js.append(generateJSpadding1());
-        js.append(generateJSvalue8());
-        js.append(generateJSvalue9());
-        js.append(generateJSvalue10());
-        js.append(generateJSvalue11());
-        js.append(generateJSvalue12());
-        js.append(generateJSvalue13());
-        js.append(generateJSvalue14());
-        js.append(generateJSvalue15());
-        js.append(generateJSrightStroke());
-        js.append(generateJSrightStroke1());
-        js.append(generateJSrightStroke2());
-        js.append(generateJSrightStroke3());
-        js.append(generateJSrightStroke4());
-        js.append(generateJSthickness2());
-        js.append(generateJSdashpattern2());
-        js.append(generateJSlineJoin2());
-        js.append(generateJSlineCap2());
-        js.append(generateJSstroke());
-        js.append(generateJSstroke1());
-        js.append(generateJSstroke2());
-        js.append(generateJSstroke3());
-        js.append(generateJSstroke4());
-        js.append(generateJSthickness3());
-        js.append(generateJSdashpattern3());
-        js.append(generateJSlineJoin3());
-        js.append(generateJSlineCap3());
-        js.append(generateJStitle());
-        js.append(generateJStitle1());
-        js.append(generateJStopStroke());
-        js.append(generateJStopStroke1());
-        js.append(generateJStopStroke2());
-        js.append(generateJStopStroke3());
-        js.append(generateJStopStroke4());
-        js.append(generateJSthickness4());
-        js.append(generateJSdashpattern4());
-        js.append(generateJSlineJoin4());
-        js.append(generateJSlineCap4());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJSbottomStroke());
+            js.append(generateJSbottomStroke1());
+            js.append(generateJSbottomStroke2());
+            js.append(generateJSbottomStroke3());
+            js.append(generateJSbottomStroke4());
+            js.append(generateJSthickness());
+            js.append(generateJSdashpattern());
+            js.append(generateJSlineJoin());
+            js.append(generateJSlineCap());
+            js.append(generateJScornerType());
+            js.append(generateJScorners());
+            js.append(generateJScorners1());
+            js.append(generateJScorners2());
+            js.append(generateJStopLeft());
+            js.append(generateJStopLeft1());
+            js.append(generateJStopRight());
+            js.append(generateJStopRight1());
+            js.append(generateJSbottomRight());
+            js.append(generateJSbottomRight1());
+            js.append(generateJSbottomLeft());
+            js.append(generateJSbottomLeft1());
+            js.append(generateJSfill());
+            js.append(generateJScolor());
+            js.append(generateJSopacity());
+            js.append(generateJSkeys());
+            js.append(generateJSkeys1());
+            js.append(generateJSangle());
+            js.append(generateJSmode());
+            js.append(generateJSmode1());
+            js.append(generateJSmode2());
+            js.append(generateJSopacity1());
+            js.append(generateJSkeys2());
+            js.append(generateJSkeys3());
+            js.append(generateJScx());
+            js.append(generateJScy());
+            js.append(generateJSmode3());
+            js.append(generateJSopacity2());
+            js.append(generateJSfx());
+            js.append(generateJSfy());
+            js.append(generateJSindex());
+            js.append(generateJSindex1());
+            js.append(generateJSlabel());
+            js.append(generateJSlabel1());
+            js.append(generateJSlabel2());
+            js.append(generateJSindex2());
+            js.append(generateJSindex3());
+            js.append(generateJSlabel3());
+            js.append(generateJSlabel4());
+            js.append(generateJSlabel5());
+            js.append(generateJSleftStroke());
+            js.append(generateJSleftStroke1());
+            js.append(generateJSleftStroke2());
+            js.append(generateJSleftStroke3());
+            js.append(generateJSthickness1());
+            js.append(generateJSdashpattern1());
+            js.append(generateJSlineJoin1());
+            js.append(generateJSlineCap1());
+            js.append(generateJSmargin());
+            js.append(generateJSmargin1());
+            js.append(generateJSmargin2());
+            js.append(generateJSvalue());
+            js.append(generateJSvalue1());
+            js.append(generateJSvalue2());
+            js.append(generateJSvalue3());
+            js.append(generateJSvalue4());
+            js.append(generateJSvalue5());
+            js.append(generateJSvalue6());
+            js.append(generateJSvalue7());
+            js.append(generateJSpadding());
+            js.append(generateJSpadding1());
+            js.append(generateJSpadding2());
+            js.append(generateJSvalue8());
+            js.append(generateJSvalue9());
+            js.append(generateJSvalue10());
+            js.append(generateJSvalue11());
+            js.append(generateJSvalue12());
+            js.append(generateJSvalue13());
+            js.append(generateJSvalue14());
+            js.append(generateJSvalue15());
+            js.append(generateJSrightStroke());
+            js.append(generateJSrightStroke1());
+            js.append(generateJSrightStroke2());
+            js.append(generateJSrightStroke3());
+            js.append(generateJSrightStroke4());
+            js.append(generateJSthickness2());
+            js.append(generateJSdashpattern2());
+            js.append(generateJSlineJoin2());
+            js.append(generateJSlineCap2());
+            js.append(generateJSstroke());
+            js.append(generateJSstroke1());
+            js.append(generateJSstroke2());
+            js.append(generateJSstroke3());
+            js.append(generateJSstroke4());
+            js.append(generateJSthickness3());
+            js.append(generateJSdashpattern3());
+            js.append(generateJSlineJoin3());
+            js.append(generateJSlineCap3());
+            js.append(generateJStitle());
+            js.append(generateJStitle1());
+            js.append(generateJStitle2());
+            js.append(generateJStopStroke());
+            js.append(generateJStopStroke1());
+            js.append(generateJStopStroke2());
+            js.append(generateJStopStroke3());
+            js.append(generateJStopStroke4());
+            js.append(generateJSthickness4());
+            js.append(generateJSdashpattern4());
+            js.append(generateJSlineJoin4());
+            js.append(generateJSlineCap4());
+            js.append("}");
+        }
+            js.append(generateJSgetmargin());
+            js.append(generateJSgetpadding());
+            js.append(generateJSgettitle());
 
         String result = js.toString();
         js.setLength(0);

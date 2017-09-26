@@ -23,7 +23,6 @@ public class BbandsbContext extends JsObject  {
         js.append(String.format(Locale.US, "{deviation: %f,highQueue: %s,period: %f,prevDeviation: %f,prevResult: %f}",  deviation, (highQueue != null) ? highQueue.generateJs() : "null", period, prevDeviation, prevResult));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

@@ -17,7 +17,6 @@ public class GroupingLevel extends JsObject  {
         js.append(String.format(Locale.US, "{count: %f,unit: %s}",  count, (unit != null) ? unit.generateJs() : "null"));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

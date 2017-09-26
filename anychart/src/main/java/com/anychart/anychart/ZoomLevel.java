@@ -21,7 +21,6 @@ public class ZoomLevel extends JsObject  {
         js.append(String.format(Locale.US, "{count: %f,id: %s,unit: %s,unitPixSize: %f}",  count, id, (unit != null) ? unit.generateJs() : "null", unitPixSize));
     }
 
-
     @Override
     public String generateJs() {
         return js.toString();

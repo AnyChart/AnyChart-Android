@@ -25,6 +25,26 @@ public class PertChartActivity extends AppCompatActivity {
 
         pert.setData(getData(), TreeFillingMethod.AS_TABLE, null);
 
+        pert.getTasks().getUpperlabels().setFormat(
+                "function() {\n" +
+                "    return this.item.get('fullName');\n" +
+                "  }");
+
+        pert.getTasks().getLowerlabels().setFormat("'{%duration} days'");
+
+        pert.getMilestones().setColor("'#2C81D5'");
+        pert.getMilestones().setSize("'6.5%'");
+//        pert.getMilestones().setHoverfill();
+//        .hoverFill(function() {
+//            return anychart.color.lighten(this.sourceColor, 0.25);
+//        });
+
+        pert.getCriticalpath().getMilestones().getLabels().setFormat(
+                "function() {\n" +
+                "    return this['creator'] ? this['creator'].get('name') : this['isStart'] ? 'Start' : 'Finish';\n" +
+                "  }");
+        pert.getCriticalpath().getMilestones().setColor("'#E24B26'");
+
         anyChartView.setChart(pert);
     }
 

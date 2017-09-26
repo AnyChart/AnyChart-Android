@@ -3,53 +3,151 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+// class
 public class Aroon extends JsObject {
 
+    private String jsBase;
+
+    public Aroon() {
+
+    }
+
+    protected Aroon(String jsBase) {
+        this.jsBase = jsBase;
+    }
+
     
+    private StockSeriesBase getdownSeries;
+
+    public StockSeriesBase getDownseries() {
+        if (getdownSeries == null)
+            getdownSeries = new StockSeriesBase(jsBase + ".downSeries()");
+
+        return getdownSeries;
+    }
+
     private String type;
     private StockSeriesType type1;
 
     public void setDownseries(String type) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type = type;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type = type;
+        } else {
+            this.type = type;
+
+            js.append(String.format(Locale.US, jsBase + ".downSeries(%s);", type));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".downSeries(%s);", type));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setDownseries(StockSeriesType type1) {
-        this.type = null;
-        this.type1 = null;
-        
-        this.type1 = type1;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+
+            js.append(String.format(Locale.US, jsBase + ".downSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".downSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
     }
 
     private Double period;
 
     public void setPeriod(Double period) {
-        this.period = period;
+        if (jsBase == null) {
+            this.period = period;
+        } else {
+            this.period = period;
+
+            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private StockSeriesBase getupSeries;
+
+    public StockSeriesBase getUpseries() {
+        if (getupSeries == null)
+            getupSeries = new StockSeriesBase(jsBase + ".upSeries()");
+
+        return getupSeries;
     }
 
     private String type2;
     private StockSeriesType type3;
 
     public void setUpseries(String type2) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type2 = type2;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type2 = type2;
+        } else {
+            this.type2 = type2;
+
+            js.append(String.format(Locale.US, jsBase + ".upSeries(%s);", type2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upSeries(%s);", type2));
+                js.setLength(0);
+            }
+        }
     }
 
 
     public void setUpseries(StockSeriesType type3) {
-        this.type = null;
-        this.type1 = null;
-        this.type2 = null;
-        this.type3 = null;
-        
-        this.type3 = type3;
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+        } else {
+            this.type3 = type3;
+
+            js.append(String.format(Locale.US, jsBase + ".upSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private String generateJSgetdownSeries() {
+        if (getdownSeries != null) {
+            return getdownSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetupSeries() {
+        if (getupSeries != null) {
+            return getupSeries.generateJs();
+        }
+        return "";
     }
 
     private String generateJStype() {
@@ -90,14 +188,17 @@ public class Aroon extends JsObject {
 
     @Override
     protected String generateJs() {
-        js.append("{");
-        js.append(generateJStype());
-        js.append(generateJStype1());
-        js.append(generateJSperiod());
-        js.append(generateJStype2());
-        js.append(generateJStype3());
-
-        js.append("}");
+        if (jsBase == null) {
+            js.append("{");
+            js.append(generateJStype());
+            js.append(generateJStype1());
+            js.append(generateJSperiod());
+            js.append(generateJStype2());
+            js.append(generateJStype3());
+            js.append("}");
+        }
+            js.append(generateJSgetdownSeries());
+            js.append(generateJSgetupSeries());
 
         String result = js.toString();
         js.setLength(0);

@@ -23,6 +23,14 @@ public class ScatterChartActivity extends AppCompatActivity {
         scatter.setMarker(getMarkerData(), TextParsingMode.CSV);
         scatter.setLine(getLineData(), TextParsingMode.CSV);
 
+        scatter.getXscale().setMinimum(1.5d);
+        scatter.getXscale().setMaximum(5.5d);
+//        scatter.getXscale().ticks
+        scatter.getYscale().setMinimum(40d);
+        scatter.getYscale().setMaximum(100d);
+
+//        scatter.getInteractivity
+
         anyChartView.setChart(scatter);
     }
 
