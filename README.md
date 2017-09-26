@@ -271,7 +271,6 @@ AnyChart product family includes more than 60 different chart types and we're co
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        
     </tr>
 </table>  
 
