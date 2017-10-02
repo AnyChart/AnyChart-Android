@@ -8,6 +8,7 @@ import com.anychart.anychart.ChartsPolar;
 import com.anychart.anychart.PolarSeriesType;
 import com.anychart.anychart.ScaleTypes;
 import com.anychart.anychart.TextParsingMode;
+import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.sample.R;
 
 public class PolarChartActivity extends AppCompatActivity {
@@ -69,11 +70,18 @@ public class PolarChartActivity extends AppCompatActivity {
                 "['Powder', 25712]"
         }, TextParsingMode.CSV);
 
+        polar.setTitle("'Company Profit Dynamic in Regions by Year'");
         polar.setSortpointsbyx(true);
         polar.setDefaultseriestype(PolarSeriesType.COLUMN);
         polar.setYaxis(false);
         polar.setXscale(ScaleTypes.ORDINAL);
-//        polar.getYscale().setStrack
+
+        polar.getTitle().getMargin().setBottom(20d);
+        // TODO look here
+//        polar.getYScale().setStack
+
+        polar.getTooltip().setValueprefix("'$'");
+        polar.getTooltip().setDisplaymode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(polar);
     }

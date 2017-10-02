@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.SelectionMode;
 import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.anychart.TreeMap;
+import com.anychart.anychart.UiTitle;
 import com.anychart.sample.R;
 
 public class TreeMapChartActivity extends AppCompatActivity {
@@ -17,37 +19,73 @@ public class TreeMapChartActivity extends AppCompatActivity {
 
         AnyChartView anyChart = (AnyChartView) findViewById(R.id.any_chart_view);
 
+//        Tree tree = new Tree();
         TreeMap treeMap = new TreeMap();
         treeMap.setData(getData(), TreeFillingMethod.AS_TABLE);
+
+        UiTitle title = treeMap.getTitle();
+        title.setEnabled(true);
+        title.setUsehtml(true);
+        title.setPadding(0d, 0d, 20d, 0d);
+        title.setText("'Top ACME Products by Revenue<br/>' +\n" +
+                "      '<span style=\"color:#212121; font-size: 13px;\">(average sales during the year, in $)</span>'");
+
+        treeMap.getColorScale().setRanges(
+                "[{\n" +
+                "      less: 25000\n" +
+                "    },\n" +
+                "    {\n" +
+                "      from: 25000,\n" +
+                "      to: 30000\n" +
+                "    },\n" +
+                "    {\n" +
+                "      from: 30000,\n" +
+                "      to: 40000\n" +
+                "    },\n" +
+                "    {\n" +
+                "      from: 40000,\n" +
+                "      to: 50000\n" +
+                "    },\n" +
+                "    {\n" +
+                "      from: 50000,\n" +
+                "      to: 100000\n" +
+                "    },\n" +
+                "    {\n" +
+                "      greater: 100000\n" +
+                "    }\n" +
+                "  ]");
+        treeMap.getColorScale().setColors(new String[]{
+                "'#ffee58'", "'#fbc02d'", "'#f57f17'", "'#c0ca33'", "'#689f38'", "'#2e7d32'"
+        });
+
+        treeMap.setPadding(10d, 10d, 10d, 20d);
         treeMap.setMaxdepth(2d);
+        treeMap.setHoverfill("'#bdbdbd'", 1d);
+        treeMap.setSelectionmode(SelectionMode.NONE);
 
-//        OrdinalColor ordinalColor = new OrdinalColor();
-//        ordinalColor.setRanges("[{\n" +
-//                "      less: 25000\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      from: 25000,\n" +
-//                "      to: 30000\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      from: 30000,\n" +
-//                "      to: 40000\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      from: 40000,\n" +
-//                "      to: 50000\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      from: 50000,\n" +
-//                "      to: 100000\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      greater: 100000\n" +
-//                "    }\n" +
-//                "  ]");
-//        ordinalColor.setColors(new String[] { "'#ffee58'", "'#fbc02d'", "'#f57f17'", "'#c0ca33'", "'#689f38'", "'#2e7d32'" } );
+        treeMap.getLabels().setUsehtml(true);
+        treeMap.getLabels().setFontcolor("'#212121'");
+        treeMap.getLabels().setFontsize(12d);
+        treeMap.getLabels().setFormat(
+                "function() {\n" +
+                "      return this.getData('product');\n" +
+                "    }");
 
-//        treeMap.setColorscale(ordinalColor);
+        treeMap.getHeaders().setFormat(
+                "function() {\n" +
+                "    return this.getData('product');\n" +
+                "  }");
+
+        treeMap.getTooltip().setUsehtml(true);
+        treeMap.getTooltip().setTitleformat(
+                "'{%product}'");
+        treeMap.getTooltip().setFormat(
+                "function() {\n" +
+                "      return '<span style=\"color: #bfbfbf\">Revenue: </span>$' +\n" +
+                "        anychart.format.number(this.value, {\n" +
+                "          groupsSeparator: ' '\n" +
+                "        });\n" +
+                "    }");
 
         anyChart.setChart(treeMap);
     }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ScaleTypes;
 import com.anychart.anychart.TagCloud;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
@@ -20,11 +19,21 @@ public class TagCloudActivity extends AppCompatActivity {
 
         TagCloud tagCloud = new TagCloud();
 
-        tagCloud.setScale(ScaleTypes.ORDINAL_COLOR);
         tagCloud.setTitle("'World Population'");
+
+        // TODO look there
+//        OrdinalColor ordinalColor = new OrdinalColor();
+//        ordinalColor.setColors(new String[] {
+//                "'#26959f'", "'#f18126'", "'#3b8ad8'", "'#60727b'", "'#e24b26'"
+//        });
+//        tagCloud.setColorscale(ordinalColor);
+//        tagCloud.getColorscale().setColors(new String[] {
+//                "'#26959f'", "'#f18126'", "'#3b8ad8'", "'#60727b'", "'#e24b26'"
+//        });
         tagCloud.setAngles(new Double[] {-90d, 0d, 90d});
 
-        tagCloud.setColorrange(true);
+        tagCloud.getColorRange().setEnabled(true);
+        tagCloud.getColorRange().setColorlinesize(15d);
 
         tagCloud.setData(getData(), TextParsingMode.CSV);
 

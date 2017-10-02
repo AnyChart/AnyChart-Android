@@ -25,6 +25,7 @@ public class ResourceChartActivity extends AppCompatActivity {
 
         resource.setZoomlevel(1d);
         resource.setTimetrackingmode(TimeTrackingMode.ACTIVITY_PER_CHART);
+//        resource.setCurrentStartDate()
 
 //        resource.getCalendar().setAvailabilities(new Availability[]{
 //                new Availability(AvailabilityPeriod.DAY, null, null, 10, null, )

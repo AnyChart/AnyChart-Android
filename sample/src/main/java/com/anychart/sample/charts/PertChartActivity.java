@@ -19,18 +19,28 @@ public class PertChartActivity extends AppCompatActivity {
 
         Pert pert = new Pert();
 
+        pert.getTitle().setPadding(0d, 0d, 35d, 0d);
         pert.setTitle("'Airplane Design Process with PERT Chart'");
         pert.setHorizontalspacing("'18.7%'");
         pert.setPadding(new Double[] { 25d, 50d, 0d, 50d });
 
         pert.setData(getData(), TreeFillingMethod.AS_TABLE, null);
 
-        pert.getTasks().getUpperlabels().setFormat(
+//        pert.getStat
+
+        pert.getTasks().getUpperLabels().setFormat(
                 "function() {\n" +
                 "    return this.item.get('fullName');\n" +
                 "  }");
 
-        pert.getTasks().getLowerlabels().setFormat("'{%duration} days'");
+        pert.getTasks().getLowerLabels().setFormat("'{%duration} days'");
+
+        pert.getTasks().getTooltip().setSeparator(true);
+        pert.getTasks().getTooltip().setUsehtml(true);
+        pert.getTasks().getTooltip().setTitleformat(
+                "function() {\n" +
+                "      return this.item.get('fullName');\n" +
+                "    }");
 
         pert.getMilestones().setColor("'#2C81D5'");
         pert.getMilestones().setSize("'6.5%'");
@@ -38,12 +48,33 @@ public class PertChartActivity extends AppCompatActivity {
 //        .hoverFill(function() {
 //            return anychart.color.lighten(this.sourceColor, 0.25);
 //        });
+        pert.getMilestones().getTooltip().setFormat(
+                "function defuaultMilesoneTooltipTextFormatter() {\n" +
+                "  var result = '';\n" +
+                "  var i = 0;\n" +
+                "  if (this['successors'] && this['successors'].length) {\n" +
+                "    result += 'Successors:';\n" +
+                "    for (i = 0; i < this['successors'].length; i++) {\n" +
+                "      result += '\\n - ' + this['successors'][i].get('fullName');\n" +
+                "    }\n" +
+                "    if (this['predecessors'] && this['predecessors'].length)\n" +
+                "      result += '\\n\\n';\n" +
+                "  }\n" +
+                "  if (this['predecessors'] && this['predecessors'].length) {\n" +
+                "    result += 'Predecessors:';\n" +
+                "    for (i = 0; i < this['predecessors'].length; i++) {\n" +
+                "      result += '\\n - ' + this['predecessors'][i].get('fullName');\n" +
+                "    }\n" +
+                "  }\n" +
+                "  return result;\n" +
+                "}");
 
-        pert.getCriticalpath().getMilestones().getLabels().setFormat(
+        pert.getCriticalPath().getMilestones().getLabels().setFormat(
                 "function() {\n" +
                 "    return this['creator'] ? this['creator'].get('name') : this['isStart'] ? 'Start' : 'Finish';\n" +
                 "  }");
-        pert.getCriticalpath().getMilestones().setColor("'#E24B26'");
+        pert.getCriticalPath().getMilestones().setColor("'#E24B26'");
+//        pert.getCriticalpath().getMilestones().setFill
 
         anyChartView.setChart(pert);
     }

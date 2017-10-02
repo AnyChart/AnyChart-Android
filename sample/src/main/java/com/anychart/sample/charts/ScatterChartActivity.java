@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.Scatter;
 import com.anychart.anychart.TextParsingMode;
+import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.sample.R;
 
 public class ScatterChartActivity extends AppCompatActivity {
@@ -21,15 +23,23 @@ public class ScatterChartActivity extends AppCompatActivity {
         scatter.setAnimation(true);
         scatter.setTitle("'System interruptions'");
         scatter.setMarker(getMarkerData(), TextParsingMode.CSV);
+//        marker.type
         scatter.setLine(getLineData(), TextParsingMode.CSV);
 
-        scatter.getXscale().setMinimum(1.5d);
-        scatter.getXscale().setMaximum(5.5d);
-//        scatter.getXscale().ticks
-        scatter.getYscale().setMinimum(40d);
-        scatter.getYscale().setMaximum(100d);
+        scatter.getXScale().setMinimum(1.5d);
+        scatter.getXScale().setMaximum(5.5d);
+//        scatter.getXscale().setticks
+        scatter.getYScale().setMinimum(40d);
+        scatter.getYScale().setMaximum(100d);
 
-//        scatter.getInteractivity
+        scatter.getXAxis().setTitle("'Interruption duration (Min)'");
+        scatter.getXAxis().setDrawfirstlabel(false);
+        scatter.getXAxis().setDrawlastlabel(false);
+
+        scatter.getInteractivity().setHovermode(HoverMode.BY_SPOT);
+        scatter.getInteractivity().setSpotradius(30d);
+
+        scatter.getTooltip().setDisplaymode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(scatter);
     }

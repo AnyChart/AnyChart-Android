@@ -21,6 +21,7 @@ public class CircularGaugeActivity extends AppCompatActivity {
         circularGauge.setStartangle(0d);
         circularGauge.setSweepangle(270d);
         circularGauge.setData(new String[] { "23", "34", "67", "93", "56", "100" }, TextParsingMode.CSV);
+        circularGauge.getBar().setDataindex(5d);
 
         anyChartView.setChart(circularGauge);
     }

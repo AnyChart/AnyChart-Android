@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsRadar;
+import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
 
@@ -43,9 +44,12 @@ public class RadarChartActivity extends AppCompatActivity {
 
 //        radar.setLine().setName().getMarkers();
 //        radar.getYscale().setMinimum
-        radar.getXaxis().getLabels().setPadding(5d);
-        radar.getLabels().setEnabled(true);
-//        radar.getLabels().setAlign
+        radar.getXAxis().getLabels().setPadding(5d);
+
+        radar.getLegend().setAlign(EnumsAlign.CENTER);
+        radar.getLegend().setEnabled(true);
+
+        radar.getTooltip().setFormat("'Value: {%Value}'");
 
         anyChartView.setChart(radar);
     }
