@@ -8017,13 +8017,13 @@ public class Timeline extends JsObject {
         }
     }
 
-    private TimelineHeader getheader;
+    private TimelineHeader getHeader;
 
     public TimelineHeader getHeader() {
-        if (getheader == null)
-            getheader = new TimelineHeader(jsBase + ".header()");
+        if (getHeader == null)
+            getHeader = new TimelineHeader(jsBase + ".header()");
 
-        return getheader;
+        return getHeader;
     }
 
     private String header;
@@ -8043,13 +8043,13 @@ public class Timeline extends JsObject {
         }
     }
 
-    private ScrollBar gethorizontalScrollBar;
+    private ScrollBar getHorizontalScrollBar;
 
-    public ScrollBar getHorizontalscrollbar() {
-        if (gethorizontalScrollBar == null)
-            gethorizontalScrollBar = new ScrollBar(jsBase + ".horizontalScrollBar()");
+    public ScrollBar getHorizontalScrollBar() {
+        if (getHorizontalScrollBar == null)
+            getHorizontalScrollBar = new ScrollBar(jsBase + ".horizontalScrollBar()");
 
-        return gethorizontalScrollBar;
+        return getHorizontalScrollBar;
     }
 
     private String horizontalScrollBar;
@@ -8069,13 +8069,13 @@ public class Timeline extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -8237,13 +8237,13 @@ public class Timeline extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -21622,13 +21622,13 @@ public class Timeline extends JsObject {
     }
 
     private Fill imageSettings14;
-    private GanttDateTime getscale;
+    private GanttDateTime getScale;
 
     public GanttDateTime getScale() {
-        if (getscale == null)
-            getscale = new GanttDateTime(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new GanttDateTime(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private String scale;
@@ -24144,13 +24144,13 @@ public class Timeline extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -24193,13 +24193,13 @@ public class Timeline extends JsObject {
         }
     }
 
-    private ScrollBar getverticalScrollBar;
+    private ScrollBar getVerticalScrollBar;
 
-    public ScrollBar getVerticalscrollbar() {
-        if (getverticalScrollBar == null)
-            getverticalScrollBar = new ScrollBar(jsBase + ".verticalScrollBar()");
+    public ScrollBar getVerticalScrollBar() {
+        if (getVerticalScrollBar == null)
+            getVerticalScrollBar = new ScrollBar(jsBase + ".verticalScrollBar()");
 
-        return getverticalScrollBar;
+        return getVerticalScrollBar;
     }
 
     private String verticalScrollBar;
@@ -24219,51 +24219,51 @@ public class Timeline extends JsObject {
         }
     }
 
-    private String generateJSgetheader() {
-        if (getheader != null) {
-            return getheader.generateJs();
+    private String generateJSgetHeader() {
+        if (getHeader != null) {
+            return getHeader.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethorizontalScrollBar() {
-        if (gethorizontalScrollBar != null) {
-            return gethorizontalScrollBar.generateJs();
+    private String generateJSgetHorizontalScrollBar() {
+        if (getHorizontalScrollBar != null) {
+            return getHorizontalScrollBar.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetverticalScrollBar() {
-        if (getverticalScrollBar != null) {
-            return getverticalScrollBar.generateJs();
+    private String generateJSgetVerticalScrollBar() {
+        if (getVerticalScrollBar != null) {
+            return getVerticalScrollBar.generateJs();
         }
         return "";
     }
@@ -28035,13 +28035,13 @@ public class Timeline extends JsObject {
             js.append(generateJSverticalScrollBar());
             js.append("}");
         }
-            js.append(generateJSgetheader());
-            js.append(generateJSgethorizontalScrollBar());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgetscale());
-            js.append(generateJSgettooltip());
-            js.append(generateJSgetverticalScrollBar());
+            js.append(generateJSgetHeader());
+            js.append(generateJSgetHorizontalScrollBar());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetScale());
+            js.append(generateJSgetTooltip());
+            js.append(generateJSgetVerticalScrollBar());
 
         String result = js.toString();
         js.setLength(0);

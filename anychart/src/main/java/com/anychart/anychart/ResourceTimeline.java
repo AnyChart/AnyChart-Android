@@ -7881,13 +7881,13 @@ public class ResourceTimeline extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -8049,13 +8049,13 @@ public class ResourceTimeline extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -23930,13 +23930,13 @@ public class ResourceTimeline extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -23979,23 +23979,23 @@ public class ResourceTimeline extends JsObject {
         }
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
@@ -27671,9 +27671,9 @@ public class ResourceTimeline extends JsObject {
             js.append(generateJStooltip1());
             js.append("}");
         }
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgettooltip());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetTooltip());
 
         String result = js.toString();
         js.setLength(0);

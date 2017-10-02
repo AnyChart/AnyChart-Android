@@ -122,13 +122,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private PlotController getannotations;
+    private PlotController getAnnotations;
 
     public PlotController getAnnotations() {
-        if (getannotations == null)
-            getannotations = new PlotController(jsBase + ".annotations()");
+        if (getAnnotations == null)
+            getAnnotations = new PlotController(jsBase + ".annotations()");
 
-        return getannotations;
+        return getAnnotations;
     }
 
     private String[] annotationsList;
@@ -299,13 +299,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private UiBackground getbackground;
+    private UiBackground getBackground;
 
     public UiBackground getBackground() {
-        if (getbackground == null)
-            getbackground = new UiBackground(jsBase + ".background()");
+        if (getBackground == null)
+            getBackground = new UiBackground(jsBase + ".background()");
 
-        return getbackground;
+        return getBackground;
     }
 
     private String background;
@@ -968,13 +968,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -2550,13 +2550,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private HatchFills gethatchFillPalette;
+    private HatchFills getHatchFillPalette;
 
-    public HatchFills getHatchfillpalette() {
-        if (gethatchFillPalette == null)
-            gethatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
+    public HatchFills getHatchFillPalette() {
+        if (getHatchFillPalette == null)
+            getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
 
-        return gethatchFillPalette;
+        return getHatchFillPalette;
     }
 
     private HatchFillType[] hatchFillPalette;
@@ -3079,13 +3079,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private UiLegend getlegend;
+    private UiLegend getLegend;
 
     public UiLegend getLegend() {
-        if (getlegend == null)
-            getlegend = new UiLegend(jsBase + ".legend()");
+        if (getLegend == null)
+            getLegend = new UiLegend(jsBase + ".legend()");
 
-        return getlegend;
+        return getLegend;
     }
 
     private String legend;
@@ -4057,13 +4057,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private Markers getmarkerPalette;
+    private Markers getMarkerPalette;
 
-    public Markers getMarkerpalette() {
-        if (getmarkerPalette == null)
-            getmarkerPalette = new Markers(jsBase + ".markerPalette()");
+    public Markers getMarkerPalette() {
+        if (getMarkerPalette == null)
+            getMarkerPalette = new Markers(jsBase + ".markerPalette()");
 
-        return getmarkerPalette;
+        return getMarkerPalette;
     }
 
     private Markers markerPalette;
@@ -4751,13 +4751,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private RangeColors getpalette;
+    private RangeColors getPalette;
 
     public RangeColors getPalette() {
-        if (getpalette == null)
-            getpalette = new RangeColors(jsBase + ".palette()");
+        if (getPalette == null)
+            getPalette = new RangeColors(jsBase + ".palette()");
 
-        return getpalette;
+        return getPalette;
     }
 
     private RangeColors palette;
@@ -8462,13 +8462,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private StockDateTime getxAxis;
+    private StockDateTime getXAxis;
 
-    public StockDateTime getXaxis() {
-        if (getxAxis == null)
-            getxAxis = new StockDateTime(jsBase + ".xAxis()");
+    public StockDateTime getXAxis() {
+        if (getXAxis == null)
+            getXAxis = new StockDateTime(jsBase + ".xAxis()");
 
-        return getxAxis;
+        return getXAxis;
     }
 
     private String xAxis;
@@ -8640,13 +8640,13 @@ public class Plot extends JsObject {
         }
     }
 
-    private ScatterBase getyScale;
+    private ScatterBase getYScale;
 
-    public ScatterBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScatterBase(jsBase + ".yScale()");
+    public ScatterBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScatterBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScatterScaleTypes yScale;
@@ -8706,65 +8706,65 @@ public class Plot extends JsObject {
         }
     }
 
-    private String generateJSgetannotations() {
-        if (getannotations != null) {
-            return getannotations.generateJs();
+    private String generateJSgetAnnotations() {
+        if (getAnnotations != null) {
+            return getAnnotations.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetbackground() {
-        if (getbackground != null) {
-            return getbackground.generateJs();
+    private String generateJSgetBackground() {
+        if (getBackground != null) {
+            return getBackground.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethatchFillPalette() {
-        if (gethatchFillPalette != null) {
-            return gethatchFillPalette.generateJs();
+    private String generateJSgetHatchFillPalette() {
+        if (getHatchFillPalette != null) {
+            return getHatchFillPalette.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlegend() {
-        if (getlegend != null) {
-            return getlegend.generateJs();
+    private String generateJSgetLegend() {
+        if (getLegend != null) {
+            return getLegend.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkerPalette() {
-        if (getmarkerPalette != null) {
-            return getmarkerPalette.generateJs();
+    private String generateJSgetMarkerPalette() {
+        if (getMarkerPalette != null) {
+            return getMarkerPalette.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetpalette() {
-        if (getpalette != null) {
-            return getpalette.generateJs();
+    private String generateJSgetPalette() {
+        if (getPalette != null) {
+            return getPalette.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxAxis() {
-        if (getxAxis != null) {
-            return getxAxis.generateJs();
+    private String generateJSgetXAxis() {
+        if (getXAxis != null) {
+            return getXAxis.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -11216,15 +11216,15 @@ public class Plot extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetannotations());
-            js.append(generateJSgetbackground());
-            js.append(generateJSgetbounds());
-            js.append(generateJSgethatchFillPalette());
-            js.append(generateJSgetlegend());
-            js.append(generateJSgetmarkerPalette());
-            js.append(generateJSgetpalette());
-            js.append(generateJSgetxAxis());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetAnnotations());
+            js.append(generateJSgetBackground());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetHatchFillPalette());
+            js.append(generateJSgetLegend());
+            js.append(generateJSgetMarkerPalette());
+            js.append(generateJSgetPalette());
+            js.append(generateJSgetXAxis());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

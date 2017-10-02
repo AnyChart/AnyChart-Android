@@ -17,13 +17,13 @@ public class ADL extends JsObject {
     }
 
     
-    private StockSeriesBase getseries;
+    private StockSeriesBase getSeries;
 
     public StockSeriesBase getSeries() {
-        if (getseries == null)
-            getseries = new StockSeriesBase(jsBase + ".series()");
+        if (getSeries == null)
+            getSeries = new StockSeriesBase(jsBase + ".series()");
 
-        return getseries;
+        return getSeries;
     }
 
     private StockSeriesType type;
@@ -43,9 +43,9 @@ public class ADL extends JsObject {
         }
     }
 
-    private String generateJSgetseries() {
-        if (getseries != null) {
-            return getseries.generateJs();
+    private String generateJSgetSeries() {
+        if (getSeries != null) {
+            return getSeries.generateJs();
         }
         return "";
     }
@@ -65,7 +65,7 @@ public class ADL extends JsObject {
             js.append(generateJStype());
             js.append("}");
         }
-            js.append(generateJSgetseries());
+            js.append(generateJSgetSeries());
 
         String result = js.toString();
         js.setLength(0);

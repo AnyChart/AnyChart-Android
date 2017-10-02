@@ -34,13 +34,13 @@ public class PiePoint extends JsObject {
         }
     }
 
-    private SeparateChart getgetChart;
+    private SeparateChart getGetChart;
 
-    public SeparateChart getGetchart() {
-        if (getgetChart == null)
-            getgetChart = new SeparateChart(jsBase + ".getChart()");
+    public SeparateChart getGetChart() {
+        if (getGetChart == null)
+            getGetChart = new SeparateChart(jsBase + ".getChart()");
 
-        return getgetChart;
+        return getGetChart;
     }
 
     private String key;
@@ -137,9 +137,9 @@ public class PiePoint extends JsObject {
         }
     }
 
-    private String generateJSgetgetChart() {
-        if (getgetChart != null) {
-            return getgetChart.generateJs();
+    private String generateJSgetGetChart() {
+        if (getGetChart != null) {
+            return getGetChart.generateJs();
         }
         return "";
     }
@@ -199,7 +199,7 @@ public class PiePoint extends JsObject {
             js.append(generateJSfield1());
             js.append("}");
         }
-            js.append(generateJSgetgetChart());
+            js.append(generateJSgetGetChart());
 
         String result = js.toString();
         js.setLength(0);

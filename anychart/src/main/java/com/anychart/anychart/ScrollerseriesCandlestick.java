@@ -57,13 +57,13 @@ public class ScrollerseriesCandlestick extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -681,6 +681,15 @@ public class ScrollerseriesCandlestick extends JsObject {
         }
     }
 
+    private TableMapping getData;
+
+    public TableMapping getData() {
+        if (getData == null)
+            getData = new TableMapping(jsBase + ".data()");
+
+        return getData;
+    }
+
     private TableMapping data;
     private DataTable data1;
     private String data2;
@@ -1108,13 +1117,13 @@ public class ScrollerseriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill getfallingHatchFill;
+    private PatternFill getFallingHatchFill;
 
-    public PatternFill getFallinghatchfill() {
-        if (getfallingHatchFill == null)
-            getfallingHatchFill = new PatternFill(jsBase + ".fallingHatchFill()");
+    public PatternFill getFallingHatchFill() {
+        if (getFallingHatchFill == null)
+            getFallingHatchFill = new PatternFill(jsBase + ".fallingHatchFill()");
 
-        return getfallingHatchFill;
+        return getFallingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState;
@@ -1785,13 +1794,13 @@ public class ScrollerseriesCandlestick extends JsObject {
         }
     }
 
-    private RenderingSettings getrendering;
+    private RenderingSettings getRendering;
 
     public RenderingSettings getRendering() {
-        if (getrendering == null)
-            getrendering = new RenderingSettings(jsBase + ".rendering()");
+        if (getRendering == null)
+            getRendering = new RenderingSettings(jsBase + ".rendering()");
 
-        return getrendering;
+        return getRendering;
     }
 
     private String rendering;
@@ -2319,13 +2328,13 @@ public class ScrollerseriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill getrisingHatchFill;
+    private PatternFill getRisingHatchFill;
 
-    public PatternFill getRisinghatchfill() {
-        if (getrisingHatchFill == null)
-            getrisingHatchFill = new PatternFill(jsBase + ".risingHatchFill()");
+    public PatternFill getRisingHatchFill() {
+        if (getRisingHatchFill == null)
+            getRisingHatchFill = new PatternFill(jsBase + ".risingHatchFill()");
 
-        return getrisingHatchFill;
+        return getRisingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState5;
@@ -3269,13 +3278,13 @@ public class ScrollerseriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill getselectFallingHatchFill;
+    private PatternFill getSelectFallingHatchFill;
 
-    public PatternFill getSelectfallinghatchfill() {
-        if (getselectFallingHatchFill == null)
-            getselectFallingHatchFill = new PatternFill(jsBase + ".selectFallingHatchFill()");
+    public PatternFill getSelectFallingHatchFill() {
+        if (getSelectFallingHatchFill == null)
+            getSelectFallingHatchFill = new PatternFill(jsBase + ".selectFallingHatchFill()");
 
-        return getselectFallingHatchFill;
+        return getSelectFallingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState10;
@@ -4391,13 +4400,13 @@ public class ScrollerseriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings3;
-    private PatternFill getselectRisingHatchFill;
+    private PatternFill getSelectRisingHatchFill;
 
-    public PatternFill getSelectrisinghatchfill() {
-        if (getselectRisingHatchFill == null)
-            getselectRisingHatchFill = new PatternFill(jsBase + ".selectRisingHatchFill()");
+    public PatternFill getSelectRisingHatchFill() {
+        if (getSelectRisingHatchFill == null)
+            getSelectRisingHatchFill = new PatternFill(jsBase + ".selectRisingHatchFill()");
 
-        return getselectRisingHatchFill;
+        return getSelectRisingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState15;
@@ -5050,13 +5059,13 @@ public class ScrollerseriesCandlestick extends JsObject {
         }
     }
 
-    private ScatterBase getyScale;
+    private ScatterBase getYScale;
 
-    public ScatterBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScatterBase(jsBase + ".yScale()");
+    public ScatterBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScatterBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScatterBase yScale;
@@ -5093,51 +5102,58 @@ public class ScrollerseriesCandlestick extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetfallingHatchFill() {
-        if (getfallingHatchFill != null) {
-            return getfallingHatchFill.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrendering() {
-        if (getrendering != null) {
-            return getrendering.generateJs();
+    private String generateJSgetFallingHatchFill() {
+        if (getFallingHatchFill != null) {
+            return getFallingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrisingHatchFill() {
-        if (getrisingHatchFill != null) {
-            return getrisingHatchFill.generateJs();
+    private String generateJSgetRendering() {
+        if (getRendering != null) {
+            return getRendering.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectFallingHatchFill() {
-        if (getselectFallingHatchFill != null) {
-            return getselectFallingHatchFill.generateJs();
+    private String generateJSgetRisingHatchFill() {
+        if (getRisingHatchFill != null) {
+            return getRisingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectRisingHatchFill() {
-        if (getselectRisingHatchFill != null) {
-            return getselectRisingHatchFill.generateJs();
+    private String generateJSgetSelectFallingHatchFill() {
+        if (getSelectFallingHatchFill != null) {
+            return getSelectFallingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetSelectRisingHatchFill() {
+        if (getSelectRisingHatchFill != null) {
+            return getSelectRisingHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -6701,13 +6717,14 @@ public class ScrollerseriesCandlestick extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetfallingHatchFill());
-            js.append(generateJSgetrendering());
-            js.append(generateJSgetrisingHatchFill());
-            js.append(generateJSgetselectFallingHatchFill());
-            js.append(generateJSgetselectRisingHatchFill());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetData());
+            js.append(generateJSgetFallingHatchFill());
+            js.append(generateJSgetRendering());
+            js.append(generateJSgetRisingHatchFill());
+            js.append(generateJSgetSelectFallingHatchFill());
+            js.append(generateJSgetSelectRisingHatchFill());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

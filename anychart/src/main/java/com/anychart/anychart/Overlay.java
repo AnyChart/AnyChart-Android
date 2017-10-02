@@ -51,6 +51,15 @@ public class Overlay extends JsObject {
         }
     }
 
+    private Element getGetElement;
+
+    public Element getGetElement() {
+        if (getGetElement == null)
+            getGetElement = new Element(jsBase + ".getElement()");
+
+        return getGetElement;
+    }
+
     private String id;
 
     public void setId(String id) {
@@ -197,6 +206,13 @@ public class Overlay extends JsObject {
         }
     }
 
+    private String generateJSgetGetElement() {
+        if (getGetElement != null) {
+            return getGetElement.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSclassName() {
         if (className != null) {
             return String.format(Locale.US, "className: %s,", className);
@@ -316,6 +332,7 @@ public class Overlay extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
+            js.append(generateJSgetGetElement());
 
         String result = js.toString();
         js.setLength(0);

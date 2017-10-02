@@ -17,13 +17,13 @@ public class Clip extends JsObject {
     }
 
     
-    private Shape getshape;
+    private Shape getShape;
 
     public Shape getShape() {
-        if (getshape == null)
-            getshape = new Shape(jsBase + ".shape()");
+        if (getShape == null)
+            getShape = new Shape(jsBase + ".shape()");
 
-        return getshape;
+        return getShape;
     }
 
     private Double[] shape;
@@ -140,9 +140,9 @@ public class Clip extends JsObject {
         }
     }
 
-    private String generateJSgetshape() {
-        if (getshape != null) {
-            return getshape.generateJs();
+    private String generateJSgetShape() {
+        if (getShape != null) {
+            return getShape.generateJs();
         }
         return "";
     }
@@ -218,7 +218,7 @@ public class Clip extends JsObject {
             js.append(generateJSheight());
             js.append("}");
         }
-            js.append(generateJSgetshape());
+            js.append(generateJSgetShape());
 
         String result = js.toString();
         js.setLength(0);

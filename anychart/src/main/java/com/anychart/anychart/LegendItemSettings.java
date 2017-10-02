@@ -721,13 +721,13 @@ public class LegendItemSettings extends JsObject {
         }
     }
 
-    private PatternFill geticonHatchFill;
+    private PatternFill getIconHatchFill;
 
-    public PatternFill getIconhatchfill() {
-        if (geticonHatchFill == null)
-            geticonHatchFill = new PatternFill(jsBase + ".iconHatchFill()");
+    public PatternFill getIconHatchFill() {
+        if (getIconHatchFill == null)
+            getIconHatchFill = new PatternFill(jsBase + ".iconHatchFill()");
 
-        return geticonHatchFill;
+        return getIconHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -3712,9 +3712,9 @@ public class LegendItemSettings extends JsObject {
         }
     }
 
-    private String generateJSgeticonHatchFill() {
-        if (geticonHatchFill != null) {
-            return geticonHatchFill.generateJs();
+    private String generateJSgetIconHatchFill() {
+        if (getIconHatchFill != null) {
+            return getIconHatchFill.generateJs();
         }
         return "";
     }
@@ -4662,7 +4662,7 @@ public class LegendItemSettings extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgeticonHatchFill());
+            js.append(generateJSgetIconHatchFill());
 
         String result = js.toString();
         js.setLength(0);

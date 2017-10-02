@@ -1951,13 +1951,13 @@ public class StockScroller extends JsObject {
         }
     }
 
-    private HatchFills gethatchFillPalette;
+    private HatchFills getHatchFillPalette;
 
-    public HatchFills getHatchfillpalette() {
-        if (gethatchFillPalette == null)
-            gethatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
+    public HatchFills getHatchFillPalette() {
+        if (getHatchFillPalette == null)
+            getHatchFillPalette = new HatchFills(jsBase + ".hatchFillPalette()");
 
-        return gethatchFillPalette;
+        return getHatchFillPalette;
     }
 
     private HatchFillType[] hatchFillPalette;
@@ -3927,13 +3927,13 @@ public class StockScroller extends JsObject {
         }
     }
 
-    private RangeColors getpalette;
+    private RangeColors getPalette;
 
     public RangeColors getPalette() {
-        if (getpalette == null)
-            getpalette = new RangeColors(jsBase + ".palette()");
+        if (getPalette == null)
+            getPalette = new RangeColors(jsBase + ".palette()");
 
-        return getpalette;
+        return getPalette;
     }
 
     private RangeColors palette;
@@ -7925,13 +7925,13 @@ public class StockScroller extends JsObject {
         }
     }
 
-    private Thumbs getthumbs;
+    private Thumbs getThumbs;
 
     public Thumbs getThumbs() {
-        if (getthumbs == null)
-            getthumbs = new Thumbs(jsBase + ".thumbs()");
+        if (getThumbs == null)
+            getThumbs = new Thumbs(jsBase + ".thumbs()");
 
-        return getthumbs;
+        return getThumbs;
     }
 
     private Boolean thumbs;
@@ -8027,13 +8027,13 @@ public class StockScroller extends JsObject {
         }
     }
 
-    private StockDateTime getxAxis;
+    private StockDateTime getXAxis;
 
-    public StockDateTime getXaxis() {
-        if (getxAxis == null)
-            getxAxis = new StockDateTime(jsBase + ".xAxis()");
+    public StockDateTime getXAxis() {
+        if (getXAxis == null)
+            getXAxis = new StockDateTime(jsBase + ".xAxis()");
 
-        return getxAxis;
+        return getXAxis;
     }
 
     private String xAxis;
@@ -8076,13 +8076,13 @@ public class StockScroller extends JsObject {
         }
     }
 
-    private ScatterBase getyScale;
+    private ScatterBase getYScale;
 
-    public ScatterBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScatterBase(jsBase + ".yScale()");
+    public ScatterBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScatterBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScatterScaleTypes yScale;
@@ -8142,37 +8142,37 @@ public class StockScroller extends JsObject {
         }
     }
 
-    private String generateJSgethatchFillPalette() {
-        if (gethatchFillPalette != null) {
-            return gethatchFillPalette.generateJs();
+    private String generateJSgetHatchFillPalette() {
+        if (getHatchFillPalette != null) {
+            return getHatchFillPalette.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetpalette() {
-        if (getpalette != null) {
-            return getpalette.generateJs();
+    private String generateJSgetPalette() {
+        if (getPalette != null) {
+            return getPalette.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetthumbs() {
-        if (getthumbs != null) {
-            return getthumbs.generateJs();
+    private String generateJSgetThumbs() {
+        if (getThumbs != null) {
+            return getThumbs.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxAxis() {
-        if (getxAxis != null) {
-            return getxAxis.generateJs();
+    private String generateJSgetXAxis() {
+        if (getXAxis != null) {
+            return getXAxis.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -10568,11 +10568,11 @@ public class StockScroller extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgethatchFillPalette());
-            js.append(generateJSgetpalette());
-            js.append(generateJSgetthumbs());
-            js.append(generateJSgetxAxis());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetHatchFillPalette());
+            js.append(generateJSgetPalette());
+            js.append(generateJSgetThumbs());
+            js.append(generateJSgetXAxis());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

@@ -17,13 +17,13 @@ public class ScaleBar extends JsObject {
     }
 
     
-    private LinearColor getcolorScale;
+    private LinearColor getColorScale;
 
-    public LinearColor getColorscale() {
-        if (getcolorScale == null)
-            getcolorScale = new LinearColor(jsBase + ".colorScale()");
+    public LinearColor getColorScale() {
+        if (getColorScale == null)
+            getColorScale = new LinearColor(jsBase + ".colorScale()");
 
-        return getcolorScale;
+        return getColorScale;
     }
 
     private LinearColor colorScale;
@@ -469,13 +469,13 @@ public class ScaleBar extends JsObject {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new ScalesBase(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScalesBase scale;
@@ -646,16 +646,16 @@ public class ScaleBar extends JsObject {
         }
     }
 
-    private String generateJSgetcolorScale() {
-        if (getcolorScale != null) {
-            return getcolorScale.generateJs();
+    private String generateJSgetColorScale() {
+        if (getColorScale != null) {
+            return getColorScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
@@ -955,8 +955,8 @@ public class ScaleBar extends JsObject {
             js.append(generateJSwidth());
             js.append("}");
         }
-            js.append(generateJSgetcolorScale());
-            js.append(generateJSgetscale());
+            js.append(generateJSgetColorScale());
+            js.append(generateJSgetScale());
 
         String result = js.toString();
         js.setLength(0);

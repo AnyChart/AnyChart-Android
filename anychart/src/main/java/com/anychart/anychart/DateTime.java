@@ -191,13 +191,13 @@ public class DateTime extends JsObject {
         }
     }
 
-    private DateTimeTicks getminorTicks;
+    private DateTimeTicks getMinorTicks;
 
-    public DateTimeTicks getMinorticks() {
-        if (getminorTicks == null)
-            getminorTicks = new DateTimeTicks(jsBase + ".minorTicks()");
+    public DateTimeTicks getMinorTicks() {
+        if (getMinorTicks == null)
+            getMinorTicks = new DateTimeTicks(jsBase + ".minorTicks()");
 
-        return getminorTicks;
+        return getMinorTicks;
     }
 
     private String minorTicks;
@@ -295,13 +295,13 @@ public class DateTime extends JsObject {
         }
     }
 
-    private DateTimeTicks getticks;
+    private DateTimeTicks getTicks;
 
     public DateTimeTicks getTicks() {
-        if (getticks == null)
-            getticks = new DateTimeTicks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new DateTimeTicks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -397,16 +397,16 @@ public class DateTime extends JsObject {
         }
     }
 
-    private String generateJSgetminorTicks() {
-        if (getminorTicks != null) {
-            return getminorTicks.generateJs();
+    private String generateJSgetMinorTicks() {
+        if (getMinorTicks != null) {
+            return getMinorTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
@@ -610,8 +610,8 @@ public class DateTime extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgetminorTicks());
-            js.append(generateJSgetticks());
+            js.append(generateJSgetMinorTicks());
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

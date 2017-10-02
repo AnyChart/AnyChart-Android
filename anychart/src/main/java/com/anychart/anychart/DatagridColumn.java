@@ -57,13 +57,13 @@ public class DatagridColumn extends JsObject {
         }
     }
 
-    private UiLabelsFactory getcellTextSettings;
+    private UiLabelsFactory getCellTextSettings;
 
-    public UiLabelsFactory getCelltextsettings() {
-        if (getcellTextSettings == null)
-            getcellTextSettings = new UiLabelsFactory(jsBase + ".cellTextSettings()");
+    public UiLabelsFactory getCellTextSettings() {
+        if (getCellTextSettings == null)
+            getCellTextSettings = new UiLabelsFactory(jsBase + ".cellTextSettings()");
 
-        return getcellTextSettings;
+        return getCellTextSettings;
     }
 
     private String cellTextSettings;
@@ -315,13 +315,13 @@ public class DatagridColumn extends JsObject {
         }
     }
 
-    private UiTitle gettitle;
+    private UiTitle getTitle;
 
     public UiTitle getTitle() {
-        if (gettitle == null)
-            gettitle = new UiTitle(jsBase + ".title()");
+        if (getTitle == null)
+            getTitle = new UiTitle(jsBase + ".title()");
 
-        return gettitle;
+        return getTitle;
     }
 
     private Boolean title;
@@ -477,16 +477,16 @@ public class DatagridColumn extends JsObject {
         }
     }
 
-    private String generateJSgetcellTextSettings() {
-        if (getcellTextSettings != null) {
-            return getcellTextSettings.generateJs();
+    private String generateJSgetCellTextSettings() {
+        if (getCellTextSettings != null) {
+            return getCellTextSettings.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettitle() {
-        if (gettitle != null) {
-            return gettitle.generateJs();
+    private String generateJSgetTitle() {
+        if (getTitle != null) {
+            return getTitle.generateJs();
         }
         return "";
     }
@@ -746,8 +746,8 @@ public class DatagridColumn extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetcellTextSettings());
-            js.append(generateJSgettitle());
+            js.append(generateJSgetCellTextSettings());
+            js.append(generateJSgetTitle());
 
         String result = js.toString();
         js.setLength(0);

@@ -51,6 +51,15 @@ public class StandalonesScroller extends JsObject {
         }
     }
 
+    private Element getContainer;
+
+    public Element getContainer() {
+        if (getContainer == null)
+            getContainer = new Element(jsBase + ".container()");
+
+        return getContainer;
+    }
+
     private String container;
     private Element container1;
 
@@ -760,13 +769,13 @@ public class StandalonesScroller extends JsObject {
         }
     }
 
-    private AnychartMathRect getparentBounds;
+    private AnychartMathRect getParentBounds;
 
-    public AnychartMathRect getParentbounds() {
-        if (getparentBounds == null)
-            getparentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
+    public AnychartMathRect getParentBounds() {
+        if (getParentBounds == null)
+            getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
 
-        return getparentBounds;
+        return getParentBounds;
     }
 
     private AnychartMathRect parentBounds;
@@ -1415,13 +1424,13 @@ public class StandalonesScroller extends JsObject {
         }
     }
 
-    private Thumbs getthumbs;
+    private Thumbs getThumbs;
 
     public Thumbs getThumbs() {
-        if (getthumbs == null)
-            getthumbs = new Thumbs(jsBase + ".thumbs()");
+        if (getThumbs == null)
+            getThumbs = new Thumbs(jsBase + ".thumbs()");
 
-        return getthumbs;
+        return getThumbs;
     }
 
     private Boolean thumbs;
@@ -1534,16 +1543,23 @@ public class StandalonesScroller extends JsObject {
         }
     }
 
-    private String generateJSgetparentBounds() {
-        if (getparentBounds != null) {
-            return getparentBounds.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetthumbs() {
-        if (getthumbs != null) {
-            return getthumbs.generateJs();
+    private String generateJSgetParentBounds() {
+        if (getParentBounds != null) {
+            return getParentBounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetThumbs() {
+        if (getThumbs != null) {
+            return getThumbs.generateJs();
         }
         return "";
     }
@@ -2235,8 +2251,9 @@ public class StandalonesScroller extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetparentBounds());
-            js.append(generateJSgetthumbs());
+            js.append(generateJSgetContainer());
+            js.append(generateJSgetParentBounds());
+            js.append(generateJSgetThumbs());
 
         String result = js.toString();
         js.setLength(0);

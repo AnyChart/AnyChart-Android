@@ -51,13 +51,13 @@ public class Stochastic extends JsObject {
         }
     }
 
-    private StockSeriesBase getdSeries;
+    private StockSeriesBase getDSeries;
 
-    public StockSeriesBase getDseries() {
-        if (getdSeries == null)
-            getdSeries = new StockSeriesBase(jsBase + ".dSeries()");
+    public StockSeriesBase getDSeries() {
+        if (getDSeries == null)
+            getDSeries = new StockSeriesBase(jsBase + ".dSeries()");
 
-        return getdSeries;
+        return getDSeries;
     }
 
     private StockSeriesType type;
@@ -128,13 +128,13 @@ public class Stochastic extends JsObject {
         }
     }
 
-    private StockSeriesBase getkSeries;
+    private StockSeriesBase getKSeries;
 
-    public StockSeriesBase getKseries() {
-        if (getkSeries == null)
-            getkSeries = new StockSeriesBase(jsBase + ".kSeries()");
+    public StockSeriesBase getKSeries() {
+        if (getKSeries == null)
+            getKSeries = new StockSeriesBase(jsBase + ".kSeries()");
 
-        return getkSeries;
+        return getKSeries;
     }
 
     private StockSeriesType type1;
@@ -157,16 +157,16 @@ public class Stochastic extends JsObject {
         }
     }
 
-    private String generateJSgetdSeries() {
-        if (getdSeries != null) {
-            return getdSeries.generateJs();
+    private String generateJSgetDSeries() {
+        if (getDSeries != null) {
+            return getDSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetkSeries() {
-        if (getkSeries != null) {
-            return getkSeries.generateJs();
+    private String generateJSgetKSeries() {
+        if (getKSeries != null) {
+            return getKSeries.generateJs();
         }
         return "";
     }
@@ -234,8 +234,8 @@ public class Stochastic extends JsObject {
             js.append(generateJStype1());
             js.append("}");
         }
-            js.append(generateJSgetdSeries());
-            js.append(generateJSgetkSeries());
+            js.append(generateJSgetDSeries());
+            js.append(generateJSgetKSeries());
 
         String result = js.toString();
         js.setLength(0);

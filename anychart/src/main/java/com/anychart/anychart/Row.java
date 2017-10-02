@@ -17,13 +17,13 @@ public class Row extends JsObject {
     }
 
     
-    private Border getborder;
+    private Border getBorder;
 
     public Border getBorder() {
-        if (getborder == null)
-            getborder = new Border(jsBase + ".border()");
+        if (getBorder == null)
+            getBorder = new Border(jsBase + ".border()");
 
-        return getborder;
+        return getBorder;
     }
 
     private Stroke color;
@@ -117,13 +117,13 @@ public class Row extends JsObject {
         }
     }
 
-    private Border getcellBorder;
+    private Border getCellBorder;
 
-    public Border getCellborder() {
-        if (getcellBorder == null)
-            getcellBorder = new Border(jsBase + ".cellBorder()");
+    public Border getCellBorder() {
+        if (getCellBorder == null)
+            getCellBorder = new Border(jsBase + ".cellBorder()");
 
-        return getcellBorder;
+        return getCellBorder;
     }
 
     private Stroke color3;
@@ -599,13 +599,13 @@ public class Row extends JsObject {
     }
 
     private Fill imageSettings;
-    private TablePadding getcellPadding;
+    private TablePadding getCellPadding;
 
-    public TablePadding getCellpadding() {
-        if (getcellPadding == null)
-            getcellPadding = new TablePadding(jsBase + ".cellPadding()");
+    public TablePadding getCellPadding() {
+        if (getCellPadding == null)
+            getCellPadding = new TablePadding(jsBase + ".cellPadding()");
 
-        return getcellPadding;
+        return getCellPadding;
     }
 
     private Double[] cellPadding;
@@ -680,7 +680,7 @@ public class Row extends JsObject {
     private String value6;
     private Double value7;
 
-    public void setCellpadding(String value6, String value, Double value1, String value2, Double value3, String value4, Double value5) {
+    public void setCellpadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -691,27 +691,7 @@ public class Row extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
             this.value = null;
             this.value1 = null;
             this.value2 = null;
@@ -731,16 +711,6 @@ public class Row extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value4 = value4;
             this.value = null;
             this.value1 = null;
@@ -751,27 +721,24 @@ public class Row extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value5 = value5;
+            this.value6 = value6;
         } else {
-            this.value6 = value6;
             this.value = value;
-            this.value1 = value1;
             this.value2 = value2;
-            this.value3 = value3;
             this.value4 = value4;
-            this.value5 = value5;
+            this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", value, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", value, value2, value4, value6));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setCellpadding(Double value7, String value, Double value1, String value2, Double value3, String value4, Double value5) {
+    public void setCellpadding(String value, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -782,27 +749,7 @@ public class Row extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
             this.value = null;
             this.value1 = null;
             this.value2 = null;
@@ -822,16 +769,6 @@ public class Row extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value4 = value4;
             this.value = null;
             this.value1 = null;
@@ -842,20 +779,829 @@ public class Row extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value5 = value5;
+            this.value7 = value7;
         } else {
-            this.value7 = value7;
             this.value = value;
-            this.value1 = value1;
             this.value2 = value2;
-            this.value3 = value3;
             this.value4 = value4;
-            this.value5 = value5;
+            this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %f);", value, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %f);", value, value2, value4, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(String value, String value2, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value = value;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %s);", value, value2, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %s);", value, value2, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(String value, String value2, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value = value;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %f);", value, value2, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %f);", value, value2, value5, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(String value, Double value3, String value4, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %s);", value, value3, value4, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %s);", value, value3, value4, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(String value, Double value3, String value4, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %f);", value, value3, value4, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %f);", value, value3, value4, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(String value, Double value3, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %s);", value, value3, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %s);", value, value3, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(String value, Double value3, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %f);", value, value3, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %f);", value, value3, value5, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, String value2, String value4, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value4 = value4;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %s);", value1, value2, value4, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %s);", value1, value2, value4, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, String value2, String value4, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value4 = value4;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %f);", value1, value2, value4, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %f);", value1, value2, value4, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, String value2, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %s);", value1, value2, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %s);", value1, value2, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, String value2, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %f);", value1, value2, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %f);", value1, value2, value5, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, Double value3, String value4, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %s);", value1, value3, value4, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %s);", value1, value3, value4, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, Double value3, String value4, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %f);", value1, value3, value4, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %f);", value1, value3, value4, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, Double value3, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %s);", value1, value3, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %s);", value1, value3, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setCellpadding(Double value1, Double value3, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -1597,23 +2343,23 @@ public class Row extends JsObject {
         }
     }
 
-    private String generateJSgetborder() {
-        if (getborder != null) {
-            return getborder.generateJs();
+    private String generateJSgetBorder() {
+        if (getBorder != null) {
+            return getBorder.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetcellBorder() {
-        if (getcellBorder != null) {
-            return getcellBorder.generateJs();
+    private String generateJSgetCellBorder() {
+        if (getCellBorder != null) {
+            return getCellBorder.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetcellPadding() {
-        if (getcellPadding != null) {
-            return getcellPadding.generateJs();
+    private String generateJSgetCellPadding() {
+        if (getCellPadding != null) {
+            return getCellPadding.generateJs();
         }
         return "";
     }
@@ -2281,9 +3027,9 @@ public class Row extends JsObject {
             js.append(generateJSvAlign1());
             js.append("}");
         }
-            js.append(generateJSgetborder());
-            js.append(generateJSgetcellBorder());
-            js.append(generateJSgetcellPadding());
+            js.append(generateJSgetBorder());
+            js.append(generateJSgetCellBorder());
+            js.append(generateJSgetCellPadding());
 
         String result = js.toString();
         js.setLength(0);

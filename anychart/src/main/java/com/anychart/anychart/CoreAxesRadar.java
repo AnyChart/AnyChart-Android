@@ -34,13 +34,13 @@ public class CoreAxesRadar extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -204,13 +204,13 @@ public class CoreAxesRadar extends JsObject {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new ScalesBase(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScalesBase scale;
@@ -321,13 +321,13 @@ public class CoreAxesRadar extends JsObject {
         }
     }
 
-    private RadialTicks getticks;
+    private RadialTicks getTicks;
 
     public RadialTicks getTicks() {
-        if (getticks == null)
-            getticks = new RadialTicks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new RadialTicks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -440,23 +440,23 @@ public class CoreAxesRadar extends JsObject {
         }
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
@@ -692,9 +692,9 @@ public class CoreAxesRadar extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetscale());
-            js.append(generateJSgetticks());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetScale());
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

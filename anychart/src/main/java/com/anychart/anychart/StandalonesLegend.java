@@ -57,13 +57,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private UiBackground getbackground;
+    private UiBackground getBackground;
 
     public UiBackground getBackground() {
-        if (getbackground == null)
-            getbackground = new UiBackground(jsBase + ".background()");
+        if (getBackground == null)
+            getBackground = new UiBackground(jsBase + ".background()");
 
-        return getbackground;
+        return getBackground;
     }
 
     private String background;
@@ -107,6 +107,15 @@ public class StandalonesLegend extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private Element getContainer;
+
+    public Element getContainer() {
+        if (getContainer == null)
+            getContainer = new Element(jsBase + ".container()");
+
+        return getContainer;
     }
 
     private String container;
@@ -434,13 +443,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private AnychartMathRect getgetRemainingBounds;
+    private AnychartMathRect getGetRemainingBounds;
 
-    public AnychartMathRect getGetremainingbounds() {
-        if (getgetRemainingBounds == null)
-            getgetRemainingBounds = new AnychartMathRect(jsBase + ".getRemainingBounds()");
+    public AnychartMathRect getGetRemainingBounds() {
+        if (getGetRemainingBounds == null)
+            getGetRemainingBounds = new AnychartMathRect(jsBase + ".getRemainingBounds()");
 
-        return getgetRemainingBounds;
+        return getGetRemainingBounds;
     }
 
     private TextHAlign hAlign;
@@ -717,13 +726,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private SeparateChart getitemsSource;
+    private SeparateChart getItemsSource;
 
-    public SeparateChart getItemssource() {
-        if (getitemsSource == null)
-            getitemsSource = new SeparateChart(jsBase + ".itemsSource()");
+    public SeparateChart getItemsSource() {
+        if (getItemsSource == null)
+            getItemsSource = new SeparateChart(jsBase + ".itemsSource()");
 
-        return getitemsSource;
+        return getItemsSource;
     }
 
     private SeparateChart itemsSource;
@@ -981,13 +990,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private Margin getmargin;
+    private Margin getMargin;
 
     public Margin getMargin() {
-        if (getmargin == null)
-            getmargin = new Margin(jsBase + ".margin()");
+        if (getMargin == null)
+            getMargin = new Margin(jsBase + ".margin()");
 
-        return getmargin;
+        return getMargin;
     }
 
     private Double[] margin;
@@ -1092,7 +1101,7 @@ public class StandalonesLegend extends JsObject {
     private String value6;
     private Double value7;
 
-    public void setMargin(String value6, String value, Double value1, String value2, Double value3, String value4, Double value5) {
+    public void setMargin(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1103,27 +1112,7 @@ public class StandalonesLegend extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
             this.value = null;
             this.value1 = null;
             this.value2 = null;
@@ -1143,16 +1132,6 @@ public class StandalonesLegend extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value4 = value4;
             this.value = null;
             this.value1 = null;
@@ -1163,27 +1142,24 @@ public class StandalonesLegend extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value5 = value5;
+            this.value6 = value6;
         } else {
-            this.value6 = value6;
             this.value = value;
-            this.value1 = value1;
             this.value2 = value2;
-            this.value3 = value3;
             this.value4 = value4;
-            this.value5 = value5;
+            this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", value, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", value, value2, value4, value6));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setMargin(Double value7, String value, Double value1, String value2, Double value3, String value4, Double value5) {
+    public void setMargin(String value, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1194,27 +1170,7 @@ public class StandalonesLegend extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
             this.value = null;
             this.value1 = null;
             this.value2 = null;
@@ -1234,16 +1190,6 @@ public class StandalonesLegend extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
             this.value4 = value4;
             this.value = null;
             this.value1 = null;
@@ -1254,32 +1200,841 @@ public class StandalonesLegend extends JsObject {
             this.value6 = null;
             this.value7 = null;
             
-            this.value5 = value5;
+            this.value7 = value7;
         } else {
-            this.value7 = value7;
             this.value = value;
-            this.value1 = value1;
             this.value2 = value2;
-            this.value3 = value3;
             this.value4 = value4;
-            this.value5 = value5;
+            this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", value, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", value, value2, value4, value7));
                 js.setLength(0);
             }
         }
     }
 
-    private UtilsPadding getpadding;
+
+    public void setMargin(String value, String value2, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value = value;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", value, value2, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", value, value2, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(String value, String value2, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value = value;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", value, value2, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", value, value2, value5, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, String value4, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", value, value3, value4, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", value, value3, value4, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, String value4, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", value, value3, value4, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", value, value3, value4, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", value, value3, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", value, value3, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value = value;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", value, value3, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", value, value3, value5, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, String value4, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value4 = value4;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %s);", value1, value2, value4, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %s);", value1, value2, value4, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, String value4, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value4 = value4;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %f);", value1, value2, value4, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %f);", value1, value2, value4, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s);", value1, value2, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s);", value1, value2, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %f);", value1, value2, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %f);", value1, value2, value5, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, String value4, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %s);", value1, value3, value4, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %s);", value1, value3, value4, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, String value4, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value4 = value4;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %f);", value1, value3, value4, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %f);", value1, value3, value4, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, Double value5, String value6) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value6 = value6;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %s);", value1, value3, value5, value6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %s);", value1, value3, value5, value6));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, Double value5, Double value7) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
+        } else {
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value7 = value7;
+
+            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private UtilsPadding getPadding;
 
     public UtilsPadding getPadding() {
-        if (getpadding == null)
-            getpadding = new UtilsPadding(jsBase + ".padding()");
+        if (getPadding == null)
+            getPadding = new UtilsPadding(jsBase + ".padding()");
 
-        return getpadding;
+        return getPadding;
     }
 
     private Double[] padding;
@@ -1384,7 +2139,7 @@ public class StandalonesLegend extends JsObject {
     private String value14;
     private Double value15;
 
-    public void setPadding(String value14, String value8, Double value9, String value10, Double value11, String value12, Double value13) {
+    public void setPadding(String value8, String value10, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1403,43 +2158,7 @@ public class StandalonesLegend extends JsObject {
             this.value14 = null;
             this.value15 = null;
             
-            this.value14 = value14;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
             this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
             this.value = null;
             this.value1 = null;
             this.value2 = null;
@@ -1475,24 +2194,6 @@ public class StandalonesLegend extends JsObject {
             this.value14 = null;
             this.value15 = null;
             
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
             this.value12 = value12;
             this.value = null;
             this.value1 = null;
@@ -1511,27 +2212,24 @@ public class StandalonesLegend extends JsObject {
             this.value14 = null;
             this.value15 = null;
             
-            this.value13 = value13;
+            this.value14 = value14;
         } else {
-            this.value14 = value14;
             this.value8 = value8;
-            this.value9 = value9;
             this.value10 = value10;
-            this.value11 = value11;
             this.value12 = value12;
-            this.value13 = value13;
+            this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value8, value10, value12, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value8, value10, value12, value14));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setPadding(Double value15, String value8, Double value9, String value10, Double value11, String value12, Double value13) {
+    public void setPadding(String value8, String value10, String value12, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1550,43 +2248,7 @@ public class StandalonesLegend extends JsObject {
             this.value14 = null;
             this.value15 = null;
             
-            this.value15 = value15;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
             this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
             this.value = null;
             this.value1 = null;
             this.value2 = null;
@@ -1622,24 +2284,6 @@ public class StandalonesLegend extends JsObject {
             this.value14 = null;
             this.value15 = null;
             
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
             this.value12 = value12;
             this.value = null;
             this.value1 = null;
@@ -1658,32 +2302,1289 @@ public class StandalonesLegend extends JsObject {
             this.value14 = null;
             this.value15 = null;
             
-            this.value13 = value13;
+            this.value15 = value15;
         } else {
-            this.value15 = value15;
             this.value8 = value8;
-            this.value9 = value9;
             this.value10 = value10;
-            this.value11 = value11;
             this.value12 = value12;
-            this.value13 = value13;
+            this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value8, value10, value12, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value8, value10, value12, value15));
                 js.setLength(0);
             }
         }
     }
 
-    private Paginator getpaginator;
+
+    public void setPadding(String value8, String value10, Double value13, String value14) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+        } else {
+            this.value8 = value8;
+            this.value10 = value10;
+            this.value13 = value13;
+            this.value14 = value14;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value8, value10, value13, value14));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value8, value10, value13, value14));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(String value8, String value10, Double value13, Double value15) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+        } else {
+            this.value8 = value8;
+            this.value10 = value10;
+            this.value13 = value13;
+            this.value15 = value15;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value8, value10, value13, value15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value8, value10, value13, value15));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, String value12, String value14) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+        } else {
+            this.value8 = value8;
+            this.value11 = value11;
+            this.value12 = value12;
+            this.value14 = value14;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value8, value11, value12, value14));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value8, value11, value12, value14));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, String value12, Double value15) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+        } else {
+            this.value8 = value8;
+            this.value11 = value11;
+            this.value12 = value12;
+            this.value15 = value15;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value8, value11, value12, value15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value8, value11, value12, value15));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, Double value13, String value14) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+        } else {
+            this.value8 = value8;
+            this.value11 = value11;
+            this.value13 = value13;
+            this.value14 = value14;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value8, value11, value13, value14));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value8, value11, value13, value14));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, Double value13, Double value15) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value8 = value8;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+        } else {
+            this.value8 = value8;
+            this.value11 = value11;
+            this.value13 = value13;
+            this.value15 = value15;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value8, value11, value13, value15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value8, value11, value13, value15));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, String value12, String value14) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+        } else {
+            this.value9 = value9;
+            this.value10 = value10;
+            this.value12 = value12;
+            this.value14 = value14;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value9, value10, value12, value14));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value9, value10, value12, value14));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, String value12, Double value15) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+        } else {
+            this.value9 = value9;
+            this.value10 = value10;
+            this.value12 = value12;
+            this.value15 = value15;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value9, value10, value12, value15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value9, value10, value12, value15));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, Double value13, String value14) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+        } else {
+            this.value9 = value9;
+            this.value10 = value10;
+            this.value13 = value13;
+            this.value14 = value14;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value9, value10, value13, value14));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value9, value10, value13, value14));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, Double value13, Double value15) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value10 = value10;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+        } else {
+            this.value9 = value9;
+            this.value10 = value10;
+            this.value13 = value13;
+            this.value15 = value15;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value9, value10, value13, value15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value9, value10, value13, value15));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, String value12, String value14) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+        } else {
+            this.value9 = value9;
+            this.value11 = value11;
+            this.value12 = value12;
+            this.value14 = value14;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value9, value11, value12, value14));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value9, value11, value12, value14));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, String value12, Double value15) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value12 = value12;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+        } else {
+            this.value9 = value9;
+            this.value11 = value11;
+            this.value12 = value12;
+            this.value15 = value15;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value9, value11, value12, value15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value9, value11, value12, value15));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, Double value13, String value14) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value14 = value14;
+        } else {
+            this.value9 = value9;
+            this.value11 = value11;
+            this.value13 = value13;
+            this.value14 = value14;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value9, value11, value13, value14));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value9, value11, value13, value14));
+                js.setLength(0);
+            }
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, Double value13, Double value15) {
+        if (jsBase == null) {
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value9 = value9;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value11 = value11;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value13 = value13;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            this.value8 = null;
+            this.value9 = null;
+            this.value10 = null;
+            this.value11 = null;
+            this.value12 = null;
+            this.value13 = null;
+            this.value14 = null;
+            this.value15 = null;
+            
+            this.value15 = value15;
+        } else {
+            this.value9 = value9;
+            this.value11 = value11;
+            this.value13 = value13;
+            this.value15 = value15;
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private Paginator getPaginator;
 
     public Paginator getPaginator() {
-        if (getpaginator == null)
-            getpaginator = new Paginator(jsBase + ".paginator()");
+        if (getPaginator == null)
+            getPaginator = new Paginator(jsBase + ".paginator()");
 
-        return getpaginator;
+        return getPaginator;
     }
 
     private String paginator;
@@ -1726,13 +3627,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private AnychartMathRect getparentBounds;
+    private AnychartMathRect getParentBounds;
 
-    public AnychartMathRect getParentbounds() {
-        if (getparentBounds == null)
-            getparentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
+    public AnychartMathRect getParentBounds() {
+        if (getParentBounds == null)
+            getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
 
-        return getparentBounds;
+        return getParentBounds;
     }
 
     private AnychartMathRect parentBounds;
@@ -2162,13 +4063,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private UiTitle gettitle;
+    private UiTitle getTitle;
 
     public UiTitle getTitle() {
-        if (gettitle == null)
-            gettitle = new UiTitle(jsBase + ".title()");
+        if (getTitle == null)
+            getTitle = new UiTitle(jsBase + ".title()");
 
-        return gettitle;
+        return getTitle;
     }
 
     private Boolean title;
@@ -2231,13 +4132,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private Separator gettitleSeparator;
+    private Separator getTitleSeparator;
 
-    public Separator getTitleseparator() {
-        if (gettitleSeparator == null)
-            gettitleSeparator = new Separator(jsBase + ".titleSeparator()");
+    public Separator getTitleSeparator() {
+        if (getTitleSeparator == null)
+            getTitleSeparator = new Separator(jsBase + ".titleSeparator()");
 
-        return gettitleSeparator;
+        return getTitleSeparator;
     }
 
     private String titleSeparator;
@@ -2280,13 +4181,13 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -2498,72 +4399,79 @@ public class StandalonesLegend extends JsObject {
         }
     }
 
-    private String generateJSgetbackground() {
-        if (getbackground != null) {
-            return getbackground.generateJs();
+    private String generateJSgetBackground() {
+        if (getBackground != null) {
+            return getBackground.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetgetRemainingBounds() {
-        if (getgetRemainingBounds != null) {
-            return getgetRemainingBounds.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetitemsSource() {
-        if (getitemsSource != null) {
-            return getitemsSource.generateJs();
+    private String generateJSgetGetRemainingBounds() {
+        if (getGetRemainingBounds != null) {
+            return getGetRemainingBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmargin() {
-        if (getmargin != null) {
-            return getmargin.generateJs();
+    private String generateJSgetItemsSource() {
+        if (getItemsSource != null) {
+            return getItemsSource.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetpadding() {
-        if (getpadding != null) {
-            return getpadding.generateJs();
+    private String generateJSgetMargin() {
+        if (getMargin != null) {
+            return getMargin.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetpaginator() {
-        if (getpaginator != null) {
-            return getpaginator.generateJs();
+    private String generateJSgetPadding() {
+        if (getPadding != null) {
+            return getPadding.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetparentBounds() {
-        if (getparentBounds != null) {
-            return getparentBounds.generateJs();
+    private String generateJSgetPaginator() {
+        if (getPaginator != null) {
+            return getPaginator.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettitle() {
-        if (gettitle != null) {
-            return gettitle.generateJs();
+    private String generateJSgetParentBounds() {
+        if (getParentBounds != null) {
+            return getParentBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettitleSeparator() {
-        if (gettitleSeparator != null) {
-            return gettitleSeparator.generateJs();
+    private String generateJSgetTitle() {
+        if (getTitle != null) {
+            return getTitle.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetTitleSeparator() {
+        if (getTitleSeparator != null) {
+            return getTitleSeparator.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
@@ -3567,16 +5475,17 @@ public class StandalonesLegend extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbackground());
-            js.append(generateJSgetgetRemainingBounds());
-            js.append(generateJSgetitemsSource());
-            js.append(generateJSgetmargin());
-            js.append(generateJSgetpadding());
-            js.append(generateJSgetpaginator());
-            js.append(generateJSgetparentBounds());
-            js.append(generateJSgettitle());
-            js.append(generateJSgettitleSeparator());
-            js.append(generateJSgettooltip());
+            js.append(generateJSgetBackground());
+            js.append(generateJSgetContainer());
+            js.append(generateJSgetGetRemainingBounds());
+            js.append(generateJSgetItemsSource());
+            js.append(generateJSgetMargin());
+            js.append(generateJSgetPadding());
+            js.append(generateJSgetPaginator());
+            js.append(generateJSgetParentBounds());
+            js.append(generateJSgetTitle());
+            js.append(generateJSgetTitleSeparator());
+            js.append(generateJSgetTooltip());
 
         String result = js.toString();
         js.setLength(0);

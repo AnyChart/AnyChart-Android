@@ -363,13 +363,13 @@ public class Conflicts extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill gethatchFill;
+    private PatternFill getHatchFill;
 
-    public PatternFill getHatchfill() {
-        if (gethatchFill == null)
-            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+    public PatternFill getHatchFill() {
+        if (getHatchFill == null)
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
-        return gethatchFill;
+        return getHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -516,13 +516,13 @@ public class Conflicts extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -862,16 +862,16 @@ public class Conflicts extends JsObject {
         }
     }
 
-    private String generateJSgethatchFill() {
-        if (gethatchFill != null) {
-            return gethatchFill.generateJs();
+    private String generateJSgetHatchFill() {
+        if (getHatchFill != null) {
+            return getHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
@@ -1299,8 +1299,8 @@ public class Conflicts extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgethatchFill());
-            js.append(generateJSgetlabels());
+            js.append(generateJSgetHatchFill());
+            js.append(generateJSgetLabels());
 
         String result = js.toString();
         js.setLength(0);

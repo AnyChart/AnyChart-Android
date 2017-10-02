@@ -366,13 +366,13 @@ public class Activities extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill gethatchFill;
+    private PatternFill getHatchFill;
 
-    public PatternFill getHatchfill() {
-        if (gethatchFill == null)
-            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+    public PatternFill getHatchFill() {
+        if (getHatchFill == null)
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
-        return gethatchFill;
+        return getHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -975,13 +975,13 @@ public class Activities extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill gethoverHatchFill;
+    private PatternFill getHoverHatchFill;
 
-    public PatternFill getHoverhatchfill() {
-        if (gethoverHatchFill == null)
-            gethoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
+    public PatternFill getHoverHatchFill() {
+        if (getHoverHatchFill == null)
+            getHoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
 
-        return gethoverHatchFill;
+        return getHoverHatchFill;
     }
 
     private PatternFill patternFillOrType4;
@@ -1163,13 +1163,13 @@ public class Activities extends JsObject {
         }
     }
 
-    private UiLabelsFactory gethoverLabels;
+    private UiLabelsFactory getHoverLabels;
 
-    public UiLabelsFactory getHoverlabels() {
-        if (gethoverLabels == null)
-            gethoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+    public UiLabelsFactory getHoverLabels() {
+        if (getHoverLabels == null)
+            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
 
-        return gethoverLabels;
+        return getHoverLabels;
     }
 
     private String hoverLabels;
@@ -1330,13 +1330,13 @@ public class Activities extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -2034,13 +2034,13 @@ public class Activities extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill getselectHatchFill;
+    private PatternFill getSelectHatchFill;
 
-    public PatternFill getSelecthatchfill() {
-        if (getselectHatchFill == null)
-            getselectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
+    public PatternFill getSelectHatchFill() {
+        if (getSelectHatchFill == null)
+            getSelectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
 
-        return getselectHatchFill;
+        return getSelectHatchFill;
     }
 
     private PatternFill patternFillOrType8;
@@ -2270,13 +2270,13 @@ public class Activities extends JsObject {
         }
     }
 
-    private UiLabelsFactory getselectLabels;
+    private UiLabelsFactory getSelectLabels;
 
-    public UiLabelsFactory getSelectlabels() {
-        if (getselectLabels == null)
-            getselectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
 
-        return getselectLabels;
+        return getSelectLabels;
     }
 
     private String selectLabels;
@@ -2725,44 +2725,44 @@ public class Activities extends JsObject {
         }
     }
 
-    private String generateJSgethatchFill() {
-        if (gethatchFill != null) {
-            return gethatchFill.generateJs();
+    private String generateJSgetHatchFill() {
+        if (getHatchFill != null) {
+            return getHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverHatchFill() {
-        if (gethoverHatchFill != null) {
-            return gethoverHatchFill.generateJs();
+    private String generateJSgetHoverHatchFill() {
+        if (getHoverHatchFill != null) {
+            return getHoverHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverLabels() {
-        if (gethoverLabels != null) {
-            return gethoverLabels.generateJs();
+    private String generateJSgetHoverLabels() {
+        if (getHoverLabels != null) {
+            return getHoverLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectHatchFill() {
-        if (getselectHatchFill != null) {
-            return getselectHatchFill.generateJs();
+    private String generateJSgetSelectHatchFill() {
+        if (getSelectHatchFill != null) {
+            return getSelectHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectLabels() {
-        if (getselectLabels != null) {
-            return getselectLabels.generateJs();
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
         }
         return "";
     }
@@ -3710,12 +3710,12 @@ public class Activities extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgethatchFill());
-            js.append(generateJSgethoverHatchFill());
-            js.append(generateJSgethoverLabels());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetselectHatchFill());
-            js.append(generateJSgetselectLabels());
+            js.append(generateJSgetHatchFill());
+            js.append(generateJSgetHoverHatchFill());
+            js.append(generateJSgetHoverLabels());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetSelectHatchFill());
+            js.append(generateJSgetSelectLabels());
 
         String result = js.toString();
         js.setLength(0);

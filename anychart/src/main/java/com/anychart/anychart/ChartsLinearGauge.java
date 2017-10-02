@@ -24,13 +24,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Animation getanimation;
+    private Animation getAnimation;
 
     public Animation getAnimation() {
-        if (getanimation == null)
-            getanimation = new Animation("chart.animation()");
+        if (getAnimation == null)
+            getAnimation = new Animation("chart.animation()");
 
-        return getanimation;
+        return getAnimation;
     }
 
     private Boolean animation;
@@ -74,17 +74,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index;
+    private AxesLinearGauge getAxis;
 
-    public void setAxis(Double index) {
-        this.index = index;
+    public AxesLinearGauge getAxis() {
+        if (getAxis == null)
+            getAxis = new AxesLinearGauge("chart.axis()");
 
-        js.append(String.format(Locale.US, "chart.axis(%f);", index));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%f);", index));
-            js.setLength(0);
-        }
+        return getAxis;
     }
 
     private String axis;
@@ -113,42 +109,42 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index1;
+    private Double index;
     private String axis2;
     private Boolean axis3;
 
-    public void setAxis(String axis2, Double index1) {
+    public void setAxis(String axis2, Double index) {
         this.axis2 = axis2;
-        this.index1 = index1;
+        this.index = index;
 
-        js.append(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index1));
+        js.append(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index));
             js.setLength(0);
         }
     }
 
 
-    public void setAxis(Boolean axis3, Double index1) {
+    public void setAxis(Boolean axis3, Double index) {
         this.axis3 = axis3;
-        this.index1 = index1;
+        this.index = index;
 
-        js.append(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index1));
+        js.append(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index));
             js.setLength(0);
         }
     }
 
-    private UiBackground getbackground;
+    private UiBackground getBackground;
 
     public UiBackground getBackground() {
-        if (getbackground == null)
-            getbackground = new UiBackground("chart.background()");
+        if (getBackground == null)
+            getBackground = new UiBackground("chart.background()");
 
-        return getbackground;
+        return getBackground;
     }
 
     private String background;
@@ -203,13 +199,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds("chart.bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds("chart.bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -499,13 +495,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Layer getcontainer;
+    private Layer getContainer;
 
     public Layer getContainer() {
-        if (getcontainer == null)
-            getcontainer = new Layer("chart.container()");
+        if (getContainer == null)
+            getContainer = new Layer("chart.container()");
 
-        return getcontainer;
+        return getContainer;
     }
 
     private Layer container;
@@ -560,13 +556,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private ContextMenu getcontextMenu;
+    private ContextMenu getContextMenu;
 
-    public ContextMenu getContextmenu() {
-        if (getcontextMenu == null)
-            getcontextMenu = new ContextMenu("chart.contextMenu()");
+    public ContextMenu getContextMenu() {
+        if (getContextMenu == null)
+            getContextMenu = new ContextMenu("chart.contextMenu()");
 
-        return getcontextMenu;
+        return getContextMenu;
     }
 
     private String contextMenu;
@@ -595,13 +591,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private ChartCredits getcredits;
+    private ChartCredits getCredits;
 
     public ChartCredits getCredits() {
-        if (getcredits == null)
-            getcredits = new ChartCredits("chart.credits()");
+        if (getCredits == null)
+            getCredits = new ChartCredits("chart.credits()");
 
-        return getcredits;
+        return getCredits;
     }
 
     private String credits;
@@ -630,13 +626,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private View getdata;
+    private View getData;
 
     public View getData() {
-        if (getdata == null)
-            getdata = new View("chart.data()");
+        if (getData == null)
+            getData = new View("chart.data()");
 
-        return getdata;
+        return getData;
     }
 
     private View data;
@@ -814,41 +810,15 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index2;
+    private Double index1;
 
-    public void setGetpointerat(Double index2) {
-        this.index2 = index2;
+    public void setGetpointerat(Double index1) {
+        this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.getPointerAt(%f);", index2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getPointerAt(%f);", index2));
-            js.setLength(0);
-        }
-    }
-
-    private String key;
-    private Statistics key1;
-
-    public void setGetstat(String key) {
-        this.key = key;
-
-        js.append(String.format(Locale.US, "chart.getStat(%s);", key));
+        js.append(String.format(Locale.US, "chart.getPointerAt(%f);", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(%s);", key));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setGetstat(Statistics key1) {
-        this.key1 = key1;
-
-        js.append(String.format(Locale.US, "chart.getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getPointerAt(%f);", index1));
             js.setLength(0);
         }
     }
@@ -894,13 +864,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private HatchFills gethatchFillPalette;
+    private HatchFills getHatchFillPalette;
 
-    public HatchFills getHatchfillpalette() {
-        if (gethatchFillPalette == null)
-            gethatchFillPalette = new HatchFills("chart.hatchFillPalette()");
+    public HatchFills getHatchFillPalette() {
+        if (getHatchFillPalette == null)
+            getHatchFillPalette = new HatchFills("chart.hatchFillPalette()");
 
-        return gethatchFillPalette;
+        return getHatchFillPalette;
     }
 
     private HatchFillType[] hatchFillPalette;
@@ -968,6 +938,15 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
+    private Interactivity getInteractivity;
+
+    public Interactivity getInteractivity() {
+        if (getInteractivity == null)
+            getInteractivity = new Interactivity("chart.interactivity()");
+
+        return getInteractivity;
+    }
+
     private String interactivity;
     private HoverMode interactivity1;
 
@@ -994,30 +973,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private String index3;
-    private Double index4;
+    private UiLabel getLabel;
 
-    public void setLabel(String index3) {
-        this.index3 = index3;
+    public UiLabel getLabel() {
+        if (getLabel == null)
+            getLabel = new UiLabel("chart.label()");
 
-        js.append(String.format(Locale.US, "chart.label(%s);", index3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s);", index3));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setLabel(Double index4) {
-        this.index4 = index4;
-
-        js.append(String.format(Locale.US, "chart.label(%f);", index4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f);", index4));
-            js.setLength(0);
-        }
+        return getLabel;
     }
 
     private Boolean label;
@@ -1035,59 +997,71 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private String index5;
-    private Double index6;
+
+    public void setLabel(String label1) {
+        this.label1 = label1;
+
+        js.append(String.format(Locale.US, "chart.label(%s);", label1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s);", label1));
+            js.setLength(0);
+        }
+    }
+
+    private String index2;
+    private Double index3;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index5, Boolean label3) {
-        this.index5 = index5;
+    public void setLabel(String index2, Boolean label3) {
+        this.index2 = index2;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index5, String label4) {
-        this.index5 = index5;
+    public void setLabel(String index2, String label4) {
+        this.index2 = index2;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index6, Boolean label3) {
-        this.index6 = index6;
+    public void setLabel(Double index3, Boolean label3) {
+        this.index3 = index3;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index6, String label4) {
-        this.index6 = index6;
+    public void setLabel(Double index3, String label4) {
+        this.index3 = index3;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
             js.setLength(0);
         }
     }
@@ -1157,13 +1131,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private UiLegend getlegend;
+    private UiLegend getLegend;
 
     public UiLegend getLegend() {
-        if (getlegend == null)
-            getlegend = new UiLegend("chart.legend()");
+        if (getLegend == null)
+            getLegend = new UiLegend("chart.legend()");
 
-        return getlegend;
+        return getLegend;
     }
 
     private String legend;
@@ -1241,13 +1215,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Margin getmargin;
+    private Margin getMargin;
 
     public Margin getMargin() {
-        if (getmargin == null)
-            getmargin = new Margin("chart.margin()");
+        if (getMargin == null)
+            getMargin = new Margin("chart.margin()");
 
-        return getmargin;
+        return getMargin;
     }
 
     private Double[] margin;
@@ -1298,37 +1272,241 @@ public class ChartsLinearGauge extends Chart {
     private String value6;
     private Double value7;
 
-    public void setMargin(String value6, String value, Double value1, String value2, Double value3, String value4, Double value5) {
-        this.value6 = value6;
+    public void setMargin(String value, String value2, String value4, String value6) {
         this.value = value;
-        this.value1 = value1;
         this.value2 = value2;
-        this.value3 = value3;
         this.value4 = value4;
-        this.value5 = value5;
+        this.value6 = value6;
 
-        js.append(String.format(Locale.US, "chart.margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+        js.append(String.format(Locale.US, "chart.margin(%s, %s, %s, %s);", value, value2, value4, value6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %f, %s, %f, %s, %f);", value6, value, value1, value2, value3, value4, value5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %s, %s);", value, value2, value4, value6));
             js.setLength(0);
         }
     }
 
 
-    public void setMargin(Double value7, String value, Double value1, String value2, Double value3, String value4, Double value5) {
-        this.value7 = value7;
+    public void setMargin(String value, String value2, String value4, Double value7) {
         this.value = value;
-        this.value1 = value1;
         this.value2 = value2;
-        this.value3 = value3;
         this.value4 = value4;
-        this.value5 = value5;
+        this.value7 = value7;
 
-        js.append(String.format(Locale.US, "chart.margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+        js.append(String.format(Locale.US, "chart.margin(%s, %s, %s, %f);", value, value2, value4, value7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %f, %s, %f, %s, %f);", value7, value, value1, value2, value3, value4, value5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %s, %f);", value, value2, value4, value7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String value, String value2, Double value5, String value6) {
+        this.value = value;
+        this.value2 = value2;
+        this.value5 = value5;
+        this.value6 = value6;
+
+        js.append(String.format(Locale.US, "chart.margin(%s, %s, %f, %s);", value, value2, value5, value6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %f, %s);", value, value2, value5, value6));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String value, String value2, Double value5, Double value7) {
+        this.value = value;
+        this.value2 = value2;
+        this.value5 = value5;
+        this.value7 = value7;
+
+        js.append(String.format(Locale.US, "chart.margin(%s, %s, %f, %f);", value, value2, value5, value7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %f, %f);", value, value2, value5, value7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, String value4, String value6) {
+        this.value = value;
+        this.value3 = value3;
+        this.value4 = value4;
+        this.value6 = value6;
+
+        js.append(String.format(Locale.US, "chart.margin(%s, %f, %s, %s);", value, value3, value4, value6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %s, %s);", value, value3, value4, value6));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, String value4, Double value7) {
+        this.value = value;
+        this.value3 = value3;
+        this.value4 = value4;
+        this.value7 = value7;
+
+        js.append(String.format(Locale.US, "chart.margin(%s, %f, %s, %f);", value, value3, value4, value7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %s, %f);", value, value3, value4, value7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, Double value5, String value6) {
+        this.value = value;
+        this.value3 = value3;
+        this.value5 = value5;
+        this.value6 = value6;
+
+        js.append(String.format(Locale.US, "chart.margin(%s, %f, %f, %s);", value, value3, value5, value6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %f, %s);", value, value3, value5, value6));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(String value, Double value3, Double value5, Double value7) {
+        this.value = value;
+        this.value3 = value3;
+        this.value5 = value5;
+        this.value7 = value7;
+
+        js.append(String.format(Locale.US, "chart.margin(%s, %f, %f, %f);", value, value3, value5, value7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %f, %f);", value, value3, value5, value7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, String value4, String value6) {
+        this.value1 = value1;
+        this.value2 = value2;
+        this.value4 = value4;
+        this.value6 = value6;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %s, %s, %s);", value1, value2, value4, value6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %s, %s);", value1, value2, value4, value6));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, String value4, Double value7) {
+        this.value1 = value1;
+        this.value2 = value2;
+        this.value4 = value4;
+        this.value7 = value7;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %s, %s, %f);", value1, value2, value4, value7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %s, %f);", value1, value2, value4, value7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, Double value5, String value6) {
+        this.value1 = value1;
+        this.value2 = value2;
+        this.value5 = value5;
+        this.value6 = value6;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %s, %f, %s);", value1, value2, value5, value6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %f, %s);", value1, value2, value5, value6));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, String value2, Double value5, Double value7) {
+        this.value1 = value1;
+        this.value2 = value2;
+        this.value5 = value5;
+        this.value7 = value7;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %s, %f, %f);", value1, value2, value5, value7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %f, %f);", value1, value2, value5, value7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, String value4, String value6) {
+        this.value1 = value1;
+        this.value3 = value3;
+        this.value4 = value4;
+        this.value6 = value6;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %f, %s, %s);", value1, value3, value4, value6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %s, %s);", value1, value3, value4, value6));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, String value4, Double value7) {
+        this.value1 = value1;
+        this.value3 = value3;
+        this.value4 = value4;
+        this.value7 = value7;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %f, %s, %f);", value1, value3, value4, value7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %s, %f);", value1, value3, value4, value7));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, Double value5, String value6) {
+        this.value1 = value1;
+        this.value3 = value3;
+        this.value5 = value5;
+        this.value6 = value6;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %f, %f, %s);", value1, value3, value5, value6));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %f, %s);", value1, value3, value5, value6));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setMargin(Double value1, Double value3, Double value5, Double value7) {
+        this.value1 = value1;
+        this.value3 = value3;
+        this.value5 = value5;
+        this.value7 = value7;
+
+        js.append(String.format(Locale.US, "chart.margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %f, %f);", value1, value3, value5, value7));
             js.setLength(0);
         }
     }
@@ -1346,13 +1524,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Markers getmarkerPalette;
+    private Markers getMarkerPalette;
 
-    public Markers getMarkerpalette() {
-        if (getmarkerPalette == null)
-            getmarkerPalette = new Markers("chart.markerPalette()");
+    public Markers getMarkerPalette() {
+        if (getMarkerPalette == null)
+            getMarkerPalette = new Markers("chart.markerPalette()");
 
-        return getmarkerPalette;
+        return getMarkerPalette;
     }
 
     private Markers markerPalette;
@@ -1498,13 +1676,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private UtilsPadding getpadding;
+    private UtilsPadding getPadding;
 
     public UtilsPadding getPadding() {
-        if (getpadding == null)
-            getpadding = new UtilsPadding("chart.padding()");
+        if (getPadding == null)
+            getPadding = new UtilsPadding("chart.padding()");
 
-        return getpadding;
+        return getPadding;
     }
 
     private Double[] padding;
@@ -1555,48 +1733,252 @@ public class ChartsLinearGauge extends Chart {
     private String value14;
     private Double value15;
 
-    public void setPadding(String value14, String value8, Double value9, String value10, Double value11, String value12, Double value13) {
+    public void setPadding(String value8, String value10, String value12, String value14) {
+        this.value8 = value8;
+        this.value10 = value10;
+        this.value12 = value12;
         this.value14 = value14;
-        this.value8 = value8;
-        this.value9 = value9;
-        this.value10 = value10;
-        this.value11 = value11;
-        this.value12 = value12;
-        this.value13 = value13;
 
-        js.append(String.format(Locale.US, "chart.padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
+        js.append(String.format(Locale.US, "chart.padding(%s, %s, %s, %s);", value8, value10, value12, value14));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %f, %s, %f, %s, %f);", value14, value8, value9, value10, value11, value12, value13));
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %s, %s);", value8, value10, value12, value14));
             js.setLength(0);
         }
     }
 
 
-    public void setPadding(Double value15, String value8, Double value9, String value10, Double value11, String value12, Double value13) {
+    public void setPadding(String value8, String value10, String value12, Double value15) {
+        this.value8 = value8;
+        this.value10 = value10;
+        this.value12 = value12;
         this.value15 = value15;
-        this.value8 = value8;
-        this.value9 = value9;
-        this.value10 = value10;
-        this.value11 = value11;
-        this.value12 = value12;
-        this.value13 = value13;
 
-        js.append(String.format(Locale.US, "chart.padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
+        js.append(String.format(Locale.US, "chart.padding(%s, %s, %s, %f);", value8, value10, value12, value15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %f, %s, %f, %s, %f);", value15, value8, value9, value10, value11, value12, value13));
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %s, %f);", value8, value10, value12, value15));
             js.setLength(0);
         }
     }
 
-    private RangeColors getpalette;
+
+    public void setPadding(String value8, String value10, Double value13, String value14) {
+        this.value8 = value8;
+        this.value10 = value10;
+        this.value13 = value13;
+        this.value14 = value14;
+
+        js.append(String.format(Locale.US, "chart.padding(%s, %s, %f, %s);", value8, value10, value13, value14));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %f, %s);", value8, value10, value13, value14));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(String value8, String value10, Double value13, Double value15) {
+        this.value8 = value8;
+        this.value10 = value10;
+        this.value13 = value13;
+        this.value15 = value15;
+
+        js.append(String.format(Locale.US, "chart.padding(%s, %s, %f, %f);", value8, value10, value13, value15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %f, %f);", value8, value10, value13, value15));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, String value12, String value14) {
+        this.value8 = value8;
+        this.value11 = value11;
+        this.value12 = value12;
+        this.value14 = value14;
+
+        js.append(String.format(Locale.US, "chart.padding(%s, %f, %s, %s);", value8, value11, value12, value14));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %s, %s);", value8, value11, value12, value14));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, String value12, Double value15) {
+        this.value8 = value8;
+        this.value11 = value11;
+        this.value12 = value12;
+        this.value15 = value15;
+
+        js.append(String.format(Locale.US, "chart.padding(%s, %f, %s, %f);", value8, value11, value12, value15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %s, %f);", value8, value11, value12, value15));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, Double value13, String value14) {
+        this.value8 = value8;
+        this.value11 = value11;
+        this.value13 = value13;
+        this.value14 = value14;
+
+        js.append(String.format(Locale.US, "chart.padding(%s, %f, %f, %s);", value8, value11, value13, value14));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %f, %s);", value8, value11, value13, value14));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(String value8, Double value11, Double value13, Double value15) {
+        this.value8 = value8;
+        this.value11 = value11;
+        this.value13 = value13;
+        this.value15 = value15;
+
+        js.append(String.format(Locale.US, "chart.padding(%s, %f, %f, %f);", value8, value11, value13, value15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %f, %f);", value8, value11, value13, value15));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, String value12, String value14) {
+        this.value9 = value9;
+        this.value10 = value10;
+        this.value12 = value12;
+        this.value14 = value14;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %s, %s, %s);", value9, value10, value12, value14));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %s, %s);", value9, value10, value12, value14));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, String value12, Double value15) {
+        this.value9 = value9;
+        this.value10 = value10;
+        this.value12 = value12;
+        this.value15 = value15;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %s, %s, %f);", value9, value10, value12, value15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %s, %f);", value9, value10, value12, value15));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, Double value13, String value14) {
+        this.value9 = value9;
+        this.value10 = value10;
+        this.value13 = value13;
+        this.value14 = value14;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %s, %f, %s);", value9, value10, value13, value14));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %f, %s);", value9, value10, value13, value14));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, String value10, Double value13, Double value15) {
+        this.value9 = value9;
+        this.value10 = value10;
+        this.value13 = value13;
+        this.value15 = value15;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %s, %f, %f);", value9, value10, value13, value15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %f, %f);", value9, value10, value13, value15));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, String value12, String value14) {
+        this.value9 = value9;
+        this.value11 = value11;
+        this.value12 = value12;
+        this.value14 = value14;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %f, %s, %s);", value9, value11, value12, value14));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %s, %s);", value9, value11, value12, value14));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, String value12, Double value15) {
+        this.value9 = value9;
+        this.value11 = value11;
+        this.value12 = value12;
+        this.value15 = value15;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %f, %s, %f);", value9, value11, value12, value15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %s, %f);", value9, value11, value12, value15));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, Double value13, String value14) {
+        this.value9 = value9;
+        this.value11 = value11;
+        this.value13 = value13;
+        this.value14 = value14;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %f, %f, %s);", value9, value11, value13, value14));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %f, %s);", value9, value11, value13, value14));
+            js.setLength(0);
+        }
+    }
+
+
+    public void setPadding(Double value9, Double value11, Double value13, Double value15) {
+        this.value9 = value9;
+        this.value11 = value11;
+        this.value13 = value13;
+        this.value15 = value15;
+
+        js.append(String.format(Locale.US, "chart.padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+            js.setLength(0);
+        }
+    }
+
+    private RangeColors getPalette;
 
     public RangeColors getPalette() {
-        if (getpalette == null)
-            getpalette = new RangeColors("chart.palette()");
+        if (getPalette == null)
+            getPalette = new RangeColors("chart.palette()");
 
-        return getpalette;
+        return getPalette;
     }
 
     private RangeColors palette;
@@ -1732,15 +2114,15 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index7;
+    private Double index4;
 
-    public void setRemovepointerat(Double index7) {
-        this.index7 = index7;
+    public void setRemovepointerat(Double index4) {
+        this.index4 = index4;
 
-        js.append(String.format(Locale.US, "chart.removePointerAt(%f);", index7));
+        js.append(String.format(Locale.US, "chart.removePointerAt(%f);", index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removePointerAt(%f);", index7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removePointerAt(%f);", index4));
             js.setLength(0);
         }
     }
@@ -2007,13 +2389,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase("chart.scale()");
+        if (getScale == null)
+            getScale = new ScalesBase("chart.scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScaleTypes scale;
@@ -2055,17 +2437,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index8;
+    private ScaleBar getScaleBar;
 
-    public void setScalebar(Double index8) {
-        this.index8 = index8;
+    public ScaleBar getScaleBar() {
+        if (getScaleBar == null)
+            getScaleBar = new ScaleBar("chart.scaleBar()");
 
-        js.append(String.format(Locale.US, "chart.scaleBar(%f);", index8));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%f);", index8));
-            js.setLength(0);
-        }
+        return getScaleBar;
     }
 
     private String scaleBar;
@@ -2094,31 +2472,31 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index9;
+    private Double index5;
     private String scaleBar2;
     private Boolean scaleBar3;
 
-    public void setScalebar(String scaleBar2, Double index9) {
+    public void setScalebar(String scaleBar2, Double index5) {
         this.scaleBar2 = scaleBar2;
-        this.index9 = index9;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index9));
+        js.append(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index9));
+            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index5));
             js.setLength(0);
         }
     }
 
 
-    public void setScalebar(Boolean scaleBar3, Double index9) {
+    public void setScalebar(Boolean scaleBar3, Double index5) {
         this.scaleBar3 = scaleBar3;
-        this.index9 = index9;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index9));
+        js.append(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index9));
+            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index5));
             js.setLength(0);
         }
     }
@@ -2387,13 +2765,13 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private UiTitle gettitle;
+    private UiTitle getTitle;
 
     public UiTitle getTitle() {
-        if (gettitle == null)
-            gettitle = new UiTitle("chart.title()");
+        if (getTitle == null)
+            getTitle = new UiTitle("chart.title()");
 
-        return gettitle;
+        return getTitle;
     }
 
     private Boolean title;
@@ -2556,15 +2934,15 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private String key2;
+    private String key;
 
-    public void setUnlistenbykey(String key2) {
-        this.key2 = key2;
+    public void setUnlistenbykey(String key) {
+        this.key = key;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
             js.setLength(0);
         }
     }
@@ -2608,107 +2986,135 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private String generateJSgetanimation() {
-        if (getanimation != null) {
-            return getanimation.generateJs();
+    private String generateJSgetAnimation() {
+        if (getAnimation != null) {
+            return getAnimation.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetbackground() {
-        if (getbackground != null) {
-            return getbackground.generateJs();
+    private String generateJSgetAxis() {
+        if (getAxis != null) {
+            return getAxis.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBackground() {
+        if (getBackground != null) {
+            return getBackground.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetcontainer() {
-        if (getcontainer != null) {
-            return getcontainer.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetcontextMenu() {
-        if (getcontextMenu != null) {
-            return getcontextMenu.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetcredits() {
-        if (getcredits != null) {
-            return getcredits.generateJs();
+    private String generateJSgetContextMenu() {
+        if (getContextMenu != null) {
+            return getContextMenu.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetCredits() {
+        if (getCredits != null) {
+            return getCredits.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethatchFillPalette() {
-        if (gethatchFillPalette != null) {
-            return gethatchFillPalette.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlegend() {
-        if (getlegend != null) {
-            return getlegend.generateJs();
+    private String generateJSgetHatchFillPalette() {
+        if (getHatchFillPalette != null) {
+            return getHatchFillPalette.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmargin() {
-        if (getmargin != null) {
-            return getmargin.generateJs();
+    private String generateJSgetInteractivity() {
+        if (getInteractivity != null) {
+            return getInteractivity.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkerPalette() {
-        if (getmarkerPalette != null) {
-            return getmarkerPalette.generateJs();
+    private String generateJSgetLabel() {
+        if (getLabel != null) {
+            return getLabel.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetpadding() {
-        if (getpadding != null) {
-            return getpadding.generateJs();
+    private String generateJSgetLegend() {
+        if (getLegend != null) {
+            return getLegend.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetpalette() {
-        if (getpalette != null) {
-            return getpalette.generateJs();
+    private String generateJSgetMargin() {
+        if (getMargin != null) {
+            return getMargin.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetMarkerPalette() {
+        if (getMarkerPalette != null) {
+            return getMarkerPalette.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettitle() {
-        if (gettitle != null) {
-            return gettitle.generateJs();
+    private String generateJSgetPadding() {
+        if (getPadding != null) {
+            return getPadding.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetPalette() {
+        if (getPalette != null) {
+            return getPalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetScaleBar() {
+        if (getScaleBar != null) {
+            return getScaleBar.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTitle() {
+        if (getTitle != null) {
+            return getTitle.generateJs();
         }
         return "";
     }
@@ -2716,21 +3122,25 @@ public class ChartsLinearGauge extends Chart {
 
     @Override
     protected String generateJs() {
-        js.append(generateJSgetanimation());
-        js.append(generateJSgetbackground());
-        js.append(generateJSgetbounds());
-        js.append(generateJSgetcontainer());
-        js.append(generateJSgetcontextMenu());
-        js.append(generateJSgetcredits());
-        js.append(generateJSgetdata());
-        js.append(generateJSgethatchFillPalette());
-        js.append(generateJSgetlegend());
-        js.append(generateJSgetmargin());
-        js.append(generateJSgetmarkerPalette());
-        js.append(generateJSgetpadding());
-        js.append(generateJSgetpalette());
-        js.append(generateJSgetscale());
-        js.append(generateJSgettitle());
+        js.append(generateJSgetAnimation());
+        js.append(generateJSgetAxis());
+        js.append(generateJSgetBackground());
+        js.append(generateJSgetBounds());
+        js.append(generateJSgetContainer());
+        js.append(generateJSgetContextMenu());
+        js.append(generateJSgetCredits());
+        js.append(generateJSgetData());
+        js.append(generateJSgetHatchFillPalette());
+        js.append(generateJSgetInteractivity());
+        js.append(generateJSgetLabel());
+        js.append(generateJSgetLegend());
+        js.append(generateJSgetMargin());
+        js.append(generateJSgetMarkerPalette());
+        js.append(generateJSgetPadding());
+        js.append(generateJSgetPalette());
+        js.append(generateJSgetScale());
+        js.append(generateJSgetScaleBar());
+        js.append(generateJSgetTitle());
 
         String result = js.toString();
         js.setLength(0);

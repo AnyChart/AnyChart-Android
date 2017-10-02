@@ -57,13 +57,13 @@ public class VisualBaseWithBounds extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -1257,9 +1257,9 @@ public class VisualBaseWithBounds extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
@@ -1647,7 +1647,7 @@ public class VisualBaseWithBounds extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
+            js.append(generateJSgetBounds());
 
         String result = js.toString();
         js.setLength(0);

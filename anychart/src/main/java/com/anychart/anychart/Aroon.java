@@ -17,13 +17,13 @@ public class Aroon extends JsObject {
     }
 
     
-    private StockSeriesBase getdownSeries;
+    private StockSeriesBase getDownSeries;
 
-    public StockSeriesBase getDownseries() {
-        if (getdownSeries == null)
-            getdownSeries = new StockSeriesBase(jsBase + ".downSeries()");
+    public StockSeriesBase getDownSeries() {
+        if (getDownSeries == null)
+            getDownSeries = new StockSeriesBase(jsBase + ".downSeries()");
 
-        return getdownSeries;
+        return getDownSeries;
     }
 
     private String type;
@@ -83,13 +83,13 @@ public class Aroon extends JsObject {
         }
     }
 
-    private StockSeriesBase getupSeries;
+    private StockSeriesBase getUpSeries;
 
-    public StockSeriesBase getUpseries() {
-        if (getupSeries == null)
-            getupSeries = new StockSeriesBase(jsBase + ".upSeries()");
+    public StockSeriesBase getUpSeries() {
+        if (getUpSeries == null)
+            getUpSeries = new StockSeriesBase(jsBase + ".upSeries()");
 
-        return getupSeries;
+        return getUpSeries;
     }
 
     private String type2;
@@ -136,16 +136,16 @@ public class Aroon extends JsObject {
         }
     }
 
-    private String generateJSgetdownSeries() {
-        if (getdownSeries != null) {
-            return getdownSeries.generateJs();
+    private String generateJSgetDownSeries() {
+        if (getDownSeries != null) {
+            return getDownSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetupSeries() {
-        if (getupSeries != null) {
-            return getupSeries.generateJs();
+    private String generateJSgetUpSeries() {
+        if (getUpSeries != null) {
+            return getUpSeries.generateJs();
         }
         return "";
     }
@@ -197,8 +197,8 @@ public class Aroon extends JsObject {
             js.append(generateJStype3());
             js.append("}");
         }
-            js.append(generateJSgetdownSeries());
-            js.append(generateJSgetupSeries());
+            js.append(generateJSgetDownSeries());
+            js.append(generateJSgetUpSeries());
 
         String result = js.toString();
         js.setLength(0);

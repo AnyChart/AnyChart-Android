@@ -1293,13 +1293,13 @@ public class ChartScroller extends JsObject {
     }
 
     private Fill imageSettings1;
-    private Thumbs getthumbs;
+    private Thumbs getThumbs;
 
     public Thumbs getThumbs() {
-        if (getthumbs == null)
-            getthumbs = new Thumbs(jsBase + ".thumbs()");
+        if (getThumbs == null)
+            getThumbs = new Thumbs(jsBase + ".thumbs()");
 
-        return getthumbs;
+        return getThumbs;
     }
 
     private Boolean thumbs;
@@ -1412,9 +1412,9 @@ public class ChartScroller extends JsObject {
         }
     }
 
-    private String generateJSgetthumbs() {
-        if (getthumbs != null) {
-            return getthumbs.generateJs();
+    private String generateJSgetThumbs() {
+        if (getThumbs != null) {
+            return getThumbs.generateJs();
         }
         return "";
     }
@@ -2034,7 +2034,7 @@ public class ChartScroller extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetthumbs());
+            js.append(generateJSgetThumbs());
 
         String result = js.toString();
         js.setLength(0);

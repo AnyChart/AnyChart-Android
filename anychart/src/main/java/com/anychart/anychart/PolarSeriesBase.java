@@ -57,13 +57,13 @@ public class PolarSeriesBase extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -1379,6 +1379,15 @@ public class PolarSeriesBase extends JsObject {
         }
     }
 
+    private UiLabelsFactory getSelectLabels;
+
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+
+        return getSelectLabels;
+    }
+
     private String selectLabels;
     private Boolean selectLabels1;
 
@@ -1688,13 +1697,13 @@ public class PolarSeriesBase extends JsObject {
         }
     }
 
-    private ScalesBase getxScale;
+    private ScalesLinear getXScale;
 
-    public ScalesBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScalesBase(jsBase + ".xScale()");
+    public ScalesLinear getXScale() {
+        if (getXScale == null)
+            getXScale = new ScalesLinear(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -1714,13 +1723,13 @@ public class PolarSeriesBase extends JsObject {
         }
     }
 
-    private ScalesBase getyScale;
+    private ScalesBase getYScale;
 
-    public ScalesBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScalesBase(jsBase + ".yScale()");
+    public ScalesBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScalesBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScalesBase yScale;
@@ -1757,23 +1766,30 @@ public class PolarSeriesBase extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -2353,9 +2369,10 @@ public class PolarSeriesBase extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

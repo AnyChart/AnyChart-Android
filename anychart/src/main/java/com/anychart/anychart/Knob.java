@@ -457,13 +457,13 @@ public class Knob extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill gethatchFill;
+    private PatternFill getHatchFill;
 
-    public PatternFill getHatchfill() {
-        if (gethatchFill == null)
-            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+    public PatternFill getHatchFill() {
+        if (getHatchFill == null)
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
-        return gethatchFill;
+        return getHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -1017,9 +1017,9 @@ public class Knob extends JsObject {
         }
     }
 
-    private String generateJSgethatchFill() {
-        if (gethatchFill != null) {
-            return gethatchFill.generateJs();
+    private String generateJSgetHatchFill() {
+        if (getHatchFill != null) {
+            return getHatchFill.generateJs();
         }
         return "";
     }
@@ -1511,7 +1511,7 @@ public class Knob extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgethatchFill());
+            js.append(generateJSgetHatchFill());
 
         String result = js.toString();
         js.setLength(0);

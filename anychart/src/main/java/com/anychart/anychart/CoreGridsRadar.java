@@ -17,13 +17,13 @@ public class CoreGridsRadar extends JsObject {
     }
 
     
-    private CoreAxesRadar getaxis;
+    private CoreAxesRadar getAxis;
 
     public CoreAxesRadar getAxis() {
-        if (getaxis == null)
-            getaxis = new CoreAxesRadar(jsBase + ".axis()");
+        if (getAxis == null)
+            getAxis = new CoreAxesRadar(jsBase + ".axis()");
 
-        return getaxis;
+        return getAxis;
     }
 
     private CoreAxesRadar axis;
@@ -1241,9 +1241,9 @@ public class CoreGridsRadar extends JsObject {
         }
     }
 
-    private String generateJSgetaxis() {
-        if (getaxis != null) {
-            return getaxis.generateJs();
+    private String generateJSgetAxis() {
+        if (getAxis != null) {
+            return getAxis.generateJs();
         }
         return "";
     }
@@ -1791,7 +1791,7 @@ public class CoreGridsRadar extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetaxis());
+            js.append(generateJSgetAxis());
 
         String result = js.toString();
         js.setLength(0);

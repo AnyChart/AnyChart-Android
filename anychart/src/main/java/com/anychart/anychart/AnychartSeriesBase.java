@@ -17,13 +17,13 @@ public class AnychartSeriesBase extends JsObject {
     }
 
     
-    private SeriesA11y geta11y;
+    private SeriesA11y getA11y;
 
-    public SeriesA11y getA11Y() {
-        if (geta11y == null)
-            geta11y = new SeriesA11y(jsBase + ".a11y()");
+    public SeriesA11y getA11y() {
+        if (getA11y == null)
+            getA11y = new SeriesA11y(jsBase + ".a11y()");
 
-        return geta11y;
+        return getA11y;
     }
 
     private Boolean ay;
@@ -106,13 +106,13 @@ public class AnychartSeriesBase extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -747,13 +747,13 @@ public class AnychartSeriesBase extends JsObject {
         }
     }
 
-    private View getdata;
+    private View getData;
 
     public View getData() {
-        if (getdata == null)
-            getdata = new View(jsBase + ".data()");
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
 
-        return getdata;
+        return getData;
     }
 
     private View data;
@@ -1125,6 +1125,15 @@ public class AnychartSeriesBase extends JsObject {
         }
     }
 
+    private UiLabelsFactory getHoverLabels;
+
+    public UiLabelsFactory getHoverLabels() {
+        if (getHoverLabels == null)
+            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+
+        return getHoverLabels;
+    }
+
     private String hoverLabels;
     private Boolean hoverLabels1;
 
@@ -1205,13 +1214,13 @@ public class AnychartSeriesBase extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -1292,6 +1301,15 @@ public class AnychartSeriesBase extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private LegendItemSettings getLegendItem;
+
+    public LegendItemSettings getLegendItem() {
+        if (getLegendItem == null)
+            getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
+
+        return getLegendItem;
     }
 
     private String legendItem;
@@ -1692,6 +1710,15 @@ public class AnychartSeriesBase extends JsObject {
         }
     }
 
+    private UiLabelsFactory getSelectLabels;
+
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+
+        return getSelectLabels;
+    }
+
     private String selectLabels;
     private Boolean selectLabels1;
 
@@ -1770,6 +1797,15 @@ public class AnychartSeriesBase extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private Tooltip getTooltip;
+
+    public Tooltip getTooltip() {
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
+
+        return getTooltip;
     }
 
     private String tooltip;
@@ -2054,30 +2090,58 @@ public class AnychartSeriesBase extends JsObject {
         }
     }
 
-    private String generateJSgeta11y() {
-        if (geta11y != null) {
-            return geta11y.generateJs();
+    private String generateJSgetA11y() {
+        if (getA11y != null) {
+            return getA11y.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetHoverLabels() {
+        if (getHoverLabels != null) {
+            return getHoverLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLegendItem() {
+        if (getLegendItem != null) {
+            return getLegendItem.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
@@ -2745,10 +2809,14 @@ public class AnychartSeriesBase extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgeta11y());
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdata());
-            js.append(generateJSgetlabels());
+            js.append(generateJSgetA11y());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetData());
+            js.append(generateJSgetHoverLabels());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetLegendItem());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetTooltip());
 
         String result = js.toString();
         js.setLength(0);

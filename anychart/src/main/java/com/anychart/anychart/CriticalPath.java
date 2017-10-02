@@ -72,13 +72,13 @@ public class CriticalPath extends JsObject {
         }
     }
 
-    private Milestones getmilestones;
+    private Milestones getMilestones;
 
     public Milestones getMilestones() {
-        if (getmilestones == null)
-            getmilestones = new Milestones(jsBase + ".milestones()");
+        if (getMilestones == null)
+            getMilestones = new Milestones(jsBase + ".milestones()");
 
-        return getmilestones;
+        return getMilestones;
     }
 
     private String milestones;
@@ -119,13 +119,13 @@ public class CriticalPath extends JsObject {
         }
     }
 
-    private Tasks gettasks;
+    private Tasks getTasks;
 
     public Tasks getTasks() {
-        if (gettasks == null)
-            gettasks = new Tasks(jsBase + ".tasks()");
+        if (getTasks == null)
+            getTasks = new Tasks(jsBase + ".tasks()");
 
-        return gettasks;
+        return getTasks;
     }
 
     private String tasks;
@@ -198,16 +198,16 @@ public class CriticalPath extends JsObject {
         }
     }
 
-    private String generateJSgetmilestones() {
-        if (getmilestones != null) {
-            return getmilestones.generateJs();
+    private String generateJSgetMilestones() {
+        if (getMilestones != null) {
+            return getMilestones.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettasks() {
-        if (gettasks != null) {
-            return gettasks.generateJs();
+    private String generateJSgetTasks() {
+        if (getTasks != null) {
+            return getTasks.generateJs();
         }
         return "";
     }
@@ -323,8 +323,8 @@ public class CriticalPath extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgetmilestones());
-            js.append(generateJSgettasks());
+            js.append(generateJSgetMilestones());
+            js.append(generateJSgetTasks());
 
         String result = js.toString();
         js.setLength(0);

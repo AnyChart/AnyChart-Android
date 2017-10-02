@@ -57,13 +57,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -681,6 +681,15 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
+    private AnychartMathRect getClip;
+
+    public AnychartMathRect getClip() {
+        if (getClip == null)
+            getClip = new AnychartMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private Boolean clip;
     private AnychartMathRect clip1;
 
@@ -738,13 +747,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private View getdata;
+    private View getData;
 
     public View getData() {
-        if (getdata == null)
-            getdata = new View(jsBase + ".data()");
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
 
-        return getdata;
+        return getData;
     }
 
     private View data;
@@ -978,13 +987,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private Error geterror;
+    private Error getError;
 
     public Error getError() {
-        if (geterror == null)
-            geterror = new Error(jsBase + ".error()");
+        if (getError == null)
+            getError = new Error(jsBase + ".error()");
 
-        return geterror;
+        return getError;
     }
 
     private String error;
@@ -1196,6 +1205,15 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
+    private UiLabelsFactory getHoverLabels;
+
+    public UiLabelsFactory getHoverLabels() {
+        if (getHoverLabels == null)
+            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+
+        return getHoverLabels;
+    }
+
     private String hoverLabels;
     private Boolean hoverLabels1;
 
@@ -1236,13 +1254,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private UiMarkersFactory gethoverMarkers;
+    private UiMarkersFactory getHoverMarkers;
 
-    public UiMarkersFactory getHovermarkers() {
-        if (gethoverMarkers == null)
-            gethoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
+    public UiMarkersFactory getHoverMarkers() {
+        if (getHoverMarkers == null)
+            getHoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
 
-        return gethoverMarkers;
+        return getHoverMarkers;
     }
 
     private String hoverMarkers;
@@ -1424,13 +1442,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -1513,6 +1531,15 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
+    private LegendItemSettings getLegendItem;
+
+    public LegendItemSettings getLegendItem() {
+        if (getLegendItem == null)
+            getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
+
+        return getLegendItem;
+    }
+
     private String legendItem;
 
     public void setLegenditem(String legendItem) {
@@ -1585,13 +1612,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -1969,6 +1996,15 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
+    private UiLabelsFactory getSelectLabels;
+
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+
+        return getSelectLabels;
+    }
+
     private String selectLabels;
     private Boolean selectLabels1;
 
@@ -2009,13 +2045,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private UiMarkersFactory getselectMarkers;
+    private UiMarkersFactory getSelectMarkers;
 
-    public UiMarkersFactory getSelectmarkers() {
-        if (getselectMarkers == null)
-            getselectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
+    public UiMarkersFactory getSelectMarkers() {
+        if (getSelectMarkers == null)
+            getSelectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
 
-        return getselectMarkers;
+        return getSelectMarkers;
     }
 
     private String selectMarkers;
@@ -2099,6 +2135,15 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private Tooltip getTooltip;
+
+    public Tooltip getTooltip() {
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
+
+        return getTooltip;
     }
 
     private String tooltip;
@@ -2422,13 +2467,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private ScalesBase getxScale;
+    private Ordinal getXScale;
 
-    public ScalesBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScalesBase(jsBase + ".xScale()");
+    public Ordinal getXScale() {
+        if (getXScale == null)
+            getXScale = new Ordinal(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -2448,13 +2493,13 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private ScalesBase getyScale;
+    private ScalesBase getYScale;
 
-    public ScalesBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScalesBase(jsBase + ".yScale()");
+    public ScalesBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScalesBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScalesBase yScale;
@@ -2491,65 +2536,100 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
         }
         return "";
     }
 
-    private String generateJSgeterror() {
-        if (geterror != null) {
-            return geterror.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverMarkers() {
-        if (gethoverMarkers != null) {
-            return gethoverMarkers.generateJs();
+    private String generateJSgetError() {
+        if (getError != null) {
+            return getError.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetHoverLabels() {
+        if (getHoverLabels != null) {
+            return getHoverLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetHoverMarkers() {
+        if (getHoverMarkers != null) {
+            return getHoverMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectMarkers() {
-        if (getselectMarkers != null) {
-            return getselectMarkers.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetLegendItem() {
+        if (getLegendItem != null) {
+            return getLegendItem.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelectMarkers() {
+        if (getSelectMarkers != null) {
+            return getSelectMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -3393,15 +3473,20 @@ public class CartesianSeriesBaseWithMarkers extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdata());
-            js.append(generateJSgeterror());
-            js.append(generateJSgethoverMarkers());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgetselectMarkers());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetData());
+            js.append(generateJSgetError());
+            js.append(generateJSgetHoverLabels());
+            js.append(generateJSgetHoverMarkers());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetLegendItem());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetSelectMarkers());
+            js.append(generateJSgetTooltip());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

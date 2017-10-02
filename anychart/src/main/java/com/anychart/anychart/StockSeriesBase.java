@@ -57,13 +57,13 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -681,6 +681,15 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
+    private TableMapping getData;
+
+    public TableMapping getData() {
+        if (getData == null)
+            getData = new TableMapping(jsBase + ".data()");
+
+        return getData;
+    }
+
     private TableMapping data;
     private DataTable data1;
     private String data2;
@@ -863,6 +872,15 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
+    private LegendItemSettings getLegendItem;
+
+    public LegendItemSettings getLegendItem() {
+        if (getLegendItem == null)
+            getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
+
+        return getLegendItem;
+    }
+
     private String legendItem;
 
     public void setLegenditem(String legendItem) {
@@ -935,13 +953,13 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -1230,13 +1248,13 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
-    private RenderingSettings getrendering;
+    private RenderingSettings getRendering;
 
     public RenderingSettings getRendering() {
-        if (getrendering == null)
-            getrendering = new RenderingSettings(jsBase + ".rendering()");
+        if (getRendering == null)
+            getRendering = new RenderingSettings(jsBase + ".rendering()");
 
-        return getrendering;
+        return getRendering;
     }
 
     private String rendering;
@@ -1313,13 +1331,13 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -1499,13 +1517,13 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
-    private ScatterBase getyScale;
+    private ScatterBase getYScale;
 
-    public ScatterBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScatterBase(jsBase + ".yScale()");
+    public ScatterBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScatterBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScatterBase yScale;
@@ -1542,37 +1560,51 @@ public class StockSeriesBase extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrendering() {
-        if (getrendering != null) {
-            return getrendering.generateJs();
+    private String generateJSgetLegendItem() {
+        if (getLegendItem != null) {
+            return getLegendItem.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetRendering() {
+        if (getRendering != null) {
+            return getRendering.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -2088,11 +2120,13 @@ public class StockSeriesBase extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgetrendering());
-            js.append(generateJSgettooltip());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetData());
+            js.append(generateJSgetLegendItem());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetRendering());
+            js.append(generateJSgetTooltip());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

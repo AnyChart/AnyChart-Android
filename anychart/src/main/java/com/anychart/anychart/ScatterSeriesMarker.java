@@ -57,13 +57,13 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -681,6 +681,15 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
+    private AnychartMathRect getClip;
+
+    public AnychartMathRect getClip() {
+        if (getClip == null)
+            getClip = new AnychartMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private Boolean clip;
     private AnychartMathRect clip1;
 
@@ -738,13 +747,13 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private View getdata;
+    private View getData;
 
     public View getData() {
-        if (getdata == null)
-            getdata = new View(jsBase + ".data()");
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
 
-        return getdata;
+        return getData;
     }
 
     private View data;
@@ -978,13 +987,13 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private Error geterror;
+    private Error getError;
 
     public Error getError() {
-        if (geterror == null)
-            geterror = new Error(jsBase + ".error()");
+        if (getError == null)
+            getError = new Error(jsBase + ".error()");
 
-        return geterror;
+        return getError;
     }
 
     private String error;
@@ -1483,13 +1492,13 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private PatternFill gethatchFill;
+    private PatternFill getHatchFill;
 
-    public PatternFill getHatchfill() {
-        if (gethatchFill == null)
-            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+    public PatternFill getHatchFill() {
+        if (getHatchFill == null)
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
-        return gethatchFill;
+        return getHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -2177,13 +2186,13 @@ public class ScatterSeriesMarker extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill gethoverHatchFill;
+    private PatternFill getHoverHatchFill;
 
-    public PatternFill getHoverhatchfill() {
-        if (gethoverHatchFill == null)
-            gethoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
+    public PatternFill getHoverHatchFill() {
+        if (getHoverHatchFill == null)
+            getHoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
 
-        return gethoverHatchFill;
+        return getHoverHatchFill;
     }
 
     private PatternFill patternFillOrType4;
@@ -2363,6 +2372,15 @@ public class ScatterSeriesMarker extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private UiLabelsFactory getHoverLabels;
+
+    public UiLabelsFactory getHoverLabels() {
+        if (getHoverLabels == null)
+            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+
+        return getHoverLabels;
     }
 
     private String hoverLabels;
@@ -2716,13 +2734,13 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -2803,6 +2821,15 @@ public class ScatterSeriesMarker extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private LegendItemSettings getLegendItem;
+
+    public LegendItemSettings getLegendItem() {
+        if (getLegendItem == null)
+            getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
+
+        return getLegendItem;
     }
 
     private String legendItem;
@@ -3788,13 +3815,13 @@ public class ScatterSeriesMarker extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill getselectHatchFill;
+    private PatternFill getSelectHatchFill;
 
-    public PatternFill getSelecthatchfill() {
-        if (getselectHatchFill == null)
-            getselectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
+    public PatternFill getSelectHatchFill() {
+        if (getSelectHatchFill == null)
+            getSelectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
 
-        return getselectHatchFill;
+        return getSelectHatchFill;
     }
 
     private PatternFill patternFillOrType8;
@@ -4022,6 +4049,15 @@ public class ScatterSeriesMarker extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private UiLabelsFactory getSelectLabels;
+
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+
+        return getSelectLabels;
     }
 
     private String selectLabels;
@@ -4519,6 +4555,15 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
+    private Tooltip getTooltip;
+
+    public Tooltip getTooltip() {
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
+
+        return getTooltip;
+    }
+
     private String tooltip;
     private Boolean tooltip1;
 
@@ -4798,13 +4843,13 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private ScatterBase getxScale;
+    private ScatterBase getXScale;
 
-    public ScatterBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScatterBase(jsBase + ".xScale()");
+    public ScatterBase getXScale() {
+        if (getXScale == null)
+            getXScale = new ScatterBase(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -4824,13 +4869,13 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private ScatterBase getyScale;
+    private ScatterBase getYScale;
 
-    public ScatterBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScatterBase(jsBase + ".yScale()");
+    public ScatterBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScatterBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScatterBase yScale;
@@ -4867,65 +4912,100 @@ public class ScatterSeriesMarker extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
         }
         return "";
     }
 
-    private String generateJSgeterror() {
-        if (geterror != null) {
-            return geterror.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethatchFill() {
-        if (gethatchFill != null) {
-            return gethatchFill.generateJs();
+    private String generateJSgetError() {
+        if (getError != null) {
+            return getError.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverHatchFill() {
-        if (gethoverHatchFill != null) {
-            return gethoverHatchFill.generateJs();
+    private String generateJSgetHatchFill() {
+        if (getHatchFill != null) {
+            return getHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetHoverHatchFill() {
+        if (getHoverHatchFill != null) {
+            return getHoverHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectHatchFill() {
-        if (getselectHatchFill != null) {
-            return getselectHatchFill.generateJs();
+    private String generateJSgetHoverLabels() {
+        if (getHoverLabels != null) {
+            return getHoverLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetLegendItem() {
+        if (getLegendItem != null) {
+            return getLegendItem.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelectHatchFill() {
+        if (getSelectHatchFill != null) {
+            return getSelectHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -6529,15 +6609,20 @@ public class ScatterSeriesMarker extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdata());
-            js.append(generateJSgeterror());
-            js.append(generateJSgethatchFill());
-            js.append(generateJSgethoverHatchFill());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetselectHatchFill());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetData());
+            js.append(generateJSgetError());
+            js.append(generateJSgetHatchFill());
+            js.append(generateJSgetHoverHatchFill());
+            js.append(generateJSgetHoverLabels());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetLegendItem());
+            js.append(generateJSgetSelectHatchFill());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetTooltip());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

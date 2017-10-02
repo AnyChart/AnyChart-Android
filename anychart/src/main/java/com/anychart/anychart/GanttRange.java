@@ -587,13 +587,13 @@ public class GanttRange extends JsObject {
         }
     }
 
-    private GanttDateTime getscale;
+    private GanttDateTime getScale;
 
     public GanttDateTime getScale() {
-        if (getscale == null)
-            getscale = new GanttDateTime(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new GanttDateTime(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private GanttDateTime scale;
@@ -746,9 +746,9 @@ public class GanttRange extends JsObject {
         }
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
@@ -1112,7 +1112,7 @@ public class GanttRange extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetscale());
+            js.append(generateJSgetScale());
 
         String result = js.toString();
         js.setLength(0);

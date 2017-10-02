@@ -17,13 +17,13 @@ public class ResourceResourceList extends JsObject {
     }
 
     
-    private UiBackground getbackground;
+    private UiBackground getBackground;
 
     public UiBackground getBackground() {
-        if (getbackground == null)
-            getbackground = new UiBackground(jsBase + ".background()");
+        if (getBackground == null)
+            getBackground = new UiBackground(jsBase + ".background()");
 
-        return getbackground;
+        return getBackground;
     }
 
     private String background;
@@ -109,13 +109,13 @@ public class ResourceResourceList extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -733,13 +733,13 @@ public class ResourceResourceList extends JsObject {
         }
     }
 
-    private TextSettings getdescriptions;
+    private TextSettings getDescriptions;
 
     public TextSettings getDescriptions() {
-        if (getdescriptions == null)
-            getdescriptions = new TextSettings(jsBase + ".descriptions()");
+        if (getDescriptions == null)
+            getDescriptions = new TextSettings(jsBase + ".descriptions()");
 
-        return getdescriptions;
+        return getDescriptions;
     }
 
     private String descriptions;
@@ -1217,13 +1217,13 @@ public class ResourceResourceList extends JsObject {
         }
     }
 
-    private ImageSettings getimages;
+    private ImageSettings getImages;
 
     public ImageSettings getImages() {
-        if (getimages == null)
-            getimages = new ImageSettings(jsBase + ".images()");
+        if (getImages == null)
+            getImages = new ImageSettings(jsBase + ".images()");
 
-        return getimages;
+        return getImages;
     }
 
     private String images;
@@ -1498,13 +1498,13 @@ public class ResourceResourceList extends JsObject {
         }
     }
 
-    private TextSettings getnames;
+    private TextSettings getNames;
 
     public TextSettings getNames() {
-        if (getnames == null)
-            getnames = new TextSettings(jsBase + ".names()");
+        if (getNames == null)
+            getNames = new TextSettings(jsBase + ".names()");
 
-        return getnames;
+        return getNames;
     }
 
     private String names;
@@ -1991,13 +1991,13 @@ public class ResourceResourceList extends JsObject {
     }
 
     private Fill imageSettings1;
-    private Overlay getoverlay;
+    private Overlay getOverlay;
 
     public Overlay getOverlay() {
-        if (getoverlay == null)
-            getoverlay = new Overlay(jsBase + ".overlay()");
+        if (getOverlay == null)
+            getOverlay = new Overlay(jsBase + ".overlay()");
 
-        return getoverlay;
+        return getOverlay;
     }
 
     private String overlay;
@@ -2246,13 +2246,13 @@ public class ResourceResourceList extends JsObject {
         }
     }
 
-    private TagsSettings gettags;
+    private TagsSettings getTags;
 
     public TagsSettings getTags() {
-        if (gettags == null)
-            gettags = new TagsSettings(jsBase + ".tags()");
+        if (getTags == null)
+            getTags = new TagsSettings(jsBase + ".tags()");
 
-        return gettags;
+        return getTags;
     }
 
     private String tags;
@@ -2312,13 +2312,13 @@ public class ResourceResourceList extends JsObject {
         }
     }
 
-    private TextSettings gettypes;
+    private TextSettings getTypes;
 
     public TextSettings getTypes() {
-        if (gettypes == null)
-            gettypes = new TextSettings(jsBase + ".types()");
+        if (getTypes == null)
+            getTypes = new TextSettings(jsBase + ".types()");
 
-        return gettypes;
+        return getTypes;
     }
 
     private String types;
@@ -2452,58 +2452,58 @@ public class ResourceResourceList extends JsObject {
         }
     }
 
-    private String generateJSgetbackground() {
-        if (getbackground != null) {
-            return getbackground.generateJs();
+    private String generateJSgetBackground() {
+        if (getBackground != null) {
+            return getBackground.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdescriptions() {
-        if (getdescriptions != null) {
-            return getdescriptions.generateJs();
+    private String generateJSgetDescriptions() {
+        if (getDescriptions != null) {
+            return getDescriptions.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetimages() {
-        if (getimages != null) {
-            return getimages.generateJs();
+    private String generateJSgetImages() {
+        if (getImages != null) {
+            return getImages.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetnames() {
-        if (getnames != null) {
-            return getnames.generateJs();
+    private String generateJSgetNames() {
+        if (getNames != null) {
+            return getNames.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetoverlay() {
-        if (getoverlay != null) {
-            return getoverlay.generateJs();
+    private String generateJSgetOverlay() {
+        if (getOverlay != null) {
+            return getOverlay.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettags() {
-        if (gettags != null) {
-            return gettags.generateJs();
+    private String generateJSgetTags() {
+        if (getTags != null) {
+            return getTags.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettypes() {
-        if (gettypes != null) {
-            return gettypes.generateJs();
+    private String generateJSgetTypes() {
+        if (getTypes != null) {
+            return getTypes.generateJs();
         }
         return "";
     }
@@ -3371,14 +3371,14 @@ public class ResourceResourceList extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbackground());
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdescriptions());
-            js.append(generateJSgetimages());
-            js.append(generateJSgetnames());
-            js.append(generateJSgetoverlay());
-            js.append(generateJSgettags());
-            js.append(generateJSgettypes());
+            js.append(generateJSgetBackground());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetDescriptions());
+            js.append(generateJSgetImages());
+            js.append(generateJSgetNames());
+            js.append(generateJSgetOverlay());
+            js.append(generateJSgetTags());
+            js.append(generateJSgetTypes());
 
         String result = js.toString();
         js.setLength(0);

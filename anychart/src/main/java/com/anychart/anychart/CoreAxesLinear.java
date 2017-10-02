@@ -68,13 +68,13 @@ public class CoreAxesLinear extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -172,13 +172,13 @@ public class CoreAxesLinear extends JsObject {
         }
     }
 
-    private UiLabelsFactory getminorLabels;
+    private UiLabelsFactory getMinorLabels;
 
-    public UiLabelsFactory getMinorlabels() {
-        if (getminorLabels == null)
-            getminorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
+    public UiLabelsFactory getMinorLabels() {
+        if (getMinorLabels == null)
+            getMinorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
 
-        return getminorLabels;
+        return getMinorLabels;
     }
 
     private String minorLabels;
@@ -221,13 +221,13 @@ public class CoreAxesLinear extends JsObject {
         }
     }
 
-    private Ticks getminorTicks;
+    private Ticks getMinorTicks;
 
-    public Ticks getMinorticks() {
-        if (getminorTicks == null)
-            getminorTicks = new Ticks(jsBase + ".minorTicks()");
+    public Ticks getMinorTicks() {
+        if (getMinorTicks == null)
+            getMinorTicks = new Ticks(jsBase + ".minorTicks()");
 
-        return getminorTicks;
+        return getMinorTicks;
     }
 
     private String minorTicks;
@@ -416,13 +416,13 @@ public class CoreAxesLinear extends JsObject {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new ScalesBase(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScalesBase scale;
@@ -584,13 +584,13 @@ public class CoreAxesLinear extends JsObject {
         }
     }
 
-    private Ticks getticks;
+    private Ticks getTicks;
 
     public Ticks getTicks() {
-        if (getticks == null)
-            getticks = new Ticks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new Ticks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -633,13 +633,13 @@ public class CoreAxesLinear extends JsObject {
         }
     }
 
-    private UiTitle gettitle;
+    private UiTitle getTitle;
 
     public UiTitle getTitle() {
-        if (gettitle == null)
-            gettitle = new UiTitle(jsBase + ".title()");
+        if (getTitle == null)
+            getTitle = new UiTitle(jsBase + ".title()");
 
-        return gettitle;
+        return getTitle;
     }
 
     private Boolean title;
@@ -795,44 +795,44 @@ public class CoreAxesLinear extends JsObject {
         }
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetminorLabels() {
-        if (getminorLabels != null) {
-            return getminorLabels.generateJs();
+    private String generateJSgetMinorLabels() {
+        if (getMinorLabels != null) {
+            return getMinorLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetminorTicks() {
-        if (getminorTicks != null) {
-            return getminorTicks.generateJs();
+    private String generateJSgetMinorTicks() {
+        if (getMinorTicks != null) {
+            return getMinorTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettitle() {
-        if (gettitle != null) {
-            return gettitle.generateJs();
+    private String generateJSgetTitle() {
+        if (getTitle != null) {
+            return getTitle.generateJs();
         }
         return "";
     }
@@ -1212,12 +1212,12 @@ public class CoreAxesLinear extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetminorLabels());
-            js.append(generateJSgetminorTicks());
-            js.append(generateJSgetscale());
-            js.append(generateJSgetticks());
-            js.append(generateJSgettitle());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetMinorLabels());
+            js.append(generateJSgetMinorTicks());
+            js.append(generateJSgetScale());
+            js.append(generateJSgetTicks());
+            js.append(generateJSgetTitle());
 
         String result = js.toString();
         js.setLength(0);

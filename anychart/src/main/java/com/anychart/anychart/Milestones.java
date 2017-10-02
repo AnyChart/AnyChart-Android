@@ -834,13 +834,13 @@ public class Milestones extends JsObject {
     }
 
     private Fill imageSettings1;
-    private UiLabelsFactory gethoverLabels;
+    private UiLabelsFactory getHoverLabels;
 
-    public UiLabelsFactory getHoverlabels() {
-        if (gethoverLabels == null)
-            gethoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+    public UiLabelsFactory getHoverLabels() {
+        if (getHoverLabels == null)
+            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
 
-        return gethoverLabels;
+        return getHoverLabels;
     }
 
     private String hoverLabels;
@@ -983,13 +983,13 @@ public class Milestones extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -1609,13 +1609,13 @@ public class Milestones extends JsObject {
     }
 
     private Fill imageSettings2;
-    private UiLabelsFactory getselectLabels;
+    private UiLabelsFactory getSelectLabels;
 
-    public UiLabelsFactory getSelectlabels() {
-        if (getselectLabels == null)
-            getselectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
 
-        return getselectLabels;
+        return getSelectLabels;
     }
 
     private String selectLabels;
@@ -2055,13 +2055,13 @@ public class Milestones extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -2104,30 +2104,30 @@ public class Milestones extends JsObject {
         }
     }
 
-    private String generateJSgethoverLabels() {
-        if (gethoverLabels != null) {
-            return gethoverLabels.generateJs();
+    private String generateJSgetHoverLabels() {
+        if (getHoverLabels != null) {
+            return getHoverLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectLabels() {
-        if (getselectLabels != null) {
-            return getselectLabels.generateJs();
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
@@ -2867,10 +2867,10 @@ public class Milestones extends JsObject {
             js.append(generateJStooltip1());
             js.append("}");
         }
-            js.append(generateJSgethoverLabels());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetselectLabels());
-            js.append(generateJSgettooltip());
+            js.append(generateJSgetHoverLabels());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetTooltip());
 
         String result = js.toString();
         js.setLength(0);

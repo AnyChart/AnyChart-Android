@@ -17,13 +17,13 @@ public class StandalonesGridsLinear extends JsObject {
     }
 
     
-    private CoreAxesLinear getaxis;
+    private CoreAxesLinear getAxis;
 
     public CoreAxesLinear getAxis() {
-        if (getaxis == null)
-            getaxis = new CoreAxesLinear(jsBase + ".axis()");
+        if (getAxis == null)
+            getAxis = new CoreAxesLinear(jsBase + ".axis()");
 
-        return getaxis;
+        return getAxis;
     }
 
     private CoreAxesLinear axis;
@@ -1068,13 +1068,13 @@ public class StandalonesGridsLinear extends JsObject {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new ScalesBase(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScalesBase scale;
@@ -1255,16 +1255,16 @@ public class StandalonesGridsLinear extends JsObject {
         }
     }
 
-    private String generateJSgetaxis() {
-        if (getaxis != null) {
-            return getaxis.generateJs();
+    private String generateJSgetAxis() {
+        if (getAxis != null) {
+            return getAxis.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
@@ -1820,8 +1820,8 @@ public class StandalonesGridsLinear extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetaxis());
-            js.append(generateJSgetscale());
+            js.append(generateJSgetAxis());
+            js.append(generateJSgetScale());
 
         String result = js.toString();
         js.setLength(0);

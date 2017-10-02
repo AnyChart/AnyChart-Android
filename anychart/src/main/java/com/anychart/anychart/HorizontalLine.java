@@ -34,13 +34,13 @@ public class HorizontalLine extends JsObject {
         }
     }
 
-    private UiMarkersFactory gethoverMarkers;
+    private UiMarkersFactory getHoverMarkers;
 
-    public UiMarkersFactory getHovermarkers() {
-        if (gethoverMarkers == null)
-            gethoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
+    public UiMarkersFactory getHoverMarkers() {
+        if (getHoverMarkers == null)
+            getHoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
 
-        return gethoverMarkers;
+        return getHoverMarkers;
     }
 
     private String hoverMarkers;
@@ -180,13 +180,13 @@ public class HorizontalLine extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -232,13 +232,13 @@ public class HorizontalLine extends JsObject {
         }
     }
 
-    private UiMarkersFactory getselectMarkers;
+    private UiMarkersFactory getSelectMarkers;
 
-    public UiMarkersFactory getSelectmarkers() {
-        if (getselectMarkers == null)
-            getselectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
+    public UiMarkersFactory getSelectMarkers() {
+        if (getSelectMarkers == null)
+            getSelectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
 
-        return getselectMarkers;
+        return getSelectMarkers;
     }
 
     private String selectMarkers;
@@ -583,13 +583,13 @@ public class HorizontalLine extends JsObject {
         }
     }
 
-    private ScalesBase getxScale;
+    private Ordinal getXScale;
 
-    public ScalesBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScalesBase(jsBase + ".xScale()");
+    public Ordinal getXScale() {
+        if (getXScale == null)
+            getXScale = new Ordinal(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -632,13 +632,13 @@ public class HorizontalLine extends JsObject {
         }
     }
 
-    private ScalesBase getyScale;
+    private ScalesBase getYScale;
 
-    public ScalesBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScalesBase(jsBase + ".yScale()");
+    public ScalesBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScalesBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScalesBase yScale;
@@ -658,37 +658,37 @@ public class HorizontalLine extends JsObject {
         }
     }
 
-    private String generateJSgethoverMarkers() {
-        if (gethoverMarkers != null) {
-            return gethoverMarkers.generateJs();
+    private String generateJSgetHoverMarkers() {
+        if (getHoverMarkers != null) {
+            return getHoverMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectMarkers() {
-        if (getselectMarkers != null) {
-            return getselectMarkers.generateJs();
+    private String generateJSgetSelectMarkers() {
+        if (getSelectMarkers != null) {
+            return getSelectMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -972,11 +972,11 @@ public class HorizontalLine extends JsObject {
             js.append(generateJSyScale());
             js.append("}");
         }
-            js.append(generateJSgethoverMarkers());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgetselectMarkers());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetHoverMarkers());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetSelectMarkers());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

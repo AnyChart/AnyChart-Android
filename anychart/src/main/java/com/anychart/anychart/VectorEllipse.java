@@ -109,6 +109,15 @@ public class VectorEllipse extends JsObject {
     }
 
     private String key1;
+    private Coordinate getCenter;
+
+    public Coordinate getCenter() {
+        if (getCenter == null)
+            getCenter = new Coordinate(jsBase + ".center()");
+
+        return getCenter;
+    }
+
     private Coordinate center;
 
     public void setCenter(Coordinate center) {
@@ -158,6 +167,15 @@ public class VectorEllipse extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private GraphicsMathRect getClip;
+
+    public GraphicsMathRect getClip() {
+        if (getClip == null)
+            getClip = new GraphicsMathRect(jsBase + ".clip()");
+
+        return getClip;
     }
 
     private GraphicsMathRect clip;
@@ -634,6 +652,15 @@ public class VectorEllipse extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private GraphicsMathRect getGetAbsoluteBounds;
+
+    public GraphicsMathRect getGetAbsoluteBounds() {
+        if (getGetAbsoluteBounds == null)
+            getGetAbsoluteBounds = new GraphicsMathRect(jsBase + ".getAbsoluteBounds()");
+
+        return getGetAbsoluteBounds;
     }
 
     private String id;
@@ -1520,6 +1547,27 @@ public class VectorEllipse extends JsObject {
         }
     }
 
+    private String generateJSgetCenter() {
+        if (getCenter != null) {
+            return getCenter.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGetAbsoluteBounds() {
+        if (getGetAbsoluteBounds != null) {
+            return getGetAbsoluteBounds.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSm() {
         if (m != null) {
             return String.format(Locale.US, "m: %f,", m);
@@ -2311,6 +2359,9 @@ public class VectorEllipse extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
+            js.append(generateJSgetCenter());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetGetAbsoluteBounds());
 
         String result = js.toString();
         js.setLength(0);

@@ -34,13 +34,13 @@ public class DMI extends JsObject {
         }
     }
 
-    private StockSeriesBase getadxSeries;
+    private StockSeriesBase getAdxSeries;
 
-    public StockSeriesBase getAdxseries() {
-        if (getadxSeries == null)
-            getadxSeries = new StockSeriesBase(jsBase + ".adxSeries()");
+    public StockSeriesBase getAdxSeries() {
+        if (getAdxSeries == null)
+            getAdxSeries = new StockSeriesBase(jsBase + ".adxSeries()");
 
-        return getadxSeries;
+        return getAdxSeries;
     }
 
     private StockSeriesType type;
@@ -83,13 +83,13 @@ public class DMI extends JsObject {
         }
     }
 
-    private StockSeriesBase getndiSeries;
+    private StockSeriesBase getNdiSeries;
 
-    public StockSeriesBase getNdiseries() {
-        if (getndiSeries == null)
-            getndiSeries = new StockSeriesBase(jsBase + ".ndiSeries()");
+    public StockSeriesBase getNdiSeries() {
+        if (getNdiSeries == null)
+            getNdiSeries = new StockSeriesBase(jsBase + ".ndiSeries()");
 
-        return getndiSeries;
+        return getNdiSeries;
     }
 
     private StockSeriesType type2;
@@ -136,13 +136,13 @@ public class DMI extends JsObject {
         }
     }
 
-    private StockSeriesBase getpdiSeries;
+    private StockSeriesBase getPdiSeries;
 
-    public StockSeriesBase getPdiseries() {
-        if (getpdiSeries == null)
-            getpdiSeries = new StockSeriesBase(jsBase + ".pdiSeries()");
+    public StockSeriesBase getPdiSeries() {
+        if (getPdiSeries == null)
+            getPdiSeries = new StockSeriesBase(jsBase + ".pdiSeries()");
 
-        return getpdiSeries;
+        return getPdiSeries;
     }
 
     private StockSeriesType type4;
@@ -227,23 +227,23 @@ public class DMI extends JsObject {
         }
     }
 
-    private String generateJSgetadxSeries() {
-        if (getadxSeries != null) {
-            return getadxSeries.generateJs();
+    private String generateJSgetAdxSeries() {
+        if (getAdxSeries != null) {
+            return getAdxSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetndiSeries() {
-        if (getndiSeries != null) {
-            return getndiSeries.generateJs();
+    private String generateJSgetNdiSeries() {
+        if (getNdiSeries != null) {
+            return getNdiSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetpdiSeries() {
-        if (getpdiSeries != null) {
-            return getpdiSeries.generateJs();
+    private String generateJSgetPdiSeries() {
+        if (getPdiSeries != null) {
+            return getPdiSeries.generateJs();
         }
         return "";
     }
@@ -327,9 +327,9 @@ public class DMI extends JsObject {
             js.append(generateJSuseWildersSmoothing());
             js.append("}");
         }
-            js.append(generateJSgetadxSeries());
-            js.append(generateJSgetndiSeries());
-            js.append(generateJSgetpdiSeries());
+            js.append(generateJSgetAdxSeries());
+            js.append(generateJSgetNdiSeries());
+            js.append(generateJSgetPdiSeries());
 
         String result = js.toString();
         js.setLength(0);

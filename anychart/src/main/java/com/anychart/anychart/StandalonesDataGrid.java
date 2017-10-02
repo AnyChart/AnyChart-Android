@@ -386,13 +386,13 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -1110,6 +1110,15 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
+    private Element getContainer;
+
+    public Element getContainer() {
+        if (getContainer == null)
+            getContainer = new Element(jsBase + ".container()");
+
+        return getContainer;
+    }
+
     private String container;
     private Element container1;
 
@@ -1150,13 +1159,13 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
-    private Tree getdata;
+    private Tree getData;
 
     public Tree getData() {
-        if (getdata == null)
-            getdata = new Tree(jsBase + ".data()");
+        if (getData == null)
+            getData = new Tree(jsBase + ".data()");
 
-        return getdata;
+        return getData;
     }
 
     private Tree data;
@@ -2124,13 +2133,13 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
-    private AnychartMathRect getparentBounds;
+    private AnychartMathRect getParentBounds;
 
-    public AnychartMathRect getParentbounds() {
-        if (getparentBounds == null)
-            getparentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
+    public AnychartMathRect getParentBounds() {
+        if (getParentBounds == null)
+            getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
 
-        return getparentBounds;
+        return getParentBounds;
     }
 
     private AnychartMathRect parentBounds;
@@ -6160,13 +6169,13 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -6321,13 +6330,13 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
-    private ScrollBar getverticalScrollBar;
+    private ScrollBar getVerticalScrollBar;
 
-    public ScrollBar getVerticalscrollbar() {
-        if (getverticalScrollBar == null)
-            getverticalScrollBar = new ScrollBar(jsBase + ".verticalScrollBar()");
+    public ScrollBar getVerticalScrollBar() {
+        if (getVerticalScrollBar == null)
+            getVerticalScrollBar = new ScrollBar(jsBase + ".verticalScrollBar()");
 
-        return getverticalScrollBar;
+        return getVerticalScrollBar;
     }
 
     private String verticalScrollBar;
@@ -6410,37 +6419,44 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetparentBounds() {
-        if (getparentBounds != null) {
-            return getparentBounds.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetParentBounds() {
+        if (getParentBounds != null) {
+            return getParentBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetverticalScrollBar() {
-        if (getverticalScrollBar != null) {
-            return getverticalScrollBar.generateJs();
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetVerticalScrollBar() {
+        if (getVerticalScrollBar != null) {
+            return getVerticalScrollBar.generateJs();
         }
         return "";
     }
@@ -8132,11 +8148,12 @@ public class StandalonesDataGrid extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdata());
-            js.append(generateJSgetparentBounds());
-            js.append(generateJSgettooltip());
-            js.append(generateJSgetverticalScrollBar());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetContainer());
+            js.append(generateJSgetData());
+            js.append(generateJSgetParentBounds());
+            js.append(generateJSgetTooltip());
+            js.append(generateJSgetVerticalScrollBar());
 
         String result = js.toString();
         js.setLength(0);

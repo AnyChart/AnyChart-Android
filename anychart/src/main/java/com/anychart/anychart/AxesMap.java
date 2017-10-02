@@ -68,13 +68,13 @@ public class AxesMap extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -172,13 +172,13 @@ public class AxesMap extends JsObject {
         }
     }
 
-    private UiLabelsFactory getminorLabels;
+    private UiLabelsFactory getMinorLabels;
 
-    public UiLabelsFactory getMinorlabels() {
-        if (getminorLabels == null)
-            getminorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
+    public UiLabelsFactory getMinorLabels() {
+        if (getMinorLabels == null)
+            getMinorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
 
-        return getminorLabels;
+        return getMinorLabels;
     }
 
     private String minorLabels;
@@ -221,13 +221,13 @@ public class AxesMap extends JsObject {
         }
     }
 
-    private MapTicks getminorTicks;
+    private MapTicks getMinorTicks;
 
-    public MapTicks getMinorticks() {
-        if (getminorTicks == null)
-            getminorTicks = new MapTicks(jsBase + ".minorTicks()");
+    public MapTicks getMinorTicks() {
+        if (getMinorTicks == null)
+            getMinorTicks = new MapTicks(jsBase + ".minorTicks()");
 
-        return getminorTicks;
+        return getMinorTicks;
     }
 
     private String minorTicks;
@@ -467,13 +467,13 @@ public class AxesMap extends JsObject {
         }
     }
 
-    private MapTicks getticks;
+    private MapTicks getTicks;
 
     public MapTicks getTicks() {
-        if (getticks == null)
-            getticks = new MapTicks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new MapTicks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -516,13 +516,13 @@ public class AxesMap extends JsObject {
         }
     }
 
-    private UiTitle gettitle;
+    private UiTitle getTitle;
 
     public UiTitle getTitle() {
-        if (gettitle == null)
-            gettitle = new UiTitle(jsBase + ".title()");
+        if (getTitle == null)
+            getTitle = new UiTitle(jsBase + ".title()");
 
-        return gettitle;
+        return getTitle;
     }
 
     private Boolean title;
@@ -638,37 +638,37 @@ public class AxesMap extends JsObject {
         }
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetminorLabels() {
-        if (getminorLabels != null) {
-            return getminorLabels.generateJs();
+    private String generateJSgetMinorLabels() {
+        if (getMinorLabels != null) {
+            return getMinorLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetminorTicks() {
-        if (getminorTicks != null) {
-            return getminorTicks.generateJs();
+    private String generateJSgetMinorTicks() {
+        if (getMinorTicks != null) {
+            return getMinorTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettitle() {
-        if (gettitle != null) {
-            return gettitle.generateJs();
+    private String generateJSgetTitle() {
+        if (getTitle != null) {
+            return getTitle.generateJs();
         }
         return "";
     }
@@ -984,11 +984,11 @@ public class AxesMap extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetminorLabels());
-            js.append(generateJSgetminorTicks());
-            js.append(generateJSgetticks());
-            js.append(generateJSgettitle());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetMinorLabels());
+            js.append(generateJSgetMinorTicks());
+            js.append(generateJSgetTicks());
+            js.append(generateJSgetTitle());
 
         String result = js.toString();
         js.setLength(0);

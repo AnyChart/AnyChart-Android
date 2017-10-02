@@ -6686,13 +6686,13 @@ public class Tasks extends JsObject {
         }
     }
 
-    private UiLabelsFactory gethoverLowerLabels;
+    private UiLabelsFactory getHoverLowerLabels;
 
-    public UiLabelsFactory getHoverlowerlabels() {
-        if (gethoverLowerLabels == null)
-            gethoverLowerLabels = new UiLabelsFactory(jsBase + ".hoverLowerLabels()");
+    public UiLabelsFactory getHoverLowerLabels() {
+        if (getHoverLowerLabels == null)
+            getHoverLowerLabels = new UiLabelsFactory(jsBase + ".hoverLowerLabels()");
 
-        return gethoverLowerLabels;
+        return getHoverLowerLabels;
     }
 
     private String hoverLowerLabels;
@@ -6874,13 +6874,13 @@ public class Tasks extends JsObject {
         }
     }
 
-    private UiLabelsFactory gethoverUpperLabels;
+    private UiLabelsFactory getHoverUpperLabels;
 
-    public UiLabelsFactory getHoverupperlabels() {
-        if (gethoverUpperLabels == null)
-            gethoverUpperLabels = new UiLabelsFactory(jsBase + ".hoverUpperLabels()");
+    public UiLabelsFactory getHoverUpperLabels() {
+        if (getHoverUpperLabels == null)
+            getHoverUpperLabels = new UiLabelsFactory(jsBase + ".hoverUpperLabels()");
 
-        return gethoverUpperLabels;
+        return getHoverUpperLabels;
     }
 
     private String hoverUpperLabels;
@@ -6923,13 +6923,13 @@ public class Tasks extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlowerLabels;
+    private UiLabelsFactory getLowerLabels;
 
-    public UiLabelsFactory getLowerlabels() {
-        if (getlowerLabels == null)
-            getlowerLabels = new UiLabelsFactory(jsBase + ".lowerLabels()");
+    public UiLabelsFactory getLowerLabels() {
+        if (getLowerLabels == null)
+            getLowerLabels = new UiLabelsFactory(jsBase + ".lowerLabels()");
 
-        return getlowerLabels;
+        return getLowerLabels;
     }
 
     private String lowerLabels;
@@ -10262,13 +10262,13 @@ public class Tasks extends JsObject {
         }
     }
 
-    private UiLabelsFactory getselectLowerLabels;
+    private UiLabelsFactory getSelectLowerLabels;
 
-    public UiLabelsFactory getSelectlowerlabels() {
-        if (getselectLowerLabels == null)
-            getselectLowerLabels = new UiLabelsFactory(jsBase + ".selectLowerLabels()");
+    public UiLabelsFactory getSelectLowerLabels() {
+        if (getSelectLowerLabels == null)
+            getSelectLowerLabels = new UiLabelsFactory(jsBase + ".selectLowerLabels()");
 
-        return getselectLowerLabels;
+        return getSelectLowerLabels;
     }
 
     private String selectLowerLabels;
@@ -10471,13 +10471,13 @@ public class Tasks extends JsObject {
         }
     }
 
-    private UiLabelsFactory getselectUpperLabels;
+    private UiLabelsFactory getSelectUpperLabels;
 
-    public UiLabelsFactory getSelectupperlabels() {
-        if (getselectUpperLabels == null)
-            getselectUpperLabels = new UiLabelsFactory(jsBase + ".selectUpperLabels()");
+    public UiLabelsFactory getSelectUpperLabels() {
+        if (getSelectUpperLabels == null)
+            getSelectUpperLabels = new UiLabelsFactory(jsBase + ".selectUpperLabels()");
 
-        return getselectUpperLabels;
+        return getSelectUpperLabels;
     }
 
     private String selectUpperLabels;
@@ -10701,13 +10701,13 @@ public class Tasks extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -10750,13 +10750,13 @@ public class Tasks extends JsObject {
         }
     }
 
-    private UiLabelsFactory getupperLabels;
+    private UiLabelsFactory getUpperLabels;
 
-    public UiLabelsFactory getUpperlabels() {
-        if (getupperLabels == null)
-            getupperLabels = new UiLabelsFactory(jsBase + ".upperLabels()");
+    public UiLabelsFactory getUpperLabels() {
+        if (getUpperLabels == null)
+            getUpperLabels = new UiLabelsFactory(jsBase + ".upperLabels()");
 
-        return getupperLabels;
+        return getUpperLabels;
     }
 
     private String upperLabels;
@@ -10799,51 +10799,51 @@ public class Tasks extends JsObject {
         }
     }
 
-    private String generateJSgethoverLowerLabels() {
-        if (gethoverLowerLabels != null) {
-            return gethoverLowerLabels.generateJs();
+    private String generateJSgetHoverLowerLabels() {
+        if (getHoverLowerLabels != null) {
+            return getHoverLowerLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverUpperLabels() {
-        if (gethoverUpperLabels != null) {
-            return gethoverUpperLabels.generateJs();
+    private String generateJSgetHoverUpperLabels() {
+        if (getHoverUpperLabels != null) {
+            return getHoverUpperLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlowerLabels() {
-        if (getlowerLabels != null) {
-            return getlowerLabels.generateJs();
+    private String generateJSgetLowerLabels() {
+        if (getLowerLabels != null) {
+            return getLowerLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectLowerLabels() {
-        if (getselectLowerLabels != null) {
-            return getselectLowerLabels.generateJs();
+    private String generateJSgetSelectLowerLabels() {
+        if (getSelectLowerLabels != null) {
+            return getSelectLowerLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectUpperLabels() {
-        if (getselectUpperLabels != null) {
-            return getselectUpperLabels.generateJs();
+    private String generateJSgetSelectUpperLabels() {
+        if (getSelectUpperLabels != null) {
+            return getSelectUpperLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetupperLabels() {
-        if (getupperLabels != null) {
-            return getupperLabels.generateJs();
+    private String generateJSgetUpperLabels() {
+        if (getUpperLabels != null) {
+            return getUpperLabels.generateJs();
         }
         return "";
     }
@@ -11647,13 +11647,13 @@ public class Tasks extends JsObject {
             js.append(generateJSupperLabels1());
             js.append("}");
         }
-            js.append(generateJSgethoverLowerLabels());
-            js.append(generateJSgethoverUpperLabels());
-            js.append(generateJSgetlowerLabels());
-            js.append(generateJSgetselectLowerLabels());
-            js.append(generateJSgetselectUpperLabels());
-            js.append(generateJSgettooltip());
-            js.append(generateJSgetupperLabels());
+            js.append(generateJSgetHoverLowerLabels());
+            js.append(generateJSgetHoverUpperLabels());
+            js.append(generateJSgetLowerLabels());
+            js.append(generateJSgetSelectLowerLabels());
+            js.append(generateJSgetSelectUpperLabels());
+            js.append(generateJSgetTooltip());
+            js.append(generateJSgetUpperLabels());
 
         String result = js.toString();
         js.setLength(0);

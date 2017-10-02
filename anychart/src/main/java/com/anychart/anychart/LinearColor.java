@@ -382,6 +382,15 @@ public class LinearColor extends JsObject {
         }
     }
 
+    private ScatterTicks getMinorTicks;
+
+    public ScatterTicks getMinorTicks() {
+        if (getMinorTicks == null)
+            getMinorTicks = new ScatterTicks(jsBase + ".minorTicks()");
+
+        return getMinorTicks;
+    }
+
     private String minorTicks;
     private String[] minorTicks1;
 
@@ -441,6 +450,15 @@ public class LinearColor extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private ScatterTicks getTicks;
+
+    public ScatterTicks getTicks() {
+        if (getTicks == null)
+            getTicks = new ScatterTicks(jsBase + ".ticks()");
+
+        return getTicks;
     }
 
     private String ticks;
@@ -551,6 +569,20 @@ public class LinearColor extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private String generateJSgetMinorTicks() {
+        if (getMinorTicks != null) {
+            return getMinorTicks.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
+        }
+        return "";
     }
 
     private String generateJScolorToValue() {
@@ -800,6 +832,8 @@ public class LinearColor extends JsObject {
             js.append(generateJSvalueToColor());
             js.append("}");
         }
+            js.append(generateJSgetMinorTicks());
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

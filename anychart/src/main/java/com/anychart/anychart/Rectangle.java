@@ -366,13 +366,13 @@ public class Rectangle extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill gethatchFill;
+    private PatternFill getHatchFill;
 
-    public PatternFill getHatchfill() {
-        if (gethatchFill == null)
-            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+    public PatternFill getHatchFill() {
+        if (getHatchFill == null)
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
-        return gethatchFill;
+        return getHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -1012,13 +1012,13 @@ public class Rectangle extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill gethoverHatchFill;
+    private PatternFill getHoverHatchFill;
 
-    public PatternFill getHoverhatchfill() {
-        if (gethoverHatchFill == null)
-            gethoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
+    public PatternFill getHoverHatchFill() {
+        if (getHoverHatchFill == null)
+            getHoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
 
-        return gethoverHatchFill;
+        return getHoverHatchFill;
     }
 
     private PatternFill patternFillOrType5;
@@ -1254,13 +1254,13 @@ public class Rectangle extends JsObject {
         }
     }
 
-    private UiMarkersFactory gethoverMarkers;
+    private UiMarkersFactory getHoverMarkers;
 
-    public UiMarkersFactory getHovermarkers() {
-        if (gethoverMarkers == null)
-            gethoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
+    public UiMarkersFactory getHoverMarkers() {
+        if (getHoverMarkers == null)
+            getHoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
 
-        return gethoverMarkers;
+        return getHoverMarkers;
     }
 
     private String hoverMarkers;
@@ -1424,13 +1424,13 @@ public class Rectangle extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -2055,13 +2055,13 @@ public class Rectangle extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill getselectHatchFill;
+    private PatternFill getSelectHatchFill;
 
-    public PatternFill getSelecthatchfill() {
-        if (getselectHatchFill == null)
-            getselectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
+    public PatternFill getSelectHatchFill() {
+        if (getSelectHatchFill == null)
+            getSelectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
 
-        return getselectHatchFill;
+        return getSelectHatchFill;
     }
 
     private PatternFill patternFillOrType10;
@@ -2362,13 +2362,13 @@ public class Rectangle extends JsObject {
         }
     }
 
-    private UiMarkersFactory getselectMarkers;
+    private UiMarkersFactory getSelectMarkers;
 
-    public UiMarkersFactory getSelectmarkers() {
-        if (getselectMarkers == null)
-            getselectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
+    public UiMarkersFactory getSelectMarkers() {
+        if (getSelectMarkers == null)
+            getSelectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
 
-        return getselectMarkers;
+        return getSelectMarkers;
     }
 
     private String selectMarkers;
@@ -2767,13 +2767,13 @@ public class Rectangle extends JsObject {
         }
     }
 
-    private ScalesBase getxScale;
+    private Ordinal getXScale;
 
-    public ScalesBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScalesBase(jsBase + ".xScale()");
+    public Ordinal getXScale() {
+        if (getXScale == null)
+            getXScale = new Ordinal(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -2816,13 +2816,13 @@ public class Rectangle extends JsObject {
         }
     }
 
-    private ScalesBase getyScale;
+    private ScalesBase getYScale;
 
-    public ScalesBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScalesBase(jsBase + ".yScale()");
+    public ScalesBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScalesBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScalesBase yScale;
@@ -2842,58 +2842,58 @@ public class Rectangle extends JsObject {
         }
     }
 
-    private String generateJSgethatchFill() {
-        if (gethatchFill != null) {
-            return gethatchFill.generateJs();
+    private String generateJSgetHatchFill() {
+        if (getHatchFill != null) {
+            return getHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverHatchFill() {
-        if (gethoverHatchFill != null) {
-            return gethoverHatchFill.generateJs();
+    private String generateJSgetHoverHatchFill() {
+        if (getHoverHatchFill != null) {
+            return getHoverHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverMarkers() {
-        if (gethoverMarkers != null) {
-            return gethoverMarkers.generateJs();
+    private String generateJSgetHoverMarkers() {
+        if (getHoverMarkers != null) {
+            return getHoverMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectHatchFill() {
-        if (getselectHatchFill != null) {
-            return getselectHatchFill.generateJs();
+    private String generateJSgetSelectHatchFill() {
+        if (getSelectHatchFill != null) {
+            return getSelectHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectMarkers() {
-        if (getselectMarkers != null) {
-            return getselectMarkers.generateJs();
+    private String generateJSgetSelectMarkers() {
+        if (getSelectMarkers != null) {
+            return getSelectMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -3825,14 +3825,14 @@ public class Rectangle extends JsObject {
             js.append(generateJSyScale());
             js.append("}");
         }
-            js.append(generateJSgethatchFill());
-            js.append(generateJSgethoverHatchFill());
-            js.append(generateJSgethoverMarkers());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgetselectHatchFill());
-            js.append(generateJSgetselectMarkers());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetHatchFill());
+            js.append(generateJSgetHoverHatchFill());
+            js.append(generateJSgetHoverMarkers());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetSelectHatchFill());
+            js.append(generateJSgetSelectMarkers());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

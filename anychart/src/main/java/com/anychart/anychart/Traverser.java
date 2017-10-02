@@ -17,6 +17,15 @@ public class Traverser extends JsObject {
     }
 
     
+    private TreeDataItem getCurrent;
+
+    public TreeDataItem getCurrent() {
+        if (getCurrent == null)
+            getCurrent = new TreeDataItem(jsBase + ".current()");
+
+        return getCurrent;
+    }
+
     private String key;
 
     public void setGet(String key) {
@@ -77,6 +86,13 @@ public class Traverser extends JsObject {
         }
     }
 
+    private String generateJSgetCurrent() {
+        if (getCurrent != null) {
+            return getCurrent.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSkey() {
         if (key != null) {
             return String.format(Locale.US, "key: %s,", key);
@@ -116,6 +132,7 @@ public class Traverser extends JsObject {
             js.append(generateJSkey3());
             js.append("}");
         }
+            js.append(generateJSgetCurrent());
 
         String result = js.toString();
         js.setLength(0);

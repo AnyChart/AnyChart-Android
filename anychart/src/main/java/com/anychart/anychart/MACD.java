@@ -34,13 +34,13 @@ public class MACD extends JsObject {
         }
     }
 
-    private StockSeriesBase gethistogramSeries;
+    private StockSeriesBase getHistogramSeries;
 
-    public StockSeriesBase getHistogramseries() {
-        if (gethistogramSeries == null)
-            gethistogramSeries = new StockSeriesBase(jsBase + ".histogramSeries()");
+    public StockSeriesBase getHistogramSeries() {
+        if (getHistogramSeries == null)
+            getHistogramSeries = new StockSeriesBase(jsBase + ".histogramSeries()");
 
-        return gethistogramSeries;
+        return getHistogramSeries;
     }
 
     private String type;
@@ -83,13 +83,13 @@ public class MACD extends JsObject {
         }
     }
 
-    private StockSeriesBase getmacdSeries;
+    private StockSeriesBase getMacdSeries;
 
-    public StockSeriesBase getMacdseries() {
-        if (getmacdSeries == null)
-            getmacdSeries = new StockSeriesBase(jsBase + ".macdSeries()");
+    public StockSeriesBase getMacdSeries() {
+        if (getMacdSeries == null)
+            getMacdSeries = new StockSeriesBase(jsBase + ".macdSeries()");
 
-        return getmacdSeries;
+        return getMacdSeries;
     }
 
     private String type2;
@@ -153,13 +153,13 @@ public class MACD extends JsObject {
         }
     }
 
-    private StockSeriesBase getsignalSeries;
+    private StockSeriesBase getSignalSeries;
 
-    public StockSeriesBase getSignalseries() {
-        if (getsignalSeries == null)
-            getsignalSeries = new StockSeriesBase(jsBase + ".signalSeries()");
+    public StockSeriesBase getSignalSeries() {
+        if (getSignalSeries == null)
+            getSignalSeries = new StockSeriesBase(jsBase + ".signalSeries()");
 
-        return getsignalSeries;
+        return getSignalSeries;
     }
 
     private String type4;
@@ -227,23 +227,23 @@ public class MACD extends JsObject {
         }
     }
 
-    private String generateJSgethistogramSeries() {
-        if (gethistogramSeries != null) {
-            return gethistogramSeries.generateJs();
+    private String generateJSgetHistogramSeries() {
+        if (getHistogramSeries != null) {
+            return getHistogramSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmacdSeries() {
-        if (getmacdSeries != null) {
-            return getmacdSeries.generateJs();
+    private String generateJSgetMacdSeries() {
+        if (getMacdSeries != null) {
+            return getMacdSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetsignalSeries() {
-        if (getsignalSeries != null) {
-            return getsignalSeries.generateJs();
+    private String generateJSgetSignalSeries() {
+        if (getSignalSeries != null) {
+            return getSignalSeries.generateJs();
         }
         return "";
     }
@@ -327,9 +327,9 @@ public class MACD extends JsObject {
             js.append(generateJSslowPeriod());
             js.append("}");
         }
-            js.append(generateJSgethistogramSeries());
-            js.append(generateJSgetmacdSeries());
-            js.append(generateJSgetsignalSeries());
+            js.append(generateJSgetHistogramSeries());
+            js.append(generateJSgetMacdSeries());
+            js.append(generateJSgetSignalSeries());
 
         String result = js.toString();
         js.setLength(0);

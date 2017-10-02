@@ -57,13 +57,13 @@ public class ScatterSeriesBase extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -681,6 +681,15 @@ public class ScatterSeriesBase extends JsObject {
         }
     }
 
+    private AnychartMathRect getClip;
+
+    public AnychartMathRect getClip() {
+        if (getClip == null)
+            getClip = new AnychartMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private Boolean clip;
     private AnychartMathRect clip1;
 
@@ -738,13 +747,13 @@ public class ScatterSeriesBase extends JsObject {
         }
     }
 
-    private Error geterror;
+    private Error getError;
 
     public Error getError() {
-        if (geterror == null)
-            geterror = new Error(jsBase + ".error()");
+        if (getError == null)
+            getError = new Error(jsBase + ".error()");
 
-        return geterror;
+        return getError;
     }
 
     private String error;
@@ -1495,6 +1504,15 @@ public class ScatterSeriesBase extends JsObject {
         }
     }
 
+    private UiLabelsFactory getSelectLabels;
+
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+
+        return getSelectLabels;
+    }
+
     private String selectLabels;
     private Boolean selectLabels1;
 
@@ -1804,13 +1822,13 @@ public class ScatterSeriesBase extends JsObject {
         }
     }
 
-    private ScatterBase getxScale;
+    private ScatterBase getXScale;
 
-    public ScatterBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScatterBase(jsBase + ".xScale()");
+    public ScatterBase getXScale() {
+        if (getXScale == null)
+            getXScale = new ScatterBase(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -1830,13 +1848,13 @@ public class ScatterSeriesBase extends JsObject {
         }
     }
 
-    private ScatterBase getyScale;
+    private ScatterBase getYScale;
 
-    public ScatterBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScatterBase(jsBase + ".yScale()");
+    public ScatterBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScatterBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScatterBase yScale;
@@ -1873,30 +1891,44 @@ public class ScatterSeriesBase extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgeterror() {
-        if (geterror != null) {
-            return geterror.generateJs();
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetError() {
+        if (getError != null) {
+            return getError.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -2524,10 +2556,12 @@ public class ScatterSeriesBase extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgeterror());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetError());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

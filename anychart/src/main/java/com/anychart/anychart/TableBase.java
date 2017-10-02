@@ -17,13 +17,13 @@ public class TableBase extends JsObject {
     }
 
     
-    private Border getborder;
+    private Border getBorder;
 
     public Border getBorder() {
-        if (getborder == null)
-            getborder = new Border(jsBase + ".border()");
+        if (getBorder == null)
+            getBorder = new Border(jsBase + ".border()");
 
-        return getborder;
+        return getBorder;
     }
 
     private Stroke color;
@@ -716,9 +716,9 @@ public class TableBase extends JsObject {
         }
     }
 
-    private String generateJSgetborder() {
-        if (getborder != null) {
-            return getborder.generateJs();
+    private String generateJSgetBorder() {
+        if (getBorder != null) {
+            return getBorder.generateJs();
         }
         return "";
     }
@@ -1034,7 +1034,7 @@ public class TableBase extends JsObject {
             js.append(generateJSvAlign1());
             js.append("}");
         }
-            js.append(generateJSgetborder());
+            js.append(generateJSgetBorder());
 
         String result = js.toString();
         js.setLength(0);

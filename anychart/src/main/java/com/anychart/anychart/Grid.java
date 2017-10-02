@@ -17,13 +17,13 @@ public class Grid extends JsObject {
     }
 
     
-    private UiBackground getbackground;
+    private UiBackground getBackground;
 
     public UiBackground getBackground() {
-        if (getbackground == null)
-            getbackground = new UiBackground(jsBase + ".background()");
+        if (getBackground == null)
+            getBackground = new UiBackground(jsBase + ".background()");
 
-        return getbackground;
+        return getBackground;
     }
 
     private String background;
@@ -109,13 +109,13 @@ public class Grid extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -1147,13 +1147,13 @@ public class Grid extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill getevenHatchFill;
+    private PatternFill getEvenHatchFill;
 
-    public PatternFill getEvenhatchfill() {
-        if (getevenHatchFill == null)
-            getevenHatchFill = new PatternFill(jsBase + ".evenHatchFill()");
+    public PatternFill getEvenHatchFill() {
+        if (getEvenHatchFill == null)
+            getEvenHatchFill = new PatternFill(jsBase + ".evenHatchFill()");
 
-        return getevenHatchFill;
+        return getEvenHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -1751,13 +1751,13 @@ public class Grid extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill getevenHolidayHatchFill;
+    private PatternFill getEvenHolidayHatchFill;
 
-    public PatternFill getEvenholidayhatchfill() {
-        if (getevenHolidayHatchFill == null)
-            getevenHolidayHatchFill = new PatternFill(jsBase + ".evenHolidayHatchFill()");
+    public PatternFill getEvenHolidayHatchFill() {
+        if (getEvenHolidayHatchFill == null)
+            getEvenHolidayHatchFill = new PatternFill(jsBase + ".evenHolidayHatchFill()");
 
-        return getevenHolidayHatchFill;
+        return getEvenHolidayHatchFill;
     }
 
     private PatternFill patternFillOrType4;
@@ -2927,13 +2927,13 @@ public class Grid extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill getoddHatchFill;
+    private PatternFill getOddHatchFill;
 
-    public PatternFill getOddhatchfill() {
-        if (getoddHatchFill == null)
-            getoddHatchFill = new PatternFill(jsBase + ".oddHatchFill()");
+    public PatternFill getOddHatchFill() {
+        if (getOddHatchFill == null)
+            getOddHatchFill = new PatternFill(jsBase + ".oddHatchFill()");
 
-        return getoddHatchFill;
+        return getOddHatchFill;
     }
 
     private PatternFill patternFillOrType8;
@@ -3844,13 +3844,13 @@ public class Grid extends JsObject {
     }
 
     private Fill imageSettings3;
-    private PatternFill getoddHolidayHatchFill;
+    private PatternFill getOddHolidayHatchFill;
 
-    public PatternFill getOddholidayhatchfill() {
-        if (getoddHolidayHatchFill == null)
-            getoddHolidayHatchFill = new PatternFill(jsBase + ".oddHolidayHatchFill()");
+    public PatternFill getOddHolidayHatchFill() {
+        if (getOddHolidayHatchFill == null)
+            getOddHolidayHatchFill = new PatternFill(jsBase + ".oddHolidayHatchFill()");
 
-        return getoddHolidayHatchFill;
+        return getOddHolidayHatchFill;
     }
 
     private PatternFill patternFillOrType12;
@@ -4108,13 +4108,13 @@ public class Grid extends JsObject {
         }
     }
 
-    private Overlay getoverlay;
+    private Overlay getOverlay;
 
     public Overlay getOverlay() {
-        if (getoverlay == null)
-            getoverlay = new Overlay(jsBase + ".overlay()");
+        if (getOverlay == null)
+            getOverlay = new Overlay(jsBase + ".overlay()");
 
-        return getoverlay;
+        return getOverlay;
     }
 
     private String overlay;
@@ -4589,51 +4589,51 @@ public class Grid extends JsObject {
         }
     }
 
-    private String generateJSgetbackground() {
-        if (getbackground != null) {
-            return getbackground.generateJs();
+    private String generateJSgetBackground() {
+        if (getBackground != null) {
+            return getBackground.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetevenHatchFill() {
-        if (getevenHatchFill != null) {
-            return getevenHatchFill.generateJs();
+    private String generateJSgetEvenHatchFill() {
+        if (getEvenHatchFill != null) {
+            return getEvenHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetevenHolidayHatchFill() {
-        if (getevenHolidayHatchFill != null) {
-            return getevenHolidayHatchFill.generateJs();
+    private String generateJSgetEvenHolidayHatchFill() {
+        if (getEvenHolidayHatchFill != null) {
+            return getEvenHolidayHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetoddHatchFill() {
-        if (getoddHatchFill != null) {
-            return getoddHatchFill.generateJs();
+    private String generateJSgetOddHatchFill() {
+        if (getOddHatchFill != null) {
+            return getOddHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetoddHolidayHatchFill() {
-        if (getoddHolidayHatchFill != null) {
-            return getoddHolidayHatchFill.generateJs();
+    private String generateJSgetOddHolidayHatchFill() {
+        if (getOddHolidayHatchFill != null) {
+            return getOddHolidayHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetoverlay() {
-        if (getoverlay != null) {
-            return getoverlay.generateJs();
+    private String generateJSgetOverlay() {
+        if (getOverlay != null) {
+            return getOverlay.generateJs();
         }
         return "";
     }
@@ -6037,13 +6037,13 @@ public class Grid extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbackground());
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetevenHatchFill());
-            js.append(generateJSgetevenHolidayHatchFill());
-            js.append(generateJSgetoddHatchFill());
-            js.append(generateJSgetoddHolidayHatchFill());
-            js.append(generateJSgetoverlay());
+            js.append(generateJSgetBackground());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetEvenHatchFill());
+            js.append(generateJSgetEvenHolidayHatchFill());
+            js.append(generateJSgetOddHatchFill());
+            js.append(generateJSgetOddHolidayHatchFill());
+            js.append(generateJSgetOverlay());
 
         String result = js.toString();
         js.setLength(0);

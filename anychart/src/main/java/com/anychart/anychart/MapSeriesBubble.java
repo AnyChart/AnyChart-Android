@@ -57,13 +57,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -698,13 +698,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private View getdata;
+    private View getData;
 
     public View getData() {
-        if (getdata == null)
-            getdata = new View(jsBase + ".data()");
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
 
-        return getdata;
+        return getData;
     }
 
     private View data;
@@ -1401,13 +1401,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private PatternFill gethatchFill;
+    private PatternFill getHatchFill;
 
-    public PatternFill getHatchfill() {
-        if (gethatchFill == null)
-            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+    public PatternFill getHatchFill() {
+        if (getHatchFill == null)
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
-        return gethatchFill;
+        return getHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState;
@@ -2132,13 +2132,13 @@ public class MapSeriesBubble extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill gethoverHatchFill;
+    private PatternFill getHoverHatchFill;
 
-    public PatternFill getHoverhatchfill() {
-        if (gethoverHatchFill == null)
-            gethoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
+    public PatternFill getHoverHatchFill() {
+        if (getHoverHatchFill == null)
+            getHoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
 
-        return gethoverHatchFill;
+        return getHoverHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState5;
@@ -2374,13 +2374,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private UiLabelsFactory gethoverLabels;
+    private UiLabelsFactory getHoverLabels;
 
-    public UiLabelsFactory getHoverlabels() {
-        if (gethoverLabels == null)
-            gethoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+    public UiLabelsFactory getHoverLabels() {
+        if (getHoverLabels == null)
+            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
 
-        return gethoverLabels;
+        return getHoverLabels;
     }
 
     private String hoverLabels;
@@ -2423,13 +2423,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private UiMarkersFactory gethoverMarkers;
+    private UiMarkersFactory getHoverMarkers;
 
-    public UiMarkersFactory getHovermarkers() {
-        if (gethoverMarkers == null)
-            gethoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
+    public UiMarkersFactory getHoverMarkers() {
+        if (getHoverMarkers == null)
+            getHoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
 
-        return gethoverMarkers;
+        return getHoverMarkers;
     }
 
     private String hoverMarkers;
@@ -3051,13 +3051,13 @@ public class MapSeriesBubble extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill gethoverNegativeHatchFill;
+    private PatternFill getHoverNegativeHatchFill;
 
-    public PatternFill getHovernegativehatchfill() {
-        if (gethoverNegativeHatchFill == null)
-            gethoverNegativeHatchFill = new PatternFill(jsBase + ".hoverNegativeHatchFill()");
+    public PatternFill getHoverNegativeHatchFill() {
+        if (getHoverNegativeHatchFill == null)
+            getHoverNegativeHatchFill = new PatternFill(jsBase + ".hoverNegativeHatchFill()");
 
-        return gethoverNegativeHatchFill;
+        return getHoverNegativeHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState10;
@@ -3338,13 +3338,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private MapSeriesBubble gethoverNegativeStroke;
+    private MapSeriesBubble getHoverNegativeStroke;
 
-    public MapSeriesBubble getHovernegativestroke() {
-        if (gethoverNegativeStroke == null)
-            gethoverNegativeStroke = new MapSeriesBubble(jsBase + ".hoverNegativeStroke()");
+    public MapSeriesBubble getHoverNegativeStroke() {
+        if (getHoverNegativeStroke == null)
+            getHoverNegativeStroke = new MapSeriesBubble(jsBase + ".hoverNegativeStroke()");
 
-        return gethoverNegativeStroke;
+        return getHoverNegativeStroke;
     }
 
     private Stroke color7;
@@ -3776,13 +3776,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -3865,13 +3865,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private LegendItemSettings getlegendItem;
+    private LegendItemSettings getLegendItem;
 
-    public LegendItemSettings getLegenditem() {
-        if (getlegendItem == null)
-            getlegendItem = new LegendItemSettings(jsBase + ".legendItem()");
+    public LegendItemSettings getLegendItem() {
+        if (getLegendItem == null)
+            getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
 
-        return getlegendItem;
+        return getLegendItem;
     }
 
     private String legendItem;
@@ -3946,13 +3946,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -4864,13 +4864,13 @@ public class MapSeriesBubble extends JsObject {
     }
 
     private Fill imageSettings3;
-    private PatternFill getnegativeHatchFill;
+    private PatternFill getNegativeHatchFill;
 
-    public PatternFill getNegativehatchfill() {
-        if (getnegativeHatchFill == null)
-            getnegativeHatchFill = new PatternFill(jsBase + ".negativeHatchFill()");
+    public PatternFill getNegativeHatchFill() {
+        if (getNegativeHatchFill == null)
+            getNegativeHatchFill = new PatternFill(jsBase + ".negativeHatchFill()");
 
-        return getnegativeHatchFill;
+        return getNegativeHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState15;
@@ -5236,13 +5236,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private MapSeriesBubble getnegativeStroke;
+    private MapSeriesBubble getNegativeStroke;
 
-    public MapSeriesBubble getNegativestroke() {
-        if (getnegativeStroke == null)
-            getnegativeStroke = new MapSeriesBubble(jsBase + ".negativeStroke()");
+    public MapSeriesBubble getNegativeStroke() {
+        if (getNegativeStroke == null)
+            getNegativeStroke = new MapSeriesBubble(jsBase + ".negativeStroke()");
 
-        return getnegativeStroke;
+        return getNegativeStroke;
     }
 
     private Stroke color15;
@@ -6458,13 +6458,13 @@ public class MapSeriesBubble extends JsObject {
     }
 
     private Fill imageSettings4;
-    private PatternFill getselectHatchFill;
+    private PatternFill getSelectHatchFill;
 
-    public PatternFill getSelecthatchfill() {
-        if (getselectHatchFill == null)
-            getselectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
+    public PatternFill getSelectHatchFill() {
+        if (getSelectHatchFill == null)
+            getSelectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
 
-        return getselectHatchFill;
+        return getSelectHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState20;
@@ -6895,13 +6895,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private UiLabelsFactory getselectLabels;
+    private UiLabelsFactory getSelectLabels;
 
-    public UiLabelsFactory getSelectlabels() {
-        if (getselectLabels == null)
-            getselectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
 
-        return getselectLabels;
+        return getSelectLabels;
     }
 
     private String selectLabels;
@@ -6944,13 +6944,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private UiMarkersFactory getselectMarkers;
+    private UiMarkersFactory getSelectMarkers;
 
-    public UiMarkersFactory getSelectmarkers() {
-        if (getselectMarkers == null)
-            getselectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
+    public UiMarkersFactory getSelectMarkers() {
+        if (getSelectMarkers == null)
+            getSelectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
 
-        return getselectMarkers;
+        return getSelectMarkers;
     }
 
     private String selectMarkers;
@@ -7902,13 +7902,13 @@ public class MapSeriesBubble extends JsObject {
     }
 
     private Fill imageSettings5;
-    private PatternFill getselectNegativeHatchFill;
+    private PatternFill getSelectNegativeHatchFill;
 
-    public PatternFill getSelectnegativehatchfill() {
-        if (getselectNegativeHatchFill == null)
-            getselectNegativeHatchFill = new PatternFill(jsBase + ".selectNegativeHatchFill()");
+    public PatternFill getSelectNegativeHatchFill() {
+        if (getSelectNegativeHatchFill == null)
+            getSelectNegativeHatchFill = new PatternFill(jsBase + ".selectNegativeHatchFill()");
 
-        return getselectNegativeHatchFill;
+        return getSelectNegativeHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState25;
@@ -8384,13 +8384,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private MapSeriesBubble getselectNegativeStroke;
+    private MapSeriesBubble getSelectNegativeStroke;
 
-    public MapSeriesBubble getSelectnegativestroke() {
-        if (getselectNegativeStroke == null)
-            getselectNegativeStroke = new MapSeriesBubble(jsBase + ".selectNegativeStroke()");
+    public MapSeriesBubble getSelectNegativeStroke() {
+        if (getSelectNegativeStroke == null)
+            getSelectNegativeStroke = new MapSeriesBubble(jsBase + ".selectNegativeStroke()");
 
-        return getselectNegativeStroke;
+        return getSelectNegativeStroke;
     }
 
     private Stroke color22;
@@ -9201,13 +9201,13 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -9518,135 +9518,135 @@ public class MapSeriesBubble extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethatchFill() {
-        if (gethatchFill != null) {
-            return gethatchFill.generateJs();
+    private String generateJSgetHatchFill() {
+        if (getHatchFill != null) {
+            return getHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverHatchFill() {
-        if (gethoverHatchFill != null) {
-            return gethoverHatchFill.generateJs();
+    private String generateJSgetHoverHatchFill() {
+        if (getHoverHatchFill != null) {
+            return getHoverHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverLabels() {
-        if (gethoverLabels != null) {
-            return gethoverLabels.generateJs();
+    private String generateJSgetHoverLabels() {
+        if (getHoverLabels != null) {
+            return getHoverLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverMarkers() {
-        if (gethoverMarkers != null) {
-            return gethoverMarkers.generateJs();
+    private String generateJSgetHoverMarkers() {
+        if (getHoverMarkers != null) {
+            return getHoverMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverNegativeHatchFill() {
-        if (gethoverNegativeHatchFill != null) {
-            return gethoverNegativeHatchFill.generateJs();
+    private String generateJSgetHoverNegativeHatchFill() {
+        if (getHoverNegativeHatchFill != null) {
+            return getHoverNegativeHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverNegativeStroke() {
-        if (gethoverNegativeStroke != null) {
-            return gethoverNegativeStroke.generateJs();
+    private String generateJSgetHoverNegativeStroke() {
+        if (getHoverNegativeStroke != null) {
+            return getHoverNegativeStroke.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlegendItem() {
-        if (getlegendItem != null) {
-            return getlegendItem.generateJs();
+    private String generateJSgetLegendItem() {
+        if (getLegendItem != null) {
+            return getLegendItem.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetnegativeHatchFill() {
-        if (getnegativeHatchFill != null) {
-            return getnegativeHatchFill.generateJs();
+    private String generateJSgetNegativeHatchFill() {
+        if (getNegativeHatchFill != null) {
+            return getNegativeHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetnegativeStroke() {
-        if (getnegativeStroke != null) {
-            return getnegativeStroke.generateJs();
+    private String generateJSgetNegativeStroke() {
+        if (getNegativeStroke != null) {
+            return getNegativeStroke.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectHatchFill() {
-        if (getselectHatchFill != null) {
-            return getselectHatchFill.generateJs();
+    private String generateJSgetSelectHatchFill() {
+        if (getSelectHatchFill != null) {
+            return getSelectHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectLabels() {
-        if (getselectLabels != null) {
-            return getselectLabels.generateJs();
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectMarkers() {
-        if (getselectMarkers != null) {
-            return getselectMarkers.generateJs();
+    private String generateJSgetSelectMarkers() {
+        if (getSelectMarkers != null) {
+            return getSelectMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectNegativeHatchFill() {
-        if (getselectNegativeHatchFill != null) {
-            return getselectNegativeHatchFill.generateJs();
+    private String generateJSgetSelectNegativeHatchFill() {
+        if (getSelectNegativeHatchFill != null) {
+            return getSelectNegativeHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectNegativeStroke() {
-        if (getselectNegativeStroke != null) {
-            return getselectNegativeStroke.generateJs();
+    private String generateJSgetSelectNegativeStroke() {
+        if (getSelectNegativeStroke != null) {
+            return getSelectNegativeStroke.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
@@ -12106,25 +12106,25 @@ public class MapSeriesBubble extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdata());
-            js.append(generateJSgethatchFill());
-            js.append(generateJSgethoverHatchFill());
-            js.append(generateJSgethoverLabels());
-            js.append(generateJSgethoverMarkers());
-            js.append(generateJSgethoverNegativeHatchFill());
-            js.append(generateJSgethoverNegativeStroke());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetlegendItem());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgetnegativeHatchFill());
-            js.append(generateJSgetnegativeStroke());
-            js.append(generateJSgetselectHatchFill());
-            js.append(generateJSgetselectLabels());
-            js.append(generateJSgetselectMarkers());
-            js.append(generateJSgetselectNegativeHatchFill());
-            js.append(generateJSgetselectNegativeStroke());
-            js.append(generateJSgettooltip());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetData());
+            js.append(generateJSgetHatchFill());
+            js.append(generateJSgetHoverHatchFill());
+            js.append(generateJSgetHoverLabels());
+            js.append(generateJSgetHoverMarkers());
+            js.append(generateJSgetHoverNegativeHatchFill());
+            js.append(generateJSgetHoverNegativeStroke());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetLegendItem());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetNegativeHatchFill());
+            js.append(generateJSgetNegativeStroke());
+            js.append(generateJSgetSelectHatchFill());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetSelectMarkers());
+            js.append(generateJSgetSelectNegativeHatchFill());
+            js.append(generateJSgetSelectNegativeStroke());
+            js.append(generateJSgetTooltip());
 
         String result = js.toString();
         js.setLength(0);

@@ -51,31 +51,31 @@ public class ChoroplethPoint extends JsObject {
         }
     }
 
-    private SeparateChart getgetChart;
+    private SeparateChart getGetChart;
 
-    public SeparateChart getGetchart() {
-        if (getgetChart == null)
-            getgetChart = new SeparateChart(jsBase + ".getChart()");
+    public SeparateChart getGetChart() {
+        if (getGetChart == null)
+            getGetChart = new SeparateChart(jsBase + ".getChart()");
 
-        return getgetChart;
+        return getGetChart;
     }
 
-    private AnychartMathRect getgetFeatureBounds;
+    private AnychartMathRect getGetFeatureBounds;
 
-    public AnychartMathRect getGetfeaturebounds() {
-        if (getgetFeatureBounds == null)
-            getgetFeatureBounds = new AnychartMathRect(jsBase + ".getFeatureBounds()");
+    public AnychartMathRect getGetFeatureBounds() {
+        if (getGetFeatureBounds == null)
+            getGetFeatureBounds = new AnychartMathRect(jsBase + ".getFeatureBounds()");
 
-        return getgetFeatureBounds;
+        return getGetFeatureBounds;
     }
 
-    private AnychartSeriesBase getgetSeries;
+    private AnychartSeriesBase getGetSeries;
 
-    public AnychartSeriesBase getGetseries() {
-        if (getgetSeries == null)
-            getgetSeries = new AnychartSeriesBase(jsBase + ".getSeries()");
+    public AnychartSeriesBase getGetSeries() {
+        if (getGetSeries == null)
+            getGetSeries = new AnychartSeriesBase(jsBase + ".getSeries()");
 
-        return getgetSeries;
+        return getGetSeries;
     }
 
     private String key;
@@ -269,23 +269,23 @@ public class ChoroplethPoint extends JsObject {
         }
     }
 
-    private String generateJSgetgetChart() {
-        if (getgetChart != null) {
-            return getgetChart.generateJs();
+    private String generateJSgetGetChart() {
+        if (getGetChart != null) {
+            return getGetChart.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetgetFeatureBounds() {
-        if (getgetFeatureBounds != null) {
-            return getgetFeatureBounds.generateJs();
+    private String generateJSgetGetFeatureBounds() {
+        if (getGetFeatureBounds != null) {
+            return getGetFeatureBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetgetSeries() {
-        if (getgetSeries != null) {
-            return getgetSeries.generateJs();
+    private String generateJSgetGetSeries() {
+        if (getGetSeries != null) {
+            return getGetSeries.generateJs();
         }
         return "";
     }
@@ -409,9 +409,9 @@ public class ChoroplethPoint extends JsObject {
             js.append(generateJSdy1());
             js.append("}");
         }
-            js.append(generateJSgetgetChart());
-            js.append(generateJSgetgetFeatureBounds());
-            js.append(generateJSgetgetSeries());
+            js.append(generateJSgetGetChart());
+            js.append(generateJSgetGetFeatureBounds());
+            js.append(generateJSgetGetSeries());
 
         String result = js.toString();
         js.setLength(0);

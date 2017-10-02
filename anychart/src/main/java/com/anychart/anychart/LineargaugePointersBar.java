@@ -400,13 +400,13 @@ public class LineargaugePointersBar extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill gethatchFill;
+    private PatternFill getHatchFill;
 
-    public PatternFill getHatchfill() {
-        if (gethatchFill == null)
-            gethatchFill = new PatternFill(jsBase + ".hatchFill()");
+    public PatternFill getHatchFill() {
+        if (getHatchFill == null)
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
-        return gethatchFill;
+        return getHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -1046,13 +1046,13 @@ public class LineargaugePointersBar extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill gethoverHatchFill;
+    private PatternFill getHoverHatchFill;
 
-    public PatternFill getHoverhatchfill() {
-        if (gethoverHatchFill == null)
-            gethoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
+    public PatternFill getHoverHatchFill() {
+        if (getHoverHatchFill == null)
+            getHoverHatchFill = new PatternFill(jsBase + ".hoverHatchFill()");
 
-        return gethoverHatchFill;
+        return getHoverHatchFill;
     }
 
     private PatternFill patternFillOrType5;
@@ -1288,13 +1288,13 @@ public class LineargaugePointersBar extends JsObject {
         }
     }
 
-    private UiLabelsFactory gethoverLabel;
+    private UiLabelsFactory getHoverLabel;
 
-    public UiLabelsFactory getHoverlabel() {
-        if (gethoverLabel == null)
-            gethoverLabel = new UiLabelsFactory(jsBase + ".hoverLabel()");
+    public UiLabelsFactory getHoverLabel() {
+        if (getHoverLabel == null)
+            getHoverLabel = new UiLabelsFactory(jsBase + ".hoverLabel()");
 
-        return gethoverLabel;
+        return getHoverLabel;
     }
 
     private UiLabelsFactory hoverLabel;
@@ -1495,13 +1495,13 @@ public class LineargaugePointersBar extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabel;
+    private UiLabelsFactory getLabel;
 
     public UiLabelsFactory getLabel() {
-        if (getlabel == null)
-            getlabel = new UiLabelsFactory(jsBase + ".label()");
+        if (getLabel == null)
+            getLabel = new UiLabelsFactory(jsBase + ".label()");
 
-        return getlabel;
+        return getLabel;
     }
 
     private UiLabelsFactory label;
@@ -1567,13 +1567,13 @@ public class LineargaugePointersBar extends JsObject {
         }
     }
 
-    private LegendItemSettings getlegendItem;
+    private LegendItemSettings getLegendItem;
 
-    public LegendItemSettings getLegenditem() {
-        if (getlegendItem == null)
-            getlegendItem = new LegendItemSettings(jsBase + ".legendItem()");
+    public LegendItemSettings getLegendItem() {
+        if (getLegendItem == null)
+            getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
 
-        return getlegendItem;
+        return getLegendItem;
     }
 
     private String legendItem;
@@ -1748,13 +1748,13 @@ public class LineargaugePointersBar extends JsObject {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new ScalesBase(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScalesBase scale;
@@ -2353,13 +2353,13 @@ public class LineargaugePointersBar extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill getselectHatchFill;
+    private PatternFill getSelectHatchFill;
 
-    public PatternFill getSelecthatchfill() {
-        if (getselectHatchFill == null)
-            getselectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
+    public PatternFill getSelectHatchFill() {
+        if (getSelectHatchFill == null)
+            getSelectHatchFill = new PatternFill(jsBase + ".selectHatchFill()");
 
-        return getselectHatchFill;
+        return getSelectHatchFill;
     }
 
     private PatternFill patternFillOrType10;
@@ -2660,13 +2660,13 @@ public class LineargaugePointersBar extends JsObject {
         }
     }
 
-    private UiLabelsFactory getselectLabel;
+    private UiLabelsFactory getSelectLabel;
 
-    public UiLabelsFactory getSelectlabel() {
-        if (getselectLabel == null)
-            getselectLabel = new UiLabelsFactory(jsBase + ".selectLabel()");
+    public UiLabelsFactory getSelectLabel() {
+        if (getSelectLabel == null)
+            getSelectLabel = new UiLabelsFactory(jsBase + ".selectLabel()");
 
-        return getselectLabel;
+        return getSelectLabel;
     }
 
     private UiLabelsFactory selectLabel;
@@ -3166,58 +3166,58 @@ public class LineargaugePointersBar extends JsObject {
         }
     }
 
-    private String generateJSgethatchFill() {
-        if (gethatchFill != null) {
-            return gethatchFill.generateJs();
+    private String generateJSgetHatchFill() {
+        if (getHatchFill != null) {
+            return getHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverHatchFill() {
-        if (gethoverHatchFill != null) {
-            return gethoverHatchFill.generateJs();
+    private String generateJSgetHoverHatchFill() {
+        if (getHoverHatchFill != null) {
+            return getHoverHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverLabel() {
-        if (gethoverLabel != null) {
-            return gethoverLabel.generateJs();
+    private String generateJSgetHoverLabel() {
+        if (getHoverLabel != null) {
+            return getHoverLabel.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabel() {
-        if (getlabel != null) {
-            return getlabel.generateJs();
+    private String generateJSgetLabel() {
+        if (getLabel != null) {
+            return getLabel.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlegendItem() {
-        if (getlegendItem != null) {
-            return getlegendItem.generateJs();
+    private String generateJSgetLegendItem() {
+        if (getLegendItem != null) {
+            return getLegendItem.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectHatchFill() {
-        if (getselectHatchFill != null) {
-            return getselectHatchFill.generateJs();
+    private String generateJSgetSelectHatchFill() {
+        if (getSelectHatchFill != null) {
+            return getSelectHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectLabel() {
-        if (getselectLabel != null) {
-            return getselectLabel.generateJs();
+    private String generateJSgetSelectLabel() {
+        if (getSelectLabel != null) {
+            return getSelectLabel.generateJs();
         }
         return "";
     }
@@ -4309,14 +4309,14 @@ public class LineargaugePointersBar extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgethatchFill());
-            js.append(generateJSgethoverHatchFill());
-            js.append(generateJSgethoverLabel());
-            js.append(generateJSgetlabel());
-            js.append(generateJSgetlegendItem());
-            js.append(generateJSgetscale());
-            js.append(generateJSgetselectHatchFill());
-            js.append(generateJSgetselectLabel());
+            js.append(generateJSgetHatchFill());
+            js.append(generateJSgetHoverHatchFill());
+            js.append(generateJSgetHoverLabel());
+            js.append(generateJSgetLabel());
+            js.append(generateJSgetLegendItem());
+            js.append(generateJSgetScale());
+            js.append(generateJSgetSelectHatchFill());
+            js.append(generateJSgetSelectLabel());
 
         String result = js.toString();
         js.setLength(0);

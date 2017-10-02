@@ -17,13 +17,13 @@ public class GanttToolbar extends JsObject {
     }
 
     
-    private Element getcontainer;
+    private Element getContainer;
 
     public Element getContainer() {
-        if (getcontainer == null)
-            getcontainer = new Element(jsBase + ".container()");
+        if (getContainer == null)
+            getContainer = new Element(jsBase + ".container()");
 
-        return getcontainer;
+        return getContainer;
     }
 
     private String element;
@@ -83,13 +83,13 @@ public class GanttToolbar extends JsObject {
         }
     }
 
-    private Chart gettarget;
+    private Chart getTarget;
 
     public Chart getTarget() {
-        if (gettarget == null)
-            gettarget = new Chart(jsBase + ".target()");
+        if (getTarget == null)
+            getTarget = new Chart(jsBase + ".target()");
 
-        return gettarget;
+        return getTarget;
     }
 
     private Chart target;
@@ -109,16 +109,16 @@ public class GanttToolbar extends JsObject {
         }
     }
 
-    private String generateJSgetcontainer() {
-        if (getcontainer != null) {
-            return getcontainer.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettarget() {
-        if (gettarget != null) {
-            return gettarget.generateJs();
+    private String generateJSgetTarget() {
+        if (getTarget != null) {
+            return getTarget.generateJs();
         }
         return "";
     }
@@ -162,8 +162,8 @@ public class GanttToolbar extends JsObject {
             js.append(generateJStarget());
             js.append("}");
         }
-            js.append(generateJSgetcontainer());
-            js.append(generateJSgettarget());
+            js.append(generateJSgetContainer());
+            js.append(generateJSgetTarget());
 
         String result = js.toString();
         js.setLength(0);

@@ -126,6 +126,15 @@ public class Image extends JsObject {
     }
 
     private String key1;
+    private GraphicsMathRect getClip;
+
+    public GraphicsMathRect getClip() {
+        if (getClip == null)
+            getClip = new GraphicsMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private GraphicsMathRect clip;
     private String clip1;
 
@@ -312,6 +321,15 @@ public class Image extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private GraphicsMathRect getGetAbsoluteBounds;
+
+    public GraphicsMathRect getGetAbsoluteBounds() {
+        if (getGetAbsoluteBounds == null)
+            getGetAbsoluteBounds = new GraphicsMathRect(jsBase + ".getAbsoluteBounds()");
+
+        return getGetAbsoluteBounds;
     }
 
     private Double height;
@@ -1045,6 +1063,20 @@ public class Image extends JsObject {
         }
     }
 
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGetAbsoluteBounds() {
+        if (getGetAbsoluteBounds != null) {
+            return getGetAbsoluteBounds.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSalign() {
         if (align != null) {
             return String.format(Locale.US, "align: %s,", (align != null) ? align.generateJs() : "null");
@@ -1612,6 +1644,8 @@ public class Image extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
+            js.append(generateJSgetClip());
+            js.append(generateJSgetGetAbsoluteBounds());
 
         String result = js.toString();
         js.setLength(0);

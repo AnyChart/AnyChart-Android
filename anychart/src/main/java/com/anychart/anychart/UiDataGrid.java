@@ -386,13 +386,13 @@ public class UiDataGrid extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -1110,13 +1110,13 @@ public class UiDataGrid extends JsObject {
         }
     }
 
-    private Tree getdata;
+    private Tree getData;
 
     public Tree getData() {
-        if (getdata == null)
-            getdata = new Tree(jsBase + ".data()");
+        if (getData == null)
+            getData = new Tree(jsBase + ".data()");
 
-        return getdata;
+        return getData;
     }
 
     private Tree data;
@@ -1795,13 +1795,13 @@ public class UiDataGrid extends JsObject {
         }
     }
 
-    private ScrollBar gethorizontalScrollBar;
+    private ScrollBar getHorizontalScrollBar;
 
-    public ScrollBar getHorizontalscrollbar() {
-        if (gethorizontalScrollBar == null)
-            gethorizontalScrollBar = new ScrollBar(jsBase + ".horizontalScrollBar()");
+    public ScrollBar getHorizontalScrollBar() {
+        if (getHorizontalScrollBar == null)
+            getHorizontalScrollBar = new ScrollBar(jsBase + ".horizontalScrollBar()");
 
-        return gethorizontalScrollBar;
+        return getHorizontalScrollBar;
     }
 
     private String horizontalScrollBar;
@@ -5983,13 +5983,13 @@ public class UiDataGrid extends JsObject {
         }
     }
 
-    private Tooltip gettooltip;
+    private Tooltip getTooltip;
 
     public Tooltip getTooltip() {
-        if (gettooltip == null)
-            gettooltip = new Tooltip(jsBase + ".tooltip()");
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
-        return gettooltip;
+        return getTooltip;
     }
 
     private String tooltip;
@@ -6203,30 +6203,30 @@ public class UiDataGrid extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethorizontalScrollBar() {
-        if (gethorizontalScrollBar != null) {
-            return gethorizontalScrollBar.generateJs();
+    private String generateJSgetHorizontalScrollBar() {
+        if (getHorizontalScrollBar != null) {
+            return getHorizontalScrollBar.generateJs();
         }
         return "";
     }
 
-    private String generateJSgettooltip() {
-        if (gettooltip != null) {
-            return gettooltip.generateJs();
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
         }
         return "";
     }
@@ -7822,10 +7822,10 @@ public class UiDataGrid extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdata());
-            js.append(generateJSgethorizontalScrollBar());
-            js.append(generateJSgettooltip());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetData());
+            js.append(generateJSgetHorizontalScrollBar());
+            js.append(generateJSgetTooltip());
 
         String result = js.toString();
         js.setLength(0);

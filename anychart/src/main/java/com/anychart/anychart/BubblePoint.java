@@ -34,22 +34,22 @@ public class BubblePoint extends JsObject {
         }
     }
 
-    private SeparateChart getgetChart;
+    private SeparateChart getGetChart;
 
-    public SeparateChart getGetchart() {
-        if (getgetChart == null)
-            getgetChart = new SeparateChart(jsBase + ".getChart()");
+    public SeparateChart getGetChart() {
+        if (getGetChart == null)
+            getGetChart = new SeparateChart(jsBase + ".getChart()");
 
-        return getgetChart;
+        return getGetChart;
     }
 
-    private AnychartSeriesBase getgetSeries;
+    private AnychartSeriesBase getGetSeries;
 
-    public AnychartSeriesBase getGetseries() {
-        if (getgetSeries == null)
-            getgetSeries = new AnychartSeriesBase(jsBase + ".getSeries()");
+    public AnychartSeriesBase getGetSeries() {
+        if (getGetSeries == null)
+            getGetSeries = new AnychartSeriesBase(jsBase + ".getSeries()");
 
-        return getgetSeries;
+        return getGetSeries;
     }
 
     private String key;
@@ -146,16 +146,16 @@ public class BubblePoint extends JsObject {
         }
     }
 
-    private String generateJSgetgetChart() {
-        if (getgetChart != null) {
-            return getgetChart.generateJs();
+    private String generateJSgetGetChart() {
+        if (getGetChart != null) {
+            return getGetChart.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetgetSeries() {
-        if (getgetSeries != null) {
-            return getgetSeries.generateJs();
+    private String generateJSgetGetSeries() {
+        if (getGetSeries != null) {
+            return getGetSeries.generateJs();
         }
         return "";
     }
@@ -215,8 +215,8 @@ public class BubblePoint extends JsObject {
             js.append(generateJSfield1());
             js.append("}");
         }
-            js.append(generateJSgetgetChart());
-            js.append(generateJSgetgetSeries());
+            js.append(generateJSgetGetChart());
+            js.append(generateJSgetGetSeries());
 
         String result = js.toString();
         js.setLength(0);

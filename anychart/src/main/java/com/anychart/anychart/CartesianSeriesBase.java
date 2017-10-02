@@ -57,13 +57,13 @@ public class CartesianSeriesBase extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -681,6 +681,15 @@ public class CartesianSeriesBase extends JsObject {
         }
     }
 
+    private AnychartMathRect getClip;
+
+    public AnychartMathRect getClip() {
+        if (getClip == null)
+            getClip = new AnychartMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private Boolean clip;
     private AnychartMathRect clip1;
 
@@ -738,13 +747,13 @@ public class CartesianSeriesBase extends JsObject {
         }
     }
 
-    private Error geterror;
+    private Error getError;
 
     public Error getError() {
-        if (geterror == null)
-            geterror = new Error(jsBase + ".error()");
+        if (getError == null)
+            getError = new Error(jsBase + ".error()");
 
-        return geterror;
+        return getError;
     }
 
     private String error;
@@ -1385,13 +1394,13 @@ public class CartesianSeriesBase extends JsObject {
         }
     }
 
-    private RenderingSettings getrendering;
+    private RenderingSettings getRendering;
 
     public RenderingSettings getRendering() {
-        if (getrendering == null)
-            getrendering = new RenderingSettings(jsBase + ".rendering()");
+        if (getRendering == null)
+            getRendering = new RenderingSettings(jsBase + ".rendering()");
 
-        return getrendering;
+        return getRendering;
     }
 
     private String rendering;
@@ -1784,13 +1793,13 @@ public class CartesianSeriesBase extends JsObject {
         }
     }
 
-    private ScalesBase getxScale;
+    private Ordinal getXScale;
 
-    public ScalesBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScalesBase(jsBase + ".xScale()");
+    public Ordinal getXScale() {
+        if (getXScale == null)
+            getXScale = new Ordinal(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -1810,13 +1819,13 @@ public class CartesianSeriesBase extends JsObject {
         }
     }
 
-    private ScalesBase getyScale;
+    private ScalesBase getYScale;
 
-    public ScalesBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScalesBase(jsBase + ".yScale()");
+    public ScalesBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScalesBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScalesBase yScale;
@@ -1853,37 +1862,44 @@ public class CartesianSeriesBase extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgeterror() {
-        if (geterror != null) {
-            return geterror.generateJs();
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrendering() {
-        if (getrendering != null) {
-            return getrendering.generateJs();
+    private String generateJSgetError() {
+        if (getError != null) {
+            return getError.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetRendering() {
+        if (getRendering != null) {
+            return getRendering.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -2503,11 +2519,12 @@ public class CartesianSeriesBase extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgeterror());
-            js.append(generateJSgetrendering());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetError());
+            js.append(generateJSgetRendering());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

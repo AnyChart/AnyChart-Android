@@ -17,13 +17,13 @@ public class StandalonesAxesRadar extends JsObject {
     }
 
     
-    private Layer getcontainer;
+    private Layer getContainer;
 
     public Layer getContainer() {
-        if (getcontainer == null)
-            getcontainer = new Layer(jsBase + ".container()");
+        if (getContainer == null)
+            getContainer = new Layer(jsBase + ".container()");
 
-        return getcontainer;
+        return getContainer;
     }
 
     private Layer container;
@@ -131,13 +131,13 @@ public class StandalonesAxesRadar extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -235,13 +235,13 @@ public class StandalonesAxesRadar extends JsObject {
         }
     }
 
-    private AnychartMathRect getparentBounds;
+    private AnychartMathRect getParentBounds;
 
-    public AnychartMathRect getParentbounds() {
-        if (getparentBounds == null)
-            getparentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
+    public AnychartMathRect getParentBounds() {
+        if (getParentBounds == null)
+            getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
 
-        return getparentBounds;
+        return getParentBounds;
     }
 
     private AnychartMathRect parentBounds;
@@ -376,13 +376,13 @@ public class StandalonesAxesRadar extends JsObject {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new ScalesBase(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScalesBase scale;
@@ -533,13 +533,13 @@ public class StandalonesAxesRadar extends JsObject {
         }
     }
 
-    private RadialTicks getticks;
+    private RadialTicks getTicks;
 
     public RadialTicks getTicks() {
-        if (getticks == null)
-            getticks = new RadialTicks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new RadialTicks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -652,37 +652,37 @@ public class StandalonesAxesRadar extends JsObject {
         }
     }
 
-    private String generateJSgetcontainer() {
-        if (getcontainer != null) {
-            return getcontainer.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetparentBounds() {
-        if (getparentBounds != null) {
-            return getparentBounds.generateJs();
+    private String generateJSgetParentBounds() {
+        if (getParentBounds != null) {
+            return getParentBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
@@ -1014,11 +1014,11 @@ public class StandalonesAxesRadar extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetcontainer());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetparentBounds());
-            js.append(generateJSgetscale());
-            js.append(generateJSgetticks());
+            js.append(generateJSgetContainer());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetParentBounds());
+            js.append(generateJSgetScale());
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

@@ -17,13 +17,13 @@ public class StockDateTime extends JsObject {
     }
 
     
-    private UiBackground getbackground;
+    private UiBackground getBackground;
 
     public UiBackground getBackground() {
-        if (getbackground == null)
-            getbackground = new UiBackground(jsBase + ".background()");
+        if (getBackground == null)
+            getBackground = new UiBackground(jsBase + ".background()");
 
-        return getbackground;
+        return getBackground;
     }
 
     private String background;
@@ -103,13 +103,13 @@ public class StockDateTime extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -207,13 +207,13 @@ public class StockDateTime extends JsObject {
         }
     }
 
-    private UiLabelsFactory getminorLabels;
+    private UiLabelsFactory getMinorLabels;
 
-    public UiLabelsFactory getMinorlabels() {
-        if (getminorLabels == null)
-            getminorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
+    public UiLabelsFactory getMinorLabels() {
+        if (getMinorLabels == null)
+            getMinorLabels = new UiLabelsFactory(jsBase + ".minorLabels()");
 
-        return getminorLabels;
+        return getMinorLabels;
     }
 
     private String minorLabels;
@@ -256,13 +256,13 @@ public class StockDateTime extends JsObject {
         }
     }
 
-    private StockTicks getminorTicks;
+    private StockTicks getMinorTicks;
 
-    public StockTicks getMinorticks() {
-        if (getminorTicks == null)
-            getminorTicks = new StockTicks(jsBase + ".minorTicks()");
+    public StockTicks getMinorTicks() {
+        if (getMinorTicks == null)
+            getMinorTicks = new StockTicks(jsBase + ".minorTicks()");
 
-        return getminorTicks;
+        return getMinorTicks;
     }
 
     private String minorTicks;
@@ -405,13 +405,13 @@ public class StockDateTime extends JsObject {
         }
     }
 
-    private StockTicks getticks;
+    private StockTicks getTicks;
 
     public StockTicks getTicks() {
-        if (getticks == null)
-            getticks = new StockTicks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new StockTicks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -524,37 +524,37 @@ public class StockDateTime extends JsObject {
         }
     }
 
-    private String generateJSgetbackground() {
-        if (getbackground != null) {
-            return getbackground.generateJs();
+    private String generateJSgetBackground() {
+        if (getBackground != null) {
+            return getBackground.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetminorLabels() {
-        if (getminorLabels != null) {
-            return getminorLabels.generateJs();
+    private String generateJSgetMinorLabels() {
+        if (getMinorLabels != null) {
+            return getMinorLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetminorTicks() {
-        if (getminorTicks != null) {
-            return getminorTicks.generateJs();
+    private String generateJSgetMinorTicks() {
+        if (getMinorTicks != null) {
+            return getMinorTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
@@ -806,11 +806,11 @@ public class StockDateTime extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbackground());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetminorLabels());
-            js.append(generateJSgetminorTicks());
-            js.append(generateJSgetticks());
+            js.append(generateJSgetBackground());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetMinorLabels());
+            js.append(generateJSgetMinorTicks());
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

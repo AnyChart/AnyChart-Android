@@ -188,6 +188,15 @@ public class Stage extends JsObject {
         }
     }
 
+    private GraphicsMathRect getClip;
+
+    public GraphicsMathRect getClip() {
+        if (getClip == null)
+            getClip = new GraphicsMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private Element container;
 
     public void setContainer(Element container) {
@@ -294,13 +303,13 @@ public class Stage extends JsObject {
         }
     }
 
-    private StageCredits getcredits;
+    private StageCredits getCredits;
 
     public StageCredits getCredits() {
-        if (getcredits == null)
-            getcredits = new StageCredits(jsBase + ".credits()");
+        if (getCredits == null)
+            getCredits = new StageCredits(jsBase + ".credits()");
 
-        return getcredits;
+        return getCredits;
     }
 
     private String credits;
@@ -3102,9 +3111,16 @@ public class Stage extends JsObject {
         }
     }
 
-    private String generateJSgetcredits() {
-        if (getcredits != null) {
-            return getcredits.generateJs();
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetCredits() {
+        if (getCredits != null) {
+            return getCredits.generateJs();
         }
         return "";
     }
@@ -4572,7 +4588,8 @@ public class Stage extends JsObject {
             js.append(generateJSwidth14());
             js.append("}");
         }
-            js.append(generateJSgetcredits());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetCredits());
 
         String result = js.toString();
         js.setLength(0);

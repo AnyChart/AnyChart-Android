@@ -57,13 +57,13 @@ public class Logo extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -1957,13 +1957,13 @@ public class Logo extends JsObject {
         }
     }
 
-    private Overlay getoverlay;
+    private Overlay getOverlay;
 
     public Overlay getOverlay() {
-        if (getoverlay == null)
-            getoverlay = new Overlay(jsBase + ".overlay()");
+        if (getOverlay == null)
+            getOverlay = new Overlay(jsBase + ".overlay()");
 
-        return getoverlay;
+        return getOverlay;
     }
 
     private String overlay;
@@ -2395,16 +2395,16 @@ public class Logo extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetoverlay() {
-        if (getoverlay != null) {
-            return getoverlay.generateJs();
+    private String generateJSgetOverlay() {
+        if (getOverlay != null) {
+            return getOverlay.generateJs();
         }
         return "";
     }
@@ -3120,8 +3120,8 @@ public class Logo extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetoverlay());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetOverlay());
 
         String result = js.toString();
         js.setLength(0);

@@ -97,13 +97,13 @@ public class StandalonesAxismarkersText extends JsObject {
         }
     }
 
-    private CoreAxesLinear getaxis;
+    private CoreAxesLinear getAxis;
 
     public CoreAxesLinear getAxis() {
-        if (getaxis == null)
-            getaxis = new CoreAxesLinear(jsBase + ".axis()");
+        if (getAxis == null)
+            getAxis = new CoreAxesLinear(jsBase + ".axis()");
 
-        return getaxis;
+        return getAxis;
     }
 
     private CoreAxesLinear axis;
@@ -123,13 +123,13 @@ public class StandalonesAxismarkersText extends JsObject {
         }
     }
 
-    private Layer getcontainer;
+    private Layer getContainer;
 
     public Layer getContainer() {
-        if (getcontainer == null)
-            getcontainer = new Layer(jsBase + ".container()");
+        if (getContainer == null)
+            getContainer = new Layer(jsBase + ".container()");
 
-        return getcontainer;
+        return getContainer;
     }
 
     private Layer container;
@@ -840,13 +840,13 @@ public class StandalonesAxismarkersText extends JsObject {
         }
     }
 
-    private AnychartMathRect getparentBounds;
+    private AnychartMathRect getParentBounds;
 
-    public AnychartMathRect getParentbounds() {
-        if (getparentBounds == null)
-            getparentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
+    public AnychartMathRect getParentBounds() {
+        if (getParentBounds == null)
+            getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
 
-        return getparentBounds;
+        return getParentBounds;
     }
 
     private AnychartMathRect parentBounds;
@@ -1002,13 +1002,13 @@ public class StandalonesAxismarkersText extends JsObject {
         }
     }
 
-    private ScalesBase getscale;
+    private ScalesBase getScale;
 
     public ScalesBase getScale() {
-        if (getscale == null)
-            getscale = new ScalesBase(jsBase + ".scale()");
+        if (getScale == null)
+            getScale = new ScalesBase(jsBase + ".scale()");
 
-        return getscale;
+        return getScale;
     }
 
     private ScalesBase scale;
@@ -1482,30 +1482,30 @@ public class StandalonesAxismarkersText extends JsObject {
         }
     }
 
-    private String generateJSgetaxis() {
-        if (getaxis != null) {
-            return getaxis.generateJs();
+    private String generateJSgetAxis() {
+        if (getAxis != null) {
+            return getAxis.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetcontainer() {
-        if (getcontainer != null) {
-            return getcontainer.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetparentBounds() {
-        if (getparentBounds != null) {
-            return getparentBounds.generateJs();
+    private String generateJSgetParentBounds() {
+        if (getParentBounds != null) {
+            return getParentBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetscale() {
-        if (getscale != null) {
-            return getscale.generateJs();
+    private String generateJSgetScale() {
+        if (getScale != null) {
+            return getScale.generateJs();
         }
         return "";
     }
@@ -2173,10 +2173,10 @@ public class StandalonesAxismarkersText extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetaxis());
-            js.append(generateJSgetcontainer());
-            js.append(generateJSgetparentBounds());
-            js.append(generateJSgetscale());
+            js.append(generateJSgetAxis());
+            js.append(generateJSgetContainer());
+            js.append(generateJSgetParentBounds());
+            js.append(generateJSgetScale());
 
         String result = js.toString();
         js.setLength(0);

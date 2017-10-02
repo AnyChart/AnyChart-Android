@@ -246,6 +246,15 @@ public class OrdinalColor extends JsObject {
         }
     }
 
+    private OrdinalTicks getTicks;
+
+    public OrdinalTicks getTicks() {
+        if (getTicks == null)
+            getTicks = new OrdinalTicks(jsBase + ".ticks()");
+
+        return getTicks;
+    }
+
     private String ticks;
     private String[] ticks1;
 
@@ -371,6 +380,13 @@ public class OrdinalColor extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
+        }
+        return "";
     }
 
     private String generateJScolorToValue() {
@@ -572,6 +588,7 @@ public class OrdinalColor extends JsObject {
             js.append(generateJSvalueToColor());
             js.append("}");
         }
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

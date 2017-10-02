@@ -109,6 +109,15 @@ public class UnmanagedLayer extends JsObject {
     }
 
     private String key1;
+    private GraphicsMathRect getClip;
+
+    public GraphicsMathRect getClip() {
+        if (getClip == null)
+            getClip = new GraphicsMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private GraphicsMathRect clip;
     private String clip1;
 
@@ -149,13 +158,13 @@ public class UnmanagedLayer extends JsObject {
         }
     }
 
-    private Element getcontent;
+    private Element getContent;
 
     public Element getContent() {
-        if (getcontent == null)
-            getcontent = new Element(jsBase + ".content()");
+        if (getContent == null)
+            getContent = new Element(jsBase + ".content()");
 
-        return getcontent;
+        return getContent;
     }
 
     private String content;
@@ -304,6 +313,15 @@ public class UnmanagedLayer extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private GraphicsMathRect getGetAbsoluteBounds;
+
+    public GraphicsMathRect getGetAbsoluteBounds() {
+        if (getGetAbsoluteBounds == null)
+            getGetAbsoluteBounds = new GraphicsMathRect(jsBase + ".getAbsoluteBounds()");
+
+        return getGetAbsoluteBounds;
     }
 
     private String id;
@@ -946,9 +964,23 @@ public class UnmanagedLayer extends JsObject {
         }
     }
 
-    private String generateJSgetcontent() {
-        if (getcontent != null) {
-            return getcontent.generateJs();
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetContent() {
+        if (getContent != null) {
+            return getContent.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGetAbsoluteBounds() {
+        if (getGetAbsoluteBounds != null) {
+            return getGetAbsoluteBounds.generateJs();
         }
         return "";
     }
@@ -1472,7 +1504,9 @@ public class UnmanagedLayer extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetcontent());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetContent());
+            js.append(generateJSgetGetAbsoluteBounds());
 
         String result = js.toString();
         js.setLength(0);

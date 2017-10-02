@@ -17,13 +17,13 @@ public class DateTimeWithCalendar extends JsObject {
     }
 
     
-    private Calendar getcalendar;
+    private Calendar getCalendar;
 
     public Calendar getCalendar() {
-        if (getcalendar == null)
-            getcalendar = new Calendar(jsBase + ".calendar()");
+        if (getCalendar == null)
+            getCalendar = new Calendar(jsBase + ".calendar()");
 
-        return getcalendar;
+        return getCalendar;
     }
 
     private Double count;
@@ -521,9 +521,9 @@ public class DateTimeWithCalendar extends JsObject {
         }
     }
 
-    private String generateJSgetcalendar() {
-        if (getcalendar != null) {
-            return getcalendar.generateJs();
+    private String generateJSgetCalendar() {
+        if (getCalendar != null) {
+            return getCalendar.generateJs();
         }
         return "";
     }
@@ -799,7 +799,7 @@ public class DateTimeWithCalendar extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgetcalendar());
+            js.append(generateJSgetCalendar());
 
         String result = js.toString();
         js.setLength(0);

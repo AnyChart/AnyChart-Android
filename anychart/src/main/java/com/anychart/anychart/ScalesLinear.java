@@ -294,13 +294,13 @@ public class ScalesLinear extends JsObject {
         }
     }
 
-    private ScatterTicks getminorTicks;
+    private ScatterTicks getMinorTicks;
 
-    public ScatterTicks getMinorticks() {
-        if (getminorTicks == null)
-            getminorTicks = new ScatterTicks(jsBase + ".minorTicks()");
+    public ScatterTicks getMinorTicks() {
+        if (getMinorTicks == null)
+            getMinorTicks = new ScatterTicks(jsBase + ".minorTicks()");
 
-        return getminorTicks;
+        return getMinorTicks;
     }
 
     private String minorTicks;
@@ -455,13 +455,13 @@ public class ScalesLinear extends JsObject {
         }
     }
 
-    private ScatterTicks getticks;
+    private ScatterTicks getTicks;
 
     public ScatterTicks getTicks() {
-        if (getticks == null)
-            getticks = new ScatterTicks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new ScatterTicks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -557,16 +557,16 @@ public class ScalesLinear extends JsObject {
         }
     }
 
-    private String generateJSgetminorTicks() {
-        if (getminorTicks != null) {
-            return getminorTicks.generateJs();
+    private String generateJSgetMinorTicks() {
+        if (getMinorTicks != null) {
+            return getMinorTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
@@ -834,8 +834,8 @@ public class ScalesLinear extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgetminorTicks());
-            js.append(generateJSgetticks());
+            js.append(generateJSgetMinorTicks());
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

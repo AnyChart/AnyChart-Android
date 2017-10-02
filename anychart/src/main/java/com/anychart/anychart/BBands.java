@@ -34,13 +34,13 @@ public class BBands extends JsObject {
         }
     }
 
-    private StockSeriesBase getlowerSeries;
+    private StockSeriesBase getLowerSeries;
 
-    public StockSeriesBase getLowerseries() {
-        if (getlowerSeries == null)
-            getlowerSeries = new StockSeriesBase(jsBase + ".lowerSeries()");
+    public StockSeriesBase getLowerSeries() {
+        if (getLowerSeries == null)
+            getLowerSeries = new StockSeriesBase(jsBase + ".lowerSeries()");
 
-        return getlowerSeries;
+        return getLowerSeries;
     }
 
     private StockSeriesType type;
@@ -83,13 +83,13 @@ public class BBands extends JsObject {
         }
     }
 
-    private StockSeriesBase getmiddleSeries;
+    private StockSeriesBase getMiddleSeries;
 
-    public StockSeriesBase getMiddleseries() {
-        if (getmiddleSeries == null)
-            getmiddleSeries = new StockSeriesBase(jsBase + ".middleSeries()");
+    public StockSeriesBase getMiddleSeries() {
+        if (getMiddleSeries == null)
+            getMiddleSeries = new StockSeriesBase(jsBase + ".middleSeries()");
 
-        return getmiddleSeries;
+        return getMiddleSeries;
     }
 
     private StockSeriesType type2;
@@ -130,13 +130,13 @@ public class BBands extends JsObject {
         }
     }
 
-    private StockSeriesBase getupperSeries;
+    private StockSeriesBase getUpperSeries;
 
-    public StockSeriesBase getUpperseries() {
-        if (getupperSeries == null)
-            getupperSeries = new StockSeriesBase(jsBase + ".upperSeries()");
+    public StockSeriesBase getUpperSeries() {
+        if (getUpperSeries == null)
+            getUpperSeries = new StockSeriesBase(jsBase + ".upperSeries()");
 
-        return getupperSeries;
+        return getUpperSeries;
     }
 
     private StockSeriesType type3;
@@ -185,23 +185,23 @@ public class BBands extends JsObject {
         }
     }
 
-    private String generateJSgetlowerSeries() {
-        if (getlowerSeries != null) {
-            return getlowerSeries.generateJs();
+    private String generateJSgetLowerSeries() {
+        if (getLowerSeries != null) {
+            return getLowerSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmiddleSeries() {
-        if (getmiddleSeries != null) {
-            return getmiddleSeries.generateJs();
+    private String generateJSgetMiddleSeries() {
+        if (getMiddleSeries != null) {
+            return getMiddleSeries.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetupperSeries() {
-        if (getupperSeries != null) {
-            return getupperSeries.generateJs();
+    private String generateJSgetUpperSeries() {
+        if (getUpperSeries != null) {
+            return getUpperSeries.generateJs();
         }
         return "";
     }
@@ -269,9 +269,9 @@ public class BBands extends JsObject {
             js.append(generateJStype4());
             js.append("}");
         }
-            js.append(generateJSgetlowerSeries());
-            js.append(generateJSgetmiddleSeries());
-            js.append(generateJSgetupperSeries());
+            js.append(generateJSgetLowerSeries());
+            js.append(generateJSgetMiddleSeries());
+            js.append(generateJSgetUpperSeries());
 
         String result = js.toString();
         js.setLength(0);

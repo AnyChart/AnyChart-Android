@@ -161,13 +161,13 @@ public class Ordinal extends JsObject {
         }
     }
 
-    private OrdinalTicks getticks;
+    private OrdinalTicks getTicks;
 
     public OrdinalTicks getTicks() {
-        if (getticks == null)
-            getticks = new OrdinalTicks(jsBase + ".ticks()");
+        if (getTicks == null)
+            getTicks = new OrdinalTicks(jsBase + ".ticks()");
 
-        return getticks;
+        return getTicks;
     }
 
     private String ticks;
@@ -297,9 +297,9 @@ public class Ordinal extends JsObject {
         }
     }
 
-    private String generateJSgetticks() {
-        if (getticks != null) {
-            return getticks.generateJs();
+    private String generateJSgetTicks() {
+        if (getTicks != null) {
+            return getTicks.generateJs();
         }
         return "";
     }
@@ -463,7 +463,7 @@ public class Ordinal extends JsObject {
             js.append(generateJSweights());
             js.append("}");
         }
-            js.append(generateJSgetticks());
+            js.append(generateJSgetTicks());
 
         String result = js.toString();
         js.setLength(0);

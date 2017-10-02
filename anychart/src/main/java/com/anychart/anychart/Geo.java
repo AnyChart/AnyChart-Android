@@ -305,13 +305,13 @@ public class Geo extends JsObject {
         }
     }
 
-    private GeoTicks getxMinorTicks;
+    private GeoTicks getXMinorTicks;
 
-    public GeoTicks getXminorticks() {
-        if (getxMinorTicks == null)
-            getxMinorTicks = new GeoTicks(jsBase + ".xMinorTicks()");
+    public GeoTicks getXMinorTicks() {
+        if (getXMinorTicks == null)
+            getXMinorTicks = new GeoTicks(jsBase + ".xMinorTicks()");
 
-        return getxMinorTicks;
+        return getXMinorTicks;
     }
 
     private String xMinorTicks;
@@ -354,13 +354,13 @@ public class Geo extends JsObject {
         }
     }
 
-    private GeoTicks getxTicks;
+    private GeoTicks getXTicks;
 
-    public GeoTicks getXticks() {
-        if (getxTicks == null)
-            getxTicks = new GeoTicks(jsBase + ".xTicks()");
+    public GeoTicks getXTicks() {
+        if (getXTicks == null)
+            getXTicks = new GeoTicks(jsBase + ".xTicks()");
 
-        return getxTicks;
+        return getXTicks;
     }
 
     private String xTicks;
@@ -403,13 +403,13 @@ public class Geo extends JsObject {
         }
     }
 
-    private GeoTicks getyMinorTicks;
+    private GeoTicks getYMinorTicks;
 
-    public GeoTicks getYminorticks() {
-        if (getyMinorTicks == null)
-            getyMinorTicks = new GeoTicks(jsBase + ".yMinorTicks()");
+    public GeoTicks getYMinorTicks() {
+        if (getYMinorTicks == null)
+            getYMinorTicks = new GeoTicks(jsBase + ".yMinorTicks()");
 
-        return getyMinorTicks;
+        return getYMinorTicks;
     }
 
     private String yMinorTicks;
@@ -452,13 +452,13 @@ public class Geo extends JsObject {
         }
     }
 
-    private GeoTicks getyTicks;
+    private GeoTicks getYTicks;
 
-    public GeoTicks getYticks() {
-        if (getyTicks == null)
-            getyTicks = new GeoTicks(jsBase + ".yTicks()");
+    public GeoTicks getYTicks() {
+        if (getYTicks == null)
+            getYTicks = new GeoTicks(jsBase + ".yTicks()");
 
-        return getyTicks;
+        return getYTicks;
     }
 
     private String yTicks;
@@ -501,30 +501,30 @@ public class Geo extends JsObject {
         }
     }
 
-    private String generateJSgetxMinorTicks() {
-        if (getxMinorTicks != null) {
-            return getxMinorTicks.generateJs();
+    private String generateJSgetXMinorTicks() {
+        if (getXMinorTicks != null) {
+            return getXMinorTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxTicks() {
-        if (getxTicks != null) {
-            return getxTicks.generateJs();
+    private String generateJSgetXTicks() {
+        if (getXTicks != null) {
+            return getXTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyMinorTicks() {
-        if (getyMinorTicks != null) {
-            return getyMinorTicks.generateJs();
+    private String generateJSgetYMinorTicks() {
+        if (getYMinorTicks != null) {
+            return getYMinorTicks.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyTicks() {
-        if (getyTicks != null) {
-            return getyTicks.generateJs();
+    private String generateJSgetYTicks() {
+        if (getYTicks != null) {
+            return getYTicks.generateJs();
         }
         return "";
     }
@@ -776,10 +776,10 @@ public class Geo extends JsObject {
             js.append(generateJSyTicks1());
             js.append("}");
         }
-            js.append(generateJSgetxMinorTicks());
-            js.append(generateJSgetxTicks());
-            js.append(generateJSgetyMinorTicks());
-            js.append(generateJSgetyTicks());
+            js.append(generateJSgetXMinorTicks());
+            js.append(generateJSgetXTicks());
+            js.append(generateJSgetYMinorTicks());
+            js.append(generateJSgetYTicks());
 
         String result = js.toString();
         js.setLength(0);

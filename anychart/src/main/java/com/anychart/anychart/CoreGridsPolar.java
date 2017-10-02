@@ -17,13 +17,13 @@ public class CoreGridsPolar extends JsObject {
     }
 
     
-    private CoreAxesPolar getaxis;
+    private CoreAxesPolar getAxis;
 
     public CoreAxesPolar getAxis() {
-        if (getaxis == null)
-            getaxis = new CoreAxesPolar(jsBase + ".axis()");
+        if (getAxis == null)
+            getAxis = new CoreAxesPolar(jsBase + ".axis()");
 
-        return getaxis;
+        return getAxis;
     }
 
     private CoreAxesPolar axis;
@@ -1218,13 +1218,13 @@ public class CoreGridsPolar extends JsObject {
         }
     }
 
-    private ScalesBase getxScale;
+    private ScalesLinear getXScale;
 
-    public ScalesBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScalesBase(jsBase + ".xScale()");
+    public ScalesLinear getXScale() {
+        if (getXScale == null)
+            getXScale = new ScalesLinear(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -1261,16 +1261,16 @@ public class CoreGridsPolar extends JsObject {
         }
     }
 
-    private String generateJSgetaxis() {
-        if (getaxis != null) {
-            return getaxis.generateJs();
+    private String generateJSgetAxis() {
+        if (getAxis != null) {
+            return getAxis.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
         }
         return "";
     }
@@ -1826,8 +1826,8 @@ public class CoreGridsPolar extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetaxis());
-            js.append(generateJSgetxScale());
+            js.append(generateJSgetAxis());
+            js.append(generateJSgetXScale());
 
         String result = js.toString();
         js.setLength(0);

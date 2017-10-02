@@ -248,13 +248,13 @@ public class Crosshair extends JsObject {
         }
     }
 
-    private CrosshairLabel getxLabel;
+    private CrosshairLabel getXLabel;
 
-    public CrosshairLabel getXlabel() {
-        if (getxLabel == null)
-            getxLabel = new CrosshairLabel(jsBase + ".xLabel()");
+    public CrosshairLabel getXLabel() {
+        if (getXLabel == null)
+            getXLabel = new CrosshairLabel(jsBase + ".xLabel()");
 
-        return getxLabel;
+        return getXLabel;
     }
 
     private String xLabel;
@@ -357,13 +357,13 @@ public class Crosshair extends JsObject {
         }
     }
 
-    private CrosshairLabel getyLabel;
+    private CrosshairLabel getYLabel;
 
-    public CrosshairLabel getYlabel() {
-        if (getyLabel == null)
-            getyLabel = new CrosshairLabel(jsBase + ".yLabel()");
+    public CrosshairLabel getYLabel() {
+        if (getYLabel == null)
+            getYLabel = new CrosshairLabel(jsBase + ".yLabel()");
 
-        return getyLabel;
+        return getYLabel;
     }
 
     private String yLabel;
@@ -507,16 +507,16 @@ public class Crosshair extends JsObject {
         }
     }
 
-    private String generateJSgetxLabel() {
-        if (getxLabel != null) {
-            return getxLabel.generateJs();
+    private String generateJSgetXLabel() {
+        if (getXLabel != null) {
+            return getXLabel.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyLabel() {
-        if (getyLabel != null) {
-            return getyLabel.generateJs();
+    private String generateJSgetYLabel() {
+        if (getYLabel != null) {
+            return getYLabel.generateJs();
         }
         return "";
     }
@@ -800,8 +800,8 @@ public class Crosshair extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetxLabel());
-            js.append(generateJSgetyLabel());
+            js.append(generateJSgetXLabel());
+            js.append(generateJSgetYLabel());
 
         String result = js.toString();
         js.setLength(0);

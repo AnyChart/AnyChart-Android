@@ -17,13 +17,13 @@ public class QuarterSettings extends JsObject {
     }
 
     
-    private Quarter getleftBottom;
+    private Quarter getLeftBottom;
 
-    public Quarter getLeftbottom() {
-        if (getleftBottom == null)
-            getleftBottom = new Quarter(jsBase + ".leftBottom()");
+    public Quarter getLeftBottom() {
+        if (getLeftBottom == null)
+            getLeftBottom = new Quarter(jsBase + ".leftBottom()");
 
-        return getleftBottom;
+        return getLeftBottom;
     }
 
     private String leftBottom;
@@ -43,13 +43,13 @@ public class QuarterSettings extends JsObject {
         }
     }
 
-    private Quarter getleftTop;
+    private Quarter getLeftTop;
 
-    public Quarter getLefttop() {
-        if (getleftTop == null)
-            getleftTop = new Quarter(jsBase + ".leftTop()");
+    public Quarter getLeftTop() {
+        if (getLeftTop == null)
+            getLeftTop = new Quarter(jsBase + ".leftTop()");
 
-        return getleftTop;
+        return getLeftTop;
     }
 
     private String leftTop;
@@ -69,13 +69,13 @@ public class QuarterSettings extends JsObject {
         }
     }
 
-    private Quarter getrightBottom;
+    private Quarter getRightBottom;
 
-    public Quarter getRightbottom() {
-        if (getrightBottom == null)
-            getrightBottom = new Quarter(jsBase + ".rightBottom()");
+    public Quarter getRightBottom() {
+        if (getRightBottom == null)
+            getRightBottom = new Quarter(jsBase + ".rightBottom()");
 
-        return getrightBottom;
+        return getRightBottom;
     }
 
     private String rightBottom;
@@ -95,13 +95,13 @@ public class QuarterSettings extends JsObject {
         }
     }
 
-    private Quarter getrightTop;
+    private Quarter getRightTop;
 
-    public Quarter getRighttop() {
-        if (getrightTop == null)
-            getrightTop = new Quarter(jsBase + ".rightTop()");
+    public Quarter getRightTop() {
+        if (getRightTop == null)
+            getRightTop = new Quarter(jsBase + ".rightTop()");
 
-        return getrightTop;
+        return getRightTop;
     }
 
     private String rightTop;
@@ -121,30 +121,30 @@ public class QuarterSettings extends JsObject {
         }
     }
 
-    private String generateJSgetleftBottom() {
-        if (getleftBottom != null) {
-            return getleftBottom.generateJs();
+    private String generateJSgetLeftBottom() {
+        if (getLeftBottom != null) {
+            return getLeftBottom.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetleftTop() {
-        if (getleftTop != null) {
-            return getleftTop.generateJs();
+    private String generateJSgetLeftTop() {
+        if (getLeftTop != null) {
+            return getLeftTop.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrightBottom() {
-        if (getrightBottom != null) {
-            return getrightBottom.generateJs();
+    private String generateJSgetRightBottom() {
+        if (getRightBottom != null) {
+            return getRightBottom.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrightTop() {
-        if (getrightTop != null) {
-            return getrightTop.generateJs();
+    private String generateJSgetRightTop() {
+        if (getRightTop != null) {
+            return getRightTop.generateJs();
         }
         return "";
     }
@@ -188,10 +188,10 @@ public class QuarterSettings extends JsObject {
             js.append(generateJSrightTop());
             js.append("}");
         }
-            js.append(generateJSgetleftBottom());
-            js.append(generateJSgetleftTop());
-            js.append(generateJSgetrightBottom());
-            js.append(generateJSgetrightTop());
+            js.append(generateJSgetLeftBottom());
+            js.append(generateJSgetLeftTop());
+            js.append(generateJSgetRightBottom());
+            js.append(generateJSgetRightTop());
 
         String result = js.toString();
         js.setLength(0);

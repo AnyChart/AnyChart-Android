@@ -57,13 +57,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -681,6 +681,15 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
+    private AnychartMathRect getClip;
+
+    public AnychartMathRect getClip() {
+        if (getClip == null)
+            getClip = new AnychartMathRect(jsBase + ".clip()");
+
+        return getClip;
+    }
+
     private Boolean clip;
     private AnychartMathRect clip1;
 
@@ -738,13 +747,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private View getdata;
+    private View getData;
 
     public View getData() {
-        if (getdata == null)
-            getdata = new View(jsBase + ".data()");
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
 
-        return getdata;
+        return getData;
     }
 
     private View data;
@@ -1350,13 +1359,13 @@ public class CartesianSeriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings;
-    private PatternFill getfallingHatchFill;
+    private PatternFill getFallingHatchFill;
 
-    public PatternFill getFallinghatchfill() {
-        if (getfallingHatchFill == null)
-            getfallingHatchFill = new PatternFill(jsBase + ".fallingHatchFill()");
+    public PatternFill getFallingHatchFill() {
+        if (getFallingHatchFill == null)
+            getFallingHatchFill = new PatternFill(jsBase + ".fallingHatchFill()");
 
-        return getfallingHatchFill;
+        return getFallingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState;
@@ -2198,13 +2207,13 @@ public class CartesianSeriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings1;
-    private PatternFill gethoverFallingHatchFill;
+    private PatternFill getHoverFallingHatchFill;
 
-    public PatternFill getHoverfallinghatchfill() {
-        if (gethoverFallingHatchFill == null)
-            gethoverFallingHatchFill = new PatternFill(jsBase + ".hoverFallingHatchFill()");
+    public PatternFill getHoverFallingHatchFill() {
+        if (getHoverFallingHatchFill == null)
+            getHoverFallingHatchFill = new PatternFill(jsBase + ".hoverFallingHatchFill()");
 
-        return gethoverFallingHatchFill;
+        return getHoverFallingHatchFill;
     }
 
     private PatternFill patternFillOrType;
@@ -2522,6 +2531,15 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
+    private UiLabelsFactory getHoverLabels;
+
+    public UiLabelsFactory getHoverLabels() {
+        if (getHoverLabels == null)
+            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+
+        return getHoverLabels;
+    }
+
     private String hoverLabels;
     private Boolean hoverLabels1;
 
@@ -2562,13 +2580,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private UiMarkersFactory gethoverMarkers;
+    private UiMarkersFactory getHoverMarkers;
 
-    public UiMarkersFactory getHovermarkers() {
-        if (gethoverMarkers == null)
-            gethoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
+    public UiMarkersFactory getHoverMarkers() {
+        if (getHoverMarkers == null)
+            getHoverMarkers = new UiMarkersFactory(jsBase + ".hoverMarkers()");
 
-        return gethoverMarkers;
+        return getHoverMarkers;
     }
 
     private String hoverMarkers;
@@ -3193,13 +3211,13 @@ public class CartesianSeriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings2;
-    private PatternFill gethoverRisingHatchFill;
+    private PatternFill getHoverRisingHatchFill;
 
-    public PatternFill getHoverrisinghatchfill() {
-        if (gethoverRisingHatchFill == null)
-            gethoverRisingHatchFill = new PatternFill(jsBase + ".hoverRisingHatchFill()");
+    public PatternFill getHoverRisingHatchFill() {
+        if (getHoverRisingHatchFill == null)
+            getHoverRisingHatchFill = new PatternFill(jsBase + ".hoverRisingHatchFill()");
 
-        return gethoverRisingHatchFill;
+        return getHoverRisingHatchFill;
     }
 
     private PatternFill patternFillOrType4;
@@ -3727,13 +3745,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private UiLabelsFactory getlabels;
+    private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
-        if (getlabels == null)
-            getlabels = new UiLabelsFactory(jsBase + ".labels()");
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
 
-        return getlabels;
+        return getLabels;
     }
 
     private String labels;
@@ -3816,6 +3834,15 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
+    private LegendItemSettings getLegendItem;
+
+    public LegendItemSettings getLegendItem() {
+        if (getLegendItem == null)
+            getLegendItem = new LegendItemSettings(jsBase + ".legendItem()");
+
+        return getLegendItem;
+    }
+
     private String legendItem;
 
     public void setLegenditem(String legendItem) {
@@ -3888,13 +3915,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private UiMarkersFactory getmarkers;
+    private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
-        if (getmarkers == null)
-            getmarkers = new UiMarkersFactory(jsBase + ".markers()");
+        if (getMarkers == null)
+            getMarkers = new UiMarkersFactory(jsBase + ".markers()");
 
-        return getmarkers;
+        return getMarkers;
     }
 
     private String markers;
@@ -4223,13 +4250,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private RenderingSettings getrendering;
+    private RenderingSettings getRendering;
 
     public RenderingSettings getRendering() {
-        if (getrendering == null)
-            getrendering = new RenderingSettings(jsBase + ".rendering()");
+        if (getRendering == null)
+            getRendering = new RenderingSettings(jsBase + ".rendering()");
 
-        return getrendering;
+        return getRendering;
     }
 
     private String rendering;
@@ -4975,13 +5002,13 @@ public class CartesianSeriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings3;
-    private PatternFill getrisingHatchFill;
+    private PatternFill getRisingHatchFill;
 
-    public PatternFill getRisinghatchfill() {
-        if (getrisingHatchFill == null)
-            getrisingHatchFill = new PatternFill(jsBase + ".risingHatchFill()");
+    public PatternFill getRisingHatchFill() {
+        if (getRisingHatchFill == null)
+            getRisingHatchFill = new PatternFill(jsBase + ".risingHatchFill()");
 
-        return getrisingHatchFill;
+        return getRisingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState5;
@@ -6331,13 +6358,13 @@ public class CartesianSeriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings4;
-    private PatternFill getselectFallingHatchFill;
+    private PatternFill getSelectFallingHatchFill;
 
-    public PatternFill getSelectfallinghatchfill() {
-        if (getselectFallingHatchFill == null)
-            getselectFallingHatchFill = new PatternFill(jsBase + ".selectFallingHatchFill()");
+    public PatternFill getSelectFallingHatchFill() {
+        if (getSelectFallingHatchFill == null)
+            getSelectFallingHatchFill = new PatternFill(jsBase + ".selectFallingHatchFill()");
 
-        return getselectFallingHatchFill;
+        return getSelectFallingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState10;
@@ -6937,6 +6964,15 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
+    private UiLabelsFactory getSelectLabels;
+
+    public UiLabelsFactory getSelectLabels() {
+        if (getSelectLabels == null)
+            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+
+        return getSelectLabels;
+    }
+
     private String selectLabels;
     private Boolean selectLabels1;
 
@@ -6977,13 +7013,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private UiMarkersFactory getselectMarkers;
+    private UiMarkersFactory getSelectMarkers;
 
-    public UiMarkersFactory getSelectmarkers() {
-        if (getselectMarkers == null)
-            getselectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
+    public UiMarkersFactory getSelectMarkers() {
+        if (getSelectMarkers == null)
+            getSelectMarkers = new UiMarkersFactory(jsBase + ".selectMarkers()");
 
-        return getselectMarkers;
+        return getSelectMarkers;
     }
 
     private String selectMarkers;
@@ -7935,13 +7971,13 @@ public class CartesianSeriesCandlestick extends JsObject {
     }
 
     private Fill imageSettings5;
-    private PatternFill getselectRisingHatchFill;
+    private PatternFill getSelectRisingHatchFill;
 
-    public PatternFill getSelectrisinghatchfill() {
-        if (getselectRisingHatchFill == null)
-            getselectRisingHatchFill = new PatternFill(jsBase + ".selectRisingHatchFill()");
+    public PatternFill getSelectRisingHatchFill() {
+        if (getSelectRisingHatchFill == null)
+            getSelectRisingHatchFill = new PatternFill(jsBase + ".selectRisingHatchFill()");
 
-        return getselectRisingHatchFill;
+        return getSelectRisingHatchFill;
     }
 
     private PatternFill patternFillOrTypeOrState15;
@@ -8645,6 +8681,15 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
+    private Tooltip getTooltip;
+
+    public Tooltip getTooltip() {
+        if (getTooltip == null)
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
+
+        return getTooltip;
+    }
+
     private String tooltip;
     private Boolean tooltip1;
 
@@ -8966,13 +9011,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private ScalesBase getxScale;
+    private Ordinal getXScale;
 
-    public ScalesBase getXscale() {
-        if (getxScale == null)
-            getxScale = new ScalesBase(jsBase + ".xScale()");
+    public Ordinal getXScale() {
+        if (getXScale == null)
+            getXScale = new Ordinal(jsBase + ".xScale()");
 
-        return getxScale;
+        return getXScale;
     }
 
     private ScalesBase xScale;
@@ -8992,13 +9037,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private ScalesBase getyScale;
+    private ScalesBase getYScale;
 
-    public ScalesBase getYscale() {
-        if (getyScale == null)
-            getyScale = new ScalesBase(jsBase + ".yScale()");
+    public ScalesBase getYScale() {
+        if (getYScale == null)
+            getYScale = new ScalesBase(jsBase + ".yScale()");
 
-        return getyScale;
+        return getYScale;
     }
 
     private ScalesBase yScale;
@@ -9035,107 +9080,142 @@ public class CartesianSeriesCandlestick extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetdata() {
-        if (getdata != null) {
-            return getdata.generateJs();
+    private String generateJSgetClip() {
+        if (getClip != null) {
+            return getClip.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetfallingHatchFill() {
-        if (getfallingHatchFill != null) {
-            return getfallingHatchFill.generateJs();
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverFallingHatchFill() {
-        if (gethoverFallingHatchFill != null) {
-            return gethoverFallingHatchFill.generateJs();
+    private String generateJSgetFallingHatchFill() {
+        if (getFallingHatchFill != null) {
+            return getFallingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverMarkers() {
-        if (gethoverMarkers != null) {
-            return gethoverMarkers.generateJs();
+    private String generateJSgetHoverFallingHatchFill() {
+        if (getHoverFallingHatchFill != null) {
+            return getHoverFallingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgethoverRisingHatchFill() {
-        if (gethoverRisingHatchFill != null) {
-            return gethoverRisingHatchFill.generateJs();
+    private String generateJSgetHoverLabels() {
+        if (getHoverLabels != null) {
+            return getHoverLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetlabels() {
-        if (getlabels != null) {
-            return getlabels.generateJs();
+    private String generateJSgetHoverMarkers() {
+        if (getHoverMarkers != null) {
+            return getHoverMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetmarkers() {
-        if (getmarkers != null) {
-            return getmarkers.generateJs();
+    private String generateJSgetHoverRisingHatchFill() {
+        if (getHoverRisingHatchFill != null) {
+            return getHoverRisingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrendering() {
-        if (getrendering != null) {
-            return getrendering.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetrisingHatchFill() {
-        if (getrisingHatchFill != null) {
-            return getrisingHatchFill.generateJs();
+    private String generateJSgetLegendItem() {
+        if (getLegendItem != null) {
+            return getLegendItem.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectFallingHatchFill() {
-        if (getselectFallingHatchFill != null) {
-            return getselectFallingHatchFill.generateJs();
+    private String generateJSgetMarkers() {
+        if (getMarkers != null) {
+            return getMarkers.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectMarkers() {
-        if (getselectMarkers != null) {
-            return getselectMarkers.generateJs();
+    private String generateJSgetRendering() {
+        if (getRendering != null) {
+            return getRendering.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetselectRisingHatchFill() {
-        if (getselectRisingHatchFill != null) {
-            return getselectRisingHatchFill.generateJs();
+    private String generateJSgetRisingHatchFill() {
+        if (getRisingHatchFill != null) {
+            return getRisingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetxScale() {
-        if (getxScale != null) {
-            return getxScale.generateJs();
+    private String generateJSgetSelectFallingHatchFill() {
+        if (getSelectFallingHatchFill != null) {
+            return getSelectFallingHatchFill.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetyScale() {
-        if (getyScale != null) {
-            return getyScale.generateJs();
+    private String generateJSgetSelectLabels() {
+        if (getSelectLabels != null) {
+            return getSelectLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelectMarkers() {
+        if (getSelectMarkers != null) {
+            return getSelectMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelectRisingHatchFill() {
+        if (getSelectRisingHatchFill != null) {
+            return getSelectRisingHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip() {
+        if (getTooltip != null) {
+            return getTooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXScale() {
+        if (getXScale != null) {
+            return getXScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYScale() {
+        if (getYScale != null) {
+            return getYScale.generateJs();
         }
         return "";
     }
@@ -11603,21 +11683,26 @@ public class CartesianSeriesCandlestick extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetdata());
-            js.append(generateJSgetfallingHatchFill());
-            js.append(generateJSgethoverFallingHatchFill());
-            js.append(generateJSgethoverMarkers());
-            js.append(generateJSgethoverRisingHatchFill());
-            js.append(generateJSgetlabels());
-            js.append(generateJSgetmarkers());
-            js.append(generateJSgetrendering());
-            js.append(generateJSgetrisingHatchFill());
-            js.append(generateJSgetselectFallingHatchFill());
-            js.append(generateJSgetselectMarkers());
-            js.append(generateJSgetselectRisingHatchFill());
-            js.append(generateJSgetxScale());
-            js.append(generateJSgetyScale());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetClip());
+            js.append(generateJSgetData());
+            js.append(generateJSgetFallingHatchFill());
+            js.append(generateJSgetHoverFallingHatchFill());
+            js.append(generateJSgetHoverLabels());
+            js.append(generateJSgetHoverMarkers());
+            js.append(generateJSgetHoverRisingHatchFill());
+            js.append(generateJSgetLabels());
+            js.append(generateJSgetLegendItem());
+            js.append(generateJSgetMarkers());
+            js.append(generateJSgetRendering());
+            js.append(generateJSgetRisingHatchFill());
+            js.append(generateJSgetSelectFallingHatchFill());
+            js.append(generateJSgetSelectLabels());
+            js.append(generateJSgetSelectMarkers());
+            js.append(generateJSgetSelectRisingHatchFill());
+            js.append(generateJSgetTooltip());
+            js.append(generateJSgetXScale());
+            js.append(generateJSgetYScale());
 
         String result = js.toString();
         js.setLength(0);

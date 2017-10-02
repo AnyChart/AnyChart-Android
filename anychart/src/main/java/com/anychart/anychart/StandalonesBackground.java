@@ -57,13 +57,13 @@ public class StandalonesBackground extends JsObject {
         }
     }
 
-    private Bounds getbounds;
+    private Bounds getBounds;
 
     public Bounds getBounds() {
-        if (getbounds == null)
-            getbounds = new Bounds(jsBase + ".bounds()");
+        if (getBounds == null)
+            getBounds = new Bounds(jsBase + ".bounds()");
 
-        return getbounds;
+        return getBounds;
     }
 
     private RectObj bounds;
@@ -679,6 +679,15 @@ public class StandalonesBackground extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private Element getContainer;
+
+    public Element getContainer() {
+        if (getContainer == null)
+            getContainer = new Element(jsBase + ".container()");
+
+        return getContainer;
     }
 
     private String container;
@@ -1997,13 +2006,13 @@ public class StandalonesBackground extends JsObject {
         }
     }
 
-    private AnychartMathRect getparentBounds;
+    private AnychartMathRect getParentBounds;
 
-    public AnychartMathRect getParentbounds() {
-        if (getparentBounds == null)
-            getparentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
+    public AnychartMathRect getParentBounds() {
+        if (getParentBounds == null)
+            getParentBounds = new AnychartMathRect(jsBase + ".parentBounds()");
 
-        return getparentBounds;
+        return getParentBounds;
     }
 
     private AnychartMathRect parentBounds;
@@ -2479,16 +2488,23 @@ public class StandalonesBackground extends JsObject {
         }
     }
 
-    private String generateJSgetbounds() {
-        if (getbounds != null) {
-            return getbounds.generateJs();
+    private String generateJSgetBounds() {
+        if (getBounds != null) {
+            return getBounds.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetparentBounds() {
-        if (getparentBounds != null) {
-            return getparentBounds.generateJs();
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetParentBounds() {
+        if (getParentBounds != null) {
+            return getParentBounds.generateJs();
         }
         return "";
     }
@@ -3252,8 +3268,9 @@ public class StandalonesBackground extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetbounds());
-            js.append(generateJSgetparentBounds());
+            js.append(generateJSgetBounds());
+            js.append(generateJSgetContainer());
+            js.append(generateJSgetParentBounds());
 
         String result = js.toString();
         js.setLength(0);

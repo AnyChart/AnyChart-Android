@@ -397,13 +397,13 @@ public class GridsMapSettings extends JsObject {
     }
 
     private Fill imageSettings;
-    private GridsMap gethorizontal;
+    private GridsMap getHorizontal;
 
     public GridsMap getHorizontal() {
-        if (gethorizontal == null)
-            gethorizontal = new GridsMap(jsBase + ".horizontal()");
+        if (getHorizontal == null)
+            getHorizontal = new GridsMap(jsBase + ".horizontal()");
 
-        return gethorizontal;
+        return getHorizontal;
     }
 
     private Boolean horizontal;
@@ -1281,13 +1281,13 @@ public class GridsMapSettings extends JsObject {
         }
     }
 
-    private GridsMap getvertical;
+    private GridsMap getVertical;
 
     public GridsMap getVertical() {
-        if (getvertical == null)
-            getvertical = new GridsMap(jsBase + ".vertical()");
+        if (getVertical == null)
+            getVertical = new GridsMap(jsBase + ".vertical()");
 
-        return getvertical;
+        return getVertical;
     }
 
     private Boolean vertical;
@@ -1370,16 +1370,16 @@ public class GridsMapSettings extends JsObject {
         }
     }
 
-    private String generateJSgethorizontal() {
-        if (gethorizontal != null) {
-            return gethorizontal.generateJs();
+    private String generateJSgetHorizontal() {
+        if (getHorizontal != null) {
+            return getHorizontal.generateJs();
         }
         return "";
     }
 
-    private String generateJSgetvertical() {
-        if (getvertical != null) {
-            return getvertical.generateJs();
+    private String generateJSgetVertical() {
+        if (getVertical != null) {
+            return getVertical.generateJs();
         }
         return "";
     }
@@ -1967,8 +1967,8 @@ public class GridsMapSettings extends JsObject {
             js.append(generateJSzIndex1());
             js.append("}");
         }
-            js.append(generateJSgethorizontal());
-            js.append(generateJSgetvertical());
+            js.append(generateJSgetHorizontal());
+            js.append(generateJSgetVertical());
 
         String result = js.toString();
         js.setLength(0);

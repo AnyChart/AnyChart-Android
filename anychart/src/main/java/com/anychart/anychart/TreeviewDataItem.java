@@ -179,6 +179,15 @@ public class TreeviewDataItem extends JsObject {
         }
     }
 
+    private TreeviewDataItem getGetParent;
+
+    public TreeviewDataItem getGetParent() {
+        if (getGetParent == null)
+            getGetParent = new TreeviewDataItem(jsBase + ".getParent()");
+
+        return getGetParent;
+    }
+
     private TreeDataItem child6;
     private TreeviewDataItem child7;
 
@@ -326,6 +335,13 @@ public class TreeviewDataItem extends JsObject {
         }
     }
 
+    private String generateJSgetGetParent() {
+        if (getGetParent != null) {
+            return getGetParent.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSchild() {
         if (child != null) {
             return String.format(Locale.US, "child: %s,", child);
@@ -453,6 +469,7 @@ public class TreeviewDataItem extends JsObject {
             js.append(generateJSindex2());
             js.append("}");
         }
+            js.append(generateJSgetGetParent());
 
         String result = js.toString();
         js.setLength(0);
