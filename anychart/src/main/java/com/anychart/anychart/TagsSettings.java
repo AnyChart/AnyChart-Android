@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TagsSettings extends JsObject {
+public class TagsSettings extends TextSettings {
 
     private String jsBase;
 

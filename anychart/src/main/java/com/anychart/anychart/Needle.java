@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Needle extends JsObject {
+public class Needle extends GaugePointersBase {
 
     private String jsBase;
 

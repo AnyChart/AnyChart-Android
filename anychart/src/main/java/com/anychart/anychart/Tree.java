@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Tree extends JsObject {
+public class Tree extends CoreBase {
 
     private String jsBase;
 
@@ -284,6 +284,15 @@ public class Tree extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private TreeDataItem getGetChildAt;
+
+    public TreeDataItem getGetChildAt() {
+        if (getGetChildAt == null)
+            getGetChildAt = new TreeDataItem(jsBase + ".getChildAt()");
+
+        return getGetChildAt;
     }
 
     private TreeDataItem child4;
@@ -695,6 +704,13 @@ public class Tree extends JsObject {
         }
     }
 
+    private String generateJSgetGetChildAt() {
+        if (getGetChildAt != null) {
+            return getGetChildAt.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSchild() {
         if (child != null) {
             return String.format(Locale.US, "child: %s,", child);
@@ -1022,6 +1038,7 @@ public class Tree extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
+            js.append(generateJSgetGetChildAt());
 
         String result = js.toString();
         js.setLength(0);

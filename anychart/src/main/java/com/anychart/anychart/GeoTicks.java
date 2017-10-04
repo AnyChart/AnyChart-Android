@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class GeoTicks extends JsObject {
+public class GeoTicks extends CoreBase {
 
     private String jsBase;
 

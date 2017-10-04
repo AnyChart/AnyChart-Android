@@ -170,6 +170,15 @@ public class TreeDataItem extends JsObject {
         }
     }
 
+    private TreeDataItem getGetChildAt;
+
+    public TreeDataItem getGetChildAt() {
+        if (getGetChildAt == null)
+            getGetChildAt = new TreeDataItem(jsBase + ".getChildAt()");
+
+        return getGetChildAt;
+    }
+
     private TreeDataItem getGetParent;
 
     public TreeDataItem getGetParent() {
@@ -295,6 +304,13 @@ public class TreeDataItem extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private String generateJSgetGetChildAt() {
+        if (getGetChildAt != null) {
+            return getGetChildAt.generateJs();
+        }
+        return "";
     }
 
     private String generateJSgetGetParent() {
@@ -423,6 +439,7 @@ public class TreeDataItem extends JsObject {
             js.append(generateJSindex2());
             js.append("}");
         }
+            js.append(generateJSgetGetChildAt());
             js.append(generateJSgetGetParent());
 
         String result = js.toString();

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesLegend extends JsObject {
+public class StandalonesLegend extends UiLegend {
 
     private String jsBase;
 

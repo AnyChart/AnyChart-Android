@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Separator extends JsObject {
+public class Separator extends VisualBase {
 
     private String jsBase;
 

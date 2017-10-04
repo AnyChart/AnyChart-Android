@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ChartController extends JsObject {
+public class ChartController extends CoreBase {
 
     private String jsBase;
 

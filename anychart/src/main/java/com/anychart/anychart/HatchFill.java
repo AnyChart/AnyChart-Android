@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class HatchFill extends JsObject {
+public class HatchFill extends PatternFill {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CircularTicks extends JsObject {
+public class CircularTicks extends VisualBase {
 
     private String jsBase;
 

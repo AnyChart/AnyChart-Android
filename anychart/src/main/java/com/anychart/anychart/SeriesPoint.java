@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class SeriesPoint extends JsObject {
+public class SeriesPoint extends Point {
 
     private String jsBase;
 

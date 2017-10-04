@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesLabel extends JsObject {
+public class StandalonesLabel extends UiLabel {
 
     private String jsBase;
 

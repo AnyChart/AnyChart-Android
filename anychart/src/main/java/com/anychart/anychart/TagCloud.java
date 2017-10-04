@@ -819,9 +819,9 @@ public class TagCloud extends Chart {
 
     private Point getGetPoint;
 
-    public Point getGetPoint() {
+    public Point getGetPoint(Double index1) {
         if (getGetPoint == null)
-            getGetPoint = new Point("chart.getPoint()");
+            getGetPoint = new Point("chart.getPoint("+ index1+")");
 
         return getGetPoint;
     }
@@ -867,28 +867,28 @@ public class TagCloud extends Chart {
         }
     }
 
-    private Double index1;
-    private Double[] index2;
+    private Double index2;
+    private Double[] index3;
 
-    public void setHover(Double index1) {
-        this.index1 = index1;
+    public void setHover(Double index2) {
+        this.index2 = index2;
 
-        js.append(String.format(Locale.US, "chart.hover(%f);", index1));
+        js.append(String.format(Locale.US, "chart.hover(%f);", index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hover(%f);", index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hover(%f);", index2));
             js.setLength(0);
         }
     }
 
 
-    public void setHover(Double[] index2) {
-        this.index2 = index2;
+    public void setHover(Double[] index3) {
+        this.index3 = index3;
 
-        js.append(String.format(Locale.US, "chart.hover(%s);", Arrays.toString(index2)));
+        js.append(String.format(Locale.US, "chart.hover(%s);", Arrays.toString(index3)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hover(%s);", Arrays.toString(index2)));
+            onChangeListener.onChange(String.format(Locale.US, "chart.hover(%s);", Arrays.toString(index3)));
             js.setLength(0);
         }
     }
@@ -959,6 +959,33 @@ public class TagCloud extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index4) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index4+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index5) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index5+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -986,59 +1013,59 @@ public class TagCloud extends Chart {
         }
     }
 
-    private String index3;
-    private Double index4;
+    private String index6;
+    private Double index7;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index3, Boolean label3) {
-        this.index3 = index3;
+    public void setLabel(String index6, Boolean label3) {
+        this.index6 = index6;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index3, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index6, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index3, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index6, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index3, String label4) {
-        this.index3 = index3;
+    public void setLabel(String index6, String label4) {
+        this.index6 = index6;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index3, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index6, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index3, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index6, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index4, Boolean label3) {
-        this.index4 = index4;
+    public void setLabel(Double index7, Boolean label3) {
+        this.index7 = index7;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index4, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index7, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index4, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index7, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index4, String label4) {
-        this.index4 = index4;
+    public void setLabel(Double index7, String label4) {
+        this.index7 = index7;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index4, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index7, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index4, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index7, label4));
             js.setLength(0);
         }
     }
@@ -2297,15 +2324,15 @@ public class TagCloud extends Chart {
         }
     }
 
-    private Double index5;
+    private Double index8;
 
-    public void setSelect(Double index5) {
-        this.index5 = index5;
+    public void setSelect(Double index8) {
+        this.index8 = index8;
 
-        js.append(String.format(Locale.US, "chart.select(%f);", index5));
+        js.append(String.format(Locale.US, "chart.select(%f);", index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.select(%f);", index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.select(%f);", index8));
             js.setLength(0);
         }
     }
@@ -2540,15 +2567,15 @@ public class TagCloud extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -2709,6 +2736,27 @@ public class TagCloud extends Chart {
         return "";
     }
 
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetLegend() {
         if (getLegend != null) {
             return getLegend.generateJs();
@@ -2781,6 +2829,9 @@ public class TagCloud extends Chart {
         js.append(generateJSgetHovered());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetLegend());
         js.append(generateJSgetMargin());
         js.append(generateJSgetNormal());

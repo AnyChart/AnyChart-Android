@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StockDateTime extends JsObject {
+public class StockDateTime extends VisualBase {
 
     private String jsBase;
 
@@ -454,6 +454,15 @@ public class StockDateTime extends JsObject {
         }
     }
 
+    private StockDateTime getTicks1;
+
+    public StockDateTime getTicks1() {
+        if (getTicks1 == null)
+            getTicks1 = new StockDateTime(jsBase + ".ticks1()");
+
+        return getTicks1;
+    }
+
     private String type3;
     private Boolean useCapture2;
     private String listenerScope2;
@@ -555,6 +564,13 @@ public class StockDateTime extends JsObject {
     private String generateJSgetTicks() {
         if (getTicks != null) {
             return getTicks.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTicks1() {
+        if (getTicks1 != null) {
+            return getTicks1.generateJs();
         }
         return "";
     }
@@ -811,6 +827,7 @@ public class StockDateTime extends JsObject {
             js.append(generateJSgetMinorLabels());
             js.append(generateJSgetMinorTicks());
             js.append(generateJSgetTicks());
+            js.append(generateJSgetTicks1());
 
         String result = js.toString();
         js.setLength(0);

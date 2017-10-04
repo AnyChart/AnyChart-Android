@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CartesianSeriesBase extends JsObject {
+public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private String jsBase;
 
@@ -878,6 +878,15 @@ public class CartesianSeriesBase extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private Double height2;
@@ -1883,6 +1892,13 @@ public class CartesianSeriesBase extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetRendering() {
         if (getRendering != null) {
             return getRendering.generateJs();
@@ -2522,6 +2538,7 @@ public class CartesianSeriesBase extends JsObject {
             js.append(generateJSgetBounds());
             js.append(generateJSgetClip());
             js.append(generateJSgetError());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetRendering());
             js.append(generateJSgetXScale());
             js.append(generateJSgetYScale());

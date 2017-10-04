@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class VerticalLine extends JsObject {
+public class VerticalLine extends AnnotationsBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Ray extends JsObject {
+public class Ray extends AnnotationsBase {
 
     private String jsBase;
 

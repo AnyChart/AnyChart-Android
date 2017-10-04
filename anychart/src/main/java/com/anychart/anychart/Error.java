@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Error extends JsObject {
+public class Error extends CoreBase {
 
     private String jsBase;
 

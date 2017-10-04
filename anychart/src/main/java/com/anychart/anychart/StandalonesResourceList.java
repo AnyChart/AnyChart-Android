@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesResourceList extends JsObject {
+public class StandalonesResourceList extends ResourceResourceList {
 
     private String jsBase;
 

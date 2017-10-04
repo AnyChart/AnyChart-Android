@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CartesianSeriesCandlestick extends JsObject {
+public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
 
     private String jsBase;
 
@@ -1651,6 +1651,15 @@ public class CartesianSeriesCandlestick extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private Double height2;
@@ -9108,6 +9117,13 @@ public class CartesianSeriesCandlestick extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHoverFallingHatchFill() {
         if (getHoverFallingHatchFill != null) {
             return getHoverFallingHatchFill.generateJs();
@@ -11687,6 +11703,7 @@ public class CartesianSeriesCandlestick extends JsObject {
             js.append(generateJSgetClip());
             js.append(generateJSgetData());
             js.append(generateJSgetFallingHatchFill());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHoverFallingHatchFill());
             js.append(generateJSgetHoverLabels());
             js.append(generateJSgetHoverMarkers());

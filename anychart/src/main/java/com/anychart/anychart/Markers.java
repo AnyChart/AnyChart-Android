@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Markers extends JsObject {
+public class Markers extends CoreBase {
 
     private String jsBase;
 

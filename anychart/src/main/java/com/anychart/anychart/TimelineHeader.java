@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TimelineHeader extends JsObject {
+public class TimelineHeader extends VisualBaseWithBounds {
 
     private String jsBase;
 
@@ -1246,6 +1246,15 @@ public class TimelineHeader extends JsObject {
         }
     }
 
+    private TimelineHeader getLowLevel;
+
+    public TimelineHeader getLowLevel() {
+        if (getLowLevel == null)
+            getLowLevel = new TimelineHeader(jsBase + ".lowLevel()");
+
+        return getLowLevel;
+    }
+
     private Double maxHeight;
     private String maxHeight1;
 
@@ -1749,6 +1758,13 @@ public class TimelineHeader extends JsObject {
     private String generateJSgetBounds() {
         if (getBounds != null) {
             return getBounds.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLowLevel() {
+        if (getLowLevel != null) {
+            return getLowLevel.generateJs();
         }
         return "";
     }
@@ -2353,6 +2369,7 @@ public class TimelineHeader extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetBounds());
+            js.append(generateJSgetLowLevel());
 
         String result = js.toString();
         js.setLength(0);

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Tank extends JsObject {
+public class Tank extends LineargaugePointersBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class View extends JsObject {
+public class View extends CoreBase {
 
     private String jsBase;
 

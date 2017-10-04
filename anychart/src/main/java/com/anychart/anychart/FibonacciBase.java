@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class FibonacciBase extends JsObject {
+public class FibonacciBase extends AnnotationsBase {
 
     private String jsBase;
 

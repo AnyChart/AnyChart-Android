@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class FibonacciTimezones extends JsObject {
+public class FibonacciTimezones extends FibonacciBase {
 
     private String jsBase;
 

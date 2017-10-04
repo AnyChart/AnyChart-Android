@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class MapInteractivity extends JsObject {
+public class MapInteractivity extends Interactivity {
 
     private String jsBase;
 

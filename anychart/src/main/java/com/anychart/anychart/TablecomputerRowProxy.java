@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TablecomputerRowProxy extends JsObject {
+public class TablecomputerRowProxy extends TableselectableRowProxy {
 
     private String jsBase;
 

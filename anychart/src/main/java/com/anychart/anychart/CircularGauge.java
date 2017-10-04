@@ -156,6 +156,15 @@ public class CircularGauge extends Chart {
         return getBar;
     }
 
+    private GaugePointersBar getBar1;
+
+    public GaugePointersBar getBar1(Double index1) {
+        if (getBar1 == null)
+            getBar1 = new GaugePointersBar("chart.bar1("+ index1+")");
+
+        return getBar1;
+    }
+
     private String bar;
     private Boolean bar1;
 
@@ -182,31 +191,31 @@ public class CircularGauge extends Chart {
         }
     }
 
-    private Double index1;
+    private Double index2;
     private String bar2;
     private Boolean bar3;
 
-    public void setBar(String bar2, Double index1) {
+    public void setBar(String bar2, Double index2) {
         this.bar2 = bar2;
-        this.index1 = index1;
+        this.index2 = index2;
 
-        js.append(String.format(Locale.US, "chart.bar(%s, %f);", bar2, index1));
+        js.append(String.format(Locale.US, "chart.bar(%s, %f);", bar2, index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bar(%s, %f);", bar2, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bar(%s, %f);", bar2, index2));
             js.setLength(0);
         }
     }
 
 
-    public void setBar(Boolean bar3, Double index1) {
+    public void setBar(Boolean bar3, Double index2) {
         this.bar3 = bar3;
-        this.index1 = index1;
+        this.index2 = index2;
 
-        js.append(String.format(Locale.US, "chart.bar(%b, %f);", bar3, index1));
+        js.append(String.format(Locale.US, "chart.bar(%b, %f);", bar3, index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bar(%b, %f);", bar3, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.bar(%b, %f);", bar3, index2));
             js.setLength(0);
         }
     }
@@ -1081,6 +1090,15 @@ public class CircularGauge extends Chart {
         return getKnob;
     }
 
+    private Knob getKnob1;
+
+    public Knob getKnob1(Double index3) {
+        if (getKnob1 == null)
+            getKnob1 = new Knob("chart.knob1("+ index3+")");
+
+        return getKnob1;
+    }
+
     private String knob;
     private Boolean knob1;
 
@@ -1107,31 +1125,31 @@ public class CircularGauge extends Chart {
         }
     }
 
-    private Double index2;
+    private Double index4;
     private String knob2;
     private Boolean knob3;
 
-    public void setKnob(String knob2, Double index2) {
+    public void setKnob(String knob2, Double index4) {
         this.knob2 = knob2;
-        this.index2 = index2;
+        this.index4 = index4;
 
-        js.append(String.format(Locale.US, "chart.knob(%s, %f);", knob2, index2));
+        js.append(String.format(Locale.US, "chart.knob(%s, %f);", knob2, index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.knob(%s, %f);", knob2, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.knob(%s, %f);", knob2, index4));
             js.setLength(0);
         }
     }
 
 
-    public void setKnob(Boolean knob3, Double index2) {
+    public void setKnob(Boolean knob3, Double index4) {
         this.knob3 = knob3;
-        this.index2 = index2;
+        this.index4 = index4;
 
-        js.append(String.format(Locale.US, "chart.knob(%b, %f);", knob3, index2));
+        js.append(String.format(Locale.US, "chart.knob(%b, %f);", knob3, index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.knob(%b, %f);", knob3, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.knob(%b, %f);", knob3, index4));
             js.setLength(0);
         }
     }
@@ -1143,6 +1161,33 @@ public class CircularGauge extends Chart {
             getLabel = new UiLabel("chart.label()");
 
         return getLabel;
+    }
+
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index5) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index5+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index6) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index6+")");
+
+        return getLabel3;
     }
 
     private Boolean label;
@@ -1172,59 +1217,59 @@ public class CircularGauge extends Chart {
         }
     }
 
-    private String index3;
-    private Double index4;
+    private String index7;
+    private Double index8;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index3, Boolean label3) {
-        this.index3 = index3;
+    public void setLabel(String index7, Boolean label3) {
+        this.index7 = index7;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index3, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index7, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index3, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index7, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index3, String label4) {
-        this.index3 = index3;
+    public void setLabel(String index7, String label4) {
+        this.index7 = index7;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index3, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index7, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index3, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index7, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index4, Boolean label3) {
-        this.index4 = index4;
+    public void setLabel(Double index8, Boolean label3) {
+        this.index8 = index8;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index4, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index8, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index4, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index8, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index4, String label4) {
-        this.index4 = index4;
+    public void setLabel(Double index8, String label4) {
+        this.index8 = index8;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index4, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index8, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index4, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index8, label4));
             js.setLength(0);
         }
     }
@@ -1609,6 +1654,15 @@ public class CircularGauge extends Chart {
         return getMarker;
     }
 
+    private GaugePointersMarker getMarker1;
+
+    public GaugePointersMarker getMarker1(Double index9) {
+        if (getMarker1 == null)
+            getMarker1 = new GaugePointersMarker("chart.marker1("+ index9+")");
+
+        return getMarker1;
+    }
+
     private String marker;
     private Boolean marker1;
 
@@ -1635,31 +1689,31 @@ public class CircularGauge extends Chart {
         }
     }
 
-    private Double index5;
+    private Double index10;
     private String marker2;
     private Boolean marker3;
 
-    public void setMarker(String marker2, Double index5) {
+    public void setMarker(String marker2, Double index10) {
         this.marker2 = marker2;
-        this.index5 = index5;
+        this.index10 = index10;
 
-        js.append(String.format(Locale.US, "chart.marker(%s, %f);", marker2, index5));
+        js.append(String.format(Locale.US, "chart.marker(%s, %f);", marker2, index10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %f);", marker2, index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%s, %f);", marker2, index10));
             js.setLength(0);
         }
     }
 
 
-    public void setMarker(Boolean marker3, Double index5) {
+    public void setMarker(Boolean marker3, Double index10) {
         this.marker3 = marker3;
-        this.index5 = index5;
+        this.index10 = index10;
 
-        js.append(String.format(Locale.US, "chart.marker(%b, %f);", marker3, index5));
+        js.append(String.format(Locale.US, "chart.marker(%b, %f);", marker3, index10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%b, %f);", marker3, index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.marker(%b, %f);", marker3, index10));
             js.setLength(0);
         }
     }
@@ -1777,6 +1831,15 @@ public class CircularGauge extends Chart {
         return getNeedle;
     }
 
+    private Needle getNeedle1;
+
+    public Needle getNeedle1(Double index11) {
+        if (getNeedle1 == null)
+            getNeedle1 = new Needle("chart.needle1("+ index11+")");
+
+        return getNeedle1;
+    }
+
     private String needle;
     private Boolean needle1;
 
@@ -1803,31 +1866,31 @@ public class CircularGauge extends Chart {
         }
     }
 
-    private Double index6;
+    private Double index12;
     private String needle2;
     private Boolean needle3;
 
-    public void setNeedle(String needle2, Double index6) {
+    public void setNeedle(String needle2, Double index12) {
         this.needle2 = needle2;
-        this.index6 = index6;
+        this.index12 = index12;
 
-        js.append(String.format(Locale.US, "chart.needle(%s, %f);", needle2, index6));
+        js.append(String.format(Locale.US, "chart.needle(%s, %f);", needle2, index12));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.needle(%s, %f);", needle2, index6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.needle(%s, %f);", needle2, index12));
             js.setLength(0);
         }
     }
 
 
-    public void setNeedle(Boolean needle3, Double index6) {
+    public void setNeedle(Boolean needle3, Double index12) {
         this.needle3 = needle3;
-        this.index6 = index6;
+        this.index12 = index12;
 
-        js.append(String.format(Locale.US, "chart.needle(%b, %f);", needle3, index6));
+        js.append(String.format(Locale.US, "chart.needle(%b, %f);", needle3, index12));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.needle(%b, %f);", needle3, index6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.needle(%b, %f);", needle3, index12));
             js.setLength(0);
         }
     }
@@ -2166,6 +2229,15 @@ public class CircularGauge extends Chart {
         return getRange;
     }
 
+    private CircularRange getRange1;
+
+    public CircularRange getRange1(Double index13) {
+        if (getRange1 == null)
+            getRange1 = new CircularRange("chart.range1("+ index13+")");
+
+        return getRange1;
+    }
+
     private String range;
     private Boolean range1;
 
@@ -2192,31 +2264,31 @@ public class CircularGauge extends Chart {
         }
     }
 
-    private Double index7;
+    private Double index14;
     private String range2;
     private Boolean range3;
 
-    public void setRange(String range2, Double index7) {
+    public void setRange(String range2, Double index14) {
         this.range2 = range2;
-        this.index7 = index7;
+        this.index14 = index14;
 
-        js.append(String.format(Locale.US, "chart.range(%s, %f);", range2, index7));
+        js.append(String.format(Locale.US, "chart.range(%s, %f);", range2, index14));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.range(%s, %f);", range2, index7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.range(%s, %f);", range2, index14));
             js.setLength(0);
         }
     }
 
 
-    public void setRange(Boolean range3, Double index7) {
+    public void setRange(Boolean range3, Double index14) {
         this.range3 = range3;
-        this.index7 = index7;
+        this.index14 = index14;
 
-        js.append(String.format(Locale.US, "chart.range(%b, %f);", range3, index7));
+        js.append(String.format(Locale.US, "chart.range(%b, %f);", range3, index14));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.range(%b, %f);", range3, index7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.range(%b, %f);", range3, index14));
             js.setLength(0);
         }
     }
@@ -3125,6 +3197,13 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+    private String generateJSgetBar1() {
+        if (getBar1 != null) {
+            return getBar1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetBounds() {
         if (getBounds != null) {
             return getBounds.generateJs();
@@ -3167,9 +3246,37 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+    private String generateJSgetKnob1() {
+        if (getKnob1 != null) {
+            return getKnob1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
         }
         return "";
     }
@@ -3188,9 +3295,23 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+    private String generateJSgetMarker1() {
+        if (getMarker1 != null) {
+            return getMarker1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetNeedle() {
         if (getNeedle != null) {
             return getNeedle.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetNeedle1() {
+        if (getNeedle1 != null) {
+            return getNeedle1.generateJs();
         }
         return "";
     }
@@ -3205,6 +3326,13 @@ public class CircularGauge extends Chart {
     private String generateJSgetRange() {
         if (getRange != null) {
             return getRange.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetRange1() {
+        if (getRange1 != null) {
+            return getRange1.generateJs();
         }
         return "";
     }
@@ -3230,18 +3358,26 @@ public class CircularGauge extends Chart {
         js.append(generateJSgetAxis());
         js.append(generateJSgetBackground());
         js.append(generateJSgetBar());
+        js.append(generateJSgetBar1());
         js.append(generateJSgetBounds());
         js.append(generateJSgetCap());
         js.append(generateJSgetContainer());
         js.append(generateJSgetContextMenu());
         js.append(generateJSgetData());
         js.append(generateJSgetKnob());
+        js.append(generateJSgetKnob1());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetMargin());
         js.append(generateJSgetMarker());
+        js.append(generateJSgetMarker1());
         js.append(generateJSgetNeedle());
+        js.append(generateJSgetNeedle1());
         js.append(generateJSgetPadding());
         js.append(generateJSgetRange());
+        js.append(generateJSgetRange1());
         js.append(generateJSgetTitle());
         js.append(generateJSgetTooltip());
 

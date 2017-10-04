@@ -34,6 +34,15 @@ public class Milestones extends JsObject {
         }
     }
 
+    private Milestones getColor;
+
+    public Milestones getColor() {
+        if (getColor == null)
+            getColor = new Milestones(jsBase + ".color()");
+
+        return getColor;
+    }
+
     private Fill fill;
 
     public void setFill(Fill fill) {
@@ -2104,6 +2113,13 @@ public class Milestones extends JsObject {
         }
     }
 
+    private String generateJSgetColor() {
+        if (getColor != null) {
+            return getColor.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHoverLabels() {
         if (getHoverLabels != null) {
             return getHoverLabels.generateJs();
@@ -2867,6 +2883,7 @@ public class Milestones extends JsObject {
             js.append(generateJStooltip1());
             js.append("}");
         }
+            js.append(generateJSgetColor());
             js.append(generateJSgetHoverLabels());
             js.append(generateJSgetLabels());
             js.append(generateJSgetSelectLabels());

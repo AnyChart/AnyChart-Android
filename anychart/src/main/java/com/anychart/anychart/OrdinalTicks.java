@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class OrdinalTicks extends JsObject {
+public class OrdinalTicks extends CoreBase {
 
     private String jsBase;
 

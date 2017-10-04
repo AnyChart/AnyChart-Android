@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class VectorText extends JsObject {
+public class VectorText extends Element {
 
     private String jsBase;
 

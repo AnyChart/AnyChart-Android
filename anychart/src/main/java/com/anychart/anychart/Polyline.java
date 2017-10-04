@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Polyline extends JsObject {
+public class Polyline extends PolarSeriesContinuousBase {
 
     private String jsBase;
 
@@ -987,6 +987,15 @@ public class Polyline extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private String key;
@@ -2650,6 +2659,13 @@ public class Polyline extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHoverLabels() {
         if (getHoverLabels != null) {
             return getHoverLabels.generateJs();
@@ -3625,6 +3641,7 @@ public class Polyline extends JsObject {
         }
             js.append(generateJSgetBounds());
             js.append(generateJSgetData());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHoverLabels());
             js.append(generateJSgetHoverMarkers());
             js.append(generateJSgetLabels());

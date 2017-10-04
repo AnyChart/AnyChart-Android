@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Crossing extends JsObject {
+public class Crossing extends CoreBase {
 
     private String jsBase;
 

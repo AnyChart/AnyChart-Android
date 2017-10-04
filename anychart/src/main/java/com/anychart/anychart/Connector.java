@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Connector extends JsObject {
+public class Connector extends MapSeriesBaseWithMarkers {
 
     private String jsBase;
 
@@ -1018,6 +1018,15 @@ public class Connector extends JsObject {
         }
     }
 
+    private Connector getEndSize;
+
+    public Connector getEndSize() {
+        if (getEndSize == null)
+            getEndSize = new Connector(jsBase + ".endSize()");
+
+        return getEndSize;
+    }
+
     private Double indexes;
     private Double[] indexes1;
 
@@ -1422,6 +1431,15 @@ public class Connector extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private String key;
@@ -5121,6 +5139,20 @@ public class Connector extends JsObject {
         return "";
     }
 
+    private String generateJSgetEndSize() {
+        if (getEndSize != null) {
+            return getEndSize.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
@@ -6879,6 +6911,8 @@ public class Connector extends JsObject {
         }
             js.append(generateJSgetBounds());
             js.append(generateJSgetData());
+            js.append(generateJSgetEndSize());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHatchFill());
             js.append(generateJSgetHoverHatchFill());
             js.append(generateJSgetHoverLabels());

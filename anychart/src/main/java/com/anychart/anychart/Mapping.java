@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Mapping extends JsObject {
+public class Mapping extends View {
 
     private String jsBase;
 

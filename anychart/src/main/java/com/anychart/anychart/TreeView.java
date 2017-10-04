@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TreeView extends JsObject {
+public class TreeView extends CoreBase {
 
     private String jsBase;
 
@@ -299,6 +299,15 @@ public class TreeView extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private TreeviewDataItem getGetChildAt;
+
+    public TreeviewDataItem getGetChildAt() {
+        if (getGetChildAt == null)
+            getGetChildAt = new TreeviewDataItem(jsBase + ".getChildAt()");
+
+        return getGetChildAt;
     }
 
     private TreeDataItem child6;
@@ -602,6 +611,13 @@ public class TreeView extends JsObject {
         }
     }
 
+    private String generateJSgetGetChildAt() {
+        if (getGetChildAt != null) {
+            return getGetChildAt.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSchild() {
         if (child != null) {
             return String.format(Locale.US, "child: %s,", child);
@@ -841,6 +857,7 @@ public class TreeView extends JsObject {
             js.append(generateJScomparisonFn1());
             js.append("}");
         }
+            js.append(generateJSgetGetChildAt());
 
         String result = js.toString();
         js.setLength(0);

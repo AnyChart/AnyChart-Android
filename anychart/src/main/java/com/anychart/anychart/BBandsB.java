@@ -51,6 +51,15 @@ public class BBandsB extends JsObject {
         }
     }
 
+    private BBandsB getPeriod;
+
+    public BBandsB getPeriod() {
+        if (getPeriod == null)
+            getPeriod = new BBandsB(jsBase + ".period()");
+
+        return getPeriod;
+    }
+
     private StockSeriesBase getSeries;
 
     public StockSeriesBase getSeries() {
@@ -100,6 +109,13 @@ public class BBandsB extends JsObject {
         }
     }
 
+    private String generateJSgetPeriod() {
+        if (getPeriod != null) {
+            return getPeriod.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetSeries() {
         if (getSeries != null) {
             return getSeries.generateJs();
@@ -146,6 +162,7 @@ public class BBandsB extends JsObject {
             js.append(generateJStype1());
             js.append("}");
         }
+            js.append(generateJSgetPeriod());
             js.append(generateJSgetSeries());
 
         String result = js.toString();

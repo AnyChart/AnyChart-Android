@@ -1,10 +1,7 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-
 // class
-public class A11y extends JsObject {
+public class A11y extends CoreBase {
 
     private String jsBase;
 

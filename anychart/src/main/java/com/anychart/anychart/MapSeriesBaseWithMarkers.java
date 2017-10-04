@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class MapSeriesBaseWithMarkers extends JsObject {
+public class MapSeriesBaseWithMarkers extends MapSeriesBase {
 
     private String jsBase;
 
@@ -1302,6 +1302,15 @@ public class MapSeriesBaseWithMarkers extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private String key;
@@ -4786,6 +4795,13 @@ public class MapSeriesBaseWithMarkers extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
@@ -6424,6 +6440,7 @@ public class MapSeriesBaseWithMarkers extends JsObject {
         }
             js.append(generateJSgetBounds());
             js.append(generateJSgetData());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHatchFill());
             js.append(generateJSgetHoverHatchFill());
             js.append(generateJSgetHoverLabels());

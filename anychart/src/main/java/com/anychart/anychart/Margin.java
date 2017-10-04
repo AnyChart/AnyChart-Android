@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Margin extends JsObject {
+public class Margin extends CoreBase {
 
     private String jsBase;
 

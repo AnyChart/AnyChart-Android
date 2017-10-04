@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class LabelsfactoryLabel extends JsObject {
+public class LabelsfactoryLabel extends CoreText {
 
     private String jsBase;
 

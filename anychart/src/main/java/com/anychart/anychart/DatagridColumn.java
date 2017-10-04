@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class DatagridColumn extends JsObject {
+public class DatagridColumn extends VisualBase {
 
     private String jsBase;
 

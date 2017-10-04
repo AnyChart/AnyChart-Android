@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Column3d extends JsObject {
+public class Column3d extends WidthBased {
 
     private String jsBase;
 
@@ -1042,6 +1042,15 @@ public class Column3d extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private Double height2;
@@ -2581,6 +2590,13 @@ public class Column3d extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHoverLabels() {
         if (getHoverLabels != null) {
             return getHoverLabels.generateJs();
@@ -3508,6 +3524,7 @@ public class Column3d extends JsObject {
             js.append(generateJSgetBounds());
             js.append(generateJSgetClip());
             js.append(generateJSgetData());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHoverLabels());
             js.append(generateJSgetHoverMarkers());
             js.append(generateJSgetLabels());

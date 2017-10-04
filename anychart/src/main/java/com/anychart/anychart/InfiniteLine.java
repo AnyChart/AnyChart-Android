@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class InfiniteLine extends JsObject {
+public class InfiniteLine extends AnnotationsBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ScrollBar extends JsObject {
+public class ScrollBar extends VisualBaseWithBounds {
 
     private String jsBase;
 

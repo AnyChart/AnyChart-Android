@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class SeparateChart extends JsObject {
+public class SeparateChart extends ChartWithCredits {
 
     private String jsBase;
 
@@ -1199,6 +1199,15 @@ public class SeparateChart extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private UiLabel getLabel;
+
+    public UiLabel getLabel() {
+        if (getLabel == null)
+            getLabel = new UiLabel(jsBase + ".label()");
+
+        return getLabel;
     }
 
     private Boolean label;
@@ -5327,6 +5336,13 @@ public class SeparateChart extends JsObject {
         return "";
     }
 
+    private String generateJSgetLabel() {
+        if (getLabel != null) {
+            return getLabel.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetLegend() {
         if (getLegend != null) {
             return getLegend.generateJs();
@@ -6616,6 +6632,7 @@ public class SeparateChart extends JsObject {
             js.append(generateJSgetContextMenu());
             js.append(generateJSgetCredits());
             js.append(generateJSgetInteractivity());
+            js.append(generateJSgetLabel());
             js.append(generateJSgetLegend());
             js.append(generateJSgetMargin());
             js.append(generateJSgetPadding());

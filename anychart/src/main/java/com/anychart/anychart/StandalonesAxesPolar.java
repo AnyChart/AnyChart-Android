@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesAxesPolar extends JsObject {
+public class StandalonesAxesPolar extends CoreAxesPolar {
 
     private String jsBase;
 

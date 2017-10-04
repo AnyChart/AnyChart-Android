@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Crosshair extends JsObject {
+public class Crosshair extends VisualBase {
 
     private String jsBase;
 

@@ -51,6 +51,15 @@ public class Thumbs extends JsObject {
         }
     }
 
+    private Thumbs getEnabled;
+
+    public Thumbs getEnabled() {
+        if (getEnabled == null)
+            getEnabled = new Thumbs(jsBase + ".enabled()");
+
+        return getEnabled;
+    }
+
     private Fill fill;
 
     public void setFill(Fill fill) {
@@ -1065,6 +1074,13 @@ public class Thumbs extends JsObject {
         }
     }
 
+    private String generateJSgetEnabled() {
+        if (getEnabled != null) {
+            return getEnabled.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSautoHide() {
         if (autoHide != null) {
             return String.format(Locale.US, "autoHide: %b,", autoHide);
@@ -1504,6 +1520,7 @@ public class Thumbs extends JsObject {
             js.append(generateJSlineCap1());
             js.append("}");
         }
+            js.append(generateJSgetEnabled());
 
         String result = js.toString();
         js.setLength(0);

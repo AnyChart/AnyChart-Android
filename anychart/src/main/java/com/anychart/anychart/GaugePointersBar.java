@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class GaugePointersBar extends JsObject {
+public class GaugePointersBar extends GaugePointersBase {
 
     private String jsBase;
 

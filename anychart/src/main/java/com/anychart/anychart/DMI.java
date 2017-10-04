@@ -227,6 +227,15 @@ public class DMI extends JsObject {
         }
     }
 
+    private DMI getUseWildersSmoothing;
+
+    public DMI getUseWildersSmoothing() {
+        if (getUseWildersSmoothing == null)
+            getUseWildersSmoothing = new DMI(jsBase + ".useWildersSmoothing()");
+
+        return getUseWildersSmoothing;
+    }
+
     private String generateJSgetAdxSeries() {
         if (getAdxSeries != null) {
             return getAdxSeries.generateJs();
@@ -244,6 +253,13 @@ public class DMI extends JsObject {
     private String generateJSgetPdiSeries() {
         if (getPdiSeries != null) {
             return getPdiSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetUseWildersSmoothing() {
+        if (getUseWildersSmoothing != null) {
+            return getUseWildersSmoothing.generateJs();
         }
         return "";
     }
@@ -330,6 +346,7 @@ public class DMI extends JsObject {
             js.append(generateJSgetAdxSeries());
             js.append(generateJSgetNdiSeries());
             js.append(generateJSgetPdiSeries());
+            js.append(generateJSgetUseWildersSmoothing());
 
         String result = js.toString();
         js.setLength(0);

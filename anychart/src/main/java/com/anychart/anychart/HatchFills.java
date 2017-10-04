@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class HatchFills extends JsObject {
+public class HatchFills extends CoreBase {
 
     private String jsBase;
 
@@ -32,6 +32,15 @@ public class HatchFills extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private HatchFill getItemAt;
+
+    public HatchFill getItemAt() {
+        if (getItemAt == null)
+            getItemAt = new HatchFill(jsBase + ".itemAt()");
+
+        return getItemAt;
     }
 
     private Double index1;
@@ -554,6 +563,13 @@ public class HatchFills extends JsObject {
         }
     }
 
+    private String generateJSgetItemAt() {
+        if (getItemAt != null) {
+            return getItemAt.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSindex() {
         if (index != null) {
             return String.format(Locale.US, "index: %f,", index);
@@ -801,6 +817,7 @@ public class HatchFills extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
+            js.append(generateJSgetItemAt());
 
         String result = js.toString();
         js.setLength(0);

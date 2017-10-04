@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ResourceResourceList extends JsObject {
+public class ResourceResourceList extends VisualBaseWithBounds {
 
     private String jsBase;
 

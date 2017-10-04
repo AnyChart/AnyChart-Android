@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class LegendItem extends JsObject {
+public class LegendItem extends CoreText {
 
     private String jsBase;
 
@@ -359,6 +359,15 @@ public class LegendItem extends JsObject {
         }
     }
 
+    private LegendItem getIconFill;
+
+    public LegendItem getIconFill() {
+        if (getIconFill == null)
+            getIconFill = new LegendItem(jsBase + ".iconFill()");
+
+        return getIconFill;
+    }
+
     private PatternFill getIconHatchFill;
 
     public PatternFill getIconHatchFill() {
@@ -500,6 +509,15 @@ public class LegendItem extends JsObject {
         }
     }
 
+    private LegendItem getIconStroke;
+
+    public LegendItem getIconStroke() {
+        if (getIconStroke == null)
+            getIconStroke = new LegendItem(jsBase + ".iconStroke()");
+
+        return getIconStroke;
+    }
+
     private Double iconTextSpacing;
 
     public void setIcontextspacing(Double iconTextSpacing) {
@@ -517,6 +535,15 @@ public class LegendItem extends JsObject {
         }
     }
 
+    private LegendItem getIconTextSpacing;
+
+    public LegendItem getIconTextSpacing() {
+        if (getIconTextSpacing == null)
+            getIconTextSpacing = new LegendItem(jsBase + ".iconTextSpacing()");
+
+        return getIconTextSpacing;
+    }
+
     private String iconType;
 
     public void setIcontype(String iconType) {
@@ -532,6 +559,15 @@ public class LegendItem extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private LegendItem getIconType;
+
+    public LegendItem getIconType() {
+        if (getIconType == null)
+            getIconType = new LegendItem(jsBase + ".iconType()");
+
+        return getIconType;
     }
 
     private String letterSpacing;
@@ -847,6 +883,15 @@ public class LegendItem extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private LegendItem getText;
+
+    public LegendItem getText() {
+        if (getText == null)
+            getText = new LegendItem(jsBase + ".text()");
+
+        return getText;
     }
 
     private Direction textDirection;
@@ -1233,6 +1278,15 @@ public class LegendItem extends JsObject {
         }
     }
 
+    private LegendItem getX;
+
+    public LegendItem getX() {
+        if (getX == null)
+            getX = new LegendItem(jsBase + ".x()");
+
+        return getX;
+    }
+
     private Double y;
     private String y1;
 
@@ -1273,6 +1327,15 @@ public class LegendItem extends JsObject {
         }
     }
 
+    private LegendItem getY;
+
+    public LegendItem getY() {
+        if (getY == null)
+            getY = new LegendItem(jsBase + ".y()");
+
+        return getY;
+    }
+
     private Double zIndex;
 
     public void setZindex(Double zIndex) {
@@ -1290,9 +1353,58 @@ public class LegendItem extends JsObject {
         }
     }
 
+    private String generateJSgetIconFill() {
+        if (getIconFill != null) {
+            return getIconFill.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetIconHatchFill() {
         if (getIconHatchFill != null) {
             return getIconHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetIconStroke() {
+        if (getIconStroke != null) {
+            return getIconStroke.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetIconTextSpacing() {
+        if (getIconTextSpacing != null) {
+            return getIconTextSpacing.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetIconType() {
+        if (getIconType != null) {
+            return getIconType.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetText() {
+        if (getText != null) {
+            return getText.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetX() {
+        if (getX != null) {
+            return getX.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetY() {
+        if (getY != null) {
+            return getY.generateJs();
         }
         return "";
     }
@@ -1888,7 +2000,14 @@ public class LegendItem extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
+            js.append(generateJSgetIconFill());
             js.append(generateJSgetIconHatchFill());
+            js.append(generateJSgetIconStroke());
+            js.append(generateJSgetIconTextSpacing());
+            js.append(generateJSgetIconType());
+            js.append(generateJSgetText());
+            js.append(generateJSgetX());
+            js.append(generateJSgetY());
 
         String result = js.toString();
         js.setLength(0);

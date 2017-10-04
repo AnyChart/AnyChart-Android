@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CoreGridsRadar extends JsObject {
+public class CoreGridsRadar extends VisualBase {
 
     private String jsBase;
 

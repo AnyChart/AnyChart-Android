@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CartesianSeriesStepLine extends JsObject {
+public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
 
     private String jsBase;
 
@@ -1135,6 +1135,15 @@ public class CartesianSeriesStepLine extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private Double height2;
@@ -3034,6 +3043,13 @@ public class CartesianSeriesStepLine extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHoverLabels() {
         if (getHoverLabels != null) {
             return getHoverLabels.generateJs();
@@ -4154,6 +4170,7 @@ public class CartesianSeriesStepLine extends JsObject {
             js.append(generateJSgetClip());
             js.append(generateJSgetData());
             js.append(generateJSgetError());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHoverLabels());
             js.append(generateJSgetHoverMarkers());
             js.append(generateJSgetLabels());

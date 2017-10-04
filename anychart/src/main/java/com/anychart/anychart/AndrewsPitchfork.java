@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class AndrewsPitchfork extends JsObject {
+public class AndrewsPitchfork extends AnnotationsBase {
 
     private String jsBase;
 

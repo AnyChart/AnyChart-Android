@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StockScatterDateTime extends JsObject {
+public class StockScatterDateTime extends CoreBase {
 
     private String jsBase;
 

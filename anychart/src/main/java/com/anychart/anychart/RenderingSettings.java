@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class RenderingSettings extends JsObject {
+public class RenderingSettings extends CoreBase {
 
     private String jsBase;
 

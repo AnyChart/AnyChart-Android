@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Callout extends JsObject {
+public class Callout extends VisualBase {
 
     private String jsBase;
 

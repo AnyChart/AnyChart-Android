@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TableColumn extends JsObject {
+public class TableColumn extends TableBase {
 
     private String jsBase;
 
@@ -2052,6 +2052,15 @@ public class TableColumn extends JsObject {
         }
     }
 
+    private TableColumn getMaxWidth;
+
+    public TableColumn getMaxWidth() {
+        if (getMaxWidth == null)
+            getMaxWidth = new TableColumn(jsBase + ".maxWidth()");
+
+        return getMaxWidth;
+    }
+
     private String minWidth;
     private Double minWidth1;
 
@@ -2360,6 +2369,13 @@ public class TableColumn extends JsObject {
     private String generateJSgetCellPadding() {
         if (getCellPadding != null) {
             return getCellPadding.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMaxWidth() {
+        if (getMaxWidth != null) {
+            return getMaxWidth.generateJs();
         }
         return "";
     }
@@ -3030,6 +3046,7 @@ public class TableColumn extends JsObject {
             js.append(generateJSgetBorder());
             js.append(generateJSgetCellBorder());
             js.append(generateJSgetCellPadding());
+            js.append(generateJSgetMaxWidth());
 
         String result = js.toString();
         js.setLength(0);

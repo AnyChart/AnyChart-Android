@@ -316,18 +316,27 @@ public class Pareto extends Chart {
 
     private CartesianSeriesBase getGetSeries;
 
-    public CartesianSeriesBase getGetSeries() {
+    public CartesianSeriesBase getGetSeries(Double id) {
         if (getGetSeries == null)
-            getGetSeries = new CartesianSeriesBase("chart.getSeries()");
+            getGetSeries = new CartesianSeriesBase("chart.getSeries("+ id+")");
 
         return getGetSeries;
     }
 
+    private CartesianSeriesBase getGetSeries1;
+
+    public CartesianSeriesBase getGetSeries1(String id1) {
+        if (getGetSeries1 == null)
+            getGetSeries1 = new CartesianSeriesBase("chart.getSeries1("+ id1+")");
+
+        return getGetSeries1;
+    }
+
     private CartesianSeriesBase getGetSeriesAt;
 
-    public CartesianSeriesBase getGetSeriesAt() {
+    public CartesianSeriesBase getGetSeriesAt(Double index) {
         if (getGetSeriesAt == null)
-            getGetSeriesAt = new CartesianSeriesBase("chart.getSeriesAt()");
+            getGetSeriesAt = new CartesianSeriesBase("chart.getSeriesAt("+ index+")");
 
         return getGetSeriesAt;
     }
@@ -339,6 +348,15 @@ public class Pareto extends Chart {
             getGrid = new CoreGridsLinear("chart.grid()");
 
         return getGrid;
+    }
+
+    private CoreGridsLinear getGrid1;
+
+    public CoreGridsLinear getGrid1(Double index1) {
+        if (getGrid1 == null)
+            getGrid1 = new CoreGridsLinear("chart.grid1("+ index1+")");
+
+        return getGrid1;
     }
 
     private String grid;
@@ -367,31 +385,31 @@ public class Pareto extends Chart {
         }
     }
 
-    private Double index;
+    private Double index2;
     private String grid2;
     private Boolean grid3;
 
-    public void setGrid(String grid2, Double index) {
+    public void setGrid(String grid2, Double index2) {
         this.grid2 = grid2;
-        this.index = index;
+        this.index2 = index2;
 
-        js.append(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index));
+        js.append(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index2));
             js.setLength(0);
         }
     }
 
 
-    public void setGrid(Boolean grid3, Double index) {
+    public void setGrid(Boolean grid3, Double index2) {
         this.grid3 = grid3;
-        this.index = index;
+        this.index2 = index2;
 
-        js.append(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index));
+        js.append(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index2));
             js.setLength(0);
         }
     }
@@ -523,6 +541,15 @@ public class Pareto extends Chart {
         return getLineMarker;
     }
 
+    private CoreAxismarkersLine getLineMarker1;
+
+    public CoreAxismarkersLine getLineMarker1(Double index3) {
+        if (getLineMarker1 == null)
+            getLineMarker1 = new CoreAxismarkersLine("chart.lineMarker1("+ index3+")");
+
+        return getLineMarker1;
+    }
+
     private String lineMarker;
     private Boolean lineMarker1;
 
@@ -549,31 +576,31 @@ public class Pareto extends Chart {
         }
     }
 
-    private Double index1;
+    private Double index4;
     private String lineMarker2;
     private Boolean lineMarker3;
 
-    public void setLinemarker(String lineMarker2, Double index1) {
+    public void setLinemarker(String lineMarker2, Double index4) {
         this.lineMarker2 = lineMarker2;
-        this.index1 = index1;
+        this.index4 = index4;
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index1));
+        js.append(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index4));
             js.setLength(0);
         }
     }
 
 
-    public void setLinemarker(Boolean lineMarker3, Double index1) {
+    public void setLinemarker(Boolean lineMarker3, Double index4) {
         this.lineMarker3 = lineMarker3;
-        this.index1 = index1;
+        this.index4 = index4;
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index1));
+        js.append(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index4));
             js.setLength(0);
         }
     }
@@ -687,6 +714,15 @@ public class Pareto extends Chart {
         return getMinorGrid;
     }
 
+    private CoreGridsLinear getMinorGrid1;
+
+    public CoreGridsLinear getMinorGrid1(Double index5) {
+        if (getMinorGrid1 == null)
+            getMinorGrid1 = new CoreGridsLinear("chart.minorGrid1("+ index5+")");
+
+        return getMinorGrid1;
+    }
+
     private String minorGrid;
     private Boolean minorGrid1;
 
@@ -713,31 +749,31 @@ public class Pareto extends Chart {
         }
     }
 
-    private Double index2;
+    private Double index6;
     private String minorGrid2;
     private Boolean minorGrid3;
 
-    public void setMinorgrid(String minorGrid2, Double index2) {
+    public void setMinorgrid(String minorGrid2, Double index6) {
         this.minorGrid2 = minorGrid2;
-        this.index2 = index2;
+        this.index6 = index6;
 
-        js.append(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index2));
+        js.append(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index6));
             js.setLength(0);
         }
     }
 
 
-    public void setMinorgrid(Boolean minorGrid3, Double index2) {
+    public void setMinorgrid(Boolean minorGrid3, Double index6) {
         this.minorGrid3 = minorGrid3;
-        this.index2 = index2;
+        this.index6 = index6;
 
-        js.append(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index2));
+        js.append(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index6));
             js.setLength(0);
         }
     }
@@ -812,6 +848,15 @@ public class Pareto extends Chart {
         return getRangeMarker;
     }
 
+    private CoreAxismarkersRange getRangeMarker1;
+
+    public CoreAxismarkersRange getRangeMarker1(Double index7) {
+        if (getRangeMarker1 == null)
+            getRangeMarker1 = new CoreAxismarkersRange("chart.rangeMarker1("+ index7+")");
+
+        return getRangeMarker1;
+    }
+
     private String rangeMarker;
     private Boolean rangeMarker1;
 
@@ -838,70 +883,70 @@ public class Pareto extends Chart {
         }
     }
 
-    private Double index3;
+    private Double index8;
     private String rangeMarker2;
     private Boolean rangeMarker3;
 
-    public void setRangemarker(String rangeMarker2, Double index3) {
+    public void setRangemarker(String rangeMarker2, Double index8) {
         this.rangeMarker2 = rangeMarker2;
-        this.index3 = index3;
+        this.index8 = index8;
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index3));
+        js.append(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index8));
             js.setLength(0);
         }
     }
 
 
-    public void setRangemarker(Boolean rangeMarker3, Double index3) {
+    public void setRangemarker(Boolean rangeMarker3, Double index8) {
         this.rangeMarker3 = rangeMarker3;
-        this.index3 = index3;
+        this.index8 = index8;
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index3));
+        js.append(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index8));
             js.setLength(0);
         }
     }
 
-    private Double id;
-    private String id1;
+    private Double id2;
+    private String id3;
 
-    public void setRemoveseries(Double id) {
-        this.id = id;
+    public void setRemoveseries(Double id2) {
+        this.id2 = id2;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(%f);", id));
+        js.append(String.format(Locale.US, "chart.removeSeries(%f);", id2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%f);", id));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%f);", id2));
             js.setLength(0);
         }
     }
 
 
-    public void setRemoveseries(String id1) {
-        this.id1 = id1;
+    public void setRemoveseries(String id3) {
+        this.id3 = id3;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id1));
+        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id3));
             js.setLength(0);
         }
     }
 
-    private Double index4;
+    private Double index9;
 
-    public void setRemoveseriesat(Double index4) {
-        this.index4 = index4;
+    public void setRemoveseriesat(Double index9) {
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.removeSeriesAt(%f);", index4));
+        js.append(String.format(Locale.US, "chart.removeSeriesAt(%f);", index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeriesAt(%f);", index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeriesAt(%f);", index9));
             js.setLength(0);
         }
     }
@@ -1188,6 +1233,15 @@ public class Pareto extends Chart {
         return getTextMarker;
     }
 
+    private CoreAxismarkersText getTextMarker1;
+
+    public CoreAxismarkersText getTextMarker1(Double index10) {
+        if (getTextMarker1 == null)
+            getTextMarker1 = new CoreAxismarkersText("chart.textMarker1("+ index10+")");
+
+        return getTextMarker1;
+    }
+
     private String textMarker;
     private Boolean textMarker1;
 
@@ -1214,31 +1268,31 @@ public class Pareto extends Chart {
         }
     }
 
-    private Double index5;
+    private Double index11;
     private String textMarker2;
     private Boolean textMarker3;
 
-    public void setTextmarker(String textMarker2, Double index5) {
+    public void setTextmarker(String textMarker2, Double index11) {
         this.textMarker2 = textMarker2;
-        this.index5 = index5;
+        this.index11 = index11;
 
-        js.append(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index5));
+        js.append(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index11));
             js.setLength(0);
         }
     }
 
 
-    public void setTextmarker(Boolean textMarker3, Double index5) {
+    public void setTextmarker(Boolean textMarker3, Double index11) {
         this.textMarker3 = textMarker3;
-        this.index5 = index5;
+        this.index11 = index11;
 
-        js.append(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index5));
+        js.append(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index11));
             js.setLength(0);
         }
     }
@@ -1250,6 +1304,15 @@ public class Pareto extends Chart {
             getXAxis = new CoreAxesLinear("chart.xAxis()");
 
         return getXAxis;
+    }
+
+    private CoreAxesLinear getXAxis1;
+
+    public CoreAxesLinear getXAxis1(Double index12) {
+        if (getXAxis1 == null)
+            getXAxis1 = new CoreAxesLinear("chart.xAxis1("+ index12+")");
+
+        return getXAxis1;
     }
 
     private String xAxis;
@@ -1278,31 +1341,31 @@ public class Pareto extends Chart {
         }
     }
 
-    private Double index6;
+    private Double index13;
     private String xAxis2;
     private Boolean xAxis3;
 
-    public void setXaxis(String xAxis2, Double index6) {
+    public void setXaxis(String xAxis2, Double index13) {
         this.xAxis2 = xAxis2;
-        this.index6 = index6;
+        this.index13 = index13;
 
-        js.append(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index6));
+        js.append(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index13));
             js.setLength(0);
         }
     }
 
 
-    public void setXaxis(Boolean xAxis3, Double index6) {
+    public void setXaxis(Boolean xAxis3, Double index13) {
         this.xAxis3 = xAxis3;
-        this.index6 = index6;
+        this.index13 = index13;
 
-        js.append(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index6));
+        js.append(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index6));
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index13));
             js.setLength(0);
         }
     }
@@ -1434,6 +1497,15 @@ public class Pareto extends Chart {
         return getYAxis;
     }
 
+    private CoreAxesLinear getYAxis1;
+
+    public CoreAxesLinear getYAxis1(Double index14) {
+        if (getYAxis1 == null)
+            getYAxis1 = new CoreAxesLinear("chart.yAxis1("+ index14+")");
+
+        return getYAxis1;
+    }
+
     private String yAxis;
     private Boolean yAxis1;
 
@@ -1460,31 +1532,31 @@ public class Pareto extends Chart {
         }
     }
 
-    private Double index7;
+    private Double index15;
     private String yAxis2;
     private Boolean yAxis3;
 
-    public void setYaxis(String yAxis2, Double index7) {
+    public void setYaxis(String yAxis2, Double index15) {
         this.yAxis2 = yAxis2;
-        this.index7 = index7;
+        this.index15 = index15;
 
-        js.append(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index7));
+        js.append(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index15));
             js.setLength(0);
         }
     }
 
 
-    public void setYaxis(Boolean yAxis3, Double index7) {
+    public void setYaxis(Boolean yAxis3, Double index15) {
         this.yAxis3 = yAxis3;
-        this.index7 = index7;
+        this.index15 = index15;
 
-        js.append(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index7));
+        js.append(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index15));
             js.setLength(0);
         }
     }
@@ -1559,6 +1631,13 @@ public class Pareto extends Chart {
         return "";
     }
 
+    private String generateJSgetGetSeries1() {
+        if (getGetSeries1 != null) {
+            return getGetSeries1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetGetSeriesAt() {
         if (getGetSeriesAt != null) {
             return getGetSeriesAt.generateJs();
@@ -1569,6 +1648,13 @@ public class Pareto extends Chart {
     private String generateJSgetGrid() {
         if (getGrid != null) {
             return getGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGrid1() {
+        if (getGrid1 != null) {
+            return getGrid1.generateJs();
         }
         return "";
     }
@@ -1601,6 +1687,13 @@ public class Pareto extends Chart {
         return "";
     }
 
+    private String generateJSgetLineMarker1() {
+        if (getLineMarker1 != null) {
+            return getLineMarker1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetMarkerPalette() {
         if (getMarkerPalette != null) {
             return getMarkerPalette.generateJs();
@@ -1611,6 +1704,13 @@ public class Pareto extends Chart {
     private String generateJSgetMinorGrid() {
         if (getMinorGrid != null) {
             return getMinorGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinorGrid1() {
+        if (getMinorGrid1 != null) {
+            return getMinorGrid1.generateJs();
         }
         return "";
     }
@@ -1629,6 +1729,13 @@ public class Pareto extends Chart {
         return "";
     }
 
+    private String generateJSgetRangeMarker1() {
+        if (getRangeMarker1 != null) {
+            return getRangeMarker1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetSelectLabels() {
         if (getSelectLabels != null) {
             return getSelectLabels.generateJs();
@@ -1643,9 +1750,23 @@ public class Pareto extends Chart {
         return "";
     }
 
+    private String generateJSgetTextMarker1() {
+        if (getTextMarker1 != null) {
+            return getTextMarker1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
             return getXAxis.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXAxis1() {
+        if (getXAxis1 != null) {
+            return getXAxis1.generateJs();
         }
         return "";
     }
@@ -1678,6 +1799,13 @@ public class Pareto extends Chart {
         return "";
     }
 
+    private String generateJSgetYAxis1() {
+        if (getYAxis1 != null) {
+            return getYAxis1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetYScale() {
         if (getYScale != null) {
             return getYScale.generateJs();
@@ -1693,23 +1821,31 @@ public class Pareto extends Chart {
         js.append(generateJSgetData());
         js.append(generateJSgetGetPlotBounds());
         js.append(generateJSgetGetSeries());
+        js.append(generateJSgetGetSeries1());
         js.append(generateJSgetGetSeriesAt());
         js.append(generateJSgetGrid());
+        js.append(generateJSgetGrid1());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetHoverLabels());
         js.append(generateJSgetLabels());
         js.append(generateJSgetLineMarker());
+        js.append(generateJSgetLineMarker1());
         js.append(generateJSgetMarkerPalette());
         js.append(generateJSgetMinorGrid());
+        js.append(generateJSgetMinorGrid1());
         js.append(generateJSgetPalette());
         js.append(generateJSgetRangeMarker());
+        js.append(generateJSgetRangeMarker1());
         js.append(generateJSgetSelectLabels());
         js.append(generateJSgetTextMarker());
+        js.append(generateJSgetTextMarker1());
         js.append(generateJSgetXAxis());
+        js.append(generateJSgetXAxis1());
         js.append(generateJSgetXScale());
         js.append(generateJSgetXScroller());
         js.append(generateJSgetXZoom());
         js.append(generateJSgetYAxis());
+        js.append(generateJSgetYAxis1());
         js.append(generateJSgetYScale());
 
         String result = js.toString();

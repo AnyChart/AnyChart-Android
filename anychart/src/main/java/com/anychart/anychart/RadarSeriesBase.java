@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class RadarSeriesBase extends JsObject {
+public class RadarSeriesBase extends AnychartSeriesBase {
 
     private String jsBase;
 
@@ -993,6 +993,15 @@ public class RadarSeriesBase extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private String key;
@@ -2310,6 +2319,13 @@ public class RadarSeriesBase extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHoverLabels() {
         if (getHoverLabels != null) {
             return getHoverLabels.generateJs();
@@ -3088,6 +3104,7 @@ public class RadarSeriesBase extends JsObject {
         }
             js.append(generateJSgetBounds());
             js.append(generateJSgetData());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHoverLabels());
             js.append(generateJSgetLabels());
             js.append(generateJSgetLegendItem());

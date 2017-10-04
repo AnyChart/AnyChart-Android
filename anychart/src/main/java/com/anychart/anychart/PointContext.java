@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class PointContext extends JsObject {
+public class PointContext extends RenderingsettingsContext {
 
     private String jsBase;
 

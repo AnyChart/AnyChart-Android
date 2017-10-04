@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Rectangle extends JsObject {
+public class Rectangle extends AnnotationsBase {
 
     private String jsBase;
 

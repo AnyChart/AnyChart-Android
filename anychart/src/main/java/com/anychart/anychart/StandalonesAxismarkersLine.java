@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesAxismarkersLine extends JsObject {
+public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
 
     private String jsBase;
 

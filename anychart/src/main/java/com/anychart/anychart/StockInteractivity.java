@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StockInteractivity extends JsObject {
+public class StockInteractivity extends Interactivity {
 
     private String jsBase;
 

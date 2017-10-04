@@ -227,6 +227,15 @@ public class MACD extends JsObject {
         }
     }
 
+    private MACD getSlowPeriod;
+
+    public MACD getSlowPeriod() {
+        if (getSlowPeriod == null)
+            getSlowPeriod = new MACD(jsBase + ".slowPeriod()");
+
+        return getSlowPeriod;
+    }
+
     private String generateJSgetHistogramSeries() {
         if (getHistogramSeries != null) {
             return getHistogramSeries.generateJs();
@@ -244,6 +253,13 @@ public class MACD extends JsObject {
     private String generateJSgetSignalSeries() {
         if (getSignalSeries != null) {
             return getSignalSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSlowPeriod() {
+        if (getSlowPeriod != null) {
+            return getSlowPeriod.generateJs();
         }
         return "";
     }
@@ -330,6 +346,7 @@ public class MACD extends JsObject {
             js.append(generateJSgetHistogramSeries());
             js.append(generateJSgetMacdSeries());
             js.append(generateJSgetSignalSeries());
+            js.append(generateJSgetSlowPeriod());
 
         String result = js.toString();
         js.setLength(0);

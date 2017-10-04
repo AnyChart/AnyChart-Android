@@ -647,6 +647,33 @@ public class ChartsStock extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index1) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index1+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -674,59 +701,59 @@ public class ChartsStock extends Chart {
         }
     }
 
-    private String index;
-    private Double index1;
+    private String index2;
+    private Double index3;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index, Boolean label3) {
-        this.index = index;
+    public void setLabel(String index2, Boolean label3) {
+        this.index2 = index2;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index, String label4) {
-        this.index = index;
+    public void setLabel(String index2, String label4) {
+        this.index2 = index2;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index1, Boolean label3) {
-        this.index1 = index1;
+    public void setLabel(Double index3, Boolean label3) {
+        this.index3 = index3;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index1, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index1, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index1, String label4) {
-        this.index1 = index1;
+    public void setLabel(Double index3, String label4) {
+        this.index3 = index3;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index1, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index1, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
             js.setLength(0);
         }
     }
@@ -1511,6 +1538,15 @@ public class ChartsStock extends Chart {
         return getPlot;
     }
 
+    private Plot getPlot1;
+
+    public Plot getPlot1(Double index4) {
+        if (getPlot1 == null)
+            getPlot1 = new Plot("chart.plot1("+ index4+")");
+
+        return getPlot1;
+    }
+
     private String plot;
     private Boolean plot1;
 
@@ -1537,31 +1573,31 @@ public class ChartsStock extends Chart {
         }
     }
 
-    private Double index2;
+    private Double index5;
     private String plot2;
     private Boolean plot3;
 
-    public void setPlot(String plot2, Double index2) {
+    public void setPlot(String plot2, Double index5) {
         this.plot2 = plot2;
-        this.index2 = index2;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.plot(%s, %f);", plot2, index2));
+        js.append(String.format(Locale.US, "chart.plot(%s, %f);", plot2, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.plot(%s, %f);", plot2, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.plot(%s, %f);", plot2, index5));
             js.setLength(0);
         }
     }
 
 
-    public void setPlot(Boolean plot3, Double index2) {
+    public void setPlot(Boolean plot3, Double index5) {
         this.plot3 = plot3;
-        this.index2 = index2;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.plot(%b, %f);", plot3, index2));
+        js.append(String.format(Locale.US, "chart.plot(%b, %f);", plot3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.plot(%b, %f);", plot3, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.plot(%b, %f);", plot3, index5));
             js.setLength(0);
         }
     }
@@ -2780,15 +2816,15 @@ public class ChartsStock extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -3135,6 +3171,27 @@ public class ChartsStock extends Chart {
         return "";
     }
 
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
@@ -3152,6 +3209,13 @@ public class ChartsStock extends Chart {
     private String generateJSgetPlot() {
         if (getPlot != null) {
             return getPlot.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetPlot1() {
+        if (getPlot1 != null) {
+            return getPlot1.generateJs();
         }
         return "";
     }
@@ -3202,9 +3266,13 @@ public class ChartsStock extends Chart {
         js.append(generateJSgetGrouping());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetMargin());
         js.append(generateJSgetPadding());
         js.append(generateJSgetPlot());
+        js.append(generateJSgetPlot1());
         js.append(generateJSgetScroller());
         js.append(generateJSgetScrollerGrouping());
         js.append(generateJSgetTitle());

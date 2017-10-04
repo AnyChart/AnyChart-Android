@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TreeMapPoint extends JsObject {
+public class TreeMapPoint extends Point {
 
     private String jsBase;
 

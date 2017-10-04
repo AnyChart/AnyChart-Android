@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CoreAxismarkersRange extends JsObject {
+public class CoreAxismarkersRange extends VisualBase {
 
     private String jsBase;
 

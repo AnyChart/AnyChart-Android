@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Calendar extends JsObject {
+public class Calendar extends CoreBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Image extends JsObject {
+public class Image extends Element {
 
     private String jsBase;
 

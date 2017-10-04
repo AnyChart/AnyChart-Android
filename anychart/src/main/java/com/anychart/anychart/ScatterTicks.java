@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ScatterTicks extends JsObject {
+public class ScatterTicks extends CoreBase {
 
     private String jsBase;
 

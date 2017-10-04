@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TimeLine extends JsObject {
+public class TimeLine extends VisualBaseWithBounds {
 
     private String jsBase;
 

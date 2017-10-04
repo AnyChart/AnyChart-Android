@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UiTable extends JsObject {
+public class UiTable extends VisualBaseWithBounds {
 
     private String jsBase;
 

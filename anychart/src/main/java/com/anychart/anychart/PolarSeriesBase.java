@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class PolarSeriesBase extends JsObject {
+public class PolarSeriesBase extends AnychartSeriesBase {
 
     private String jsBase;
 
@@ -753,6 +753,15 @@ public class PolarSeriesBase extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private String key;
@@ -1773,6 +1782,13 @@ public class PolarSeriesBase extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetSelectLabels() {
         if (getSelectLabels != null) {
             return getSelectLabels.generateJs();
@@ -2370,6 +2386,7 @@ public class PolarSeriesBase extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetBounds());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetSelectLabels());
             js.append(generateJSgetXScale());
             js.append(generateJSgetYScale());

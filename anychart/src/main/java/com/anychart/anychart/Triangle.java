@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Triangle extends JsObject {
+public class Triangle extends AnnotationsBase {
 
     private String jsBase;
 

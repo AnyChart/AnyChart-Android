@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UiTitle extends JsObject {
+public class UiTitle extends CoreText {
 
     private String jsBase;
 

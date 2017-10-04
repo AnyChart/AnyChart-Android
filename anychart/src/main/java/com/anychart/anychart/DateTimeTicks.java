@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class DateTimeTicks extends JsObject {
+public class DateTimeTicks extends CoreBase {
 
     private String jsBase;
 

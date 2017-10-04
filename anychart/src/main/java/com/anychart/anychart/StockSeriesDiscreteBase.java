@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StockSeriesDiscreteBase extends JsObject {
+public class StockSeriesDiscreteBase extends StockSeriesBase {
 
     private String jsBase;
 

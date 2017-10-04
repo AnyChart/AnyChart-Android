@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class AxesLinearGauge extends JsObject {
+public class AxesLinearGauge extends CoreAxesLinear {
 
     private String jsBase;
 

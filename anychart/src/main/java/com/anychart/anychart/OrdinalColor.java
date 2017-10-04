@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class OrdinalColor extends JsObject {
+public class OrdinalColor extends ScalesBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UiMarkersfactoryMarker extends JsObject {
+public class UiMarkersfactoryMarker extends VisualBase {
 
     private String jsBase;
 

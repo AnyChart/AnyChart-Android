@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CircularlabelsfactoryLabel extends JsObject {
+public class CircularlabelsfactoryLabel extends LabelsfactoryLabel {
 
     private String jsBase;
 

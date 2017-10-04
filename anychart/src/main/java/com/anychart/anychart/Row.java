@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Row extends JsObject {
+public class Row extends TableBase {
 
     private String jsBase;
 
@@ -2092,6 +2092,15 @@ public class Row extends JsObject {
         }
     }
 
+    private Row getMaxHeight;
+
+    public Row getMaxHeight() {
+        if (getMaxHeight == null)
+            getMaxHeight = new Row(jsBase + ".maxHeight()");
+
+        return getMaxHeight;
+    }
+
     private String minHeight;
     private Double minHeight1;
 
@@ -2360,6 +2369,13 @@ public class Row extends JsObject {
     private String generateJSgetCellPadding() {
         if (getCellPadding != null) {
             return getCellPadding.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMaxHeight() {
+        if (getMaxHeight != null) {
+            return getMaxHeight.generateJs();
         }
         return "";
     }
@@ -3030,6 +3046,7 @@ public class Row extends JsObject {
             js.append(generateJSgetBorder());
             js.append(generateJSgetCellBorder());
             js.append(generateJSgetCellPadding());
+            js.append(generateJSgetMaxHeight());
 
         String result = js.toString();
         js.setLength(0);

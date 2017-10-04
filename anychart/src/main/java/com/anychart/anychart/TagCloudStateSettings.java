@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TagCloudStateSettings extends JsObject {
+public class TagCloudStateSettings extends CoreBase {
 
     private String jsBase;
 

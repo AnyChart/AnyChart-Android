@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TimeLineLevelHolidaysSettings extends JsObject {
+public class TimeLineLevelHolidaysSettings extends CoreBase {
 
     private String jsBase;
 

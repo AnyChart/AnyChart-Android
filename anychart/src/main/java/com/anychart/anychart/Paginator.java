@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Paginator extends JsObject {
+public class Paginator extends CoreText {
 
     private String jsBase;
 

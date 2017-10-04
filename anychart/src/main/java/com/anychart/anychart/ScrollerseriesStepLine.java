@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ScrollerseriesStepLine extends JsObject {
+public class ScrollerseriesStepLine extends ScrollerseriesBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Circle extends JsObject {
+public class Circle extends VectorEllipse {
 
     private String jsBase;
 

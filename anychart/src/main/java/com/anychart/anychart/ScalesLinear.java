@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ScalesLinear extends JsObject {
+public class ScalesLinear extends ScatterBase {
 
     private String jsBase;
 

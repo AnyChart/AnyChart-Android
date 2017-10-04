@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UtilsPadding extends JsObject {
+public class UtilsPadding extends CoreBase {
 
     private String jsBase;
 

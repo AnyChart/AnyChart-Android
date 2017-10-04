@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class GridsMapSettings extends JsObject {
+public class GridsMapSettings extends CoreBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class RadarSeriesLine extends JsObject {
+public class RadarSeriesLine extends RadarSeriesContinuousBase {
 
     private String jsBase;
 
@@ -1010,6 +1010,15 @@ public class RadarSeriesLine extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private String key;
@@ -2824,6 +2833,13 @@ public class RadarSeriesLine extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHoverLabels() {
         if (getHoverLabels != null) {
             return getHoverLabels.generateJs();
@@ -3855,6 +3871,7 @@ public class RadarSeriesLine extends JsObject {
         }
             js.append(generateJSgetBounds());
             js.append(generateJSgetData());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHoverLabels());
             js.append(generateJSgetHoverMarkers());
             js.append(generateJSgetLabels());

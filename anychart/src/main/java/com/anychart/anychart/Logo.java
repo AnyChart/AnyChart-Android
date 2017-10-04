@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Logo extends JsObject {
+public class Logo extends UiBackground {
 
     private String jsBase;
 

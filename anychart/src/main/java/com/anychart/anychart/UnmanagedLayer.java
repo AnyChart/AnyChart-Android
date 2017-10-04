@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UnmanagedLayer extends JsObject {
+public class UnmanagedLayer extends Element {
 
     private String jsBase;
 

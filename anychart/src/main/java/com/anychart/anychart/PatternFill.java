@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class PatternFill extends JsObject {
+public class PatternFill extends Layer {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Logarithmic extends JsObject {
+public class Logarithmic extends ScalesLinear {
 
     private String jsBase;
 

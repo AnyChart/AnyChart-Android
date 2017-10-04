@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TableMapping extends JsObject {
+public class TableMapping extends CoreBase {
 
     private String jsBase;
 

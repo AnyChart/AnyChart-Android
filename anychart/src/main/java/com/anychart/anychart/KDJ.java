@@ -140,6 +140,15 @@ public class KDJ extends JsObject {
         }
     }
 
+    private KDJ getKMAPeriod;
+
+    public KDJ getKMAPeriod() {
+        if (getKMAPeriod == null)
+            getKMAPeriod = new KDJ(jsBase + ".kMAPeriod()");
+
+        return getKMAPeriod;
+    }
+
     private MovingAverageType kMAType;
 
     public void setKmatype(MovingAverageType kMAType) {
@@ -231,6 +240,13 @@ public class KDJ extends JsObject {
     private String generateJSgetJSeries() {
         if (getJSeries != null) {
             return getJSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetKMAPeriod() {
+        if (getKMAPeriod != null) {
+            return getKMAPeriod.generateJs();
         }
         return "";
     }
@@ -331,6 +347,7 @@ public class KDJ extends JsObject {
         }
             js.append(generateJSgetDSeries());
             js.append(generateJSgetJSeries());
+            js.append(generateJSgetKMAPeriod());
             js.append(generateJSgetKSeries());
 
         String result = js.toString();

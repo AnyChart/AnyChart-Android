@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ScaleBar extends JsObject {
+public class ScaleBar extends VisualBase {
 
     private String jsBase;
 

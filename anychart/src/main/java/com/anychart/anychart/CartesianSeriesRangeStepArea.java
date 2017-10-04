@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CartesianSeriesRangeStepArea extends JsObject {
+public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
 
     private String jsBase;
 
@@ -1391,6 +1391,15 @@ public class CartesianSeriesRangeStepArea extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private PatternFill getHatchFill;
@@ -5700,6 +5709,13 @@ public class CartesianSeriesRangeStepArea extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
@@ -7600,6 +7616,7 @@ public class CartesianSeriesRangeStepArea extends JsObject {
             js.append(generateJSgetBounds());
             js.append(generateJSgetClip());
             js.append(generateJSgetData());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHatchFill());
             js.append(generateJSgetHoverHatchFill());
             js.append(generateJSgetHoverLabels());

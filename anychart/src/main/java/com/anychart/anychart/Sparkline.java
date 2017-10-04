@@ -1280,6 +1280,33 @@ public class Sparkline extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index1) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index1+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -1307,59 +1334,59 @@ public class Sparkline extends Chart {
         }
     }
 
-    private String index;
-    private Double index1;
+    private String index2;
+    private Double index3;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index, Boolean label3) {
-        this.index = index;
+    public void setLabel(String index2, Boolean label3) {
+        this.index2 = index2;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index, String label4) {
-        this.index = index;
+    public void setLabel(String index2, String label4) {
+        this.index2 = index2;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index1, Boolean label3) {
-        this.index1 = index1;
+    public void setLabel(Double index3, Boolean label3) {
+        this.index3 = index3;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index1, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index1, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index1, String label4) {
-        this.index1 = index1;
+    public void setLabel(Double index3, String label4) {
+        this.index3 = index3;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index1, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index1, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
             js.setLength(0);
         }
     }
@@ -1750,6 +1777,15 @@ public class Sparkline extends Chart {
         return getLineMarker;
     }
 
+    private CoreAxismarkersLine getLineMarker1;
+
+    public CoreAxismarkersLine getLineMarker1(Double index4) {
+        if (getLineMarker1 == null)
+            getLineMarker1 = new CoreAxismarkersLine("chart.lineMarker1("+ index4+")");
+
+        return getLineMarker1;
+    }
+
     private String lineMarker;
     private Boolean lineMarker1;
 
@@ -1776,31 +1812,31 @@ public class Sparkline extends Chart {
         }
     }
 
-    private Double index2;
+    private Double index5;
     private String lineMarker2;
     private Boolean lineMarker3;
 
-    public void setLinemarker(String lineMarker2, Double index2) {
+    public void setLinemarker(String lineMarker2, Double index5) {
         this.lineMarker2 = lineMarker2;
-        this.index2 = index2;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index2));
+        js.append(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index5));
             js.setLength(0);
         }
     }
 
 
-    public void setLinemarker(Boolean lineMarker3, Double index2) {
+    public void setLinemarker(Boolean lineMarker3, Double index5) {
         this.lineMarker3 = lineMarker3;
-        this.index2 = index2;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index2));
+        js.append(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index5));
             js.setLength(0);
         }
     }
@@ -3597,6 +3633,15 @@ public class Sparkline extends Chart {
         return getRangeMarker;
     }
 
+    private CoreAxismarkersRange getRangeMarker1;
+
+    public CoreAxismarkersRange getRangeMarker1(Double index6) {
+        if (getRangeMarker1 == null)
+            getRangeMarker1 = new CoreAxismarkersRange("chart.rangeMarker1("+ index6+")");
+
+        return getRangeMarker1;
+    }
+
     private String rangeMarker;
     private Boolean rangeMarker1;
 
@@ -3623,31 +3668,31 @@ public class Sparkline extends Chart {
         }
     }
 
-    private Double index3;
+    private Double index7;
     private String rangeMarker2;
     private Boolean rangeMarker3;
 
-    public void setRangemarker(String rangeMarker2, Double index3) {
+    public void setRangemarker(String rangeMarker2, Double index7) {
         this.rangeMarker2 = rangeMarker2;
-        this.index3 = index3;
+        this.index7 = index7;
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index3));
+        js.append(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index7));
             js.setLength(0);
         }
     }
 
 
-    public void setRangemarker(Boolean rangeMarker3, Double index3) {
+    public void setRangemarker(Boolean rangeMarker3, Double index7) {
         this.rangeMarker3 = rangeMarker3;
-        this.index3 = index3;
+        this.index7 = index7;
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index3));
+        js.append(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index7));
             js.setLength(0);
         }
     }
@@ -4229,6 +4274,15 @@ public class Sparkline extends Chart {
         return getTextMarker;
     }
 
+    private CoreAxismarkersText getTextMarker1;
+
+    public CoreAxismarkersText getTextMarker1(Double index8) {
+        if (getTextMarker1 == null)
+            getTextMarker1 = new CoreAxismarkersText("chart.textMarker1("+ index8+")");
+
+        return getTextMarker1;
+    }
+
     private String textMarker;
     private Boolean textMarker1;
 
@@ -4255,31 +4309,31 @@ public class Sparkline extends Chart {
         }
     }
 
-    private Double index4;
+    private Double index9;
     private String textMarker2;
     private Boolean textMarker3;
 
-    public void setTextmarker(String textMarker2, Double index4) {
+    public void setTextmarker(String textMarker2, Double index9) {
         this.textMarker2 = textMarker2;
-        this.index4 = index4;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index4));
+        js.append(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index9));
             js.setLength(0);
         }
     }
 
 
-    public void setTextmarker(Boolean textMarker3, Double index4) {
+    public void setTextmarker(Boolean textMarker3, Double index9) {
         this.textMarker3 = textMarker3;
-        this.index4 = index4;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index4));
+        js.append(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index9));
             js.setLength(0);
         }
     }
@@ -4514,15 +4568,15 @@ public class Sparkline extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -4720,6 +4774,27 @@ public class Sparkline extends Chart {
         return "";
     }
 
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
@@ -4751,6 +4826,13 @@ public class Sparkline extends Chart {
     private String generateJSgetLineMarker() {
         if (getLineMarker != null) {
             return getLineMarker.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLineMarker1() {
+        if (getLineMarker1 != null) {
+            return getLineMarker1.generateJs();
         }
         return "";
     }
@@ -4846,9 +4928,23 @@ public class Sparkline extends Chart {
         return "";
     }
 
+    private String generateJSgetRangeMarker1() {
+        if (getRangeMarker1 != null) {
+            return getRangeMarker1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetTextMarker() {
         if (getTextMarker != null) {
             return getTextMarker.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTextMarker1() {
+        if (getTextMarker1 != null) {
+            return getTextMarker1.generateJs();
         }
         return "";
     }
@@ -4896,11 +4992,15 @@ public class Sparkline extends Chart {
         js.append(generateJSgetFirstMarkers());
         js.append(generateJSgetHatchFill());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetLabels());
         js.append(generateJSgetLastHatchFill());
         js.append(generateJSgetLastLabels());
         js.append(generateJSgetLastMarkers());
         js.append(generateJSgetLineMarker());
+        js.append(generateJSgetLineMarker1());
         js.append(generateJSgetMargin());
         js.append(generateJSgetMarkers());
         js.append(generateJSgetMaxHatchFill());
@@ -4914,7 +5014,9 @@ public class Sparkline extends Chart {
         js.append(generateJSgetNegativeMarkers());
         js.append(generateJSgetPadding());
         js.append(generateJSgetRangeMarker());
+        js.append(generateJSgetRangeMarker1());
         js.append(generateJSgetTextMarker());
+        js.append(generateJSgetTextMarker1());
         js.append(generateJSgetTitle());
         js.append(generateJSgetTooltip());
         js.append(generateJSgetXScale());

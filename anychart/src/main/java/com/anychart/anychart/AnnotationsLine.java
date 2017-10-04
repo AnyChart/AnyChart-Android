@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class AnnotationsLine extends JsObject {
+public class AnnotationsLine extends AnnotationsBase {
 
     private String jsBase;
 

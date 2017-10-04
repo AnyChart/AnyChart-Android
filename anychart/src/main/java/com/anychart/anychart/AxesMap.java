@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class AxesMap extends JsObject {
+public class AxesMap extends VisualBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StockScroller extends JsObject {
+public class StockScroller extends UiScroller {
 
     private String jsBase;
 
@@ -1934,6 +1934,15 @@ public class StockScroller extends JsObject {
         }
     }
 
+    private ScrollerseriesBase getGetSeries;
+
+    public ScrollerseriesBase getGetSeries() {
+        if (getGetSeries == null)
+            getGetSeries = new ScrollerseriesBase(jsBase + ".getSeries()");
+
+        return getGetSeries;
+    }
+
     private Double index;
 
     public void setGetseriesat(Double index) {
@@ -1949,6 +1958,15 @@ public class StockScroller extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private ScrollerseriesBase getGetSeriesAt;
+
+    public ScrollerseriesBase getGetSeriesAt() {
+        if (getGetSeriesAt == null)
+            getGetSeriesAt = new ScrollerseriesBase(jsBase + ".getSeriesAt()");
+
+        return getGetSeriesAt;
     }
 
     private HatchFills getHatchFillPalette;
@@ -8142,6 +8160,20 @@ public class StockScroller extends JsObject {
         }
     }
 
+    private String generateJSgetGetSeries() {
+        if (getGetSeries != null) {
+            return getGetSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGetSeriesAt() {
+        if (getGetSeriesAt != null) {
+            return getGetSeriesAt.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
             return getHatchFillPalette.generateJs();
@@ -10568,6 +10600,8 @@ public class StockScroller extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
+            js.append(generateJSgetGetSeries());
+            js.append(generateJSgetGetSeriesAt());
             js.append(generateJSgetHatchFillPalette());
             js.append(generateJSgetPalette());
             js.append(generateJSgetThumbs());

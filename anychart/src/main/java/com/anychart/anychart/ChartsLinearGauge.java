@@ -83,6 +83,15 @@ public class ChartsLinearGauge extends Chart {
         return getAxis;
     }
 
+    private AxesLinearGauge getAxis1;
+
+    public AxesLinearGauge getAxis1(Double index) {
+        if (getAxis1 == null)
+            getAxis1 = new AxesLinearGauge("chart.axis1("+ index+")");
+
+        return getAxis1;
+    }
+
     private String axis;
     private Boolean axis1;
 
@@ -109,31 +118,31 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index;
+    private Double index1;
     private String axis2;
     private Boolean axis3;
 
-    public void setAxis(String axis2, Double index) {
+    public void setAxis(String axis2, Double index1) {
         this.axis2 = axis2;
-        this.index = index;
+        this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index));
+        js.append(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%s, %f);", axis2, index1));
             js.setLength(0);
         }
     }
 
 
-    public void setAxis(Boolean axis3, Double index) {
+    public void setAxis(Boolean axis3, Double index1) {
         this.axis3 = axis3;
-        this.index = index;
+        this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index));
+        js.append(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.axis(%b, %f);", axis3, index1));
             js.setLength(0);
         }
     }
@@ -810,15 +819,15 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index1;
+    private Double index2;
 
-    public void setGetpointerat(Double index1) {
-        this.index1 = index1;
+    public void setGetpointerat(Double index2) {
+        this.index2 = index2;
 
-        js.append(String.format(Locale.US, "chart.getPointerAt(%f);", index1));
+        js.append(String.format(Locale.US, "chart.getPointerAt(%f);", index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.getPointerAt(%f);", index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.getPointerAt(%f);", index2));
             js.setLength(0);
         }
     }
@@ -982,6 +991,33 @@ public class ChartsLinearGauge extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index3) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index3+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index4) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index4+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -1009,59 +1045,59 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private String index2;
-    private Double index3;
+    private String index5;
+    private Double index6;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index2, Boolean label3) {
-        this.index2 = index2;
+    public void setLabel(String index5, Boolean label3) {
+        this.index5 = index5;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index2, String label4) {
-        this.index2 = index2;
+    public void setLabel(String index5, String label4) {
+        this.index5 = index5;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, Boolean label3) {
-        this.index3 = index3;
+    public void setLabel(Double index6, Boolean label3) {
+        this.index6 = index6;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, String label4) {
-        this.index3 = index3;
+    public void setLabel(Double index6, String label4) {
+        this.index6 = index6;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
             js.setLength(0);
         }
     }
@@ -2114,15 +2150,15 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index4;
+    private Double index7;
 
-    public void setRemovepointerat(Double index4) {
-        this.index4 = index4;
+    public void setRemovepointerat(Double index7) {
+        this.index7 = index7;
 
-        js.append(String.format(Locale.US, "chart.removePointerAt(%f);", index4));
+        js.append(String.format(Locale.US, "chart.removePointerAt(%f);", index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removePointerAt(%f);", index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removePointerAt(%f);", index7));
             js.setLength(0);
         }
     }
@@ -2446,6 +2482,15 @@ public class ChartsLinearGauge extends Chart {
         return getScaleBar;
     }
 
+    private ScaleBar getScaleBar1;
+
+    public ScaleBar getScaleBar1(Double index8) {
+        if (getScaleBar1 == null)
+            getScaleBar1 = new ScaleBar("chart.scaleBar1("+ index8+")");
+
+        return getScaleBar1;
+    }
+
     private String scaleBar;
     private Boolean scaleBar1;
 
@@ -2472,31 +2517,31 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private Double index5;
+    private Double index9;
     private String scaleBar2;
     private Boolean scaleBar3;
 
-    public void setScalebar(String scaleBar2, Double index5) {
+    public void setScalebar(String scaleBar2, Double index9) {
         this.scaleBar2 = scaleBar2;
-        this.index5 = index5;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index5));
+        js.append(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%s, %f);", scaleBar2, index9));
             js.setLength(0);
         }
     }
 
 
-    public void setScalebar(Boolean scaleBar3, Double index5) {
+    public void setScalebar(Boolean scaleBar3, Double index9) {
         this.scaleBar3 = scaleBar3;
-        this.index5 = index5;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index5));
+        js.append(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.scaleBar(%b, %f);", scaleBar3, index9));
             js.setLength(0);
         }
     }
@@ -2934,15 +2979,15 @@ public class ChartsLinearGauge extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -2996,6 +3041,13 @@ public class ChartsLinearGauge extends Chart {
     private String generateJSgetAxis() {
         if (getAxis != null) {
             return getAxis.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetAxis1() {
+        if (getAxis1 != null) {
+            return getAxis1.generateJs();
         }
         return "";
     }
@@ -3063,6 +3115,27 @@ public class ChartsLinearGauge extends Chart {
         return "";
     }
 
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetLegend() {
         if (getLegend != null) {
             return getLegend.generateJs();
@@ -3112,6 +3185,13 @@ public class ChartsLinearGauge extends Chart {
         return "";
     }
 
+    private String generateJSgetScaleBar1() {
+        if (getScaleBar1 != null) {
+            return getScaleBar1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetTitle() {
         if (getTitle != null) {
             return getTitle.generateJs();
@@ -3124,6 +3204,7 @@ public class ChartsLinearGauge extends Chart {
     protected String generateJs() {
         js.append(generateJSgetAnimation());
         js.append(generateJSgetAxis());
+        js.append(generateJSgetAxis1());
         js.append(generateJSgetBackground());
         js.append(generateJSgetBounds());
         js.append(generateJSgetContainer());
@@ -3133,6 +3214,9 @@ public class ChartsLinearGauge extends Chart {
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetLegend());
         js.append(generateJSgetMargin());
         js.append(generateJSgetMarkerPalette());
@@ -3140,6 +3224,7 @@ public class ChartsLinearGauge extends Chart {
         js.append(generateJSgetPalette());
         js.append(generateJSgetScale());
         js.append(generateJSgetScaleBar());
+        js.append(generateJSgetScaleBar1());
         js.append(generateJSgetTitle());
 
         String result = js.toString();

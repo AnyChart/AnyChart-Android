@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CartesianSeriesDiscreteBase extends JsObject {
+public class CartesianSeriesDiscreteBase extends CartesianSeriesBaseWithMarkers {
 
     private String jsBase;
 

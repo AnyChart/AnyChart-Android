@@ -598,6 +598,15 @@ public class ChartsMap extends Chart {
         return getCallout;
     }
 
+    private Callout getCallout1;
+
+    public Callout getCallout1(Double index) {
+        if (getCallout1 == null)
+            getCallout1 = new Callout("chart.callout1("+ index+")");
+
+        return getCallout1;
+    }
+
     private String callout;
     private Boolean callout1;
 
@@ -624,31 +633,31 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Double index;
+    private Double index1;
     private String callout2;
     private Boolean callout3;
 
-    public void setCallout(String callout2, Double index) {
+    public void setCallout(String callout2, Double index1) {
         this.callout2 = callout2;
-        this.index = index;
+        this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.callout(%s, %f);", callout2, index));
+        js.append(String.format(Locale.US, "chart.callout(%s, %f);", callout2, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%s, %f);", callout2, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%s, %f);", callout2, index1));
             js.setLength(0);
         }
     }
 
 
-    public void setCallout(Boolean callout3, Double index) {
+    public void setCallout(Boolean callout3, Double index1) {
         this.callout3 = callout3;
-        this.index = index;
+        this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.callout(%b, %f);", callout3, index));
+        js.append(String.format(Locale.US, "chart.callout(%b, %f);", callout3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%b, %f);", callout3, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.callout(%b, %f);", callout3, index1));
             js.setLength(0);
         }
     }
@@ -1193,49 +1202,49 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private String id1;
+    private String id2;
     private String crs3;
 
-    public void setFeaturecrs(String id1, String crs3) {
-        this.id1 = id1;
+    public void setFeaturecrs(String id2, String crs3) {
+        this.id2 = id2;
         this.crs3 = crs3;
 
-        js.append(String.format(Locale.US, "chart.featureCrs(%s, %s);", id1, crs3));
+        js.append(String.format(Locale.US, "chart.featureCrs(%s, %s);", id2, crs3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.featureCrs(%s, %s);", id1, crs3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.featureCrs(%s, %s);", id2, crs3));
             js.setLength(0);
         }
     }
 
-    private String id2;
+    private String id4;
     private Double ratio;
 
-    public void setFeaturescalefactor(String id2, Double ratio) {
-        this.id2 = id2;
+    public void setFeaturescalefactor(String id4, Double ratio) {
+        this.id4 = id4;
         this.ratio = ratio;
 
-        js.append(String.format(Locale.US, "chart.featureScaleFactor(%s, %f);", id2, ratio));
+        js.append(String.format(Locale.US, "chart.featureScaleFactor(%s, %f);", id4, ratio));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.featureScaleFactor(%s, %f);", id2, ratio));
+            onChangeListener.onChange(String.format(Locale.US, "chart.featureScaleFactor(%s, %f);", id4, ratio));
             js.setLength(0);
         }
     }
 
-    private String id3;
+    private String id6;
     private Double dx;
     private Double dy;
 
-    public void setFeaturetranslation(String id3, Double dx, Double dy) {
-        this.id3 = id3;
+    public void setFeaturetranslation(String id6, Double dx, Double dy) {
+        this.id6 = id6;
         this.dx = dx;
         this.dy = dy;
 
-        js.append(String.format(Locale.US, "chart.featureTranslation(%s, %f, %f);", id3, dx, dy));
+        js.append(String.format(Locale.US, "chart.featureTranslation(%s, %f, %f);", id6, dx, dy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.featureTranslation(%s, %f, %f);", id3, dx, dy));
+            onChangeListener.onChange(String.format(Locale.US, "chart.featureTranslation(%s, %f, %f);", id6, dx, dy));
             js.setLength(0);
         }
     }
@@ -1279,18 +1288,27 @@ public class ChartsMap extends Chart {
 
     private MapSeriesBase getGetSeries;
 
-    public MapSeriesBase getGetSeries() {
+    public MapSeriesBase getGetSeries(Double id7) {
         if (getGetSeries == null)
-            getGetSeries = new MapSeriesBase("chart.getSeries()");
+            getGetSeries = new MapSeriesBase("chart.getSeries("+ id7+")");
 
         return getGetSeries;
     }
 
+    private MapSeriesBase getGetSeries1;
+
+    public MapSeriesBase getGetSeries1(String id8) {
+        if (getGetSeries1 == null)
+            getGetSeries1 = new MapSeriesBase("chart.getSeries1("+ id8+")");
+
+        return getGetSeries1;
+    }
+
     private MapSeriesBase getGetSeriesAt;
 
-    public MapSeriesBase getGetSeriesAt() {
+    public MapSeriesBase getGetSeriesAt(Double index2) {
         if (getGetSeriesAt == null)
-            getGetSeriesAt = new MapSeriesBase("chart.getSeriesAt()");
+            getGetSeriesAt = new MapSeriesBase("chart.getSeriesAt("+ index2+")");
 
         return getGetSeriesAt;
     }
@@ -1513,6 +1531,33 @@ public class ChartsMap extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index3) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index3+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index4) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index4+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -1540,59 +1585,59 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private String index1;
-    private Double index2;
+    private String index5;
+    private Double index6;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index1, Boolean label3) {
-        this.index1 = index1;
+    public void setLabel(String index5, Boolean label3) {
+        this.index5 = index5;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index1, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index1, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index5, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index1, String label4) {
-        this.index1 = index1;
+    public void setLabel(String index5, String label4) {
+        this.index5 = index5;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index1, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index1, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index5, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index2, Boolean label3) {
-        this.index2 = index2;
+    public void setLabel(Double index6, Boolean label3) {
+        this.index6 = index6;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index2, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index2, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index6, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index2, String label4) {
-        this.index2 = index2;
+    public void setLabel(Double index6, String label4) {
+        this.index6 = index6;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index2, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index2, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index6, label4));
             js.setLength(0);
         }
     }
@@ -2818,41 +2863,41 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private Double id4;
-    private String id5;
+    private Double id9;
+    private String id10;
 
-    public void setRemoveseries(Double id4) {
-        this.id4 = id4;
+    public void setRemoveseries(Double id9) {
+        this.id9 = id9;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(%f);", id4));
+        js.append(String.format(Locale.US, "chart.removeSeries(%f);", id9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%f);", id4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%f);", id9));
             js.setLength(0);
         }
     }
 
 
-    public void setRemoveseries(String id5) {
-        this.id5 = id5;
+    public void setRemoveseries(String id10) {
+        this.id10 = id10;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id5));
+        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id10));
             js.setLength(0);
         }
     }
 
-    private Double index3;
+    private Double index7;
 
-    public void setRemoveseriesat(Double index3) {
-        this.index3 = index3;
+    public void setRemoveseriesat(Double index7) {
+        this.index7 = index7;
 
-        js.append(String.format(Locale.US, "chart.removeSeriesAt(%f);", index3));
+        js.append(String.format(Locale.US, "chart.removeSeriesAt(%f);", index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeriesAt(%f);", index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeriesAt(%f);", index7));
             js.setLength(0);
         }
     }
@@ -3603,19 +3648,19 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private String id6;
+    private String id11;
     private Double dx2;
     private Double dy2;
 
-    public void setTranslatefeature(String id6, Double dx2, Double dy2) {
-        this.id6 = id6;
+    public void setTranslatefeature(String id11, Double dx2, Double dy2) {
+        this.id11 = id11;
         this.dx2 = dx2;
         this.dy2 = dy2;
 
-        js.append(String.format(Locale.US, "chart.translateFeature(%s, %f, %f);", id6, dx2, dy2));
+        js.append(String.format(Locale.US, "chart.translateFeature(%s, %f, %f);", id11, dx2, dy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.translateFeature(%s, %f, %f);", id6, dx2, dy2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.translateFeature(%s, %f, %f);", id11, dx2, dy2));
             js.setLength(0);
         }
     }
@@ -3686,15 +3731,15 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -3774,15 +3819,15 @@ public class ChartsMap extends Chart {
         }
     }
 
-    private String id7;
+    private String id12;
 
-    public void setZoomtofeature(String id7) {
-        this.id7 = id7;
+    public void setZoomtofeature(String id12) {
+        this.id12 = id12;
 
-        js.append(String.format(Locale.US, "chart.zoomToFeature(%s);", id7));
+        js.append(String.format(Locale.US, "chart.zoomToFeature(%s);", id12));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.zoomToFeature(%s);", id7));
+            onChangeListener.onChange(String.format(Locale.US, "chart.zoomToFeature(%s);", id12));
             js.setLength(0);
         }
     }
@@ -3818,6 +3863,13 @@ public class ChartsMap extends Chart {
     private String generateJSgetCallout() {
         if (getCallout != null) {
             return getCallout.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetCallout1() {
+        if (getCallout1 != null) {
+            return getCallout1.generateJs();
         }
         return "";
     }
@@ -3878,6 +3930,13 @@ public class ChartsMap extends Chart {
         return "";
     }
 
+    private String generateJSgetGetSeries1() {
+        if (getGetSeries1 != null) {
+            return getGetSeries1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetGetSeriesAt() {
         if (getGetSeriesAt != null) {
             return getGetSeriesAt.generateJs();
@@ -3916,6 +3975,27 @@ public class ChartsMap extends Chart {
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
         }
         return "";
     }
@@ -4005,6 +4085,7 @@ public class ChartsMap extends Chart {
         js.append(generateJSgetBackground());
         js.append(generateJSgetBounds());
         js.append(generateJSgetCallout());
+        js.append(generateJSgetCallout1());
         js.append(generateJSgetColorRange());
         js.append(generateJSgetContainer());
         js.append(generateJSgetContextMenu());
@@ -4013,12 +4094,16 @@ public class ChartsMap extends Chart {
         js.append(generateJSgetCrsAnimation());
         js.append(generateJSgetGetPlotBounds());
         js.append(generateJSgetGetSeries());
+        js.append(generateJSgetGetSeries1());
         js.append(generateJSgetGetSeriesAt());
         js.append(generateJSgetGrids());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetHoverLabels());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetLabels());
         js.append(generateJSgetLegend());
         js.append(generateJSgetMargin());

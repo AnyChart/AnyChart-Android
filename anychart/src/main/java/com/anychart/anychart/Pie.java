@@ -1678,6 +1678,33 @@ public class Pie extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index2) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index2+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index3) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index3+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -1705,59 +1732,59 @@ public class Pie extends Chart {
         }
     }
 
-    private String index2;
-    private Double index3;
+    private String index4;
+    private Double index5;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index2, Boolean label3) {
-        this.index2 = index2;
+    public void setLabel(String index4, Boolean label3) {
+        this.index4 = index4;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index4, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index4, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index2, String label4) {
-        this.index2 = index2;
+    public void setLabel(String index4, String label4) {
+        this.index4 = index4;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index4, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index4, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, Boolean label3) {
-        this.index3 = index3;
+    public void setLabel(Double index5, Boolean label3) {
+        this.index5 = index5;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index5, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index5, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, String label4) {
-        this.index3 = index3;
+    public void setLabel(Double index5, String label4) {
+        this.index5 = index5;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index5, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index5, label4));
             js.setLength(0);
         }
     }
@@ -3634,15 +3661,15 @@ public class Pie extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -3784,6 +3811,27 @@ public class Pie extends Chart {
         return "";
     }
 
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
@@ -3850,6 +3898,9 @@ public class Pie extends Chart {
         js.append(generateJSgetHoverLabels());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetLabels());
         js.append(generateJSgetLegend());
         js.append(generateJSgetMargin());

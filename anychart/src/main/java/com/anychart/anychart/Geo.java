@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Geo extends JsObject {
+public class Geo extends CoreBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesScroller extends JsObject {
+public class StandalonesScroller extends UiScroller {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class LinearColor extends JsObject {
+public class LinearColor extends ScatterBase {
 
     private String jsBase;
 

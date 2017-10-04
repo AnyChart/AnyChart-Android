@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class VectorEllipse extends JsObject {
+public class VectorEllipse extends Shape {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesLabelsFactory extends JsObject {
+public class StandalonesLabelsFactory extends UiLabelsFactory {
 
     private String jsBase;
 

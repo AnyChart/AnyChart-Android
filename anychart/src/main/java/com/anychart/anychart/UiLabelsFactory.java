@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UiLabelsFactory extends JsObject {
+public class UiLabelsFactory extends CoreText {
 
     private String jsBase;
 
@@ -250,6 +250,15 @@ public class UiLabelsFactory extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private UiLabelsFactory getConnectorStroke;
+
+    public UiLabelsFactory getConnectorStroke() {
+        if (getConnectorStroke == null)
+            getConnectorStroke = new UiLabelsFactory(jsBase + ".connectorStroke()");
+
+        return getConnectorStroke;
     }
 
     private Boolean disablePointerEvents;
@@ -2509,6 +2518,13 @@ public class UiLabelsFactory extends JsObject {
         return "";
     }
 
+    private String generateJSgetConnectorStroke() {
+        if (getConnectorStroke != null) {
+            return getConnectorStroke.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
@@ -3308,6 +3324,7 @@ public class UiLabelsFactory extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetBackground());
+            js.append(generateJSgetConnectorStroke());
             js.append(generateJSgetPadding());
 
         String result = js.toString();

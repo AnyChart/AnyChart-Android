@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class LegendItemSettings extends JsObject {
+public class LegendItemSettings extends CoreText {
 
     private String jsBase;
 

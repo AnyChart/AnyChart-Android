@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Led extends JsObject {
+public class Led extends LineargaugePointersBase {
 
     private String jsBase;
 

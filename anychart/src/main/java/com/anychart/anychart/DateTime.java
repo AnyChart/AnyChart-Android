@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class DateTime extends JsObject {
+public class DateTime extends ScatterBase {
 
     private String jsBase;
 

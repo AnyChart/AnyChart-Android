@@ -8112,6 +8112,15 @@ public class Timeline extends JsObject {
         }
     }
 
+    private GanttLine getLineMarker;
+
+    public GanttLine getLineMarker() {
+        if (getLineMarker == null)
+            getLineMarker = new GanttLine(jsBase + ".lineMarker()");
+
+        return getLineMarker;
+    }
+
     private String lineMarker;
     private Boolean lineMarker1;
 
@@ -13021,6 +13030,15 @@ public class Timeline extends JsObject {
         }
     }
 
+    private GanttRange getRangeMarker;
+
+    public GanttRange getRangeMarker() {
+        if (getRangeMarker == null)
+            getRangeMarker = new GanttRange(jsBase + ".rangeMarker()");
+
+        return getRangeMarker;
+    }
+
     private String rangeMarker;
     private Boolean rangeMarker1;
 
@@ -13150,6 +13168,15 @@ public class Timeline extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private Timeline getRangeMarker1;
+
+    public Timeline getRangeMarker1() {
+        if (getRangeMarker1 == null)
+            getRangeMarker1 = new Timeline(jsBase + ".rangeMarker1()");
+
+        return getRangeMarker1;
     }
 
     private Fill rowEvenFill;
@@ -24007,6 +24034,15 @@ public class Timeline extends JsObject {
         }
     }
 
+    private GanttText getTextMarker;
+
+    public GanttText getTextMarker() {
+        if (getTextMarker == null)
+            getTextMarker = new GanttText(jsBase + ".textMarker()");
+
+        return getTextMarker;
+    }
+
     private String textMarker;
     private Boolean textMarker1;
 
@@ -24240,6 +24276,13 @@ public class Timeline extends JsObject {
         return "";
     }
 
+    private String generateJSgetLineMarker() {
+        if (getLineMarker != null) {
+            return getLineMarker.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
@@ -24247,9 +24290,30 @@ public class Timeline extends JsObject {
         return "";
     }
 
+    private String generateJSgetRangeMarker() {
+        if (getRangeMarker != null) {
+            return getRangeMarker.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetRangeMarker1() {
+        if (getRangeMarker1 != null) {
+            return getRangeMarker1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTextMarker() {
+        if (getTextMarker != null) {
+            return getTextMarker.generateJs();
         }
         return "";
     }
@@ -28038,8 +28102,12 @@ public class Timeline extends JsObject {
             js.append(generateJSgetHeader());
             js.append(generateJSgetHorizontalScrollBar());
             js.append(generateJSgetLabels());
+            js.append(generateJSgetLineMarker());
             js.append(generateJSgetMarkers());
+            js.append(generateJSgetRangeMarker());
+            js.append(generateJSgetRangeMarker1());
             js.append(generateJSgetScale());
+            js.append(generateJSgetTextMarker());
             js.append(generateJSgetTooltip());
             js.append(generateJSgetVerticalScrollBar());
 

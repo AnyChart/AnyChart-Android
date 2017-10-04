@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Cap extends JsObject {
+public class Cap extends VisualBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UiDataGrid extends JsObject {
+public class UiDataGrid extends VisualBaseWithBounds {
 
     private String jsBase;
 
@@ -1025,6 +1025,15 @@ public class UiDataGrid extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private DatagridColumn getColumn;
+
+    public DatagridColumn getColumn() {
+        if (getColumn == null)
+            getColumn = new DatagridColumn(jsBase + ".column()");
+
+        return getColumn;
     }
 
     private DatagridColumn column;
@@ -6032,6 +6041,15 @@ public class UiDataGrid extends JsObject {
         }
     }
 
+    private UiDataGrid getTooltip1;
+
+    public UiDataGrid getTooltip1() {
+        if (getTooltip1 == null)
+            getTooltip1 = new UiDataGrid(jsBase + ".tooltip1()");
+
+        return getTooltip1;
+    }
+
     private Double top;
     private String top1;
 
@@ -6210,6 +6228,13 @@ public class UiDataGrid extends JsObject {
         return "";
     }
 
+    private String generateJSgetColumn() {
+        if (getColumn != null) {
+            return getColumn.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
@@ -6227,6 +6252,13 @@ public class UiDataGrid extends JsObject {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip1() {
+        if (getTooltip1 != null) {
+            return getTooltip1.generateJs();
         }
         return "";
     }
@@ -7823,9 +7855,11 @@ public class UiDataGrid extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetBounds());
+            js.append(generateJSgetColumn());
             js.append(generateJSgetData());
             js.append(generateJSgetHorizontalScrollBar());
             js.append(generateJSgetTooltip());
+            js.append(generateJSgetTooltip1());
 
         String result = js.toString();
         js.setLength(0);

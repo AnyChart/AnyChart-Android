@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ChartWithCredits extends JsObject {
+public class ChartWithCredits extends Chart {
 
     private String jsBase;
 
@@ -1150,6 +1150,15 @@ public class ChartWithCredits extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private UiLabel getLabel;
+
+    public UiLabel getLabel() {
+        if (getLabel == null)
+            getLabel = new UiLabel(jsBase + ".label()");
+
+        return getLabel;
     }
 
     private Boolean label;
@@ -5222,6 +5231,13 @@ public class ChartWithCredits extends JsObject {
         return "";
     }
 
+    private String generateJSgetLabel() {
+        if (getLabel != null) {
+            return getLabel.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
@@ -6471,6 +6487,7 @@ public class ChartWithCredits extends JsObject {
             js.append(generateJSgetContainer());
             js.append(generateJSgetContextMenu());
             js.append(generateJSgetCredits());
+            js.append(generateJSgetLabel());
             js.append(generateJSgetMargin());
             js.append(generateJSgetPadding());
             js.append(generateJSgetTitle());

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ChartScroller extends JsObject {
+public class ChartScroller extends UiScroller {
 
     private String jsBase;
 

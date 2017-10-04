@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ChartA11y extends JsObject {
+public class ChartA11y extends A11y {
 
     private String jsBase;
 

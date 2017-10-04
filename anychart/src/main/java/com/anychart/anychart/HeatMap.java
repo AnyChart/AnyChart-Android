@@ -911,6 +911,15 @@ public class HeatMap extends Chart {
         return getGrid;
     }
 
+    private CoreGridsLinear getGrid1;
+
+    public CoreGridsLinear getGrid1(Double index) {
+        if (getGrid1 == null)
+            getGrid1 = new CoreGridsLinear("chart.grid1("+ index+")");
+
+        return getGrid1;
+    }
+
     private String grid;
     private Boolean grid1;
 
@@ -937,31 +946,31 @@ public class HeatMap extends Chart {
         }
     }
 
-    private Double index;
+    private Double index1;
     private String grid2;
     private Boolean grid3;
 
-    public void setGrid(String grid2, Double index) {
+    public void setGrid(String grid2, Double index1) {
         this.grid2 = grid2;
-        this.index = index;
+        this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index));
+        js.append(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index1));
             js.setLength(0);
         }
     }
 
 
-    public void setGrid(Boolean grid3, Double index) {
+    public void setGrid(Boolean grid3, Double index1) {
         this.grid3 = grid3;
-        this.index = index;
+        this.index1 = index1;
 
-        js.append(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index));
+        js.append(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index1));
             js.setLength(0);
         }
     }
@@ -1542,6 +1551,33 @@ public class HeatMap extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index2) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index2+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index3) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index3+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -1569,59 +1605,59 @@ public class HeatMap extends Chart {
         }
     }
 
-    private String index1;
-    private Double index2;
+    private String index4;
+    private Double index5;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index1, Boolean label3) {
-        this.index1 = index1;
+    public void setLabel(String index4, Boolean label3) {
+        this.index4 = index4;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index1, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index4, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index1, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index4, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index1, String label4) {
-        this.index1 = index1;
+    public void setLabel(String index4, String label4) {
+        this.index4 = index4;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index1, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index4, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index1, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index4, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index2, Boolean label3) {
-        this.index2 = index2;
+    public void setLabel(Double index5, Boolean label3) {
+        this.index5 = index5;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index2, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index5, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index2, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index5, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index2, String label4) {
-        this.index2 = index2;
+    public void setLabel(Double index5, String label4) {
+        this.index5 = index5;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index2, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index5, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index2, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index5, label4));
             js.setLength(0);
         }
     }
@@ -3757,15 +3793,15 @@ public class HeatMap extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -3805,6 +3841,15 @@ public class HeatMap extends Chart {
         return getXAxis;
     }
 
+    private CoreAxesLinear getXAxis1;
+
+    public CoreAxesLinear getXAxis1(Double index6) {
+        if (getXAxis1 == null)
+            getXAxis1 = new CoreAxesLinear("chart.xAxis1("+ index6+")");
+
+        return getXAxis1;
+    }
+
     private String xAxis;
     private Boolean xAxis1;
 
@@ -3831,31 +3876,31 @@ public class HeatMap extends Chart {
         }
     }
 
-    private Double index3;
+    private Double index7;
     private String xAxis2;
     private Boolean xAxis3;
 
-    public void setXaxis(String xAxis2, Double index3) {
+    public void setXaxis(String xAxis2, Double index7) {
         this.xAxis2 = xAxis2;
-        this.index3 = index3;
+        this.index7 = index7;
 
-        js.append(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index3));
+        js.append(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%s, %f);", xAxis2, index7));
             js.setLength(0);
         }
     }
 
 
-    public void setXaxis(Boolean xAxis3, Double index3) {
+    public void setXaxis(Boolean xAxis3, Double index7) {
         this.xAxis3 = xAxis3;
-        this.index3 = index3;
+        this.index7 = index7;
 
-        js.append(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index3));
+        js.append(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.xAxis(%b, %f);", xAxis3, index7));
             js.setLength(0);
         }
     }
@@ -3987,6 +4032,15 @@ public class HeatMap extends Chart {
         return getYAxis;
     }
 
+    private CoreAxesLinear getYAxis1;
+
+    public CoreAxesLinear getYAxis1(Double index8) {
+        if (getYAxis1 == null)
+            getYAxis1 = new CoreAxesLinear("chart.yAxis1("+ index8+")");
+
+        return getYAxis1;
+    }
+
     private String yAxis;
     private Boolean yAxis1;
 
@@ -4013,31 +4067,31 @@ public class HeatMap extends Chart {
         }
     }
 
-    private Double index4;
+    private Double index9;
     private String yAxis2;
     private Boolean yAxis3;
 
-    public void setYaxis(String yAxis2, Double index4) {
+    public void setYaxis(String yAxis2, Double index9) {
         this.yAxis2 = yAxis2;
-        this.index4 = index4;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index4));
+        js.append(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%s, %f);", yAxis2, index9));
             js.setLength(0);
         }
     }
 
 
-    public void setYaxis(Boolean yAxis3, Double index4) {
+    public void setYaxis(Boolean yAxis3, Double index9) {
         this.yAxis3 = yAxis3;
-        this.index4 = index4;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index4));
+        js.append(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.yAxis(%b, %f);", yAxis3, index9));
             js.setLength(0);
         }
     }
@@ -4236,6 +4290,13 @@ public class HeatMap extends Chart {
         return "";
     }
 
+    private String generateJSgetGrid1() {
+        if (getGrid1 != null) {
+            return getGrid1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
@@ -4274,6 +4335,27 @@ public class HeatMap extends Chart {
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
         }
         return "";
     }
@@ -4355,6 +4437,13 @@ public class HeatMap extends Chart {
         return "";
     }
 
+    private String generateJSgetXAxis1() {
+        if (getXAxis1 != null) {
+            return getXAxis1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
@@ -4379,6 +4468,13 @@ public class HeatMap extends Chart {
     private String generateJSgetYAxis() {
         if (getYAxis != null) {
             return getYAxis.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYAxis1() {
+        if (getYAxis1 != null) {
+            return getYAxis1.generateJs();
         }
         return "";
     }
@@ -4416,12 +4512,16 @@ public class HeatMap extends Chart {
         js.append(generateJSgetCredits());
         js.append(generateJSgetData());
         js.append(generateJSgetGrid());
+        js.append(generateJSgetGrid1());
         js.append(generateJSgetHatchFill());
         js.append(generateJSgetHoverHatchFill());
         js.append(generateJSgetHoverLabels());
         js.append(generateJSgetHoverMarkers());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetLabels());
         js.append(generateJSgetLegend());
         js.append(generateJSgetMargin());
@@ -4433,10 +4533,12 @@ public class HeatMap extends Chart {
         js.append(generateJSgetTitle());
         js.append(generateJSgetTooltip());
         js.append(generateJSgetXAxis());
+        js.append(generateJSgetXAxis1());
         js.append(generateJSgetXScale());
         js.append(generateJSgetXScroller());
         js.append(generateJSgetXZoom());
         js.append(generateJSgetYAxis());
+        js.append(generateJSgetYAxis1());
         js.append(generateJSgetYScale());
         js.append(generateJSgetYScroller());
         js.append(generateJSgetYZoom());

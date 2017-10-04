@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CriticalPath extends JsObject {
+public class CriticalPath extends CoreBase {
 
     private String jsBase;
 

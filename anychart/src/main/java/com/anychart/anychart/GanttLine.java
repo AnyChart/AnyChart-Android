@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class GanttLine extends JsObject {
+public class GanttLine extends VisualBase {
 
     private String jsBase;
 

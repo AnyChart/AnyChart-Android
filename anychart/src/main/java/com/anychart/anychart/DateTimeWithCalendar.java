@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class DateTimeWithCalendar extends JsObject {
+public class DateTimeWithCalendar extends ScatterBase {
 
     private String jsBase;
 

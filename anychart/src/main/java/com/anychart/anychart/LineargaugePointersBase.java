@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class LineargaugePointersBase extends JsObject {
+public class LineargaugePointersBase extends VisualBase {
 
     private String jsBase;
 

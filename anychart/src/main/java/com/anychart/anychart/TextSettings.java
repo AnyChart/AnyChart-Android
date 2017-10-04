@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TextSettings extends JsObject {
+public class TextSettings extends SettingsWithMargin {
 
     private String jsBase;
 

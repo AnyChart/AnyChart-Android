@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Overlay extends JsObject {
+public class Overlay extends CoreBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class GanttDateTime extends JsObject {
+public class GanttDateTime extends CoreBase {
 
     private String jsBase;
 

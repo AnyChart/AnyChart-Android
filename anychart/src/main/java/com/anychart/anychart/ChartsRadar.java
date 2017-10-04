@@ -708,11 +708,20 @@ public class ChartsRadar extends Chart {
 
     private RadarSeriesBase getGetSeries;
 
-    public RadarSeriesBase getGetSeries() {
+    public RadarSeriesBase getGetSeries(Double id) {
         if (getGetSeries == null)
-            getGetSeries = new RadarSeriesBase("chart.getSeries()");
+            getGetSeries = new RadarSeriesBase("chart.getSeries("+ id+")");
 
         return getGetSeries;
+    }
+
+    private RadarSeriesBase getGetSeries1;
+
+    public RadarSeriesBase getGetSeries1(String id1) {
+        if (getGetSeries1 == null)
+            getGetSeries1 = new RadarSeriesBase("chart.getSeries1("+ id1+")");
+
+        return getGetSeries1;
     }
 
     private Double index;
@@ -730,9 +739,9 @@ public class ChartsRadar extends Chart {
 
     private RadarSeriesBase getGetSeriesAt;
 
-    public RadarSeriesBase getGetSeriesAt() {
+    public RadarSeriesBase getGetSeriesAt(Double index1) {
         if (getGetSeriesAt == null)
-            getGetSeriesAt = new RadarSeriesBase("chart.getSeriesAt()");
+            getGetSeriesAt = new RadarSeriesBase("chart.getSeriesAt("+ index1+")");
 
         return getGetSeriesAt;
     }
@@ -761,6 +770,15 @@ public class ChartsRadar extends Chart {
         return getGrid;
     }
 
+    private CoreGridsRadar getGrid1;
+
+    public CoreGridsRadar getGrid1(Double index2) {
+        if (getGrid1 == null)
+            getGrid1 = new CoreGridsRadar("chart.grid1("+ index2+")");
+
+        return getGrid1;
+    }
+
     private String grid;
     private Boolean grid1;
 
@@ -787,31 +805,31 @@ public class ChartsRadar extends Chart {
         }
     }
 
-    private Double index1;
+    private Double index3;
     private String grid2;
     private Boolean grid3;
 
-    public void setGrid(String grid2, Double index1) {
+    public void setGrid(String grid2, Double index3) {
         this.grid2 = grid2;
-        this.index1 = index1;
+        this.index3 = index3;
 
-        js.append(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index1));
+        js.append(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%s, %f);", grid2, index3));
             js.setLength(0);
         }
     }
 
 
-    public void setGrid(Boolean grid3, Double index1) {
+    public void setGrid(Boolean grid3, Double index3) {
         this.grid3 = grid3;
-        this.index1 = index1;
+        this.index3 = index3;
 
-        js.append(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index1));
+        js.append(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.grid(%b, %f);", grid3, index3));
             js.setLength(0);
         }
     }
@@ -995,6 +1013,33 @@ public class ChartsRadar extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index4) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index4+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index5) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index5+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -1022,59 +1067,59 @@ public class ChartsRadar extends Chart {
         }
     }
 
-    private String index2;
-    private Double index3;
+    private String index6;
+    private Double index7;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index2, Boolean label3) {
-        this.index2 = index2;
+    public void setLabel(String index6, Boolean label3) {
+        this.index6 = index6;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index6, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index6, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index2, String label4) {
-        this.index2 = index2;
+    public void setLabel(String index6, String label4) {
+        this.index6 = index6;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index6, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index6, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, Boolean label3) {
-        this.index3 = index3;
+    public void setLabel(Double index7, Boolean label3) {
+        this.index7 = index7;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index7, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index7, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index3, String label4) {
-        this.index3 = index3;
+    public void setLabel(Double index7, String label4) {
+        this.index7 = index7;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index7, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index7, label4));
             js.setLength(0);
         }
     }
@@ -1901,6 +1946,15 @@ public class ChartsRadar extends Chart {
         return getMinorGrid;
     }
 
+    private CoreGridsRadar getMinorGrid1;
+
+    public CoreGridsRadar getMinorGrid1(Double index8) {
+        if (getMinorGrid1 == null)
+            getMinorGrid1 = new CoreGridsRadar("chart.minorGrid1("+ index8+")");
+
+        return getMinorGrid1;
+    }
+
     private String minorGrid;
     private Boolean minorGrid1;
 
@@ -1927,31 +1981,31 @@ public class ChartsRadar extends Chart {
         }
     }
 
-    private Double index4;
+    private Double index9;
     private String minorGrid2;
     private Boolean minorGrid3;
 
-    public void setMinorgrid(String minorGrid2, Double index4) {
+    public void setMinorgrid(String minorGrid2, Double index9) {
         this.minorGrid2 = minorGrid2;
-        this.index4 = index4;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index4));
+        js.append(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%s, %f);", minorGrid2, index9));
             js.setLength(0);
         }
     }
 
 
-    public void setMinorgrid(Boolean minorGrid3, Double index4) {
+    public void setMinorgrid(Boolean minorGrid3, Double index9) {
         this.minorGrid3 = minorGrid3;
-        this.index4 = index4;
+        this.index9 = index9;
 
-        js.append(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index4));
+        js.append(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.minorGrid(%b, %f);", minorGrid3, index9));
             js.setLength(0);
         }
     }
@@ -2355,41 +2409,41 @@ public class ChartsRadar extends Chart {
         }
     }
 
-    private Double id;
-    private String id1;
+    private Double id2;
+    private String id3;
 
-    public void setRemoveseries(Double id) {
-        this.id = id;
+    public void setRemoveseries(Double id2) {
+        this.id2 = id2;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(%f);", id));
+        js.append(String.format(Locale.US, "chart.removeSeries(%f);", id2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%f);", id));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%f);", id2));
             js.setLength(0);
         }
     }
 
 
-    public void setRemoveseries(String id1) {
-        this.id1 = id1;
+    public void setRemoveseries(String id3) {
+        this.id3 = id3;
 
-        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id1));
+        js.append(String.format(Locale.US, "chart.removeSeries(%s);", id3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id1));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeries(%s);", id3));
             js.setLength(0);
         }
     }
 
-    private Double index5;
+    private Double index10;
 
-    public void setRemoveseriesat(Double index5) {
-        this.index5 = index5;
+    public void setRemoveseriesat(Double index10) {
+        this.index10 = index10;
 
-        js.append(String.format(Locale.US, "chart.removeSeriesAt(%f);", index5));
+        js.append(String.format(Locale.US, "chart.removeSeriesAt(%f);", index10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeriesAt(%f);", index5));
+            onChangeListener.onChange(String.format(Locale.US, "chart.removeSeriesAt(%f);", index10));
             js.setLength(0);
         }
     }
@@ -3159,15 +3213,15 @@ public class ChartsRadar extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -3394,6 +3448,13 @@ public class ChartsRadar extends Chart {
         return "";
     }
 
+    private String generateJSgetGetSeries1() {
+        if (getGetSeries1 != null) {
+            return getGetSeries1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetGetSeriesAt() {
         if (getGetSeriesAt != null) {
             return getGetSeriesAt.generateJs();
@@ -3404,6 +3465,13 @@ public class ChartsRadar extends Chart {
     private String generateJSgetGrid() {
         if (getGrid != null) {
             return getGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGrid1() {
+        if (getGrid1 != null) {
+            return getGrid1.generateJs();
         }
         return "";
     }
@@ -3432,6 +3500,27 @@ public class ChartsRadar extends Chart {
     private String generateJSgetLabel() {
         if (getLabel != null) {
             return getLabel.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
         }
         return "";
     }
@@ -3467,6 +3556,13 @@ public class ChartsRadar extends Chart {
     private String generateJSgetMinorGrid() {
         if (getMinorGrid != null) {
             return getMinorGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinorGrid1() {
+        if (getMinorGrid1 != null) {
+            return getMinorGrid1.generateJs();
         }
         return "";
     }
@@ -3545,17 +3641,23 @@ public class ChartsRadar extends Chart {
         js.append(generateJSgetCredits());
         js.append(generateJSgetGetPlotBounds());
         js.append(generateJSgetGetSeries());
+        js.append(generateJSgetGetSeries1());
         js.append(generateJSgetGetSeriesAt());
         js.append(generateJSgetGrid());
+        js.append(generateJSgetGrid1());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetHoverLabels());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetLabels());
         js.append(generateJSgetLegend());
         js.append(generateJSgetMargin());
         js.append(generateJSgetMarkerPalette());
         js.append(generateJSgetMinorGrid());
+        js.append(generateJSgetMinorGrid1());
         js.append(generateJSgetPadding());
         js.append(generateJSgetPalette());
         js.append(generateJSgetSelectLabels());

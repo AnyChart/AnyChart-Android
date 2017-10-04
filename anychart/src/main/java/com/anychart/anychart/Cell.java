@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Cell extends JsObject {
+public class Cell extends TableBase {
 
     private String jsBase;
 

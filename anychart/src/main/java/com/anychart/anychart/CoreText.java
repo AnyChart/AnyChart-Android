@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CoreText extends JsObject {
+public class CoreText extends VisualBase {
 
     private String jsBase;
 

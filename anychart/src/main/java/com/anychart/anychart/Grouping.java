@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Grouping extends JsObject {
+public class Grouping extends CoreBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CoreAxesLinear extends JsObject {
+public class CoreAxesLinear extends VisualBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UiBackground extends JsObject {
+public class UiBackground extends VisualBaseWithBounds {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Grid extends JsObject {
+public class Grid extends VisualBaseWithBounds {
 
     private String jsBase;
 

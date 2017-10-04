@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class MapTicks extends JsObject {
+public class MapTicks extends VisualBase {
 
     private String jsBase;
 

@@ -718,6 +718,33 @@ public class Bullet extends Chart {
         return getLabel;
     }
 
+    private UiLabel getLabel1;
+
+    public UiLabel getLabel1(String index) {
+        if (getLabel1 == null)
+            getLabel1 = new UiLabel("chart.label1("+ index+")");
+
+        return getLabel1;
+    }
+
+    private UiLabel getLabel2;
+
+    public UiLabel getLabel2() {
+        if (getLabel2 == null)
+            getLabel2 = new UiLabel("chart.label2()");
+
+        return getLabel2;
+    }
+
+    private UiLabel getLabel3;
+
+    public UiLabel getLabel3(Double index1) {
+        if (getLabel3 == null)
+            getLabel3 = new UiLabel("chart.label3("+ index1+")");
+
+        return getLabel3;
+    }
+
     private Boolean label;
     private String label1;
     private String label2;
@@ -745,59 +772,59 @@ public class Bullet extends Chart {
         }
     }
 
-    private String index;
-    private Double index1;
+    private String index2;
+    private Double index3;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public void setLabel(String index, Boolean label3) {
-        this.index = index;
+    public void setLabel(String index2, Boolean label3) {
+        this.index2 = index2;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index, label3));
+        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(String index, String label4) {
-        this.index = index;
+    public void setLabel(String index2, String label4) {
+        this.index2 = index2;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index, label4));
+        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index1, Boolean label3) {
-        this.index1 = index1;
+    public void setLabel(Double index3, Boolean label3) {
+        this.index3 = index3;
         this.label3 = label3;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index1, label3));
+        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index1, label3));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
             js.setLength(0);
         }
     }
 
 
-    public void setLabel(Double index1, String label4) {
-        this.index1 = index1;
+    public void setLabel(Double index3, String label4) {
+        this.index3 = index3;
         this.label4 = label4;
 
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index1, label4));
+        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index1, label4));
+            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
             js.setLength(0);
         }
     }
@@ -1685,6 +1712,15 @@ public class Bullet extends Chart {
         return getRange;
     }
 
+    private CoreAxismarkersRange getRange1;
+
+    public CoreAxismarkersRange getRange1(Double index4) {
+        if (getRange1 == null)
+            getRange1 = new CoreAxismarkersRange("chart.range1("+ index4+")");
+
+        return getRange1;
+    }
+
     private String range;
     private Boolean range1;
 
@@ -1711,31 +1747,31 @@ public class Bullet extends Chart {
         }
     }
 
-    private Double index2;
+    private Double index5;
     private String range2;
     private Boolean range3;
 
-    public void setRange(String range2, Double index2) {
+    public void setRange(String range2, Double index5) {
         this.range2 = range2;
-        this.index2 = index2;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.range(%s, %f);", range2, index2));
+        js.append(String.format(Locale.US, "chart.range(%s, %f);", range2, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.range(%s, %f);", range2, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.range(%s, %f);", range2, index5));
             js.setLength(0);
         }
     }
 
 
-    public void setRange(Boolean range3, Double index2) {
+    public void setRange(Boolean range3, Double index5) {
         this.range3 = range3;
-        this.index2 = index2;
+        this.index5 = index5;
 
-        js.append(String.format(Locale.US, "chart.range(%b, %f);", range3, index2));
+        js.append(String.format(Locale.US, "chart.range(%b, %f);", range3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.range(%b, %f);", range3, index2));
+            onChangeListener.onChange(String.format(Locale.US, "chart.range(%b, %f);", range3, index5));
             js.setLength(0);
         }
     }
@@ -2553,15 +2589,15 @@ public class Bullet extends Chart {
         }
     }
 
-    private String key;
+    private String key2;
 
-    public void setUnlistenbykey(String key) {
-        this.key = key;
+    public void setUnlistenbykey(String key2) {
+        this.key2 = key2;
 
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key));
+            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
             js.setLength(0);
         }
     }
@@ -2661,6 +2697,27 @@ public class Bullet extends Chart {
         return "";
     }
 
+    private String generateJSgetLabel1() {
+        if (getLabel1 != null) {
+            return getLabel1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel2() {
+        if (getLabel2 != null) {
+            return getLabel2.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabel3() {
+        if (getLabel3 != null) {
+            return getLabel3.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetMargin() {
         if (getMargin != null) {
             return getMargin.generateJs();
@@ -2685,6 +2742,13 @@ public class Bullet extends Chart {
     private String generateJSgetRange() {
         if (getRange != null) {
             return getRange.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetRange1() {
+        if (getRange1 != null) {
+            return getRange1.generateJs();
         }
         return "";
     }
@@ -2728,10 +2792,14 @@ public class Bullet extends Chart {
         js.append(generateJSgetContextMenu());
         js.append(generateJSgetData());
         js.append(generateJSgetLabel());
+        js.append(generateJSgetLabel1());
+        js.append(generateJSgetLabel2());
+        js.append(generateJSgetLabel3());
         js.append(generateJSgetMargin());
         js.append(generateJSgetMarkerPalette());
         js.append(generateJSgetPadding());
         js.append(generateJSgetRange());
+        js.append(generateJSgetRange1());
         js.append(generateJSgetRangePalette());
         js.append(generateJSgetScale());
         js.append(generateJSgetTitle());

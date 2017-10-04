@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class GridsStock extends JsObject {
+public class GridsStock extends VisualBase {
 
     private String jsBase;
 
@@ -64,6 +64,15 @@ public class GridsStock extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private GridsStock getAxis1;
+
+    public GridsStock getAxis1() {
+        if (getAxis1 == null)
+            getAxis1 = new GridsStock(jsBase + ".axis1()");
+
+        return getAxis1;
     }
 
     private Boolean drawFirstLine;
@@ -1314,6 +1323,13 @@ public class GridsStock extends JsObject {
         return "";
     }
 
+    private String generateJSgetAxis1() {
+        if (getAxis1 != null) {
+            return getAxis1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
@@ -1889,6 +1905,7 @@ public class GridsStock extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetAxis());
+            js.append(generateJSgetAxis1());
             js.append(generateJSgetScale());
 
         String result = js.toString();

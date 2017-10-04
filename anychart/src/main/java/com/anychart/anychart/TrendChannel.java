@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class TrendChannel extends JsObject {
+public class TrendChannel extends AnnotationsBase {
 
     private String jsBase;
 

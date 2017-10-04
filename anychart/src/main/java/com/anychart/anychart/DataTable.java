@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class DataTable extends JsObject {
+public class DataTable extends CoreBase {
 
     private String jsBase;
 

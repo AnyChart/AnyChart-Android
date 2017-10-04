@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class PlotController extends JsObject {
+public class PlotController extends VisualBase {
 
     private String jsBase;
 

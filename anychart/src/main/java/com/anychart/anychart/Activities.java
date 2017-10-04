@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Activities extends JsObject {
+public class Activities extends CoreBase {
 
     private String jsBase;
 

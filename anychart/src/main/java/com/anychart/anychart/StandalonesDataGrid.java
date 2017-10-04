@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesDataGrid extends JsObject {
+public class StandalonesDataGrid extends UiDataGrid {
 
     private String jsBase;
 
@@ -1025,6 +1025,15 @@ public class StandalonesDataGrid extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private DatagridColumn getColumn;
+
+    public DatagridColumn getColumn() {
+        if (getColumn == null)
+            getColumn = new DatagridColumn(jsBase + ".column()");
+
+        return getColumn;
     }
 
     private DatagridColumn column;
@@ -6218,6 +6227,15 @@ public class StandalonesDataGrid extends JsObject {
         }
     }
 
+    private UiDataGrid getTooltip1;
+
+    public UiDataGrid getTooltip1() {
+        if (getTooltip1 == null)
+            getTooltip1 = new UiDataGrid(jsBase + ".tooltip1()");
+
+        return getTooltip1;
+    }
+
     private Double top1;
     private String top2;
 
@@ -6426,6 +6444,13 @@ public class StandalonesDataGrid extends JsObject {
         return "";
     }
 
+    private String generateJSgetColumn() {
+        if (getColumn != null) {
+            return getColumn.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetContainer() {
         if (getContainer != null) {
             return getContainer.generateJs();
@@ -6450,6 +6475,13 @@ public class StandalonesDataGrid extends JsObject {
     private String generateJSgetTooltip() {
         if (getTooltip != null) {
             return getTooltip.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTooltip1() {
+        if (getTooltip1 != null) {
+            return getTooltip1.generateJs();
         }
         return "";
     }
@@ -8149,10 +8181,12 @@ public class StandalonesDataGrid extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetBounds());
+            js.append(generateJSgetColumn());
             js.append(generateJSgetContainer());
             js.append(generateJSgetData());
             js.append(generateJSgetParentBounds());
             js.append(generateJSgetTooltip());
+            js.append(generateJSgetTooltip1());
             js.append(generateJSgetVerticalScrollBar());
 
         String result = js.toString();

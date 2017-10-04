@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class UiLabel extends JsObject {
+public class UiLabel extends CoreText {
 
     private String jsBase;
 

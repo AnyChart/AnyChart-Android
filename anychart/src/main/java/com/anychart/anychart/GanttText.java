@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class GanttText extends JsObject {
+public class GanttText extends CoreText {
 
     private String jsBase;
 
@@ -826,6 +826,15 @@ public class GanttText extends JsObject {
         }
     }
 
+    private GanttText getScale1;
+
+    public GanttText getScale1() {
+        if (getScale1 == null)
+            getScale1 = new GanttText(jsBase + ".scale1()");
+
+        return getScale1;
+    }
+
     private Boolean selectable;
 
     public void setSelectable(Boolean selectable) {
@@ -1327,6 +1336,13 @@ public class GanttText extends JsObject {
     private String generateJSgetScale() {
         if (getScale != null) {
             return getScale.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetScale1() {
+        if (getScale1 != null) {
+            return getScale1.generateJs();
         }
         return "";
     }
@@ -1923,6 +1939,7 @@ public class GanttText extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetScale());
+            js.append(generateJSgetScale1());
 
         String result = js.toString();
         js.setLength(0);

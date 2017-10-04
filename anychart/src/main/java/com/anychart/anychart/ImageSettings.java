@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ImageSettings extends JsObject {
+public class ImageSettings extends SettingsWithMargin {
 
     private String jsBase;
 

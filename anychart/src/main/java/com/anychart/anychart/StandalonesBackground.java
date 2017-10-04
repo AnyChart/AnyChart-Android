@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesBackground extends JsObject {
+public class StandalonesBackground extends UiBackground {
 
     private String jsBase;
 

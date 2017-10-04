@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Bounds extends JsObject {
+public class Bounds extends CoreBase {
 
     private String jsBase;
 

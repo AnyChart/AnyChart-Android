@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ChartCredits extends JsObject {
+public class ChartCredits extends CoreBase {
 
     private String jsBase;
 

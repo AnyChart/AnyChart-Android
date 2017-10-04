@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class RangeColors extends JsObject {
+public class RangeColors extends CoreBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Shape extends JsObject {
+public class Shape extends Element {
 
     private String jsBase;
 

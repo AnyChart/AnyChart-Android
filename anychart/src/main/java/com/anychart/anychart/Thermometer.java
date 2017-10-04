@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Thermometer extends JsObject {
+public class Thermometer extends LineargaugePointersBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class CircularRange extends JsObject {
+public class CircularRange extends VisualBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class PiePoint extends JsObject {
+public class PiePoint extends Point {
 
     private String jsBase;
 

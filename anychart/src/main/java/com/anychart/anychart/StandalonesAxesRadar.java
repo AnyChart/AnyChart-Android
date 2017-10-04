@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesAxesRadar extends JsObject {
+public class StandalonesAxesRadar extends CoreAxesRadar {
 
     private String jsBase;
 

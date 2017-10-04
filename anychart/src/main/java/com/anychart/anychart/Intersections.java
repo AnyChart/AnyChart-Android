@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Intersections extends JsObject {
+public class Intersections extends CoreBase {
 
     private String jsBase;
 

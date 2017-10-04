@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class DistinctColors extends JsObject {
+public class DistinctColors extends CoreBase {
 
     private String jsBase;
 

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class PolarSeriesMarker extends JsObject {
+public class PolarSeriesMarker extends PolarSeriesBase {
 
     private String jsBase;
 
@@ -1325,6 +1325,15 @@ public class PolarSeriesMarker extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private SeriesPoint getGetPoint;
+
+    public SeriesPoint getGetPoint() {
+        if (getGetPoint == null)
+            getGetPoint = new SeriesPoint(jsBase + ".getPoint()");
+
+        return getGetPoint;
     }
 
     private String key;
@@ -4723,6 +4732,13 @@ public class PolarSeriesMarker extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (getGetPoint != null) {
+            return getGetPoint.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
@@ -6346,6 +6362,7 @@ public class PolarSeriesMarker extends JsObject {
         }
             js.append(generateJSgetBounds());
             js.append(generateJSgetData());
+            js.append(generateJSgetGetPoint());
             js.append(generateJSgetHatchFill());
             js.append(generateJSgetHoverHatchFill());
             js.append(generateJSgetHoverLabels());

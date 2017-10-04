@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Layer extends JsObject {
+public class Layer extends Element {
 
     private String jsBase;
 

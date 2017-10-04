@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Circular extends JsObject {
+public class Circular extends VisualBase {
 
     private String jsBase;
 

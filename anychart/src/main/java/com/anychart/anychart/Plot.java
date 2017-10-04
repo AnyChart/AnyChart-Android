@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class Plot extends JsObject {
+public class Plot extends VisualBaseWithBounds {
 
     private String jsBase;
 
@@ -2416,6 +2416,15 @@ public class Plot extends JsObject {
         }
     }
 
+    private StockSeriesBase getGetSeries;
+
+    public StockSeriesBase getGetSeries() {
+        if (getGetSeries == null)
+            getGetSeries = new StockSeriesBase(jsBase + ".getSeries()");
+
+        return getGetSeries;
+    }
+
     private Double index;
 
     public void setGetseriesat(Double index) {
@@ -2431,6 +2440,15 @@ public class Plot extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private StockSeriesBase getGetSeriesAt;
+
+    public StockSeriesBase getGetSeriesAt() {
+        if (getGetSeriesAt == null)
+            getGetSeriesAt = new StockSeriesBase(jsBase + ".getSeriesAt()");
+
+        return getGetSeriesAt;
     }
 
     private Double index1;
@@ -2451,6 +2469,15 @@ public class Plot extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private GridsStock getGrid;
+
+    public GridsStock getGrid() {
+        if (getGrid == null)
+            getGrid = new GridsStock(jsBase + ".grid()");
+
+        return getGrid;
     }
 
     private String grid;
@@ -4309,6 +4336,15 @@ public class Plot extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private GridsStock getMinorGrid;
+
+    public GridsStock getMinorGrid() {
+        if (getMinorGrid == null)
+            getMinorGrid = new GridsStock(jsBase + ".minorGrid()");
+
+        return getMinorGrid;
     }
 
     private String minorGrid;
@@ -8535,6 +8571,15 @@ public class Plot extends JsObject {
         }
     }
 
+    private CoreAxesLinear getYAxis;
+
+    public CoreAxesLinear getYAxis() {
+        if (getYAxis == null)
+            getYAxis = new CoreAxesLinear(jsBase + ".yAxis()");
+
+        return getYAxis;
+    }
+
     private String yAxis;
     private Boolean yAxis1;
 
@@ -8727,6 +8772,27 @@ public class Plot extends JsObject {
         return "";
     }
 
+    private String generateJSgetGetSeries() {
+        if (getGetSeries != null) {
+            return getGetSeries.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGetSeriesAt() {
+        if (getGetSeriesAt != null) {
+            return getGetSeriesAt.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetGrid() {
+        if (getGrid != null) {
+            return getGrid.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
             return getHatchFillPalette.generateJs();
@@ -8748,6 +8814,13 @@ public class Plot extends JsObject {
         return "";
     }
 
+    private String generateJSgetMinorGrid() {
+        if (getMinorGrid != null) {
+            return getMinorGrid.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
@@ -8758,6 +8831,13 @@ public class Plot extends JsObject {
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
             return getXAxis.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYAxis() {
+        if (getYAxis != null) {
+            return getYAxis.generateJs();
         }
         return "";
     }
@@ -11219,11 +11299,16 @@ public class Plot extends JsObject {
             js.append(generateJSgetAnnotations());
             js.append(generateJSgetBackground());
             js.append(generateJSgetBounds());
+            js.append(generateJSgetGetSeries());
+            js.append(generateJSgetGetSeriesAt());
+            js.append(generateJSgetGrid());
             js.append(generateJSgetHatchFillPalette());
             js.append(generateJSgetLegend());
             js.append(generateJSgetMarkerPalette());
+            js.append(generateJSgetMinorGrid());
             js.append(generateJSgetPalette());
             js.append(generateJSgetXAxis());
+            js.append(generateJSgetYAxis());
             js.append(generateJSgetYScale());
 
         String result = js.toString();

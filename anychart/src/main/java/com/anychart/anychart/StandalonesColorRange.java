@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class StandalonesColorRange extends JsObject {
+public class StandalonesColorRange extends UiColorRange {
 
     private String jsBase;
 
@@ -365,6 +365,15 @@ public class StandalonesColorRange extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private UiColorRange getMarker1;
+
+    public UiColorRange getMarker1() {
+        if (getMarker1 == null)
+            getMarker1 = new UiColorRange(jsBase + ".marker1()");
+
+        return getMarker1;
     }
 
     private UiLabelsFactory getMinorLabels;
@@ -2096,6 +2105,13 @@ public class StandalonesColorRange extends JsObject {
         return "";
     }
 
+    private String generateJSgetMarker1() {
+        if (getMarker1 != null) {
+            return getMarker1.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetMinorLabels() {
         if (getMinorLabels != null) {
             return getMinorLabels.generateJs();
@@ -2731,6 +2747,7 @@ public class StandalonesColorRange extends JsObject {
             js.append(generateJSgetContainer());
             js.append(generateJSgetLabels());
             js.append(generateJSgetMarker());
+            js.append(generateJSgetMarker1());
             js.append(generateJSgetMinorLabels());
             js.append(generateJSgetMinorTicks());
             js.append(generateJSgetPadding());

@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Arrays;
 
 // class
-public class ProjectTimeline extends JsObject {
+public class ProjectTimeline extends Timeline {
 
     private String jsBase;
 
@@ -7924,6 +7924,15 @@ public class ProjectTimeline extends JsObject {
         }
     }
 
+    private GanttLine getLineMarker;
+
+    public GanttLine getLineMarker() {
+        if (getLineMarker == null)
+            getLineMarker = new GanttLine(jsBase + ".lineMarker()");
+
+        return getLineMarker;
+    }
+
     private String lineMarker;
     private Boolean lineMarker1;
 
@@ -12833,6 +12842,15 @@ public class ProjectTimeline extends JsObject {
         }
     }
 
+    private GanttRange getRangeMarker;
+
+    public GanttRange getRangeMarker() {
+        if (getRangeMarker == null)
+            getRangeMarker = new GanttRange(jsBase + ".rangeMarker()");
+
+        return getRangeMarker;
+    }
+
     private String rangeMarker;
     private Boolean rangeMarker1;
 
@@ -12962,6 +12980,15 @@ public class ProjectTimeline extends JsObject {
                 js.setLength(0);
             }
         }
+    }
+
+    private Timeline getRangeMarker1;
+
+    public Timeline getRangeMarker1() {
+        if (getRangeMarker1 == null)
+            getRangeMarker1 = new Timeline(jsBase + ".rangeMarker1()");
+
+        return getRangeMarker1;
     }
 
     private Fill rowEvenFill;
@@ -23793,6 +23820,15 @@ public class ProjectTimeline extends JsObject {
         }
     }
 
+    private GanttText getTextMarker;
+
+    public GanttText getTextMarker() {
+        if (getTextMarker == null)
+            getTextMarker = new GanttText(jsBase + ".textMarker()");
+
+        return getTextMarker;
+    }
+
     private String textMarker;
     private Boolean textMarker1;
 
@@ -23986,9 +24022,37 @@ public class ProjectTimeline extends JsObject {
         return "";
     }
 
+    private String generateJSgetLineMarker() {
+        if (getLineMarker != null) {
+            return getLineMarker.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetRangeMarker() {
+        if (getRangeMarker != null) {
+            return getRangeMarker.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetRangeMarker1() {
+        if (getRangeMarker1 != null) {
+            return getRangeMarker1.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetTextMarker() {
+        if (getTextMarker != null) {
+            return getTextMarker.generateJs();
         }
         return "";
     }
@@ -27672,7 +27736,11 @@ public class ProjectTimeline extends JsObject {
             js.append("}");
         }
             js.append(generateJSgetLabels());
+            js.append(generateJSgetLineMarker());
             js.append(generateJSgetMarkers());
+            js.append(generateJSgetRangeMarker());
+            js.append(generateJSgetRangeMarker1());
+            js.append(generateJSgetTextMarker());
             js.append(generateJSgetTooltip());
 
         String result = js.toString();
