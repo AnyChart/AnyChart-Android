@@ -75,10 +75,10 @@ public class PolarChartActivity extends AppCompatActivity {
         polar.setDefaultseriestype(PolarSeriesType.COLUMN);
         polar.setYaxis(false);
         polar.setXscale(ScaleTypes.ORDINAL);
-
         polar.getTitle().getMargin().setBottom(20d);
-        // TODO look here
-//        polar.getYScale().setStack
+
+        // TODO stackMode
+//        ((ScalesLinear) polar.getYScale()).setStackmode(ScaleStackMode.VALUE);
 
         polar.getTooltip().setValueprefix("'$'");
         polar.getTooltip().setDisplaymode(TooltipDisplayMode.UNION);

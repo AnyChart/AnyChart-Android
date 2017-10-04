@@ -29,7 +29,8 @@ public class RangeChartActivity extends AppCompatActivity {
 
         cartesian.getTooltip().setTitleformat("'{%SeriesName} ({%x})'");
 
-//        cartesian.getYscale().setMini
+        cartesian.getYScale().setMinimum(4d);
+        cartesian.getYScale().setMaximum(20d);
 
 //        chart.rangeColumn(dataLon).name("London");
         cartesian.setRangecolumn(getEdinburghData(), TextParsingMode.CSV);

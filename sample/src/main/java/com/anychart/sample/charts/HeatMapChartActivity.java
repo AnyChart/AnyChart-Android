@@ -35,7 +35,6 @@ public class HeatMapChartActivity extends AppCompatActivity {
         riskMap.getInteractivity().setSelectionmode(SelectionMode.NONE);
         riskMap.getLabels().setEnabled(true);
         riskMap.getLabels().setFontsize(14d);
-        // TODO look there
         riskMap.getLabels().setFormat("function() {\n" +
                 "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
                 "      return namesList[this.heat];\n" +

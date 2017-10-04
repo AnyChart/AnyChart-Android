@@ -5,8 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
+import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.Set;
 import com.anychart.anychart.TextParsingMode;
+import com.anychart.anychart.TooltipDisplayMode;
+import com.anychart.anychart.TooltipPositionMode;
 import com.anychart.sample.R;
 
 public class VerticalChartActivity extends AppCompatActivity {
@@ -22,6 +25,15 @@ public class VerticalChartActivity extends AppCompatActivity {
         cartesian.setAnimation(true);
         cartesian.setTitle("'Vertical Combination of Bar'");// and Jump Line Chart'");
         cartesian.setLabels(true);
+        cartesian.getYScale().setMinimum(0d);
+        cartesian.getTooltip().setDisplaymode(TooltipDisplayMode.UNION);
+        cartesian.getTooltip().setPositionmode(TooltipPositionMode.POINT);
+        cartesian.getTooltip().setUnionformat(
+                "function() {\n" +
+                "      return 'Plain: $' + this.points[1].value + ' mln' +\n" +
+                "        '\\n' + 'Fact: $' + this.points[0].value + ' mln';\n" +
+                "    }");
+        cartesian.getInteractivity().setHovermode(HoverMode.BY_X);
         cartesian.setXaxis(true);
         cartesian.getYAxis().getLabels().setFormat("'${%Value} mln'");
         cartesian.setBar(new String[] {

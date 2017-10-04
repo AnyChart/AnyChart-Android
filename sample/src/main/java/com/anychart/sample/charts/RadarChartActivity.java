@@ -43,7 +43,10 @@ public class RadarChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV);
 
 //        radar.setLine().setName().getMarkers();
-//        radar.getYscale().setMinimum
+        radar.getYScale().setMinimum(0d);
+        radar.getYScale().setMinimumgap(0d);
+        radar.getYScale().getTicks().setInterval(50d);
+
         radar.getXAxis().getLabels().setPadding(5d);
 
         radar.getLegend().setAlign(EnumsAlign.CENTER);

@@ -19,6 +19,8 @@ public class PertChartActivity extends AppCompatActivity {
 
         Pert pert = new Pert();
 
+        // TODO problems with stat
+//        pert.setGetstat();
         pert.getTitle().setPadding(0d, 0d, 35d, 0d);
         pert.setTitle("'Airplane Design Process with PERT Chart'");
         pert.setHorizontalspacing("'18.7%'");
@@ -44,6 +46,26 @@ public class PertChartActivity extends AppCompatActivity {
 
         pert.getMilestones().setColor("'#2C81D5'");
         pert.getMilestones().setSize("'6.5%'");
+        pert.getMilestones().getTooltip().setFormat("" +
+                "function() {\n" +
+                "  var result = '';\n" +
+                "  var i = 0;\n" +
+                "  if (this['successors'] && this['successors'].length) {\n" +
+                "    result += 'Successors:';\n" +
+                "    for (i = 0; i < this['successors'].length; i++) {\n" +
+                "      result += '\\n - ' + this['successors'][i].get('fullName');\n" +
+                "    }\n" +
+                "    if (this['predecessors'] && this['predecessors'].length)\n" +
+                "      result += '\\n\\n';\n" +
+                "  }\n" +
+                "  if (this['predecessors'] && this['predecessors'].length) {\n" +
+                "    result += 'Predecessors:';\n" +
+                "    for (i = 0; i < this['predecessors'].length; i++) {\n" +
+                "      result += '\\n - ' + this['predecessors'][i].get('fullName');\n" +
+                "    }\n" +
+                "  }\n" +
+                "  return result;\n" +
+                "}");
 //        pert.getMilestones().setHoverfill();
 //        .hoverFill(function() {
 //            return anychart.color.lighten(this.sourceColor, 0.25);
