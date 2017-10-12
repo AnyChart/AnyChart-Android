@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.Availability;
+import com.anychart.anychart.AvailabilityPeriod;
 import com.anychart.anychart.Resource;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.anychart.TimeTrackingMode;
@@ -23,13 +25,16 @@ public class ResourceChartActivity extends AppCompatActivity {
 
         Resource resource = new Resource();
 
-        resource.setZoomLevel(1d);
-        resource.setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART);
+        resource.setZoomLevel(1d)
+                .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART);
 //        resource.setCurrentStartDate()
 
-//        resource.getCalendar().setAvailabilities(new Availability[]{
-//                new Availability(AvailabilityPeriod.DAY, null, null, 10, null, )
-//        });
+        resource.getCalendar().setAvailabilities(new Availability[] {
+                new Availability((Double) null, 10d, (Double) null, (Double) null, 18d, AvailabilityPeriod.DAY, true),
+                new Availability((Double) null, 14d, (Double) null, (Double) null, 15d, AvailabilityPeriod.DAY, false),
+                new Availability((Double) null, (Double) null, 5d, (Double) null, 18d, AvailabilityPeriod.WEEK, false),
+                new Availability((Double) null, (Double) null, 6d, (Double) null, 18d, AvailabilityPeriod.WEEK, false)
+        });
 
         resource.setData(getData(), TextParsingMode.CSV);
 
