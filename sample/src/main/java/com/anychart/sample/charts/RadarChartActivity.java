@@ -21,7 +21,19 @@ public class RadarChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         ChartsRadar radar = new ChartsRadar();
+
         radar.setTitle("'WoW base stats comparison radar chart: Shaman vs Warrior vs Priest'");
+
+        radar.getYScale().setMinimum(0d);
+        radar.getYScale().setMinimumGap(0d);
+        radar.getYScale().getTicks().setInterval(50d);
+
+        radar.getXAxis().getLabels().setPadding(5d);
+
+        radar.getLegend()
+                .setAlign(EnumsAlign.CENTER)
+                .setEnabled(true);
+
         RadarSeriesLine shamanLine = radar.line(new String[] {
                 "['Strength', 136]",
                 "['Agility', 79]",
@@ -30,7 +42,6 @@ public class RadarChartActivity extends AppCompatActivity {
                 "['Spirit', 158]"
         }, TextParsingMode.CSV);
         shamanLine.setName("'Shaman'");
-        // TODO setEnabled return VisualBase
         shamanLine.getMarkers().setEnabled(true);
         shamanLine.getMarkers()
                 .setType(MarkerType.CIRCLE)
@@ -59,15 +70,6 @@ public class RadarChartActivity extends AppCompatActivity {
         priestLine.getMarkers()
                 .setType(MarkerType.CIRCLE)
                 .setSize(3d);
-
-        radar.getYScale().setMinimum(0d);
-        radar.getYScale().setMinimumGap(0d);
-        radar.getYScale().getTicks().setInterval(50d);
-
-        radar.getXAxis().getLabels().setPadding(5d);
-
-        radar.getLegend().setAlign(EnumsAlign.CENTER);
-        radar.getLegend().setEnabled(true);
 
         radar.getTooltip().setFormat("'Value: {%Value}'");
 

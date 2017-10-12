@@ -19,8 +19,11 @@ public class WaterfallChartActivity extends AppCompatActivity {
         ChartsWaterfall waterfall = new ChartsWaterfall();
 
         waterfall.setTitle("'ACME corp. Revenue Flow 2017'");
+
         waterfall.getYScale().setMinimum(0d);
+
         waterfall.getYAxis().getLabels().setFormat("'${%Value}{scale:(1000000)(1)|(mln)}'");
+
         waterfall.getLabels().setEnabled(true);
         waterfall.getLabels().setFormat(
                 "function() {\n" +

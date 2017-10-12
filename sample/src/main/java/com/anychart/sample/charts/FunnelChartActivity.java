@@ -27,12 +27,14 @@ public class FunnelChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV);
 
         funnel.setMargin(10d, "'20%'", 10d, "'20%'");
-        funnel.setBaseWidth("'70%'");
-        funnel.setNeckWidth("'17%'");
-        funnel.setAnimation(true);
+        funnel.setBaseWidth("'70%'")
+                .setNeckWidth("'17%'");
 
-        funnel.getLabels().setPosition("'outsideleft'");
-        funnel.getLabels().setFormat("'{%X} - {%Value}'");
+        funnel.getLabels()
+                .setPosition("'outsideleft'")
+                .setFormat("'{%X} - {%Value}'");
+
+        funnel.setAnimation(true);
 
         anyChartView.setChart(funnel);
     }

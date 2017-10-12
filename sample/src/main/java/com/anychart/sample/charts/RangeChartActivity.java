@@ -30,7 +30,7 @@ public class RangeChartActivity extends AppCompatActivity {
 
         cartesian.setXAxis(true);
         cartesian.setYAxis(true);
-        
+
         cartesian.getYScale()
                 .setMinimum(4d)
                 .setMaximum(20d);

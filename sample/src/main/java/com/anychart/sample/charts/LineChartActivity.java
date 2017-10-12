@@ -24,10 +24,10 @@ public class LineChartActivity extends AppCompatActivity {
 
 //        Set dataSet = new Set();
 //        dataSet.setData(getData(), TextParsingMode.CSV);
-
-//        Mapping seriesData1 = dataSet.setMapAs("{ 'x': 0, 'value': 1 }");
-//        Mapping seriesData2 = dataSet.setMapAs("{ 'x': 0, 'value': 2 }");
-//        Mapping seriesData3 = dataSet.setMapAs("{ 'x': 0, 'value': 3 }");
+//
+//        Mapping seriesData1 = dataSet.mapAs("{ 'x': 0, 'value': 1 }");
+//        Mapping seriesData2 = dataSet.mapAs("{ 'x': 0, 'value': 2 }");
+//        Mapping seriesData3 = dataSet.mapAs("{ 'x': 0, 'value': 3 }");
 
         Cartesian cartesian = new Cartesian();
 

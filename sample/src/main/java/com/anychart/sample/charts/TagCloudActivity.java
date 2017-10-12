@@ -26,8 +26,8 @@ public class TagCloudActivity extends AppCompatActivity {
 //        ordinalColor.setColors(new String[] {
 //                "'#26959f'", "'#f18126'", "'#3b8ad8'", "'#60727b'", "'#e24b26'"
 //        });
-//        tagCloud.setColorscale(ordinalColor);
-//        tagCloud.getColorscale().setColors(new String[] {
+//        tagCloud.setColorScale(ordinalColor);
+//        tagCloud.getColorScale().setColors(new String[] {
 //                "'#26959f'", "'#f18126'", "'#3b8ad8'", "'#60727b'", "'#e24b26'"
 //        });
         tagCloud.setAngles(new Double[] {-90d, 0d, 90d});

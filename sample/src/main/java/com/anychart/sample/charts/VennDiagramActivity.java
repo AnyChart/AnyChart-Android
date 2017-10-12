@@ -35,7 +35,7 @@ public class VennDiagramActivity extends AppCompatActivity {
 
         venn.getLabels().setFormat("'{%Name}'");
 
-        venn.getIntersections().getHovered().setFill("'black'", 0.25d);
+        venn.getIntersections().getHovered().fill("'black'", 0.25d);
 
         venn.getIntersections().getLabels().setFontWeight("'bold'");
         venn.getIntersections().getLabels().setFormat("'{%Name}'");
