@@ -33,7 +33,7 @@ public class TagCloudActivity extends AppCompatActivity {
         tagCloud.setAngles(new Double[] {-90d, 0d, 90d});
 
         tagCloud.getColorRange().setEnabled(true);
-        tagCloud.getColorRange().setColorlinesize(15d);
+        tagCloud.getColorRange().setColorLineSize(15d);
 
         tagCloud.setData(getData(), TextParsingMode.CSV);
 

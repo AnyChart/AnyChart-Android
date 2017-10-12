@@ -21,7 +21,7 @@ public class PolarChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         ChartsPolar polar = new ChartsPolar();
-        polar.setColumn(new String[] {
+        polar.column(new String[] {
                 "['Nail polish', 12814]",
                 "['Eyebrow pencil', 13012]",
                 "['Rouge', 11624]",
@@ -33,7 +33,7 @@ public class PolarChartActivity extends AppCompatActivity {
                 "['Mascara', 11261]",
                 "['Powder', 10261]"
         }, TextParsingMode.CSV);
-        polar.setColumn(new String[] {
+        polar.column(new String[] {
                 "['Nail polish', 3054]",
                 "['Eyebrow pencil', 5067]",
                 "['Rouge', 7004]",
@@ -45,7 +45,7 @@ public class PolarChartActivity extends AppCompatActivity {
                 "['Mascara', 10419]",
                 "['Powder', 14419]"
         }, TextParsingMode.CSV);
-        polar.setColumn(new String[] {
+        polar.column(new String[] {
                 "['Nail polish', 4376]",
                 "['Eyebrow pencil', 3987]",
                 "['Rouge', 3574]",
@@ -57,7 +57,7 @@ public class PolarChartActivity extends AppCompatActivity {
                 "['Mascara', 6134]",
                 "['Powder', 5134]"
         }, TextParsingMode.CSV);
-        polar.setColumn(new String[] {
+        polar.column(new String[] {
                 "['Nail polish', 4229]",
                 "['Eyebrow pencil', 3932]",
                 "['Rouge', 5221]",
@@ -71,17 +71,17 @@ public class PolarChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV);
 
         polar.setTitle("'Company Profit Dynamic in Regions by Year'");
-        polar.setSortpointsbyx(true);
-        polar.setDefaultseriestype(PolarSeriesType.COLUMN);
-        polar.setYaxis(false);
-        polar.setXscale(ScaleTypes.ORDINAL);
+        polar.setSortPointsByX(true);
+        polar.setDefaultSeriesType(PolarSeriesType.COLUMN);
+        polar.setYAxis(false);
+        polar.setXScale(ScaleTypes.ORDINAL);
         polar.getTitle().getMargin().setBottom(20d);
 
         // TODO stackMode
-//        ((ScalesLinear) polar.getYScale()).setStackmode(ScaleStackMode.VALUE);
+//        polar.getYScale().setStackMode(ScaleStackMode.VALUE);
 
-        polar.getTooltip().setValueprefix("'$'");
-        polar.getTooltip().setDisplaymode(TooltipDisplayMode.UNION);
+        polar.getTooltip().setValuePrefix("'$'");
+        polar.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(polar);
     }

@@ -26,17 +26,17 @@ public class VerticalChartActivity extends AppCompatActivity {
         cartesian.setTitle("'Vertical Combination of Bar'");// and Jump Line Chart'");
         cartesian.setLabels(true);
         cartesian.getYScale().setMinimum(0d);
-        cartesian.getTooltip().setDisplaymode(TooltipDisplayMode.UNION);
-        cartesian.getTooltip().setPositionmode(TooltipPositionMode.POINT);
-        cartesian.getTooltip().setUnionformat(
+        cartesian.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);
+        cartesian.getTooltip().setPositionMode(TooltipPositionMode.POINT);
+        cartesian.getTooltip().setUnionFormat(
                 "function() {\n" +
                 "      return 'Plain: $' + this.points[1].value + ' mln' +\n" +
                 "        '\\n' + 'Fact: $' + this.points[0].value + ' mln';\n" +
                 "    }");
-        cartesian.getInteractivity().setHovermode(HoverMode.BY_X);
-        cartesian.setXaxis(true);
+        cartesian.getInteractivity().setHoverMode(HoverMode.BY_X);
+        cartesian.setXAxis(true);
         cartesian.getYAxis().getLabels().setFormat("'${%Value} mln'");
-        cartesian.setBar(new String[] {
+        cartesian.bar(new String[] {
                 "['Jan', 11.5]",
                 "['Feb', 12]",
                 "['Mar', 11.7]",

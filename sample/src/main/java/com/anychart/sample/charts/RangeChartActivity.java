@@ -20,21 +20,21 @@ public class RangeChartActivity extends AppCompatActivity {
         Cartesian cartesian = new Cartesian();
 
         cartesian.setTitle("'Coastal Water Temperature \\nin London vs Edinburgh in 2015 (°C)'");
-        cartesian.setXaxis(true);
-        cartesian.setYaxis(true);
+        cartesian.setXAxis(true);
+        cartesian.setYAxis(true);
 
         cartesian.setLegend(true);
-        cartesian.setGrid(true);
-        cartesian.setMinorgrid(true);
+        cartesian.setYGrid(true);
+        cartesian.setYMinorGrid(true);
 
-        cartesian.getTooltip().setTitleformat("'{%SeriesName} ({%x})'");
+        cartesian.getTooltip().setTitleFormat("'{%SeriesName} ({%x})'");
 
         cartesian.getYScale().setMinimum(4d);
         cartesian.getYScale().setMaximum(20d);
 
 //        chart.rangeColumn(dataLon).name("London");
-        cartesian.setRangecolumn(getEdinburghData(), TextParsingMode.CSV);
-        cartesian.setRangecolumn(getLondonData(), TextParsingMode.CSV);
+        cartesian.rangeColumn(getEdinburghData(), TextParsingMode.CSV);
+        cartesian.rangeColumn(getLondonData(), TextParsingMode.CSV);
 
         anyChartView.setChart(cartesian);
     }

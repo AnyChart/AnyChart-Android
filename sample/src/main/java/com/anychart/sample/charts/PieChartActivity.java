@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DistinctColors;
+import com.anychart.anychart.EnumsAlign;
+import com.anychart.anychart.LegendLayout;
 import com.anychart.anychart.Pie;
-import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
 
@@ -20,25 +20,27 @@ public class PieChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Pie pie = new Pie();
-        pie.setData(new String[] {"['John' , 10000]", "['Jake' , 12000]", "['Peter' , 18000]",
-                "['James' , 11000]", "['Mary' , 9000]"}, TextParsingMode.CSV);
+        pie.setData(new String[] {
+                "['Apples', 6371664]",
+                "['Pears', 789622]",
+                "['Bananas' , 7216301]",
+                "['Grapes' , 1486621]",
+                "['Oranges' , 1200000]"
+        }, TextParsingMode.CSV);
 
-        pie.setInnerradius(90d);
-        pie.setTitle("'Pie Sample'");
-        pie.setAnimation(true, 2000d);
-        pie.setStartangle(30d);
+        pie.setTitle("'Fruits imported in 2015 (in kg)'");
 
         pie.getLabels().setPosition("'outside'");
 
-        SolidFill[] a = {
-                new SolidFill("'#789'", 1d),
-                new SolidFill("'#456'", 1d),
-                new SolidFill("'#987'", 1d),
-                new SolidFill("'#321'", 1d),
-                new SolidFill("'#123'", 0.4d)};
-        DistinctColors distinctColors = new DistinctColors();
-        distinctColors.setItems(a, null);
-        pie.setPalette(distinctColors);
+        pie.getLegend().getTitle().setEnabled(true);
+        pie.getLegend().getTitle()
+                .setText("'Retail channels'")
+                .setPadding(0d, 0d, 10d, 0d);
+
+        pie.getLegend()
+                .setPosition("'center-bottom'")
+                .setItemsLayout(LegendLayout.HORIZONTAL)
+                .setAlign(EnumsAlign.CENTER);
 
         anyChartView.setChart(pie);
     }

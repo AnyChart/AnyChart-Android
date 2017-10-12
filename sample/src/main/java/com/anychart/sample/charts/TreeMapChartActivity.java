@@ -25,7 +25,7 @@ public class TreeMapChartActivity extends AppCompatActivity {
 
         UiTitle title = treeMap.getTitle();
         title.setEnabled(true);
-        title.setUsehtml(true);
+        title.setUseHtml(true);
         title.setPadding(0d, 0d, 20d, 0d);
         title.setText("'Top ACME Products by Revenue<br/>' +\n" +
                 "      '<span style=\"color:#212121; font-size: 13px;\">(average sales during the year, in $)</span>'");
@@ -59,13 +59,13 @@ public class TreeMapChartActivity extends AppCompatActivity {
         });
 
         treeMap.setPadding(10d, 10d, 10d, 20d);
-        treeMap.setMaxdepth(2d);
-        treeMap.setHoverfill("'#bdbdbd'", 1d);
-        treeMap.setSelectionmode(SelectionMode.NONE);
+        treeMap.setMaxDepth(2d);
+        treeMap.getHovered().setFill("'#bdbdbd'", 1d);
+        treeMap.setSelectionMode(SelectionMode.NONE);
 
-        treeMap.getLabels().setUsehtml(true);
-        treeMap.getLabels().setFontcolor("'#212121'");
-        treeMap.getLabels().setFontsize(12d);
+        treeMap.getLabels().setUseHtml(true);
+        treeMap.getLabels().setFontColor("'#212121'");
+        treeMap.getLabels().setFontSize(12d);
         treeMap.getLabels().setFormat(
                 "function() {\n" +
                 "      return this.getData('product');\n" +
@@ -76,8 +76,8 @@ public class TreeMapChartActivity extends AppCompatActivity {
                 "    return this.getData('product');\n" +
                 "  }");
 
-        treeMap.getTooltip().setUsehtml(true);
-        treeMap.getTooltip().setTitleformat(
+        treeMap.getTooltip().setUseHtml(true);
+        treeMap.getTooltip().setTitleFormat(
                 "'{%product}'");
         treeMap.getTooltip().setFormat(
                 "function() {\n" +

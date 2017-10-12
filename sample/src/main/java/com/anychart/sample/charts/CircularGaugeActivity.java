@@ -18,10 +18,10 @@ public class CircularGaugeActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         CircularGauge circularGauge = new CircularGauge();
-        circularGauge.setStartangle(0d);
-        circularGauge.setSweepangle(270d);
+        circularGauge.setStartAngle(0d);
+        circularGauge.setSweepAngle(270d);
         circularGauge.setData(new String[] { "23", "34", "67", "93", "56", "100" }, TextParsingMode.CSV);
-        circularGauge.getBar().setDataindex(5d);
+        circularGauge.getBar().setDataIndex(5d);
 
         anyChartView.setChart(circularGauge);
     }

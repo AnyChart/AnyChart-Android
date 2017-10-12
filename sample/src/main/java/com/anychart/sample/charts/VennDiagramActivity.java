@@ -34,16 +34,17 @@ public class VennDiagramActivity extends AppCompatActivity {
 
         venn.getLabels().setFormat("'{%Name}'");
 
-        venn.getIntersections().setHoverfill("'black'", 0.25d);
+//        venn.getIntersections().setHoverFill("'black'", 0.25d);
+        venn.getIntersections().getHovered().setFill("'black'", 0.25d);
 
-        venn.getIntersections().getLabels().setFontweight("'bold'");
+        venn.getIntersections().getLabels().setFontWeight("'bold'");
         venn.getIntersections().getLabels().setFormat("'{%Name}'");
 
 //        venn.getLegend().setPosition(Orientation.RIGHT);
 //        venn.getLegend().setItemslayout(LegendLayout.VERTICAL);
 //        venn.getLegend().setPadding(0d, 35d, 0d, 0d);
 
-        venn.getTooltip().setTitleformat("'{%Name}'");
+        venn.getTooltip().setTitleFormat("'{%Name}'");
 
         anyChartView.setChart(venn);
     }

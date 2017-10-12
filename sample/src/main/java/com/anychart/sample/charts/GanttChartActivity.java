@@ -17,7 +17,7 @@ public class GanttChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Gantt gantt = new Gantt();
-        gantt.setSplitterposition(320d);
+        gantt.setSplitterPosition(320d);
 
         anyChartView.setChart(gantt);
     }

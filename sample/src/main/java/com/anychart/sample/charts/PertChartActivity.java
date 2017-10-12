@@ -21,9 +21,10 @@ public class PertChartActivity extends AppCompatActivity {
 
         // TODO problems with stat
 //        pert.setGetstat();
-        pert.getTitle().setPadding(0d, 0d, 35d, 0d);
+//        pert.getTitle().setPadding(0d, 0d, 35d, 0d);
+        pert.getTitle().setPadding(new Double[]{ 0d, 0d, 35d, 0d });
         pert.setTitle("'Airplane Design Process with PERT Chart'");
-        pert.setHorizontalspacing("'18.7%'");
+        pert.setHorizontalSpacing("'18.7%'");
         pert.setPadding(new Double[] { 25d, 50d, 0d, 50d });
 
         pert.setData(getData(), TreeFillingMethod.AS_TABLE, null);
@@ -38,8 +39,8 @@ public class PertChartActivity extends AppCompatActivity {
         pert.getTasks().getLowerLabels().setFormat("'{%duration} days'");
 
         pert.getTasks().getTooltip().setSeparator(true);
-        pert.getTasks().getTooltip().setUsehtml(true);
-        pert.getTasks().getTooltip().setTitleformat(
+        pert.getTasks().getTooltip().setUseHtml(true);
+        pert.getTasks().getTooltip().setTitleFormat(
                 "function() {\n" +
                 "      return this.item.get('fullName');\n" +
                 "    }");
@@ -96,7 +97,7 @@ public class PertChartActivity extends AppCompatActivity {
                 "    return this['creator'] ? this['creator'].get('name') : this['isStart'] ? 'Start' : 'Finish';\n" +
                 "  }");
         pert.getCriticalPath().getMilestones().setColor("'#E24B26'");
-//        pert.getCriticalpath().getMilestones().setFill
+//        pert.getCriticalPath().getMilestones().setFill();
 
         anyChartView.setChart(pert);
     }

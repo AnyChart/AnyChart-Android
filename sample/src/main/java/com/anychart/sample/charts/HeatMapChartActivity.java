@@ -21,7 +21,7 @@ public class HeatMapChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         HeatMap riskMap = new HeatMap();
-        riskMap.getTooltip().setUsehtml(true);
+        riskMap.getTooltip().setUseHtml(true);
         riskMap.getTooltip().setFormat("function () {\n" +
                 "                return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
                 "                        '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
@@ -29,12 +29,12 @@ public class HeatMapChartActivity extends AppCompatActivity {
         riskMap.setTitle("'Risk Matrix in Project Server'");
         riskMap.getTitle().setPadding(0d, 0d, 20d, 0d);
         riskMap.setStroke("'#fff'", 1d, null, null, null);
-        riskMap.setHoverstroke("'#fff'", 6d, null, null, null);
-        riskMap.setHoverfill(new SolidFill("'#545f69'", 1d));
-        riskMap.setHoverlabels("{'fontColor': '#fff'}");
-        riskMap.getInteractivity().setSelectionmode(SelectionMode.NONE);
+        riskMap.getHovered().setStroke("'#fff'", 6d, null, null, null);
+        riskMap.getHovered().setFill(new SolidFill("'#545f69'", 1d));
+        riskMap.getHovered().setLabels("{'fontColor': '#fff'}");
+        riskMap.getInteractivity().setSelectionMode(SelectionMode.NONE);
         riskMap.getLabels().setEnabled(true);
-        riskMap.getLabels().setFontsize(14d);
+        riskMap.getLabels().setFontSize(14d);
         riskMap.getLabels().setFormat("function() {\n" +
                 "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
                 "      return namesList[this.heat];\n" +

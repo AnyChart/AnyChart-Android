@@ -18,12 +18,12 @@ public class LineChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(com.anychart.sample.R.id.any_chart_view);
 
         Cartesian cartesian = new Cartesian();
-        cartesian.setLine(new String[] {"['2014', 100]", "['2015', 120]", "['2016', 180]"}, TextParsingMode.CSV);
+        cartesian.line(new String[] {"['2014', 100]", "['2015', 120]", "['2016', 180]"}, TextParsingMode.CSV);
         cartesian.setLabels(true);
-        cartesian.setXaxis(true);
-        cartesian.setYaxis(true);
+        cartesian.setXAxis(true);
+        cartesian.setYAxis(true);
         cartesian.getCrosshair().setEnabled(true);
-        cartesian.getCrosshair().setYlabel(false);
+        cartesian.getCrosshair().setYLabel(false);
 
         anyChartView.setChart(cartesian);
     }

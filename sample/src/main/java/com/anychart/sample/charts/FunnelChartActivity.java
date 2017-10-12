@@ -27,8 +27,8 @@ public class FunnelChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV);
 
         funnel.setMargin(10d, "'20%'", 10d, "'20%'");
-        funnel.setBasewidth("'70%'");
-        funnel.setNeckwidth("'17%'");
+        funnel.setBaseWidth("'70%'");
+        funnel.setNeckWidth("'17%'");
         funnel.setAnimation(true);
 
         funnel.getLabels().setPosition("'outsideleft'");
