@@ -1,9 +1,7 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
 import java.util.Arrays;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 public class Set extends CoreBase {

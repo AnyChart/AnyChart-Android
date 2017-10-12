@@ -17,7 +17,6 @@ public class VennDiagramActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Venn venn = new Venn();
-        venn.setStroke("'#FFFFFF'", 2d, null, null, null);
         venn.setData(new String[] {
                 "{x: 'A', name: 'Data Science', value: 100}",
                 "{x: 'B', name: 'Computer Science', value: 25}",
@@ -32,17 +31,14 @@ public class VennDiagramActivity extends AppCompatActivity {
                 "{x: ['B', 'C', 'D'], name: 'Unicorn', value: 5}"
         }, null);
 
+        venn.setStroke("'#FFFFFF'", 2d, null, null, null);
+
         venn.getLabels().setFormat("'{%Name}'");
 
-//        venn.getIntersections().setHoverFill("'black'", 0.25d);
         venn.getIntersections().getHovered().setFill("'black'", 0.25d);
 
         venn.getIntersections().getLabels().setFontWeight("'bold'");
         venn.getIntersections().getLabels().setFormat("'{%Name}'");
-
-//        venn.getLegend().setPosition(Orientation.RIGHT);
-//        venn.getLegend().setItemslayout(LegendLayout.VERTICAL);
-//        venn.getLegend().setPadding(0d, 35d, 0d, 0d);
 
         venn.getTooltip().setTitleFormat("'{%Name}'");
 
