@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.EnumsAlign;
+import com.anychart.anychart.LegendLayout;
+import com.anychart.anychart.Orientation;
 import com.anychart.anychart.SelectionMode;
 import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.anychart.TreeMap;
@@ -54,14 +57,22 @@ public class TreeMapChartActivity extends AppCompatActivity {
                 "      greater: 100000\n" +
                 "    }\n" +
                 "  ]");
+
         treeMap.getColorScale().setColors(new String[]{
                 "'#ffee58'", "'#fbc02d'", "'#f57f17'", "'#c0ca33'", "'#689f38'", "'#2e7d32'"
         });
 
         treeMap.setPadding(10d, 10d, 10d, 20d);
         treeMap.setMaxDepth(2d);
-        treeMap.getHovered().setFill("'#bdbdbd'", 1d);
+        treeMap.getHovered().fill("'#bdbdbd'", 1d);
         treeMap.setSelectionMode(SelectionMode.NONE);
+
+        treeMap.getLegend().setEnabled(true);
+        treeMap.getLegend()
+                .setPadding(0d, 0d, 0d, 20d)
+                .setPosition(Orientation.RIGHT)
+                .setAlign(EnumsAlign.TOP)
+                .setItemsLayout(LegendLayout.VERTICAL);
 
         treeMap.getLabels().setUseHtml(true);
         treeMap.getLabels().setFontColor("'#212121'");
@@ -76,16 +87,15 @@ public class TreeMapChartActivity extends AppCompatActivity {
                 "    return this.getData('product');\n" +
                 "  }");
 
-        treeMap.getTooltip().setUseHtml(true);
-        treeMap.getTooltip().setTitleFormat(
-                "'{%product}'");
-        treeMap.getTooltip().setFormat(
-                "function() {\n" +
-                "      return '<span style=\"color: #bfbfbf\">Revenue: </span>$' +\n" +
-                "        anychart.format.number(this.value, {\n" +
-                "          groupsSeparator: ' '\n" +
-                "        });\n" +
-                "    }");
+        treeMap.getTooltip()
+                .setUseHtml(true)
+                .setTitleFormat("'{%product}'")
+                .setFormat("function() {\n" +
+                        "      return '<span style=\"color: #bfbfbf\">Revenue: </span>$' +\n" +
+                        "        anychart.format.number(this.value, {\n" +
+                        "          groupsSeparator: ' '\n" +
+                        "        });\n" +
+                        "    }");
 
         anyChart.setChart(treeMap);
     }
