@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsPolar;
 import com.anychart.anychart.PolarSeriesType;
+import com.anychart.anychart.ScaleStackMode;
 import com.anychart.anychart.ScaleTypes;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.anychart.TooltipDisplayMode;
@@ -71,17 +72,20 @@ public class PolarChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV);
 
         polar.setTitle("'Company Profit Dynamic in Regions by Year'");
-        polar.setSortPointsByX(true);
-        polar.setDefaultSeriesType(PolarSeriesType.COLUMN);
-        polar.setYAxis(false);
-        polar.setXScale(ScaleTypes.ORDINAL);
+
+        polar.setSortPointsByX(true)
+                .setDefaultSeriesType(PolarSeriesType.COLUMN)
+                .setYAxis(false)
+                .setXScale(ScaleTypes.ORDINAL);
+
         polar.getTitle().getMargin().setBottom(20d);
 
         // TODO stackMode
-//        polar.getYScale().setStackMode(ScaleStackMode.VALUE);
+        polar.getYScale().setStackMode(ScaleStackMode.VALUE);
 
-        polar.getTooltip().setValuePrefix("'$'");
-        polar.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);
+        polar.getTooltip()
+                .setValuePrefix("'$'")
+                .setDisplayMode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(polar);
     }
