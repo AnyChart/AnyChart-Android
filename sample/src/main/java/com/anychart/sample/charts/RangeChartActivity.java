@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
+import com.anychart.anychart.CartesianSeriesRangeColumn;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
 
@@ -20,21 +21,26 @@ public class RangeChartActivity extends AppCompatActivity {
         Cartesian cartesian = new Cartesian();
 
         cartesian.setTitle("'Coastal Water Temperature \\nin London vs Edinburgh in 2015 (°C)'");
+
+        CartesianSeriesRangeColumn columnLondon = cartesian.rangeColumn(getLondonData(), TextParsingMode.CSV);
+        columnLondon.setName("'London'");
+
+        CartesianSeriesRangeColumn columnEdinburg = cartesian.rangeColumn(getEdinburghData(), TextParsingMode.CSV);
+        columnEdinburg.setName("'Edinburgh'");
+
         cartesian.setXAxis(true);
         cartesian.setYAxis(true);
+        
+        cartesian.getYScale()
+                .setMinimum(4d)
+                .setMaximum(20d);
 
         cartesian.setLegend(true);
-        cartesian.setYGrid(true);
-        cartesian.setYMinorGrid(true);
+
+        cartesian.setYGrid(true)
+                .setYMinorGrid(true);
 
         cartesian.getTooltip().setTitleFormat("'{%SeriesName} ({%x})'");
-
-        cartesian.getYScale().setMinimum(4d);
-        cartesian.getYScale().setMaximum(20d);
-
-//        chart.rangeColumn(dataLon).name("London");
-        cartesian.rangeColumn(getEdinburghData(), TextParsingMode.CSV);
-        cartesian.rangeColumn(getLondonData(), TextParsingMode.CSV);
 
         anyChartView.setChart(cartesian);
     }
