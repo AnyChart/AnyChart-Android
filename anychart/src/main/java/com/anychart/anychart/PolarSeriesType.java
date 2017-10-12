@@ -9,7 +9,7 @@ public enum PolarSeriesType implements JsObject.JsObjectInterface {
     MARKER("marker"),
     POLYGON("polygon"),
     POLYLINE("polyline"),
-    RANGE_COLUMN("rangeColumn");
+    RANGE_COLUMN("range-column");
 
     private final String value;
 

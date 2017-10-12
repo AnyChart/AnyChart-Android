@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class StockInteractivity extends Interactivity {
-
-    private String jsBase;
 
     public StockInteractivity() {
 
@@ -16,39 +16,63 @@ public class StockInteractivity extends Interactivity {
         this.jsBase = jsBase;
     }
 
+    protected StockInteractivity(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Boolean scrollOnMouseWheel;
 
-    public void setScrollonmousewheel(Boolean scrollOnMouseWheel) {
+    public StockInteractivity setScrollOnMouseWheel(Boolean scrollOnMouseWheel) {
         if (jsBase == null) {
             this.scrollOnMouseWheel = scrollOnMouseWheel;
         } else {
             this.scrollOnMouseWheel = scrollOnMouseWheel;
 
-            js.append(String.format(Locale.US, jsBase + ".scrollOnMouseWheel(%b);", scrollOnMouseWheel));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scrollOnMouseWheel(%b)", scrollOnMouseWheel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scrollOnMouseWheel(%b);", scrollOnMouseWheel));
+                onChangeListener.onChange(String.format(Locale.US, ".scrollOnMouseWheel(%b)", scrollOnMouseWheel));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean zoomOnMouseWheel;
 
-    public void setZoomonmousewheel(Boolean zoomOnMouseWheel) {
+    public StockInteractivity setZoomOnMouseWheel(Boolean zoomOnMouseWheel) {
         if (jsBase == null) {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
         } else {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
 
-            js.append(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b);", zoomOnMouseWheel));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b);", zoomOnMouseWheel));
+                onChangeListener.onChange(String.format(Locale.US, ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSscrollOnMouseWheel() {
@@ -66,14 +90,31 @@ public class StockInteractivity extends Interactivity {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSscrollOnMouseWheel());
             js.append(generateJSzoomOnMouseWheel());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

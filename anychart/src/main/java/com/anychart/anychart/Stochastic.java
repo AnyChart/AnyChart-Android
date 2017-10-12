@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Stochastic extends JsObject {
-
-    private String jsBase;
 
     public Stochastic() {
 
@@ -16,39 +16,63 @@ public class Stochastic extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected Stochastic(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private MovingAverageType dMAType;
 
-    public void setDmatype(MovingAverageType dMAType) {
+    public Stochastic setDMAType(MovingAverageType dMAType) {
         if (jsBase == null) {
             this.dMAType = dMAType;
         } else {
             this.dMAType = dMAType;
 
-            js.append(String.format(Locale.US, jsBase + ".dMAType(%s);", (dMAType != null) ? dMAType.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dMAType(%s)", (dMAType != null) ? dMAType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dMAType(%s);", (dMAType != null) ? dMAType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", (dMAType != null) ? dMAType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double dPeriod;
 
-    public void setDperiod(Double dPeriod) {
+    public Stochastic setDPeriod(Double dPeriod) {
         if (jsBase == null) {
             this.dPeriod = dPeriod;
         } else {
             this.dPeriod = dPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".dPeriod(%f);", dPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dPeriod(%f);", dPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getDSeries;
@@ -62,70 +86,106 @@ public class Stochastic extends JsObject {
 
     private StockSeriesType type;
 
-    public void setDseries(StockSeriesType type) {
+    public Stochastic setDSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = type;
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".dSeries(%s);", (type != null) ? type.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dSeries(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dSeries(%s);", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double kMAPeriod;
 
-    public void setKmaperiod(Double kMAPeriod) {
+    public Stochastic setKMAPeriod(Double kMAPeriod) {
         if (jsBase == null) {
             this.kMAPeriod = kMAPeriod;
         } else {
             this.kMAPeriod = kMAPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".kMAPeriod(%f);", kMAPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMAPeriod(%f);", kMAPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private MovingAverageType kMAType;
 
-    public void setKmatype(MovingAverageType kMAType) {
+    public Stochastic setKMAType(MovingAverageType kMAType) {
         if (jsBase == null) {
             this.kMAType = kMAType;
         } else {
             this.kMAType = kMAType;
 
-            js.append(String.format(Locale.US, jsBase + ".kMAType(%s);", (kMAType != null) ? kMAType.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kMAType(%s)", (kMAType != null) ? kMAType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMAType(%s);", (kMAType != null) ? kMAType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", (kMAType != null) ? kMAType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double kPeriod;
 
-    public void setKperiod(Double kPeriod) {
+    public Stochastic setKPeriod(Double kPeriod) {
         if (jsBase == null) {
             this.kPeriod = kPeriod;
         } else {
             this.kPeriod = kPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".kPeriod(%f);", kPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kPeriod(%f);", kPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getKSeries;
@@ -139,7 +199,7 @@ public class Stochastic extends JsObject {
 
     private StockSeriesType type1;
 
-    public void setKseries(StockSeriesType type1) {
+    public Stochastic setKSeries(StockSeriesType type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -148,13 +208,22 @@ public class Stochastic extends JsObject {
         } else {
             this.type1 = type1;
 
-            js.append(String.format(Locale.US, jsBase + ".kSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetDSeries() {
@@ -221,8 +290,25 @@ public class Stochastic extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetDSeries());
+        jsGetters.append(generateJSgetKSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdMAType());
@@ -234,8 +320,8 @@ public class Stochastic extends JsObject {
             js.append(generateJStype1());
             js.append("}");
         }
-            js.append(generateJSgetDSeries());
-            js.append(generateJSgetKSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Path extends JsObject {
-
-    private String jsBase;
 
     public Path() {
 
@@ -16,13 +16,19 @@ public class Path extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected Path(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double rx;
     private Double ry;
     private Double fromAngle;
     private Double extent;
 
-    public void setArcto(Double rx, Double ry, Double fromAngle, Double extent) {
+    public Path setArcTo(Double rx, Double ry, Double fromAngle, Double extent) {
         if (jsBase == null) {
             this.rx = rx;
             this.ry = ry;
@@ -34,13 +40,22 @@ public class Path extends JsObject {
             this.fromAngle = fromAngle;
             this.extent = extent;
 
-            js.append(String.format(Locale.US, jsBase + ".arcTo(%f, %f, %f, %f);", rx, ry, fromAngle, extent));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".arcTo(%f, %f, %f, %f)", rx, ry, fromAngle, extent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcTo(%f, %f, %f, %f);", rx, ry, fromAngle, extent));
+                onChangeListener.onChange(String.format(Locale.US, ".arcTo(%f, %f, %f, %f)", rx, ry, fromAngle, extent));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double rx1;
@@ -48,7 +63,7 @@ public class Path extends JsObject {
     private Double fromAngle1;
     private Double extent1;
 
-    public void setArctoascurves(Double rx1, Double ry1, Double fromAngle1, Double extent1) {
+    public Path setArcToAsCurves(Double rx1, Double ry1, Double fromAngle1, Double extent1) {
         if (jsBase == null) {
             this.rx = null;
             this.rx1 = null;
@@ -72,13 +87,22 @@ public class Path extends JsObject {
             this.fromAngle1 = fromAngle1;
             this.extent1 = extent1;
 
-            js.append(String.format(Locale.US, jsBase + ".arcToAsCurves(%f, %f, %f, %f);", rx1, ry1, fromAngle1, extent1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".arcToAsCurves(%f, %f, %f, %f)", rx1, ry1, fromAngle1, extent1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToAsCurves(%f, %f, %f, %f);", rx1, ry1, fromAngle1, extent1));
+                onChangeListener.onChange(String.format(Locale.US, ".arcToAsCurves(%f, %f, %f, %f)", rx1, ry1, fromAngle1, extent1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double x;
@@ -88,7 +112,7 @@ public class Path extends JsObject {
     private Boolean largeArc;
     private Boolean clockwiseArc;
 
-    public void setArctobyendpoint(Double x, Double y, Double rx2, Double ry2, Boolean largeArc, Boolean clockwiseArc) {
+    public Path setArcToByEndPoint(Double x, Double y, Double rx2, Double ry2, Boolean largeArc, Boolean clockwiseArc) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -112,13 +136,22 @@ public class Path extends JsObject {
             this.largeArc = largeArc;
             this.clockwiseArc = clockwiseArc;
 
-            js.append(String.format(Locale.US, jsBase + ".arcToByEndPoint(%f, %f, %f, %f, %b, %b);", x, y, rx2, ry2, largeArc, clockwiseArc));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".arcToByEndPoint(%f, %f, %f, %f, %b, %b)", x, y, rx2, ry2, largeArc, clockwiseArc));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToByEndPoint(%f, %f, %f, %f, %b, %b);", x, y, rx2, ry2, largeArc, clockwiseArc));
+                onChangeListener.onChange(String.format(Locale.US, ".arcToByEndPoint(%f, %f, %f, %f, %b, %b)", x, y, rx2, ry2, largeArc, clockwiseArc));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double cx;
@@ -129,7 +162,7 @@ public class Path extends JsObject {
     private Double sweep;
     private Boolean lineTo;
 
-    public void setCirculararc(Double cx, Double cy, Double rx3, Double ry3, Double fromAngle2, Double sweep, Boolean lineTo) {
+    public Path setCircularArc(Double cx, Double cy, Double rx3, Double ry3, Double fromAngle2, Double sweep, Boolean lineTo) {
         if (jsBase == null) {
             this.cx = cx;
             this.cy = cy;
@@ -161,13 +194,22 @@ public class Path extends JsObject {
             this.sweep = sweep;
             this.lineTo = lineTo;
 
-            js.append(String.format(Locale.US, jsBase + ".circularArc(%f, %f, %f, %f, %f, %f, %b);", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".circularArc(%f, %f, %f, %f, %f, %f, %b)", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".circularArc(%f, %f, %f, %f, %f, %f, %b);", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
+                onChangeListener.onChange(String.format(Locale.US, ".circularArc(%f, %f, %f, %f, %f, %f, %b)", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double controlX;
@@ -178,7 +220,7 @@ public class Path extends JsObject {
     private Double endY;
     private Double var_args;
 
-    public void setCurveto(Double controlX, Double controlY, Double controlX1, Double controlY1, Double endX, Double endY, Double var_args) {
+    public Path setCurveTo(Double controlX, Double controlY, Double controlX1, Double controlY1, Double endX, Double endY, Double var_args) {
         if (jsBase == null) {
             this.controlX = null;
             this.controlX1 = null;
@@ -208,20 +250,29 @@ public class Path extends JsObject {
             this.endY = endY;
             this.var_args = var_args;
 
-            js.append(String.format(Locale.US, jsBase + ".curveTo(%f, %f, %f, %f, %f, %f, %f);", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".curveTo(%f, %f, %f, %f, %f, %f, %f)", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curveTo(%f, %f, %f, %f, %f, %f, %f);", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
+                onChangeListener.onChange(String.format(Locale.US, ".curveTo(%f, %f, %f, %f, %f, %f, %f)", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double x1;
     private Double y1;
     private Double var_args1;
 
-    public void setLineto(Double x1, Double y1, Double var_args1) {
+    public Path setLineTo(Double x1, Double y1, Double var_args1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -240,19 +291,28 @@ public class Path extends JsObject {
             this.y1 = y1;
             this.var_args1 = var_args1;
 
-            js.append(String.format(Locale.US, jsBase + ".lineTo(%f, %f, %f);", x1, y1, var_args1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineTo(%f, %f, %f)", x1, y1, var_args1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineTo(%f, %f, %f);", x1, y1, var_args1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineTo(%f, %f, %f)", x1, y1, var_args1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double x2;
     private Double y2;
 
-    public void setMoveto(Double x2, Double y2) {
+    public Path setMoveTo(Double x2, Double y2) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -268,13 +328,22 @@ public class Path extends JsObject {
             this.x2 = x2;
             this.y2 = y2;
 
-            js.append(String.format(Locale.US, jsBase + ".moveTo(%f, %f);", x2, y2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".moveTo(%f, %f)", x2, y2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".moveTo(%f, %f);", x2, y2));
+                onChangeListener.onChange(String.format(Locale.US, ".moveTo(%f, %f)", x2, y2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double controlX2;
@@ -283,7 +352,7 @@ public class Path extends JsObject {
     private Double endY1;
     private Double var_args2;
 
-    public void setQuadraticcurveto(Double controlX2, Double controlY2, Double endX1, Double endY1, Double var_args2) {
+    public Path setQuadraticCurveTo(Double controlX2, Double controlY2, Double endX1, Double endY1, Double var_args2) {
         if (jsBase == null) {
             this.controlX = null;
             this.controlX1 = null;
@@ -315,13 +384,22 @@ public class Path extends JsObject {
             this.endY1 = endY1;
             this.var_args2 = var_args2;
 
-            js.append(String.format(Locale.US, jsBase + ".quadraticCurveTo(%f, %f, %f, %f, %f);", controlX2, controlY2, endX1, endY1, var_args2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".quadraticCurveTo(%f, %f, %f, %f, %f)", controlX2, controlY2, endX1, endY1, var_args2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".quadraticCurveTo(%f, %f, %f, %f, %f);", controlX2, controlY2, endX1, endY1, var_args2));
+                onChangeListener.onChange(String.format(Locale.US, ".quadraticCurveTo(%f, %f, %f, %f, %f)", controlX2, controlY2, endX1, endY1, var_args2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSrx() {
@@ -591,8 +669,23 @@ public class Path extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSrx());
@@ -635,6 +728,8 @@ public class Path extends JsObject {
             js.append(generateJSvar_args2());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

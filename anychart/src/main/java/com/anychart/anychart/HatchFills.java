@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class HatchFills extends CoreBase {
-
-    private String jsBase;
 
     public HatchFills() {
 
@@ -16,22 +16,37 @@ public class HatchFills extends CoreBase {
         this.jsBase = jsBase;
     }
 
+    protected HatchFills(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double index;
 
-    public void setItemat(Double index) {
+    public HatchFill setItemAt(Double index) {
         if (jsBase == null) {
             this.index = index;
         } else {
             this.index = index;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".itemAt(%f);", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f)", index));
                 js.setLength(0);
             }
         }
+        return new HatchFill(jsBase);
     }
 
     private HatchFill getItemAt;
@@ -50,7 +65,7 @@ public class HatchFills extends CoreBase {
     private Double thickness;
     private Double size;
 
-    public void setItemat(HatchFillType type, Double index1, String color, Double thickness, Double size) {
+    public HatchFills setItemAt(HatchFillType type, Double index1, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -70,17 +85,26 @@ public class HatchFills extends CoreBase {
             this.thickness = thickness;
             this.size = size;
 
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%s, %f, %s, %f, %f);", (type != null) ? type.generateJs() : "null", index1, color, thickness, size));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", (type != null) ? type.generateJs() : "null", index1, color, thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %f, %s, %f, %f);", (type != null) ? type.generateJs() : "null", index1, color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", (type != null) ? type.generateJs() : "null", index1, color, thickness, size));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItemat(String type1, Double index1, String color, Double thickness, Double size) {
+    public HatchFills setItemAt(String type1, Double index1, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -100,19 +124,28 @@ public class HatchFills extends CoreBase {
             this.thickness = thickness;
             this.size = size;
 
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%s, %f, %s, %f, %f);", type1, index1, color, thickness, size));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", type1, index1, color, thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %f, %s, %f, %f);", type1, index1, color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", type1, index1, color, thickness, size));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double index2;
     private PatternFill patternFill;
 
-    public void setItemat(Double index2, PatternFill patternFill) {
+    public HatchFills setItemAt(Double index2, PatternFill patternFill) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -124,19 +157,28 @@ public class HatchFills extends CoreBase {
             this.index2 = index2;
             this.patternFill = patternFill;
 
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index2, (patternFill != null) ? patternFill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index2, (patternFill != null) ? patternFill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index2, (patternFill != null) ? patternFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index2, (patternFill != null) ? patternFill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double index3;
     private HatchFill instance;
 
-    public void setItemat(Double index3, HatchFill instance) {
+    public HatchFills setItemAt(Double index3, HatchFill instance) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -149,19 +191,28 @@ public class HatchFills extends CoreBase {
             this.index3 = index3;
             this.instance = instance;
 
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index3, (instance != null) ? instance.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index3, (instance != null) ? instance.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index3, (instance != null) ? instance.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index3, (instance != null) ? instance.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double index4;
     private Boolean state;
 
-    public void setItemat(Double index4, Boolean state) {
+    public HatchFills setItemAt(Double index4, Boolean state) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -175,13 +226,22 @@ public class HatchFills extends CoreBase {
             this.index4 = index4;
             this.state = state;
 
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%f, %b);", index4, state));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".itemAt(%f, %b)", index4, state));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %b);", index4, state));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %b)", index4, state));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private HatchFill[] items;
@@ -191,7 +251,7 @@ public class HatchFills extends CoreBase {
     private HatchFillType var_args1;
     private PatternFill var_args2;
 
-    public void setItems(HatchFill[] items, HatchFill var_args) {
+    public HatchFills setItems(HatchFill[] items, HatchFill var_args) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -207,17 +267,26 @@ public class HatchFills extends CoreBase {
             this.items = items;
             this.var_args = var_args;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items), (var_args != null) ? var_args.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args != null) ? var_args.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items), (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args != null) ? var_args.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(HatchFill[] items, HatchFillType var_args1) {
+    public HatchFills setItems(HatchFill[] items, HatchFillType var_args1) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -233,17 +302,26 @@ public class HatchFills extends CoreBase {
             this.items = items;
             this.var_args1 = var_args1;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items), (var_args1 != null) ? var_args1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args1 != null) ? var_args1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items), (var_args1 != null) ? var_args1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args1 != null) ? var_args1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(HatchFill[] items, PatternFill var_args2) {
+    public HatchFills setItems(HatchFill[] items, PatternFill var_args2) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -259,17 +337,26 @@ public class HatchFills extends CoreBase {
             this.items = items;
             this.var_args2 = var_args2;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items), (var_args2 != null) ? var_args2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args2 != null) ? var_args2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items), (var_args2 != null) ? var_args2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items), (var_args2 != null) ? var_args2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(HatchFillType[] items1, HatchFill var_args) {
+    public HatchFills setItems(HatchFillType[] items1, HatchFill var_args) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -285,17 +372,26 @@ public class HatchFills extends CoreBase {
             this.items1 = items1;
             this.var_args = var_args;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items1), (var_args != null) ? var_args.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), (var_args != null) ? var_args.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items1), (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), (var_args != null) ? var_args.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(HatchFillType[] items1, HatchFillType var_args1) {
+    public HatchFills setItems(HatchFillType[] items1, HatchFillType var_args1) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -311,17 +407,26 @@ public class HatchFills extends CoreBase {
             this.items1 = items1;
             this.var_args1 = var_args1;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items1), (var_args1 != null) ? var_args1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), (var_args1 != null) ? var_args1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items1), (var_args1 != null) ? var_args1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), (var_args1 != null) ? var_args1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(HatchFillType[] items1, PatternFill var_args2) {
+    public HatchFills setItems(HatchFillType[] items1, PatternFill var_args2) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -337,17 +442,26 @@ public class HatchFills extends CoreBase {
             this.items1 = items1;
             this.var_args2 = var_args2;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items1), (var_args2 != null) ? var_args2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), (var_args2 != null) ? var_args2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items1), (var_args2 != null) ? var_args2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items1), (var_args2 != null) ? var_args2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(PatternFill[] items2, HatchFill var_args) {
+    public HatchFills setItems(PatternFill[] items2, HatchFill var_args) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -363,17 +477,26 @@ public class HatchFills extends CoreBase {
             this.items2 = items2;
             this.var_args = var_args;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items2), (var_args != null) ? var_args.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), (var_args != null) ? var_args.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items2), (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), (var_args != null) ? var_args.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(PatternFill[] items2, HatchFillType var_args1) {
+    public HatchFills setItems(PatternFill[] items2, HatchFillType var_args1) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -389,17 +512,26 @@ public class HatchFills extends CoreBase {
             this.items2 = items2;
             this.var_args1 = var_args1;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items2), (var_args1 != null) ? var_args1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), (var_args1 != null) ? var_args1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items2), (var_args1 != null) ? var_args1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), (var_args1 != null) ? var_args1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setItems(PatternFill[] items2, PatternFill var_args2) {
+    public HatchFills setItems(PatternFill[] items2, PatternFill var_args2) {
         if (jsBase == null) {
             this.items = null;
             this.items1 = null;
@@ -415,152 +547,22 @@ public class HatchFills extends CoreBase {
             this.items2 = items2;
             this.var_args2 = var_args2;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items2), (var_args2 != null) ? var_args2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), (var_args2 != null) ? var_args2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(items2), (var_args2 != null) ? var_args2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s, %s)", arrayToString(items2), (var_args2 != null) ? var_args2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type2;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type2, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type2 = type2;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type2, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type2, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type3, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type3 = type3;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type3, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type3, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type4;
-
-    public void setRemovealllisteners(String type4) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            this.type4 = null;
-            
-            this.type4 = type4;
-        } else {
-            this.type4 = type4;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type4));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type5;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type5, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            this.type4 = null;
-            this.type5 = null;
-            
-            this.type5 = type5;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type5 = type5;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type5, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type5, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSgetItemAt() {
@@ -703,86 +705,25 @@ public class HatchFills extends CoreBase {
         return "";
     }
 
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
+    
+        jsGetters.append(generateJSgetItemAt());
 
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
+        return jsGetters.toString();
     }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
-    private String generateJStype4() {
-        if (type4 != null) {
-            return String.format(Locale.US, "type: %s,", type4);
-        }
-        return "";
-    }
-
-    private String generateJStype5() {
-        if (type5 != null) {
-            return String.format(Locale.US, "type: %s,", type5);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSindex());
@@ -804,20 +745,10 @@ public class HatchFills extends CoreBase {
             js.append(generateJSvar_args());
             js.append(generateJSvar_args1());
             js.append(generateJSvar_args2());
-            js.append(generateJStype2());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
-            js.append(generateJStype4());
-            js.append(generateJStype5());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgetItemAt());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

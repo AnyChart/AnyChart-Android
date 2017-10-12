@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class BBandsB extends JsObject {
-
-    private String jsBase;
 
     public BBandsB() {
 
@@ -16,39 +16,63 @@ public class BBandsB extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected BBandsB(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double deviation;
 
-    public void setDeviation(Double deviation) {
+    public BBandsB setDeviation(Double deviation) {
         if (jsBase == null) {
             this.deviation = deviation;
         } else {
             this.deviation = deviation;
 
-            js.append(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".deviation(%f)", deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
+                onChangeListener.onChange(String.format(Locale.US, ".deviation(%f)", deviation));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double period;
 
-    public void setPeriod(Double period) {
+    public BBandsB setPeriod(Double period) {
         if (jsBase == null) {
             this.period = period;
         } else {
             this.period = period;
 
-            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private BBandsB getPeriod;
@@ -72,7 +96,7 @@ public class BBandsB extends JsObject {
     private StockSeriesType type;
     private String type1;
 
-    public void setSeries(StockSeriesType type) {
+    public BBandsB setSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -81,17 +105,26 @@ public class BBandsB extends JsObject {
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSeries(String type1) {
+    public BBandsB setSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -100,13 +133,22 @@ public class BBandsB extends JsObject {
         } else {
             this.type1 = type1;
 
-            js.append(String.format(Locale.US, jsBase + ".series(%s);", type1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", type1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", type1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetPeriod() {
@@ -152,8 +194,25 @@ public class BBandsB extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetPeriod());
+        jsGetters.append(generateJSgetSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdeviation());
@@ -162,8 +221,8 @@ public class BBandsB extends JsObject {
             js.append(generateJStype1());
             js.append("}");
         }
-            js.append(generateJSgetPeriod());
-            js.append(generateJSgetSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

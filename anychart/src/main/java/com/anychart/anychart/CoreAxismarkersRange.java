@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class CoreAxismarkersRange extends VisualBase {
-
-    private String jsBase;
 
     public CoreAxismarkersRange() {
 
@@ -14,6 +14,12 @@ public class CoreAxismarkersRange extends VisualBase {
 
     protected CoreAxismarkersRange(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected CoreAxismarkersRange(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -28,59 +34,60 @@ public class CoreAxismarkersRange extends VisualBase {
 
     private CoreAxesLinear axis;
 
-    public void setAxis(CoreAxesLinear axis) {
+    public CoreAxismarkersLine setAxis(CoreAxesLinear axis) {
         if (jsBase == null) {
             this.axis = axis;
         } else {
             this.axis = axis;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".axis(%s);", (axis != null) ? axis.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s);", (axis != null) ? axis.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axis(%s)", (axis != null) ? axis.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return new CoreAxismarkersLine(jsBase);
     }
 
     private Fill fill;
 
-    public void setFill(Fill fill) {
+    public CoreAxismarkersRange setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
         } else {
             this.fill = fill;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color;
     private Double opacity;
 
-    public void setFill(String color, Double opacity) {
+    public CoreAxismarkersRange setFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -88,13 +95,22 @@ public class CoreAxismarkersRange extends VisualBase {
             this.color = color;
             this.opacity = opacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys;
@@ -105,7 +121,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public CoreAxismarkersRange setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,17 +143,26 @@ public class CoreAxismarkersRange extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public CoreAxismarkersRange setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -159,17 +184,26 @@ public class CoreAxismarkersRange extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public CoreAxismarkersRange setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -191,17 +225,26 @@ public class CoreAxismarkersRange extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public CoreAxismarkersRange setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -223,17 +266,26 @@ public class CoreAxismarkersRange extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public CoreAxismarkersRange setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -255,17 +307,26 @@ public class CoreAxismarkersRange extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public CoreAxismarkersRange setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -287,13 +348,22 @@ public class CoreAxismarkersRange extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys2;
@@ -305,7 +375,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreAxismarkersRange setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -337,17 +407,26 @@ public class CoreAxismarkersRange extends VisualBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreAxismarkersRange setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -379,37 +458,55 @@ public class CoreAxismarkersRange extends VisualBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings;
     private Double from;
 
-    public void setFrom(Double from) {
+    public CoreAxismarkersRange setFrom(Double from) {
         if (jsBase == null) {
             this.from = from;
         } else {
             this.from = from;
 
-            js.append(String.format(Locale.US, jsBase + ".from(%f);", from));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".from(%f)", from));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%f);", from));
+                onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Layout layout;
     private String layout1;
 
-    public void setLayout(Layout layout) {
+    public CoreAxismarkersRange setLayout(Layout layout) {
         if (jsBase == null) {
             this.layout = null;
             this.layout1 = null;
@@ -418,17 +515,26 @@ public class CoreAxismarkersRange extends VisualBase {
         } else {
             this.layout = layout;
 
-            js.append(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLayout(String layout1) {
+    public CoreAxismarkersRange setLayout(String layout1) {
         if (jsBase == null) {
             this.layout = null;
             this.layout1 = null;
@@ -437,134 +543,22 @@ public class CoreAxismarkersRange extends VisualBase {
         } else {
             this.layout1 = layout1;
 
-            js.append(String.format(Locale.US, jsBase + ".layout(%s);", layout1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".layout(%s)", layout1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", layout1));
+                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", layout1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private ScalesBase getScale;
@@ -577,107 +571,123 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
     private ScalesBase scale;
+    private String scale1;
+    private ScaleTypes scale2;
+    private String scale3;
 
-    public void setScale(ScalesBase scale) {
+    public CoreAxismarkersRange setScale(ScalesBase scale) {
         if (jsBase == null) {
+            this.scale = null;
+            this.scale1 = null;
+            this.scale2 = null;
+            this.scale3 = null;
+            
             this.scale = scale;
         } else {
             this.scale = scale;
 
-            js.append(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+
+    public CoreAxismarkersRange setScale(String scale1) {
+        if (jsBase == null) {
+            this.scale = null;
+            this.scale1 = null;
+            this.scale2 = null;
+            this.scale3 = null;
+            
+            this.scale1 = scale1;
+        } else {
+            this.scale1 = scale1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scale(%s)", scale1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public CoreAxismarkersRange setScale(ScaleTypes scale2) {
+        if (jsBase == null) {
+            this.scale = null;
+            this.scale1 = null;
+            this.scale2 = null;
+            this.scale3 = null;
+            
+            this.scale2 = scale2;
+        } else {
+            this.scale2 = scale2;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private Double to;
 
-    public void setTo(Double to) {
+    public CoreAxismarkersRange setTo(Double to) {
         if (jsBase == null) {
             this.to = to;
         } else {
             this.to = to;
 
-            js.append(String.format(Locale.US, jsBase + ".to(%f);", to));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".to(%f)", to));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%f);", to));
+                onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double zIndex;
-
-    public void setZindex(Double zIndex) {
-        if (jsBase == null) {
-            this.zIndex = zIndex;
-        } else {
-            this.zIndex = zIndex;
-
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSgetAxis() {
@@ -697,13 +707,6 @@ public class CoreAxismarkersRange extends VisualBase {
     private String generateJSaxis() {
         if (axis != null) {
             return String.format(Locale.US, "axis: %s,", (axis != null) ? axis.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
         }
         return "";
     }
@@ -862,79 +865,30 @@ public class CoreAxismarkersRange extends VisualBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJSscale() {
         if (scale != null) {
             return String.format(Locale.US, "scale: %s,", (scale != null) ? scale.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSscale1() {
+        if (scale1 != null) {
+            return String.format(Locale.US, "scale: %s,", scale1);
+        }
+        return "";
+    }
+
+    private String generateJSscale2() {
+        if (scale2 != null) {
+            return String.format(Locale.US, "scale: %s,", (scale2 != null) ? scale2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSscale3() {
+        if (scale3 != null) {
+            return String.format(Locale.US, "scale: %s,", scale3);
         }
         return "";
     }
@@ -946,48 +900,29 @@ public class CoreAxismarkersRange extends VisualBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
+    
+        jsGetters.append(generateJSgetAxis());
+        jsGetters.append(generateJSgetScale());
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
-        }
-        return "";
+        return jsGetters.toString();
     }
-
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSaxis());
-            js.append(generateJSenabled());
             js.append(generateJSfill());
             js.append(generateJScolor());
             js.append(generateJSopacity());
@@ -1010,27 +945,15 @@ public class CoreAxismarkersRange extends VisualBase {
             js.append(generateJSfrom());
             js.append(generateJSlayout());
             js.append(generateJSlayout1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
             js.append(generateJSscale());
+            js.append(generateJSscale1());
+            js.append(generateJSscale2());
+            js.append(generateJSscale3());
             js.append(generateJSto());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
-            js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetAxis());
-            js.append(generateJSgetScale());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

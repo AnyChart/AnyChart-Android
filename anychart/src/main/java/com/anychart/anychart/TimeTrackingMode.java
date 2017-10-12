@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum TimeTrackingMode implements JsObject.JsObjectInterface {
-    ACTIVITY_PER_CHART("activityPerChart"),
-    ACTIVITY_PER_RESOURCE("activityPerResource"),
-    AVAILABILITY_PER_CHART("availabilityPerChart"),
-    AVAILABILITY_PER_RESOURCE("availabilityPerResource");
+    ACTIVITY_PER_CHART("activity-per-chart"),
+    ACTIVITY_PER_RESOURCE("activity-per-resource"),
+    AVAILABILITY_PER_CHART("availability-per-chart"),
+    AVAILABILITY_PER_RESOURCE("availability-per-resource");
 
     private final String value;
 

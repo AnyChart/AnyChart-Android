@@ -3,11 +3,11 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum StockRangeType implements JsObject.JsObjectInterface {
-    MAX("Max"),
-    MTD("MTD"),
-    QTD("QTD"),
-    UNIT("Unit"),
-    YTD("YTD");
+    MAX("max"),
+    MTD("mtd"),
+    QTD("qtd"),
+    UNIT("unit"),
+    YTD("ytd");
 
     private final String value;
 

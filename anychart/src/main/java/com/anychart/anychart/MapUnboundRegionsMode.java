@@ -3,7 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum MapUnboundRegionsMode implements JsObject.JsObjectInterface {
-    AS_IS("asis"),
+    AS_IS("as-is"),
     HIDE("hide");
 
     private final String value;

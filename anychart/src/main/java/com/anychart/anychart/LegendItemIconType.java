@@ -12,16 +12,16 @@ public enum LegendItemIconType implements JsObject.JsObjectInterface {
     LINE("line"),
     MARKER("marker"),
     OHLC("ohlc"),
-    RANGE_AREA("rangeArea"),
-    RANGE_BAR("rangeBar"),
-    RANGE_COLUMN("rangeColumn"),
-    RANGE_SPLINE_AREA("rangeSplineArea"),
-    RANGE_STEP_AREA("rangeStepArea"),
+    RANGE_AREA("range-area"),
+    RANGE_BAR("range-bar"),
+    RANGE_COLUMN("range-column"),
+    RANGE_SPLINE_AREA("range-spline-area"),
+    RANGE_STEP_AREA("range-step-area"),
     SPLINE("spline"),
-    SPLINE_AREA("splineArea"),
+    SPLINE_AREA("spline-area"),
     SQUARE("square"),
-    STEP_AREA("stepArea"),
-    STEP_LINE("stepLine");
+    STEP_AREA("step-area"),
+    STEP_LINE("step-line");
 
     private final String value;
 

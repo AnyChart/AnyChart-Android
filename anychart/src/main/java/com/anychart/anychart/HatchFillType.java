@@ -3,20 +3,20 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum HatchFillType implements JsObject.JsObjectInterface {
-    BACKWARD_DIAGONAL("backwardDiagonal"),
-    CHECKER_BOARD("checkerBoard"),
+    BACKWARD_DIAGONAL("backward-diagonal"),
+    CHECKER_BOARD("checker-board"),
     CONFETTI("confetti"),
-    DASHED_BACKWARD_DIAGONAL("dashedBackwardDiagonal"),
-    DASHED_FORWARD_DIAGONAL("dashedForwardDiagonal"),
-    DASHED_HORIZONTAL("dashedHorizontal"),
-    DASHED_VERTICAL("dashedVertical"),
-    DIAGONAL_BRICK("diagonalBrick"),
-    DIAGONAL_CROSS("diagonalCross"),
+    DASHED_BACKWARD_DIAGONAL("dashed-backward-diagonal"),
+    DASHED_FORWARD_DIAGONAL("dashed-forward-diagonal"),
+    DASHED_HORIZONTAL("dashed-horizontal"),
+    DASHED_VERTICAL("dashed-vertical"),
+    DIAGONAL_BRICK("diagonal-brick"),
+    DIAGONAL_CROSS("diagonal-cross"),
     DIVOT("divot"),
-    FORWARD_DIAGONAL("forwardDiagonal"),
+    FORWARD_DIAGONAL("forward-diagonal"),
     GRID("grid"),
     HORIZONTAL("horizontal"),
-    HORIZONTAL_BRICK("horizontalBrick"),
+    HORIZONTAL_BRICK("horizontal-brick"),
     PERCENT_05("percent05"),
     PERCENT_10("percent10"),
     PERCENT_20("percent20"),
@@ -30,11 +30,11 @@ public enum HatchFillType implements JsObject.JsObjectInterface {
     PERCENT_80("percent80"),
     PERCENT_90("percent90"),
     PLAID("plaid"),
-    SOLID_DIAMOND("solidDiamond"),
+    SOLID_DIAMOND("solid-diamond"),
     VERTICAL("vertical"),
-    VERTICAL_BRICK("verticalBrick"),
+    VERTICAL_BRICK("vertical-brick"),
     WEAVE("weave"),
-    ZIG_ZAG("zigZag");
+    ZIG_ZAG("zig-zag");
 
     private final String value;
 

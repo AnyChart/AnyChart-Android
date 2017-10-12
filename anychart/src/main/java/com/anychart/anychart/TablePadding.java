@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TablePadding extends JsObject {
-
-    private String jsBase;
 
     public TablePadding() {
 
@@ -16,11 +16,17 @@ public class TablePadding extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected TablePadding(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double bottom;
     private String bottom1;
 
-    public void setBottom(Double bottom) {
+    public TablePadding setBottom(Double bottom) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -29,17 +35,26 @@ public class TablePadding extends JsObject {
         } else {
             this.bottom = bottom;
 
-            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".bottom(%f)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBottom(String bottom1) {
+    public TablePadding setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -48,19 +63,28 @@ public class TablePadding extends JsObject {
         } else {
             this.bottom1 = bottom1;
 
-            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".bottom(%s)", bottom1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", bottom1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double left;
     private String left1;
 
-    public void setLeft(Double left) {
+    public TablePadding setLeft(Double left) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -69,17 +93,26 @@ public class TablePadding extends JsObject {
         } else {
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".left(%f)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLeft(String left1) {
+    public TablePadding setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -88,19 +121,28 @@ public class TablePadding extends JsObject {
         } else {
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".left(%s)", left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%s)", left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double right;
     private String right1;
 
-    public void setRight(Double right) {
+    public TablePadding setRight(Double right) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -109,17 +151,26 @@ public class TablePadding extends JsObject {
         } else {
             this.right = right;
 
-            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".right(%f)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRight(String right1) {
+    public TablePadding setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -128,19 +179,28 @@ public class TablePadding extends JsObject {
         } else {
             this.right1 = right1;
 
-            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".right(%s)", right1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%s)", right1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double top;
     private String top1;
 
-    public void setTop(Double top) {
+    public TablePadding setTop(Double top) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -149,17 +209,26 @@ public class TablePadding extends JsObject {
         } else {
             this.top = top;
 
-            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".top(%f)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTop(String top1) {
+    public TablePadding setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -168,13 +237,22 @@ public class TablePadding extends JsObject {
         } else {
             this.top1 = top1;
 
-            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".top(%s)", top1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%s)", top1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSbottom() {
@@ -234,8 +312,23 @@ public class TablePadding extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSbottom());
@@ -248,6 +341,8 @@ public class TablePadding extends JsObject {
             js.append(generateJStop1());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

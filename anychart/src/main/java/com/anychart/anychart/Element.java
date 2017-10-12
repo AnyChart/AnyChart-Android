@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Element extends JsObject {
-
-    private String jsBase;
 
     public Element() {
 
@@ -14,6 +14,12 @@ public class Element extends JsObject {
 
     protected Element(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected Element(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -24,7 +30,7 @@ public class Element extends JsObject {
     private Double m4;
     private Double m5;
 
-    public void setAppendtransformationmatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
+    public Element setAppendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -82,13 +88,22 @@ public class Element extends JsObject {
             this.m4 = m4;
             this.m5 = m5;
 
-            js.append(String.format(Locale.US, jsBase + ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f);", m, m1, m2, m3, m4, m5));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f);", m, m1, m2, m3, m4, m5));
+                onChangeListener.onChange(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String key;
@@ -99,10 +114,18 @@ public class Element extends JsObject {
         } else {
             this.key = key;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".attr(%s);", key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attr(%s);", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attr(%s)", key));
                 js.setLength(0);
             }
         }
@@ -121,7 +144,7 @@ public class Element extends JsObject {
     private GraphicsMathRect clip;
     private String clip1;
 
-    public void setClip(GraphicsMathRect clip) {
+    public Element setClip(GraphicsMathRect clip) {
         if (jsBase == null) {
             this.clip = null;
             this.clip1 = null;
@@ -130,17 +153,26 @@ public class Element extends JsObject {
         } else {
             this.clip = clip;
 
-            js.append(String.format(Locale.US, jsBase + ".clip(%s);", (clip != null) ? clip.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%s);", (clip != null) ? clip.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setClip(String clip1) {
+    public Element setClip(String clip1) {
         if (jsBase == null) {
             this.clip = null;
             this.clip1 = null;
@@ -149,87 +181,132 @@ public class Element extends JsObject {
         } else {
             this.clip1 = clip1;
 
-            js.append(String.format(Locale.US, jsBase + ".clip(%s);", clip1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".clip(%s)", clip1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%s);", clip1));
+                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", clip1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private VectorCursor cursor;
 
-    public void setCursor(VectorCursor cursor) {
+    public Element setCursor(VectorCursor cursor) {
         if (jsBase == null) {
             this.cursor = cursor;
         } else {
             this.cursor = cursor;
 
-            js.append(String.format(Locale.US, jsBase + ".cursor(%s);", (cursor != null) ? cursor.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cursor(%s)", (cursor != null) ? cursor.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cursor(%s);", (cursor != null) ? cursor.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".cursor(%s)", (cursor != null) ? cursor.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String desc;
 
-    public void setDesc(String desc) {
+    public Element setDesc(String desc) {
         if (jsBase == null) {
             this.desc = desc;
         } else {
             this.desc = desc;
 
-            js.append(String.format(Locale.US, jsBase + ".desc(%s);", desc));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".desc(%s)", desc));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".desc(%s);", desc));
+                onChangeListener.onChange(String.format(Locale.US, ".desc(%s)", desc));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean disablePointerEvents;
 
-    public void setDisablepointerevents(Boolean disablePointerEvents) {
+    public Element setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
 
-            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean disableStrokeScaling;
 
-    public void setDisablestrokescaling(Boolean disableStrokeScaling) {
+    public Element setDisableStrokeScaling(Boolean disableStrokeScaling) {
         if (jsBase == null) {
             this.disableStrokeScaling = disableStrokeScaling;
         } else {
             this.disableStrokeScaling = disableStrokeScaling;
 
-            js.append(String.format(Locale.US, jsBase + ".disableStrokeScaling(%b);", disableStrokeScaling));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".disableStrokeScaling(%b)", disableStrokeScaling));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disableStrokeScaling(%b);", disableStrokeScaling));
+                onChangeListener.onChange(String.format(Locale.US, ".disableStrokeScaling(%b)", disableStrokeScaling));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean drag;
     private GraphicsMathRect drag1;
 
-    public void setDrag(Boolean drag) {
+    public Element setDrag(Boolean drag) {
         if (jsBase == null) {
             this.drag = null;
             this.drag1 = null;
@@ -238,17 +315,26 @@ public class Element extends JsObject {
         } else {
             this.drag = drag;
 
-            js.append(String.format(Locale.US, jsBase + ".drag(%b);", drag));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".drag(%b)", drag));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drag(%b);", drag));
+                onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setDrag(GraphicsMathRect drag1) {
+    public Element setDrag(GraphicsMathRect drag1) {
         if (jsBase == null) {
             this.drag = null;
             this.drag1 = null;
@@ -257,13 +343,22 @@ public class Element extends JsObject {
         } else {
             this.drag1 = drag1;
 
-            js.append(String.format(Locale.US, jsBase + ".drag(%s);", (drag1 != null) ? drag1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".drag(%s)", (drag1 != null) ? drag1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drag(%s);", (drag1 != null) ? drag1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".drag(%s)", (drag1 != null) ? drag1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GraphicsMathRect getGetAbsoluteBounds;
@@ -277,19 +372,28 @@ public class Element extends JsObject {
 
     private String id;
 
-    public void setId(String id) {
+    public Element setId(String id) {
         if (jsBase == null) {
             this.id = id;
         } else {
             this.id = id;
 
-            js.append(String.format(Locale.US, jsBase + ".id(%s);", id));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".id(%s)", id));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", id));
+                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", id));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String type;
@@ -306,10 +410,18 @@ public class Element extends JsObject {
             this.useCapture = useCapture;
             this.listenerScope = listenerScope;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", type, useCapture, listenerScope));
                 js.setLength(0);
             }
         }
@@ -319,7 +431,7 @@ public class Element extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+    public void setListenOnce(String type1, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -338,10 +450,18 @@ public class Element extends JsObject {
             this.useCapture1 = useCapture1;
             this.listenerScope1 = listenerScope1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", type1, useCapture1, listenerScope1));
                 js.setLength(0);
             }
         }
@@ -350,7 +470,7 @@ public class Element extends JsObject {
     private Layer parent;
     private Stage parent1;
 
-    public void setParent(Layer parent) {
+    public Element setParent(Layer parent) {
         if (jsBase == null) {
             this.parent = null;
             this.parent1 = null;
@@ -359,17 +479,26 @@ public class Element extends JsObject {
         } else {
             this.parent = parent;
 
-            js.append(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".parent(%s)", (parent != null) ? parent.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parent(%s)", (parent != null) ? parent.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setParent(Stage parent1) {
+    public Element setParent(Stage parent1) {
         if (jsBase == null) {
             this.parent = null;
             this.parent1 = null;
@@ -378,18 +507,27 @@ public class Element extends JsObject {
         } else {
             this.parent1 = parent1;
 
-            js.append(String.format(Locale.US, jsBase + ".parent(%s);", (parent1 != null) ? parent1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".parent(%s)", (parent1 != null) ? parent1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parent(%s);", (parent1 != null) ? parent1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".parent(%s)", (parent1 != null) ? parent1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String type2;
 
-    public void setRemovealllisteners(String type2) {
+    public void setRemoveAllListeners(String type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -399,10 +537,18 @@ public class Element extends JsObject {
         } else {
             this.type2 = type2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", type2));
                 js.setLength(0);
             }
         }
@@ -412,7 +558,7 @@ public class Element extends JsObject {
     private Double cx;
     private Double cy;
 
-    public void setRotate(Double degrees, Double cx, Double cy) {
+    public Element setRotate(Double degrees, Double cx, Double cy) {
         if (jsBase == null) {
             this.degrees = degrees;
             this.cx = cx;
@@ -422,20 +568,29 @@ public class Element extends JsObject {
             this.cx = cx;
             this.cy = cy;
 
-            js.append(String.format(Locale.US, jsBase + ".rotate(%f, %f, %f);", degrees, cx, cy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx, cy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotate(%f, %f, %f);", degrees, cx, cy));
+                onChangeListener.onChange(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx, cy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double degrees1;
     private VectorAnchor anchor;
     private String anchor1;
 
-    public void setRotatebyanchor(VectorAnchor anchor, Double degrees1) {
+    public Element setRotateByAnchor(VectorAnchor anchor, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -449,17 +604,26 @@ public class Element extends JsObject {
             this.anchor = anchor;
             this.degrees1 = degrees1;
 
-            js.append(String.format(Locale.US, jsBase + ".rotateByAnchor(%s, %f);", (anchor != null) ? anchor.generateJs() : "null", degrees1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", (anchor != null) ? anchor.generateJs() : "null", degrees1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotateByAnchor(%s, %f);", (anchor != null) ? anchor.generateJs() : "null", degrees1));
+                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", (anchor != null) ? anchor.generateJs() : "null", degrees1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRotatebyanchor(String anchor1, Double degrees1) {
+    public Element setRotateByAnchor(String anchor1, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -473,13 +637,22 @@ public class Element extends JsObject {
             this.anchor1 = anchor1;
             this.degrees1 = degrees1;
 
-            js.append(String.format(Locale.US, jsBase + ".rotateByAnchor(%s, %f);", anchor1, degrees1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", anchor1, degrees1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotateByAnchor(%s, %f);", anchor1, degrees1));
+                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", anchor1, degrees1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double sx;
@@ -487,7 +660,7 @@ public class Element extends JsObject {
     private Double cx1;
     private Double cy1;
 
-    public void setScale(Double sx, Double sy, Double cx1, Double cy1) {
+    public Element setScale(Double sx, Double sy, Double cx1, Double cy1) {
         if (jsBase == null) {
             this.sx = sx;
             this.sy = sy;
@@ -505,13 +678,22 @@ public class Element extends JsObject {
             this.cx1 = cx1;
             this.cy1 = cy1;
 
-            js.append(String.format(Locale.US, jsBase + ".scale(%f, %f, %f, %f);", sx, sy, cx1, cy1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx1, cy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%f, %f, %f, %f);", sx, sy, cx1, cy1));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx1, cy1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double sx1;
@@ -519,7 +701,7 @@ public class Element extends JsObject {
     private VectorAnchor anchor2;
     private String anchor3;
 
-    public void setScalebyanchor(VectorAnchor anchor2, Double sx1, Double sy1) {
+    public Element setScaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -540,17 +722,26 @@ public class Element extends JsObject {
             this.sx1 = sx1;
             this.sy1 = sy1;
 
-            js.append(String.format(Locale.US, jsBase + ".scaleByAnchor(%s, %f, %f);", (anchor2 != null) ? anchor2.generateJs() : "null", sx1, sy1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", (anchor2 != null) ? anchor2.generateJs() : "null", sx1, sy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleByAnchor(%s, %f, %f);", (anchor2 != null) ? anchor2.generateJs() : "null", sx1, sy1));
+                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", (anchor2 != null) ? anchor2.generateJs() : "null", sx1, sy1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setScalebyanchor(String anchor3, Double sx1, Double sy1) {
+    public Element setScaleByAnchor(String anchor3, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -571,19 +762,28 @@ public class Element extends JsObject {
             this.sx1 = sx1;
             this.sy1 = sy1;
 
-            js.append(String.format(Locale.US, jsBase + ".scaleByAnchor(%s, %f, %f);", anchor3, sx1, sy1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", anchor3, sx1, sy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleByAnchor(%s, %f, %f);", anchor3, sx1, sy1));
+                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", anchor3, sx1, sy1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double x;
     private Double y;
 
-    public void setSetposition(Double x, Double y) {
+    public Element setSetPosition(Double x, Double y) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -591,20 +791,29 @@ public class Element extends JsObject {
             this.x = x;
             this.y = y;
 
-            js.append(String.format(Locale.US, jsBase + ".setPosition(%f, %f);", x, y));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".setPosition(%f, %f)", x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setPosition(%f, %f);", x, y));
+                onChangeListener.onChange(String.format(Locale.US, ".setPosition(%f, %f)", x, y));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double degrees2;
     private Double cx2;
     private Double cy2;
 
-    public void setSetrotation(Double degrees2, Double cx2, Double cy2) {
+    public Element setSetRotation(Double degrees2, Double cx2, Double cy2) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -626,20 +835,29 @@ public class Element extends JsObject {
             this.cx2 = cx2;
             this.cy2 = cy2;
 
-            js.append(String.format(Locale.US, jsBase + ".setRotation(%f, %f, %f);", degrees2, cx2, cy2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx2, cy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotation(%f, %f, %f);", degrees2, cx2, cy2));
+                onChangeListener.onChange(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx2, cy2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double degrees3;
     private VectorAnchor anchor4;
     private String anchor5;
 
-    public void setSetrotationbyanchor(VectorAnchor anchor4, Double degrees3) {
+    public Element setSetRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -659,17 +877,26 @@ public class Element extends JsObject {
             this.anchor4 = anchor4;
             this.degrees3 = degrees3;
 
-            js.append(String.format(Locale.US, jsBase + ".setRotationByAnchor(%s, %f);", (anchor4 != null) ? anchor4.generateJs() : "null", degrees3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", (anchor4 != null) ? anchor4.generateJs() : "null", degrees3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotationByAnchor(%s, %f);", (anchor4 != null) ? anchor4.generateJs() : "null", degrees3));
+                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", (anchor4 != null) ? anchor4.generateJs() : "null", degrees3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSetrotationbyanchor(String anchor5, Double degrees3) {
+    public Element setSetRotationByAnchor(String anchor5, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -689,13 +916,22 @@ public class Element extends JsObject {
             this.anchor5 = anchor5;
             this.degrees3 = degrees3;
 
-            js.append(String.format(Locale.US, jsBase + ".setRotationByAnchor(%s, %f);", anchor5, degrees3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", anchor5, degrees3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotationByAnchor(%s, %f);", anchor5, degrees3));
+                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", anchor5, degrees3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double m6;
@@ -705,7 +941,7 @@ public class Element extends JsObject {
     private Double m10;
     private Double m11;
 
-    public void setSettransformationmatrix(Double m6, Double m7, Double m8, Double m9, Double m10, Double m11) {
+    public Element setSetTransformationMatrix(Double m6, Double m7, Double m8, Double m9, Double m10, Double m11) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -799,36 +1035,54 @@ public class Element extends JsObject {
             this.m10 = m10;
             this.m11 = m11;
 
-            js.append(String.format(Locale.US, jsBase + ".setTransformationMatrix(%f, %f, %f, %f, %f, %f);", m6, m7, m8, m9, m10, m11));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setTransformationMatrix(%f, %f, %f, %f, %f, %f);", m6, m7, m8, m9, m10, m11));
+                onChangeListener.onChange(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String title;
 
-    public void setTitle(String title) {
+    public Element setTitle(String title) {
         if (jsBase == null) {
             this.title = title;
         } else {
             this.title = title;
 
-            js.append(String.format(Locale.US, jsBase + ".title(%s);", title));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".title(%s)", title));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", title));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", title));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double tx;
     private Double ty;
 
-    public void setTranslate(Double tx, Double ty) {
+    public Element setTranslate(Double tx, Double ty) {
         if (jsBase == null) {
             this.tx = tx;
             this.ty = ty;
@@ -836,13 +1090,22 @@ public class Element extends JsObject {
             this.tx = tx;
             this.ty = ty;
 
-            js.append(String.format(Locale.US, jsBase + ".translate(%f, %f);", tx, ty));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".translate(%f, %f);", tx, ty));
+                onChangeListener.onChange(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String type3;
@@ -872,10 +1135,18 @@ public class Element extends JsObject {
             this.useCapture2 = useCapture2;
             this.listenerScope2 = listenerScope2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", type3, useCapture2, listenerScope2));
                 js.setLength(0);
             }
         }
@@ -883,7 +1154,7 @@ public class Element extends JsObject {
 
     private String key2;
 
-    public void setUnlistenbykey(String key2) {
+    public void setUnlistenByKey(String key2) {
         if (jsBase == null) {
             this.key = null;
             this.key1 = null;
@@ -893,10 +1164,18 @@ public class Element extends JsObject {
         } else {
             this.key2 = key2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", key2));
                 js.setLength(0);
             }
         }
@@ -904,36 +1183,54 @@ public class Element extends JsObject {
 
     private Boolean isVisible;
 
-    public void setVisible(Boolean isVisible) {
+    public Element setVisible(Boolean isVisible) {
         if (jsBase == null) {
             this.isVisible = isVisible;
         } else {
             this.isVisible = isVisible;
 
-            js.append(String.format(Locale.US, jsBase + ".visible(%b);", isVisible));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".visible(%b)", isVisible));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".visible(%b);", isVisible));
+                onChangeListener.onChange(String.format(Locale.US, ".visible(%b)", isVisible));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double zIndex;
 
-    public void setZindex(Double zIndex) {
+    public Element setZIndex(Double zIndex) {
         if (jsBase == null) {
             this.zIndex = zIndex;
         } else {
             this.zIndex = zIndex;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%f)", zIndex));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetClip() {
@@ -1392,8 +1689,25 @@ public class Element extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetClip());
+        jsGetters.append(generateJSgetGetAbsoluteBounds());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSm());
@@ -1461,8 +1775,8 @@ public class Element extends JsObject {
             js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetClip());
-            js.append(generateJSgetGetAbsoluteBounds());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class BBands extends JsObject {
-
-    private String jsBase;
 
     public BBands() {
 
@@ -16,22 +16,37 @@ public class BBands extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected BBands(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double deviation;
 
-    public void setDeviation(Double deviation) {
+    public BBands setDeviation(Double deviation) {
         if (jsBase == null) {
             this.deviation = deviation;
         } else {
             this.deviation = deviation;
 
-            js.append(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".deviation(%f)", deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
+                onChangeListener.onChange(String.format(Locale.US, ".deviation(%f)", deviation));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getLowerSeries;
@@ -46,7 +61,7 @@ public class BBands extends JsObject {
     private StockSeriesType type;
     private String type1;
 
-    public void setLowerseries(StockSeriesType type) {
+    public BBands setLowerSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -55,17 +70,26 @@ public class BBands extends JsObject {
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".lowerSeries(%s);", (type != null) ? type.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lowerSeries(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lowerSeries(%s);", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".lowerSeries(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLowerseries(String type1) {
+    public BBands setLowerSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -74,13 +98,22 @@ public class BBands extends JsObject {
         } else {
             this.type1 = type1;
 
-            js.append(String.format(Locale.US, jsBase + ".lowerSeries(%s);", type1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lowerSeries(%s)", type1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lowerSeries(%s);", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".lowerSeries(%s)", type1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getMiddleSeries;
@@ -94,7 +127,7 @@ public class BBands extends JsObject {
 
     private StockSeriesType type2;
 
-    public void setMiddleseries(StockSeriesType type2) {
+    public BBands setMiddleSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -104,30 +137,48 @@ public class BBands extends JsObject {
         } else {
             this.type2 = type2;
 
-            js.append(String.format(Locale.US, jsBase + ".middleSeries(%s);", (type2 != null) ? type2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".middleSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleSeries(%s);", (type2 != null) ? type2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".middleSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double period;
 
-    public void setPeriod(Double period) {
+    public BBands setPeriod(Double period) {
         if (jsBase == null) {
             this.period = period;
         } else {
             this.period = period;
 
-            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getUpperSeries;
@@ -142,7 +193,7 @@ public class BBands extends JsObject {
     private StockSeriesType type3;
     private String type4;
 
-    public void setUpperseries(StockSeriesType type3) {
+    public BBands setUpperSeries(StockSeriesType type3) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -154,17 +205,26 @@ public class BBands extends JsObject {
         } else {
             this.type3 = type3;
 
-            js.append(String.format(Locale.US, jsBase + ".upperSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".upperSeries(%s)", (type3 != null) ? type3.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upperSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", (type3 != null) ? type3.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setUpperseries(String type4) {
+    public BBands setUpperSeries(String type4) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -176,13 +236,22 @@ public class BBands extends JsObject {
         } else {
             this.type4 = type4;
 
-            js.append(String.format(Locale.US, jsBase + ".upperSeries(%s);", type4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".upperSeries(%s)", type4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upperSeries(%s);", type4));
+                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", type4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetLowerSeries() {
@@ -256,8 +325,26 @@ public class BBands extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetLowerSeries());
+        jsGetters.append(generateJSgetMiddleSeries());
+        jsGetters.append(generateJSgetUpperSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdeviation());
@@ -269,9 +356,8 @@ public class BBands extends JsObject {
             js.append(generateJStype4());
             js.append("}");
         }
-            js.append(generateJSgetLowerSeries());
-            js.append(generateJSgetMiddleSeries());
-            js.append(generateJSgetUpperSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

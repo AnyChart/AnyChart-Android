@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class StockDateTime extends VisualBase {
-
-    private String jsBase;
 
     public StockDateTime() {
 
@@ -14,6 +14,12 @@ public class StockDateTime extends VisualBase {
 
     protected StockDateTime(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected StockDateTime(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -30,7 +36,7 @@ public class StockDateTime extends VisualBase {
     private Boolean background1;
     private String background2;
 
-    public void setBackground(String background) {
+    public StockDateTime setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -40,17 +46,26 @@ public class StockDateTime extends VisualBase {
         } else {
             this.background = background;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%s);", background));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%s)", background));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBackground(Boolean background1) {
+    public StockDateTime setBackground(Boolean background1) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -60,47 +75,48 @@ public class StockDateTime extends VisualBase {
         } else {
             this.background1 = background1;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%b);", background1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%b)", background1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background1));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double height;
 
-    public void setHeight(Double height) {
+    public StockDateTime setHeight(Double height) {
         if (jsBase == null) {
             this.height = height;
         } else {
             this.height = height;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UiLabelsFactory getLabels;
@@ -115,7 +131,7 @@ public class StockDateTime extends VisualBase {
     private String labels;
     private Boolean labels1;
 
-    public void setLabels(String labels) {
+    public StockDateTime setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
             this.labels1 = null;
@@ -124,17 +140,26 @@ public class StockDateTime extends VisualBase {
         } else {
             this.labels = labels;
 
-            js.append(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".labels(%s)", labels));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLabels(Boolean labels1) {
+    public StockDateTime setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
             this.labels1 = null;
@@ -143,68 +168,22 @@ public class StockDateTime extends VisualBase {
         } else {
             this.labels1 = labels1;
 
-            js.append(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private UiLabelsFactory getMinorLabels;
@@ -219,7 +198,7 @@ public class StockDateTime extends VisualBase {
     private String minorLabels;
     private Boolean minorLabels1;
 
-    public void setMinorlabels(String minorLabels) {
+    public StockDateTime setMinorLabels(String minorLabels) {
         if (jsBase == null) {
             this.minorLabels = null;
             this.minorLabels1 = null;
@@ -228,17 +207,26 @@ public class StockDateTime extends VisualBase {
         } else {
             this.minorLabels = minorLabels;
 
-            js.append(String.format(Locale.US, jsBase + ".minorLabels(%s);", minorLabels));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%s);", minorLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinorlabels(Boolean minorLabels1) {
+    public StockDateTime setMinorLabels(Boolean minorLabels1) {
         if (jsBase == null) {
             this.minorLabels = null;
             this.minorLabels1 = null;
@@ -247,13 +235,22 @@ public class StockDateTime extends VisualBase {
         } else {
             this.minorLabels1 = minorLabels1;
 
-            js.append(String.format(Locale.US, jsBase + ".minorLabels(%b);", minorLabels1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%b);", minorLabels1));
+                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockTicks getMinorTicks;
@@ -268,7 +265,7 @@ public class StockDateTime extends VisualBase {
     private String minorTicks;
     private Boolean minorTicks1;
 
-    public void setMinorticks(String minorTicks) {
+    public StockDateTime setMinorTicks(String minorTicks) {
         if (jsBase == null) {
             this.minorTicks = null;
             this.minorTicks1 = null;
@@ -277,17 +274,26 @@ public class StockDateTime extends VisualBase {
         } else {
             this.minorTicks = minorTicks;
 
-            js.append(String.format(Locale.US, jsBase + ".minorTicks(%s);", minorTicks));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", minorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinorticks(Boolean minorTicks1) {
+    public StockDateTime setMinorTicks(Boolean minorTicks1) {
         if (jsBase == null) {
             this.minorTicks = null;
             this.minorTicks1 = null;
@@ -296,113 +302,74 @@ public class StockDateTime extends VisualBase {
         } else {
             this.minorTicks1 = minorTicks1;
 
-            js.append(String.format(Locale.US, jsBase + ".minorTicks(%b);", minorTicks1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%b);", minorTicks1));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockLabelsOverlapMode overlapMode;
 
-    public void setOverlapmode(StockLabelsOverlapMode overlapMode) {
+    public StockDateTime setOverlapMode(StockLabelsOverlapMode overlapMode) {
         if (jsBase == null) {
             this.overlapMode = overlapMode;
         } else {
             this.overlapMode = overlapMode;
 
-            js.append(String.format(Locale.US, jsBase + ".overlapMode(%s);", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean showHelperLabel;
 
-    public void setShowhelperlabel(Boolean showHelperLabel) {
+    public StockDateTime setShowHelperLabel(Boolean showHelperLabel) {
         if (jsBase == null) {
             this.showHelperLabel = showHelperLabel;
         } else {
             this.showHelperLabel = showHelperLabel;
 
-            js.append(String.format(Locale.US, jsBase + ".showHelperLabel(%b);", showHelperLabel));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".showHelperLabel(%b)", showHelperLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".showHelperLabel(%b);", showHelperLabel));
+                onChangeListener.onChange(String.format(Locale.US, ".showHelperLabel(%b)", showHelperLabel));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockTicks getTicks;
@@ -417,7 +384,7 @@ public class StockDateTime extends VisualBase {
     private String ticks;
     private Boolean ticks1;
 
-    public void setTicks(String ticks) {
+    public StockDateTime setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
             this.ticks1 = null;
@@ -426,17 +393,26 @@ public class StockDateTime extends VisualBase {
         } else {
             this.ticks = ticks;
 
-            js.append(String.format(Locale.US, jsBase + ".ticks(%s);", ticks));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", ticks));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTicks(Boolean ticks1) {
+    public StockDateTime setTicks(Boolean ticks1) {
         if (jsBase == null) {
             this.ticks = null;
             this.ticks1 = null;
@@ -445,13 +421,22 @@ public class StockDateTime extends VisualBase {
         } else {
             this.ticks1 = ticks1;
 
-            js.append(String.format(Locale.US, jsBase + ".ticks(%b);", ticks1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%b);", ticks1));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockDateTime getTicks1;
@@ -461,76 +446,6 @@ public class StockDateTime extends VisualBase {
             getTicks1 = new StockDateTime(jsBase + ".ticks1()");
 
         return getTicks1;
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double zIndex;
-
-    public void setZindex(Double zIndex) {
-        if (jsBase == null) {
-            this.zIndex = zIndex;
-        } else {
-            this.zIndex = zIndex;
-
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-                js.setLength(0);
-            }
-        }
     }
 
     private String generateJSgetBackground() {
@@ -596,13 +511,6 @@ public class StockDateTime extends VisualBase {
         return "";
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
-
     private String generateJSheight() {
         if (height != null) {
             return String.format(Locale.US, "height: %f,", height);
@@ -620,48 +528,6 @@ public class StockDateTime extends VisualBase {
     private String generateJSlabels1() {
         if (labels1 != null) {
             return String.format(Locale.US, "labels: %b,", labels1);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -701,34 +567,6 @@ public class StockDateTime extends VisualBase {
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJSshowHelperLabel() {
         if (showHelperLabel != null) {
             return String.format(Locale.US, "showHelperLabel: %b,", showHelperLabel);
@@ -750,84 +588,50 @@ public class StockDateTime extends VisualBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
+    
+        jsGetters.append(generateJSgetBackground());
+        jsGetters.append(generateJSgetLabels());
+        jsGetters.append(generateJSgetMinorLabels());
+        jsGetters.append(generateJSgetMinorTicks());
+        jsGetters.append(generateJSgetTicks());
+        jsGetters.append(generateJSgetTicks1());
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
-        }
-        return "";
+        return jsGetters.toString();
     }
-
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSbackground());
             js.append(generateJSbackground1());
             js.append(generateJSbackground2());
-            js.append(generateJSenabled());
             js.append(generateJSheight());
             js.append(generateJSlabels());
             js.append(generateJSlabels1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSminorLabels());
             js.append(generateJSminorLabels1());
             js.append(generateJSminorTicks());
             js.append(generateJSminorTicks1());
             js.append(generateJSoverlapMode());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
             js.append(generateJSshowHelperLabel());
             js.append(generateJSticks());
             js.append(generateJSticks1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
-            js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetBackground());
-            js.append(generateJSgetLabels());
-            js.append(generateJSgetMinorLabels());
-            js.append(generateJSgetMinorTicks());
-            js.append(generateJSgetTicks());
-            js.append(generateJSgetTicks1());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

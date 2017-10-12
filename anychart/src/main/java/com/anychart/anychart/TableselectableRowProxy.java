@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TableselectableRowProxy extends JsObject {
-
-    private String jsBase;
 
     public TableselectableRowProxy() {
 
@@ -14,6 +14,12 @@ public class TableselectableRowProxy extends JsObject {
 
     protected TableselectableRowProxy(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected TableselectableRowProxy(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -25,10 +31,18 @@ public class TableselectableRowProxy extends JsObject {
         } else {
             this.field = field;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".get(%s);", field));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s);", field));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", field));
                 js.setLength(0);
             }
         }
@@ -36,16 +50,24 @@ public class TableselectableRowProxy extends JsObject {
 
     private Double column;
 
-    public void setGetcolumn(Double column) {
+    public void setGetColumn(Double column) {
         if (jsBase == null) {
             this.column = column;
         } else {
             this.column = column;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getColumn(%f);", column));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%f);", column));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%f)", column));
                 js.setLength(0);
             }
         }
@@ -66,14 +88,31 @@ public class TableselectableRowProxy extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSfield());
             js.append(generateJScolumn());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

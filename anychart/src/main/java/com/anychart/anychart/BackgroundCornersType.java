@@ -6,7 +6,7 @@ public enum BackgroundCornersType implements JsObject.JsObjectInterface {
     CUT("cut"),
     NONE("none"),
     ROUND("round"),
-    ROUND_INNER("roundInner");
+    ROUND_INNER("round-inner");
 
     private final String value;
 

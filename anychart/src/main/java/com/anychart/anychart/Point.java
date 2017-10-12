@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Point extends JsObject {
-
-    private String jsBase;
 
     public Point() {
 
@@ -14,6 +14,12 @@ public class Point extends JsObject {
 
     protected Point(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected Point(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -25,10 +31,18 @@ public class Point extends JsObject {
         } else {
             this.field = field;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".get(%s);", field));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s);", field));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", field));
                 js.setLength(0);
             }
         }
@@ -46,7 +60,7 @@ public class Point extends JsObject {
     private String key;
     private Statistics key1;
 
-    public void setGetstat(String key) {
+    public void setGetStat(String key) {
         if (jsBase == null) {
             this.key = null;
             this.key1 = null;
@@ -55,17 +69,25 @@ public class Point extends JsObject {
         } else {
             this.key = key;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getStat(%s);", key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", key));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetstat(Statistics key1) {
+    public void setGetStat(Statistics key1) {
         if (jsBase == null) {
             this.key = null;
             this.key1 = null;
@@ -74,10 +96,18 @@ public class Point extends JsObject {
         } else {
             this.key1 = key1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", (key1 != null) ? key1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -85,41 +115,59 @@ public class Point extends JsObject {
 
     private Boolean hovered;
 
-    public void setHovered(Boolean hovered) {
+    public Point setHovered(Boolean hovered) {
         if (jsBase == null) {
             this.hovered = hovered;
         } else {
             this.hovered = hovered;
 
-            js.append(String.format(Locale.US, jsBase + ".hovered(%b);", hovered));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hovered(%b)", hovered));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hovered(%b);", hovered));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%b)", hovered));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean selected;
 
-    public void setSelected(Boolean selected) {
+    public Point setSelected(Boolean selected) {
         if (jsBase == null) {
             this.selected = selected;
         } else {
             this.selected = selected;
 
-            js.append(String.format(Locale.US, jsBase + ".selected(%b);", selected));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selected(%b)", selected));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selected(%b);", selected));
+                onChangeListener.onChange(String.format(Locale.US, ".selected(%b)", selected));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String field1;
 
-    public void setSet(String field1) {
+    public Point setSet(String field1) {
         if (jsBase == null) {
             this.field = null;
             this.field1 = null;
@@ -128,13 +176,22 @@ public class Point extends JsObject {
         } else {
             this.field1 = field1;
 
-            js.append(String.format(Locale.US, jsBase + ".set(%s);", field1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".set(%s)", field1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", field1));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", field1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetGetChart() {
@@ -187,8 +244,24 @@ public class Point extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetGetChart());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSfield());
@@ -199,7 +272,8 @@ public class Point extends JsObject {
             js.append(generateJSfield1());
             js.append("}");
         }
-            js.append(generateJSgetGetChart());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

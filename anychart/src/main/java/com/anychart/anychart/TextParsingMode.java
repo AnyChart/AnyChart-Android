@@ -3,8 +3,8 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum TextParsingMode implements JsObject.JsObjectInterface {
-    BY_CHAR("byChar"),
-    BY_WORD("byWord"),
+    BY_CHAR("by-char"),
+    BY_WORD("by-word"),
     CSV("csv");
 
     private final String value;

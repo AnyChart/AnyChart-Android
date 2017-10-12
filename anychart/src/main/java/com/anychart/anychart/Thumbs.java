@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Thumbs extends JsObject {
-
-    private String jsBase;
 
     public Thumbs() {
 
@@ -16,71 +16,95 @@ public class Thumbs extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected Thumbs(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Boolean autoHide;
 
-    public void setAutohide(Boolean autoHide) {
+    public Thumbs setAutoHide(Boolean autoHide) {
         if (jsBase == null) {
             this.autoHide = autoHide;
         } else {
             this.autoHide = autoHide;
 
-            js.append(String.format(Locale.US, jsBase + ".autoHide(%b);", autoHide));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".autoHide(%b)", autoHide));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".autoHide(%b);", autoHide));
+                onChangeListener.onChange(String.format(Locale.US, ".autoHide(%b)", autoHide));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean enabled;
 
-    public void setEnabled(Boolean enabled) {
+    public Thumbs setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
 
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
             }
         }
-    }
-
-    private Thumbs getEnabled;
-
-    public Thumbs getEnabled() {
-        if (getEnabled == null)
-            getEnabled = new Thumbs(jsBase + ".enabled()");
-
-        return getEnabled;
+        return this;
     }
 
     private Fill fill;
 
-    public void setFill(Fill fill) {
+    public Thumbs setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
         } else {
             this.fill = fill;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color;
     private Double opacity;
 
-    public void setFill(String color, Double opacity) {
+    public Thumbs setFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -88,13 +112,22 @@ public class Thumbs extends JsObject {
             this.color = color;
             this.opacity = opacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys;
@@ -105,7 +138,7 @@ public class Thumbs extends JsObject {
     private String mode2;
     private Double opacity1;
 
-    public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Thumbs setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,17 +160,26 @@ public class Thumbs extends JsObject {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Thumbs setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -159,17 +201,26 @@ public class Thumbs extends JsObject {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Thumbs setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -191,17 +242,26 @@ public class Thumbs extends JsObject {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Thumbs setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -223,17 +283,26 @@ public class Thumbs extends JsObject {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Thumbs setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -255,17 +324,26 @@ public class Thumbs extends JsObject {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Thumbs setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -287,13 +365,22 @@ public class Thumbs extends JsObject {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys2;
@@ -305,7 +392,7 @@ public class Thumbs extends JsObject {
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Thumbs setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -337,17 +424,26 @@ public class Thumbs extends JsObject {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Thumbs setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -379,704 +475,223 @@ public class Thumbs extends JsObject {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings;
-    private Fill hoverFill;
+    private StateSettings getHovered;
 
-    public void setHoverfill(Fill hoverFill) {
-        if (jsBase == null) {
-            this.hoverFill = hoverFill;
-        } else {
-            this.hoverFill = hoverFill;
+    public StateSettings getHovered() {
+        if (getHovered == null)
+            getHovered = new StateSettings(jsBase + ".hovered()");
 
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s);", (hoverFill != null) ? hoverFill.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s);", (hoverFill != null) ? hoverFill.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
+        return getHovered;
     }
 
-    private String color1;
-    private Double opacity3;
+    private String hovered;
 
-    public void setHoverfill(String color1, Double opacity3) {
+    public Thumbs setHovered(String hovered) {
         if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            
-            this.color1 = color1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            
-            this.opacity3 = opacity3;
+            this.hovered = hovered;
         } else {
-            this.color1 = color1;
-            this.opacity3 = opacity3;
+            this.hovered = hovered;
 
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %f);", color1, opacity3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %f);", color1, opacity3));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private GradientKey[] keys4;
-    private String[] keys5;
-    private Double angle1;
-    private Boolean mode4;
-    private VectorRect mode5;
-    private String mode6;
-    private Double opacity4;
+    private StateSettings getNormal;
 
-    public void setHoverfill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys4 = keys4;
-            this.mode4 = mode4;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
+    public StateSettings getNormal() {
+        if (getNormal == null)
+            getNormal = new StateSettings(jsBase + ".normal()");
 
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
-                js.setLength(0);
-            }
-        }
+        return getNormal;
     }
 
+    private String normal;
 
-    public void setHoverfill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public Thumbs setNormal(String normal) {
         if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
+            this.normal = normal;
         } else {
-            this.keys4 = keys4;
-            this.mode5 = mode5;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
+            this.normal = normal;
 
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".normal(%s)", normal));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
                 js.setLength(0);
             }
         }
-    }
-
-
-    public void setHoverfill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys4 = keys4;
-            this.mode6 = mode6;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHoverfill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys5 = keys5;
-            this.mode4 = mode4;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHoverfill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys5 = keys5;
-            this.mode5 = mode5;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHoverfill(String[] keys5, String mode6, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys5 = keys5;
-            this.mode6 = mode6;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private GradientKey[] keys6;
-    private String[] keys7;
-    private Double cx1;
-    private Double cy1;
-    private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
-
-    public void setHoverfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            this.keys6 = null;
-            this.keys7 = null;
-            
-            this.keys6 = keys6;
-            this.cx = null;
-            this.cx1 = null;
-            
-            this.cx1 = cx1;
-            this.cy = null;
-            this.cy1 = null;
-            
-            this.cy1 = cy1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            
-            this.mode7 = mode7;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            this.opacity5 = null;
-            
-            this.opacity5 = opacity5;
-            this.fx = null;
-            this.fx1 = null;
-            
-            this.fx1 = fx1;
-            this.fy = null;
-            this.fy1 = null;
-            
-            this.fy1 = fy1;
-        } else {
-            this.keys6 = keys6;
-            this.cx1 = cx1;
-            this.cy1 = cy1;
-            this.mode7 = mode7;
-            this.opacity5 = opacity5;
-            this.fx1 = fx1;
-            this.fy1 = fy1;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHoverfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            this.keys6 = null;
-            this.keys7 = null;
-            
-            this.keys7 = keys7;
-            this.cx = null;
-            this.cx1 = null;
-            
-            this.cx1 = cx1;
-            this.cy = null;
-            this.cy1 = null;
-            
-            this.cy1 = cy1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            
-            this.mode7 = mode7;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            this.opacity5 = null;
-            
-            this.opacity5 = opacity5;
-            this.fx = null;
-            this.fx1 = null;
-            
-            this.fx1 = fx1;
-            this.fy = null;
-            this.fy1 = null;
-            
-            this.fy1 = fy1;
-        } else {
-            this.keys7 = keys7;
-            this.cx1 = cx1;
-            this.cy1 = cy1;
-            this.mode7 = mode7;
-            this.opacity5 = opacity5;
-            this.fx1 = fx1;
-            this.fy1 = fy1;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Fill imageSettings1;
-    private Stroke hoverStroke;
-    private ColoredFill hoverStroke1;
-    private String hoverStroke2;
-    private Double thickness;
-    private String dashpattern;
-    private StrokeLineJoin lineJoin;
-    private StrokeLineCap lineCap;
-
-    public void setHoverstroke(Stroke hoverStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        if (jsBase == null) {
-            this.hoverStroke = null;
-            this.hoverStroke1 = null;
-            this.hoverStroke2 = null;
-            
-            this.hoverStroke = hoverStroke;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-        } else {
-            this.hoverStroke = hoverStroke;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (hoverStroke != null) ? hoverStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (hoverStroke != null) ? hoverStroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHoverstroke(ColoredFill hoverStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        if (jsBase == null) {
-            this.hoverStroke = null;
-            this.hoverStroke1 = null;
-            this.hoverStroke2 = null;
-            
-            this.hoverStroke1 = hoverStroke1;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-        } else {
-            this.hoverStroke1 = hoverStroke1;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (hoverStroke1 != null) ? hoverStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", (hoverStroke1 != null) ? hoverStroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHoverstroke(String hoverStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        if (jsBase == null) {
-            this.hoverStroke = null;
-            this.hoverStroke1 = null;
-            this.hoverStroke2 = null;
-            
-            this.hoverStroke2 = hoverStroke2;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-        } else {
-            this.hoverStroke2 = hoverStroke2;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", hoverStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverStroke(%s, %f, %s, %s, %s);", hoverStroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness1;
-    private String dashpattern1;
-    private StrokeLineJoin lineJoin1;
-    private StrokeLineCap lineCap1;
+    private Double thickness;
+    private String dashpattern;
+    private StrokeLineJoin lineJoin;
+    private StrokeLineCap lineCap;
 
-    public void setStroke(Stroke stroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Thumbs setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
             this.stroke2 = null;
             
             this.stroke = stroke;
-            this.thickness = null;
-            this.thickness1 = null;
-            
-            this.thickness1 = thickness1;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            
-            this.lineJoin1 = lineJoin1;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            
-            this.lineCap1 = lineCap1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
         } else {
             this.stroke = stroke;
-            this.thickness1 = thickness1;
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin1 = lineJoin1;
-            this.lineCap1 = lineCap1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke != null) ? stroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke != null) ? stroke.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke != null) ? stroke.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(ColoredFill stroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Thumbs setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
             this.stroke2 = null;
             
             this.stroke1 = stroke1;
-            this.thickness = null;
-            this.thickness1 = null;
-            
-            this.thickness1 = thickness1;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            
-            this.lineJoin1 = lineJoin1;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            
-            this.lineCap1 = lineCap1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
         } else {
             this.stroke1 = stroke1;
-            this.thickness1 = thickness1;
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin1 = lineJoin1;
-            this.lineCap1 = lineCap1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke1 != null) ? stroke1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (stroke1 != null) ? stroke1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (stroke1 != null) ? stroke1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(String stroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Thumbs setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
             this.stroke2 = null;
             
             this.stroke2 = stroke2;
-            this.thickness = null;
-            this.thickness1 = null;
-            
-            this.thickness1 = thickness1;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            
-            this.lineJoin1 = lineJoin1;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            
-            this.lineCap1 = lineCap1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
         } else {
             this.stroke2 = stroke2;
-            this.thickness1 = thickness1;
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin1 = lineJoin1;
-            this.lineCap1 = lineCap1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", stroke2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", stroke2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", stroke2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private String generateJSgetEnabled() {
-        if (getEnabled != null) {
-            return getEnabled.generateJs();
+    private String generateJSgetHovered() {
+        if (getHovered != null) {
+            return getHovered.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetNormal() {
+        if (getNormal != null) {
+            return getNormal.generateJs();
         }
         return "";
     }
@@ -1228,156 +843,37 @@ public class Thumbs extends JsObject {
         return "";
     }
 
-    private String generateJShoverFill() {
-        if (hoverFill != null) {
-            return String.format(Locale.US, "hoverFill: %s,", (hoverFill != null) ? hoverFill.generateJs() : "null");
+    private String generateJShovered() {
+        if (hovered != null) {
+            return String.format(Locale.US, "hovered: %s,", hovered);
         }
         return "";
     }
 
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", color1);
+    private String generateJSnormal() {
+        if (normal != null) {
+            return String.format(Locale.US, "normal: %s,", normal);
         }
         return "";
     }
 
-    private String generateJSopacity3() {
-        if (opacity3 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity3);
+    private String generateJSstroke() {
+        if (stroke != null) {
+            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSkeys4() {
-        if (keys4 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys4));
+    private String generateJSstroke1() {
+        if (stroke1 != null) {
+            return String.format(Locale.US, "stroke: %s,", (stroke1 != null) ? stroke1.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSkeys5() {
-        if (keys5 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys5));
-        }
-        return "";
-    }
-
-    private String generateJSangle1() {
-        if (angle1 != null) {
-            return String.format(Locale.US, "angle: %f,", angle1);
-        }
-        return "";
-    }
-
-    private String generateJSmode4() {
-        if (mode4 != null) {
-            return String.format(Locale.US, "mode: %b,", mode4);
-        }
-        return "";
-    }
-
-    private String generateJSmode5() {
-        if (mode5 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode6() {
-        if (mode6 != null) {
-            return String.format(Locale.US, "mode: %s,", mode6);
-        }
-        return "";
-    }
-
-    private String generateJSopacity4() {
-        if (opacity4 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity4);
-        }
-        return "";
-    }
-
-    private String generateJSkeys6() {
-        if (keys6 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys6));
-        }
-        return "";
-    }
-
-    private String generateJSkeys7() {
-        if (keys7 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys7));
-        }
-        return "";
-    }
-
-    private String generateJScx1() {
-        if (cx1 != null) {
-            return String.format(Locale.US, "cx: %f,", cx1);
-        }
-        return "";
-    }
-
-    private String generateJScy1() {
-        if (cy1 != null) {
-            return String.format(Locale.US, "cy: %f,", cy1);
-        }
-        return "";
-    }
-
-    private String generateJSmode7() {
-        if (mode7 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity5() {
-        if (opacity5 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity5);
-        }
-        return "";
-    }
-
-    private String generateJSfx1() {
-        if (fx1 != null) {
-            return String.format(Locale.US, "fx: %f,", fx1);
-        }
-        return "";
-    }
-
-    private String generateJSfy1() {
-        if (fy1 != null) {
-            return String.format(Locale.US, "fy: %f,", fy1);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings1() {
-        if (imageSettings1 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings1 != null) ? imageSettings1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJShoverStroke() {
-        if (hoverStroke != null) {
-            return String.format(Locale.US, "hoverStroke: %s,", (hoverStroke != null) ? hoverStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJShoverStroke1() {
-        if (hoverStroke1 != null) {
-            return String.format(Locale.US, "hoverStroke: %s,", (hoverStroke1 != null) ? hoverStroke1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJShoverStroke2() {
-        if (hoverStroke2 != null) {
-            return String.format(Locale.US, "hoverStroke: %s,", hoverStroke2);
+    private String generateJSstroke2() {
+        if (stroke2 != null) {
+            return String.format(Locale.US, "stroke: %s,", stroke2);
         }
         return "";
     }
@@ -1410,58 +906,26 @@ public class Thumbs extends JsObject {
         return "";
     }
 
-    private String generateJSstroke() {
-        if (stroke != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke != null) ? stroke.generateJs() : "null");
-        }
-        return "";
-    }
 
-    private String generateJSstroke1() {
-        if (stroke1 != null) {
-            return String.format(Locale.US, "stroke: %s,", (stroke1 != null) ? stroke1.generateJs() : "null");
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSstroke2() {
-        if (stroke2 != null) {
-            return String.format(Locale.US, "stroke: %s,", stroke2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSthickness1() {
-        if (thickness1 != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness1);
-        }
-        return "";
-    }
+    
+        jsGetters.append(generateJSgetHovered());
+        jsGetters.append(generateJSgetNormal());
 
-    private String generateJSdashpattern1() {
-        if (dashpattern1 != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern1);
-        }
-        return "";
+        return jsGetters.toString();
     }
-
-    private String generateJSlineJoin1() {
-        if (lineJoin1 != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin1 != null) ? lineJoin1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap1() {
-        if (lineCap1 != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
-        }
-        return "";
-    }
-
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSautoHide());
@@ -1485,42 +949,19 @@ public class Thumbs extends JsObject {
             js.append(generateJSfx());
             js.append(generateJSfy());
             js.append(generateJSimageSettings());
-            js.append(generateJShoverFill());
-            js.append(generateJScolor1());
-            js.append(generateJSopacity3());
-            js.append(generateJSkeys4());
-            js.append(generateJSkeys5());
-            js.append(generateJSangle1());
-            js.append(generateJSmode4());
-            js.append(generateJSmode5());
-            js.append(generateJSmode6());
-            js.append(generateJSopacity4());
-            js.append(generateJSkeys6());
-            js.append(generateJSkeys7());
-            js.append(generateJScx1());
-            js.append(generateJScy1());
-            js.append(generateJSmode7());
-            js.append(generateJSopacity5());
-            js.append(generateJSfx1());
-            js.append(generateJSfy1());
-            js.append(generateJSimageSettings1());
-            js.append(generateJShoverStroke());
-            js.append(generateJShoverStroke1());
-            js.append(generateJShoverStroke2());
+            js.append(generateJShovered());
+            js.append(generateJSnormal());
+            js.append(generateJSstroke());
+            js.append(generateJSstroke1());
+            js.append(generateJSstroke2());
             js.append(generateJSthickness());
             js.append(generateJSdashpattern());
             js.append(generateJSlineJoin());
             js.append(generateJSlineCap());
-            js.append(generateJSstroke());
-            js.append(generateJSstroke1());
-            js.append(generateJSstroke2());
-            js.append(generateJSthickness1());
-            js.append(generateJSdashpattern1());
-            js.append(generateJSlineJoin1());
-            js.append(generateJSlineCap1());
             js.append("}");
         }
-            js.append(generateJSgetEnabled());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

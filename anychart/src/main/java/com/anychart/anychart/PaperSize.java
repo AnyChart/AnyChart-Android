@@ -10,7 +10,7 @@ public enum PaperSize implements JsObject.JsObjectInterface {
     A4("a4"),
     A5("a5"),
     A6("a6"),
-    US_LETTER("usletter");
+    US_LETTER("us-letter");
 
     private final String value;
 

@@ -4,8 +4,8 @@ import java.util.Locale;
 
 public enum TableSearchMode implements JsObject.JsObjectInterface {
     EXACT("exact"),
-    EXACT_OR_NEXT("exactOrNext"),
-    EXACT_OR_PREV("exactOrPrev"),
+    EXACT_OR_NEXT("exact-or-next"),
+    EXACT_OR_PREV("exact-or-prev"),
     NEAREST("nearest");
 
     private final String value;

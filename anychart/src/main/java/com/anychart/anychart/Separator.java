@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Separator extends VisualBase {
-
-    private String jsBase;
 
     public Separator() {
 
@@ -16,1518 +16,436 @@ public class Separator extends VisualBase {
         this.jsBase = jsBase;
     }
 
+    protected Separator(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
-    private Boolean enabled;
+    private Fill fill;
 
-    public void setEnabled(Boolean enabled) {
+    public Separator setFill(Fill fill) {
         if (jsBase == null) {
-            this.enabled = enabled;
+            this.fill = fill;
         } else {
-            this.enabled = enabled;
+            this.fill = fill;
 
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Fill fillOrColorOrKeys;
-    private GradientKey[] fillOrColorOrKeys1;
-    private String[] fillOrColorOrKeys2;
-    private Double opacityOrAngleOrCx;
-    private Double modeOrCy;
-    private Boolean modeOrCy1;
-    private GraphicsMathRect modeOrCy2;
-    private String modeOrCy3;
-    private Double opacityOrMode;
-    private GraphicsMathRect opacityOrMode1;
-    private String opacityOrMode2;
+    private String color;
     private Double opacity;
+
+    public Separator setFill(String color, Double opacity) {
+        if (jsBase == null) {
+            this.color = color;
+            this.opacity = opacity;
+        } else {
+            this.color = color;
+            this.opacity = opacity;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private GradientKey[] keys;
+    private String[] keys1;
+    private Double angle;
+    private Boolean mode;
+    private VectorRect mode1;
+    private String mode2;
+    private Double opacity1;
+
+    public Separator setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Separator setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Separator setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys = keys;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys = keys;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Separator setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode = mode;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Separator setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode1 = mode1;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Separator setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+        if (jsBase == null) {
+            this.keys = null;
+            this.keys1 = null;
+            
+            this.keys1 = keys1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity = null;
+            this.opacity1 = null;
+            
+            this.opacity1 = opacity1;
+        } else {
+            this.keys1 = keys1;
+            this.mode2 = mode2;
+            this.angle = angle;
+            this.opacity1 = opacity1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private GradientKey[] keys2;
+    private String[] keys3;
+    private Double cx;
+    private Double cy;
+    private GraphicsMathRect mode3;
+    private Double opacity2;
     private Double fx;
     private Double fy;
 
-    public void setFill(Fill fillOrColorOrKeys, Double modeOrCy, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public Separator setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
             
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
             
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
             
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
+            this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
         } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
+            this.keys2 = keys2;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(Fill fillOrColorOrKeys, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
+    public Separator setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
+            this.keys = null;
+            this.keys1 = null;
+            this.keys2 = null;
+            this.keys3 = null;
             
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
             
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
+            this.mode3 = mode3;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
             
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
+            this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
         } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
+            this.keys3 = keys3;
+            this.cx = cx;
+            this.cy = cy;
+            this.mode3 = mode3;
+            this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-
-    public void setFill(Fill fillOrColorOrKeys, Double modeOrCy, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, Boolean modeOrCy1, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy1, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy1, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy1, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy1, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, Boolean modeOrCy1, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy1, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy1, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, GraphicsMathRect modeOrCy2, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, String modeOrCy3, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy3, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy3, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, String modeOrCy3, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy3, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy3, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(Fill fillOrColorOrKeys, String modeOrCy3, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys = fillOrColorOrKeys;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy3, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null", modeOrCy3, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Double modeOrCy, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy1, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy1, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy1, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy1, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, Boolean modeOrCy1, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy1, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy1, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, GraphicsMathRect modeOrCy2, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, String modeOrCy3, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy3, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy3, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, String modeOrCy3, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy3, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy3, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(GradientKey[] fillOrColorOrKeys1, String modeOrCy3, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys1 = fillOrColorOrKeys1;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy3, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", arrayToString(fillOrColorOrKeys1), modeOrCy3, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, Double modeOrCy, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, Double modeOrCy, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, Double modeOrCy, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = modeOrCy;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy1, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy1, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy1, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy1, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, Boolean modeOrCy1, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy1 = modeOrCy1;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy1, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy1, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, GraphicsMathRect modeOrCy2, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, GraphicsMathRect modeOrCy2, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, GraphicsMathRect modeOrCy2, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy2 = modeOrCy2;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null", opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, String modeOrCy3, Double opacityOrMode, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = opacityOrMode;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy3, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy3, opacityOrMode, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, String modeOrCy3, GraphicsMathRect opacityOrMode1, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode1 = opacityOrMode1;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy3, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy3, (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null", opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setFill(String[] fillOrColorOrKeys2, String modeOrCy3, String opacityOrMode2, Double opacityOrAngleOrCx, Double opacity, Double fx, Double fy) {
-        if (jsBase == null) {
-            this.fillOrColorOrKeys = null;
-            this.fillOrColorOrKeys1 = null;
-            this.fillOrColorOrKeys2 = null;
-            
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy = null;
-            this.modeOrCy1 = null;
-            this.modeOrCy2 = null;
-            this.modeOrCy3 = null;
-            
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode = null;
-            this.opacityOrMode1 = null;
-            this.opacityOrMode2 = null;
-            
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-        } else {
-            this.fillOrColorOrKeys2 = fillOrColorOrKeys2;
-            this.modeOrCy3 = modeOrCy3;
-            this.opacityOrMode2 = opacityOrMode2;
-            this.opacityOrAngleOrCx = opacityOrAngleOrCx;
-            this.opacity = opacity;
-            this.fx = fx;
-            this.fy = fy;
-
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy3, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %f, %f, %f, %f);", Arrays.toString(fillOrColorOrKeys2), modeOrCy3, opacityOrMode2, opacityOrAngleOrCx, opacity, fx, fy));
-                js.setLength(0);
-            }
-        }
-    }
-
+    private Fill imageSettings;
     private Double height;
     private String height1;
 
-    public void setHeight(Double height) {
+    public Separator setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -1536,17 +454,26 @@ public class Separator extends VisualBase {
         } else {
             this.height = height;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHeight(String height1) {
+    public Separator setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -1555,68 +482,22 @@ public class Separator extends VisualBase {
         } else {
             this.height1 = height1;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%s);", height1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%s)", height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height1));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", height1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String spaceOrTopOrTopAndBottom;
@@ -1631,7 +512,7 @@ public class Separator extends VisualBase {
     private String left;
     private Double left1;
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1658,17 +539,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1695,17 +585,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1732,17 +631,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1769,17 +677,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1806,17 +723,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1843,17 +769,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1880,17 +815,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1917,17 +861,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1954,17 +907,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1991,17 +953,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2028,17 +999,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2065,17 +1045,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2102,17 +1091,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2139,17 +1137,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2176,17 +1183,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2213,17 +1229,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2250,17 +1275,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2287,17 +1321,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2324,17 +1367,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2361,17 +1413,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2398,17 +1459,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2435,17 +1505,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2472,17 +1551,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2509,17 +1597,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2546,17 +1643,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2583,17 +1689,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2620,17 +1735,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2657,17 +1781,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2694,17 +1827,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2731,17 +1873,26 @@ public class Separator extends VisualBase {
             this.bottom = bottom;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2768,17 +1919,26 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2805,19 +1965,28 @@ public class Separator extends VisualBase {
             this.bottom1 = bottom1;
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Orientation orientation;
     private String orientation1;
 
-    public void setOrientation(Orientation orientation) {
+    public Separator setOrientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -2826,17 +1995,26 @@ public class Separator extends VisualBase {
         } else {
             this.orientation = orientation;
 
-            js.append(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation != null) ? orientation.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation != null) ? orientation.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setOrientation(String orientation1) {
+    public Separator setOrientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -2845,79 +2023,22 @@ public class Separator extends VisualBase {
         } else {
             this.orientation1 = orientation1;
 
-            js.append(String.format(Locale.US, jsBase + ".orientation(%s);", orientation1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".orientation(%s)", orientation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", orientation1));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation1));
                 js.setLength(0);
             }
         }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Stroke strokeOrFill;
@@ -2928,7 +2049,7 @@ public class Separator extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public void setStroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator setStroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -2946,17 +2067,26 @@ public class Separator extends VisualBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator setStroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -2974,17 +2104,26 @@ public class Separator extends VisualBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator setStroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -3002,72 +2141,28 @@ public class Separator extends VisualBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", strokeOrFill2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", strokeOrFill2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", strokeOrFill2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", strokeOrFill2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double width;
     private String width1;
 
-    public void setWidth(Double width) {
+    public Separator setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -3076,17 +2171,26 @@ public class Separator extends VisualBase {
         } else {
             this.width = width;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(String width1) {
+    public Separator setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -3095,112 +2199,34 @@ public class Separator extends VisualBase {
         } else {
             this.width1 = width1;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%s)", width1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double zIndex;
-
-    public void setZindex(Double zIndex) {
-        if (jsBase == null) {
-            this.zIndex = zIndex;
-        } else {
-            this.zIndex = zIndex;
-
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
+    private String generateJSfill() {
+        if (fill != null) {
+            return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSfillOrColorOrKeys() {
-        if (fillOrColorOrKeys != null) {
-            return String.format(Locale.US, "fillOrColorOrKeys: %s,", (fillOrColorOrKeys != null) ? fillOrColorOrKeys.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSfillOrColorOrKeys1() {
-        if (fillOrColorOrKeys1 != null) {
-            return String.format(Locale.US, "fillOrColorOrKeys: %s,", arrayToString(fillOrColorOrKeys1));
-        }
-        return "";
-    }
-
-    private String generateJSfillOrColorOrKeys2() {
-        if (fillOrColorOrKeys2 != null) {
-            return String.format(Locale.US, "fillOrColorOrKeys: %s,", Arrays.toString(fillOrColorOrKeys2));
-        }
-        return "";
-    }
-
-    private String generateJSopacityOrAngleOrCx() {
-        if (opacityOrAngleOrCx != null) {
-            return String.format(Locale.US, "opacityOrAngleOrCx: %f,", opacityOrAngleOrCx);
-        }
-        return "";
-    }
-
-    private String generateJSmodeOrCy() {
-        if (modeOrCy != null) {
-            return String.format(Locale.US, "modeOrCy: %f,", modeOrCy);
-        }
-        return "";
-    }
-
-    private String generateJSmodeOrCy1() {
-        if (modeOrCy1 != null) {
-            return String.format(Locale.US, "modeOrCy: %b,", modeOrCy1);
-        }
-        return "";
-    }
-
-    private String generateJSmodeOrCy2() {
-        if (modeOrCy2 != null) {
-            return String.format(Locale.US, "modeOrCy: %s,", (modeOrCy2 != null) ? modeOrCy2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmodeOrCy3() {
-        if (modeOrCy3 != null) {
-            return String.format(Locale.US, "modeOrCy: %s,", modeOrCy3);
-        }
-        return "";
-    }
-
-    private String generateJSopacityOrMode() {
-        if (opacityOrMode != null) {
-            return String.format(Locale.US, "opacityOrMode: %f,", opacityOrMode);
-        }
-        return "";
-    }
-
-    private String generateJSopacityOrMode1() {
-        if (opacityOrMode1 != null) {
-            return String.format(Locale.US, "opacityOrMode: %s,", (opacityOrMode1 != null) ? opacityOrMode1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacityOrMode2() {
-        if (opacityOrMode2 != null) {
-            return String.format(Locale.US, "opacityOrMode: %s,", opacityOrMode2);
+    private String generateJScolor() {
+        if (color != null) {
+            return String.format(Locale.US, "color: %s,", color);
         }
         return "";
     }
@@ -3208,6 +2234,97 @@ public class Separator extends VisualBase {
     private String generateJSopacity() {
         if (opacity != null) {
             return String.format(Locale.US, "opacity: %f,", opacity);
+        }
+        return "";
+    }
+
+    private String generateJSkeys() {
+        if (keys != null) {
+            return String.format(Locale.US, "keys: %s,", arrayToString(keys));
+        }
+        return "";
+    }
+
+    private String generateJSkeys1() {
+        if (keys1 != null) {
+            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys1));
+        }
+        return "";
+    }
+
+    private String generateJSangle() {
+        if (angle != null) {
+            return String.format(Locale.US, "angle: %f,", angle);
+        }
+        return "";
+    }
+
+    private String generateJSmode() {
+        if (mode != null) {
+            return String.format(Locale.US, "mode: %b,", mode);
+        }
+        return "";
+    }
+
+    private String generateJSmode1() {
+        if (mode1 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode2() {
+        if (mode2 != null) {
+            return String.format(Locale.US, "mode: %s,", mode2);
+        }
+        return "";
+    }
+
+    private String generateJSopacity1() {
+        if (opacity1 != null) {
+            return String.format(Locale.US, "opacity: %f,", opacity1);
+        }
+        return "";
+    }
+
+    private String generateJSkeys2() {
+        if (keys2 != null) {
+            return String.format(Locale.US, "keys: %s,", arrayToString(keys2));
+        }
+        return "";
+    }
+
+    private String generateJSkeys3() {
+        if (keys3 != null) {
+            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys3));
+        }
+        return "";
+    }
+
+    private String generateJScx() {
+        if (cx != null) {
+            return String.format(Locale.US, "cx: %f,", cx);
+        }
+        return "";
+    }
+
+    private String generateJScy() {
+        if (cy != null) {
+            return String.format(Locale.US, "cy: %f,", cy);
+        }
+        return "";
+    }
+
+    private String generateJSmode3() {
+        if (mode3 != null) {
+            return String.format(Locale.US, "mode: %s,", (mode3 != null) ? mode3.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSopacity2() {
+        if (opacity2 != null) {
+            return String.format(Locale.US, "opacity: %f,", opacity2);
         }
         return "";
     }
@@ -3226,6 +2343,13 @@ public class Separator extends VisualBase {
         return "";
     }
 
+    private String generateJSimageSettings() {
+        if (imageSettings != null) {
+            return String.format(Locale.US, "imageSettings: %s,", (imageSettings != null) ? imageSettings.generateJs() : "null");
+        }
+        return "";
+    }
+
     private String generateJSheight() {
         if (height != null) {
             return String.format(Locale.US, "height: %f,", height);
@@ -3236,48 +2360,6 @@ public class Separator extends VisualBase {
     private String generateJSheight1() {
         if (height1 != null) {
             return String.format(Locale.US, "height: %s,", height1);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -3373,34 +2455,6 @@ public class Separator extends VisualBase {
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJSstrokeOrFill() {
         if (strokeOrFill != null) {
             return String.format(Locale.US, "strokeOrFill: %s,", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null");
@@ -3450,34 +2504,6 @@ public class Separator extends VisualBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
     private String generateJSwidth() {
         if (width != null) {
             return String.format(Locale.US, "width: %f,", width);
@@ -3492,41 +2518,47 @@ public class Separator extends VisualBase {
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
-        }
-        return "";
-    }
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
-            js.append(generateJSenabled());
-            js.append(generateJSfillOrColorOrKeys());
-            js.append(generateJSfillOrColorOrKeys1());
-            js.append(generateJSfillOrColorOrKeys2());
-            js.append(generateJSopacityOrAngleOrCx());
-            js.append(generateJSmodeOrCy());
-            js.append(generateJSmodeOrCy1());
-            js.append(generateJSmodeOrCy2());
-            js.append(generateJSmodeOrCy3());
-            js.append(generateJSopacityOrMode());
-            js.append(generateJSopacityOrMode1());
-            js.append(generateJSopacityOrMode2());
+            js.append(generateJSfill());
+            js.append(generateJScolor());
             js.append(generateJSopacity());
+            js.append(generateJSkeys());
+            js.append(generateJSkeys1());
+            js.append(generateJSangle());
+            js.append(generateJSmode());
+            js.append(generateJSmode1());
+            js.append(generateJSmode2());
+            js.append(generateJSopacity1());
+            js.append(generateJSkeys2());
+            js.append(generateJSkeys3());
+            js.append(generateJScx());
+            js.append(generateJScy());
+            js.append(generateJSmode3());
+            js.append(generateJSopacity2());
             js.append(generateJSfx());
             js.append(generateJSfy());
+            js.append(generateJSimageSettings());
             js.append(generateJSheight());
             js.append(generateJSheight1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSspaceOrTopOrTopAndBottom());
             js.append(generateJSspaceOrTopOrTopAndBottom1());
             js.append(generateJSspaceOrTopOrTopAndBottom2());
@@ -3540,10 +2572,6 @@ public class Separator extends VisualBase {
             js.append(generateJSleft1());
             js.append(generateJSorientation());
             js.append(generateJSorientation1());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
             js.append(generateJSstrokeOrFill());
             js.append(generateJSstrokeOrFill1());
             js.append(generateJSstrokeOrFill2());
@@ -3551,15 +2579,12 @@ public class Separator extends VisualBase {
             js.append(generateJSdashpattern());
             js.append(generateJSlineJoin());
             js.append(generateJSlineCap());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append(generateJSwidth());
             js.append(generateJSwidth1());
-            js.append(generateJSzIndex());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

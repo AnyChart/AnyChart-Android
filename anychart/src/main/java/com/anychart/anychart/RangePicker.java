@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class RangePicker extends JsObject {
-
-    private String jsBase;
 
     public RangePicker() {
 
@@ -14,6 +14,12 @@ public class RangePicker extends JsObject {
 
     protected RangePicker(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected RangePicker(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -25,10 +31,18 @@ public class RangePicker extends JsObject {
         } else {
             this.decorate = decorate;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".decorate(%s);", (decorate != null) ? decorate.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s);", (decorate != null) ? decorate.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", (decorate != null) ? decorate.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -42,10 +56,18 @@ public class RangePicker extends JsObject {
         } else {
             this.format = format;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".format(%s);", format));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s);", format));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s)", format));
                 js.setLength(0);
             }
         }
@@ -53,19 +75,28 @@ public class RangePicker extends JsObject {
 
     private String fromLabelText;
 
-    public void setFromlabeltext(String fromLabelText) {
+    public RangePicker setFromLabelText(String fromLabelText) {
         if (jsBase == null) {
             this.fromLabelText = fromLabelText;
         } else {
             this.fromLabelText = fromLabelText;
 
-            js.append(String.format(Locale.US, jsBase + ".fromLabelText(%s);", fromLabelText));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fromLabelText(%s)", fromLabelText));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fromLabelText(%s);", fromLabelText));
+                onChangeListener.onChange(String.format(Locale.US, ".fromLabelText(%s)", fromLabelText));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private ChartsStock parentElement;
@@ -80,10 +111,18 @@ public class RangePicker extends JsObject {
         } else {
             this.parentElement = parentElement;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".render(%s);", (parentElement != null) ? parentElement.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s);", (parentElement != null) ? parentElement.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", (parentElement != null) ? parentElement.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -99,10 +138,18 @@ public class RangePicker extends JsObject {
         } else {
             this.parentElement1 = parentElement1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".render(%s);", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s);", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -116,10 +163,18 @@ public class RangePicker extends JsObject {
         } else {
             this.chart = chart;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".target(%s);", (chart != null) ? chart.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s);", (chart != null) ? chart.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", (chart != null) ? chart.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -127,19 +182,28 @@ public class RangePicker extends JsObject {
 
     private String toLabelText;
 
-    public void setTolabeltext(String toLabelText) {
+    public RangePicker setToLabelText(String toLabelText) {
         if (jsBase == null) {
             this.toLabelText = toLabelText;
         } else {
             this.toLabelText = toLabelText;
 
-            js.append(String.format(Locale.US, jsBase + ".toLabelText(%s);", toLabelText));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".toLabelText(%s)", toLabelText));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toLabelText(%s);", toLabelText));
+                onChangeListener.onChange(String.format(Locale.US, ".toLabelText(%s)", toLabelText));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSdecorate() {
@@ -192,8 +256,23 @@ public class RangePicker extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdecorate());
@@ -205,6 +284,8 @@ public class RangePicker extends JsObject {
             js.append(generateJStoLabelText());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

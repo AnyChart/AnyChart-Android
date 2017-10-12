@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Clip extends JsObject {
-
-    private String jsBase;
 
     public Clip() {
 
@@ -14,6 +14,12 @@ public class Clip extends JsObject {
 
     protected Clip(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected Clip(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -31,7 +37,7 @@ public class Clip extends JsObject {
     private GraphicsMathRect shape2;
     private String shape3;
 
-    public void setShape(Double[] shape) {
+    public Clip setShape(Double[] shape) {
         if (jsBase == null) {
             this.shape = null;
             this.shape1 = null;
@@ -42,17 +48,26 @@ public class Clip extends JsObject {
         } else {
             this.shape = shape;
 
-            js.append(String.format(Locale.US, jsBase + ".shape(%s);", Arrays.toString(shape)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", Arrays.toString(shape)));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setShape(Shape shape1) {
+    public Clip setShape(Shape shape1) {
         if (jsBase == null) {
             this.shape = null;
             this.shape1 = null;
@@ -63,17 +78,26 @@ public class Clip extends JsObject {
         } else {
             this.shape1 = shape1;
 
-            js.append(String.format(Locale.US, jsBase + ".shape(%s);", (shape1 != null) ? shape1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".shape(%s)", (shape1 != null) ? shape1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", (shape1 != null) ? shape1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", (shape1 != null) ? shape1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setShape(GraphicsMathRect shape2) {
+    public Clip setShape(GraphicsMathRect shape2) {
         if (jsBase == null) {
             this.shape = null;
             this.shape1 = null;
@@ -84,17 +108,26 @@ public class Clip extends JsObject {
         } else {
             this.shape2 = shape2;
 
-            js.append(String.format(Locale.US, jsBase + ".shape(%s);", (shape2 != null) ? shape2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".shape(%s)", (shape2 != null) ? shape2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", (shape2 != null) ? shape2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", (shape2 != null) ? shape2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setShape(String shape3) {
+    public Clip setShape(String shape3) {
         if (jsBase == null) {
             this.shape = null;
             this.shape1 = null;
@@ -105,13 +138,22 @@ public class Clip extends JsObject {
         } else {
             this.shape3 = shape3;
 
-            js.append(String.format(Locale.US, jsBase + ".shape(%s);", shape3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".shape(%s)", shape3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", shape3));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", shape3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double left;
@@ -119,7 +161,7 @@ public class Clip extends JsObject {
     private Double width;
     private Double height;
 
-    public void setShape(Double left, Double top, Double width, Double height) {
+    public Clip setShape(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;
@@ -131,13 +173,22 @@ public class Clip extends JsObject {
             this.width = width;
             this.height = height;
 
-            js.append(String.format(Locale.US, jsBase + ".shape(%f, %f, %f, %f);", left, top, width, height));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%f, %f, %f, %f);", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetShape() {
@@ -204,8 +255,24 @@ public class Clip extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetShape());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSshape());
@@ -218,7 +285,8 @@ public class Clip extends JsObject {
             js.append(generateJSheight());
             js.append("}");
         }
-            js.append(generateJSgetShape());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

@@ -4,13 +4,13 @@ import java.util.Locale;
 
 public enum MarkerType implements JsObject.JsObjectInterface {
     ARROWHEAD("arrowhead"),
-    ARROW_DOWN("arrowDown"),
-    ARROW_LEFT("arrowLeft"),
-    ARROW_RIGHT("arrowRight"),
-    ARROW_UP("arrowUp"),
+    ARROW_DOWN("arrow-down"),
+    ARROW_LEFT("arrow-left"),
+    ARROW_RIGHT("arrow-right"),
+    ARROW_UP("arrow-up"),
     CIRCLE("circle"),
     CROSS("cross"),
-    DIAGONAL_CROSS("diagonalCross"),
+    DIAGONAL_CROSS("diagonal-cross"),
     DIAMOND("diamond"),
     LINE("line"),
     PENTAGON("pentagon"),
@@ -21,10 +21,10 @@ public enum MarkerType implements JsObject.JsObjectInterface {
     STAR6("star6"),
     STAR7("star7"),
     TRAPEZIUM("trapezium"),
-    TRIANGLE_DOWN("triangleDown"),
-    TRIANGLE_LEFT("triangleLeft"),
-    TRIANGLE_RIGHT("triangleRight"),
-    TRIANGLE_UP("triangleUp");
+    TRIANGLE_DOWN("triangle-down"),
+    TRIANGLE_LEFT("triangle-left"),
+    TRIANGLE_RIGHT("triangle-right"),
+    TRIANGLE_UP("triangle-up");
 
     private final String value;
 

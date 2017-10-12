@@ -6,7 +6,7 @@ public enum LinearGaugePointerType implements JsObject.JsObjectInterface {
     BAR("bar"),
     LED("led"),
     MARKER("marker"),
-    RANGE_BAR("rangeBar"),
+    RANGE_BAR("range-bar"),
     TANK("tank"),
     THERMOMETER("thermometer");
 

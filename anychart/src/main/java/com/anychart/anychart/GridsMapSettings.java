@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class GridsMapSettings extends CoreBase {
-
-    private String jsBase;
 
     public GridsMapSettings() {
 
@@ -16,79 +16,121 @@ public class GridsMapSettings extends CoreBase {
         this.jsBase = jsBase;
     }
 
+    protected GridsMapSettings(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Boolean drawFirstLine;
 
-    public void setDrawfirstline(Boolean drawFirstLine) {
+    public GridsMapSettings setDrawFirstLine(Boolean drawFirstLine) {
         if (jsBase == null) {
             this.drawFirstLine = drawFirstLine;
         } else {
             this.drawFirstLine = drawFirstLine;
 
-            js.append(String.format(Locale.US, jsBase + ".drawFirstLine(%b);", drawFirstLine));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawFirstLine(%b);", drawFirstLine));
+                onChangeListener.onChange(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean drawLastLine;
 
-    public void setDrawlastline(Boolean drawLastLine) {
+    public GridsMapSettings setDrawLastLine(Boolean drawLastLine) {
         if (jsBase == null) {
             this.drawLastLine = drawLastLine;
         } else {
             this.drawLastLine = drawLastLine;
 
-            js.append(String.format(Locale.US, jsBase + ".drawLastLine(%b);", drawLastLine));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLastLine(%b);", drawLastLine));
+                onChangeListener.onChange(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean enabled;
 
-    public void setEnabled(Boolean enabled) {
+    public GridsMapSettings setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
 
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Fill evenFill;
+    private Fill fill;
 
-    public void setEvenfill(Fill evenFill) {
+    public GridsMapSettings setFill(Fill fill) {
         if (jsBase == null) {
-            this.evenFill = evenFill;
+            this.fill = fill;
         } else {
-            this.evenFill = evenFill;
+            this.fill = fill;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s);", (evenFill != null) ? evenFill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s);", (evenFill != null) ? evenFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color;
     private Double opacity;
 
-    public void setEvenfill(String color, Double opacity) {
+    public GridsMapSettings setFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -96,13 +138,22 @@ public class GridsMapSettings extends CoreBase {
             this.color = color;
             this.opacity = opacity;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %f);", color, opacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f);", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys;
@@ -113,7 +164,7 @@ public class GridsMapSettings extends CoreBase {
     private String mode2;
     private Double opacity1;
 
-    public void setEvenfill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public GridsMapSettings setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -135,17 +186,26 @@ public class GridsMapSettings extends CoreBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setEvenfill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public GridsMapSettings setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -167,17 +227,26 @@ public class GridsMapSettings extends CoreBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setEvenfill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public GridsMapSettings setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -199,17 +268,26 @@ public class GridsMapSettings extends CoreBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setEvenfill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public GridsMapSettings setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -231,17 +309,26 @@ public class GridsMapSettings extends CoreBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setEvenfill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public GridsMapSettings setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -263,17 +350,26 @@ public class GridsMapSettings extends CoreBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setEvenfill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public GridsMapSettings setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -295,13 +391,22 @@ public class GridsMapSettings extends CoreBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys2;
@@ -313,7 +418,7 @@ public class GridsMapSettings extends CoreBase {
     private Double fx;
     private Double fy;
 
-    public void setEvenfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public GridsMapSettings setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -345,17 +450,26 @@ public class GridsMapSettings extends CoreBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setEvenfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public GridsMapSettings setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -387,13 +501,22 @@ public class GridsMapSettings extends CoreBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings;
@@ -409,7 +532,7 @@ public class GridsMapSettings extends CoreBase {
     private Boolean horizontal;
     private String horizontal1;
 
-    public void setHorizontal(Boolean horizontal) {
+    public GridsMapSettings setHorizontal(Boolean horizontal) {
         if (jsBase == null) {
             this.horizontal = null;
             this.horizontal1 = null;
@@ -418,17 +541,26 @@ public class GridsMapSettings extends CoreBase {
         } else {
             this.horizontal = horizontal;
 
-            js.append(String.format(Locale.US, jsBase + ".horizontal(%b);", horizontal));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".horizontal(%b)", horizontal));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontal(%b);", horizontal));
+                onChangeListener.onChange(String.format(Locale.US, ".horizontal(%b)", horizontal));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHorizontal(String horizontal1) {
+    public GridsMapSettings setHorizontal(String horizontal1) {
         if (jsBase == null) {
             this.horizontal = null;
             this.horizontal1 = null;
@@ -437,68 +569,22 @@ public class GridsMapSettings extends CoreBase {
         } else {
             this.horizontal1 = horizontal1;
 
-            js.append(String.format(Locale.US, jsBase + ".horizontal(%s);", horizontal1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".horizontal(%s)", horizontal1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontal(%s);", horizontal1));
+                onChangeListener.onChange(String.format(Locale.US, ".horizontal(%s)", horizontal1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Stroke color1;
@@ -509,7 +595,7 @@ public class GridsMapSettings extends CoreBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public void setMinorstroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public GridsMapSettings setMinorStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -528,17 +614,26 @@ public class GridsMapSettings extends CoreBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinorstroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public GridsMapSettings setMinorStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -557,17 +652,26 @@ public class GridsMapSettings extends CoreBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinorstroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public GridsMapSettings setMinorStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -586,515 +690,166 @@ public class GridsMapSettings extends CoreBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Fill oddFill;
+    private RangeColors getPalette;
 
-    public void setOddfill(Fill oddFill) {
+    public RangeColors getPalette() {
+        if (getPalette == null)
+            getPalette = new RangeColors(jsBase + ".palette()");
+
+        return getPalette;
+    }
+
+    private RangeColors palette;
+    private DistinctColors palette1;
+    private String palette2;
+    private String[] palette3;
+
+    public GridsMap setPalette(RangeColors palette) {
         if (jsBase == null) {
-            this.oddFill = oddFill;
+            this.palette = null;
+            this.palette1 = null;
+            this.palette2 = null;
+            this.palette3 = null;
+            
+            this.palette = palette;
         } else {
-            this.oddFill = oddFill;
+            this.palette = palette;
 
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s);", (oddFill != null) ? oddFill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".palette(%s);", (palette != null) ? palette.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s);", (oddFill != null) ? oddFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new GridsMap(jsBase);
     }
 
-    private String color4;
-    private Double opacity3;
 
-    public void setOddfill(String color4, Double opacity3) {
+    public GridsMap setPalette(DistinctColors palette1) {
         if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
+            this.palette = null;
+            this.palette1 = null;
+            this.palette2 = null;
+            this.palette3 = null;
             
-            this.color4 = color4;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            
-            this.opacity3 = opacity3;
+            this.palette1 = palette1;
         } else {
-            this.color4 = color4;
-            this.opacity3 = opacity3;
+            this.palette1 = palette1;
 
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %f);", color4, opacity3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".palette(%s);", (palette1 != null) ? palette1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f);", color4, opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new GridsMap(jsBase);
     }
 
-    private GradientKey[] keys4;
-    private String[] keys5;
-    private Double angle1;
-    private Boolean mode4;
-    private VectorRect mode5;
-    private String mode6;
-    private Double opacity4;
 
-    public void setOddfill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public GridsMap setPalette(String palette2) {
         if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
+            this.palette = null;
+            this.palette1 = null;
+            this.palette2 = null;
+            this.palette3 = null;
             
-            this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
+            this.palette2 = palette2;
         } else {
-            this.keys4 = keys4;
-            this.mode4 = mode4;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
+            this.palette2 = palette2;
 
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".palette(%s);", palette2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", palette2));
                 js.setLength(0);
             }
         }
+        return new GridsMap(jsBase);
     }
 
 
-    public void setOddfill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public GridsMap setPalette(String[] palette3) {
         if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
+            this.palette = null;
+            this.palette1 = null;
+            this.palette2 = null;
+            this.palette3 = null;
             
-            this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
+            this.palette3 = palette3;
         } else {
-            this.keys4 = keys4;
-            this.mode5 = mode5;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
+            this.palette3 = palette3;
 
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".palette(%s);", Arrays.toString(palette3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", Arrays.toString(palette3)));
                 js.setLength(0);
             }
         }
+        return new GridsMap(jsBase);
     }
 
-
-    public void setOddfill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys4 = keys4;
-            this.mode6 = mode6;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setOddfill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys5 = keys5;
-            this.mode4 = mode4;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setOddfill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys5 = keys5;
-            this.mode5 = mode5;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setOddfill(String[] keys5, String mode6, Double angle1, Double opacity4) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            
-            this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
-            this.angle = null;
-            this.angle1 = null;
-            
-            this.angle1 = angle1;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            
-            this.opacity4 = opacity4;
-        } else {
-            this.keys5 = keys5;
-            this.mode6 = mode6;
-            this.angle1 = angle1;
-            this.opacity4 = opacity4;
-
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private GradientKey[] keys6;
-    private String[] keys7;
-    private Double cx1;
-    private Double cy1;
-    private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
-
-    public void setOddfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            this.keys6 = null;
-            this.keys7 = null;
-            
-            this.keys6 = keys6;
-            this.cx = null;
-            this.cx1 = null;
-            
-            this.cx1 = cx1;
-            this.cy = null;
-            this.cy1 = null;
-            
-            this.cy1 = cy1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            
-            this.mode7 = mode7;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            this.opacity5 = null;
-            
-            this.opacity5 = opacity5;
-            this.fx = null;
-            this.fx1 = null;
-            
-            this.fx1 = fx1;
-            this.fy = null;
-            this.fy1 = null;
-            
-            this.fy1 = fy1;
-        } else {
-            this.keys6 = keys6;
-            this.cx1 = cx1;
-            this.cy1 = cy1;
-            this.mode7 = mode7;
-            this.opacity5 = opacity5;
-            this.fx1 = fx1;
-            this.fy1 = fy1;
-
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setOddfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
-        if (jsBase == null) {
-            this.keys = null;
-            this.keys1 = null;
-            this.keys2 = null;
-            this.keys3 = null;
-            this.keys4 = null;
-            this.keys5 = null;
-            this.keys6 = null;
-            this.keys7 = null;
-            
-            this.keys7 = keys7;
-            this.cx = null;
-            this.cx1 = null;
-            
-            this.cx1 = cx1;
-            this.cy = null;
-            this.cy1 = null;
-            
-            this.cy1 = cy1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            
-            this.mode7 = mode7;
-            this.opacity = null;
-            this.opacity1 = null;
-            this.opacity2 = null;
-            this.opacity3 = null;
-            this.opacity4 = null;
-            this.opacity5 = null;
-            
-            this.opacity5 = opacity5;
-            this.fx = null;
-            this.fx1 = null;
-            
-            this.fx1 = fx1;
-            this.fy = null;
-            this.fy1 = null;
-            
-            this.fy1 = fy1;
-        } else {
-            this.keys7 = keys7;
-            this.cx1 = cx1;
-            this.cy1 = cy1;
-            this.mode7 = mode7;
-            this.opacity5 = opacity5;
-            this.fx1 = fx1;
-            this.fy1 = fy1;
-
-            js.append(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Fill imageSettings1;
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Stroke color5;
-    private ColoredFill color6;
-    private String color7;
+    private Stroke color4;
+    private ColoredFill color5;
+    private String color6;
     private Double thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
-    public void setStroke(Stroke color5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public GridsMapSettings setStroke(Stroke color4, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1103,7 +858,59 @@ public class GridsMapSettings extends CoreBase {
             this.color4 = null;
             this.color5 = null;
             this.color6 = null;
-            this.color7 = null;
+            
+            this.color4 = color4;
+            this.thickness = null;
+            this.thickness1 = null;
+            
+            this.thickness1 = thickness1;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            
+            this.lineJoin1 = lineJoin1;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            
+            this.lineCap1 = lineCap1;
+        } else {
+            this.color4 = color4;
+            this.thickness1 = thickness1;
+            this.dashpattern1 = dashpattern1;
+            this.lineJoin1 = lineJoin1;
+            this.lineCap1 = lineCap1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color4 != null) ? color4.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public GridsMapSettings setStroke(ColoredFill color5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
             
             this.color5 = color5;
             this.thickness = null;
@@ -1129,17 +936,26 @@ public class GridsMapSettings extends CoreBase {
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color5 != null) ? color5.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color5 != null) ? color5.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color5 != null) ? color5.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color5 != null) ? color5.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(ColoredFill color6, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public GridsMapSettings setStroke(String color6, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1148,7 +964,6 @@ public class GridsMapSettings extends CoreBase {
             this.color4 = null;
             this.color5 = null;
             this.color6 = null;
-            this.color7 = null;
             
             this.color6 = color6;
             this.thickness = null;
@@ -1174,111 +989,22 @@ public class GridsMapSettings extends CoreBase {
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color6 != null) ? color6.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color6, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color6 != null) ? color6.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color6, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-
-    public void setStroke(String color7, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
-            this.color4 = null;
-            this.color5 = null;
-            this.color6 = null;
-            this.color7 = null;
-            
-            this.color7 = color7;
-            this.thickness = null;
-            this.thickness1 = null;
-            
-            this.thickness1 = thickness1;
-            this.dashpattern = null;
-            this.dashpattern1 = null;
-            
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin = null;
-            this.lineJoin1 = null;
-            
-            this.lineJoin1 = lineJoin1;
-            this.lineCap = null;
-            this.lineCap1 = null;
-            
-            this.lineCap1 = lineCap1;
-        } else {
-            this.color7 = color7;
-            this.thickness1 = thickness1;
-            this.dashpattern1 = dashpattern1;
-            this.lineJoin1 = lineJoin1;
-            this.lineCap1 = lineCap1;
-
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color7, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color7, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private GridsMap getVertical;
@@ -1293,7 +1019,7 @@ public class GridsMapSettings extends CoreBase {
     private Boolean vertical;
     private String vertical1;
 
-    public void setVertical(Boolean vertical) {
+    public GridsMapSettings setVertical(Boolean vertical) {
         if (jsBase == null) {
             this.vertical = null;
             this.vertical1 = null;
@@ -1302,17 +1028,26 @@ public class GridsMapSettings extends CoreBase {
         } else {
             this.vertical = vertical;
 
-            js.append(String.format(Locale.US, jsBase + ".vertical(%b);", vertical));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vertical(%b)", vertical));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vertical(%b);", vertical));
+                onChangeListener.onChange(String.format(Locale.US, ".vertical(%b)", vertical));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setVertical(String vertical1) {
+    public GridsMapSettings setVertical(String vertical1) {
         if (jsBase == null) {
             this.vertical = null;
             this.vertical1 = null;
@@ -1321,19 +1056,28 @@ public class GridsMapSettings extends CoreBase {
         } else {
             this.vertical1 = vertical1;
 
-            js.append(String.format(Locale.US, jsBase + ".vertical(%s);", vertical1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vertical(%s)", vertical1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vertical(%s);", vertical1));
+                onChangeListener.onChange(String.format(Locale.US, ".vertical(%s)", vertical1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double zIndex;
     private MapGridZIndex zIndex1;
 
-    public void setZindex(Double zIndex) {
+    public GridsMapSettings setZIndex(Double zIndex) {
         if (jsBase == null) {
             this.zIndex = null;
             this.zIndex1 = null;
@@ -1342,17 +1086,26 @@ public class GridsMapSettings extends CoreBase {
         } else {
             this.zIndex = zIndex;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%f)", zIndex));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setZindex(MapGridZIndex zIndex1) {
+    public GridsMapSettings setZIndex(MapGridZIndex zIndex1) {
         if (jsBase == null) {
             this.zIndex = null;
             this.zIndex1 = null;
@@ -1361,18 +1114,34 @@ public class GridsMapSettings extends CoreBase {
         } else {
             this.zIndex1 = zIndex1;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%s);", (zIndex1 != null) ? zIndex1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".zIndex(%s)", (zIndex1 != null) ? zIndex1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%s);", (zIndex1 != null) ? zIndex1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%s)", (zIndex1 != null) ? zIndex1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetHorizontal() {
         if (getHorizontal != null) {
             return getHorizontal.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetPalette() {
+        if (getPalette != null) {
+            return getPalette.generateJs();
         }
         return "";
     }
@@ -1405,9 +1174,9 @@ public class GridsMapSettings extends CoreBase {
         return "";
     }
 
-    private String generateJSevenFill() {
-        if (evenFill != null) {
-            return String.format(Locale.US, "evenFill: %s,", (evenFill != null) ? evenFill.generateJs() : "null");
+    private String generateJSfill() {
+        if (fill != null) {
+            return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
         }
         return "";
     }
@@ -1552,48 +1321,6 @@ public class GridsMapSettings extends CoreBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
     private String generateJScolor1() {
         if (color1 != null) {
             return String.format(Locale.US, "color: %s,", (color1 != null) ? color1.generateJs() : "null");
@@ -1643,142 +1370,37 @@ public class GridsMapSettings extends CoreBase {
         return "";
     }
 
-    private String generateJSoddFill() {
-        if (oddFill != null) {
-            return String.format(Locale.US, "oddFill: %s,", (oddFill != null) ? oddFill.generateJs() : "null");
+    private String generateJSpalette() {
+        if (palette != null) {
+            return String.format(Locale.US, "palette: %s,", (palette != null) ? palette.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSpalette1() {
+        if (palette1 != null) {
+            return String.format(Locale.US, "palette: %s,", (palette1 != null) ? palette1.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSpalette2() {
+        if (palette2 != null) {
+            return String.format(Locale.US, "palette: %s,", palette2);
+        }
+        return "";
+    }
+
+    private String generateJSpalette3() {
+        if (palette3 != null) {
+            return String.format(Locale.US, "palette: %s,", Arrays.toString(palette3));
         }
         return "";
     }
 
     private String generateJScolor4() {
         if (color4 != null) {
-            return String.format(Locale.US, "color: %s,", color4);
-        }
-        return "";
-    }
-
-    private String generateJSopacity3() {
-        if (opacity3 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity3);
-        }
-        return "";
-    }
-
-    private String generateJSkeys4() {
-        if (keys4 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys4));
-        }
-        return "";
-    }
-
-    private String generateJSkeys5() {
-        if (keys5 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys5));
-        }
-        return "";
-    }
-
-    private String generateJSangle1() {
-        if (angle1 != null) {
-            return String.format(Locale.US, "angle: %f,", angle1);
-        }
-        return "";
-    }
-
-    private String generateJSmode4() {
-        if (mode4 != null) {
-            return String.format(Locale.US, "mode: %b,", mode4);
-        }
-        return "";
-    }
-
-    private String generateJSmode5() {
-        if (mode5 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode5 != null) ? mode5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmode6() {
-        if (mode6 != null) {
-            return String.format(Locale.US, "mode: %s,", mode6);
-        }
-        return "";
-    }
-
-    private String generateJSopacity4() {
-        if (opacity4 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity4);
-        }
-        return "";
-    }
-
-    private String generateJSkeys6() {
-        if (keys6 != null) {
-            return String.format(Locale.US, "keys: %s,", arrayToString(keys6));
-        }
-        return "";
-    }
-
-    private String generateJSkeys7() {
-        if (keys7 != null) {
-            return String.format(Locale.US, "keys: %s,", Arrays.toString(keys7));
-        }
-        return "";
-    }
-
-    private String generateJScx1() {
-        if (cx1 != null) {
-            return String.format(Locale.US, "cx: %f,", cx1);
-        }
-        return "";
-    }
-
-    private String generateJScy1() {
-        if (cy1 != null) {
-            return String.format(Locale.US, "cy: %f,", cy1);
-        }
-        return "";
-    }
-
-    private String generateJSmode7() {
-        if (mode7 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode7 != null) ? mode7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSopacity5() {
-        if (opacity5 != null) {
-            return String.format(Locale.US, "opacity: %f,", opacity5);
-        }
-        return "";
-    }
-
-    private String generateJSfx1() {
-        if (fx1 != null) {
-            return String.format(Locale.US, "fx: %f,", fx1);
-        }
-        return "";
-    }
-
-    private String generateJSfy1() {
-        if (fy1 != null) {
-            return String.format(Locale.US, "fy: %f,", fy1);
-        }
-        return "";
-    }
-
-    private String generateJSimageSettings1() {
-        if (imageSettings1 != null) {
-            return String.format(Locale.US, "imageSettings: %s,", (imageSettings1 != null) ? imageSettings1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
+            return String.format(Locale.US, "color: %s,", (color4 != null) ? color4.generateJs() : "null");
         }
         return "";
     }
@@ -1792,14 +1414,7 @@ public class GridsMapSettings extends CoreBase {
 
     private String generateJScolor6() {
         if (color6 != null) {
-            return String.format(Locale.US, "color: %s,", (color6 != null) ? color6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor7() {
-        if (color7 != null) {
-            return String.format(Locale.US, "color: %s,", color7);
+            return String.format(Locale.US, "color: %s,", color6);
         }
         return "";
     }
@@ -1828,34 +1443,6 @@ public class GridsMapSettings extends CoreBase {
     private String generateJSlineCap1() {
         if (lineCap1 != null) {
             return String.format(Locale.US, "lineCap: %s,", (lineCap1 != null) ? lineCap1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
@@ -1889,14 +1476,32 @@ public class GridsMapSettings extends CoreBase {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetHorizontal());
+        jsGetters.append(generateJSgetPalette());
+        jsGetters.append(generateJSgetVertical());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdrawFirstLine());
             js.append(generateJSdrawLastLine());
             js.append(generateJSenabled());
-            js.append(generateJSevenFill());
+            js.append(generateJSfill());
             js.append(generateJScolor());
             js.append(generateJSopacity());
             js.append(generateJSkeys());
@@ -1917,12 +1522,6 @@ public class GridsMapSettings extends CoreBase {
             js.append(generateJSimageSettings());
             js.append(generateJShorizontal());
             js.append(generateJShorizontal1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJScolor1());
             js.append(generateJScolor2());
             js.append(generateJScolor3());
@@ -1930,45 +1529,25 @@ public class GridsMapSettings extends CoreBase {
             js.append(generateJSdashpattern());
             js.append(generateJSlineJoin());
             js.append(generateJSlineCap());
-            js.append(generateJSoddFill());
+            js.append(generateJSpalette());
+            js.append(generateJSpalette1());
+            js.append(generateJSpalette2());
+            js.append(generateJSpalette3());
             js.append(generateJScolor4());
-            js.append(generateJSopacity3());
-            js.append(generateJSkeys4());
-            js.append(generateJSkeys5());
-            js.append(generateJSangle1());
-            js.append(generateJSmode4());
-            js.append(generateJSmode5());
-            js.append(generateJSmode6());
-            js.append(generateJSopacity4());
-            js.append(generateJSkeys6());
-            js.append(generateJSkeys7());
-            js.append(generateJScx1());
-            js.append(generateJScy1());
-            js.append(generateJSmode7());
-            js.append(generateJSopacity5());
-            js.append(generateJSfx1());
-            js.append(generateJSfy1());
-            js.append(generateJSimageSettings1());
-            js.append(generateJStype2());
             js.append(generateJScolor5());
             js.append(generateJScolor6());
-            js.append(generateJScolor7());
             js.append(generateJSthickness1());
             js.append(generateJSdashpattern1());
             js.append(generateJSlineJoin1());
             js.append(generateJSlineCap1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append(generateJSvertical());
             js.append(generateJSvertical1());
             js.append(generateJSzIndex());
             js.append(generateJSzIndex1());
             js.append("}");
         }
-            js.append(generateJSgetHorizontal());
-            js.append(generateJSgetVertical());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

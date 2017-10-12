@@ -23,6 +23,7 @@ public enum EnumsEventType implements JsObject.JsObjectInterface {
     CONNECTOR_MOUSE_OVER("connectorMouseOver"),
     CONNECTOR_MOUSE_UP("connectorMouseUp"),
     CONNECTOR_SELECT("connectorSelect"),
+    DATA_CHANGED("dataChanged"),
     DRAG("drag"),
     DRAG_END("dragEnd"),
     DRAG_START("dragStart"),

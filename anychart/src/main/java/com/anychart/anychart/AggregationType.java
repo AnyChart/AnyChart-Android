@@ -5,14 +5,14 @@ import java.util.Locale;
 public enum AggregationType implements JsObject.JsObjectInterface {
     AVERAGE("average"),
     FIRST("first"),
-    FIRST_VALUE("firstValue"),
+    FIRST_VALUE("first-value"),
     LAST("last"),
-    LAST_VALUE("lastValue"),
+    LAST_VALUE("last-value"),
     LIST("list"),
     MAX("max"),
     MIN("min"),
     SUM("sum"),
-    WEIGHTED_AVERAGE("weightedAverage");
+    WEIGHTED_AVERAGE("weighted-average");
 
     private final String value;
 

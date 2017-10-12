@@ -11,7 +11,7 @@ public enum Interval implements JsObject.JsObjectInterface {
     QUARTER("quarter"),
     SECOND("second"),
     SEMESTER("semester"),
-    THIRD_OF_MONTH("thirdOfMonth"),
+    THIRD_OF_MONTH("third-of-month"),
     WEEK("week"),
     YEAR("year");
 

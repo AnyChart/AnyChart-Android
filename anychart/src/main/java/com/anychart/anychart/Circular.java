@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Circular extends VisualBase {
-
-    private String jsBase;
 
     public Circular() {
 
@@ -16,11 +16,17 @@ public class Circular extends VisualBase {
         this.jsBase = jsBase;
     }
 
+    protected Circular(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double cornersRounding;
     private String cornersRounding1;
 
-    public void setCornersrounding(Double cornersRounding) {
+    public Circular setCornersRounding(Double cornersRounding) {
         if (jsBase == null) {
             this.cornersRounding = null;
             this.cornersRounding1 = null;
@@ -29,17 +35,26 @@ public class Circular extends VisualBase {
         } else {
             this.cornersRounding = cornersRounding;
 
-            js.append(String.format(Locale.US, jsBase + ".cornersRounding(%f);", cornersRounding));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%f);", cornersRounding));
+                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCornersrounding(String cornersRounding1) {
+    public Circular setCornersRounding(String cornersRounding1) {
         if (jsBase == null) {
             this.cornersRounding = null;
             this.cornersRounding1 = null;
@@ -48,70 +63,80 @@ public class Circular extends VisualBase {
         } else {
             this.cornersRounding1 = cornersRounding1;
 
-            js.append(String.format(Locale.US, jsBase + ".cornersRounding(%s);", cornersRounding1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cornersRounding(%s)", cornersRounding1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%s);", cornersRounding1));
+                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", cornersRounding1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean drawFirstLabel;
 
-    public void setDrawfirstlabel(Boolean drawFirstLabel) {
+    public Circular setDrawFirstLabel(Boolean drawFirstLabel) {
         if (jsBase == null) {
             this.drawFirstLabel = drawFirstLabel;
         } else {
             this.drawFirstLabel = drawFirstLabel;
 
-            js.append(String.format(Locale.US, jsBase + ".drawFirstLabel(%b);", drawFirstLabel));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawFirstLabel(%b);", drawFirstLabel));
+                onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean drawLastLabel;
 
-    public void setDrawlastlabel(Boolean drawLastLabel) {
+    public Circular setDrawLastLabel(Boolean drawLastLabel) {
         if (jsBase == null) {
             this.drawLastLabel = drawLastLabel;
         } else {
             this.drawLastLabel = drawLastLabel;
 
-            js.append(String.format(Locale.US, jsBase + ".drawLastLabel(%b);", drawLastLabel));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLastLabel(%b);", drawLastLabel));
+                onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Fill fill;
     private String fill1;
 
-    public void setFill(Fill fill) {
+    public Circular setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = null;
             this.fill1 = null;
@@ -120,17 +145,26 @@ public class Circular extends VisualBase {
         } else {
             this.fill = fill;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String fill1) {
+    public Circular setFill(String fill1) {
         if (jsBase == null) {
             this.fill = null;
             this.fill1 = null;
@@ -139,19 +173,28 @@ public class Circular extends VisualBase {
         } else {
             this.fill1 = fill1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s);", fill1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", fill1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", fill1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", fill1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color;
     private Double opacity;
 
-    public void setFill(String color, Double opacity) {
+    public Circular setFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -159,13 +202,22 @@ public class Circular extends VisualBase {
             this.color = color;
             this.opacity = opacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys;
@@ -176,7 +228,7 @@ public class Circular extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Circular setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -198,17 +250,26 @@ public class Circular extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Circular setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -230,17 +291,26 @@ public class Circular extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Circular setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -262,17 +332,26 @@ public class Circular extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Circular setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -294,17 +373,26 @@ public class Circular extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Circular setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -326,17 +414,26 @@ public class Circular extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Circular setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -358,13 +455,22 @@ public class Circular extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys2;
@@ -376,7 +482,7 @@ public class Circular extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Circular setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -408,17 +514,26 @@ public class Circular extends VisualBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Circular setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -450,13 +565,22 @@ public class Circular extends VisualBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings;
@@ -472,7 +596,7 @@ public class Circular extends VisualBase {
     private String labels;
     private Boolean labels1;
 
-    public void setLabels(String labels) {
+    public Circular setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
             this.labels1 = null;
@@ -481,17 +605,26 @@ public class Circular extends VisualBase {
         } else {
             this.labels = labels;
 
-            js.append(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".labels(%s)", labels));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLabels(Boolean labels1) {
+    public Circular setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
             this.labels1 = null;
@@ -500,68 +633,22 @@ public class Circular extends VisualBase {
         } else {
             this.labels1 = labels1;
 
-            js.append(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private UiLabelsFactory getMinorLabels;
@@ -576,7 +663,7 @@ public class Circular extends VisualBase {
     private String minorLabels;
     private Boolean minorLabels1;
 
-    public void setMinorlabels(String minorLabels) {
+    public Circular setMinorLabels(String minorLabels) {
         if (jsBase == null) {
             this.minorLabels = null;
             this.minorLabels1 = null;
@@ -585,17 +672,26 @@ public class Circular extends VisualBase {
         } else {
             this.minorLabels = minorLabels;
 
-            js.append(String.format(Locale.US, jsBase + ".minorLabels(%s);", minorLabels));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%s);", minorLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", minorLabels));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinorlabels(Boolean minorLabels1) {
+    public Circular setMinorLabels(Boolean minorLabels1) {
         if (jsBase == null) {
             this.minorLabels = null;
             this.minorLabels1 = null;
@@ -604,13 +700,22 @@ public class Circular extends VisualBase {
         } else {
             this.minorLabels1 = minorLabels1;
 
-            js.append(String.format(Locale.US, jsBase + ".minorLabels(%b);", minorLabels1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%b);", minorLabels1));
+                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private CircularTicks getMinorTicks;
@@ -625,7 +730,7 @@ public class Circular extends VisualBase {
     private String minorTicks;
     private Boolean minorTicks1;
 
-    public void setMinorticks(String minorTicks) {
+    public Circular setMinorTicks(String minorTicks) {
         if (jsBase == null) {
             this.minorTicks = null;
             this.minorTicks1 = null;
@@ -634,17 +739,26 @@ public class Circular extends VisualBase {
         } else {
             this.minorTicks = minorTicks;
 
-            js.append(String.format(Locale.US, jsBase + ".minorTicks(%s);", minorTicks));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", minorTicks));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", minorTicks));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinorticks(Boolean minorTicks1) {
+    public Circular setMinorTicks(Boolean minorTicks1) {
         if (jsBase == null) {
             this.minorTicks = null;
             this.minorTicks1 = null;
@@ -653,20 +767,29 @@ public class Circular extends VisualBase {
         } else {
             this.minorTicks1 = minorTicks1;
 
-            js.append(String.format(Locale.US, jsBase + ".minorTicks(%b);", minorTicks1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%b);", minorTicks1));
+                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
     private Boolean overlapMode2;
 
-    public void setOverlapmode(LabelsOverlapMode overlapMode) {
+    public Circular setOverlapMode(LabelsOverlapMode overlapMode) {
         if (jsBase == null) {
             this.overlapMode = null;
             this.overlapMode1 = null;
@@ -676,17 +799,26 @@ public class Circular extends VisualBase {
         } else {
             this.overlapMode = overlapMode;
 
-            js.append(String.format(Locale.US, jsBase + ".overlapMode(%s);", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", (overlapMode != null) ? overlapMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", (overlapMode != null) ? overlapMode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setOverlapmode(String overlapMode1) {
+    public Circular setOverlapMode(String overlapMode1) {
         if (jsBase == null) {
             this.overlapMode = null;
             this.overlapMode1 = null;
@@ -696,17 +828,26 @@ public class Circular extends VisualBase {
         } else {
             this.overlapMode1 = overlapMode1;
 
-            js.append(String.format(Locale.US, jsBase + ".overlapMode(%s);", overlapMode1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", overlapMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setOverlapmode(Boolean overlapMode2) {
+    public Circular setOverlapMode(Boolean overlapMode2) {
         if (jsBase == null) {
             this.overlapMode = null;
             this.overlapMode1 = null;
@@ -716,64 +857,28 @@ public class Circular extends VisualBase {
         } else {
             this.overlapMode2 = overlapMode2;
 
-            js.append(String.format(Locale.US, jsBase + ".overlapMode(%b);", overlapMode2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%b);", overlapMode2));
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
                 js.setLength(0);
             }
         }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double radius;
     private String radius1;
 
-    public void setRadius(Double radius) {
+    public Circular setRadius(Double radius) {
         if (jsBase == null) {
             this.radius = null;
             this.radius1 = null;
@@ -782,17 +887,26 @@ public class Circular extends VisualBase {
         } else {
             this.radius = radius;
 
-            js.append(String.format(Locale.US, jsBase + ".radius(%f);", radius));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".radius(%f)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
+                onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRadius(String radius1) {
+    public Circular setRadius(String radius1) {
         if (jsBase == null) {
             this.radius = null;
             this.radius1 = null;
@@ -801,34 +915,22 @@ public class Circular extends VisualBase {
         } else {
             this.radius1 = radius1;
 
-            js.append(String.format(Locale.US, jsBase + ".radius(%s);", radius1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".radius(%s)", radius1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%s);", radius1));
+                onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", radius1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private ScalesLinear getScale;
@@ -842,96 +944,98 @@ public class Circular extends VisualBase {
 
     private GaugeScaleTypes scale;
     private ScalesLinear scale1;
-    private Logarithmic scale2;
-    private String scale3;
+    private String scale2;
 
-    public void setScale(GaugeScaleTypes scale) {
+    public Circular setScale(GaugeScaleTypes scale) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
-            this.scale3 = null;
             
             this.scale = scale;
         } else {
             this.scale = scale;
 
-            js.append(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setScale(ScalesLinear scale1) {
+    public Circular setScale(ScalesLinear scale1) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
-            this.scale3 = null;
             
             this.scale1 = scale1;
         } else {
             this.scale1 = scale1;
 
-            js.append(String.format(Locale.US, jsBase + ".scale(%s);", (scale1 != null) ? scale1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scale(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", (scale1 != null) ? scale1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setScale(Logarithmic scale2) {
+    public Circular setScale(String scale2) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
-            this.scale3 = null;
             
             this.scale2 = scale2;
         } else {
             this.scale2 = scale2;
 
-            js.append(String.format(Locale.US, jsBase + ".scale(%s);", (scale2 != null) ? scale2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".scale(%s)", scale2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", (scale2 != null) ? scale2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale2));
                 js.setLength(0);
             }
         }
-    }
-
-
-    public void setScale(String scale3) {
-        if (jsBase == null) {
-            this.scale = null;
-            this.scale1 = null;
-            this.scale2 = null;
-            this.scale3 = null;
-            
-            this.scale3 = scale3;
-        } else {
-            this.scale3 = scale3;
-
-            js.append(String.format(Locale.US, jsBase + ".scale(%s);", scale3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", scale3));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String startAngle;
     private Double startAngle1;
 
-    public void setStartangle(String startAngle) {
+    public Circular setStartAngle(String startAngle) {
         if (jsBase == null) {
             this.startAngle = null;
             this.startAngle1 = null;
@@ -940,17 +1044,26 @@ public class Circular extends VisualBase {
         } else {
             this.startAngle = startAngle;
 
-            js.append(String.format(Locale.US, jsBase + ".startAngle(%s);", startAngle));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".startAngle(%s)", startAngle));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%s);", startAngle));
+                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStartangle(Double startAngle1) {
+    public Circular setStartAngle(Double startAngle1) {
         if (jsBase == null) {
             this.startAngle = null;
             this.startAngle1 = null;
@@ -959,19 +1072,28 @@ public class Circular extends VisualBase {
         } else {
             this.startAngle1 = startAngle1;
 
-            js.append(String.format(Locale.US, jsBase + ".startAngle(%f);", startAngle1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%f);", startAngle1));
+                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String sweepAngle;
     private Double sweepAngle1;
 
-    public void setSweepangle(String sweepAngle) {
+    public Circular setSweepAngle(String sweepAngle) {
         if (jsBase == null) {
             this.sweepAngle = null;
             this.sweepAngle1 = null;
@@ -980,17 +1102,26 @@ public class Circular extends VisualBase {
         } else {
             this.sweepAngle = sweepAngle;
 
-            js.append(String.format(Locale.US, jsBase + ".sweepAngle(%s);", sweepAngle));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sweepAngle(%s);", sweepAngle));
+                onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSweepangle(Double sweepAngle1) {
+    public Circular setSweepAngle(Double sweepAngle1) {
         if (jsBase == null) {
             this.sweepAngle = null;
             this.sweepAngle1 = null;
@@ -999,13 +1130,22 @@ public class Circular extends VisualBase {
         } else {
             this.sweepAngle1 = sweepAngle1;
 
-            js.append(String.format(Locale.US, jsBase + ".sweepAngle(%f);", sweepAngle1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sweepAngle(%f);", sweepAngle1));
+                onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private CircularTicks getTicks;
@@ -1020,7 +1160,7 @@ public class Circular extends VisualBase {
     private String ticks;
     private Boolean ticks1;
 
-    public void setTicks(String ticks) {
+    public Circular setTicks(String ticks) {
         if (jsBase == null) {
             this.ticks = null;
             this.ticks1 = null;
@@ -1029,17 +1169,26 @@ public class Circular extends VisualBase {
         } else {
             this.ticks = ticks;
 
-            js.append(String.format(Locale.US, jsBase + ".ticks(%s);", ticks));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", ticks));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTicks(Boolean ticks1) {
+    public Circular setTicks(Boolean ticks1) {
         if (jsBase == null) {
             this.ticks = null;
             this.ticks1 = null;
@@ -1048,72 +1197,28 @@ public class Circular extends VisualBase {
         } else {
             this.ticks1 = ticks1;
 
-            js.append(String.format(Locale.US, jsBase + ".ticks(%b);", ticks1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%b);", ticks1));
+                onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double width;
     private String width1;
 
-    public void setWidth(Double width) {
+    public Circular setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1122,17 +1227,26 @@ public class Circular extends VisualBase {
         } else {
             this.width = width;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(String width1) {
+    public Circular setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1141,30 +1255,22 @@ public class Circular extends VisualBase {
         } else {
             this.width1 = width1;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%s)", width1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double zIndex;
-
-    public void setZindex(Double zIndex) {
-        if (jsBase == null) {
-            this.zIndex = zIndex;
-        } else {
-            this.zIndex = zIndex;
-
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSgetLabels() {
@@ -1226,13 +1332,6 @@ public class Circular extends VisualBase {
     private String generateJSdrawLastLabel() {
         if (drawLastLabel != null) {
             return String.format(Locale.US, "drawLastLabel: %b,", drawLastLabel);
-        }
-        return "";
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
         }
         return "";
     }
@@ -1391,48 +1490,6 @@ public class Circular extends VisualBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
     private String generateJSminorLabels() {
         if (minorLabels != null) {
             return String.format(Locale.US, "minorLabels: %s,", minorLabels);
@@ -1482,27 +1539,6 @@ public class Circular extends VisualBase {
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
     private String generateJSradius() {
         if (radius != null) {
             return String.format(Locale.US, "radius: %f,", radius);
@@ -1513,13 +1549,6 @@ public class Circular extends VisualBase {
     private String generateJSradius1() {
         if (radius1 != null) {
             return String.format(Locale.US, "radius: %s,", radius1);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -1540,14 +1569,7 @@ public class Circular extends VisualBase {
 
     private String generateJSscale2() {
         if (scale2 != null) {
-            return String.format(Locale.US, "scale: %s,", (scale2 != null) ? scale2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSscale3() {
-        if (scale3 != null) {
-            return String.format(Locale.US, "scale: %s,", scale3);
+            return String.format(Locale.US, "scale: %s,", scale2);
         }
         return "";
     }
@@ -1594,34 +1616,6 @@ public class Circular extends VisualBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
     private String generateJSwidth() {
         if (width != null) {
             return String.format(Locale.US, "width: %f,", width);
@@ -1636,23 +1630,35 @@ public class Circular extends VisualBase {
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
-        }
-        return "";
-    }
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetLabels());
+        jsGetters.append(generateJSgetMinorLabels());
+        jsGetters.append(generateJSgetMinorTicks());
+        jsGetters.append(generateJSgetScale());
+        jsGetters.append(generateJSgetTicks());
+
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJScornersRounding());
             js.append(generateJScornersRounding1());
             js.append(generateJSdrawFirstLabel());
             js.append(generateJSdrawLastLabel());
-            js.append(generateJSenabled());
             js.append(generateJSfill());
             js.append(generateJSfill1());
             js.append(generateJScolor());
@@ -1675,12 +1681,6 @@ public class Circular extends VisualBase {
             js.append(generateJSimageSettings());
             js.append(generateJSlabels());
             js.append(generateJSlabels1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSminorLabels());
             js.append(generateJSminorLabels1());
             js.append(generateJSminorTicks());
@@ -1688,36 +1688,23 @@ public class Circular extends VisualBase {
             js.append(generateJSoverlapMode());
             js.append(generateJSoverlapMode1());
             js.append(generateJSoverlapMode2());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
             js.append(generateJSradius());
             js.append(generateJSradius1());
-            js.append(generateJStype2());
             js.append(generateJSscale());
             js.append(generateJSscale1());
             js.append(generateJSscale2());
-            js.append(generateJSscale3());
             js.append(generateJSstartAngle());
             js.append(generateJSstartAngle1());
             js.append(generateJSsweepAngle());
             js.append(generateJSsweepAngle1());
             js.append(generateJSticks());
             js.append(generateJSticks1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append(generateJSwidth());
             js.append(generateJSwidth1());
-            js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetLabels());
-            js.append(generateJSgetMinorLabels());
-            js.append(generateJSgetMinorTicks());
-            js.append(generateJSgetScale());
-            js.append(generateJSgetTicks());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

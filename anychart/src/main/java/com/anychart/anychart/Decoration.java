@@ -5,7 +5,7 @@ import java.util.Locale;
 public enum Decoration implements JsObject.JsObjectInterface {
     BLINK("blink"),
     LINE_THROUGH("line-through"),
-    NONE("one"),
+    NONE("none"),
     OVERLINE("overline"),
     UNDERLINE("underline");
 

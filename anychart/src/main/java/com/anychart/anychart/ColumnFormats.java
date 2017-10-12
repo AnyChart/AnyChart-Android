@@ -3,14 +3,14 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum ColumnFormats implements JsObject.JsObjectInterface {
-    DATE_COMMON_LOG("dateCommonLog"),
-    DATE_DMY_DOTS("dateDmyDots"),
-    DATE_ISO_8601("dateIso8601"),
-    DATE_US_SHORT("dateUsShort"),
-    DIRECT_NUMBERING("directNumbering"),
+    DATE_COMMON_LOG("date-common-log"),
+    DATE_DMY_DOTS("date-dmy-dots"),
+    DATE_ISO_8601("date-iso-8601"),
+    DATE_US_SHORT("date-us-short"),
+    DIRECT_NUMBERING("direct-numbering"),
     FINANCIAL("financial"),
     PERCENT("percent"),
-    SHORT_TEXT("shortText"),
+    SHORT_TEXT("short-text"),
     TEXT("text");
 
     private final String value;

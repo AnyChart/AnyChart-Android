@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class DataTable extends CoreBase {
-
-    private String jsBase;
 
     public DataTable() {
 
@@ -16,6 +16,12 @@ public class DataTable extends CoreBase {
         this.jsBase = jsBase;
     }
 
+    protected DataTable(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private String[] rawData;
     private String rawData1;
@@ -23,7 +29,7 @@ public class DataTable extends CoreBase {
     private Double removeFromStart1;
     private String csvSettings;
 
-    public void setAdddata(String[] rawData, Boolean removeFromStart, String csvSettings) {
+    public DataTable setAddData(String[] rawData, Boolean removeFromStart, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -39,17 +45,26 @@ public class DataTable extends CoreBase {
             this.removeFromStart = removeFromStart;
             this.csvSettings = csvSettings;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %b, %s);", Arrays.toString(rawData), removeFromStart, csvSettings));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", Arrays.toString(rawData), removeFromStart, csvSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %b, %s);", Arrays.toString(rawData), removeFromStart, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", Arrays.toString(rawData), removeFromStart, csvSettings));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdddata(String[] rawData, Double removeFromStart1, String csvSettings) {
+    public DataTable setAddData(String[] rawData, Double removeFromStart1, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -65,17 +80,26 @@ public class DataTable extends CoreBase {
             this.removeFromStart1 = removeFromStart1;
             this.csvSettings = csvSettings;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %f, %s);", Arrays.toString(rawData), removeFromStart1, csvSettings));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", Arrays.toString(rawData), removeFromStart1, csvSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %f, %s);", Arrays.toString(rawData), removeFromStart1, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", Arrays.toString(rawData), removeFromStart1, csvSettings));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdddata(String rawData1, Boolean removeFromStart, String csvSettings) {
+    public DataTable setAddData(String rawData1, Boolean removeFromStart, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -91,17 +115,26 @@ public class DataTable extends CoreBase {
             this.removeFromStart = removeFromStart;
             this.csvSettings = csvSettings;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %b, %s);", rawData1, removeFromStart, csvSettings));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", rawData1, removeFromStart, csvSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %b, %s);", rawData1, removeFromStart, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", rawData1, removeFromStart, csvSettings));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdddata(String rawData1, Double removeFromStart1, String csvSettings) {
+    public DataTable setAddData(String rawData1, Double removeFromStart1, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -117,19 +150,28 @@ public class DataTable extends CoreBase {
             this.removeFromStart1 = removeFromStart1;
             this.csvSettings = csvSettings;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %f, %s);", rawData1, removeFromStart1, csvSettings));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", rawData1, removeFromStart1, csvSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %f, %s);", rawData1, removeFromStart1, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", rawData1, removeFromStart1, csvSettings));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TableMapping mappingSettingsOrMapping;
     private String mappingSettingsOrMapping1;
 
-    public void setCreatecomputer(TableMapping mappingSettingsOrMapping) {
+    public TableComputer setCreateComputer(TableMapping mappingSettingsOrMapping) {
         if (jsBase == null) {
             this.mappingSettingsOrMapping = null;
             this.mappingSettingsOrMapping1 = null;
@@ -137,18 +179,27 @@ public class DataTable extends CoreBase {
             this.mappingSettingsOrMapping = mappingSettingsOrMapping;
         } else {
             this.mappingSettingsOrMapping = mappingSettingsOrMapping;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".createComputer(%s);", (mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s);", (mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s)", (mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new TableComputer(jsBase);
     }
 
 
-    public void setCreatecomputer(String mappingSettingsOrMapping1) {
+    public TableComputer setCreateComputer(String mappingSettingsOrMapping1) {
         if (jsBase == null) {
             this.mappingSettingsOrMapping = null;
             this.mappingSettingsOrMapping1 = null;
@@ -157,85 +208,48 @@ public class DataTable extends CoreBase {
         } else {
             this.mappingSettingsOrMapping1 = mappingSettingsOrMapping1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".createComputer(%s);", mappingSettingsOrMapping1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s);", mappingSettingsOrMapping1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s)", mappingSettingsOrMapping1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return new TableComputer(jsBase);
     }
 
     private String fields;
 
-    public void setMapas(String fields) {
+    public TableMapping setMapAs(String fields) {
         if (jsBase == null) {
             this.fields = fields;
         } else {
             this.fields = fields;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", fields));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s);", fields));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", fields));
                 js.setLength(0);
             }
         }
+        return new TableMapping(jsBase);
     }
 
     private Double startKey;
@@ -243,7 +257,7 @@ public class DataTable extends CoreBase {
     private Double endKey;
     private String endKey1;
 
-    public void setRemove(Double startKey, Double endKey) {
+    public DataTable setRemove(Double startKey, Double endKey) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -257,17 +271,26 @@ public class DataTable extends CoreBase {
             this.startKey = startKey;
             this.endKey = endKey;
 
-            js.append(String.format(Locale.US, jsBase + ".remove(%f, %f);", startKey, endKey));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f, %f);", startKey, endKey));
+                onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRemove(Double startKey, String endKey1) {
+    public DataTable setRemove(Double startKey, String endKey1) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -281,17 +304,26 @@ public class DataTable extends CoreBase {
             this.startKey = startKey;
             this.endKey1 = endKey1;
 
-            js.append(String.format(Locale.US, jsBase + ".remove(%f, %s);", startKey, endKey1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".remove(%f, %s)", startKey, endKey1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f, %s);", startKey, endKey1));
+                onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %s)", startKey, endKey1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRemove(String startKey1, Double endKey) {
+    public DataTable setRemove(String startKey1, Double endKey) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -305,17 +337,26 @@ public class DataTable extends CoreBase {
             this.startKey1 = startKey1;
             this.endKey = endKey;
 
-            js.append(String.format(Locale.US, jsBase + ".remove(%s, %f);", startKey1, endKey));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".remove(%s, %f)", startKey1, endKey));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %f);", startKey1, endKey));
+                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %f)", startKey1, endKey));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRemove(String startKey1, String endKey1) {
+    public DataTable setRemove(String startKey1, String endKey1) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -329,104 +370,48 @@ public class DataTable extends CoreBase {
             this.startKey1 = startKey1;
             this.endKey1 = endKey1;
 
-            js.append(String.format(Locale.US, jsBase + ".remove(%s, %s);", startKey1, endKey1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".remove(%s, %s)", startKey1, endKey1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %s);", startKey1, endKey1));
+                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %s)", startKey1, endKey1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double count;
 
-    public void setRemovefirst(Double count) {
+    public DataTable setRemoveFirst(Double count) {
         if (jsBase == null) {
             this.count = count;
         } else {
             this.count = count;
 
-            js.append(String.format(Locale.US, jsBase + ".removeFirst(%f);", count));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".removeFirst(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeFirst(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, ".removeFirst(%f)", count));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSrawData() {
@@ -478,48 +463,6 @@ public class DataTable extends CoreBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
     private String generateJSfields() {
         if (fields != null) {
             return String.format(Locale.US, "fields: %s,", fields);
@@ -555,13 +498,6 @@ public class DataTable extends CoreBase {
         return "";
     }
 
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJScount() {
         if (count != null) {
             return String.format(Locale.US, "count: %f,", count);
@@ -569,37 +505,24 @@ public class DataTable extends CoreBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
+    
 
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSrawData());
@@ -609,25 +532,16 @@ public class DataTable extends CoreBase {
             js.append(generateJScsvSettings());
             js.append(generateJSmappingSettingsOrMapping());
             js.append(generateJSmappingSettingsOrMapping1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSfields());
             js.append(generateJSstartKey());
             js.append(generateJSstartKey1());
             js.append(generateJSendKey());
             js.append(generateJSendKey1());
-            js.append(generateJStype2());
             js.append(generateJScount());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

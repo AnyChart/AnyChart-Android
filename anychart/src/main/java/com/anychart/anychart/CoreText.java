@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class CoreText extends VisualBase {
-
-    private String jsBase;
 
     public CoreText() {
 
@@ -16,62 +16,69 @@ public class CoreText extends VisualBase {
         this.jsBase = jsBase;
     }
 
+    protected CoreText(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Boolean disablePointerEvents;
 
-    public void setDisablepointerevents(Boolean disablePointerEvents) {
+    public CoreText setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
 
-            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String fontColor;
 
-    public void setFontcolor(String fontColor) {
+    public CoreText setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
 
-            js.append(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontColor(%s)", fontColor));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+                onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", fontColor));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
 
-    public void setFontdecoration(Decoration fontDecoration) {
+    public CoreText setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -80,17 +87,26 @@ public class CoreText extends VisualBase {
         } else {
             this.fontDecoration = fontDecoration;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontdecoration(String fontDecoration1) {
+    public CoreText setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -99,53 +115,80 @@ public class CoreText extends VisualBase {
         } else {
             this.fontDecoration1 = fontDecoration1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontFamily;
 
-    public void setFontfamily(String fontFamily) {
+    public CoreText setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
 
-            js.append(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+                onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double fontOpacity;
 
-    public void setFontopacity(Double fontOpacity) {
+    public CoreText setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontSize;
     private Double fontSize1;
 
-    public void setFontsize(String fontSize) {
+    public CoreText setFontSize(String fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -154,17 +197,26 @@ public class CoreText extends VisualBase {
         } else {
             this.fontSize = fontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", fontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontsize(Double fontSize1) {
+    public CoreText setFontSize(Double fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -173,19 +225,28 @@ public class CoreText extends VisualBase {
         } else {
             this.fontSize1 = fontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
-    public void setFontstyle(TextFontStyle fontStyle) {
+    public CoreText setFontStyle(TextFontStyle fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -194,17 +255,26 @@ public class CoreText extends VisualBase {
         } else {
             this.fontStyle = fontStyle;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", (fontStyle != null) ? fontStyle.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", (fontStyle != null) ? fontStyle.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontstyle(String fontStyle1) {
+    public CoreText setFontStyle(String fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -213,19 +283,28 @@ public class CoreText extends VisualBase {
         } else {
             this.fontStyle1 = fontStyle1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", fontStyle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", fontStyle1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
-    public void setFontvariant(TextFontVariant fontVariant) {
+    public CoreText setFontVariant(TextFontVariant fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -234,17 +313,26 @@ public class CoreText extends VisualBase {
         } else {
             this.fontVariant = fontVariant;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", (fontVariant != null) ? fontVariant.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", (fontVariant != null) ? fontVariant.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontvariant(String fontVariant1) {
+    public CoreText setFontVariant(String fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -253,19 +341,28 @@ public class CoreText extends VisualBase {
         } else {
             this.fontVariant1 = fontVariant1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", fontVariant1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", fontVariant1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontWeight;
     private Double fontWeight1;
 
-    public void setFontweight(String fontWeight) {
+    public CoreText setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -274,17 +371,26 @@ public class CoreText extends VisualBase {
         } else {
             this.fontWeight = fontWeight;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontweight(Double fontWeight1) {
+    public CoreText setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -293,19 +399,28 @@ public class CoreText extends VisualBase {
         } else {
             this.fontWeight1 = fontWeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextHAlign hAlign;
     private String hAlign1;
 
-    public void setHalign(TextHAlign hAlign) {
+    public CoreText setHAlign(TextHAlign hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -314,17 +429,26 @@ public class CoreText extends VisualBase {
         } else {
             this.hAlign = hAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", (hAlign != null) ? hAlign.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", (hAlign != null) ? hAlign.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHalign(String hAlign1) {
+    public CoreText setHAlign(String hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -333,19 +457,28 @@ public class CoreText extends VisualBase {
         } else {
             this.hAlign1 = hAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", hAlign1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", hAlign1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String letterSpacing;
     private Double letterSpacing1;
 
-    public void setLetterspacing(String letterSpacing) {
+    public CoreText setLetterSpacing(String letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -354,17 +487,26 @@ public class CoreText extends VisualBase {
         } else {
             this.letterSpacing = letterSpacing;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLetterspacing(Double letterSpacing1) {
+    public CoreText setLetterSpacing(Double letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -373,19 +515,28 @@ public class CoreText extends VisualBase {
         } else {
             this.letterSpacing1 = letterSpacing1;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String lineHeight;
     private Double lineHeight1;
 
-    public void setLineheight(String lineHeight) {
+    public CoreText setLineHeight(String lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -394,17 +545,26 @@ public class CoreText extends VisualBase {
         } else {
             this.lineHeight = lineHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLineheight(Double lineHeight1) {
+    public CoreText setLineHeight(Double lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -413,157 +573,54 @@ public class CoreText extends VisualBase {
         } else {
             this.lineHeight1 = lineHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean selectable;
 
-    public void setSelectable(Boolean selectable) {
+    public CoreText setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
 
-            js.append(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+                onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Direction textDirection;
     private String textDirection1;
 
-    public void setTextdirection(Direction textDirection) {
+    public CoreText setTextDirection(Direction textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -572,17 +629,26 @@ public class CoreText extends VisualBase {
         } else {
             this.textDirection = textDirection;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", (textDirection != null) ? textDirection.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", (textDirection != null) ? textDirection.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextdirection(String textDirection1) {
+    public CoreText setTextDirection(String textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -591,36 +657,54 @@ public class CoreText extends VisualBase {
         } else {
             this.textDirection1 = textDirection1;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", textDirection1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", textDirection1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double textIndent;
 
-    public void setTextindent(Double textIndent) {
+    public CoreText setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
 
-            js.append(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
 
-    public void setTextoverflow(TextOverflow textOverflow) {
+    public CoreText setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -629,17 +713,26 @@ public class CoreText extends VisualBase {
         } else {
             this.textOverflow = textOverflow;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextoverflow(String textOverflow1) {
+    public CoreText setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -648,27 +741,44 @@ public class CoreText extends VisualBase {
         } else {
             this.textOverflow1 = textOverflow1;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String name;
 
-    public void setTextsettings(String name) {
+    public void setTextSettings(String name) {
         if (jsBase == null) {
             this.name = name;
         } else {
             this.name = name;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".textSettings(%s);", name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s);", name));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s)", name));
                 js.setLength(0);
             }
         }
@@ -680,7 +790,7 @@ public class CoreText extends VisualBase {
     private Double textSettings1;
     private Boolean textSettings2;
 
-    public void setTextsettings(String textSettings, String name1) {
+    public CoreText setTextSettings(String textSettings, String name1) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
@@ -695,17 +805,26 @@ public class CoreText extends VisualBase {
             this.textSettings = textSettings;
             this.name1 = name1;
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings, name1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textSettings(%s, %s)", textSettings, name1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings, name1));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", textSettings, name1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextsettings(Double textSettings1, String name1) {
+    public CoreText setTextSettings(Double textSettings1, String name1) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
@@ -720,17 +839,26 @@ public class CoreText extends VisualBase {
             this.textSettings1 = textSettings1;
             this.name1 = name1;
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings1, name1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, name1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings1, name1));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, name1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextsettings(Boolean textSettings2, String name1) {
+    public CoreText setTextSettings(Boolean textSettings2, String name1) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
@@ -745,129 +873,54 @@ public class CoreText extends VisualBase {
             this.textSettings2 = textSettings2;
             this.name1 = name1;
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings2, name1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, name1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings2, name1));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, name1));
                 js.setLength(0);
             }
         }
-    }
-
-    private TextTextWrap textWrap;
-    private String textWrap1;
-
-    public void setTextwrap(TextTextWrap textWrap) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap = textWrap;
-        } else {
-            this.textWrap = textWrap;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTextwrap(String textWrap1) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap1 = textWrap1;
-        } else {
-            this.textWrap1 = textWrap1;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean useHtml;
 
-    public void setUsehtml(Boolean useHtml) {
+    public CoreText setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
 
-            js.append(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+                onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextVAlign vAlign;
     private String vAlign1;
 
-    public void setValign(TextVAlign vAlign) {
+    public CoreText setVAlign(TextVAlign vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -876,17 +929,26 @@ public class CoreText extends VisualBase {
         } else {
             this.vAlign = vAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", (vAlign != null) ? vAlign.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", (vAlign != null) ? vAlign.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setValign(String vAlign1) {
+    public CoreText setVAlign(String vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -895,42 +957,143 @@ public class CoreText extends VisualBase {
         } else {
             this.vAlign1 = vAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", vAlign1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", vAlign1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double zIndex;
+    private String wordBreak;
+    private EnumsWordBreak wordBreak1;
 
-    public void setZindex(Double zIndex) {
+    public CoreText setWordBreak(String wordBreak) {
         if (jsBase == null) {
-            this.zIndex = zIndex;
+            this.wordBreak = null;
+            this.wordBreak1 = null;
+            
+            this.wordBreak = wordBreak;
         } else {
-            this.zIndex = zIndex;
+            this.wordBreak = wordBreak;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+
+    public CoreText setWordBreak(EnumsWordBreak wordBreak1) {
+        if (jsBase == null) {
+            this.wordBreak = null;
+            this.wordBreak1 = null;
+            
+            this.wordBreak1 = wordBreak1;
+        } else {
+            this.wordBreak1 = wordBreak1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String wordWrap;
+    private EnumsWordWrap wordWrap1;
+
+    public CoreText setWordWrap(String wordWrap) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap = wordWrap;
+        } else {
+            this.wordWrap = wordWrap;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public CoreText setWordWrap(EnumsWordWrap wordWrap1) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap1 = wordWrap1;
+        } else {
+            this.wordWrap1 = wordWrap1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private String generateJSdisablePointerEvents() {
         if (disablePointerEvents != null) {
             return String.format(Locale.US, "disablePointerEvents: %b,", disablePointerEvents);
-        }
-        return "";
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
         }
         return "";
     }
@@ -1068,76 +1231,6 @@ public class CoreText extends VisualBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJSselectable() {
         if (selectable != null) {
             return String.format(Locale.US, "selectable: %b,", selectable);
@@ -1222,48 +1315,6 @@ public class CoreText extends VisualBase {
         return "";
     }
 
-    private String generateJStextWrap() {
-        if (textWrap != null) {
-            return String.format(Locale.US, "textWrap: %s,", (textWrap != null) ? textWrap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStextWrap1() {
-        if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: %s,", textWrap1);
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
     private String generateJSuseHtml() {
         if (useHtml != null) {
             return String.format(Locale.US, "useHtml: %b,", useHtml);
@@ -1285,20 +1336,55 @@ public class CoreText extends VisualBase {
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
+    private String generateJSwordBreak() {
+        if (wordBreak != null) {
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
+        }
+        return "";
+    }
+
+    private String generateJSwordBreak1() {
+        if (wordBreak1 != null) {
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSwordWrap() {
+        if (wordWrap != null) {
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
+        }
+        return "";
+    }
+
+    private String generateJSwordWrap1() {
+        if (wordWrap1 != null) {
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
         }
         return "";
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdisablePointerEvents());
-            js.append(generateJSenabled());
             js.append(generateJSfontColor());
             js.append(generateJSfontDecoration());
             js.append(generateJSfontDecoration1());
@@ -1318,16 +1404,6 @@ public class CoreText extends VisualBase {
             js.append(generateJSletterSpacing1());
             js.append(generateJSlineHeight());
             js.append(generateJSlineHeight1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
             js.append(generateJSselectable());
             js.append(generateJStextDirection());
             js.append(generateJStextDirection1());
@@ -1340,18 +1416,17 @@ public class CoreText extends VisualBase {
             js.append(generateJStextSettings());
             js.append(generateJStextSettings1());
             js.append(generateJStextSettings2());
-            js.append(generateJStextWrap());
-            js.append(generateJStextWrap1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append(generateJSuseHtml());
             js.append(generateJSvAlign());
             js.append(generateJSvAlign1());
-            js.append(generateJSzIndex());
+            js.append(generateJSwordBreak());
+            js.append(generateJSwordBreak1());
+            js.append(generateJSwordWrap());
+            js.append(generateJSwordWrap1());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

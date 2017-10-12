@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class ADL extends JsObject {
-
-    private String jsBase;
 
     public ADL() {
 
@@ -14,6 +14,12 @@ public class ADL extends JsObject {
 
     protected ADL(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected ADL(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -28,19 +34,28 @@ public class ADL extends JsObject {
 
     private StockSeriesType type;
 
-    public void setSeries(StockSeriesType type) {
+    public ADL setSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = type;
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetSeries() {
@@ -58,14 +73,31 @@ public class ADL extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJStype());
             js.append("}");
         }
-            js.append(generateJSgetSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

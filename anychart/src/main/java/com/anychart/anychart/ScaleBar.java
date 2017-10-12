@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class ScaleBar extends VisualBase {
-
-    private String jsBase;
 
     public ScaleBar() {
 
@@ -14,6 +14,12 @@ public class ScaleBar extends VisualBase {
 
     protected ScaleBar(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected ScaleBar(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -28,65 +34,163 @@ public class ScaleBar extends VisualBase {
 
     private LinearColor colorScale;
     private OrdinalColor colorScale1;
+    private String colorScale2;
+    private ScaleTypes colorScale3;
+    private String colorScale4;
 
-    public void setColorscale(LinearColor colorScale) {
+    public ScaleBar setColorScale(LinearColor colorScale) {
         if (jsBase == null) {
             this.colorScale = null;
             this.colorScale1 = null;
+            this.colorScale2 = null;
+            this.colorScale3 = null;
+            this.colorScale4 = null;
             
             this.colorScale = colorScale;
         } else {
             this.colorScale = colorScale;
 
-            js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", (colorScale != null) ? colorScale.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s);", (colorScale != null) ? colorScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale != null) ? colorScale.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setColorscale(OrdinalColor colorScale1) {
+    public ScaleBar setColorScale(OrdinalColor colorScale1) {
         if (jsBase == null) {
             this.colorScale = null;
             this.colorScale1 = null;
+            this.colorScale2 = null;
+            this.colorScale3 = null;
+            this.colorScale4 = null;
             
             this.colorScale1 = colorScale1;
         } else {
             this.colorScale1 = colorScale1;
 
-            js.append(String.format(Locale.US, jsBase + ".colorScale(%s);", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s);", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale1 != null) ? colorScale1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+
+    public ScaleBar setColorScale(String colorScale2) {
+        if (jsBase == null) {
+            this.colorScale = null;
+            this.colorScale1 = null;
+            this.colorScale2 = null;
+            this.colorScale3 = null;
+            this.colorScale4 = null;
+            
+            this.colorScale2 = colorScale2;
+        } else {
+            this.colorScale2 = colorScale2;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colorScale(%s)", colorScale2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", colorScale2));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public ScaleBar setColorScale(ScaleTypes colorScale3) {
+        if (jsBase == null) {
+            this.colorScale = null;
+            this.colorScale1 = null;
+            this.colorScale2 = null;
+            this.colorScale3 = null;
+            this.colorScale4 = null;
+            
+            this.colorScale3 = colorScale3;
+        } else {
+            this.colorScale3 = colorScale3;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colorScale(%s)", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", (colorScale3 != null) ? colorScale3.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private Fill fill;
 
-    public void setFill(Fill fill) {
+    public ScaleBar setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
         } else {
             this.fill = fill;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color;
     private Double opacity;
 
-    public void setFill(String color, Double opacity) {
+    public ScaleBar setFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -94,13 +198,22 @@ public class ScaleBar extends VisualBase {
             this.color = color;
             this.opacity = opacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys;
@@ -111,7 +224,7 @@ public class ScaleBar extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public ScaleBar setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -133,17 +246,26 @@ public class ScaleBar extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public ScaleBar setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -165,17 +287,26 @@ public class ScaleBar extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public ScaleBar setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -197,17 +328,26 @@ public class ScaleBar extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public ScaleBar setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -229,17 +369,26 @@ public class ScaleBar extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public ScaleBar setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -261,17 +410,26 @@ public class ScaleBar extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public ScaleBar setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -293,13 +451,22 @@ public class ScaleBar extends VisualBase {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys2;
@@ -311,7 +478,7 @@ public class ScaleBar extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScaleBar setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -343,17 +510,26 @@ public class ScaleBar extends VisualBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScaleBar setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -385,20 +561,29 @@ public class ScaleBar extends VisualBase {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings;
     private String from;
     private Double from1;
 
-    public void setFrom(String from) {
+    public ScaleBar setFrom(String from) {
         if (jsBase == null) {
             this.from = null;
             this.from1 = null;
@@ -407,17 +592,26 @@ public class ScaleBar extends VisualBase {
         } else {
             this.from = from;
 
-            js.append(String.format(Locale.US, jsBase + ".from(%s);", from));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".from(%s)", from));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%s);", from));
+                onChangeListener.onChange(String.format(Locale.US, ".from(%s)", from));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFrom(Double from1) {
+    public ScaleBar setFrom(Double from1) {
         if (jsBase == null) {
             this.from = null;
             this.from1 = null;
@@ -426,47 +620,74 @@ public class ScaleBar extends VisualBase {
         } else {
             this.from1 = from1;
 
-            js.append(String.format(Locale.US, jsBase + ".from(%f);", from1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".from(%f)", from1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%f);", from1));
+                onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String offset;
 
-    public void setOffset(String offset) {
+    public ScaleBar setOffset(String offset) {
         if (jsBase == null) {
             this.offset = offset;
         } else {
             this.offset = offset;
 
-            js.append(String.format(Locale.US, jsBase + ".offset(%s);", offset));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".offset(%s)", offset));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offset(%s);", offset));
+                onChangeListener.onChange(String.format(Locale.US, ".offset(%s)", offset));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private ControlPoint[] points;
 
-    public void setPoints(ControlPoint[] points) {
+    public ScaleBar setPoints(ControlPoint[] points) {
         if (jsBase == null) {
             this.points = points;
         } else {
             this.points = points;
 
-            js.append(String.format(Locale.US, jsBase + ".points(%s);", arrayToString(points)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".points(%s)", arrayToString(points)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".points(%s);", arrayToString(points)));
+                onChangeListener.onChange(String.format(Locale.US, ".points(%s)", arrayToString(points)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private ScalesBase getScale;
@@ -480,19 +701,28 @@ public class ScaleBar extends VisualBase {
 
     private ScalesBase scale;
 
-    public void setScale(ScalesBase scale) {
+    public ScalesBase setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = scale;
         } else {
             this.scale = scale;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new ScalesBase(jsBase);
     }
 
     private Stroke color1;
@@ -503,7 +733,7 @@ public class ScaleBar extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public void setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScaleBar setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -522,17 +752,26 @@ public class ScaleBar extends VisualBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScaleBar setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -551,17 +790,26 @@ public class ScaleBar extends VisualBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScaleBar setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -580,19 +828,28 @@ public class ScaleBar extends VisualBase {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String to;
     private Double to1;
 
-    public void setTo(String to) {
+    public ScaleBar setTo(String to) {
         if (jsBase == null) {
             this.to = null;
             this.to1 = null;
@@ -601,17 +858,26 @@ public class ScaleBar extends VisualBase {
         } else {
             this.to = to;
 
-            js.append(String.format(Locale.US, jsBase + ".to(%s);", to));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".to(%s)", to));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%s);", to));
+                onChangeListener.onChange(String.format(Locale.US, ".to(%s)", to));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTo(Double to1) {
+    public ScaleBar setTo(Double to1) {
         if (jsBase == null) {
             this.to = null;
             this.to1 = null;
@@ -620,30 +886,48 @@ public class ScaleBar extends VisualBase {
         } else {
             this.to1 = to1;
 
-            js.append(String.format(Locale.US, jsBase + ".to(%f);", to1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".to(%f)", to1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%f);", to1));
+                onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String width;
 
-    public void setWidth(String width) {
+    public ScaleBar setWidth(String width) {
         if (jsBase == null) {
             this.width = width;
         } else {
             this.width = width;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetColorScale() {
@@ -670,6 +954,27 @@ public class ScaleBar extends VisualBase {
     private String generateJScolorScale1() {
         if (colorScale1 != null) {
             return String.format(Locale.US, "colorScale: %s,", (colorScale1 != null) ? colorScale1.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJScolorScale2() {
+        if (colorScale2 != null) {
+            return String.format(Locale.US, "colorScale: %s,", colorScale2);
+        }
+        return "";
+    }
+
+    private String generateJScolorScale3() {
+        if (colorScale3 != null) {
+            return String.format(Locale.US, "colorScale: %s,", (colorScale3 != null) ? colorScale3.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJScolorScale4() {
+        if (colorScale4 != null) {
+            return String.format(Locale.US, "colorScale: %s,", colorScale4);
         }
         return "";
     }
@@ -913,12 +1218,32 @@ public class ScaleBar extends VisualBase {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetColorScale());
+        jsGetters.append(generateJSgetScale());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJScolorScale());
             js.append(generateJScolorScale1());
+            js.append(generateJScolorScale2());
+            js.append(generateJScolorScale3());
+            js.append(generateJScolorScale4());
             js.append(generateJSfill());
             js.append(generateJScolor());
             js.append(generateJSopacity());
@@ -955,8 +1280,8 @@ public class ScaleBar extends VisualBase {
             js.append(generateJSwidth());
             js.append("}");
         }
-            js.append(generateJSgetColorScale());
-            js.append(generateJSgetScale());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

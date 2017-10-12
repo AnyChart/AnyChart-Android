@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum StockRangeAnchor implements JsObject.JsObjectInterface {
-    FIRST_DATE("firstDate"),
-    FIRST_VISIBLE_DATE("firstVisibleDate"),
-    LAST_DATE("lastDate"),
-    LAST_VISIBLE_DATE("lastVisibleDate");
+    FIRST_DATE("first-date"),
+    FIRST_VISIBLE_DATE("first-visible-date"),
+    LAST_DATE("last-date"),
+    LAST_VISIBLE_DATE("last-visible-date");
 
     private final String value;
 

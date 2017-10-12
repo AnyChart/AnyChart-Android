@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Iterator extends JsObject {
-
-    private String jsBase;
 
     public Iterator() {
 
@@ -14,6 +14,12 @@ public class Iterator extends JsObject {
 
     protected Iterator(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected Iterator(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -25,10 +31,18 @@ public class Iterator extends JsObject {
         } else {
             this.fieldName = fieldName;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".get(%s);", fieldName));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s);", fieldName));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", fieldName));
                 js.setLength(0);
             }
         }
@@ -42,10 +56,18 @@ public class Iterator extends JsObject {
         } else {
             this.name = name;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".meta(%s);", name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s);", name));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", name));
                 js.setLength(0);
             }
         }
@@ -60,10 +82,18 @@ public class Iterator extends JsObject {
         } else {
             this.index = index;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".select(%f);", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f)", index));
                 js.setLength(0);
             }
         }
@@ -98,8 +128,23 @@ public class Iterator extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSfieldName());
@@ -108,6 +153,8 @@ public class Iterator extends JsObject {
             js.append(generateJSindex());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

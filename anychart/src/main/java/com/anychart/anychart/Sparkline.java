@@ -2,545 +2,92 @@ package com.anychart.anychart;
 
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
 public class Sparkline extends Chart {
 
     public Sparkline() {
         js.append("chart = anychart.sparkline();");
+        jsBase = "chart";
     }
 
     
-    private Animation getAnimation;
-
-    public Animation getAnimation() {
-        if (getAnimation == null)
-            getAnimation = new Animation("chart.animation()");
-
-        return getAnimation;
-    }
-
-    private Boolean animation;
-    private String animation1;
-
-    public void setAnimation(Boolean animation) {
-        this.animation = animation;
-
-        js.append(String.format(Locale.US, "chart.animation(%b);", animation));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.animation(%b);", animation));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setAnimation(String animation1) {
-        this.animation1 = animation1;
-
-        js.append(String.format(Locale.US, "chart.animation(%s);", animation1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.animation(%s);", animation1));
-            js.setLength(0);
-        }
-    }
-
-    private Boolean enabled;
-    private Double duration;
-
-    public void setAnimation(Boolean enabled, Double duration) {
-        this.enabled = enabled;
-        this.duration = duration;
-
-        js.append(String.format(Locale.US, "chart.animation(%b, %f);", enabled, duration));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.animation(%b, %f);", enabled, duration));
-            js.setLength(0);
-        }
-    }
-
-    private UiBackground getBackground;
-
-    public UiBackground getBackground() {
-        if (getBackground == null)
-            getBackground = new UiBackground("chart.background()");
-
-        return getBackground;
-    }
-
-    private String background;
-
-    public void setBackground(String background) {
-        this.background = background;
-
-        js.append(String.format(Locale.US, "chart.background(%s);", background));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.background(%s);", background));
-            js.setLength(0);
-        }
-    }
-
-    private Double bottom;
-    private String bottom1;
-
-    public void setBottom(Double bottom) {
-        this.bottom = bottom;
-
-        js.append(String.format(Locale.US, "chart.bottom(%f);", bottom));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bottom(%f);", bottom));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBottom(String bottom1) {
-        this.bottom1 = bottom1;
-
-        js.append(String.format(Locale.US, "chart.bottom(%s);", bottom1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bottom(%s);", bottom1));
-            js.setLength(0);
-        }
-    }
-
-    private Bounds getBounds;
-
-    public Bounds getBounds() {
-        if (getBounds == null)
-            getBounds = new Bounds("chart.bounds()");
-
-        return getBounds;
-    }
-
-    private RectObj bounds;
-    private AnychartMathRect bounds1;
-    private Bounds bounds2;
-
-    public void setBounds(RectObj bounds) {
-        this.bounds = bounds;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(AnychartMathRect bounds1) {
-        this.bounds1 = bounds1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Bounds bounds2) {
-        this.bounds2 = bounds2;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-    private Double x;
-    private String x1;
-    private Double y;
-    private String y1;
-    private Double width;
-    private String width1;
-    private Double height;
-    private String height1;
-
-    public void setBounds(Double x, Double y, Double width, Double height) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %f, %f);", x, y, width, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %f, %f);", x, y, width, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, Double width, String height1) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %f, %s);", x, y, width, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %f, %s);", x, y, width, height1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, Double height) {
-        this.x = x;
-        this.y = y;
-        this.width1 = width1;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %s, %f);", x, y, width1, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %s, %f);", x, y, width1, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, String height1) {
-        this.x = x;
-        this.y = y;
-        this.width1 = width1;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %f, %s, %s);", x, y, width1, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %f, %s, %s);", x, y, width1, height1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, Double height) {
-        this.x = x;
-        this.y1 = y1;
-        this.width = width;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %f, %f);", x, y1, width, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %f, %f);", x, y1, width, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, String height1) {
-        this.x = x;
-        this.y1 = y1;
-        this.width = width;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %f, %s);", x, y1, width, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %f, %s);", x, y1, width, height1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, Double height) {
-        this.x = x;
-        this.y1 = y1;
-        this.width1 = width1;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %s, %f);", x, y1, width1, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %s, %f);", x, y1, width1, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, String height1) {
-        this.x = x;
-        this.y1 = y1;
-        this.width1 = width1;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, Double height) {
-        this.x1 = x1;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %f, %f);", x1, y, width, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %f, %f);", x1, y, width, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, String height1) {
-        this.x1 = x1;
-        this.y = y;
-        this.width = width;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %f, %s);", x1, y, width, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %f, %s);", x1, y, width, height1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, Double height) {
-        this.x1 = x1;
-        this.y = y;
-        this.width1 = width1;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %s, %f);", x1, y, width1, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %s, %f);", x1, y, width1, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, String height1) {
-        this.x1 = x1;
-        this.y = y;
-        this.width1 = width1;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, Double height) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.width = width;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %f, %f);", x1, y1, width, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %f, %f);", x1, y1, width, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, String height1) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.width = width;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, Double height) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.width1 = width1;
-        this.height = height;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, String height1) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.width1 = width1;
-        this.height1 = height1;
-
-        js.append(String.format(Locale.US, "chart.bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-            js.setLength(0);
-        }
-    }
-
     private AnychartMathRect getClip;
 
     public AnychartMathRect getClip() {
         if (getClip == null)
-            getClip = new AnychartMathRect("chart.clip()");
+            getClip = new AnychartMathRect(jsBase + ".clip()");
 
         return getClip;
     }
 
     private AnychartMathRect clip;
+    private List<Sparkline> setClip = new ArrayList<>();
 
-    public void setClip(AnychartMathRect clip) {
+    public Sparkline setClip(AnychartMathRect clip) {
         this.clip = clip;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.clip(%s);", (clip != null) ? clip.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.clip(%s);", (clip != null) ? clip.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", (clip != null) ? clip.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetClip() {
+        if (!setClip.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setClip) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean connectMissingPoints;
+    private List<Sparkline> setConnectMissingPoints = new ArrayList<>();
 
-    public void setConnectmissingpoints(Boolean connectMissingPoints) {
+    public Sparkline setConnectMissingPoints(Boolean connectMissingPoints) {
         this.connectMissingPoints = connectMissingPoints;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
 
-        js.append(String.format(Locale.US, "chart.connectMissingPoints(%b);", connectMissingPoints));
+//        js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.connectMissingPoints(%b);", connectMissingPoints));
+            onChangeListener.onChange(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Layer getContainer;
-
-    public Layer getContainer() {
-        if (getContainer == null)
-            getContainer = new Layer("chart.container()");
-
-        return getContainer;
-    }
-
-    private Layer container;
-    private Stage container1;
-    private String container2;
-    private Element container3;
-
-    public void setContainer(Layer container) {
-        this.container = container;
-
-        js.append(String.format(Locale.US, "chart.container(%s);", (container != null) ? container.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.container(%s);", (container != null) ? container.generateJs() : "null"));
-            js.setLength(0);
+    private String generateJSsetConnectMissingPoints() {
+        if (!setConnectMissingPoints.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setConnectMissingPoints) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setContainer(Stage container1) {
-        this.container1 = container1;
-
-        js.append(String.format(Locale.US, "chart.container(%s);", (container1 != null) ? container1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.container(%s);", (container1 != null) ? container1.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setContainer(String container2) {
-        this.container2 = container2;
-
-        js.append(String.format(Locale.US, "chart.container(%s);", container2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.container(%s);", container2));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setContainer(Element container3) {
-        this.container3 = container3;
-
-        js.append(String.format(Locale.US, "chart.container(%s);", (container3 != null) ? container3.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.container(%s);", (container3 != null) ? container3.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-    private ContextMenu getContextMenu;
-
-    public ContextMenu getContextMenu() {
-        if (getContextMenu == null)
-            getContextMenu = new ContextMenu("chart.contextMenu()");
-
-        return getContextMenu;
-    }
-
-    private String contextMenu;
-    private Boolean contextMenu1;
-
-    public void setContextmenu(String contextMenu) {
-        this.contextMenu = contextMenu;
-
-        js.append(String.format(Locale.US, "chart.contextMenu(%s);", contextMenu));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%s);", contextMenu));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setContextmenu(Boolean contextMenu1) {
-        this.contextMenu1 = contextMenu1;
-
-        js.append(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.contextMenu(%b);", contextMenu1));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private View getData;
 
     public View getData() {
         if (getData == null)
-            getData = new View("chart.data()");
+            getData = new View(jsBase + ".data()");
 
         return getData;
     }
@@ -551,149 +98,306 @@ public class Sparkline extends Chart {
     private String data3;
     private TextParsingMode csvSettings;
     private TextParsingSettings csvSettings1;
+    private List<Sparkline> setData = new ArrayList<>();
 
-    public void setData(View data, TextParsingMode csvSettings) {
+    public Sparkline setData(View data, TextParsingMode csvSettings) {
         this.data = data;
         this.csvSettings = csvSettings;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetData() {
+        if (!setData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setData1 = new ArrayList<>();
 
-    public void setData(View data, TextParsingSettings csvSettings1) {
+    public Sparkline setData(View data, TextParsingSettings csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setData2 = new ArrayList<>();
 
-    public void setData(Set data1, TextParsingMode csvSettings) {
+    public Sparkline setData(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
         this.csvSettings = csvSettings;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setData3 = new ArrayList<>();
 
-    public void setData(Set data1, TextParsingSettings csvSettings1) {
+    public Sparkline setData(Set data1, TextParsingSettings csvSettings1) {
         this.data1 = data1;
         this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetData3() {
+        if (!setData3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setData4 = new ArrayList<>();
 
-    public void setData(String[] data2, TextParsingMode csvSettings) {
+    public Sparkline setData(String[] data2, TextParsingMode csvSettings) {
         this.data2 = data2;
         this.csvSettings = csvSettings;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setData5 = new ArrayList<>();
 
-    public void setData(String[] data2, TextParsingSettings csvSettings1) {
+    public Sparkline setData(String[] data2, TextParsingSettings csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setData6 = new ArrayList<>();
 
-    public void setData(String data3, TextParsingMode csvSettings) {
+    public Sparkline setData(String data3, TextParsingMode csvSettings) {
         this.data3 = data3;
         this.csvSettings = csvSettings;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setData7 = new ArrayList<>();
 
-    public void setData(String data3, TextParsingSettings csvSettings1) {
+    public Sparkline setData(String data3, TextParsingSettings csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.data(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.data(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Boolean async;
-
-    public void setDraw(Boolean async) {
-        this.async = async;
-
-        js.append(String.format(Locale.US, "chart.draw(%b);", async));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.draw(%b);", async));
-            js.setLength(0);
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
+        return "";
     }
 
     private Fill fill;
+    private List<Sparkline> setFill = new ArrayList<>();
 
-    public void setFill(Fill fill) {
+    public Sparkline setFill(Fill fill) {
         this.fill = fill;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color;
     private Double opacity;
+    private List<Sparkline> setFill1 = new ArrayList<>();
 
-    public void setFill(String color, Double opacity) {
+    public Sparkline fill(String color, Double opacity) {
         this.color = color;
         this.opacity = opacity;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %f);", color, opacity));
+//        js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %f);", color, opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys;
@@ -703,94 +407,196 @@ public class Sparkline extends Chart {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<Sparkline> setFill2 = new ArrayList<>();
 
-    public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Sparkline fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         this.keys = keys;
         this.mode = mode;
         this.angle = angle;
         this.opacity1 = opacity1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFill3 = new ArrayList<>();
 
-    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Sparkline fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         this.keys = keys;
         this.mode1 = mode1;
         this.angle = angle;
         this.opacity1 = opacity1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFill4 = new ArrayList<>();
 
-    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Sparkline fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         this.keys = keys;
         this.mode2 = mode2;
         this.angle = angle;
         this.opacity1 = opacity1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFill5 = new ArrayList<>();
 
-    public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Sparkline fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         this.keys1 = keys1;
         this.mode = mode;
         this.angle = angle;
         this.opacity1 = opacity1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFill6 = new ArrayList<>();
 
-    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Sparkline fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         this.keys1 = keys1;
         this.mode1 = mode1;
         this.angle = angle;
         this.opacity1 = opacity1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFill7 = new ArrayList<>();
 
-    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Sparkline fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         this.keys1 = keys1;
         this.mode2 = mode2;
         this.angle = angle;
         this.opacity1 = opacity1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys2;
@@ -801,8 +607,9 @@ public class Sparkline extends Chart {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<Sparkline> setFill8 = new ArrayList<>();
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Sparkline fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys2 = keys2;
         this.cx = cx;
         this.cy = cy;
@@ -810,17 +617,34 @@ public class Sparkline extends Chart {
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFill9 = new ArrayList<>();
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Sparkline fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         this.keys3 = keys3;
         this.cx = cx;
         this.cy = cy;
@@ -828,42 +652,92 @@ public class Sparkline extends Chart {
         this.opacity2 = opacity2;
         this.fx = fx;
         this.fy = fy;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
-        js.append(String.format(Locale.US, "chart.fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings;
     private Fill firstFill;
+    private List<Sparkline> setFirstFill = new ArrayList<>();
 
-    public void setFirstfill(Fill firstFill) {
+    public Sparkline setFirstFill(Fill firstFill) {
         this.firstFill = firstFill;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s)", (firstFill != null) ? firstFill.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s);", (firstFill != null) ? firstFill.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".firstFill(%s)", (firstFill != null) ? firstFill.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s);", (firstFill != null) ? firstFill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s)", (firstFill != null) ? firstFill.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill() {
+        if (!setFirstFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color1;
     private Double opacity3;
+    private List<Sparkline> setFirstFill1 = new ArrayList<>();
 
-    public void setFirstfill(String color1, Double opacity3) {
+    public Sparkline firstFill(String color1, Double opacity3) {
         this.color1 = color1;
         this.opacity3 = opacity3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %f)", color1, opacity3));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %f);", color1, opacity3));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %f)", color1, opacity3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %f);", color1, opacity3));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f)", color1, opacity3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill1() {
+        if (!setFirstFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys4;
@@ -873,94 +747,196 @@ public class Sparkline extends Chart {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
+    private List<Sparkline> setFirstFill2 = new ArrayList<>();
 
-    public void setFirstfill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public Sparkline firstFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         this.keys4 = keys4;
         this.mode4 = mode4;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill2() {
+        if (!setFirstFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstFill3 = new ArrayList<>();
 
-    public void setFirstfill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public Sparkline firstFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         this.keys4 = keys4;
         this.mode5 = mode5;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill3() {
+        if (!setFirstFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstFill4 = new ArrayList<>();
 
-    public void setFirstfill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public Sparkline firstFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         this.keys4 = keys4;
         this.mode6 = mode6;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill4() {
+        if (!setFirstFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstFill5 = new ArrayList<>();
 
-    public void setFirstfill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public Sparkline firstFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         this.keys5 = keys5;
         this.mode4 = mode4;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill5() {
+        if (!setFirstFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstFill6 = new ArrayList<>();
 
-    public void setFirstfill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public Sparkline firstFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         this.keys5 = keys5;
         this.mode5 = mode5;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill6() {
+        if (!setFirstFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstFill7 = new ArrayList<>();
 
-    public void setFirstfill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public Sparkline firstFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         this.keys5 = keys5;
         this.mode6 = mode6;
         this.angle1 = angle1;
         this.opacity4 = opacity4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill7() {
+        if (!setFirstFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys6;
@@ -971,8 +947,9 @@ public class Sparkline extends Chart {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
+    private List<Sparkline> setFirstFill8 = new ArrayList<>();
 
-    public void setFirstfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Sparkline firstFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         this.keys6 = keys6;
         this.cx1 = cx1;
         this.cy1 = cy1;
@@ -980,17 +957,34 @@ public class Sparkline extends Chart {
         this.opacity5 = opacity5;
         this.fx1 = fx1;
         this.fy1 = fy1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill8() {
+        if (!setFirstFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstFill9 = new ArrayList<>();
 
-    public void setFirstfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Sparkline firstFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         this.keys7 = keys7;
         this.cx1 = cx1;
         this.cy1 = cy1;
@@ -998,13 +992,29 @@ public class Sparkline extends Chart {
         this.opacity5 = opacity5;
         this.fx1 = fx1;
         this.fy1 = fy1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
-        js.append(String.format(Locale.US, "chart.firstFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+//        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstFill9() {
+        if (!setFirstFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings1;
@@ -1012,7 +1022,7 @@ public class Sparkline extends Chart {
 
     public PatternFill getFirstHatchFill() {
         if (getFirstHatchFill == null)
-            getFirstHatchFill = new PatternFill("chart.firstHatchFill()");
+            getFirstHatchFill = new PatternFill(jsBase + ".firstHatchFill()");
 
         return getFirstHatchFill;
     }
@@ -1024,156 +1034,277 @@ public class Sparkline extends Chart {
     private String color2;
     private Double thickness;
     private Double size;
+    private List<Sparkline> setFirstHatchFill = new ArrayList<>();
 
-    public void setFirsthatchfill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
         this.patternFillOrType = patternFillOrType;
         this.color2 = color2;
         this.thickness = thickness;
         this.size = size;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
 
-        js.append(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
+//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null", color2, thickness, size));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstHatchFill() {
+        if (!setFirstHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstHatchFill1 = new ArrayList<>();
 
-    public void setFirsthatchfill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
         this.patternFillOrType1 = patternFillOrType1;
         this.color2 = color2;
         this.thickness = thickness;
         this.size = size;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
 
-        js.append(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
+//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null", color2, thickness, size));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstHatchFill1() {
+        if (!setFirstHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstHatchFill2 = new ArrayList<>();
 
-    public void setFirsthatchfill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
         this.patternFillOrType2 = patternFillOrType2;
         this.color2 = color2;
         this.thickness = thickness;
         this.size = size;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
 
-        js.append(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
+//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", (patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null", color2, thickness, size));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstHatchFill2() {
+        if (!setFirstHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstHatchFill3 = new ArrayList<>();
 
-    public void setFirsthatchfill(String patternFillOrType3, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(String patternFillOrType3, String color2, Double thickness, Double size) {
         this.patternFillOrType3 = patternFillOrType3;
         this.color2 = color2;
         this.thickness = thickness;
         this.size = size;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
 
-        js.append(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", patternFillOrType3, color2, thickness, size));
+//        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstHatchFill(%s, %s, %f, %f);", patternFillOrType3, color2, thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", patternFillOrType3, color2, thickness, size));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstHatchFill3() {
+        if (!setFirstHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private LabelsfactoryLabel getFirstLabels;
 
     public LabelsfactoryLabel getFirstLabels() {
         if (getFirstLabels == null)
-            getFirstLabels = new LabelsfactoryLabel("chart.firstLabels()");
+            getFirstLabels = new LabelsfactoryLabel(jsBase + ".firstLabels()");
 
         return getFirstLabels;
     }
 
     private String firstLabels;
     private Boolean firstLabels1;
+    private List<Sparkline> setFirstLabels = new ArrayList<>();
 
-    public void setFirstlabels(String firstLabels) {
+    public Sparkline setFirstLabels(String firstLabels) {
         this.firstLabels = firstLabels;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstLabels(%s)", firstLabels));
 
-        js.append(String.format(Locale.US, "chart.firstLabels(%s);", firstLabels));
+//        js.append(String.format(Locale.US, ".firstLabels(%s)", firstLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstLabels(%s);", firstLabels));
+            onChangeListener.onChange(String.format(Locale.US, ".firstLabels(%s)", firstLabels));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstLabels() {
+        if (!setFirstLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstLabels1 = new ArrayList<>();
 
-    public void setFirstlabels(Boolean firstLabels1) {
+    public Sparkline setFirstLabels(Boolean firstLabels1) {
         this.firstLabels1 = firstLabels1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstLabels(%b)", firstLabels1));
 
-        js.append(String.format(Locale.US, "chart.firstLabels(%b);", firstLabels1));
+//        js.append(String.format(Locale.US, ".firstLabels(%b)", firstLabels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstLabels(%b);", firstLabels1));
+            onChangeListener.onChange(String.format(Locale.US, ".firstLabels(%b)", firstLabels1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstLabels1() {
+        if (!setFirstLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiMarkersfactoryMarker getFirstMarkers;
 
     public UiMarkersfactoryMarker getFirstMarkers() {
         if (getFirstMarkers == null)
-            getFirstMarkers = new UiMarkersfactoryMarker("chart.firstMarkers()");
+            getFirstMarkers = new UiMarkersfactoryMarker(jsBase + ".firstMarkers()");
 
         return getFirstMarkers;
     }
 
     private String firstMarkers;
     private Boolean firstMarkers1;
+    private List<Sparkline> setFirstMarkers = new ArrayList<>();
 
-    public void setFirstmarkers(String firstMarkers) {
+    public Sparkline setFirstMarkers(String firstMarkers) {
         this.firstMarkers = firstMarkers;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstMarkers(%s)", firstMarkers));
 
-        js.append(String.format(Locale.US, "chart.firstMarkers(%s);", firstMarkers));
+//        js.append(String.format(Locale.US, ".firstMarkers(%s)", firstMarkers));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstMarkers(%s);", firstMarkers));
+            onChangeListener.onChange(String.format(Locale.US, ".firstMarkers(%s)", firstMarkers));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetFirstMarkers() {
+        if (!setFirstMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setFirstMarkers1 = new ArrayList<>();
 
-    public void setFirstmarkers(Boolean firstMarkers1) {
+    public Sparkline setFirstMarkers(Boolean firstMarkers1) {
         this.firstMarkers1 = firstMarkers1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".firstMarkers(%b)", firstMarkers1));
 
-        js.append(String.format(Locale.US, "chart.firstMarkers(%b);", firstMarkers1));
+//        js.append(String.format(Locale.US, ".firstMarkers(%b)", firstMarkers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.firstMarkers(%b);", firstMarkers1));
+            onChangeListener.onChange(String.format(Locale.US, ".firstMarkers(%b)", firstMarkers1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double xCoord;
-    private Double yCoord;
-
-    public void setGlobaltolocal(Double xCoord, Double yCoord) {
-        this.xCoord = xCoord;
-        this.yCoord = yCoord;
-
-        js.append(String.format(Locale.US, "chart.globalToLocal(%f, %f);", xCoord, yCoord));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.globalToLocal(%f, %f);", xCoord, yCoord));
-            js.setLength(0);
+    private String generateJSsetFirstMarkers1() {
+        if (!setFirstMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setFirstMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
+        return "";
     }
 
     private PatternFill getHatchFill;
 
     public PatternFill getHatchFill() {
         if (getHatchFill == null)
-            getHatchFill = new PatternFill("chart.hatchFill()");
+            getHatchFill = new PatternFill(jsBase + ".hatchFill()");
 
         return getHatchFill;
     }
@@ -1185,273 +1316,263 @@ public class Sparkline extends Chart {
     private String color3;
     private Double thickness1;
     private Double size1;
+    private List<Sparkline> setHatchFill = new ArrayList<>();
 
-    public void setHatchfill(PatternFill patternFillOrType4, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(PatternFill patternFillOrType4, String color3, Double thickness1, Double size1) {
         this.patternFillOrType4 = patternFillOrType4;
         this.color3 = color3;
         this.thickness1 = thickness1;
         this.size1 = size1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
+//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null", color3, thickness1, size1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setHatchFill1 = new ArrayList<>();
 
-    public void setHatchfill(HatchFill patternFillOrType5, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(HatchFill patternFillOrType5, String color3, Double thickness1, Double size1) {
         this.patternFillOrType5 = patternFillOrType5;
         this.color3 = color3;
         this.thickness1 = thickness1;
         this.size1 = size1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
+//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null", color3, thickness1, size1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setHatchFill2 = new ArrayList<>();
 
-    public void setHatchfill(HatchFillType patternFillOrType6, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(HatchFillType patternFillOrType6, String color3, Double thickness1, Double size1) {
         this.patternFillOrType6 = patternFillOrType6;
         this.color3 = color3;
         this.thickness1 = thickness1;
         this.size1 = size1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
+//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", (patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null", color3, thickness1, size1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setHatchFill3 = new ArrayList<>();
 
-    public void setHatchfill(String patternFillOrType7, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(String patternFillOrType7, String color3, Double thickness1, Double size1) {
         this.patternFillOrType7 = patternFillOrType7;
         this.color3 = color3;
         this.thickness1 = thickness1;
         this.size1 = size1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType7, color3, thickness1, size1));
 
-        js.append(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", patternFillOrType7, color3, thickness1, size1));
+//        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType7, color3, thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.hatchFill(%s, %s, %f, %f);", patternFillOrType7, color3, thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", patternFillOrType7, color3, thickness1, size1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double height2;
-    private String height3;
-
-    public void setHeight(Double height2) {
-        this.height2 = height2;
-
-        js.append(String.format(Locale.US, "chart.height(%f);", height2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.height(%f);", height2));
-            js.setLength(0);
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setHeight(String height3) {
-        this.height3 = height3;
-
-        js.append(String.format(Locale.US, "chart.height(%s);", height3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.height(%s);", height3));
-            js.setLength(0);
-        }
-    }
-
-    private UiLabel getLabel;
-
-    public UiLabel getLabel() {
-        if (getLabel == null)
-            getLabel = new UiLabel("chart.label()");
-
-        return getLabel;
-    }
-
-    private UiLabel getLabel1;
-
-    public UiLabel getLabel1(String index) {
-        if (getLabel1 == null)
-            getLabel1 = new UiLabel("chart.label1("+ index+")");
-
-        return getLabel1;
-    }
-
-    private UiLabel getLabel2;
-
-    public UiLabel getLabel2() {
-        if (getLabel2 == null)
-            getLabel2 = new UiLabel("chart.label2()");
-
-        return getLabel2;
-    }
-
-    private UiLabel getLabel3;
-
-    public UiLabel getLabel3(Double index1) {
-        if (getLabel3 == null)
-            getLabel3 = new UiLabel("chart.label3("+ index1+")");
-
-        return getLabel3;
-    }
-
-    private Boolean label;
-    private String label1;
-    private String label2;
-
-    public void setLabel(Boolean label) {
-        this.label = label;
-
-        js.append(String.format(Locale.US, "chart.label(%b);", label));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%b);", label));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setLabel(String label1) {
-        this.label1 = label1;
-
-        js.append(String.format(Locale.US, "chart.label(%s);", label1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s);", label1));
-            js.setLength(0);
-        }
-    }
-
-    private String index2;
-    private Double index3;
-    private Boolean label3;
-    private String label4;
-    private String label5;
-
-    public void setLabel(String index2, Boolean label3) {
-        this.index2 = index2;
-        this.label3 = label3;
-
-        js.append(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %b);", index2, label3));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setLabel(String index2, String label4) {
-        this.index2 = index2;
-        this.label4 = label4;
-
-        js.append(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%s, %s);", index2, label4));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setLabel(Double index3, Boolean label3) {
-        this.index3 = index3;
-        this.label3 = label3;
-
-        js.append(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %b);", index3, label3));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setLabel(Double index3, String label4) {
-        this.index3 = index3;
-        this.label4 = label4;
-
-        js.append(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.label(%f, %s);", index3, label4));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private LabelsfactoryLabel getLabels;
 
     public LabelsfactoryLabel getLabels() {
         if (getLabels == null)
-            getLabels = new LabelsfactoryLabel("chart.labels()");
+            getLabels = new LabelsfactoryLabel(jsBase + ".labels()");
 
         return getLabels;
     }
 
     private String labels;
     private Boolean labels1;
+    private List<Sparkline> setLabels = new ArrayList<>();
 
-    public void setLabels(String labels) {
+    public Sparkline setLabels(String labels) {
         this.labels = labels;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".labels(%s)", labels));
 
-        js.append(String.format(Locale.US, "chart.labels(%s);", labels));
+//        js.append(String.format(Locale.US, ".labels(%s)", labels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%s);", labels));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLabels() {
+        if (!setLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLabels1 = new ArrayList<>();
 
-    public void setLabels(Boolean labels1) {
+    public Sparkline setLabels(Boolean labels1) {
         this.labels1 = labels1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
-        js.append(String.format(Locale.US, "chart.labels(%b);", labels1));
+//        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.labels(%b);", labels1));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLabels1() {
+        if (!setLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill lastFill;
+    private List<Sparkline> setLastFill = new ArrayList<>();
 
-    public void setLastfill(Fill lastFill) {
+    public Sparkline setLastFill(Fill lastFill) {
         this.lastFill = lastFill;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s)", (lastFill != null) ? lastFill.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s);", (lastFill != null) ? lastFill.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".lastFill(%s)", (lastFill != null) ? lastFill.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s);", (lastFill != null) ? lastFill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s)", (lastFill != null) ? lastFill.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill() {
+        if (!setLastFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color4;
     private Double opacity6;
+    private List<Sparkline> setLastFill1 = new ArrayList<>();
 
-    public void setLastfill(String color4, Double opacity6) {
+    public Sparkline lastFill(String color4, Double opacity6) {
         this.color4 = color4;
         this.opacity6 = opacity6;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %f)", color4, opacity6));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %f);", color4, opacity6));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %f)", color4, opacity6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %f);", color4, opacity6));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f)", color4, opacity6));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill1() {
+        if (!setLastFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys8;
@@ -1461,94 +1582,196 @@ public class Sparkline extends Chart {
     private VectorRect mode9;
     private String mode10;
     private Double opacity7;
+    private List<Sparkline> setLastFill2 = new ArrayList<>();
 
-    public void setLastfill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public Sparkline lastFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         this.keys8 = keys8;
         this.mode8 = mode8;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill2() {
+        if (!setLastFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastFill3 = new ArrayList<>();
 
-    public void setLastfill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public Sparkline lastFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         this.keys8 = keys8;
         this.mode9 = mode9;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill3() {
+        if (!setLastFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastFill4 = new ArrayList<>();
 
-    public void setLastfill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public Sparkline lastFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         this.keys8 = keys8;
         this.mode10 = mode10;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill4() {
+        if (!setLastFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastFill5 = new ArrayList<>();
 
-    public void setLastfill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public Sparkline lastFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         this.keys9 = keys9;
         this.mode8 = mode8;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill5() {
+        if (!setLastFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastFill6 = new ArrayList<>();
 
-    public void setLastfill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public Sparkline lastFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         this.keys9 = keys9;
         this.mode9 = mode9;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill6() {
+        if (!setLastFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastFill7 = new ArrayList<>();
 
-    public void setLastfill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public Sparkline lastFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         this.keys9 = keys9;
         this.mode10 = mode10;
         this.angle2 = angle2;
         this.opacity7 = opacity7;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill7() {
+        if (!setLastFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys10;
@@ -1559,8 +1782,9 @@ public class Sparkline extends Chart {
     private Double opacity8;
     private Double fx2;
     private Double fy2;
+    private List<Sparkline> setLastFill8 = new ArrayList<>();
 
-    public void setLastfill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Sparkline lastFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         this.keys10 = keys10;
         this.cx2 = cx2;
         this.cy2 = cy2;
@@ -1568,17 +1792,34 @@ public class Sparkline extends Chart {
         this.opacity8 = opacity8;
         this.fx2 = fx2;
         this.fy2 = fy2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill8() {
+        if (!setLastFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastFill9 = new ArrayList<>();
 
-    public void setLastfill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Sparkline lastFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         this.keys11 = keys11;
         this.cx2 = cx2;
         this.cy2 = cy2;
@@ -1586,13 +1827,29 @@ public class Sparkline extends Chart {
         this.opacity8 = opacity8;
         this.fx2 = fx2;
         this.fy2 = fy2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
-        js.append(String.format(Locale.US, "chart.lastFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+//        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastFill9() {
+        if (!setLastFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings2;
@@ -1600,7 +1857,7 @@ public class Sparkline extends Chart {
 
     public PatternFill getLastHatchFill() {
         if (getLastHatchFill == null)
-            getLastHatchFill = new PatternFill("chart.lastHatchFill()");
+            getLastHatchFill = new PatternFill(jsBase + ".lastHatchFill()");
 
         return getLastHatchFill;
     }
@@ -1612,641 +1869,542 @@ public class Sparkline extends Chart {
     private String color5;
     private Double thickness2;
     private Double size2;
+    private List<Sparkline> setLastHatchFill = new ArrayList<>();
 
-    public void setLasthatchfill(PatternFill patternFillOrType8, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(PatternFill patternFillOrType8, String color5, Double thickness2, Double size2) {
         this.patternFillOrType8 = patternFillOrType8;
         this.color5 = color5;
         this.thickness2 = thickness2;
         this.size2 = size2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
 
-        js.append(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
+//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null", color5, thickness2, size2));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastHatchFill() {
+        if (!setLastHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastHatchFill1 = new ArrayList<>();
 
-    public void setLasthatchfill(HatchFill patternFillOrType9, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(HatchFill patternFillOrType9, String color5, Double thickness2, Double size2) {
         this.patternFillOrType9 = patternFillOrType9;
         this.color5 = color5;
         this.thickness2 = thickness2;
         this.size2 = size2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
 
-        js.append(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
+//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null", color5, thickness2, size2));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastHatchFill1() {
+        if (!setLastHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastHatchFill2 = new ArrayList<>();
 
-    public void setLasthatchfill(HatchFillType patternFillOrType10, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(HatchFillType patternFillOrType10, String color5, Double thickness2, Double size2) {
         this.patternFillOrType10 = patternFillOrType10;
         this.color5 = color5;
         this.thickness2 = thickness2;
         this.size2 = size2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
 
-        js.append(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
+//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", (patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null", color5, thickness2, size2));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastHatchFill2() {
+        if (!setLastHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastHatchFill3 = new ArrayList<>();
 
-    public void setLasthatchfill(String patternFillOrType11, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(String patternFillOrType11, String color5, Double thickness2, Double size2) {
         this.patternFillOrType11 = patternFillOrType11;
         this.color5 = color5;
         this.thickness2 = thickness2;
         this.size2 = size2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", patternFillOrType11, color5, thickness2, size2));
 
-        js.append(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", patternFillOrType11, color5, thickness2, size2));
+//        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", patternFillOrType11, color5, thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastHatchFill(%s, %s, %f, %f);", patternFillOrType11, color5, thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", patternFillOrType11, color5, thickness2, size2));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastHatchFill3() {
+        if (!setLastHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private LabelsfactoryLabel getLastLabels;
 
     public LabelsfactoryLabel getLastLabels() {
         if (getLastLabels == null)
-            getLastLabels = new LabelsfactoryLabel("chart.lastLabels()");
+            getLastLabels = new LabelsfactoryLabel(jsBase + ".lastLabels()");
 
         return getLastLabels;
     }
 
     private String lastLabels;
     private Boolean lastLabels1;
+    private List<Sparkline> setLastLabels = new ArrayList<>();
 
-    public void setLastlabels(String lastLabels) {
+    public Sparkline setLastLabels(String lastLabels) {
         this.lastLabels = lastLabels;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastLabels(%s)", lastLabels));
 
-        js.append(String.format(Locale.US, "chart.lastLabels(%s);", lastLabels));
+//        js.append(String.format(Locale.US, ".lastLabels(%s)", lastLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastLabels(%s);", lastLabels));
+            onChangeListener.onChange(String.format(Locale.US, ".lastLabels(%s)", lastLabels));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastLabels() {
+        if (!setLastLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastLabels1 = new ArrayList<>();
 
-    public void setLastlabels(Boolean lastLabels1) {
+    public Sparkline setLastLabels(Boolean lastLabels1) {
         this.lastLabels1 = lastLabels1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastLabels(%b)", lastLabels1));
 
-        js.append(String.format(Locale.US, "chart.lastLabels(%b);", lastLabels1));
+//        js.append(String.format(Locale.US, ".lastLabels(%b)", lastLabels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastLabels(%b);", lastLabels1));
+            onChangeListener.onChange(String.format(Locale.US, ".lastLabels(%b)", lastLabels1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastLabels1() {
+        if (!setLastLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiMarkersfactoryMarker getLastMarkers;
 
     public UiMarkersfactoryMarker getLastMarkers() {
         if (getLastMarkers == null)
-            getLastMarkers = new UiMarkersfactoryMarker("chart.lastMarkers()");
+            getLastMarkers = new UiMarkersfactoryMarker(jsBase + ".lastMarkers()");
 
         return getLastMarkers;
     }
 
     private String lastMarkers;
     private Boolean lastMarkers1;
+    private List<Sparkline> setLastMarkers = new ArrayList<>();
 
-    public void setLastmarkers(String lastMarkers) {
+    public Sparkline setLastMarkers(String lastMarkers) {
         this.lastMarkers = lastMarkers;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastMarkers(%s)", lastMarkers));
 
-        js.append(String.format(Locale.US, "chart.lastMarkers(%s);", lastMarkers));
+//        js.append(String.format(Locale.US, ".lastMarkers(%s)", lastMarkers));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastMarkers(%s);", lastMarkers));
+            onChangeListener.onChange(String.format(Locale.US, ".lastMarkers(%s)", lastMarkers));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLastMarkers() {
+        if (!setLastMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLastMarkers1 = new ArrayList<>();
 
-    public void setLastmarkers(Boolean lastMarkers1) {
+    public Sparkline setLastMarkers(Boolean lastMarkers1) {
         this.lastMarkers1 = lastMarkers1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lastMarkers(%b)", lastMarkers1));
 
-        js.append(String.format(Locale.US, "chart.lastMarkers(%b);", lastMarkers1));
+//        js.append(String.format(Locale.US, ".lastMarkers(%b)", lastMarkers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lastMarkers(%b);", lastMarkers1));
+            onChangeListener.onChange(String.format(Locale.US, ".lastMarkers(%b)", lastMarkers1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double left;
-    private String left1;
-
-    public void setLeft(Double left) {
-        this.left = left;
-
-        js.append(String.format(Locale.US, "chart.left(%f);", left));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.left(%f);", left));
-            js.setLength(0);
+    private String generateJSsetLastMarkers1() {
+        if (!setLastMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLastMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setLeft(String left1) {
-        this.left1 = left1;
-
-        js.append(String.format(Locale.US, "chart.left(%s);", left1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.left(%s);", left1));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private CoreAxismarkersLine getLineMarker;
 
     public CoreAxismarkersLine getLineMarker() {
         if (getLineMarker == null)
-            getLineMarker = new CoreAxismarkersLine("chart.lineMarker()");
+            getLineMarker = new CoreAxismarkersLine(jsBase + ".lineMarker()");
 
         return getLineMarker;
     }
 
     private CoreAxismarkersLine getLineMarker1;
 
-    public CoreAxismarkersLine getLineMarker1(Double index4) {
+    public CoreAxismarkersLine getLineMarker(Double index) {
         if (getLineMarker1 == null)
-            getLineMarker1 = new CoreAxismarkersLine("chart.lineMarker1("+ index4+")");
+            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker1("+ index+")");
 
         return getLineMarker1;
     }
 
     private String lineMarker;
     private Boolean lineMarker1;
+    private List<Sparkline> setLineMarker = new ArrayList<>();
 
-    public void setLinemarker(String lineMarker) {
+    public Sparkline setLineMarker(String lineMarker) {
         this.lineMarker = lineMarker;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%s);", lineMarker));
+//        js.append(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s);", lineMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s)", lineMarker));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLineMarker() {
+        if (!setLineMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLineMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLineMarker1 = new ArrayList<>();
 
-    public void setLinemarker(Boolean lineMarker1) {
+    public Sparkline setLineMarker(Boolean lineMarker1) {
         this.lineMarker1 = lineMarker1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%b);", lineMarker1));
+//        js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b);", lineMarker1));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLineMarker1() {
+        if (!setLineMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLineMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
-    private Double index5;
+    private Double index1;
     private String lineMarker2;
     private Boolean lineMarker3;
+    private List<Sparkline> setLineMarker2 = new ArrayList<>();
 
-    public void setLinemarker(String lineMarker2, Double index5) {
+    public Sparkline setLineMarker(String lineMarker2, Double index1) {
         this.lineMarker2 = lineMarker2;
-        this.index5 = index5;
+        this.index1 = index1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index5));
+//        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%s, %f);", lineMarker2, index5));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetLineMarker2() {
+        if (!setLineMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLineMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setLineMarker3 = new ArrayList<>();
 
-    public void setLinemarker(Boolean lineMarker3, Double index5) {
+    public Sparkline setLineMarker(Boolean lineMarker3, Double index1) {
         this.lineMarker3 = lineMarker3;
-        this.index5 = index5;
+        this.index1 = index1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
 
-        js.append(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index5));
+//        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.lineMarker(%b, %f);", lineMarker3, index5));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        this.type = type;
-        this.useCapture = useCapture;
-        this.listenerScope = listenerScope;
-
-        js.append(String.format(Locale.US, "chart.listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listen(%s, %b, %s);", type, useCapture, listenerScope));
-            js.setLength(0);
+    private String generateJSsetLineMarker3() {
+        if (!setLineMarker3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setLineMarker3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        this.type1 = type1;
-        this.useCapture1 = useCapture1;
-        this.listenerScope1 = listenerScope1;
-
-        js.append(String.format(Locale.US, "chart.listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-            js.setLength(0);
-        }
-    }
-
-    private Double xCoord1;
-    private Double yCoord1;
-
-    public void setLocaltoglobal(Double xCoord1, Double yCoord1) {
-        this.xCoord1 = xCoord1;
-        this.yCoord1 = yCoord1;
-
-        js.append(String.format(Locale.US, "chart.localToGlobal(%f, %f);", xCoord1, yCoord1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.localToGlobal(%f, %f);", xCoord1, yCoord1));
-            js.setLength(0);
-        }
-    }
-
-    private Margin getMargin;
-
-    public Margin getMargin() {
-        if (getMargin == null)
-            getMargin = new Margin("chart.margin()");
-
-        return getMargin;
-    }
-
-    private Double[] margin;
-    private String[] margin1;
-    private String margin2;
-
-    public void setMargin(Double[] margin) {
-        this.margin = margin;
-
-        js.append(String.format(Locale.US, "chart.margin(%s);", Arrays.toString(margin)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s);", Arrays.toString(margin)));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String[] margin1) {
-        this.margin1 = margin1;
-
-        js.append(String.format(Locale.US, "chart.margin(%s);", Arrays.toString(margin1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s);", Arrays.toString(margin1)));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String margin2) {
-        this.margin2 = margin2;
-
-        js.append(String.format(Locale.US, "chart.margin(%s);", margin2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s);", margin2));
-            js.setLength(0);
-        }
-    }
-
-    private String value;
-    private Double value1;
-    private String value2;
-    private Double value3;
-    private String value4;
-    private Double value5;
-    private String value6;
-    private Double value7;
-
-    public void setMargin(String value, String value2, String value4, String value6) {
-        this.value = value;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %s, %s, %s);", value, value2, value4, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %s, %s);", value, value2, value4, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String value, String value2, String value4, Double value7) {
-        this.value = value;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %s, %s, %f);", value, value2, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %s, %f);", value, value2, value4, value7));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String value, String value2, Double value5, String value6) {
-        this.value = value;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %s, %f, %s);", value, value2, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %f, %s);", value, value2, value5, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String value, String value2, Double value5, Double value7) {
-        this.value = value;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %s, %f, %f);", value, value2, value5, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %s, %f, %f);", value, value2, value5, value7));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String value, Double value3, String value4, String value6) {
-        this.value = value;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %f, %s, %s);", value, value3, value4, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %s, %s);", value, value3, value4, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String value, Double value3, String value4, Double value7) {
-        this.value = value;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %f, %s, %f);", value, value3, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %s, %f);", value, value3, value4, value7));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String value, Double value3, Double value5, String value6) {
-        this.value = value;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %f, %f, %s);", value, value3, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %f, %s);", value, value3, value5, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(String value, Double value3, Double value5, Double value7) {
-        this.value = value;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%s, %f, %f, %f);", value, value3, value5, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%s, %f, %f, %f);", value, value3, value5, value7));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, String value2, String value4, String value6) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %s, %s, %s);", value1, value2, value4, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %s, %s);", value1, value2, value4, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, String value2, String value4, Double value7) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %s, %s, %f);", value1, value2, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %s, %f);", value1, value2, value4, value7));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, String value2, Double value5, String value6) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %s, %f, %s);", value1, value2, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %f, %s);", value1, value2, value5, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, String value2, Double value5, Double value7) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %s, %f, %f);", value1, value2, value5, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %s, %f, %f);", value1, value2, value5, value7));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, Double value3, String value4, String value6) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %f, %s, %s);", value1, value3, value4, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %s, %s);", value1, value3, value4, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, Double value3, String value4, Double value7) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %f, %s, %f);", value1, value3, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %s, %f);", value1, value3, value4, value7));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, Double value3, Double value5, String value6) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value6 = value6;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %f, %f, %s);", value1, value3, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %f, %s);", value1, value3, value5, value6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setMargin(Double value1, Double value3, Double value5, Double value7) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value7 = value7;
-
-        js.append(String.format(Locale.US, "chart.margin(%f, %f, %f, %f);", value1, value3, value5, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.margin(%f, %f, %f, %f);", value1, value3, value5, value7));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private UiMarkersfactoryMarker getMarkers;
 
     public UiMarkersfactoryMarker getMarkers() {
         if (getMarkers == null)
-            getMarkers = new UiMarkersfactoryMarker("chart.markers()");
+            getMarkers = new UiMarkersfactoryMarker(jsBase + ".markers()");
 
         return getMarkers;
     }
 
     private String markers;
     private Boolean markers1;
+    private List<Sparkline> setMarkers = new ArrayList<>();
 
-    public void setMarkers(String markers) {
+    public Sparkline setMarkers(String markers) {
         this.markers = markers;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markers(%s)", markers));
 
-        js.append(String.format(Locale.US, "chart.markers(%s);", markers));
+//        js.append(String.format(Locale.US, ".markers(%s)", markers));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.markers(%s);", markers));
+            onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", markers));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMarkers() {
+        if (!setMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMarkers1 = new ArrayList<>();
 
-    public void setMarkers(Boolean markers1) {
+    public Sparkline setMarkers(Boolean markers1) {
         this.markers1 = markers1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
-        js.append(String.format(Locale.US, "chart.markers(%b);", markers1));
+//        js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.markers(%b);", markers1));
+            onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMarkers1() {
+        if (!setMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill maxFill;
+    private List<Sparkline> setMaxFill = new ArrayList<>();
 
-    public void setMaxfill(Fill maxFill) {
+    public Sparkline setMaxFill(Fill maxFill) {
         this.maxFill = maxFill;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s)", (maxFill != null) ? maxFill.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s);", (maxFill != null) ? maxFill.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".maxFill(%s)", (maxFill != null) ? maxFill.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s);", (maxFill != null) ? maxFill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s)", (maxFill != null) ? maxFill.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill() {
+        if (!setMaxFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color6;
     private Double opacity9;
+    private List<Sparkline> setMaxFill1 = new ArrayList<>();
 
-    public void setMaxfill(String color6, Double opacity9) {
+    public Sparkline maxFill(String color6, Double opacity9) {
         this.color6 = color6;
         this.opacity9 = opacity9;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %f)", color6, opacity9));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %f);", color6, opacity9));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %f)", color6, opacity9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %f);", color6, opacity9));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f)", color6, opacity9));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill1() {
+        if (!setMaxFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys12;
@@ -2256,94 +2414,196 @@ public class Sparkline extends Chart {
     private VectorRect mode13;
     private String mode14;
     private Double opacity10;
+    private List<Sparkline> setMaxFill2 = new ArrayList<>();
 
-    public void setMaxfill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
+    public Sparkline maxFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
         this.keys12 = keys12;
         this.mode12 = mode12;
         this.angle3 = angle3;
         this.opacity10 = opacity10;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %b, %f, %f);", arrayToString(keys12), mode12, angle3, opacity10));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %b, %f, %f);", arrayToString(keys12), mode12, angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill2() {
+        if (!setMaxFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxFill3 = new ArrayList<>();
 
-    public void setMaxfill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
+    public Sparkline maxFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
         this.keys12 = keys12;
         this.mode13 = mode13;
         this.angle3 = angle3;
         this.opacity10 = opacity10;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill3() {
+        if (!setMaxFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxFill4 = new ArrayList<>();
 
-    public void setMaxfill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
+    public Sparkline maxFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
         this.keys12 = keys12;
         this.mode14 = mode14;
         this.angle3 = angle3;
         this.opacity10 = opacity10;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity10));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", arrayToString(keys12), mode14, angle3, opacity10));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", arrayToString(keys12), mode14, angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), mode14, angle3, opacity10));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill4() {
+        if (!setMaxFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxFill5 = new ArrayList<>();
 
-    public void setMaxfill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
+    public Sparkline maxFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
         this.keys13 = keys13;
         this.mode12 = mode12;
         this.angle3 = angle3;
         this.opacity10 = opacity10;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity10));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %b, %f, %f);", Arrays.toString(keys13), mode12, angle3, opacity10));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %b, %f, %f);", Arrays.toString(keys13), mode12, angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", Arrays.toString(keys13), mode12, angle3, opacity10));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill5() {
+        if (!setMaxFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxFill6 = new ArrayList<>();
 
-    public void setMaxfill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
+    public Sparkline maxFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
         this.keys13 = keys13;
         this.mode13 = mode13;
         this.angle3 = angle3;
         this.opacity10 = opacity10;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), (mode13 != null) ? mode13.generateJs() : "null", angle3, opacity10));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill6() {
+        if (!setMaxFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxFill7 = new ArrayList<>();
 
-    public void setMaxfill(String[] keys13, String mode14, Double angle3, Double opacity10) {
+    public Sparkline maxFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
         this.keys13 = keys13;
         this.mode14 = mode14;
         this.angle3 = angle3;
         this.opacity10 = opacity10;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity10));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", Arrays.toString(keys13), mode14, angle3, opacity10));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %s, %f, %f);", Arrays.toString(keys13), mode14, angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", Arrays.toString(keys13), mode14, angle3, opacity10));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill7() {
+        if (!setMaxFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys14;
@@ -2354,8 +2614,9 @@ public class Sparkline extends Chart {
     private Double opacity11;
     private Double fx3;
     private Double fy3;
+    private List<Sparkline> setMaxFill8 = new ArrayList<>();
 
-    public void setMaxfill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Sparkline maxFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         this.keys14 = keys14;
         this.cx3 = cx3;
         this.cy3 = cy3;
@@ -2363,17 +2624,34 @@ public class Sparkline extends Chart {
         this.opacity11 = opacity11;
         this.fx3 = fx3;
         this.fy3 = fy3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill8() {
+        if (!setMaxFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxFill9 = new ArrayList<>();
 
-    public void setMaxfill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Sparkline maxFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         this.keys15 = keys15;
         this.cx3 = cx3;
         this.cy3 = cy3;
@@ -2381,13 +2659,29 @@ public class Sparkline extends Chart {
         this.opacity11 = opacity11;
         this.fx3 = fx3;
         this.fy3 = fy3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
 
-        js.append(String.format(Locale.US, "chart.maxFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+//        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys15), cx3, cy3, (mode15 != null) ? mode15.generateJs() : "null", opacity11, fx3, fy3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxFill9() {
+        if (!setMaxFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings3;
@@ -2395,7 +2689,7 @@ public class Sparkline extends Chart {
 
     public PatternFill getMaxHatchFill() {
         if (getMaxHatchFill == null)
-            getMaxHatchFill = new PatternFill("chart.maxHatchFill()");
+            getMaxHatchFill = new PatternFill(jsBase + ".maxHatchFill()");
 
         return getMaxHatchFill;
     }
@@ -2407,214 +2701,332 @@ public class Sparkline extends Chart {
     private String color7;
     private Double thickness3;
     private Double size3;
+    private List<Sparkline> setMaxHatchFill = new ArrayList<>();
 
-    public void setMaxhatchfill(PatternFill patternFillOrType12, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(PatternFill patternFillOrType12, String color7, Double thickness3, Double size3) {
         this.patternFillOrType12 = patternFillOrType12;
         this.color7 = color7;
         this.thickness3 = thickness3;
         this.size3 = size3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
 
-        js.append(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
+//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null", color7, thickness3, size3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxHatchFill() {
+        if (!setMaxHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxHatchFill1 = new ArrayList<>();
 
-    public void setMaxhatchfill(HatchFill patternFillOrType13, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(HatchFill patternFillOrType13, String color7, Double thickness3, Double size3) {
         this.patternFillOrType13 = patternFillOrType13;
         this.color7 = color7;
         this.thickness3 = thickness3;
         this.size3 = size3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
 
-        js.append(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
+//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null", color7, thickness3, size3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxHatchFill1() {
+        if (!setMaxHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxHatchFill2 = new ArrayList<>();
 
-    public void setMaxhatchfill(HatchFillType patternFillOrType14, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(HatchFillType patternFillOrType14, String color7, Double thickness3, Double size3) {
         this.patternFillOrType14 = patternFillOrType14;
         this.color7 = color7;
         this.thickness3 = thickness3;
         this.size3 = size3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
 
-        js.append(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
+//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", (patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null", color7, thickness3, size3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxHatchFill2() {
+        if (!setMaxHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxHatchFill3 = new ArrayList<>();
 
-    public void setMaxhatchfill(String patternFillOrType15, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(String patternFillOrType15, String color7, Double thickness3, Double size3) {
         this.patternFillOrType15 = patternFillOrType15;
         this.color7 = color7;
         this.thickness3 = thickness3;
         this.size3 = size3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", patternFillOrType15, color7, thickness3, size3));
 
-        js.append(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", patternFillOrType15, color7, thickness3, size3));
+//        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", patternFillOrType15, color7, thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHatchFill(%s, %s, %f, %f);", patternFillOrType15, color7, thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", patternFillOrType15, color7, thickness3, size3));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double maxHeight;
-    private String maxHeight1;
-
-    public void setMaxheight(Double maxHeight) {
-        this.maxHeight = maxHeight;
-
-        js.append(String.format(Locale.US, "chart.maxHeight(%f);", maxHeight));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHeight(%f);", maxHeight));
-            js.setLength(0);
+    private String generateJSsetMaxHatchFill3() {
+        if (!setMaxHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setMaxheight(String maxHeight1) {
-        this.maxHeight1 = maxHeight1;
-
-        js.append(String.format(Locale.US, "chart.maxHeight(%s);", maxHeight1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxHeight(%s);", maxHeight1));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private LabelsfactoryLabel getMaxLabels;
 
     public LabelsfactoryLabel getMaxLabels() {
         if (getMaxLabels == null)
-            getMaxLabels = new LabelsfactoryLabel("chart.maxLabels()");
+            getMaxLabels = new LabelsfactoryLabel(jsBase + ".maxLabels()");
 
         return getMaxLabels;
     }
 
     private String maxLabels;
     private Boolean maxLabels1;
+    private List<Sparkline> setMaxLabels = new ArrayList<>();
 
-    public void setMaxlabels(String maxLabels) {
+    public Sparkline setMaxLabels(String maxLabels) {
         this.maxLabels = maxLabels;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%s)", maxLabels));
 
-        js.append(String.format(Locale.US, "chart.maxLabels(%s);", maxLabels));
+//        js.append(String.format(Locale.US, ".maxLabels(%s)", maxLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxLabels(%s);", maxLabels));
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%s)", maxLabels));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxLabels() {
+        if (!setMaxLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxLabels1 = new ArrayList<>();
 
-    public void setMaxlabels(Boolean maxLabels1) {
+    public Sparkline setMaxLabels(Boolean maxLabels1) {
         this.maxLabels1 = maxLabels1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
 
-        js.append(String.format(Locale.US, "chart.maxLabels(%b);", maxLabels1));
+//        js.append(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxLabels(%b);", maxLabels1));
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxLabels1() {
+        if (!setMaxLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiMarkersfactoryMarker getMaxMarkers;
 
     public UiMarkersfactoryMarker getMaxMarkers() {
         if (getMaxMarkers == null)
-            getMaxMarkers = new UiMarkersfactoryMarker("chart.maxMarkers()");
+            getMaxMarkers = new UiMarkersfactoryMarker(jsBase + ".maxMarkers()");
 
         return getMaxMarkers;
     }
 
     private String maxMarkers;
     private Boolean maxMarkers1;
+    private List<Sparkline> setMaxMarkers = new ArrayList<>();
 
-    public void setMaxmarkers(String maxMarkers) {
+    public Sparkline setMaxMarkers(String maxMarkers) {
         this.maxMarkers = maxMarkers;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxMarkers(%s)", maxMarkers));
 
-        js.append(String.format(Locale.US, "chart.maxMarkers(%s);", maxMarkers));
+//        js.append(String.format(Locale.US, ".maxMarkers(%s)", maxMarkers));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxMarkers(%s);", maxMarkers));
+            onChangeListener.onChange(String.format(Locale.US, ".maxMarkers(%s)", maxMarkers));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMaxMarkers() {
+        if (!setMaxMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMaxMarkers1 = new ArrayList<>();
 
-    public void setMaxmarkers(Boolean maxMarkers1) {
+    public Sparkline setMaxMarkers(Boolean maxMarkers1) {
         this.maxMarkers1 = maxMarkers1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxMarkers(%b)", maxMarkers1));
 
-        js.append(String.format(Locale.US, "chart.maxMarkers(%b);", maxMarkers1));
+//        js.append(String.format(Locale.US, ".maxMarkers(%b)", maxMarkers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxMarkers(%b);", maxMarkers1));
+            onChangeListener.onChange(String.format(Locale.US, ".maxMarkers(%b)", maxMarkers1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double maxWidth;
-    private String maxWidth1;
-
-    public void setMaxwidth(Double maxWidth) {
-        this.maxWidth = maxWidth;
-
-        js.append(String.format(Locale.US, "chart.maxWidth(%f);", maxWidth));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxWidth(%f);", maxWidth));
-            js.setLength(0);
+    private String generateJSsetMaxMarkers1() {
+        if (!setMaxMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMaxMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setMaxwidth(String maxWidth1) {
-        this.maxWidth1 = maxWidth1;
-
-        js.append(String.format(Locale.US, "chart.maxWidth(%s);", maxWidth1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.maxWidth(%s);", maxWidth1));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private Fill minFill;
+    private List<Sparkline> setMinFill = new ArrayList<>();
 
-    public void setMinfill(Fill minFill) {
+    public Sparkline setMinFill(Fill minFill) {
         this.minFill = minFill;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s)", (minFill != null) ? minFill.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s);", (minFill != null) ? minFill.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".minFill(%s)", (minFill != null) ? minFill.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s);", (minFill != null) ? minFill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s)", (minFill != null) ? minFill.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill() {
+        if (!setMinFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color8;
     private Double opacity12;
+    private List<Sparkline> setMinFill1 = new ArrayList<>();
 
-    public void setMinfill(String color8, Double opacity12) {
+    public Sparkline minFill(String color8, Double opacity12) {
         this.color8 = color8;
         this.opacity12 = opacity12;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %f)", color8, opacity12));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %f);", color8, opacity12));
+//        js.append(String.format(Locale.US, ".minFill(%s, %f)", color8, opacity12));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %f);", color8, opacity12));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f)", color8, opacity12));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill1() {
+        if (!setMinFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys16;
@@ -2624,94 +3036,196 @@ public class Sparkline extends Chart {
     private VectorRect mode17;
     private String mode18;
     private Double opacity13;
+    private List<Sparkline> setMinFill2 = new ArrayList<>();
 
-    public void setMinfill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
+    public Sparkline minFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
         this.keys16 = keys16;
         this.mode16 = mode16;
         this.angle4 = angle4;
         this.opacity13 = opacity13;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity13));
+//        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %b, %f, %f);", arrayToString(keys16), mode16, angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill2() {
+        if (!setMinFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinFill3 = new ArrayList<>();
 
-    public void setMinfill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
+    public Sparkline minFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
         this.keys16 = keys16;
         this.mode17 = mode17;
         this.angle4 = angle4;
         this.opacity13 = opacity13;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill3() {
+        if (!setMinFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinFill4 = new ArrayList<>();
 
-    public void setMinfill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
+    public Sparkline minFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
         this.keys16 = keys16;
         this.mode18 = mode18;
         this.angle4 = angle4;
         this.opacity13 = opacity13;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity13));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", arrayToString(keys16), mode18, angle4, opacity13));
+//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", arrayToString(keys16), mode18, angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), mode18, angle4, opacity13));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill4() {
+        if (!setMinFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinFill5 = new ArrayList<>();
 
-    public void setMinfill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
+    public Sparkline minFill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
         this.keys17 = keys17;
         this.mode16 = mode16;
         this.angle4 = angle4;
         this.opacity13 = opacity13;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity13));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %b, %f, %f);", Arrays.toString(keys17), mode16, angle4, opacity13));
+//        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %b, %f, %f);", Arrays.toString(keys17), mode16, angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", Arrays.toString(keys17), mode16, angle4, opacity13));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill5() {
+        if (!setMinFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinFill6 = new ArrayList<>();
 
-    public void setMinfill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
+    public Sparkline minFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
         this.keys17 = keys17;
         this.mode17 = mode17;
         this.angle4 = angle4;
         this.opacity13 = opacity13;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), (mode17 != null) ? mode17.generateJs() : "null", angle4, opacity13));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill6() {
+        if (!setMinFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinFill7 = new ArrayList<>();
 
-    public void setMinfill(String[] keys17, String mode18, Double angle4, Double opacity13) {
+    public Sparkline minFill(String[] keys17, String mode18, Double angle4, Double opacity13) {
         this.keys17 = keys17;
         this.mode18 = mode18;
         this.angle4 = angle4;
         this.opacity13 = opacity13;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity13));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", Arrays.toString(keys17), mode18, angle4, opacity13));
+//        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %s, %f, %f);", Arrays.toString(keys17), mode18, angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", Arrays.toString(keys17), mode18, angle4, opacity13));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill7() {
+        if (!setMinFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys18;
@@ -2722,8 +3236,9 @@ public class Sparkline extends Chart {
     private Double opacity14;
     private Double fx4;
     private Double fy4;
+    private List<Sparkline> setMinFill8 = new ArrayList<>();
 
-    public void setMinfill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public Sparkline minFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         this.keys18 = keys18;
         this.cx4 = cx4;
         this.cy4 = cy4;
@@ -2731,17 +3246,34 @@ public class Sparkline extends Chart {
         this.opacity14 = opacity14;
         this.fx4 = fx4;
         this.fy4 = fy4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+//        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill8() {
+        if (!setMinFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinFill9 = new ArrayList<>();
 
-    public void setMinfill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public Sparkline minFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         this.keys19 = keys19;
         this.cx4 = cx4;
         this.cy4 = cy4;
@@ -2749,13 +3281,29 @@ public class Sparkline extends Chart {
         this.opacity14 = opacity14;
         this.fx4 = fx4;
         this.fy4 = fy4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
 
-        js.append(String.format(Locale.US, "chart.minFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+//        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys19), cx4, cy4, (mode19 != null) ? mode19.generateJs() : "null", opacity14, fx4, fy4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinFill9() {
+        if (!setMinFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings4;
@@ -2763,7 +3311,7 @@ public class Sparkline extends Chart {
 
     public PatternFill getMinHatchFill() {
         if (getMinHatchFill == null)
-            getMinHatchFill = new PatternFill("chart.minHatchFill()");
+            getMinHatchFill = new PatternFill(jsBase + ".minHatchFill()");
 
         return getMinHatchFill;
     }
@@ -2775,214 +3323,332 @@ public class Sparkline extends Chart {
     private String color9;
     private Double thickness4;
     private Double size4;
+    private List<Sparkline> setMinHatchFill = new ArrayList<>();
 
-    public void setMinhatchfill(PatternFill patternFillOrType16, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(PatternFill patternFillOrType16, String color9, Double thickness4, Double size4) {
         this.patternFillOrType16 = patternFillOrType16;
         this.color9 = color9;
         this.thickness4 = thickness4;
         this.size4 = size4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
 
-        js.append(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
+//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null", color9, thickness4, size4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinHatchFill() {
+        if (!setMinHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinHatchFill1 = new ArrayList<>();
 
-    public void setMinhatchfill(HatchFill patternFillOrType17, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(HatchFill patternFillOrType17, String color9, Double thickness4, Double size4) {
         this.patternFillOrType17 = patternFillOrType17;
         this.color9 = color9;
         this.thickness4 = thickness4;
         this.size4 = size4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
 
-        js.append(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
+//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null", color9, thickness4, size4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinHatchFill1() {
+        if (!setMinHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinHatchFill2 = new ArrayList<>();
 
-    public void setMinhatchfill(HatchFillType patternFillOrType18, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(HatchFillType patternFillOrType18, String color9, Double thickness4, Double size4) {
         this.patternFillOrType18 = patternFillOrType18;
         this.color9 = color9;
         this.thickness4 = thickness4;
         this.size4 = size4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
 
-        js.append(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
+//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", (patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null", color9, thickness4, size4));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinHatchFill2() {
+        if (!setMinHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinHatchFill3 = new ArrayList<>();
 
-    public void setMinhatchfill(String patternFillOrType19, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(String patternFillOrType19, String color9, Double thickness4, Double size4) {
         this.patternFillOrType19 = patternFillOrType19;
         this.color9 = color9;
         this.thickness4 = thickness4;
         this.size4 = size4;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", patternFillOrType19, color9, thickness4, size4));
 
-        js.append(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", patternFillOrType19, color9, thickness4, size4));
+//        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", patternFillOrType19, color9, thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHatchFill(%s, %s, %f, %f);", patternFillOrType19, color9, thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", patternFillOrType19, color9, thickness4, size4));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double minHeight;
-    private String minHeight1;
-
-    public void setMinheight(Double minHeight) {
-        this.minHeight = minHeight;
-
-        js.append(String.format(Locale.US, "chart.minHeight(%f);", minHeight));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHeight(%f);", minHeight));
-            js.setLength(0);
+    private String generateJSsetMinHatchFill3() {
+        if (!setMinHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setMinheight(String minHeight1) {
-        this.minHeight1 = minHeight1;
-
-        js.append(String.format(Locale.US, "chart.minHeight(%s);", minHeight1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minHeight(%s);", minHeight1));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private LabelsfactoryLabel getMinLabels;
 
     public LabelsfactoryLabel getMinLabels() {
         if (getMinLabels == null)
-            getMinLabels = new LabelsfactoryLabel("chart.minLabels()");
+            getMinLabels = new LabelsfactoryLabel(jsBase + ".minLabels()");
 
         return getMinLabels;
     }
 
     private String minLabels;
     private Boolean minLabels1;
+    private List<Sparkline> setMinLabels = new ArrayList<>();
 
-    public void setMinlabels(String minLabels) {
+    public Sparkline setMinLabels(String minLabels) {
         this.minLabels = minLabels;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%s)", minLabels));
 
-        js.append(String.format(Locale.US, "chart.minLabels(%s);", minLabels));
+//        js.append(String.format(Locale.US, ".minLabels(%s)", minLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minLabels(%s);", minLabels));
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%s)", minLabels));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinLabels() {
+        if (!setMinLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinLabels1 = new ArrayList<>();
 
-    public void setMinlabels(Boolean minLabels1) {
+    public Sparkline setMinLabels(Boolean minLabels1) {
         this.minLabels1 = minLabels1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%b)", minLabels1));
 
-        js.append(String.format(Locale.US, "chart.minLabels(%b);", minLabels1));
+//        js.append(String.format(Locale.US, ".minLabels(%b)", minLabels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minLabels(%b);", minLabels1));
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%b)", minLabels1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinLabels1() {
+        if (!setMinLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiMarkersfactoryMarker getMinMarkers;
 
     public UiMarkersfactoryMarker getMinMarkers() {
         if (getMinMarkers == null)
-            getMinMarkers = new UiMarkersfactoryMarker("chart.minMarkers()");
+            getMinMarkers = new UiMarkersfactoryMarker(jsBase + ".minMarkers()");
 
         return getMinMarkers;
     }
 
     private String minMarkers;
     private Boolean minMarkers1;
+    private List<Sparkline> setMinMarkers = new ArrayList<>();
 
-    public void setMinmarkers(String minMarkers) {
+    public Sparkline setMinMarkers(String minMarkers) {
         this.minMarkers = minMarkers;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minMarkers(%s)", minMarkers));
 
-        js.append(String.format(Locale.US, "chart.minMarkers(%s);", minMarkers));
+//        js.append(String.format(Locale.US, ".minMarkers(%s)", minMarkers));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minMarkers(%s);", minMarkers));
+            onChangeListener.onChange(String.format(Locale.US, ".minMarkers(%s)", minMarkers));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetMinMarkers() {
+        if (!setMinMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setMinMarkers1 = new ArrayList<>();
 
-    public void setMinmarkers(Boolean minMarkers1) {
+    public Sparkline setMinMarkers(Boolean minMarkers1) {
         this.minMarkers1 = minMarkers1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minMarkers(%b)", minMarkers1));
 
-        js.append(String.format(Locale.US, "chart.minMarkers(%b);", minMarkers1));
+//        js.append(String.format(Locale.US, ".minMarkers(%b)", minMarkers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minMarkers(%b);", minMarkers1));
+            onChangeListener.onChange(String.format(Locale.US, ".minMarkers(%b)", minMarkers1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double minWidth;
-    private String minWidth1;
-
-    public void setMinwidth(Double minWidth) {
-        this.minWidth = minWidth;
-
-        js.append(String.format(Locale.US, "chart.minWidth(%f);", minWidth));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minWidth(%f);", minWidth));
-            js.setLength(0);
+    private String generateJSsetMinMarkers1() {
+        if (!setMinMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setMinMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setMinwidth(String minWidth1) {
-        this.minWidth1 = minWidth1;
-
-        js.append(String.format(Locale.US, "chart.minWidth(%s);", minWidth1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.minWidth(%s);", minWidth1));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private Fill negativeFill;
+    private List<Sparkline> setNegativeFill = new ArrayList<>();
 
-    public void setNegativefill(Fill negativeFill) {
+    public Sparkline setNegativeFill(Fill negativeFill) {
         this.negativeFill = negativeFill;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s)", (negativeFill != null) ? negativeFill.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s);", (negativeFill != null) ? negativeFill.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".negativeFill(%s)", (negativeFill != null) ? negativeFill.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s);", (negativeFill != null) ? negativeFill.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s)", (negativeFill != null) ? negativeFill.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill() {
+        if (!setNegativeFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color10;
     private Double opacity15;
+    private List<Sparkline> setNegativeFill1 = new ArrayList<>();
 
-    public void setNegativefill(String color10, Double opacity15) {
+    public Sparkline negativeFill(String color10, Double opacity15) {
         this.color10 = color10;
         this.opacity15 = opacity15;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %f)", color10, opacity15));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %f);", color10, opacity15));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %f)", color10, opacity15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %f);", color10, opacity15));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", color10, opacity15));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill1() {
+        if (!setNegativeFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys20;
@@ -2992,94 +3658,196 @@ public class Sparkline extends Chart {
     private VectorRect mode21;
     private String mode22;
     private Double opacity16;
+    private List<Sparkline> setNegativeFill2 = new ArrayList<>();
 
-    public void setNegativefill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
         this.keys20 = keys20;
         this.mode20 = mode20;
         this.angle5 = angle5;
         this.opacity16 = opacity16;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %b, %f, %f);", arrayToString(keys20), mode20, angle5, opacity16));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %b, %f, %f);", arrayToString(keys20), mode20, angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill2() {
+        if (!setNegativeFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeFill3 = new ArrayList<>();
 
-    public void setNegativefill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
         this.keys20 = keys20;
         this.mode21 = mode21;
         this.angle5 = angle5;
         this.opacity16 = opacity16;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill3() {
+        if (!setNegativeFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeFill4 = new ArrayList<>();
 
-    public void setNegativefill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
         this.keys20 = keys20;
         this.mode22 = mode22;
         this.angle5 = angle5;
         this.opacity16 = opacity16;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity16));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", arrayToString(keys20), mode22, angle5, opacity16));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", arrayToString(keys20), mode22, angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), mode22, angle5, opacity16));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill4() {
+        if (!setNegativeFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeFill5 = new ArrayList<>();
 
-    public void setNegativefill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
         this.keys21 = keys21;
         this.mode20 = mode20;
         this.angle5 = angle5;
         this.opacity16 = opacity16;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity16));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %b, %f, %f);", Arrays.toString(keys21), mode20, angle5, opacity16));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %b, %f, %f);", Arrays.toString(keys21), mode20, angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", Arrays.toString(keys21), mode20, angle5, opacity16));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill5() {
+        if (!setNegativeFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeFill6 = new ArrayList<>();
 
-    public void setNegativefill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
         this.keys21 = keys21;
         this.mode21 = mode21;
         this.angle5 = angle5;
         this.opacity16 = opacity16;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), (mode21 != null) ? mode21.generateJs() : "null", angle5, opacity16));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill6() {
+        if (!setNegativeFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeFill7 = new ArrayList<>();
 
-    public void setNegativefill(String[] keys21, String mode22, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(String[] keys21, String mode22, Double angle5, Double opacity16) {
         this.keys21 = keys21;
         this.mode22 = mode22;
         this.angle5 = angle5;
         this.opacity16 = opacity16;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity16));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), mode22, angle5, opacity16));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %s, %f, %f);", Arrays.toString(keys21), mode22, angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", Arrays.toString(keys21), mode22, angle5, opacity16));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill7() {
+        if (!setNegativeFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys22;
@@ -3090,8 +3858,9 @@ public class Sparkline extends Chart {
     private Double opacity17;
     private Double fx5;
     private Double fy5;
+    private List<Sparkline> setNegativeFill8 = new ArrayList<>();
 
-    public void setNegativefill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public Sparkline negativeFill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         this.keys22 = keys22;
         this.cx5 = cx5;
         this.cy5 = cy5;
@@ -3099,17 +3868,34 @@ public class Sparkline extends Chart {
         this.opacity17 = opacity17;
         this.fx5 = fx5;
         this.fy5 = fy5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill8() {
+        if (!setNegativeFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeFill9 = new ArrayList<>();
 
-    public void setNegativefill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public Sparkline negativeFill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         this.keys23 = keys23;
         this.cx5 = cx5;
         this.cy5 = cy5;
@@ -3117,13 +3903,29 @@ public class Sparkline extends Chart {
         this.opacity17 = opacity17;
         this.fx5 = fx5;
         this.fy5 = fy5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
 
-        js.append(String.format(Locale.US, "chart.negativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+//        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys23), cx5, cy5, (mode23 != null) ? mode23.generateJs() : "null", opacity17, fx5, fy5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeFill9() {
+        if (!setNegativeFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings5;
@@ -3131,7 +3933,7 @@ public class Sparkline extends Chart {
 
     public PatternFill getNegativeHatchFill() {
         if (getNegativeHatchFill == null)
-            getNegativeHatchFill = new PatternFill("chart.negativeHatchFill()");
+            getNegativeHatchFill = new PatternFill(jsBase + ".negativeHatchFill()");
 
         return getNegativeHatchFill;
     }
@@ -3143,1570 +3945,976 @@ public class Sparkline extends Chart {
     private String color11;
     private Double thickness5;
     private Double size5;
+    private List<Sparkline> setNegativeHatchFill = new ArrayList<>();
 
-    public void setNegativehatchfill(PatternFill patternFillOrType20, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(PatternFill patternFillOrType20, String color11, Double thickness5, Double size5) {
         this.patternFillOrType20 = patternFillOrType20;
         this.color11 = color11;
         this.thickness5 = thickness5;
         this.size5 = size5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
 
-        js.append(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
+//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null", color11, thickness5, size5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeHatchFill() {
+        if (!setNegativeHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeHatchFill1 = new ArrayList<>();
 
-    public void setNegativehatchfill(HatchFill patternFillOrType21, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(HatchFill patternFillOrType21, String color11, Double thickness5, Double size5) {
         this.patternFillOrType21 = patternFillOrType21;
         this.color11 = color11;
         this.thickness5 = thickness5;
         this.size5 = size5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
 
-        js.append(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
+//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null", color11, thickness5, size5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeHatchFill1() {
+        if (!setNegativeHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeHatchFill2 = new ArrayList<>();
 
-    public void setNegativehatchfill(HatchFillType patternFillOrType22, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(HatchFillType patternFillOrType22, String color11, Double thickness5, Double size5) {
         this.patternFillOrType22 = patternFillOrType22;
         this.color11 = color11;
         this.thickness5 = thickness5;
         this.size5 = size5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
 
-        js.append(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
+//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", (patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null", color11, thickness5, size5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeHatchFill2() {
+        if (!setNegativeHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeHatchFill3 = new ArrayList<>();
 
-    public void setNegativehatchfill(String patternFillOrType23, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(String patternFillOrType23, String color11, Double thickness5, Double size5) {
         this.patternFillOrType23 = patternFillOrType23;
         this.color11 = color11;
         this.thickness5 = thickness5;
         this.size5 = size5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", patternFillOrType23, color11, thickness5, size5));
 
-        js.append(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", patternFillOrType23, color11, thickness5, size5));
+//        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", patternFillOrType23, color11, thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeHatchFill(%s, %s, %f, %f);", patternFillOrType23, color11, thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", patternFillOrType23, color11, thickness5, size5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeHatchFill3() {
+        if (!setNegativeHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private LabelsfactoryLabel getNegativeLabels;
 
     public LabelsfactoryLabel getNegativeLabels() {
         if (getNegativeLabels == null)
-            getNegativeLabels = new LabelsfactoryLabel("chart.negativeLabels()");
+            getNegativeLabels = new LabelsfactoryLabel(jsBase + ".negativeLabels()");
 
         return getNegativeLabels;
     }
 
     private String negativeLabels;
     private Boolean negativeLabels1;
+    private List<Sparkline> setNegativeLabels = new ArrayList<>();
 
-    public void setNegativelabels(String negativeLabels) {
+    public Sparkline setNegativeLabels(String negativeLabels) {
         this.negativeLabels = negativeLabels;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeLabels(%s)", negativeLabels));
 
-        js.append(String.format(Locale.US, "chart.negativeLabels(%s);", negativeLabels));
+//        js.append(String.format(Locale.US, ".negativeLabels(%s)", negativeLabels));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeLabels(%s);", negativeLabels));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeLabels(%s)", negativeLabels));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeLabels() {
+        if (!setNegativeLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeLabels1 = new ArrayList<>();
 
-    public void setNegativelabels(Boolean negativeLabels1) {
+    public Sparkline setNegativeLabels(Boolean negativeLabels1) {
         this.negativeLabels1 = negativeLabels1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeLabels(%b)", negativeLabels1));
 
-        js.append(String.format(Locale.US, "chart.negativeLabels(%b);", negativeLabels1));
+//        js.append(String.format(Locale.US, ".negativeLabels(%b)", negativeLabels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeLabels(%b);", negativeLabels1));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeLabels(%b)", negativeLabels1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeLabels1() {
+        if (!setNegativeLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiMarkersfactoryMarker getNegativeMarkers;
 
     public UiMarkersfactoryMarker getNegativeMarkers() {
         if (getNegativeMarkers == null)
-            getNegativeMarkers = new UiMarkersfactoryMarker("chart.negativeMarkers()");
+            getNegativeMarkers = new UiMarkersfactoryMarker(jsBase + ".negativeMarkers()");
 
         return getNegativeMarkers;
     }
 
     private String negativeMarkers;
     private Boolean negativeMarkers1;
+    private List<Sparkline> setNegativeMarkers = new ArrayList<>();
 
-    public void setNegativemarkers(String negativeMarkers) {
+    public Sparkline setNegativeMarkers(String negativeMarkers) {
         this.negativeMarkers = negativeMarkers;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeMarkers(%s)", negativeMarkers));
 
-        js.append(String.format(Locale.US, "chart.negativeMarkers(%s);", negativeMarkers));
+//        js.append(String.format(Locale.US, ".negativeMarkers(%s)", negativeMarkers));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeMarkers(%s);", negativeMarkers));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeMarkers(%s)", negativeMarkers));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetNegativeMarkers() {
+        if (!setNegativeMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setNegativeMarkers1 = new ArrayList<>();
 
-    public void setNegativemarkers(Boolean negativeMarkers1) {
+    public Sparkline setNegativeMarkers(Boolean negativeMarkers1) {
         this.negativeMarkers1 = negativeMarkers1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".negativeMarkers(%b)", negativeMarkers1));
 
-        js.append(String.format(Locale.US, "chart.negativeMarkers(%b);", negativeMarkers1));
+//        js.append(String.format(Locale.US, ".negativeMarkers(%b)", negativeMarkers1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.negativeMarkers(%b);", negativeMarkers1));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeMarkers(%b)", negativeMarkers1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private UtilsPadding getPadding;
-
-    public UtilsPadding getPadding() {
-        if (getPadding == null)
-            getPadding = new UtilsPadding("chart.padding()");
-
-        return getPadding;
-    }
-
-    private Double[] padding;
-    private String[] padding1;
-    private String padding2;
-
-    public void setPadding(Double[] padding) {
-        this.padding = padding;
-
-        js.append(String.format(Locale.US, "chart.padding(%s);", Arrays.toString(padding)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s);", Arrays.toString(padding)));
-            js.setLength(0);
+    private String generateJSsetNegativeMarkers1() {
+        if (!setNegativeMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setNegativeMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setPadding(String[] padding1) {
-        this.padding1 = padding1;
-
-        js.append(String.format(Locale.US, "chart.padding(%s);", Arrays.toString(padding1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s);", Arrays.toString(padding1)));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String padding2) {
-        this.padding2 = padding2;
-
-        js.append(String.format(Locale.US, "chart.padding(%s);", padding2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s);", padding2));
-            js.setLength(0);
-        }
-    }
-
-    private String value8;
-    private Double value9;
-    private String value10;
-    private Double value11;
-    private String value12;
-    private Double value13;
-    private String value14;
-    private Double value15;
-
-    public void setPadding(String value8, String value10, String value12, String value14) {
-        this.value8 = value8;
-        this.value10 = value10;
-        this.value12 = value12;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %s, %s, %s);", value8, value10, value12, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %s, %s);", value8, value10, value12, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String value8, String value10, String value12, Double value15) {
-        this.value8 = value8;
-        this.value10 = value10;
-        this.value12 = value12;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %s, %s, %f);", value8, value10, value12, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %s, %f);", value8, value10, value12, value15));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String value8, String value10, Double value13, String value14) {
-        this.value8 = value8;
-        this.value10 = value10;
-        this.value13 = value13;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %s, %f, %s);", value8, value10, value13, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %f, %s);", value8, value10, value13, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String value8, String value10, Double value13, Double value15) {
-        this.value8 = value8;
-        this.value10 = value10;
-        this.value13 = value13;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %s, %f, %f);", value8, value10, value13, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %s, %f, %f);", value8, value10, value13, value15));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String value8, Double value11, String value12, String value14) {
-        this.value8 = value8;
-        this.value11 = value11;
-        this.value12 = value12;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %f, %s, %s);", value8, value11, value12, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %s, %s);", value8, value11, value12, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String value8, Double value11, String value12, Double value15) {
-        this.value8 = value8;
-        this.value11 = value11;
-        this.value12 = value12;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %f, %s, %f);", value8, value11, value12, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %s, %f);", value8, value11, value12, value15));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String value8, Double value11, Double value13, String value14) {
-        this.value8 = value8;
-        this.value11 = value11;
-        this.value13 = value13;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %f, %f, %s);", value8, value11, value13, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %f, %s);", value8, value11, value13, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(String value8, Double value11, Double value13, Double value15) {
-        this.value8 = value8;
-        this.value11 = value11;
-        this.value13 = value13;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%s, %f, %f, %f);", value8, value11, value13, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%s, %f, %f, %f);", value8, value11, value13, value15));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, String value10, String value12, String value14) {
-        this.value9 = value9;
-        this.value10 = value10;
-        this.value12 = value12;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %s, %s, %s);", value9, value10, value12, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %s, %s);", value9, value10, value12, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, String value10, String value12, Double value15) {
-        this.value9 = value9;
-        this.value10 = value10;
-        this.value12 = value12;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %s, %s, %f);", value9, value10, value12, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %s, %f);", value9, value10, value12, value15));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, String value10, Double value13, String value14) {
-        this.value9 = value9;
-        this.value10 = value10;
-        this.value13 = value13;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %s, %f, %s);", value9, value10, value13, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %f, %s);", value9, value10, value13, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, String value10, Double value13, Double value15) {
-        this.value9 = value9;
-        this.value10 = value10;
-        this.value13 = value13;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %s, %f, %f);", value9, value10, value13, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %s, %f, %f);", value9, value10, value13, value15));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, Double value11, String value12, String value14) {
-        this.value9 = value9;
-        this.value11 = value11;
-        this.value12 = value12;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %f, %s, %s);", value9, value11, value12, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %s, %s);", value9, value11, value12, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, Double value11, String value12, Double value15) {
-        this.value9 = value9;
-        this.value11 = value11;
-        this.value12 = value12;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %f, %s, %f);", value9, value11, value12, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %s, %f);", value9, value11, value12, value15));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, Double value11, Double value13, String value14) {
-        this.value9 = value9;
-        this.value11 = value11;
-        this.value13 = value13;
-        this.value14 = value14;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %f, %f, %s);", value9, value11, value13, value14));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %f, %s);", value9, value11, value13, value14));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setPadding(Double value9, Double value11, Double value13, Double value15) {
-        this.value9 = value9;
-        this.value11 = value11;
-        this.value13 = value13;
-        this.value15 = value15;
-
-        js.append(String.format(Locale.US, "chart.padding(%f, %f, %f, %f);", value9, value11, value13, value15));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.padding(%f, %f, %f, %f);", value9, value11, value13, value15));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private Double pointWidth;
     private String pointWidth1;
+    private List<Sparkline> setPointWidth = new ArrayList<>();
 
-    public void setPointwidth(Double pointWidth) {
+    public Sparkline setPointWidth(Double pointWidth) {
         this.pointWidth = pointWidth;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
-        js.append(String.format(Locale.US, "chart.pointWidth(%f);", pointWidth));
+//        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.pointWidth(%f);", pointWidth));
+            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetPointWidth() {
+        if (!setPointWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setPointWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setPointWidth1 = new ArrayList<>();
 
-    public void setPointwidth(String pointWidth1) {
+    public Sparkline setPointWidth(String pointWidth1) {
         this.pointWidth1 = pointWidth1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
 
-        js.append(String.format(Locale.US, "chart.pointWidth(%s);", pointWidth1));
+//        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.pointWidth(%s);", pointWidth1));
+            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        this.paperSizeOrOptions = paperSizeOrOptions;
-        this.landscape = landscape;
-
-        js.append(String.format(Locale.US, "chart.print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-            js.setLength(0);
+    private String generateJSsetPointWidth1() {
+        if (!setPointWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setPointWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        this.paperSizeOrOptions1 = paperSizeOrOptions1;
-        this.landscape = landscape;
-
-        js.append(String.format(Locale.US, "chart.print(%s, %b);", paperSizeOrOptions1, landscape));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.print(%s, %b);", paperSizeOrOptions1, landscape));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private CoreAxismarkersRange getRangeMarker;
 
     public CoreAxismarkersRange getRangeMarker() {
         if (getRangeMarker == null)
-            getRangeMarker = new CoreAxismarkersRange("chart.rangeMarker()");
+            getRangeMarker = new CoreAxismarkersRange(jsBase + ".rangeMarker()");
 
         return getRangeMarker;
     }
 
     private CoreAxismarkersRange getRangeMarker1;
 
-    public CoreAxismarkersRange getRangeMarker1(Double index6) {
+    public CoreAxismarkersRange getRangeMarker(Double index2) {
         if (getRangeMarker1 == null)
-            getRangeMarker1 = new CoreAxismarkersRange("chart.rangeMarker1("+ index6+")");
+            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker1("+ index2+")");
 
         return getRangeMarker1;
     }
 
     private String rangeMarker;
     private Boolean rangeMarker1;
+    private List<Sparkline> setRangeMarker = new ArrayList<>();
 
-    public void setRangemarker(String rangeMarker) {
+    public Sparkline setRangeMarker(String rangeMarker) {
         this.rangeMarker = rangeMarker;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%s);", rangeMarker));
+//        js.append(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s);", rangeMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s)", rangeMarker));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetRangeMarker() {
+        if (!setRangeMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setRangeMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setRangeMarker1 = new ArrayList<>();
 
-    public void setRangemarker(Boolean rangeMarker1) {
+    public Sparkline setRangeMarker(Boolean rangeMarker1) {
         this.rangeMarker1 = rangeMarker1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%b);", rangeMarker1));
+//        js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b);", rangeMarker1));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetRangeMarker1() {
+        if (!setRangeMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setRangeMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
-    private Double index7;
+    private Double index3;
     private String rangeMarker2;
     private Boolean rangeMarker3;
+    private List<Sparkline> setRangeMarker2 = new ArrayList<>();
 
-    public void setRangemarker(String rangeMarker2, Double index7) {
+    public Sparkline setRangeMarker(String rangeMarker2, Double index3) {
         this.rangeMarker2 = rangeMarker2;
-        this.index7 = index7;
+        this.index3 = index3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index7));
+//        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%s, %f);", rangeMarker2, index7));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetRangeMarker2() {
+        if (!setRangeMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setRangeMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setRangeMarker3 = new ArrayList<>();
 
-    public void setRangemarker(Boolean rangeMarker3, Double index7) {
+    public Sparkline setRangeMarker(Boolean rangeMarker3, Double index3) {
         this.rangeMarker3 = rangeMarker3;
-        this.index7 = index7;
+        this.index3 = index3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
 
-        js.append(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index7));
+//        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.rangeMarker(%b, %f);", rangeMarker3, index7));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetRangeMarker3() {
+        if (!setRangeMarker3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setRangeMarker3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
-    private String type2;
+    private String type;
+    private SparklineSeriesType type1;
+    private List<Sparkline> setSeriesType = new ArrayList<>();
 
-    public void setRemovealllisteners(String type2) {
-        this.type2 = type2;
+    public Sparkline setSeriesType(String type) {
+        this.type = type;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".seriesType(%s)", type));
 
-        js.append(String.format(Locale.US, "chart.removeAllListeners(%s);", type2));
+//        js.append(String.format(Locale.US, ".seriesType(%s)", type));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.removeAllListeners(%s);", type2));
+            onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", type));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetSeriesType() {
+        if (!setSeriesType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setSeriesType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
-    private Double right;
-    private String right1;
+    private List<Sparkline> setSeriesType1 = new ArrayList<>();
 
-    public void setRight(Double right) {
-        this.right = right;
+    public Sparkline setSeriesType(SparklineSeriesType type1) {
+        this.type1 = type1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".seriesType(%s)", (type1 != null) ? type1.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.right(%f);", right));
+//        js.append(String.format(Locale.US, ".seriesType(%s)", (type1 != null) ? type1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.right(%f);", right));
+            onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", (type1 != null) ? type1.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
     }
-
-
-    public void setRight(String right1) {
-        this.right1 = right1;
-
-        js.append(String.format(Locale.US, "chart.right(%s);", right1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.right(%s);", right1));
-            js.setLength(0);
+    private String generateJSsetSeriesType1() {
+        if (!setSeriesType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setSeriesType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
+        return "";
     }
 
-    private String chartDataExportMode;
-    private ChartDataExportMode chartDataExportMode1;
-    private String csvSettings2;
-    private String filename;
-
-    public void setSaveascsv(String chartDataExportMode, String csvSettings2, String filename) {
-        this.chartDataExportMode = chartDataExportMode;
-        this.csvSettings2 = csvSettings2;
-        this.filename = filename;
-
-        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", chartDataExportMode, csvSettings2, filename));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", chartDataExportMode, csvSettings2, filename));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSaveascsv(ChartDataExportMode chartDataExportMode1, String csvSettings2, String filename) {
-        this.chartDataExportMode1 = chartDataExportMode1;
-        this.csvSettings2 = csvSettings2;
-        this.filename = filename;
-
-        js.append(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings2, filename));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsCsv(%s, %s, %s);", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings2, filename));
-            js.setLength(0);
-        }
-    }
-
-    private Double width2;
-    private String width3;
-    private Double height4;
-    private Double quality;
-    private Boolean forceTransparentWhite;
-    private String filename1;
-
-    public void setSaveasjpg(Double width2, Double height4, Double quality, Boolean forceTransparentWhite, String filename1) {
-        this.width2 = width2;
-        this.height4 = height4;
-        this.quality = quality;
-        this.forceTransparentWhite = forceTransparentWhite;
-        this.filename1 = filename1;
-
-        js.append(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, %s);", width2, height4, quality, forceTransparentWhite, filename1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%f, %f, %f, %b, %s);", width2, height4, quality, forceTransparentWhite, filename1));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSaveasjpg(String width3, Double height4, Double quality, Boolean forceTransparentWhite, String filename1) {
-        this.width3 = width3;
-        this.height4 = height4;
-        this.quality = quality;
-        this.forceTransparentWhite = forceTransparentWhite;
-        this.filename1 = filename1;
-
-        js.append(String.format(Locale.US, "chart.saveAsJpg(%s, %f, %f, %b, %s);", width3, height4, quality, forceTransparentWhite, filename1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJpg(%s, %f, %f, %b, %s);", width3, height4, quality, forceTransparentWhite, filename1));
-            js.setLength(0);
-        }
-    }
-
-    private Boolean includeTheme;
-    private String filename2;
-
-    public void setSaveasjson(Boolean includeTheme, String filename2) {
-        this.includeTheme = includeTheme;
-        this.filename2 = filename2;
-
-        js.append(String.format(Locale.US, "chart.saveAsJson(%b, %s);", includeTheme, filename2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsJson(%b, %s);", includeTheme, filename2));
-            js.setLength(0);
-        }
-    }
-
-    private Double paperSizeOrWidthOrOptions;
-    private String paperSizeOrWidthOrOptions1;
-    private String paperSizeOrWidthOrOptions2;
-    private Boolean landscape1;
-    private Double x2;
-    private Double y2;
-    private String filename3;
-
-    public void setSaveaspdf(Double paperSizeOrWidthOrOptions, Boolean landscape1, Double x2, Double y2, String filename3) {
-        this.paperSizeOrWidthOrOptions = paperSizeOrWidthOrOptions;
-        this.landscape1 = landscape1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.filename3 = filename3;
-
-        js.append(String.format(Locale.US, "chart.saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape1, x2, y2, filename3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape1, x2, y2, filename3));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSaveaspdf(String paperSizeOrWidthOrOptions1, Boolean landscape1, Double x2, Double y2, String filename3) {
-        this.paperSizeOrWidthOrOptions1 = paperSizeOrWidthOrOptions1;
-        this.landscape1 = landscape1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.filename3 = filename3;
-
-        js.append(String.format(Locale.US, "chart.saveAsPdf(%s, %b, %f, %f, %s);", paperSizeOrWidthOrOptions1, landscape1, x2, y2, filename3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPdf(%s, %b, %f, %f, %s);", paperSizeOrWidthOrOptions1, landscape1, x2, y2, filename3));
-            js.setLength(0);
-        }
-    }
-
-    private Double width4;
-    private String width5;
-    private Double height5;
-    private Double quality1;
-    private String filename4;
-
-    public void setSaveaspng(Double width4, Double height5, Double quality1, String filename4) {
-        this.width4 = width4;
-        this.height5 = height5;
-        this.quality1 = quality1;
-        this.filename4 = filename4;
-
-        js.append(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width4, height5, quality1, filename4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%f, %f, %f, %s);", width4, height5, quality1, filename4));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSaveaspng(String width5, Double height5, Double quality1, String filename4) {
-        this.width5 = width5;
-        this.height5 = height5;
-        this.quality1 = quality1;
-        this.filename4 = filename4;
-
-        js.append(String.format(Locale.US, "chart.saveAsPng(%s, %f, %f, %s);", width5, height5, quality1, filename4));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsPng(%s, %f, %f, %s);", width5, height5, quality1, filename4));
-            js.setLength(0);
-        }
-    }
-
-    private String paperSize;
-    private String paperSize1;
-    private Boolean landscape2;
-    private String filename5;
-
-    public void setSaveassvg(String paperSize, Boolean landscape2, String filename5) {
-        this.paperSize = paperSize;
-        this.landscape2 = landscape2;
-        this.filename5 = filename5;
-
-        js.append(String.format(Locale.US, "chart.saveAsSvg(%s, %b, %s);", paperSize, landscape2, filename5));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%s, %b, %s);", paperSize, landscape2, filename5));
-            js.setLength(0);
-        }
-    }
-
-    private Double width6;
-    private Double height6;
-
-    public void setSaveassvg(Double width6, Double height6) {
-        this.width6 = width6;
-        this.height6 = height6;
-
-        js.append(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width6, height6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsSvg(%f, %f);", width6, height6));
-            js.setLength(0);
-        }
-    }
-
-    private String chartDataExportMode2;
-    private ChartDataExportMode chartDataExportMode3;
-    private String filename6;
-
-    public void setSaveasxlsx(String chartDataExportMode2, String filename6) {
-        this.chartDataExportMode2 = chartDataExportMode2;
-        this.filename6 = filename6;
-
-        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", chartDataExportMode2, filename6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", chartDataExportMode2, filename6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSaveasxlsx(ChartDataExportMode chartDataExportMode3, String filename6) {
-        this.chartDataExportMode3 = chartDataExportMode3;
-        this.filename6 = filename6;
-
-        js.append(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXlsx(%s, %s);", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
-            js.setLength(0);
-        }
-    }
-
-    private Boolean includeTheme1;
-    private String filename7;
-
-    public void setSaveasxml(Boolean includeTheme1, String filename7) {
-        this.includeTheme1 = includeTheme1;
-        this.filename7 = filename7;
-
-        js.append(String.format(Locale.US, "chart.saveAsXml(%b, %s);", includeTheme1, filename7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.saveAsXml(%b, %s);", includeTheme1, filename7));
-            js.setLength(0);
-        }
-    }
-
-    private Fill selectMarqueeFill;
-
-    public void setSelectmarqueefill(Fill selectMarqueeFill) {
-        this.selectMarqueeFill = selectMarqueeFill;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s);", (selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s);", (selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-    private String color12;
-    private Double opacity18;
-
-    public void setSelectmarqueefill(String color12, Double opacity18) {
-        this.color12 = color12;
-        this.opacity18 = opacity18;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color12, opacity18));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f);", color12, opacity18));
-            js.setLength(0);
-        }
-    }
-
-    private GradientKey[] keys24;
-    private String[] keys25;
-    private Double angle6;
-    private Boolean mode24;
-    private VectorRect mode25;
-    private String mode26;
-    private Double opacity19;
-
-    public void setSelectmarqueefill(GradientKey[] keys24, Boolean mode24, Double angle6, Double opacity19) {
-        this.keys24 = keys24;
-        this.mode24 = mode24;
-        this.angle6 = angle6;
-        this.opacity19 = opacity19;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", arrayToString(keys24), mode24, angle6, opacity19));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", arrayToString(keys24), mode24, angle6, opacity19));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSelectmarqueefill(GradientKey[] keys24, VectorRect mode25, Double angle6, Double opacity19) {
-        this.keys24 = keys24;
-        this.mode25 = mode25;
-        this.angle6 = angle6;
-        this.opacity19 = opacity19;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys24), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity19));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys24), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity19));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSelectmarqueefill(GradientKey[] keys24, String mode26, Double angle6, Double opacity19) {
-        this.keys24 = keys24;
-        this.mode26 = mode26;
-        this.angle6 = angle6;
-        this.opacity19 = opacity19;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys24), mode26, angle6, opacity19));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", arrayToString(keys24), mode26, angle6, opacity19));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSelectmarqueefill(String[] keys25, Boolean mode24, Double angle6, Double opacity19) {
-        this.keys25 = keys25;
-        this.mode24 = mode24;
-        this.angle6 = angle6;
-        this.opacity19 = opacity19;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", Arrays.toString(keys25), mode24, angle6, opacity19));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %b, %f, %f);", Arrays.toString(keys25), mode24, angle6, opacity19));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSelectmarqueefill(String[] keys25, VectorRect mode25, Double angle6, Double opacity19) {
-        this.keys25 = keys25;
-        this.mode25 = mode25;
-        this.angle6 = angle6;
-        this.opacity19 = opacity19;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys25), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity19));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys25), (mode25 != null) ? mode25.generateJs() : "null", angle6, opacity19));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSelectmarqueefill(String[] keys25, String mode26, Double angle6, Double opacity19) {
-        this.keys25 = keys25;
-        this.mode26 = mode26;
-        this.angle6 = angle6;
-        this.opacity19 = opacity19;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys25), mode26, angle6, opacity19));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %s, %f, %f);", Arrays.toString(keys25), mode26, angle6, opacity19));
-            js.setLength(0);
-        }
-    }
-
-    private GradientKey[] keys26;
-    private String[] keys27;
-    private Double cx6;
-    private Double cy6;
-    private GraphicsMathRect mode27;
-    private Double opacity20;
-    private Double fx6;
-    private Double fy6;
-
-    public void setSelectmarqueefill(GradientKey[] keys26, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity20, Double fx6, Double fy6) {
-        this.keys26 = keys26;
-        this.cx6 = cx6;
-        this.cy6 = cy6;
-        this.mode27 = mode27;
-        this.opacity20 = opacity20;
-        this.fx6 = fx6;
-        this.fy6 = fy6;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys26), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity20, fx6, fy6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys26), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity20, fx6, fy6));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setSelectmarqueefill(String[] keys27, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity20, Double fx6, Double fy6) {
-        this.keys27 = keys27;
-        this.cx6 = cx6;
-        this.cy6 = cy6;
-        this.mode27 = mode27;
-        this.opacity20 = opacity20;
-        this.fx6 = fx6;
-        this.fy6 = fy6;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys27), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity20, fx6, fy6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys27), cx6, cy6, (mode27 != null) ? mode27.generateJs() : "null", opacity20, fx6, fy6));
-            js.setLength(0);
-        }
-    }
-
-    private Fill imageSettings6;
-    private Stroke color13;
-    private ColoredFill color14;
-    private String color15;
+    private Stroke color12;
+    private ColoredFill color13;
+    private String color14;
     private Double thickness6;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<Sparkline> setStroke = new ArrayList<>();
 
-    public void setSelectmarqueestroke(Stroke color13, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Sparkline setStroke(Stroke color12, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+        this.color12 = color12;
+        this.thickness6 = thickness6;
+        this.dashpattern = dashpattern;
+        this.lineJoin = lineJoin;
+        this.lineCap = lineCap;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color12 != null) ? color12.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color12 != null) ? color12.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color12 != null) ? color12.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Sparkline> setStroke1 = new ArrayList<>();
+
+    public Sparkline setStroke(ColoredFill color13, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         this.color13 = color13;
         this.thickness6 = thickness6;
         this.dashpattern = dashpattern;
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color13 != null) ? color13.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setStroke2 = new ArrayList<>();
 
-    public void setSelectmarqueestroke(ColoredFill color14, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Sparkline setStroke(String color14, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         this.color14 = color14;
         this.thickness6 = thickness6;
         this.dashpattern = dashpattern;
         this.lineJoin = lineJoin;
         this.lineCap = lineCap;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color14, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color14 != null) ? color14.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color14, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", (color14 != null) ? color14.generateJs() : "null", thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color14, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
     }
-
-
-    public void setSelectmarqueestroke(String color15, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        this.color15 = color15;
-        this.thickness6 = thickness6;
-        this.dashpattern = dashpattern;
-        this.lineJoin = lineJoin;
-        this.lineCap = lineCap;
-
-        js.append(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color15, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.selectMarqueeStroke(%s, %f, %s, %s, %s);", color15, thickness6, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-            js.setLength(0);
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-    private Boolean repeat;
-
-    public void setStartselectmarquee(Boolean repeat) {
-        this.repeat = repeat;
-
-        js.append(String.format(Locale.US, "chart.startSelectMarquee(%b);", repeat));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.startSelectMarquee(%b);", repeat));
-            js.setLength(0);
-        }
-    }
-
-    private Stroke color16;
-    private ColoredFill color17;
-    private String color18;
-    private Double thickness7;
-    private String dashpattern1;
-    private StrokeLineJoin lineJoin1;
-    private StrokeLineCap lineCap1;
-
-    public void setStroke(Stroke color16, Double thickness7, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color16 = color16;
-        this.thickness7 = thickness7;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
-
-        js.append(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness7, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color16 != null) ? color16.generateJs() : "null", thickness7, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setStroke(ColoredFill color17, Double thickness7, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color17 = color17;
-        this.thickness7 = thickness7;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
-
-        js.append(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color17 != null) ? color17.generateJs() : "null", thickness7, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", (color17 != null) ? color17.generateJs() : "null", thickness7, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setStroke(String color18, Double thickness7, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
-        this.color18 = color18;
-        this.thickness7 = thickness7;
-        this.dashpattern1 = dashpattern1;
-        this.lineJoin1 = lineJoin1;
-        this.lineCap1 = lineCap1;
-
-        js.append(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", color18, thickness7, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.stroke(%s, %f, %s, %s, %s);", color18, thickness7, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private CoreAxismarkersText getTextMarker;
 
     public CoreAxismarkersText getTextMarker() {
         if (getTextMarker == null)
-            getTextMarker = new CoreAxismarkersText("chart.textMarker()");
+            getTextMarker = new CoreAxismarkersText(jsBase + ".textMarker()");
 
         return getTextMarker;
     }
 
     private CoreAxismarkersText getTextMarker1;
 
-    public CoreAxismarkersText getTextMarker1(Double index8) {
+    public CoreAxismarkersText getTextMarker(Double index4) {
         if (getTextMarker1 == null)
-            getTextMarker1 = new CoreAxismarkersText("chart.textMarker1("+ index8+")");
+            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker1("+ index4+")");
 
         return getTextMarker1;
     }
 
     private String textMarker;
     private Boolean textMarker1;
+    private List<Sparkline> setTextMarker = new ArrayList<>();
 
-    public void setTextmarker(String textMarker) {
+    public Sparkline setTextMarker(String textMarker) {
         this.textMarker = textMarker;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
 
-        js.append(String.format(Locale.US, "chart.textMarker(%s);", textMarker));
+//        js.append(String.format(Locale.US, ".textMarker(%s)", textMarker));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s);", textMarker));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s)", textMarker));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetTextMarker() {
+        if (!setTextMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setTextMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setTextMarker1 = new ArrayList<>();
 
-    public void setTextmarker(Boolean textMarker1) {
+    public Sparkline setTextMarker(Boolean textMarker1) {
         this.textMarker1 = textMarker1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
 
-        js.append(String.format(Locale.US, "chart.textMarker(%b);", textMarker1));
+//        js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b);", textMarker1));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b)", textMarker1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetTextMarker1() {
+        if (!setTextMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setTextMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
-    private Double index9;
+    private Double index5;
     private String textMarker2;
     private Boolean textMarker3;
+    private List<Sparkline> setTextMarker2 = new ArrayList<>();
 
-    public void setTextmarker(String textMarker2, Double index9) {
+    public Sparkline setTextMarker(String textMarker2, Double index5) {
         this.textMarker2 = textMarker2;
-        this.index9 = index9;
+        this.index5 = index5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
 
-        js.append(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index9));
+//        js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%s, %f);", textMarker2, index9));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetTextMarker2() {
+        if (!setTextMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setTextMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setTextMarker3 = new ArrayList<>();
 
-    public void setTextmarker(Boolean textMarker3, Double index9) {
+    public Sparkline setTextMarker(Boolean textMarker3, Double index5) {
         this.textMarker3 = textMarker3;
-        this.index9 = index9;
+        this.index5 = index5;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
 
-        js.append(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index9));
+//        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.textMarker(%b, %f);", textMarker3, index9));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
             js.setLength(0);
         }
+        return this;
     }
-
-    private UiTitle getTitle;
-
-    public UiTitle getTitle() {
-        if (getTitle == null)
-            getTitle = new UiTitle("chart.title()");
-
-        return getTitle;
-    }
-
-    private Boolean title;
-    private String title1;
-    private String title2;
-
-    public void setTitle(Boolean title) {
-        this.title = title;
-
-        js.append(String.format(Locale.US, "chart.title(%b);", title));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.title(%b);", title));
-            js.setLength(0);
+    private String generateJSsetTextMarker3() {
+        if (!setTextMarker3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setTextMarker3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
-    }
-
-
-    public void setTitle(String title1) {
-        this.title1 = title1;
-
-        js.append(String.format(Locale.US, "chart.title(%s);", title1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.title(%s);", title1));
-            js.setLength(0);
-        }
-    }
-
-    private String chartDataExportMode4;
-    private ChartDataExportMode chartDataExportMode5;
-    private String csvSettings3;
-
-    public void setTocsv(String chartDataExportMode4, String csvSettings3) {
-        this.chartDataExportMode4 = chartDataExportMode4;
-        this.csvSettings3 = csvSettings3;
-
-        js.append(String.format(Locale.US, "chart.toCsv(%s, %s);", chartDataExportMode4, csvSettings3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, %s);", chartDataExportMode4, csvSettings3));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setTocsv(ChartDataExportMode chartDataExportMode5, String csvSettings3) {
-        this.chartDataExportMode5 = chartDataExportMode5;
-        this.csvSettings3 = csvSettings3;
-
-        js.append(String.format(Locale.US, "chart.toCsv(%s, %s);", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toCsv(%s, %s);", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings3));
-            js.setLength(0);
-        }
-    }
-
-    private Boolean stringify;
-    private Boolean includeTheme2;
-
-    public void setTojson(Boolean stringify, Boolean includeTheme2) {
-        this.stringify = stringify;
-        this.includeTheme2 = includeTheme2;
-
-        js.append(String.format(Locale.US, "chart.toJson(%b, %b);", stringify, includeTheme2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toJson(%b, %b);", stringify, includeTheme2));
-            js.setLength(0);
-        }
-    }
-
-    private String paperSize2;
-    private String paperSize3;
-    private Boolean landscape3;
-
-    public void setTosvg(String paperSize2, Boolean landscape3) {
-        this.paperSize2 = paperSize2;
-        this.landscape3 = landscape3;
-
-        js.append(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize2, landscape3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%s, %b);", paperSize2, landscape3));
-            js.setLength(0);
-        }
-    }
-
-    private Double width7;
-    private Double height7;
-
-    public void setTosvg(Double width7, Double height7) {
-        this.width7 = width7;
-        this.height7 = height7;
-
-        js.append(String.format(Locale.US, "chart.toSvg(%f, %f);", width7, height7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toSvg(%f, %f);", width7, height7));
-            js.setLength(0);
-        }
-    }
-
-    private Boolean asXmlNode;
-    private Boolean includeTheme3;
-
-    public void setToxml(Boolean asXmlNode, Boolean includeTheme3) {
-        this.asXmlNode = asXmlNode;
-        this.includeTheme3 = includeTheme3;
-
-        js.append(String.format(Locale.US, "chart.toXml(%b, %b);", asXmlNode, includeTheme3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.toXml(%b, %b);", asXmlNode, includeTheme3));
-            js.setLength(0);
-        }
-    }
-
-    private Tooltip getTooltip;
-
-    public Tooltip getTooltip() {
-        if (getTooltip == null)
-            getTooltip = new Tooltip("chart.tooltip()");
-
-        return getTooltip;
-    }
-
-    private String tooltip;
-    private Boolean tooltip1;
-
-    public void setTooltip(String tooltip) {
-        this.tooltip = tooltip;
-
-        js.append(String.format(Locale.US, "chart.tooltip(%s);", tooltip));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%s);", tooltip));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setTooltip(Boolean tooltip1) {
-        this.tooltip1 = tooltip1;
-
-        js.append(String.format(Locale.US, "chart.tooltip(%b);", tooltip1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.tooltip(%b);", tooltip1));
-            js.setLength(0);
-        }
-    }
-
-    private Double top;
-    private String top1;
-
-    public void setTop(Double top) {
-        this.top = top;
-
-        js.append(String.format(Locale.US, "chart.top(%f);", top));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.top(%f);", top));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setTop(String top1) {
-        this.top1 = top1;
-
-        js.append(String.format(Locale.US, "chart.top(%s);", top1));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.top(%s);", top1));
-            js.setLength(0);
-        }
-    }
-
-    private String type3;
-    private SparklineSeriesType type4;
-
-    public void setType(String type3) {
-        this.type3 = type3;
-
-        js.append(String.format(Locale.US, "chart.type(%s);", type3));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.type(%s);", type3));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setType(SparklineSeriesType type4) {
-        this.type4 = type4;
-
-        js.append(String.format(Locale.US, "chart.type(%s);", (type4 != null) ? type4.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.type(%s);", (type4 != null) ? type4.generateJs() : "null"));
-            js.setLength(0);
-        }
-    }
-
-    private String type5;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type5, Boolean useCapture2, String listenerScope2) {
-        this.type5 = type5;
-        this.useCapture2 = useCapture2;
-        this.listenerScope2 = listenerScope2;
-
-        js.append(String.format(Locale.US, "chart.unlisten(%s, %b, %s);", type5, useCapture2, listenerScope2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlisten(%s, %b, %s);", type5, useCapture2, listenerScope2));
-            js.setLength(0);
-        }
-    }
-
-    private String key2;
-
-    public void setUnlistenbykey(String key2) {
-        this.key2 = key2;
-
-        js.append(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.unlistenByKey(%s);", key2));
-            js.setLength(0);
-        }
-    }
-
-    private Double width8;
-    private String width9;
-
-    public void setWidth(Double width8) {
-        this.width8 = width8;
-
-        js.append(String.format(Locale.US, "chart.width(%f);", width8));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(%f);", width8));
-            js.setLength(0);
-        }
-    }
-
-
-    public void setWidth(String width9) {
-        this.width9 = width9;
-
-        js.append(String.format(Locale.US, "chart.width(%s);", width9));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.width(%s);", width9));
-            js.setLength(0);
-        }
+        return "";
     }
 
     private Ordinal getXScale;
 
     public Ordinal getXScale() {
         if (getXScale == null)
-            getXScale = new Ordinal("chart.xScale()");
+            getXScale = new Ordinal(jsBase + ".xScale()");
 
         return getXScale;
     }
 
     private ScaleTypes xScale;
-    private ScalesBase xScale1;
+    private String xScale1;
+    private ScalesBase xScale2;
+    private String xScale3;
+    private List<Sparkline> setXScale = new ArrayList<>();
 
-    public void setXscale(ScaleTypes xScale) {
+    public Sparkline setXScale(ScaleTypes xScale) {
         this.xScale = xScale;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.xScale(%s);", (xScale != null) ? xScale.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xScale(%s);", (xScale != null) ? xScale.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale != null) ? xScale.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetXScale() {
+        if (!setXScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setXScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setXScale1 = new ArrayList<>();
 
-    public void setXscale(ScalesBase xScale1) {
+    public Sparkline setXScale(String xScale1) {
         this.xScale1 = xScale1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
 
-        js.append(String.format(Locale.US, "chart.xScale(%s);", (xScale1 != null) ? xScale1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.xScale(%s);", (xScale1 != null) ? xScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale1));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetXScale1() {
+        if (!setXScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setXScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Sparkline> setXScale2 = new ArrayList<>();
+
+    public Sparkline setXScale(ScalesBase xScale2) {
+        this.xScale2 = xScale2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXScale2() {
+        if (!setXScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setXScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private ScalesBase getYScale;
 
     public ScalesBase getYScale() {
         if (getYScale == null)
-            getYScale = new ScalesBase("chart.yScale()");
+            getYScale = new ScalesBase(jsBase + ".yScale()");
 
         return getYScale;
     }
 
     private ScaleTypes yScale;
-    private ScalesBase yScale1;
+    private String yScale1;
+    private ScalesBase yScale2;
+    private String yScale3;
+    private List<Sparkline> setYScale = new ArrayList<>();
 
-    public void setYscale(ScaleTypes yScale) {
+    public Sparkline setYScale(ScaleTypes yScale) {
         this.yScale = yScale;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
 
-        js.append(String.format(Locale.US, "chart.yScale(%s);", (yScale != null) ? yScale.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yScale(%s);", (yScale != null) ? yScale.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
             js.setLength(0);
         }
+        return this;
+    }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Sparkline> setYScale1 = new ArrayList<>();
 
-    public void setYscale(ScalesBase yScale1) {
+    public Sparkline setYScale(String yScale1) {
         this.yScale1 = yScale1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
 
-        js.append(String.format(Locale.US, "chart.yScale(%s);", (yScale1 != null) ? yScale1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.yScale(%s);", (yScale1 != null) ? yScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
             js.setLength(0);
         }
+        return this;
     }
-
-    private Double zIndex;
-
-    public void setZindex(Double zIndex) {
-        this.zIndex = zIndex;
-
-        js.append(String.format(Locale.US, "chart.zIndex(%f);", zIndex));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, "chart.zIndex(%f);", zIndex));
-            js.setLength(0);
-        }
-    }
-
-    private String generateJSgetAnimation() {
-        if (getAnimation != null) {
-            return getAnimation.generateJs();
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
-    private String generateJSgetBackground() {
-        if (getBackground != null) {
-            return getBackground.generateJs();
-        }
-        return "";
-    }
+    private List<Sparkline> setYScale2 = new ArrayList<>();
 
-    private String generateJSgetBounds() {
-        if (getBounds != null) {
-            return getBounds.generateJs();
+    public Sparkline setYScale(ScalesBase yScale2) {
+        this.yScale2 = yScale2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
@@ -4714,20 +4922,6 @@ public class Sparkline extends Chart {
     private String generateJSgetClip() {
         if (getClip != null) {
             return getClip.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetContainer() {
-        if (getContainer != null) {
-            return getContainer.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetContextMenu() {
-        if (getContextMenu != null) {
-            return getContextMenu.generateJs();
         }
         return "";
     }
@@ -4763,34 +4957,6 @@ public class Sparkline extends Chart {
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetLabel() {
-        if (getLabel != null) {
-            return getLabel.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetLabel1() {
-        if (getLabel1 != null) {
-            return getLabel1.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetLabel2() {
-        if (getLabel2 != null) {
-            return getLabel2.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetLabel3() {
-        if (getLabel3 != null) {
-            return getLabel3.generateJs();
         }
         return "";
     }
@@ -4833,13 +4999,6 @@ public class Sparkline extends Chart {
     private String generateJSgetLineMarker1() {
         if (getLineMarker1 != null) {
             return getLineMarker1.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetMargin() {
-        if (getMargin != null) {
-            return getMargin.generateJs();
         }
         return "";
     }
@@ -4914,13 +5073,6 @@ public class Sparkline extends Chart {
         return "";
     }
 
-    private String generateJSgetPadding() {
-        if (getPadding != null) {
-            return getPadding.generateJs();
-        }
-        return "";
-    }
-
     private String generateJSgetRangeMarker() {
         if (getRangeMarker != null) {
             return getRangeMarker.generateJs();
@@ -4949,20 +5101,6 @@ public class Sparkline extends Chart {
         return "";
     }
 
-    private String generateJSgetTitle() {
-        if (getTitle != null) {
-            return getTitle.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetTooltip() {
-        if (getTooltip != null) {
-            return getTooltip.generateJs();
-        }
-        return "";
-    }
-
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
@@ -4980,28 +5118,22 @@ public class Sparkline extends Chart {
 
     @Override
     protected String generateJs() {
-        js.append(generateJSgetAnimation());
-        js.append(generateJSgetBackground());
-        js.append(generateJSgetBounds());
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
         js.append(generateJSgetClip());
-        js.append(generateJSgetContainer());
-        js.append(generateJSgetContextMenu());
         js.append(generateJSgetData());
         js.append(generateJSgetFirstHatchFill());
         js.append(generateJSgetFirstLabels());
         js.append(generateJSgetFirstMarkers());
         js.append(generateJSgetHatchFill());
-        js.append(generateJSgetLabel());
-        js.append(generateJSgetLabel1());
-        js.append(generateJSgetLabel2());
-        js.append(generateJSgetLabel3());
         js.append(generateJSgetLabels());
         js.append(generateJSgetLastHatchFill());
         js.append(generateJSgetLastLabels());
         js.append(generateJSgetLastMarkers());
         js.append(generateJSgetLineMarker());
         js.append(generateJSgetLineMarker1());
-        js.append(generateJSgetMargin());
         js.append(generateJSgetMarkers());
         js.append(generateJSgetMaxHatchFill());
         js.append(generateJSgetMaxLabels());
@@ -5012,15 +5144,157 @@ public class Sparkline extends Chart {
         js.append(generateJSgetNegativeHatchFill());
         js.append(generateJSgetNegativeLabels());
         js.append(generateJSgetNegativeMarkers());
-        js.append(generateJSgetPadding());
         js.append(generateJSgetRangeMarker());
         js.append(generateJSgetRangeMarker1());
         js.append(generateJSgetTextMarker());
         js.append(generateJSgetTextMarker1());
-        js.append(generateJSgetTitle());
-        js.append(generateJSgetTooltip());
         js.append(generateJSgetXScale());
         js.append(generateJSgetYScale());
+        js.append(generateJSsetClip());
+        js.append(generateJSsetConnectMissingPoints());
+        js.append(generateJSsetData());
+        js.append(generateJSsetData1());
+        js.append(generateJSsetData2());
+        js.append(generateJSsetData3());
+        js.append(generateJSsetData4());
+        js.append(generateJSsetData5());
+        js.append(generateJSsetData6());
+        js.append(generateJSsetData7());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetFirstFill());
+        js.append(generateJSsetFirstFill1());
+        js.append(generateJSsetFirstFill2());
+        js.append(generateJSsetFirstFill3());
+        js.append(generateJSsetFirstFill4());
+        js.append(generateJSsetFirstFill5());
+        js.append(generateJSsetFirstFill6());
+        js.append(generateJSsetFirstFill7());
+        js.append(generateJSsetFirstFill8());
+        js.append(generateJSsetFirstFill9());
+        js.append(generateJSsetFirstHatchFill());
+        js.append(generateJSsetFirstHatchFill1());
+        js.append(generateJSsetFirstHatchFill2());
+        js.append(generateJSsetFirstHatchFill3());
+        js.append(generateJSsetFirstLabels());
+        js.append(generateJSsetFirstLabels1());
+        js.append(generateJSsetFirstMarkers());
+        js.append(generateJSsetFirstMarkers1());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetLabels());
+        js.append(generateJSsetLabels1());
+        js.append(generateJSsetLastFill());
+        js.append(generateJSsetLastFill1());
+        js.append(generateJSsetLastFill2());
+        js.append(generateJSsetLastFill3());
+        js.append(generateJSsetLastFill4());
+        js.append(generateJSsetLastFill5());
+        js.append(generateJSsetLastFill6());
+        js.append(generateJSsetLastFill7());
+        js.append(generateJSsetLastFill8());
+        js.append(generateJSsetLastFill9());
+        js.append(generateJSsetLastHatchFill());
+        js.append(generateJSsetLastHatchFill1());
+        js.append(generateJSsetLastHatchFill2());
+        js.append(generateJSsetLastHatchFill3());
+        js.append(generateJSsetLastLabels());
+        js.append(generateJSsetLastLabels1());
+        js.append(generateJSsetLastMarkers());
+        js.append(generateJSsetLastMarkers1());
+        js.append(generateJSsetLineMarker());
+        js.append(generateJSsetLineMarker1());
+        js.append(generateJSsetLineMarker2());
+        js.append(generateJSsetLineMarker3());
+        js.append(generateJSsetMarkers());
+        js.append(generateJSsetMarkers1());
+        js.append(generateJSsetMaxFill());
+        js.append(generateJSsetMaxFill1());
+        js.append(generateJSsetMaxFill2());
+        js.append(generateJSsetMaxFill3());
+        js.append(generateJSsetMaxFill4());
+        js.append(generateJSsetMaxFill5());
+        js.append(generateJSsetMaxFill6());
+        js.append(generateJSsetMaxFill7());
+        js.append(generateJSsetMaxFill8());
+        js.append(generateJSsetMaxFill9());
+        js.append(generateJSsetMaxHatchFill());
+        js.append(generateJSsetMaxHatchFill1());
+        js.append(generateJSsetMaxHatchFill2());
+        js.append(generateJSsetMaxHatchFill3());
+        js.append(generateJSsetMaxLabels());
+        js.append(generateJSsetMaxLabels1());
+        js.append(generateJSsetMaxMarkers());
+        js.append(generateJSsetMaxMarkers1());
+        js.append(generateJSsetMinFill());
+        js.append(generateJSsetMinFill1());
+        js.append(generateJSsetMinFill2());
+        js.append(generateJSsetMinFill3());
+        js.append(generateJSsetMinFill4());
+        js.append(generateJSsetMinFill5());
+        js.append(generateJSsetMinFill6());
+        js.append(generateJSsetMinFill7());
+        js.append(generateJSsetMinFill8());
+        js.append(generateJSsetMinFill9());
+        js.append(generateJSsetMinHatchFill());
+        js.append(generateJSsetMinHatchFill1());
+        js.append(generateJSsetMinHatchFill2());
+        js.append(generateJSsetMinHatchFill3());
+        js.append(generateJSsetMinLabels());
+        js.append(generateJSsetMinLabels1());
+        js.append(generateJSsetMinMarkers());
+        js.append(generateJSsetMinMarkers1());
+        js.append(generateJSsetNegativeFill());
+        js.append(generateJSsetNegativeFill1());
+        js.append(generateJSsetNegativeFill2());
+        js.append(generateJSsetNegativeFill3());
+        js.append(generateJSsetNegativeFill4());
+        js.append(generateJSsetNegativeFill5());
+        js.append(generateJSsetNegativeFill6());
+        js.append(generateJSsetNegativeFill7());
+        js.append(generateJSsetNegativeFill8());
+        js.append(generateJSsetNegativeFill9());
+        js.append(generateJSsetNegativeHatchFill());
+        js.append(generateJSsetNegativeHatchFill1());
+        js.append(generateJSsetNegativeHatchFill2());
+        js.append(generateJSsetNegativeHatchFill3());
+        js.append(generateJSsetNegativeLabels());
+        js.append(generateJSsetNegativeLabels1());
+        js.append(generateJSsetNegativeMarkers());
+        js.append(generateJSsetNegativeMarkers1());
+        js.append(generateJSsetPointWidth());
+        js.append(generateJSsetPointWidth1());
+        js.append(generateJSsetRangeMarker());
+        js.append(generateJSsetRangeMarker1());
+        js.append(generateJSsetRangeMarker2());
+        js.append(generateJSsetRangeMarker3());
+        js.append(generateJSsetSeriesType());
+        js.append(generateJSsetSeriesType1());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetTextMarker());
+        js.append(generateJSsetTextMarker1());
+        js.append(generateJSsetTextMarker2());
+        js.append(generateJSsetTextMarker3());
+        js.append(generateJSsetXScale());
+        js.append(generateJSsetXScale1());
+        js.append(generateJSsetXScale2());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
+
+        js.append(super.generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

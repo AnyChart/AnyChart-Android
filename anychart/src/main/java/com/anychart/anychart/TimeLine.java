@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TimeLine extends VisualBaseWithBounds {
-
-    private String jsBase;
 
     public TimeLine() {
 
@@ -16,13 +16,19 @@ public class TimeLine extends VisualBaseWithBounds {
         this.jsBase = jsBase;
     }
 
+    protected TimeLine(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Boolean adjustOrAdjustByWidth;
     private Boolean[] adjustOrAdjustByWidth1;
     private String adjustOrAdjustByWidth2;
     private Boolean adjustByHeight;
 
-    public void setAdjustfontsize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
+    public TimeLine setAdjustFontSize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
             this.adjustOrAdjustByWidth1 = null;
@@ -34,17 +40,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
             this.adjustByHeight = adjustByHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustOrAdjustByWidth, adjustByHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustOrAdjustByWidth, adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdjustfontsize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
+    public TimeLine setAdjustFontSize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
             this.adjustOrAdjustByWidth1 = null;
@@ -56,17 +71,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
             this.adjustByHeight = adjustByHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdjustfontsize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
+    public TimeLine setAdjustFontSize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
             this.adjustOrAdjustByWidth1 = null;
@@ -78,13 +102,22 @@ public class TimeLine extends VisualBaseWithBounds {
             this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
             this.adjustByHeight = adjustByHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", adjustOrAdjustByWidth2, adjustByHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", adjustOrAdjustByWidth2, adjustByHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", adjustOrAdjustByWidth2, adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", adjustOrAdjustByWidth2, adjustByHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UiBackground getBackground;
@@ -100,7 +133,7 @@ public class TimeLine extends VisualBaseWithBounds {
     private String background1;
     private Boolean background2;
 
-    public void setBackground(String background) {
+    public TimeLine setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -110,17 +143,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.background = background;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%s);", background));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%s)", background));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBackground(Boolean background2) {
+    public TimeLine setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -130,802 +172,184 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.background2 = background2;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%b);", background2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double bottom;
-    private String bottom1;
-
-    public void setBottom(Double bottom) {
-        if (jsBase == null) {
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-        } else {
-            this.bottom = bottom;
-
-            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBottom(String bottom1) {
-        if (jsBase == null) {
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-        } else {
-            this.bottom1 = bottom1;
-
-            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Bounds getBounds;
-
-    public Bounds getBounds() {
-        if (getBounds == null)
-            getBounds = new Bounds(jsBase + ".bounds()");
-
-        return getBounds;
-    }
-
-    private RectObj bounds;
-    private AnychartMathRect bounds1;
-    private Bounds bounds2;
-
-    public void setBounds(RectObj bounds) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds = bounds;
-        } else {
-            this.bounds = bounds;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(AnychartMathRect bounds1) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds1 = bounds1;
-        } else {
-            this.bounds1 = bounds1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Bounds bounds2) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds2 = bounds2;
-        } else {
-            this.bounds2 = bounds2;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double x;
-    private String x1;
-    private Double y;
-    private String y1;
-    private Double width;
-    private String width1;
-    private Double height;
-    private String height1;
-
-    public void setBounds(Double x, Double y, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean disablePointerEvents;
 
-    public void setDisablepointerevents(Boolean disablePointerEvents) {
+    public TimeLine setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
 
-            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean drawBottomLine;
 
-    public void setDrawbottomline(Boolean drawBottomLine) {
+    public Grid setDrawBottomLine(Boolean drawBottomLine) {
         if (jsBase == null) {
             this.drawBottomLine = drawBottomLine;
         } else {
             this.drawBottomLine = drawBottomLine;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".drawBottomLine(%b);", drawBottomLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawBottomLine(%b);", drawBottomLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawBottomLine(%b)", drawBottomLine));
                 js.setLength(0);
             }
         }
+        return new Grid(jsBase);
     }
 
     private Boolean drawLeftLine;
 
-    public void setDrawleftline(Boolean drawLeftLine) {
+    public Grid setDrawLeftLine(Boolean drawLeftLine) {
         if (jsBase == null) {
             this.drawLeftLine = drawLeftLine;
         } else {
             this.drawLeftLine = drawLeftLine;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".drawLeftLine(%b);", drawLeftLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLeftLine(%b);", drawLeftLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLeftLine(%b)", drawLeftLine));
                 js.setLength(0);
             }
         }
+        return new Grid(jsBase);
     }
 
     private Boolean drawRightLine;
 
-    public void setDrawrightline(Boolean drawRightLine) {
+    public Grid setDrawRightLine(Boolean drawRightLine) {
         if (jsBase == null) {
             this.drawRightLine = drawRightLine;
         } else {
             this.drawRightLine = drawRightLine;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".drawRightLine(%b);", drawRightLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawRightLine(%b);", drawRightLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawRightLine(%b)", drawRightLine));
                 js.setLength(0);
             }
         }
+        return new Grid(jsBase);
     }
 
     private Boolean drawTopLine;
 
-    public void setDrawtopline(Boolean drawTopLine) {
+    public Grid setDrawTopLine(Boolean drawTopLine) {
         if (jsBase == null) {
             this.drawTopLine = drawTopLine;
         } else {
             this.drawTopLine = drawTopLine;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".drawTopLine(%b);", drawTopLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawTopLine(%b);", drawTopLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawTopLine(%b)", drawTopLine));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return new Grid(jsBase);
     }
 
     private Fill fill;
 
-    public void setFill(Fill fill) {
+    public TimeLine setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
         } else {
             this.fill = fill;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", (fill != null) ? fill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", (fill != null) ? fill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color;
     private Double opacity;
 
-    public void setFill(String color, Double opacity) {
+    public TimeLine setFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -933,13 +357,22 @@ public class TimeLine extends VisualBaseWithBounds {
             this.color = color;
             this.opacity = opacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys;
@@ -950,7 +383,7 @@ public class TimeLine extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public void setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public TimeLine setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -972,17 +405,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public TimeLine setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1004,17 +446,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public TimeLine setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1036,17 +487,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public TimeLine setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1068,17 +528,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public TimeLine setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1100,17 +569,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public TimeLine setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1132,13 +610,22 @@ public class TimeLine extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys2;
@@ -1150,7 +637,7 @@ public class TimeLine extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public void setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TimeLine setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1182,17 +669,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TimeLine setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1224,37 +720,55 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings;
     private String fontColor;
 
-    public void setFontcolor(String fontColor) {
+    public TimeLine setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
 
-            js.append(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontColor(%s)", fontColor));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+                onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", fontColor));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
 
-    public void setFontdecoration(Decoration fontDecoration) {
+    public TimeLine setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -1263,17 +777,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontDecoration = fontDecoration;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontdecoration(String fontDecoration1) {
+    public TimeLine setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -1282,53 +805,80 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontDecoration1 = fontDecoration1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontFamily;
 
-    public void setFontfamily(String fontFamily) {
+    public TimeLine setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
 
-            js.append(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+                onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double fontOpacity;
 
-    public void setFontopacity(Double fontOpacity) {
+    public TimeLine setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double fontSize;
     private String fontSize1;
 
-    public void setFontsize(Double fontSize) {
+    public TimeLine setFontSize(Double fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -1337,17 +887,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontSize = fontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontsize(String fontSize1) {
+    public TimeLine setFontSize(String fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -1356,19 +915,28 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontSize1 = fontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", fontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontStyle;
     private TextFontStyle fontStyle1;
 
-    public void setFontstyle(String fontStyle) {
+    public TimeLine setFontStyle(String fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -1377,17 +945,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontStyle = fontStyle;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", fontStyle));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", fontStyle));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontstyle(TextFontStyle fontStyle1) {
+    public TimeLine setFontStyle(TextFontStyle fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -1396,19 +973,28 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontStyle1 = fontStyle1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontVariant;
     private TextFontVariant fontVariant1;
 
-    public void setFontvariant(String fontVariant) {
+    public TimeLine setFontVariant(String fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -1417,17 +1003,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontVariant = fontVariant;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", fontVariant));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", fontVariant));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontvariant(TextFontVariant fontVariant1) {
+    public TimeLine setFontVariant(TextFontVariant fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -1436,19 +1031,28 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontVariant1 = fontVariant1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontWeight;
     private Double fontWeight1;
 
-    public void setFontweight(String fontWeight) {
+    public TimeLine setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -1457,17 +1061,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontWeight = fontWeight;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontweight(Double fontWeight1) {
+    public TimeLine setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -1476,36 +1089,54 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.fontWeight1 = fontWeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String format;
 
-    public void setFormat(String format) {
+    public TimeLineLevelHolidaysSettings setFormat(String format) {
         if (jsBase == null) {
             this.format = format;
         } else {
             this.format = format;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".format(%s);", format));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s);", format));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s)", format));
                 js.setLength(0);
             }
         }
+        return new TimeLineLevelHolidaysSettings(jsBase);
     }
 
     private String hAlign;
     private TextHAlign hAlign1;
 
-    public void setHalign(String hAlign) {
+    public TimeLine setHAlign(String hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -1514,17 +1145,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.hAlign = hAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", hAlign));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", hAlign));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHalign(TextHAlign hAlign1) {
+    public TimeLine setHAlign(TextHAlign hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -1533,57 +1173,22 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.hAlign1 = hAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double height2;
-    private String height3;
-
-    public void setHeight(Double height2) {
-        if (jsBase == null) {
-            this.height = null;
-            this.height1 = null;
-            this.height2 = null;
-            this.height3 = null;
-            
-            this.height2 = height2;
-        } else {
-            this.height2 = height2;
-
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height2));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHeight(String height3) {
-        if (jsBase == null) {
-            this.height = null;
-            this.height1 = null;
-            this.height2 = null;
-            this.height3 = null;
-            
-            this.height3 = height3;
-        } else {
-            this.height3 = height3;
-
-            js.append(String.format(Locale.US, jsBase + ".height(%s);", height3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height3));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private TimeLineLevelHolidaysSettings getHolidays;
@@ -1597,65 +1202,34 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private String holidays;
 
-    public void setHolidays(String holidays) {
+    public TimeLine setHolidays(String holidays) {
         if (jsBase == null) {
             this.holidays = holidays;
         } else {
             this.holidays = holidays;
 
-            js.append(String.format(Locale.US, jsBase + ".holidays(%s);", holidays));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".holidays(%s)", holidays));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".holidays(%s);", holidays));
+                onChangeListener.onChange(String.format(Locale.US, ".holidays(%s)", holidays));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double left;
-    private String left1;
-
-    public void setLeft(Double left) {
-        if (jsBase == null) {
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.left = left;
-
-            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setLeft(String left1) {
-        if (jsBase == null) {
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.left1 = left1;
-
-            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double letterSpacing;
     private String letterSpacing1;
 
-    public void setLetterspacing(Double letterSpacing) {
+    public TimeLine setLetterSpacing(Double letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -1664,17 +1238,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.letterSpacing = letterSpacing;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLetterspacing(String letterSpacing1) {
+    public TimeLine setLetterSpacing(String letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -1683,36 +1266,54 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.letterSpacing1 = letterSpacing1;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double levelHeight;
 
-    public void setLevelheight(Double levelHeight) {
+    public TimeLine setLevelHeight(Double levelHeight) {
         if (jsBase == null) {
             this.levelHeight = levelHeight;
         } else {
             this.levelHeight = levelHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".levelHeight(%f);", levelHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".levelHeight(%f)", levelHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".levelHeight(%f);", levelHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".levelHeight(%f)", levelHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double lineHeight;
     private String lineHeight1;
 
-    public void setLineheight(Double lineHeight) {
+    public TimeLine setLineHeight(Double lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -1721,17 +1322,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.lineHeight = lineHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLineheight(String lineHeight1) {
+    public TimeLine setLineHeight(String lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -1740,74 +1350,28 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.lineHeight1 = lineHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double maxFontSize;
     private String maxFontSize1;
 
-    public void setMaxfontsize(Double maxFontSize) {
+    public TimeLine setMaxFontSize(Double maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -1816,17 +1380,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.maxFontSize = maxFontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMaxfontsize(String maxFontSize1) {
+    public TimeLine setMaxFontSize(String maxFontSize1) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -1835,99 +1408,28 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.maxFontSize1 = maxFontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double maxHeight;
-    private String maxHeight1;
-
-    public void setMaxheight(Double maxHeight) {
-        if (jsBase == null) {
-            this.maxHeight = null;
-            this.maxHeight1 = null;
-            
-            this.maxHeight = maxHeight;
-        } else {
-            this.maxHeight = maxHeight;
-
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMaxheight(String maxHeight1) {
-        if (jsBase == null) {
-            this.maxHeight = null;
-            this.maxHeight1 = null;
-            
-            this.maxHeight1 = maxHeight1;
-        } else {
-            this.maxHeight1 = maxHeight1;
-
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double maxWidth;
-    private String maxWidth1;
-
-    public void setMaxwidth(Double maxWidth) {
-        if (jsBase == null) {
-            this.maxWidth = null;
-            this.maxWidth1 = null;
-            
-            this.maxWidth = maxWidth;
-        } else {
-            this.maxWidth = maxWidth;
-
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMaxwidth(String maxWidth1) {
-        if (jsBase == null) {
-            this.maxWidth = null;
-            this.maxWidth1 = null;
-            
-            this.maxWidth1 = maxWidth1;
-        } else {
-            this.maxWidth1 = maxWidth1;
-
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double minFontSize;
     private String minFontSize1;
 
-    public void setMinfontsize(Double minFontSize) {
+    public TimeLine setMinFontSize(Double minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -1936,17 +1438,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.minFontSize = minFontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinfontsize(String minFontSize1) {
+    public TimeLine setMinFontSize(String minFontSize1) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -1955,93 +1466,22 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.minFontSize1 = minFontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minFontSize(%s)", minFontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", minFontSize1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double minHeight;
-    private String minHeight1;
-
-    public void setMinheight(Double minHeight) {
-        if (jsBase == null) {
-            this.minHeight = null;
-            this.minHeight1 = null;
-            
-            this.minHeight = minHeight;
-        } else {
-            this.minHeight = minHeight;
-
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinheight(String minHeight1) {
-        if (jsBase == null) {
-            this.minHeight = null;
-            this.minHeight1 = null;
-            
-            this.minHeight1 = minHeight1;
-        } else {
-            this.minHeight1 = minHeight1;
-
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double minWidth;
-    private String minWidth1;
-
-    public void setMinwidth(Double minWidth) {
-        if (jsBase == null) {
-            this.minWidth = null;
-            this.minWidth1 = null;
-            
-            this.minWidth = minWidth;
-        } else {
-            this.minWidth = minWidth;
-
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinwidth(String minWidth1) {
-        if (jsBase == null) {
-            this.minWidth = null;
-            this.minWidth1 = null;
-            
-            this.minWidth1 = minWidth1;
-        } else {
-            this.minWidth1 = minWidth1;
-
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Overlay getOverlay;
@@ -2056,7 +1496,7 @@ public class TimeLine extends VisualBaseWithBounds {
     private String overlay;
     private Boolean overlay1;
 
-    public void setOverlay(String overlay) {
+    public TimeLine setOverlay(String overlay) {
         if (jsBase == null) {
             this.overlay = null;
             this.overlay1 = null;
@@ -2065,17 +1505,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.overlay = overlay;
 
-            js.append(String.format(Locale.US, jsBase + ".overlay(%s);", overlay));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".overlay(%s)", overlay));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%s);", overlay));
+                onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", overlay));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setOverlay(Boolean overlay1) {
+    public TimeLine setOverlay(Boolean overlay1) {
         if (jsBase == null) {
             this.overlay = null;
             this.overlay1 = null;
@@ -2084,13 +1533,22 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.overlay1 = overlay1;
 
-            js.append(String.format(Locale.US, jsBase + ".overlay(%b);", overlay1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%b);", overlay1));
+                onChangeListener.onChange(String.format(Locale.US, ".overlay(%b)", overlay1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UtilsPadding getPadding;
@@ -2106,7 +1564,7 @@ public class TimeLine extends VisualBaseWithBounds {
     private String[] padding1;
     private String padding2;
 
-    public void setPadding(Double[] padding) {
+    public TimeLine setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -2116,17 +1574,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.padding = padding;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String[] padding1) {
+    public TimeLine setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -2136,17 +1603,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.padding1 = padding1;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String padding2) {
+    public TimeLine setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -2156,13 +1632,22 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.padding2 = padding2;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String value;
@@ -2174,7 +1659,7 @@ public class TimeLine extends VisualBaseWithBounds {
     private String value6;
     private Double value7;
 
-    public void setPadding(String value, String value2, String value4, String value6) {
+    public TimeLine setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2222,17 +1707,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, String value4, Double value7) {
+    public TimeLine setPadding(String value, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2280,17 +1774,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, Double value5, String value6) {
+    public TimeLine setPadding(String value, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2338,17 +1841,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, Double value5, Double value7) {
+    public TimeLine setPadding(String value, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2396,17 +1908,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, String value4, String value6) {
+    public TimeLine setPadding(String value, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2454,17 +1975,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, String value4, Double value7) {
+    public TimeLine setPadding(String value, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2512,17 +2042,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, Double value5, String value6) {
+    public TimeLine setPadding(String value, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2570,17 +2109,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, Double value5, Double value7) {
+    public TimeLine setPadding(String value, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2628,17 +2176,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, String value4, String value6) {
+    public TimeLine setPadding(Double value1, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2686,17 +2243,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value1, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value1, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value1, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value1, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, String value4, Double value7) {
+    public TimeLine setPadding(Double value1, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2744,17 +2310,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value1, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value1, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value1, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value1, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, Double value5, String value6) {
+    public TimeLine setPadding(Double value1, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2802,17 +2377,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value1, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value1, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value1, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value1, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, Double value5, Double value7) {
+    public TimeLine setPadding(Double value1, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2860,17 +2444,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value1, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value1, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value1, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value1, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, String value4, String value6) {
+    public TimeLine setPadding(Double value1, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2918,17 +2511,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value1, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value1, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value1, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value1, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, String value4, Double value7) {
+    public TimeLine setPadding(Double value1, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2976,17 +2578,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value1, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value1, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value1, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value1, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, Double value5, String value6) {
+    public TimeLine setPadding(Double value1, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -3034,17 +2645,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value1, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value1, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value1, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value1, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public TimeLine setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -3092,136 +2712,48 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double right;
-    private String right1;
-
-    public void setRight(Double right) {
-        if (jsBase == null) {
-            this.right = null;
-            this.right1 = null;
-            
-            this.right = right;
-        } else {
-            this.right = right;
-
-            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setRight(String right1) {
-        if (jsBase == null) {
-            this.right = null;
-            this.right1 = null;
-            
-            this.right1 = right1;
-        } else {
-            this.right1 = right1;
-
-            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean selectable;
 
-    public void setSelectable(Boolean selectable) {
+    public TimeLine setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
 
-            js.append(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+                onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Stroke color1;
@@ -3232,7 +2764,7 @@ public class TimeLine extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public void setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TimeLine setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3251,17 +2783,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TimeLine setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3280,17 +2821,26 @@ public class TimeLine extends VisualBaseWithBounds {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color2 != null) ? color2.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TimeLine setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3309,19 +2859,28 @@ public class TimeLine extends VisualBaseWithBounds {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String textDirection;
     private Direction textDirection1;
 
-    public void setTextdirection(String textDirection) {
+    public TimeLine setTextDirection(String textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -3330,17 +2889,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.textDirection = textDirection;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", textDirection));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", textDirection));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextdirection(Direction textDirection1) {
+    public TimeLine setTextDirection(Direction textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -3349,36 +2917,54 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.textDirection1 = textDirection1;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double textIndent;
 
-    public void setTextindent(Double textIndent) {
+    public TimeLine setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
 
-            js.append(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
 
-    public void setTextoverflow(TextOverflow textOverflow) {
+    public TimeLine setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -3387,17 +2973,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.textOverflow = textOverflow;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextoverflow(String textOverflow1) {
+    public TimeLine setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -3406,169 +3001,54 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.textOverflow1 = textOverflow1;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String textWrap;
-    private TextTextWrap textWrap1;
-
-    public void setTextwrap(String textWrap) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap = textWrap;
-        } else {
-            this.textWrap = textWrap;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTextwrap(TextTextWrap textWrap1) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap1 = textWrap1;
-        } else {
-            this.textWrap1 = textWrap1;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap1 != null) ? textWrap1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap1 != null) ? textWrap1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double top;
-    private String top1;
-
-    public void setTop(Double top) {
-        if (jsBase == null) {
-            this.top = null;
-            this.top1 = null;
-            
-            this.top = top;
-        } else {
-            this.top = top;
-
-            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTop(String top1) {
-        if (jsBase == null) {
-            this.top = null;
-            this.top1 = null;
-            
-            this.top1 = top1;
-        } else {
-            this.top1 = top1;
-
-            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean useHtml;
 
-    public void setUsehtml(Boolean useHtml) {
+    public TimeLine setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
 
-            js.append(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+                onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String vAlign;
     private TextVAlign vAlign1;
 
-    public void setValign(String vAlign) {
+    public TimeLine setVAlign(String vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -3577,17 +3057,26 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.vAlign = vAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", vAlign));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", vAlign));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setValign(TextVAlign vAlign1) {
+    public TimeLine setVAlign(TextVAlign vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -3596,86 +3085,143 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.vAlign1 = vAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double width2;
-    private String width3;
+    private String wordBreak;
+    private EnumsWordBreak wordBreak1;
 
-    public void setWidth(Double width2) {
+    public TimeLine setWordBreak(String wordBreak) {
         if (jsBase == null) {
-            this.width = null;
-            this.width1 = null;
-            this.width2 = null;
-            this.width3 = null;
+            this.wordBreak = null;
+            this.wordBreak1 = null;
             
-            this.width2 = width2;
+            this.wordBreak = wordBreak;
         } else {
-            this.width2 = width2;
+            this.wordBreak = wordBreak;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(String width3) {
+    public TimeLine setWordBreak(EnumsWordBreak wordBreak1) {
         if (jsBase == null) {
-            this.width = null;
-            this.width1 = null;
-            this.width2 = null;
-            this.width3 = null;
+            this.wordBreak = null;
+            this.wordBreak1 = null;
             
-            this.width3 = width3;
+            this.wordBreak1 = wordBreak1;
         } else {
-            this.width3 = width3;
+            this.wordBreak1 = wordBreak1;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width3));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double zIndex;
+    private String wordWrap;
+    private EnumsWordWrap wordWrap1;
 
-    public void setZindex(Double zIndex) {
+    public TimeLine setWordWrap(String wordWrap) {
         if (jsBase == null) {
-            this.zIndex = zIndex;
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap = wordWrap;
         } else {
-            this.zIndex = zIndex;
+            this.wordWrap = wordWrap;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+
+    public TimeLine setWordWrap(EnumsWordWrap wordWrap1) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap1 = wordWrap1;
+        } else {
+            this.wordWrap1 = wordWrap1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private String generateJSgetBackground() {
         if (getBackground != null) {
             return getBackground.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetBounds() {
-        if (getBounds != null) {
-            return getBounds.generateJs();
         }
         return "";
     }
@@ -3750,97 +3296,6 @@ public class TimeLine extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSbottom() {
-        if (bottom != null) {
-            return String.format(Locale.US, "bottom: %f,", bottom);
-        }
-        return "";
-    }
-
-    private String generateJSbottom1() {
-        if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: %s,", bottom1);
-        }
-        return "";
-    }
-
-    private String generateJSbounds() {
-        if (bounds != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds != null) ? bounds.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbounds1() {
-        if (bounds1 != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds1 != null) ? bounds1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbounds2() {
-        if (bounds2 != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds2 != null) ? bounds2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSx1() {
-        if (x1 != null) {
-            return String.format(Locale.US, "x: %s,", x1);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJSy1() {
-        if (y1 != null) {
-            return String.format(Locale.US, "y: %s,", y1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %s,", height1);
-        }
-        return "";
-    }
-
     private String generateJSdisablePointerEvents() {
         if (disablePointerEvents != null) {
             return String.format(Locale.US, "disablePointerEvents: %b,", disablePointerEvents);
@@ -3872,13 +3327,6 @@ public class TimeLine extends VisualBaseWithBounds {
     private String generateJSdrawTopLine() {
         if (drawTopLine != null) {
             return String.format(Locale.US, "drawTopLine: %b,", drawTopLine);
-        }
-        return "";
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
         }
         return "";
     }
@@ -4128,37 +3576,9 @@ public class TimeLine extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSheight2() {
-        if (height2 != null) {
-            return String.format(Locale.US, "height: %f,", height2);
-        }
-        return "";
-    }
-
-    private String generateJSheight3() {
-        if (height3 != null) {
-            return String.format(Locale.US, "height: %s,", height3);
-        }
-        return "";
-    }
-
     private String generateJSholidays() {
         if (holidays != null) {
             return String.format(Locale.US, "holidays: %s,", holidays);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJSleft1() {
-        if (left1 != null) {
-            return String.format(Locale.US, "left: %s,", left1);
         }
         return "";
     }
@@ -4198,48 +3618,6 @@ public class TimeLine extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
     private String generateJSmaxFontSize() {
         if (maxFontSize != null) {
             return String.format(Locale.US, "maxFontSize: %f,", maxFontSize);
@@ -4254,34 +3632,6 @@ public class TimeLine extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSmaxHeight() {
-        if (maxHeight != null) {
-            return String.format(Locale.US, "maxHeight: %f,", maxHeight);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight1() {
-        if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth() {
-        if (maxWidth != null) {
-            return String.format(Locale.US, "maxWidth: %f,", maxWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth1() {
-        if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
-        }
-        return "";
-    }
-
     private String generateJSminFontSize() {
         if (minFontSize != null) {
             return String.format(Locale.US, "minFontSize: %f,", minFontSize);
@@ -4292,34 +3642,6 @@ public class TimeLine extends VisualBaseWithBounds {
     private String generateJSminFontSize1() {
         if (minFontSize1 != null) {
             return String.format(Locale.US, "minFontSize: %s,", minFontSize1);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight() {
-        if (minHeight != null) {
-            return String.format(Locale.US, "minHeight: %f,", minHeight);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight1() {
-        if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: %s,", minHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth() {
-        if (minWidth != null) {
-            return String.format(Locale.US, "minWidth: %f,", minWidth);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth1() {
-        if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: %s,", minWidth1);
         }
         return "";
     }
@@ -4415,48 +3737,6 @@ public class TimeLine extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
-    private String generateJSright() {
-        if (right != null) {
-            return String.format(Locale.US, "right: %f,", right);
-        }
-        return "";
-    }
-
-    private String generateJSright1() {
-        if (right1 != null) {
-            return String.format(Locale.US, "right: %s,", right1);
-        }
-        return "";
-    }
-
     private String generateJSselectable() {
         if (selectable != null) {
             return String.format(Locale.US, "selectable: %b,", selectable);
@@ -4548,62 +3828,6 @@ public class TimeLine extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJStextWrap() {
-        if (textWrap != null) {
-            return String.format(Locale.US, "textWrap: %s,", textWrap);
-        }
-        return "";
-    }
-
-    private String generateJStextWrap1() {
-        if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: %s,", (textWrap1 != null) ? textWrap1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJStop1() {
-        if (top1 != null) {
-            return String.format(Locale.US, "top: %s,", top1);
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
     private String generateJSuseHtml() {
         if (useHtml != null) {
             return String.format(Locale.US, "useHtml: %b,", useHtml);
@@ -4625,30 +3849,56 @@ public class TimeLine extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSwidth2() {
-        if (width2 != null) {
-            return String.format(Locale.US, "width: %f,", width2);
+    private String generateJSwordBreak() {
+        if (wordBreak != null) {
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
         }
         return "";
     }
 
-    private String generateJSwidth3() {
-        if (width3 != null) {
-            return String.format(Locale.US, "width: %s,", width3);
+    private String generateJSwordBreak1() {
+        if (wordBreak1 != null) {
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
+    private String generateJSwordWrap() {
+        if (wordWrap != null) {
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
         }
         return "";
     }
 
+    private String generateJSwordWrap1() {
+        if (wordWrap1 != null) {
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
+        }
+        return "";
+    }
+
+
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetBackground());
+        jsGetters.append(generateJSgetHolidays());
+        jsGetters.append(generateJSgetOverlay());
+        jsGetters.append(generateJSgetPadding());
+
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSadjustOrAdjustByWidth());
@@ -4658,25 +3908,11 @@ public class TimeLine extends VisualBaseWithBounds {
             js.append(generateJSbackground());
             js.append(generateJSbackground1());
             js.append(generateJSbackground2());
-            js.append(generateJSbottom());
-            js.append(generateJSbottom1());
-            js.append(generateJSbounds());
-            js.append(generateJSbounds1());
-            js.append(generateJSbounds2());
-            js.append(generateJSx());
-            js.append(generateJSx1());
-            js.append(generateJSy());
-            js.append(generateJSy1());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append(generateJSheight());
-            js.append(generateJSheight1());
             js.append(generateJSdisablePointerEvents());
             js.append(generateJSdrawBottomLine());
             js.append(generateJSdrawLeftLine());
             js.append(generateJSdrawRightLine());
             js.append(generateJSdrawTopLine());
-            js.append(generateJSenabled());
             js.append(generateJSfill());
             js.append(generateJScolor());
             js.append(generateJSopacity());
@@ -4712,34 +3948,16 @@ public class TimeLine extends VisualBaseWithBounds {
             js.append(generateJSformat());
             js.append(generateJShAlign());
             js.append(generateJShAlign1());
-            js.append(generateJSheight2());
-            js.append(generateJSheight3());
             js.append(generateJSholidays());
-            js.append(generateJSleft());
-            js.append(generateJSleft1());
             js.append(generateJSletterSpacing());
             js.append(generateJSletterSpacing1());
             js.append(generateJSlevelHeight());
             js.append(generateJSlineHeight());
             js.append(generateJSlineHeight1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSmaxFontSize());
             js.append(generateJSmaxFontSize1());
-            js.append(generateJSmaxHeight());
-            js.append(generateJSmaxHeight1());
-            js.append(generateJSmaxWidth());
-            js.append(generateJSmaxWidth1());
             js.append(generateJSminFontSize());
             js.append(generateJSminFontSize1());
-            js.append(generateJSminHeight());
-            js.append(generateJSminHeight1());
-            js.append(generateJSminWidth());
-            js.append(generateJSminWidth1());
             js.append(generateJSoverlay());
             js.append(generateJSoverlay1());
             js.append(generateJSpadding());
@@ -4753,12 +3971,6 @@ public class TimeLine extends VisualBaseWithBounds {
             js.append(generateJSvalue5());
             js.append(generateJSvalue6());
             js.append(generateJSvalue7());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
-            js.append(generateJSright());
-            js.append(generateJSright1());
             js.append(generateJSselectable());
             js.append(generateJScolor1());
             js.append(generateJScolor2());
@@ -4772,27 +3984,17 @@ public class TimeLine extends VisualBaseWithBounds {
             js.append(generateJStextIndent());
             js.append(generateJStextOverflow());
             js.append(generateJStextOverflow1());
-            js.append(generateJStextWrap());
-            js.append(generateJStextWrap1());
-            js.append(generateJStop());
-            js.append(generateJStop1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append(generateJSuseHtml());
             js.append(generateJSvAlign());
             js.append(generateJSvAlign1());
-            js.append(generateJSwidth2());
-            js.append(generateJSwidth3());
-            js.append(generateJSzIndex());
+            js.append(generateJSwordBreak());
+            js.append(generateJSwordBreak1());
+            js.append(generateJSwordWrap());
+            js.append(generateJSwordWrap1());
             js.append("}");
         }
-            js.append(generateJSgetBackground());
-            js.append(generateJSgetBounds());
-            js.append(generateJSgetHolidays());
-            js.append(generateJSgetOverlay());
-            js.append(generateJSgetPadding());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

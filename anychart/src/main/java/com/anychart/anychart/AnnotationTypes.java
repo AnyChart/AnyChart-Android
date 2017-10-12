@@ -3,21 +3,21 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum AnnotationTypes implements JsObject.JsObjectInterface {
-    ANDREWS_PITCHFORK("andrewsPitchfork"),
+    ANDREWS_PITCHFORK("andrews-pitchfork"),
     ELLIPSE("ellipse"),
-    FIBONACCI_ARC("fibonacciArc"),
-    FIBONACCI_FAN("fibonacciFan"),
-    FIBONACCI_RETRACEMENT("fibonacciRetracement"),
-    FIBONACCI_TIMEZONES("fibonacciTimezones"),
-    HORIZONTAL_LINE("horizontalLine"),
-    INFINITE_LINE("infiniteLine"),
+    FIBONACCI_ARC("fibonacci-arc"),
+    FIBONACCI_FAN("fibonacci-fan"),
+    FIBONACCI_RETRACEMENT("fibonacci-retracement"),
+    FIBONACCI_TIMEZONES("fibonacci-timezones"),
+    HORIZONTAL_LINE("horizontal-line"),
+    INFINITE_LINE("infinite-line"),
     LINE("line"),
     MARKER("marker"),
     RAY("ray"),
     RECTANGLE("rectangle"),
-    TREND_CHANNEL("trendChannel"),
+    TREND_CHANNEL("trend-channel"),
     TRIANGLE("triangle"),
-    VERTICAL_LINE("verticalLine");
+    VERTICAL_LINE("vertical-line");
 
     private final String value;
 

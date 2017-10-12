@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class UiTable extends VisualBaseWithBounds {
-
-    private String jsBase;
 
     public UiTable() {
 
@@ -14,6 +14,12 @@ public class UiTable extends VisualBaseWithBounds {
 
     protected UiTable(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected UiTable(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -34,7 +40,7 @@ public class UiTable extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public void setBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTable setBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -52,17 +58,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTable setBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -80,17 +95,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTable setBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -108,677 +132,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double bottom;
-    private String bottom1;
-
-    public void setBottom(Double bottom) {
-        if (jsBase == null) {
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-        } else {
-            this.bottom = bottom;
-
-            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBottom(String bottom1) {
-        if (jsBase == null) {
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-        } else {
-            this.bottom1 = bottom1;
-
-            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Bounds getBounds;
-
-    public Bounds getBounds() {
-        if (getBounds == null)
-            getBounds = new Bounds(jsBase + ".bounds()");
-
-        return getBounds;
-    }
-
-    private RectObj bounds;
-    private AnychartMathRect bounds1;
-    private Bounds bounds2;
-
-    public void setBounds(RectObj bounds) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds = bounds;
-        } else {
-            this.bounds = bounds;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(AnychartMathRect bounds1) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds1 = bounds1;
-        } else {
-            this.bounds1 = bounds1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Bounds bounds2) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds2 = bounds2;
-        } else {
-            this.bounds2 = bounds2;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double x;
-    private String x1;
-    private Double y;
-    private String y1;
-    private Double width;
-    private String width1;
-    private Double height;
-    private String height1;
-
-    public void setBounds(Double x, Double y, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Stroke strokeOrFill;
@@ -789,7 +158,7 @@ public class UiTable extends VisualBaseWithBounds {
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
 
-    public void setCellborder(Stroke strokeOrFill, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTable setCellBorder(Stroke strokeOrFill, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -819,17 +188,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellborder(ColoredFill strokeOrFill1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTable setCellBorder(ColoredFill strokeOrFill1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -859,17 +237,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", (strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null", thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellborder(String strokeOrFill2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTable setCellBorder(String strokeOrFill2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -899,36 +286,54 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", strokeOrFill2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", strokeOrFill2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", strokeOrFill2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", strokeOrFill2, thickness1, dashpattern1, (lineJoin1 != null) ? lineJoin1.generateJs() : "null", (lineCap1 != null) ? lineCap1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill cellFill;
 
-    public void setCellfill(Fill cellFill) {
+    public UiTable setCellFill(Fill cellFill) {
         if (jsBase == null) {
             this.cellFill = cellFill;
         } else {
             this.cellFill = cellFill;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s);", (cellFill != null) ? cellFill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s)", (cellFill != null) ? cellFill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s);", (cellFill != null) ? cellFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s)", (cellFill != null) ? cellFill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color3;
     private Double opacity;
 
-    public void setCellfill(String color3, Double opacity) {
+    public UiTable setCellFill(String color3, Double opacity) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -941,13 +346,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.color3 = color3;
             this.opacity = opacity;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f);", color3, opacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %f)", color3, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f);", color3, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f)", color3, opacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys;
@@ -958,7 +372,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public void setCellfill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiTable setCellFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -980,17 +394,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellfill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTable setCellFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1012,17 +435,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellfill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiTable setCellFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1044,17 +476,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", arrayToString(keys), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellfill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiTable setCellFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1076,17 +517,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f);", Arrays.toString(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", Arrays.toString(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellfill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTable setCellFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1108,17 +558,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", Arrays.toString(keys1), (mode1 != null) ? mode1.generateJs() : "null", angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellfill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiTable setCellFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1140,13 +599,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle = angle;
             this.opacity1 = opacity1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f);", Arrays.toString(keys1), mode2, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", Arrays.toString(keys1), mode2, angle, opacity1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys2;
@@ -1158,7 +626,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public void setCellfill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTable setCellFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1190,17 +658,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellfill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTable setCellFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1232,13 +709,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.fx = fx;
             this.fy = fy;
 
-            js.append(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys3), cx, cy, (mode3 != null) ? mode3.generateJs() : "null", opacity2, fx, fy));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings;
@@ -1255,7 +741,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String[] cellPadding1;
     private String cellPadding2;
 
-    public void setCellpadding(Double[] cellPadding) {
+    public UiTable setCellPadding(Double[] cellPadding) {
         if (jsBase == null) {
             this.cellPadding = null;
             this.cellPadding1 = null;
@@ -1265,17 +751,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.cellPadding = cellPadding;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(cellPadding)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(cellPadding)));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String[] cellPadding1) {
+    public UiTable setCellPadding(String[] cellPadding1) {
         if (jsBase == null) {
             this.cellPadding = null;
             this.cellPadding1 = null;
@@ -1285,17 +780,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.cellPadding1 = cellPadding1;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(cellPadding1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(cellPadding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String cellPadding2) {
+    public UiTable setCellPadding(String cellPadding2) {
         if (jsBase == null) {
             this.cellPadding = null;
             this.cellPadding1 = null;
@@ -1305,13 +809,22 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.cellPadding2 = cellPadding2;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s);", cellPadding2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s);", cellPadding2));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String value;
@@ -1323,7 +836,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String value6;
     private Double value7;
 
-    public void setCellpadding(String value, String value2, String value4, String value6) {
+    public UiTable setCellPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1371,17 +884,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", value, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String value, String value2, String value4, Double value7) {
+    public UiTable setCellPadding(String value, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1429,17 +951,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %f);", value, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %f)", value, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %f);", value, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %f)", value, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String value, String value2, Double value5, String value6) {
+    public UiTable setCellPadding(String value, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1487,17 +1018,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %s);", value, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %s)", value, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %s);", value, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %f, %s)", value, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String value, String value2, Double value5, Double value7) {
+    public UiTable setCellPadding(String value, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1545,17 +1085,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %f);", value, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %f)", value, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %f, %f);", value, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %f, %f)", value, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String value, Double value3, String value4, String value6) {
+    public UiTable setCellPadding(String value, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1603,17 +1152,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %s);", value, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %s)", value, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %s);", value, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %s, %s)", value, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String value, Double value3, String value4, Double value7) {
+    public UiTable setCellPadding(String value, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1661,17 +1219,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %f);", value, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %f)", value, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %s, %f);", value, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %s, %f)", value, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String value, Double value3, Double value5, String value6) {
+    public UiTable setCellPadding(String value, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1719,17 +1286,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %s);", value, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %s)", value, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %s);", value, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %f, %s)", value, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(String value, Double value3, Double value5, Double value7) {
+    public UiTable setCellPadding(String value, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1777,17 +1353,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %f);", value, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %f)", value, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %f, %f, %f);", value, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %f, %f)", value, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, String value2, String value4, String value6) {
+    public UiTable setCellPadding(Double value1, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1835,17 +1420,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %s);", value1, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %s)", value1, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %s);", value1, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %s, %s)", value1, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, String value2, String value4, Double value7) {
+    public UiTable setCellPadding(Double value1, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1893,17 +1487,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %f);", value1, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %f)", value1, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %s, %f);", value1, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %s, %f)", value1, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, String value2, Double value5, String value6) {
+    public UiTable setCellPadding(Double value1, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1951,17 +1554,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %s);", value1, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %s)", value1, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %s);", value1, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %f, %s)", value1, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, String value2, Double value5, Double value7) {
+    public UiTable setCellPadding(Double value1, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2009,17 +1621,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %f);", value1, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %f)", value1, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %s, %f, %f);", value1, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %f, %f)", value1, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, Double value3, String value4, String value6) {
+    public UiTable setCellPadding(Double value1, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2067,17 +1688,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %s);", value1, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %s)", value1, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %s);", value1, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %s, %s)", value1, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, Double value3, String value4, Double value7) {
+    public UiTable setCellPadding(Double value1, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2125,17 +1755,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %f);", value1, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %f)", value1, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %s, %f);", value1, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %s, %f)", value1, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, Double value3, Double value5, String value6) {
+    public UiTable setCellPadding(Double value1, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2183,17 +1822,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %s);", value1, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %s)", value1, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %s);", value1, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %f, %s)", value1, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setCellpadding(Double value1, Double value3, Double value5, Double value7) {
+    public UiTable setCellPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2241,36 +1889,54 @@ public class UiTable extends VisualBaseWithBounds {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double colsCount;
 
-    public void setColscount(Double colsCount) {
+    public UiTable setColsCount(Double colsCount) {
         if (jsBase == null) {
             this.colsCount = colsCount;
         } else {
             this.colsCount = colsCount;
 
-            js.append(String.format(Locale.US, jsBase + ".colsCount(%f);", colsCount));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colsCount(%f)", colsCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsCount(%f);", colsCount));
+                onChangeListener.onChange(String.format(Locale.US, ".colsCount(%f)", colsCount));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String colsMaxWidth;
     private Double colsMaxWidth1;
 
-    public void setColsmaxwidth(String colsMaxWidth) {
+    public UiTable setColsMaxWidth(String colsMaxWidth) {
         if (jsBase == null) {
             this.colsMaxWidth = null;
             this.colsMaxWidth1 = null;
@@ -2279,17 +1945,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.colsMaxWidth = colsMaxWidth;
 
-            js.append(String.format(Locale.US, jsBase + ".colsMaxWidth(%s);", colsMaxWidth));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colsMaxWidth(%s)", colsMaxWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMaxWidth(%s);", colsMaxWidth));
+                onChangeListener.onChange(String.format(Locale.US, ".colsMaxWidth(%s)", colsMaxWidth));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setColsmaxwidth(Double colsMaxWidth1) {
+    public UiTable setColsMaxWidth(Double colsMaxWidth1) {
         if (jsBase == null) {
             this.colsMaxWidth = null;
             this.colsMaxWidth1 = null;
@@ -2298,19 +1973,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.colsMaxWidth1 = colsMaxWidth1;
 
-            js.append(String.format(Locale.US, jsBase + ".colsMaxWidth(%f);", colsMaxWidth1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colsMaxWidth(%f)", colsMaxWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMaxWidth(%f);", colsMaxWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".colsMaxWidth(%f)", colsMaxWidth1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String colsMinWidth;
     private Double colsMinWidth1;
 
-    public void setColsminwidth(String colsMinWidth) {
+    public UiTable setColsMinWidth(String colsMinWidth) {
         if (jsBase == null) {
             this.colsMinWidth = null;
             this.colsMinWidth1 = null;
@@ -2319,17 +2003,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.colsMinWidth = colsMinWidth;
 
-            js.append(String.format(Locale.US, jsBase + ".colsMinWidth(%s);", colsMinWidth));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colsMinWidth(%s)", colsMinWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMinWidth(%s);", colsMinWidth));
+                onChangeListener.onChange(String.format(Locale.US, ".colsMinWidth(%s)", colsMinWidth));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setColsminwidth(Double colsMinWidth1) {
+    public UiTable setColsMinWidth(Double colsMinWidth1) {
         if (jsBase == null) {
             this.colsMinWidth = null;
             this.colsMinWidth1 = null;
@@ -2338,19 +2031,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.colsMinWidth1 = colsMinWidth1;
 
-            js.append(String.format(Locale.US, jsBase + ".colsMinWidth(%f);", colsMinWidth1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colsMinWidth(%f)", colsMinWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMinWidth(%f);", colsMinWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".colsMinWidth(%f)", colsMinWidth1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String colsWidth;
     private Double colsWidth1;
 
-    public void setColswidth(String colsWidth) {
+    public UiTable setColsWidth(String colsWidth) {
         if (jsBase == null) {
             this.colsWidth = null;
             this.colsWidth1 = null;
@@ -2359,17 +2061,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.colsWidth = colsWidth;
 
-            js.append(String.format(Locale.US, jsBase + ".colsWidth(%s);", colsWidth));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colsWidth(%s)", colsWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsWidth(%s);", colsWidth));
+                onChangeListener.onChange(String.format(Locale.US, ".colsWidth(%s)", colsWidth));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setColswidth(Double colsWidth1) {
+    public UiTable setColsWidth(Double colsWidth1) {
         if (jsBase == null) {
             this.colsWidth = null;
             this.colsWidth1 = null;
@@ -2378,19 +2089,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.colsWidth1 = colsWidth1;
 
-            js.append(String.format(Locale.US, jsBase + ".colsWidth(%f);", colsWidth1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".colsWidth(%f)", colsWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsWidth(%f);", colsWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".colsWidth(%f)", colsWidth1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String tableValues;
     private Boolean demergeCells;
 
-    public void setContents(String tableValues, Boolean demergeCells) {
+    public UiTable setContents(String tableValues, Boolean demergeCells) {
         if (jsBase == null) {
             this.tableValues = tableValues;
             this.demergeCells = demergeCells;
@@ -2398,70 +2118,80 @@ public class UiTable extends VisualBaseWithBounds {
             this.tableValues = tableValues;
             this.demergeCells = demergeCells;
 
-            js.append(String.format(Locale.US, jsBase + ".contents(%s, %b);", tableValues, demergeCells));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".contents(%s, %b)", tableValues, demergeCells));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".contents(%s, %b);", tableValues, demergeCells));
+                onChangeListener.onChange(String.format(Locale.US, ".contents(%s, %b)", tableValues, demergeCells));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean disablePointerEvents;
 
-    public void setDisablepointerevents(Boolean disablePointerEvents) {
+    public UiTable setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
 
-            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String fontColor;
 
-    public void setFontcolor(String fontColor) {
+    public UiTable setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
 
-            js.append(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontColor(%s)", fontColor));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+                onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", fontColor));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
 
-    public void setFontdecoration(Decoration fontDecoration) {
+    public UiTable setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -2470,17 +2200,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontDecoration = fontDecoration;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontdecoration(String fontDecoration1) {
+    public UiTable setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -2489,53 +2228,80 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontDecoration1 = fontDecoration1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontFamily;
 
-    public void setFontfamily(String fontFamily) {
+    public UiTable setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
 
-            js.append(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+                onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double fontOpacity;
 
-    public void setFontopacity(Double fontOpacity) {
+    public UiTable setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontSize;
     private Double fontSize1;
 
-    public void setFontsize(String fontSize) {
+    public UiTable setFontSize(String fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -2544,17 +2310,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontSize = fontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", fontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontsize(Double fontSize1) {
+    public UiTable setFontSize(Double fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -2563,19 +2338,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontSize1 = fontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
-    public void setFontstyle(TextFontStyle fontStyle) {
+    public UiTable setFontStyle(TextFontStyle fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -2584,17 +2368,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontStyle = fontStyle;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", (fontStyle != null) ? fontStyle.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", (fontStyle != null) ? fontStyle.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontstyle(String fontStyle1) {
+    public UiTable setFontStyle(String fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -2603,19 +2396,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontStyle1 = fontStyle1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", fontStyle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", fontStyle1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
-    public void setFontvariant(TextFontVariant fontVariant) {
+    public UiTable setFontVariant(TextFontVariant fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -2624,17 +2426,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontVariant = fontVariant;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", (fontVariant != null) ? fontVariant.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", (fontVariant != null) ? fontVariant.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontvariant(String fontVariant1) {
+    public UiTable setFontVariant(String fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -2643,19 +2454,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontVariant1 = fontVariant1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", fontVariant1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", fontVariant1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontWeight;
     private Double fontWeight1;
 
-    public void setFontweight(String fontWeight) {
+    public UiTable setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -2664,17 +2484,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontWeight = fontWeight;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontweight(Double fontWeight1) {
+    public UiTable setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -2683,19 +2512,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.fontWeight1 = fontWeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double row;
     private Double col;
 
-    public void setGetcell(Double row, Double col) {
+    public Cell setGetCell(Double row, Double col) {
         if (jsBase == null) {
             this.row = row;
             this.col = col;
@@ -2703,18 +2541,27 @@ public class UiTable extends VisualBaseWithBounds {
             this.row = row;
             this.col = col;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getCell(%f, %f);", row, col));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f, %f);", row, col));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f, %f)", row, col));
                 js.setLength(0);
             }
         }
+        return new Cell(jsBase);
     }
 
     private Double col1;
 
-    public void setGetcol(Double col1) {
+    public TableColumn setGetCol(Double col1) {
         if (jsBase == null) {
             this.col = null;
             this.col1 = null;
@@ -2723,44 +2570,53 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.col1 = col1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getCol(%f);", col1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCol(%f);", col1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCol(%f)", col1));
                 js.setLength(0);
             }
         }
+        return new TableColumn(jsBase);
     }
 
-    private Double width2;
-    private Double height2;
+    private Double width;
+    private Double height;
     private Double quality;
     private Boolean forceTransparentWhite;
 
-    public void setGetjpgbase64String(Double width2, Double height2, Double quality, Boolean forceTransparentWhite) {
+    public void setGetJpgBase64String(Double width, Double height, Double quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
-            this.width = null;
-            this.width1 = null;
-            this.width2 = null;
-            
-            this.width2 = width2;
-            this.height = null;
-            this.height1 = null;
-            this.height2 = null;
-            
-            this.height2 = height2;
+            this.width = width;
+            this.height = height;
             this.quality = quality;
             this.forceTransparentWhite = forceTransparentWhite;
         } else {
-            this.width2 = width2;
-            this.height2 = height2;
+            this.width = width;
+            this.height = height;
             this.quality = quality;
             this.forceTransparentWhite = forceTransparentWhite;
 
-            js.append(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width2, height2, quality, forceTransparentWhite));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width, height, quality, forceTransparentWhite));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width2, height2, quality, forceTransparentWhite));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b)", width, height, quality, forceTransparentWhite));
                 js.setLength(0);
             }
         }
@@ -2770,10 +2626,10 @@ public class UiTable extends VisualBaseWithBounds {
     private String paperSizeOrWidth1;
     private Double landscapeOrWidth;
     private Boolean landscapeOrWidth1;
-    private Double x2;
-    private Double y2;
+    private Double x;
+    private Double y;
 
-    public void setGetpdfbase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x2, Double y2) {
+    public void setGetPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2783,33 +2639,33 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
-            this.y = null;
-            this.y1 = null;
-            this.y2 = null;
-            
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
         } else {
             this.paperSizeOrWidth = paperSizeOrWidth;
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x2 = x2;
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, landscapeOrWidth, x2, y2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, landscapeOrWidth, x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, landscapeOrWidth, x2, y2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, landscapeOrWidth, x, y));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetpdfbase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x2, Double y2) {
+    public void setGetPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2819,33 +2675,33 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
-            this.y = null;
-            this.y1 = null;
-            this.y2 = null;
-            
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
         } else {
             this.paperSizeOrWidth = paperSizeOrWidth;
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x2 = x2;
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f);", paperSizeOrWidth, landscapeOrWidth1, x2, y2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f);", paperSizeOrWidth, landscapeOrWidth1, x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f);", paperSizeOrWidth, landscapeOrWidth1, x2, y2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, x, y));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetpdfbase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x2, Double y2) {
+    public void setGetPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2855,33 +2711,33 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
-            this.y = null;
-            this.y1 = null;
-            this.y2 = null;
-            
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
         } else {
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x2 = x2;
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f);", paperSizeOrWidth1, landscapeOrWidth, x2, y2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f);", paperSizeOrWidth1, landscapeOrWidth, x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f);", paperSizeOrWidth1, landscapeOrWidth, x2, y2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", paperSizeOrWidth1, landscapeOrWidth, x, y));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetpdfbase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x2, Double y2) {
+    public void setGetPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2891,62 +2747,66 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
-            this.y = null;
-            this.y1 = null;
-            this.y2 = null;
-            
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
         } else {
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x2 = x2;
-            this.y2 = y2;
+            this.x = x;
+            this.y = y;
 
-            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f);", paperSizeOrWidth1, landscapeOrWidth1, x2, y2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f);", paperSizeOrWidth1, landscapeOrWidth1, x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f);", paperSizeOrWidth1, landscapeOrWidth1, x2, y2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f)", paperSizeOrWidth1, landscapeOrWidth1, x, y));
                 js.setLength(0);
             }
         }
     }
 
-    private Double width3;
-    private Double height3;
+    private Double width1;
+    private Double height1;
     private Double quality1;
 
-    public void setGetpngbase64String(Double width3, Double height3, Double quality1) {
+    public void setGetPngBase64String(Double width1, Double height1, Double quality1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
-            this.width2 = null;
-            this.width3 = null;
             
-            this.width3 = width3;
+            this.width1 = width1;
             this.height = null;
             this.height1 = null;
-            this.height2 = null;
-            this.height3 = null;
             
-            this.height3 = height3;
+            this.height1 = height1;
             this.quality = null;
             this.quality1 = null;
             
             this.quality1 = quality1;
         } else {
-            this.width3 = width3;
-            this.height3 = height3;
+            this.width1 = width1;
+            this.height1 = height1;
             this.quality1 = quality1;
 
-            js.append(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f);", width3, height3, quality1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f);", width1, height1, quality1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f);", width3, height3, quality1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f)", width1, height1, quality1));
                 js.setLength(0);
             }
         }
@@ -2954,7 +2814,7 @@ public class UiTable extends VisualBaseWithBounds {
 
     private Double row1;
 
-    public void setGetrow(Double row1) {
+    public Row setGetRow(Double row1) {
         if (jsBase == null) {
             this.row = null;
             this.row1 = null;
@@ -2963,13 +2823,22 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.row1 = row1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getRow(%f);", row1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRow(%f);", row1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRow(%f)", row1));
                 js.setLength(0);
             }
         }
+        return new Row(jsBase);
     }
 
     private String paperSizeOrWidth2;
@@ -2977,7 +2846,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
-    public void setGetsvgbase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight) {
+    public void setGetSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2992,18 +2861,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight = landscapeOrHeight;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b);", paperSizeOrWidth2, landscapeOrHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b);", paperSizeOrWidth2, landscapeOrHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b)", paperSizeOrWidth2, landscapeOrHeight));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetsvgbase64String(String paperSizeOrWidth2, String landscapeOrHeight1) {
+    public void setGetSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3018,18 +2895,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight1 = landscapeOrHeight1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s);", paperSizeOrWidth2, landscapeOrHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s);", paperSizeOrWidth2, landscapeOrHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s)", paperSizeOrWidth2, landscapeOrHeight1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetsvgbase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
+    public void setGetSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3044,18 +2929,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight = landscapeOrHeight;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b);", paperSizeOrWidth3, landscapeOrHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b);", paperSizeOrWidth3, landscapeOrHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b)", paperSizeOrWidth3, landscapeOrHeight));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetsvgbase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
+    public void setGetSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3071,10 +2964,18 @@ public class UiTable extends VisualBaseWithBounds {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight1 = landscapeOrHeight1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s);", paperSizeOrWidth3, landscapeOrHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s);", paperSizeOrWidth3, landscapeOrHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s)", paperSizeOrWidth3, landscapeOrHeight1));
                 js.setLength(0);
             }
         }
@@ -3083,7 +2984,7 @@ public class UiTable extends VisualBaseWithBounds {
     private TextHAlign hAlign;
     private String hAlign1;
 
-    public void setHalign(TextHAlign hAlign) {
+    public UiTable setHAlign(TextHAlign hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -3092,17 +2993,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.hAlign = hAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", (hAlign != null) ? hAlign.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", (hAlign != null) ? hAlign.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHalign(String hAlign1) {
+    public UiTable setHAlign(String hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -3111,107 +3021,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.hAlign1 = hAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", hAlign1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", hAlign1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double height4;
-    private String height5;
-
-    public void setHeight(Double height4) {
-        if (jsBase == null) {
-            this.height = null;
-            this.height1 = null;
-            this.height2 = null;
-            this.height3 = null;
-            this.height4 = null;
-            this.height5 = null;
-            
-            this.height4 = height4;
-        } else {
-            this.height4 = height4;
-
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height4));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHeight(String height5) {
-        if (jsBase == null) {
-            this.height = null;
-            this.height1 = null;
-            this.height2 = null;
-            this.height3 = null;
-            this.height4 = null;
-            this.height5 = null;
-            
-            this.height5 = height5;
-        } else {
-            this.height5 = height5;
-
-            js.append(String.format(Locale.US, jsBase + ".height(%s);", height5));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height5));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double left;
-    private String left1;
-
-    public void setLeft(Double left) {
-        if (jsBase == null) {
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.left = left;
-
-            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setLeft(String left1) {
-        if (jsBase == null) {
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.left1 = left1;
-
-            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String letterSpacing;
     private Double letterSpacing1;
 
-    public void setLetterspacing(String letterSpacing) {
+    public UiTable setLetterSpacing(String letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -3220,17 +3051,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.letterSpacing = letterSpacing;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLetterspacing(Double letterSpacing1) {
+    public UiTable setLetterSpacing(Double letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -3239,19 +3079,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.letterSpacing1 = letterSpacing1;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String lineHeight;
     private Double lineHeight1;
 
-    public void setLineheight(String lineHeight) {
+    public UiTable setLineHeight(String lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -3260,17 +3109,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.lineHeight = lineHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLineheight(Double lineHeight1) {
+    public UiTable setLineHeight(Double lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -3279,357 +3137,54 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.lineHeight1 = lineHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double maxHeight;
-    private String maxHeight1;
-
-    public void setMaxheight(Double maxHeight) {
-        if (jsBase == null) {
-            this.maxHeight = null;
-            this.maxHeight1 = null;
-            
-            this.maxHeight = maxHeight;
-        } else {
-            this.maxHeight = maxHeight;
-
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMaxheight(String maxHeight1) {
-        if (jsBase == null) {
-            this.maxHeight = null;
-            this.maxHeight1 = null;
-            
-            this.maxHeight1 = maxHeight1;
-        } else {
-            this.maxHeight1 = maxHeight1;
-
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double maxWidth;
-    private String maxWidth1;
-
-    public void setMaxwidth(Double maxWidth) {
-        if (jsBase == null) {
-            this.maxWidth = null;
-            this.maxWidth1 = null;
-            
-            this.maxWidth = maxWidth;
-        } else {
-            this.maxWidth = maxWidth;
-
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMaxwidth(String maxWidth1) {
-        if (jsBase == null) {
-            this.maxWidth = null;
-            this.maxWidth1 = null;
-            
-            this.maxWidth1 = maxWidth1;
-        } else {
-            this.maxWidth1 = maxWidth1;
-
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double minHeight;
-    private String minHeight1;
-
-    public void setMinheight(Double minHeight) {
-        if (jsBase == null) {
-            this.minHeight = null;
-            this.minHeight1 = null;
-            
-            this.minHeight = minHeight;
-        } else {
-            this.minHeight = minHeight;
-
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinheight(String minHeight1) {
-        if (jsBase == null) {
-            this.minHeight = null;
-            this.minHeight1 = null;
-            
-            this.minHeight1 = minHeight1;
-        } else {
-            this.minHeight1 = minHeight1;
-
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double minWidth;
-    private String minWidth1;
-
-    public void setMinwidth(Double minWidth) {
-        if (jsBase == null) {
-            this.minWidth = null;
-            this.minWidth1 = null;
-            
-            this.minWidth = minWidth;
-        } else {
-            this.minWidth = minWidth;
-
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinwidth(String minWidth1) {
-        if (jsBase == null) {
-            this.minWidth = null;
-            this.minWidth1 = null;
-            
-            this.minWidth1 = minWidth1;
-        } else {
-            this.minWidth1 = minWidth1;
-
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double right;
-    private String right1;
-
-    public void setRight(Double right) {
-        if (jsBase == null) {
-            this.right = null;
-            this.right1 = null;
-            
-            this.right = right;
-        } else {
-            this.right = right;
-
-            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setRight(String right1) {
-        if (jsBase == null) {
-            this.right = null;
-            this.right1 = null;
-            
-            this.right1 = right1;
-        } else {
-            this.right1 = right1;
-
-            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Fill rowEvenFill;
 
-    public void setRowevenfill(Fill rowEvenFill) {
+    public UiTable setRowEvenFill(Fill rowEvenFill) {
         if (jsBase == null) {
             this.rowEvenFill = rowEvenFill;
         } else {
             this.rowEvenFill = rowEvenFill;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s)", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s)", (rowEvenFill != null) ? rowEvenFill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color4;
     private Double opacity3;
 
-    public void setRowevenfill(String color4, Double opacity3) {
+    public UiTable setRowEvenFill(String color4, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3648,13 +3203,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.color4 = color4;
             this.opacity3 = opacity3;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f);", color4, opacity3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", color4, opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f);", color4, opacity3));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f)", color4, opacity3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys4;
@@ -3665,7 +3229,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
-    public void setRowevenfill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTable setRowEvenFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3701,17 +3265,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle1 = angle1;
             this.opacity4 = opacity4;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowevenfill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTable setRowEvenFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3747,17 +3320,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle1 = angle1;
             this.opacity4 = opacity4;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowevenfill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public UiTable setRowEvenFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3793,17 +3375,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle1 = angle1;
             this.opacity4 = opacity4;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", arrayToString(keys4), mode6, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), mode6, angle1, opacity4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowevenfill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTable setRowEvenFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3839,17 +3430,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle1 = angle1;
             this.opacity4 = opacity4;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %b, %f, %f);", Arrays.toString(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", Arrays.toString(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowevenfill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTable setRowEvenFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3885,17 +3485,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle1 = angle1;
             this.opacity4 = opacity4;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys5), (mode5 != null) ? mode5.generateJs() : "null", angle1, opacity4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowevenfill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public UiTable setRowEvenFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3931,13 +3540,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle1 = angle1;
             this.opacity4 = opacity4;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %f, %f);", Arrays.toString(keys5), mode6, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", Arrays.toString(keys5), mode6, angle1, opacity4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys6;
@@ -3949,7 +3567,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
-    public void setRowevenfill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTable setRowEvenFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4004,17 +3622,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.fx1 = fx1;
             this.fy1 = fy1;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowevenfill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTable setRowEvenFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4069,37 +3696,55 @@ public class UiTable extends VisualBaseWithBounds {
             this.fx1 = fx1;
             this.fy1 = fy1;
 
-            js.append(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys7), cx1, cy1, (mode7 != null) ? mode7.generateJs() : "null", opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings1;
     private Fill rowOddFill;
 
-    public void setRowoddfill(Fill rowOddFill) {
+    public UiTable setRowOddFill(Fill rowOddFill) {
         if (jsBase == null) {
             this.rowOddFill = rowOddFill;
         } else {
             this.rowOddFill = rowOddFill;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s)", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s)", (rowOddFill != null) ? rowOddFill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String color5;
     private Double opacity6;
 
-    public void setRowoddfill(String color5, Double opacity6) {
+    public UiTable setRowOddFill(String color5, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4122,13 +3767,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.color5 = color5;
             this.opacity6 = opacity6;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f);", color5, opacity6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", color5, opacity6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f);", color5, opacity6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f)", color5, opacity6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys8;
@@ -4139,7 +3793,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String mode10;
     private Double opacity7;
 
-    public void setRowoddfill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTable setRowOddFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4187,17 +3841,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle2 = angle2;
             this.opacity7 = opacity7;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", arrayToString(keys8), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowoddfill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTable setRowOddFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4245,17 +3908,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle2 = angle2;
             this.opacity7 = opacity7;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowoddfill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public UiTable setRowOddFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4303,17 +3975,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle2 = angle2;
             this.opacity7 = opacity7;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", arrayToString(keys8), mode10, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), mode10, angle2, opacity7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowoddfill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTable setRowOddFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4361,17 +4042,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle2 = angle2;
             this.opacity7 = opacity7;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %b, %f, %f);", Arrays.toString(keys9), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", Arrays.toString(keys9), mode8, angle2, opacity7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowoddfill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTable setRowOddFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4419,17 +4109,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle2 = angle2;
             this.opacity7 = opacity7;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys9), (mode9 != null) ? mode9.generateJs() : "null", angle2, opacity7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowoddfill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public UiTable setRowOddFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4477,13 +4176,22 @@ public class UiTable extends VisualBaseWithBounds {
             this.angle2 = angle2;
             this.opacity7 = opacity7;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %f, %f);", Arrays.toString(keys9), mode10, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", Arrays.toString(keys9), mode10, angle2, opacity7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private GradientKey[] keys10;
@@ -4495,7 +4203,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double fx2;
     private Double fy2;
 
-    public void setRowoddfill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTable setRowOddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4565,17 +4273,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.fx2 = fx2;
             this.fy2 = fy2;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowoddfill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTable setRowOddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4645,37 +4362,55 @@ public class UiTable extends VisualBaseWithBounds {
             this.fx2 = fx2;
             this.fy2 = fy2;
 
-            js.append(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", Arrays.toString(keys11), cx2, cy2, (mode11 != null) ? mode11.generateJs() : "null", opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Fill imageSettings2;
     private Double rowsCount;
 
-    public void setRowscount(Double rowsCount) {
+    public UiTable setRowsCount(Double rowsCount) {
         if (jsBase == null) {
             this.rowsCount = rowsCount;
         } else {
             this.rowsCount = rowsCount;
 
-            js.append(String.format(Locale.US, jsBase + ".rowsCount(%f);", rowsCount));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowsCount(%f)", rowsCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsCount(%f);", rowsCount));
+                onChangeListener.onChange(String.format(Locale.US, ".rowsCount(%f)", rowsCount));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String rowsHeight;
     private Double rowsHeight1;
 
-    public void setRowsheight(String rowsHeight) {
+    public UiTable setRowsHeight(String rowsHeight) {
         if (jsBase == null) {
             this.rowsHeight = null;
             this.rowsHeight1 = null;
@@ -4684,17 +4419,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.rowsHeight = rowsHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".rowsHeight(%s);", rowsHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowsHeight(%s)", rowsHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsHeight(%s);", rowsHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".rowsHeight(%s)", rowsHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowsheight(Double rowsHeight1) {
+    public UiTable setRowsHeight(Double rowsHeight1) {
         if (jsBase == null) {
             this.rowsHeight = null;
             this.rowsHeight1 = null;
@@ -4703,19 +4447,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.rowsHeight1 = rowsHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".rowsHeight(%f);", rowsHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowsHeight(%f)", rowsHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsHeight(%f);", rowsHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".rowsHeight(%f)", rowsHeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String rowsMaxHeight;
     private Double rowsMaxHeight1;
 
-    public void setRowsmaxheight(String rowsMaxHeight) {
+    public UiTable setRowsMaxHeight(String rowsMaxHeight) {
         if (jsBase == null) {
             this.rowsMaxHeight = null;
             this.rowsMaxHeight1 = null;
@@ -4724,17 +4477,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.rowsMaxHeight = rowsMaxHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".rowsMaxHeight(%s);", rowsMaxHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowsMaxHeight(%s)", rowsMaxHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMaxHeight(%s);", rowsMaxHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".rowsMaxHeight(%s)", rowsMaxHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowsmaxheight(Double rowsMaxHeight1) {
+    public UiTable setRowsMaxHeight(Double rowsMaxHeight1) {
         if (jsBase == null) {
             this.rowsMaxHeight = null;
             this.rowsMaxHeight1 = null;
@@ -4743,19 +4505,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.rowsMaxHeight1 = rowsMaxHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".rowsMaxHeight(%f);", rowsMaxHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowsMaxHeight(%f)", rowsMaxHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMaxHeight(%f);", rowsMaxHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".rowsMaxHeight(%f)", rowsMaxHeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String rowsMinHeight;
     private Double rowsMinHeight1;
 
-    public void setRowsminheight(String rowsMinHeight) {
+    public UiTable setRowsMinHeight(String rowsMinHeight) {
         if (jsBase == null) {
             this.rowsMinHeight = null;
             this.rowsMinHeight1 = null;
@@ -4764,17 +4535,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.rowsMinHeight = rowsMinHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".rowsMinHeight(%s);", rowsMinHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowsMinHeight(%s)", rowsMinHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMinHeight(%s);", rowsMinHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".rowsMinHeight(%s)", rowsMinHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRowsminheight(Double rowsMinHeight1) {
+    public UiTable setRowsMinHeight(Double rowsMinHeight1) {
         if (jsBase == null) {
             this.rowsMinHeight = null;
             this.rowsMinHeight1 = null;
@@ -4783,38 +4563,41 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.rowsMinHeight1 = rowsMinHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".rowsMinHeight(%f);", rowsMinHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rowsMinHeight(%f)", rowsMinHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMinHeight(%f);", rowsMinHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".rowsMinHeight(%f)", rowsMinHeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double width4;
-    private Double height6;
+    private Double width2;
+    private Double height2;
     private Double quality2;
     private Boolean forceTransparentWhite1;
 
-    public void setSaveasjpg(Double width4, Double height6, Double quality2, Boolean forceTransparentWhite1) {
+    public void setSaveAsJpg(Double width2, Double height2, Double quality2, Boolean forceTransparentWhite1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
             this.width2 = null;
-            this.width3 = null;
-            this.width4 = null;
             
-            this.width4 = width4;
+            this.width2 = width2;
             this.height = null;
             this.height1 = null;
             this.height2 = null;
-            this.height3 = null;
-            this.height4 = null;
-            this.height5 = null;
-            this.height6 = null;
             
-            this.height6 = height6;
+            this.height2 = height2;
             this.quality = null;
             this.quality1 = null;
             this.quality2 = null;
@@ -4825,83 +4608,86 @@ public class UiTable extends VisualBaseWithBounds {
             
             this.forceTransparentWhite1 = forceTransparentWhite1;
         } else {
-            this.width4 = width4;
-            this.height6 = height6;
+            this.width2 = width2;
+            this.height2 = height2;
             this.quality2 = quality2;
             this.forceTransparentWhite1 = forceTransparentWhite1;
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b);", width4, height6, quality2, forceTransparentWhite1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b);", width2, height2, quality2, forceTransparentWhite1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b);", width4, height6, quality2, forceTransparentWhite1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b)", width2, height2, quality2, forceTransparentWhite1));
                 js.setLength(0);
             }
         }
     }
 
     private String paperSize;
-    private Boolean landscape1;
-    private Double x3;
-    private Double y3;
+    private Boolean landscape;
+    private Double x1;
+    private Double y1;
 
-    public void setSaveaspdf(String paperSize, Boolean landscape1, Double x3, Double y3) {
+    public void setSaveAsPdf(String paperSize, Boolean landscape, Double x1, Double y1) {
         if (jsBase == null) {
             this.paperSize = paperSize;
-            this.landscape = null;
-            this.landscape1 = null;
-            
-            this.landscape1 = landscape1;
+            this.landscape = landscape;
             this.x = null;
             this.x1 = null;
-            this.x2 = null;
-            this.x3 = null;
             
-            this.x3 = x3;
+            this.x1 = x1;
             this.y = null;
             this.y1 = null;
-            this.y2 = null;
-            this.y3 = null;
             
-            this.y3 = y3;
+            this.y1 = y1;
         } else {
             this.paperSize = paperSize;
-            this.landscape1 = landscape1;
-            this.x3 = x3;
-            this.y3 = y3;
+            this.landscape = landscape;
+            this.x1 = x1;
+            this.y1 = y1;
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f);", paperSize, landscape1, x3, y3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f);", paperSize, landscape, x1, y1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f);", paperSize, landscape1, x3, y3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f)", paperSize, landscape, x1, y1));
                 js.setLength(0);
             }
         }
     }
 
-    private Double width5;
-    private Double height7;
+    private Double width3;
+    private Double height3;
     private Double quality3;
 
-    public void setSaveaspng(Double width5, Double height7, Double quality3) {
+    public void setSaveAsPng(Double width3, Double height3, Double quality3) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
             this.width2 = null;
             this.width3 = null;
-            this.width4 = null;
-            this.width5 = null;
             
-            this.width5 = width5;
+            this.width3 = width3;
             this.height = null;
             this.height1 = null;
             this.height2 = null;
             this.height3 = null;
-            this.height4 = null;
-            this.height5 = null;
-            this.height6 = null;
-            this.height7 = null;
             
-            this.height7 = height7;
+            this.height3 = height3;
             this.quality = null;
             this.quality1 = null;
             this.quality2 = null;
@@ -4909,23 +4695,31 @@ public class UiTable extends VisualBaseWithBounds {
             
             this.quality3 = quality3;
         } else {
-            this.width5 = width5;
-            this.height7 = height7;
+            this.width3 = width3;
+            this.height3 = height3;
             this.quality3 = quality3;
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f);", width5, height7, quality3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f);", width3, height3, quality3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f);", width5, height7, quality3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f)", width3, height3, quality3));
                 js.setLength(0);
             }
         }
     }
 
     private String paperSize1;
-    private Boolean landscape2;
+    private Boolean landscape1;
 
-    public void setSaveassvg(String paperSize1, Boolean landscape2) {
+    public void setSaveAsSvg(String paperSize1, Boolean landscape1) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -4933,55 +4727,64 @@ public class UiTable extends VisualBaseWithBounds {
             this.paperSize1 = paperSize1;
             this.landscape = null;
             this.landscape1 = null;
-            this.landscape2 = null;
             
-            this.landscape2 = landscape2;
+            this.landscape1 = landscape1;
         } else {
             this.paperSize1 = paperSize1;
-            this.landscape2 = landscape2;
+            this.landscape1 = landscape1;
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b);", paperSize1, landscape2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b);", paperSize1, landscape1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b);", paperSize1, landscape2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b)", paperSize1, landscape1));
                 js.setLength(0);
             }
         }
     }
 
-    private Double width6;
-    private Double height8;
+    private Double width4;
+    private Double height4;
 
-    public void setSaveassvg(Double width6, Double height8) {
+    public void setSaveAsSvg(Double width4, Double height4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
             this.width2 = null;
             this.width3 = null;
             this.width4 = null;
-            this.width5 = null;
-            this.width6 = null;
             
-            this.width6 = width6;
+            this.width4 = width4;
             this.height = null;
             this.height1 = null;
             this.height2 = null;
             this.height3 = null;
             this.height4 = null;
-            this.height5 = null;
-            this.height6 = null;
-            this.height7 = null;
-            this.height8 = null;
             
-            this.height8 = height8;
+            this.height4 = height4;
         } else {
-            this.width6 = width6;
-            this.height8 = height8;
+            this.width4 = width4;
+            this.height4 = height4;
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width6, height8));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width4, height4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width6, height8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width4, height4));
                 js.setLength(0);
             }
         }
@@ -4989,29 +4792,38 @@ public class UiTable extends VisualBaseWithBounds {
 
     private Boolean selectable;
 
-    public void setSelectable(Boolean selectable) {
+    public UiTable setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
 
-            js.append(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+                onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean asBase;
-    private Double width7;
-    private Double height9;
+    private Double width5;
+    private Double height5;
     private Double quality4;
     private Boolean forceTransparentWhite2;
     private String filename;
 
-    public void setShareasjpg(Boolean asBase, Double width7, Double height9, Double quality4, Boolean forceTransparentWhite2, String filename) {
+    public void setShareAsJpg(Boolean asBase, Double width5, Double height5, Double quality4, Boolean forceTransparentWhite2, String filename) {
         if (jsBase == null) {
             this.asBase = asBase;
             this.width = null;
@@ -5020,22 +4832,16 @@ public class UiTable extends VisualBaseWithBounds {
             this.width3 = null;
             this.width4 = null;
             this.width5 = null;
-            this.width6 = null;
-            this.width7 = null;
             
-            this.width7 = width7;
+            this.width5 = width5;
             this.height = null;
             this.height1 = null;
             this.height2 = null;
             this.height3 = null;
             this.height4 = null;
             this.height5 = null;
-            this.height6 = null;
-            this.height7 = null;
-            this.height8 = null;
-            this.height9 = null;
             
-            this.height9 = height9;
+            this.height5 = height5;
             this.quality = null;
             this.quality1 = null;
             this.quality2 = null;
@@ -5051,16 +4857,24 @@ public class UiTable extends VisualBaseWithBounds {
             this.filename = filename;
         } else {
             this.asBase = asBase;
-            this.width7 = width7;
-            this.height9 = height9;
+            this.width5 = width5;
+            this.height5 = height5;
             this.quality4 = quality4;
             this.forceTransparentWhite2 = forceTransparentWhite2;
             this.filename = filename;
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width7, height9, quality4, forceTransparentWhite2, filename));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width5, height5, quality4, forceTransparentWhite2, filename));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width7, height9, quality4, forceTransparentWhite2, filename));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s)", asBase, width5, height5, quality4, forceTransparentWhite2, filename));
                 js.setLength(0);
             }
         }
@@ -5071,11 +4885,11 @@ public class UiTable extends VisualBaseWithBounds {
     private String paperSizeOrWidth5;
     private Double landscapeOrWidth2;
     private Boolean landscapeOrWidth3;
-    private Double x4;
-    private Double y4;
+    private Double x2;
+    private Double y2;
     private String filename1;
 
-    public void setShareaspdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, Boolean asBase1, Double x4, Double y4, String filename1) {
+    public void setShareAsPdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5098,17 +4912,13 @@ public class UiTable extends VisualBaseWithBounds {
             this.x = null;
             this.x1 = null;
             this.x2 = null;
-            this.x3 = null;
-            this.x4 = null;
             
-            this.x4 = x4;
+            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
-            this.y3 = null;
-            this.y4 = null;
             
-            this.y4 = y4;
+            this.y2 = y2;
             this.filename = null;
             this.filename1 = null;
             
@@ -5117,21 +4927,29 @@ public class UiTable extends VisualBaseWithBounds {
             this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.landscapeOrWidth2 = landscapeOrWidth2;
             this.asBase1 = asBase1;
-            this.x4 = x4;
-            this.y4 = y4;
+            this.x2 = x2;
+            this.y2 = y2;
             this.filename1 = filename1;
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth2, asBase1, x4, y4, filename1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth2, asBase1, x2, y2, filename1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth2, asBase1, x4, y4, filename1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth2, asBase1, x2, y2, filename1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setShareaspdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, Boolean asBase1, Double x4, Double y4, String filename1) {
+    public void setShareAsPdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5154,17 +4972,13 @@ public class UiTable extends VisualBaseWithBounds {
             this.x = null;
             this.x1 = null;
             this.x2 = null;
-            this.x3 = null;
-            this.x4 = null;
             
-            this.x4 = x4;
+            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
-            this.y3 = null;
-            this.y4 = null;
             
-            this.y4 = y4;
+            this.y2 = y2;
             this.filename = null;
             this.filename1 = null;
             
@@ -5173,21 +4987,29 @@ public class UiTable extends VisualBaseWithBounds {
             this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.landscapeOrWidth3 = landscapeOrWidth3;
             this.asBase1 = asBase1;
-            this.x4 = x4;
-            this.y4 = y4;
+            this.x2 = x2;
+            this.y2 = y2;
             this.filename1 = filename1;
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth3, asBase1, x4, y4, filename1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth3, asBase1, x2, y2, filename1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s);", paperSizeOrWidth4, landscapeOrWidth3, asBase1, x4, y4, filename1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth3, asBase1, x2, y2, filename1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setShareaspdf(String paperSizeOrWidth5, Double landscapeOrWidth2, Boolean asBase1, Double x4, Double y4, String filename1) {
+    public void setShareAsPdf(String paperSizeOrWidth5, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5210,17 +5032,13 @@ public class UiTable extends VisualBaseWithBounds {
             this.x = null;
             this.x1 = null;
             this.x2 = null;
-            this.x3 = null;
-            this.x4 = null;
             
-            this.x4 = x4;
+            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
-            this.y3 = null;
-            this.y4 = null;
             
-            this.y4 = y4;
+            this.y2 = y2;
             this.filename = null;
             this.filename1 = null;
             
@@ -5229,21 +5047,29 @@ public class UiTable extends VisualBaseWithBounds {
             this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.landscapeOrWidth2 = landscapeOrWidth2;
             this.asBase1 = asBase1;
-            this.x4 = x4;
-            this.y4 = y4;
+            this.x2 = x2;
+            this.y2 = y2;
             this.filename1 = filename1;
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth2, asBase1, x4, y4, filename1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth2, asBase1, x2, y2, filename1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth2, asBase1, x4, y4, filename1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s)", paperSizeOrWidth5, landscapeOrWidth2, asBase1, x2, y2, filename1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setShareaspdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, Boolean asBase1, Double x4, Double y4, String filename1) {
+    public void setShareAsPdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5266,17 +5092,13 @@ public class UiTable extends VisualBaseWithBounds {
             this.x = null;
             this.x1 = null;
             this.x2 = null;
-            this.x3 = null;
-            this.x4 = null;
             
-            this.x4 = x4;
+            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
-            this.y3 = null;
-            this.y4 = null;
             
-            this.y4 = y4;
+            this.y2 = y2;
             this.filename = null;
             this.filename1 = null;
             
@@ -5285,26 +5107,34 @@ public class UiTable extends VisualBaseWithBounds {
             this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.landscapeOrWidth3 = landscapeOrWidth3;
             this.asBase1 = asBase1;
-            this.x4 = x4;
-            this.y4 = y4;
+            this.x2 = x2;
+            this.y2 = y2;
             this.filename1 = filename1;
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth3, asBase1, x4, y4, filename1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth3, asBase1, x2, y2, filename1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s);", paperSizeOrWidth5, landscapeOrWidth3, asBase1, x4, y4, filename1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s)", paperSizeOrWidth5, landscapeOrWidth3, asBase1, x2, y2, filename1));
                 js.setLength(0);
             }
         }
     }
 
     private Boolean asBase2;
-    private Double width8;
-    private Double height10;
+    private Double width6;
+    private Double height6;
     private Double quality5;
     private String filename2;
 
-    public void setShareaspng(Boolean asBase2, Double width8, Double height10, Double quality5, String filename2) {
+    public void setShareAsPng(Boolean asBase2, Double width6, Double height6, Double quality5, String filename2) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -5318,10 +5148,8 @@ public class UiTable extends VisualBaseWithBounds {
             this.width4 = null;
             this.width5 = null;
             this.width6 = null;
-            this.width7 = null;
-            this.width8 = null;
             
-            this.width8 = width8;
+            this.width6 = width6;
             this.height = null;
             this.height1 = null;
             this.height2 = null;
@@ -5329,12 +5157,8 @@ public class UiTable extends VisualBaseWithBounds {
             this.height4 = null;
             this.height5 = null;
             this.height6 = null;
-            this.height7 = null;
-            this.height8 = null;
-            this.height9 = null;
-            this.height10 = null;
             
-            this.height10 = height10;
+            this.height6 = height6;
             this.quality = null;
             this.quality1 = null;
             this.quality2 = null;
@@ -5350,15 +5174,23 @@ public class UiTable extends VisualBaseWithBounds {
             this.filename2 = filename2;
         } else {
             this.asBase2 = asBase2;
-            this.width8 = width8;
-            this.height10 = height10;
+            this.width6 = width6;
+            this.height6 = height6;
             this.quality5 = quality5;
             this.filename2 = filename2;
 
-            js.append(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width8, height10, quality5, filename2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width6, height6, quality5, filename2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width8, height10, quality5, filename2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s)", asBase2, width6, height6, quality5, filename2));
                 js.setLength(0);
             }
         }
@@ -5371,7 +5203,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String landscapeOrHeight3;
     private String filename3;
 
-    public void setShareassvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
+    public void setShareAsSvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5406,18 +5238,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrHeight2 = landscapeOrHeight2;
             this.asBase3 = asBase3;
             this.filename3 = filename3;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %b, %s);", paperSizeOrWidth6, landscapeOrHeight2, asBase3, filename3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %b, %s);", paperSizeOrWidth6, landscapeOrHeight2, asBase3, filename3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %b, %s)", paperSizeOrWidth6, landscapeOrHeight2, asBase3, filename3));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setShareassvg(String paperSizeOrWidth6, String landscapeOrHeight3, Boolean asBase3, String filename3) {
+    public void setShareAsSvg(String paperSizeOrWidth6, String landscapeOrHeight3, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5452,18 +5292,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrHeight3 = landscapeOrHeight3;
             this.asBase3 = asBase3;
             this.filename3 = filename3;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %b, %s);", paperSizeOrWidth6, landscapeOrHeight3, asBase3, filename3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %b, %s);", paperSizeOrWidth6, landscapeOrHeight3, asBase3, filename3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %b, %s)", paperSizeOrWidth6, landscapeOrHeight3, asBase3, filename3));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setShareassvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
+    public void setShareAsSvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5498,18 +5346,26 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrHeight2 = landscapeOrHeight2;
             this.asBase3 = asBase3;
             this.filename3 = filename3;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %b, %s);", paperSizeOrWidth7, landscapeOrHeight2, asBase3, filename3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %b, %s);", paperSizeOrWidth7, landscapeOrHeight2, asBase3, filename3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %b, %s)", paperSizeOrWidth7, landscapeOrHeight2, asBase3, filename3));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setShareassvg(Double paperSizeOrWidth7, String landscapeOrHeight3, Boolean asBase3, String filename3) {
+    public void setShareAsSvg(Double paperSizeOrWidth7, String landscapeOrHeight3, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5545,10 +5401,18 @@ public class UiTable extends VisualBaseWithBounds {
             this.asBase3 = asBase3;
             this.filename3 = filename3;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %b, %s);", paperSizeOrWidth7, landscapeOrHeight3, asBase3, filename3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %b, %s);", paperSizeOrWidth7, landscapeOrHeight3, asBase3, filename3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %b, %s)", paperSizeOrWidth7, landscapeOrHeight3, asBase3, filename3));
                 js.setLength(0);
             }
         }
@@ -5557,7 +5421,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Direction textDirection;
     private String textDirection1;
 
-    public void setTextdirection(Direction textDirection) {
+    public UiTable setTextDirection(Direction textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -5566,17 +5430,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.textDirection = textDirection;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", (textDirection != null) ? textDirection.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", (textDirection != null) ? textDirection.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextdirection(String textDirection1) {
+    public UiTable setTextDirection(String textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -5585,36 +5458,54 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.textDirection1 = textDirection1;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", textDirection1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", textDirection1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double textIndent;
 
-    public void setTextindent(Double textIndent) {
+    public UiTable setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
 
-            js.append(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
 
-    public void setTextoverflow(TextOverflow textOverflow) {
+    public UiTable setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -5623,17 +5514,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.textOverflow = textOverflow;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextoverflow(String textOverflow1) {
+    public UiTable setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -5642,59 +5542,28 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.textOverflow1 = textOverflow1;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
                 js.setLength(0);
             }
         }
-    }
-
-    private TextTextWrap textWrap;
-    private String textWrap1;
-
-    public void setTextwrap(TextTextWrap textWrap) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap = textWrap;
-        } else {
-            this.textWrap = textWrap;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTextwrap(String textWrap1) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap1 = textWrap1;
-        } else {
-            this.textWrap1 = textWrap1;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String paperSize2;
-    private Boolean landscape3;
+    private Boolean landscape2;
 
-    public void setTosvg(String paperSize2, Boolean landscape3) {
+    public void setToSvg(String paperSize2, Boolean landscape2) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -5704,26 +5573,33 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscape = null;
             this.landscape1 = null;
             this.landscape2 = null;
-            this.landscape3 = null;
             
-            this.landscape3 = landscape3;
+            this.landscape2 = landscape2;
         } else {
             this.paperSize2 = paperSize2;
-            this.landscape3 = landscape3;
+            this.landscape2 = landscape2;
 
-            js.append(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", paperSize2, landscape3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", paperSize2, landscape2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", paperSize2, landscape3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", paperSize2, landscape2));
                 js.setLength(0);
             }
         }
     }
 
-    private Double width9;
-    private Double height11;
+    private Double width7;
+    private Double height7;
 
-    public void setTosvg(Double width9, Double height11) {
+    public void setToSvg(Double width7, Double height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -5733,10 +5609,8 @@ public class UiTable extends VisualBaseWithBounds {
             this.width5 = null;
             this.width6 = null;
             this.width7 = null;
-            this.width8 = null;
-            this.width9 = null;
             
-            this.width9 = width9;
+            this.width7 = width7;
             this.height = null;
             this.height1 = null;
             this.height2 = null;
@@ -5745,113 +5619,24 @@ public class UiTable extends VisualBaseWithBounds {
             this.height5 = null;
             this.height6 = null;
             this.height7 = null;
-            this.height8 = null;
-            this.height9 = null;
-            this.height10 = null;
-            this.height11 = null;
             
-            this.height11 = height11;
+            this.height7 = height7;
         } else {
-            this.width9 = width9;
-            this.height11 = height11;
+            this.width7 = width7;
+            this.height7 = height7;
 
-            js.append(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width9, height11));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width9, height11));
-                js.setLength(0);
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
             }
-        }
-    }
 
-    private Double top;
-    private String top1;
-
-    public void setTop(Double top) {
-        if (jsBase == null) {
-            this.top = null;
-            this.top1 = null;
-            
-            this.top = top;
-        } else {
-            this.top = top;
-
-            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
+            js.append(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width7, height7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTop(String top1) {
-        if (jsBase == null) {
-            this.top = null;
-            this.top1 = null;
-            
-            this.top1 = top1;
-        } else {
-            this.top1 = top1;
-
-            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width7, height7));
                 js.setLength(0);
             }
         }
@@ -5859,25 +5644,34 @@ public class UiTable extends VisualBaseWithBounds {
 
     private Boolean useHtml;
 
-    public void setUsehtml(Boolean useHtml) {
+    public UiTable setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
 
-            js.append(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+                onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextVAlign vAlign;
     private String vAlign1;
 
-    public void setValign(TextVAlign vAlign) {
+    public UiTable setVAlign(TextVAlign vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -5886,17 +5680,26 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.vAlign = vAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", (vAlign != null) ? vAlign.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", (vAlign != null) ? vAlign.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setValign(String vAlign1) {
+    public UiTable setVAlign(String vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -5905,102 +5708,143 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.vAlign1 = vAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", vAlign1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", vAlign1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double width10;
-    private String width11;
+    private String wordBreak;
+    private EnumsWordBreak wordBreak1;
 
-    public void setWidth(Double width10) {
+    public UiTable setWordBreak(String wordBreak) {
         if (jsBase == null) {
-            this.width = null;
-            this.width1 = null;
-            this.width2 = null;
-            this.width3 = null;
-            this.width4 = null;
-            this.width5 = null;
-            this.width6 = null;
-            this.width7 = null;
-            this.width8 = null;
-            this.width9 = null;
-            this.width10 = null;
-            this.width11 = null;
+            this.wordBreak = null;
+            this.wordBreak1 = null;
             
-            this.width10 = width10;
+            this.wordBreak = wordBreak;
         } else {
-            this.width10 = width10;
+            this.wordBreak = wordBreak;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width10));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width10));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(String width11) {
+    public UiTable setWordBreak(EnumsWordBreak wordBreak1) {
         if (jsBase == null) {
-            this.width = null;
-            this.width1 = null;
-            this.width2 = null;
-            this.width3 = null;
-            this.width4 = null;
-            this.width5 = null;
-            this.width6 = null;
-            this.width7 = null;
-            this.width8 = null;
-            this.width9 = null;
-            this.width10 = null;
-            this.width11 = null;
+            this.wordBreak = null;
+            this.wordBreak1 = null;
             
-            this.width11 = width11;
+            this.wordBreak1 = wordBreak1;
         } else {
-            this.width11 = width11;
+            this.wordBreak1 = wordBreak1;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width11));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width11));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double zIndex;
+    private String wordWrap;
+    private EnumsWordWrap wordWrap1;
 
-    public void setZindex(Double zIndex) {
+    public UiTable setWordWrap(String wordWrap) {
         if (jsBase == null) {
-            this.zIndex = zIndex;
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap = wordWrap;
         } else {
-            this.zIndex = zIndex;
+            this.wordWrap = wordWrap;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+
+    public UiTable setWordWrap(EnumsWordWrap wordWrap1) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap1 = wordWrap1;
+        } else {
+            this.wordWrap1 = wordWrap1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private String generateJSgetBorder() {
         if (getBorder != null) {
             return getBorder.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetBounds() {
-        if (getBounds != null) {
-            return getBounds.generateJs();
         }
         return "";
     }
@@ -6057,97 +5901,6 @@ public class UiTable extends VisualBaseWithBounds {
     private String generateJSlineCap() {
         if (lineCap != null) {
             return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbottom() {
-        if (bottom != null) {
-            return String.format(Locale.US, "bottom: %f,", bottom);
-        }
-        return "";
-    }
-
-    private String generateJSbottom1() {
-        if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: %s,", bottom1);
-        }
-        return "";
-    }
-
-    private String generateJSbounds() {
-        if (bounds != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds != null) ? bounds.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbounds1() {
-        if (bounds1 != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds1 != null) ? bounds1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbounds2() {
-        if (bounds2 != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds2 != null) ? bounds2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSx1() {
-        if (x1 != null) {
-            return String.format(Locale.US, "x: %s,", x1);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJSy1() {
-        if (y1 != null) {
-            return String.format(Locale.US, "y: %s,", y1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %s,", height1);
         }
         return "";
     }
@@ -6481,13 +6234,6 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
-
     private String generateJSfontColor() {
         if (fontColor != null) {
             return String.format(Locale.US, "fontColor: %s,", fontColor);
@@ -6600,16 +6346,16 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSwidth2() {
-        if (width2 != null) {
-            return String.format(Locale.US, "width: %f,", width2);
+    private String generateJSwidth() {
+        if (width != null) {
+            return String.format(Locale.US, "width: %f,", width);
         }
         return "";
     }
 
-    private String generateJSheight2() {
-        if (height2 != null) {
-            return String.format(Locale.US, "height: %f,", height2);
+    private String generateJSheight() {
+        if (height != null) {
+            return String.format(Locale.US, "height: %f,", height);
         }
         return "";
     }
@@ -6656,30 +6402,30 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSx2() {
-        if (x2 != null) {
-            return String.format(Locale.US, "x: %f,", x2);
+    private String generateJSx() {
+        if (x != null) {
+            return String.format(Locale.US, "x: %f,", x);
         }
         return "";
     }
 
-    private String generateJSy2() {
-        if (y2 != null) {
-            return String.format(Locale.US, "y: %f,", y2);
+    private String generateJSy() {
+        if (y != null) {
+            return String.format(Locale.US, "y: %f,", y);
         }
         return "";
     }
 
-    private String generateJSwidth3() {
-        if (width3 != null) {
-            return String.format(Locale.US, "width: %f,", width3);
+    private String generateJSwidth1() {
+        if (width1 != null) {
+            return String.format(Locale.US, "width: %f,", width1);
         }
         return "";
     }
 
-    private String generateJSheight3() {
-        if (height3 != null) {
-            return String.format(Locale.US, "height: %f,", height3);
+    private String generateJSheight1() {
+        if (height1 != null) {
+            return String.format(Locale.US, "height: %f,", height1);
         }
         return "";
     }
@@ -6740,34 +6486,6 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSheight4() {
-        if (height4 != null) {
-            return String.format(Locale.US, "height: %f,", height4);
-        }
-        return "";
-    }
-
-    private String generateJSheight5() {
-        if (height5 != null) {
-            return String.format(Locale.US, "height: %s,", height5);
-        }
-        return "";
-    }
-
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJSleft1() {
-        if (left1 != null) {
-            return String.format(Locale.US, "left: %s,", left1);
-        }
-        return "";
-    }
-
     private String generateJSletterSpacing() {
         if (letterSpacing != null) {
             return String.format(Locale.US, "letterSpacing: %s,", letterSpacing);
@@ -6792,146 +6510,6 @@ public class UiTable extends VisualBaseWithBounds {
     private String generateJSlineHeight1() {
         if (lineHeight1 != null) {
             return String.format(Locale.US, "lineHeight: %f,", lineHeight1);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight() {
-        if (maxHeight != null) {
-            return String.format(Locale.US, "maxHeight: %f,", maxHeight);
-        }
-        return "";
-    }
-
-    private String generateJSmaxHeight1() {
-        if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth() {
-        if (maxWidth != null) {
-            return String.format(Locale.US, "maxWidth: %f,", maxWidth);
-        }
-        return "";
-    }
-
-    private String generateJSmaxWidth1() {
-        if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight() {
-        if (minHeight != null) {
-            return String.format(Locale.US, "minHeight: %f,", minHeight);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight1() {
-        if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: %s,", minHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth() {
-        if (minWidth != null) {
-            return String.format(Locale.US, "minWidth: %f,", minWidth);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth1() {
-        if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: %s,", minWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
-    private String generateJSright() {
-        if (right != null) {
-            return String.format(Locale.US, "right: %f,", right);
-        }
-        return "";
-    }
-
-    private String generateJSright1() {
-        if (right1 != null) {
-            return String.format(Locale.US, "right: %s,", right1);
         }
         return "";
     }
@@ -7251,16 +6829,16 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSwidth4() {
-        if (width4 != null) {
-            return String.format(Locale.US, "width: %f,", width4);
+    private String generateJSwidth2() {
+        if (width2 != null) {
+            return String.format(Locale.US, "width: %f,", width2);
         }
         return "";
     }
 
-    private String generateJSheight6() {
-        if (height6 != null) {
-            return String.format(Locale.US, "height: %f,", height6);
+    private String generateJSheight2() {
+        if (height2 != null) {
+            return String.format(Locale.US, "height: %f,", height2);
         }
         return "";
     }
@@ -7286,37 +6864,37 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSlandscape1() {
-        if (landscape1 != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape1);
+    private String generateJSlandscape() {
+        if (landscape != null) {
+            return String.format(Locale.US, "landscape: %b,", landscape);
         }
         return "";
     }
 
-    private String generateJSx3() {
-        if (x3 != null) {
-            return String.format(Locale.US, "x: %f,", x3);
+    private String generateJSx1() {
+        if (x1 != null) {
+            return String.format(Locale.US, "x: %f,", x1);
         }
         return "";
     }
 
-    private String generateJSy3() {
-        if (y3 != null) {
-            return String.format(Locale.US, "y: %f,", y3);
+    private String generateJSy1() {
+        if (y1 != null) {
+            return String.format(Locale.US, "y: %f,", y1);
         }
         return "";
     }
 
-    private String generateJSwidth5() {
-        if (width5 != null) {
-            return String.format(Locale.US, "width: %f,", width5);
+    private String generateJSwidth3() {
+        if (width3 != null) {
+            return String.format(Locale.US, "width: %f,", width3);
         }
         return "";
     }
 
-    private String generateJSheight7() {
-        if (height7 != null) {
-            return String.format(Locale.US, "height: %f,", height7);
+    private String generateJSheight3() {
+        if (height3 != null) {
+            return String.format(Locale.US, "height: %f,", height3);
         }
         return "";
     }
@@ -7335,23 +6913,23 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSlandscape2() {
-        if (landscape2 != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape2);
+    private String generateJSlandscape1() {
+        if (landscape1 != null) {
+            return String.format(Locale.US, "landscape: %b,", landscape1);
         }
         return "";
     }
 
-    private String generateJSwidth6() {
-        if (width6 != null) {
-            return String.format(Locale.US, "width: %f,", width6);
+    private String generateJSwidth4() {
+        if (width4 != null) {
+            return String.format(Locale.US, "width: %f,", width4);
         }
         return "";
     }
 
-    private String generateJSheight8() {
-        if (height8 != null) {
-            return String.format(Locale.US, "height: %f,", height8);
+    private String generateJSheight4() {
+        if (height4 != null) {
+            return String.format(Locale.US, "height: %f,", height4);
         }
         return "";
     }
@@ -7370,16 +6948,16 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSwidth7() {
-        if (width7 != null) {
-            return String.format(Locale.US, "width: %f,", width7);
+    private String generateJSwidth5() {
+        if (width5 != null) {
+            return String.format(Locale.US, "width: %f,", width5);
         }
         return "";
     }
 
-    private String generateJSheight9() {
-        if (height9 != null) {
-            return String.format(Locale.US, "height: %f,", height9);
+    private String generateJSheight5() {
+        if (height5 != null) {
+            return String.format(Locale.US, "height: %f,", height5);
         }
         return "";
     }
@@ -7440,16 +7018,16 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSx4() {
-        if (x4 != null) {
-            return String.format(Locale.US, "x: %f,", x4);
+    private String generateJSx2() {
+        if (x2 != null) {
+            return String.format(Locale.US, "x: %f,", x2);
         }
         return "";
     }
 
-    private String generateJSy4() {
-        if (y4 != null) {
-            return String.format(Locale.US, "y: %f,", y4);
+    private String generateJSy2() {
+        if (y2 != null) {
+            return String.format(Locale.US, "y: %f,", y2);
         }
         return "";
     }
@@ -7468,16 +7046,16 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSwidth8() {
-        if (width8 != null) {
-            return String.format(Locale.US, "width: %f,", width8);
+    private String generateJSwidth6() {
+        if (width6 != null) {
+            return String.format(Locale.US, "width: %f,", width6);
         }
         return "";
     }
 
-    private String generateJSheight10() {
-        if (height10 != null) {
-            return String.format(Locale.US, "height: %f,", height10);
+    private String generateJSheight6() {
+        if (height6 != null) {
+            return String.format(Locale.US, "height: %f,", height6);
         }
         return "";
     }
@@ -7573,20 +7151,6 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJStextWrap() {
-        if (textWrap != null) {
-            return String.format(Locale.US, "textWrap: %s,", (textWrap != null) ? textWrap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStextWrap1() {
-        if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: %s,", textWrap1);
-        }
-        return "";
-    }
-
     private String generateJSpaperSize2() {
         if (paperSize2 != null) {
             return String.format(Locale.US, "paperSize: %s,", paperSize2);
@@ -7594,65 +7158,23 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSlandscape3() {
-        if (landscape3 != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape3);
+    private String generateJSlandscape2() {
+        if (landscape2 != null) {
+            return String.format(Locale.US, "landscape: %b,", landscape2);
         }
         return "";
     }
 
-    private String generateJSwidth9() {
-        if (width9 != null) {
-            return String.format(Locale.US, "width: %f,", width9);
+    private String generateJSwidth7() {
+        if (width7 != null) {
+            return String.format(Locale.US, "width: %f,", width7);
         }
         return "";
     }
 
-    private String generateJSheight11() {
-        if (height11 != null) {
-            return String.format(Locale.US, "height: %f,", height11);
-        }
-        return "";
-    }
-
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJStop1() {
-        if (top1 != null) {
-            return String.format(Locale.US, "top: %s,", top1);
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
+    private String generateJSheight7() {
+        if (height7 != null) {
+            return String.format(Locale.US, "height: %f,", height7);
         }
         return "";
     }
@@ -7678,30 +7200,54 @@ public class UiTable extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSwidth10() {
-        if (width10 != null) {
-            return String.format(Locale.US, "width: %f,", width10);
+    private String generateJSwordBreak() {
+        if (wordBreak != null) {
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
         }
         return "";
     }
 
-    private String generateJSwidth11() {
-        if (width11 != null) {
-            return String.format(Locale.US, "width: %s,", width11);
+    private String generateJSwordBreak1() {
+        if (wordBreak1 != null) {
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
+    private String generateJSwordWrap() {
+        if (wordWrap != null) {
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
         }
         return "";
     }
 
+    private String generateJSwordWrap1() {
+        if (wordWrap1 != null) {
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
+        }
+        return "";
+    }
+
+
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetBorder());
+        jsGetters.append(generateJSgetCellPadding());
+
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJScolor());
@@ -7711,19 +7257,6 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(generateJSdashpattern());
             js.append(generateJSlineJoin());
             js.append(generateJSlineCap());
-            js.append(generateJSbottom());
-            js.append(generateJSbottom1());
-            js.append(generateJSbounds());
-            js.append(generateJSbounds1());
-            js.append(generateJSbounds2());
-            js.append(generateJSx());
-            js.append(generateJSx1());
-            js.append(generateJSy());
-            js.append(generateJSy1());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append(generateJSheight());
-            js.append(generateJSheight1());
             js.append(generateJSstrokeOrFill());
             js.append(generateJSstrokeOrFill1());
             js.append(generateJSstrokeOrFill2());
@@ -7771,7 +7304,6 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(generateJStableValues());
             js.append(generateJSdemergeCells());
             js.append(generateJSdisablePointerEvents());
-            js.append(generateJSenabled());
             js.append(generateJSfontColor());
             js.append(generateJSfontDecoration());
             js.append(generateJSfontDecoration1());
@@ -7788,18 +7320,18 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(generateJSrow());
             js.append(generateJScol());
             js.append(generateJScol1());
-            js.append(generateJSwidth2());
-            js.append(generateJSheight2());
+            js.append(generateJSwidth());
+            js.append(generateJSheight());
             js.append(generateJSquality());
             js.append(generateJSforceTransparentWhite());
             js.append(generateJSpaperSizeOrWidth());
             js.append(generateJSpaperSizeOrWidth1());
             js.append(generateJSlandscapeOrWidth());
             js.append(generateJSlandscapeOrWidth1());
-            js.append(generateJSx2());
-            js.append(generateJSy2());
-            js.append(generateJSwidth3());
-            js.append(generateJSheight3());
+            js.append(generateJSx());
+            js.append(generateJSy());
+            js.append(generateJSwidth1());
+            js.append(generateJSheight1());
             js.append(generateJSquality1());
             js.append(generateJSrow1());
             js.append(generateJSpaperSizeOrWidth2());
@@ -7808,34 +7340,10 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(generateJSlandscapeOrHeight1());
             js.append(generateJShAlign());
             js.append(generateJShAlign1());
-            js.append(generateJSheight4());
-            js.append(generateJSheight5());
-            js.append(generateJSleft());
-            js.append(generateJSleft1());
             js.append(generateJSletterSpacing());
             js.append(generateJSletterSpacing1());
             js.append(generateJSlineHeight());
             js.append(generateJSlineHeight1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
-            js.append(generateJSmaxHeight());
-            js.append(generateJSmaxHeight1());
-            js.append(generateJSmaxWidth());
-            js.append(generateJSmaxWidth1());
-            js.append(generateJSminHeight());
-            js.append(generateJSminHeight1());
-            js.append(generateJSminWidth());
-            js.append(generateJSminWidth1());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
-            js.append(generateJSright());
-            js.append(generateJSright1());
             js.append(generateJSrowEvenFill());
             js.append(generateJScolor4());
             js.append(generateJSopacity3());
@@ -7881,25 +7389,25 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(generateJSrowsMaxHeight1());
             js.append(generateJSrowsMinHeight());
             js.append(generateJSrowsMinHeight1());
-            js.append(generateJSwidth4());
-            js.append(generateJSheight6());
+            js.append(generateJSwidth2());
+            js.append(generateJSheight2());
             js.append(generateJSquality2());
             js.append(generateJSforceTransparentWhite1());
             js.append(generateJSpaperSize());
-            js.append(generateJSlandscape1());
-            js.append(generateJSx3());
-            js.append(generateJSy3());
-            js.append(generateJSwidth5());
-            js.append(generateJSheight7());
+            js.append(generateJSlandscape());
+            js.append(generateJSx1());
+            js.append(generateJSy1());
+            js.append(generateJSwidth3());
+            js.append(generateJSheight3());
             js.append(generateJSquality3());
             js.append(generateJSpaperSize1());
-            js.append(generateJSlandscape2());
-            js.append(generateJSwidth6());
-            js.append(generateJSheight8());
+            js.append(generateJSlandscape1());
+            js.append(generateJSwidth4());
+            js.append(generateJSheight4());
             js.append(generateJSselectable());
             js.append(generateJSasBase());
-            js.append(generateJSwidth7());
-            js.append(generateJSheight9());
+            js.append(generateJSwidth5());
+            js.append(generateJSheight5());
             js.append(generateJSquality4());
             js.append(generateJSforceTransparentWhite2());
             js.append(generateJSfilename());
@@ -7908,12 +7416,12 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(generateJSpaperSizeOrWidth5());
             js.append(generateJSlandscapeOrWidth2());
             js.append(generateJSlandscapeOrWidth3());
-            js.append(generateJSx4());
-            js.append(generateJSy4());
+            js.append(generateJSx2());
+            js.append(generateJSy2());
             js.append(generateJSfilename1());
             js.append(generateJSasBase2());
-            js.append(generateJSwidth8());
-            js.append(generateJSheight10());
+            js.append(generateJSwidth6());
+            js.append(generateJSheight6());
             js.append(generateJSquality5());
             js.append(generateJSfilename2());
             js.append(generateJSasBase3());
@@ -7927,29 +7435,21 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(generateJStextIndent());
             js.append(generateJStextOverflow());
             js.append(generateJStextOverflow1());
-            js.append(generateJStextWrap());
-            js.append(generateJStextWrap1());
             js.append(generateJSpaperSize2());
-            js.append(generateJSlandscape3());
-            js.append(generateJSwidth9());
-            js.append(generateJSheight11());
-            js.append(generateJStop());
-            js.append(generateJStop1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
+            js.append(generateJSlandscape2());
+            js.append(generateJSwidth7());
+            js.append(generateJSheight7());
             js.append(generateJSuseHtml());
             js.append(generateJSvAlign());
             js.append(generateJSvAlign1());
-            js.append(generateJSwidth10());
-            js.append(generateJSwidth11());
-            js.append(generateJSzIndex());
+            js.append(generateJSwordBreak());
+            js.append(generateJSwordBreak1());
+            js.append(generateJSwordWrap());
+            js.append(generateJSwordWrap1());
             js.append("}");
         }
-            js.append(generateJSgetBorder());
-            js.append(generateJSgetBounds());
-            js.append(generateJSgetCellPadding());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

@@ -3,8 +3,8 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum LabelsOverlapMode implements JsObject.JsObjectInterface {
-    ALLOW_OVERLAP("allowOverlap"),
-    NO_OVERLAP("noOverlap");
+    ALLOW_OVERLAP("allow-overlap"),
+    NO_OVERLAP("no-overlap");
 
     private final String value;
 

@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TableComputer extends JsObject {
-
-    private String jsBase;
 
     public TableComputer() {
 
@@ -16,11 +16,17 @@ public class TableComputer extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected TableComputer(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private String name;
     private String uid;
 
-    public void setAddoutputfield(String name, String uid) {
+    public void setAddOutputField(String name, String uid) {
         if (jsBase == null) {
             this.name = name;
             this.uid = uid;
@@ -28,10 +34,18 @@ public class TableComputer extends JsObject {
             this.name = name;
             this.uid = uid;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", name, uid));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s);", name, uid));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s)", name, uid));
                 js.setLength(0);
             }
         }
@@ -39,7 +53,7 @@ public class TableComputer extends JsObject {
 
     private String name1;
 
-    public void setGetfieldindex(String name1) {
+    public void setGetFieldIndex(String name1) {
         if (jsBase == null) {
             this.name = null;
             this.name1 = null;
@@ -48,10 +62,18 @@ public class TableComputer extends JsObject {
         } else {
             this.name1 = name1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", name1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s);", name1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s)", name1));
                 js.setLength(0);
             }
         }
@@ -59,16 +81,24 @@ public class TableComputer extends JsObject {
 
     private String setContext;
 
-    public void setSetcontext(String setContext) {
+    public void setSetContext(String setContext) {
         if (jsBase == null) {
             this.setContext = setContext;
         } else {
             this.setContext = setContext;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".setContext(%s);", setContext));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s);", setContext));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s)", setContext));
                 js.setLength(0);
             }
         }
@@ -103,8 +133,23 @@ public class TableComputer extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSname());
@@ -113,6 +158,8 @@ public class TableComputer extends JsObject {
             js.append(generateJSsetContext());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

@@ -3,7 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum LabelsDisplayMode implements JsObject.JsObjectInterface {
-    ALWAYS_SHOW("alwaysShow"),
+    ALWAYS_SHOW("always-show"),
     CLIP("clip"),
     DROP("drop");
 

@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TableBase extends JsObject {
-
-    private String jsBase;
 
     public TableBase() {
 
@@ -14,6 +14,12 @@ public class TableBase extends JsObject {
 
     protected TableBase(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected TableBase(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -34,7 +40,7 @@ public class TableBase extends JsObject {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public void setBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -52,17 +58,26 @@ public class TableBase extends JsObject {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -80,17 +95,26 @@ public class TableBase extends JsObject {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -108,53 +132,80 @@ public class TableBase extends JsObject {
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
 
-            js.append(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean disablePointerEvents;
 
-    public void setDisablepointerevents(Boolean disablePointerEvents) {
+    public TableBase setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
 
-            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontColor;
 
-    public void setFontcolor(String fontColor) {
+    public TableBase setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
 
-            js.append(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontColor(%s)", fontColor));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+                onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", fontColor));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
 
-    public void setFontdecoration(Decoration fontDecoration) {
+    public TableBase setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -163,17 +214,26 @@ public class TableBase extends JsObject {
         } else {
             this.fontDecoration = fontDecoration;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontdecoration(String fontDecoration1) {
+    public TableBase setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -182,53 +242,80 @@ public class TableBase extends JsObject {
         } else {
             this.fontDecoration1 = fontDecoration1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontFamily;
 
-    public void setFontfamily(String fontFamily) {
+    public TableBase setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
 
-            js.append(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+                onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double fontOpacity;
 
-    public void setFontopacity(Double fontOpacity) {
+    public TableBase setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontSize;
     private Double fontSize1;
 
-    public void setFontsize(String fontSize) {
+    public TableBase setFontSize(String fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -237,17 +324,26 @@ public class TableBase extends JsObject {
         } else {
             this.fontSize = fontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", fontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontsize(Double fontSize1) {
+    public TableBase setFontSize(Double fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -256,19 +352,28 @@ public class TableBase extends JsObject {
         } else {
             this.fontSize1 = fontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
 
-    public void setFontstyle(TextFontStyle fontStyle) {
+    public TableBase setFontStyle(TextFontStyle fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -277,17 +382,26 @@ public class TableBase extends JsObject {
         } else {
             this.fontStyle = fontStyle;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", (fontStyle != null) ? fontStyle.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle != null) ? fontStyle.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", (fontStyle != null) ? fontStyle.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontstyle(String fontStyle1) {
+    public TableBase setFontStyle(String fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -296,19 +410,28 @@ public class TableBase extends JsObject {
         } else {
             this.fontStyle1 = fontStyle1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", fontStyle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", fontStyle1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
 
-    public void setFontvariant(TextFontVariant fontVariant) {
+    public TableBase setFontVariant(TextFontVariant fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -317,17 +440,26 @@ public class TableBase extends JsObject {
         } else {
             this.fontVariant = fontVariant;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", (fontVariant != null) ? fontVariant.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant != null) ? fontVariant.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", (fontVariant != null) ? fontVariant.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontvariant(String fontVariant1) {
+    public TableBase setFontVariant(String fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -336,19 +468,28 @@ public class TableBase extends JsObject {
         } else {
             this.fontVariant1 = fontVariant1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", fontVariant1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", fontVariant1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontWeight;
     private Double fontWeight1;
 
-    public void setFontweight(String fontWeight) {
+    public TableBase setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -357,17 +498,26 @@ public class TableBase extends JsObject {
         } else {
             this.fontWeight = fontWeight;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontweight(Double fontWeight1) {
+    public TableBase setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -376,19 +526,28 @@ public class TableBase extends JsObject {
         } else {
             this.fontWeight1 = fontWeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextHAlign hAlign;
     private String hAlign1;
 
-    public void setHalign(TextHAlign hAlign) {
+    public TableBase setHAlign(TextHAlign hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -397,17 +556,26 @@ public class TableBase extends JsObject {
         } else {
             this.hAlign = hAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", (hAlign != null) ? hAlign.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign != null) ? hAlign.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", (hAlign != null) ? hAlign.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHalign(String hAlign1) {
+    public TableBase setHAlign(String hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -416,19 +584,28 @@ public class TableBase extends JsObject {
         } else {
             this.hAlign1 = hAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", hAlign1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign1));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", hAlign1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String letterSpacing;
     private Double letterSpacing1;
 
-    public void setLetterspacing(String letterSpacing) {
+    public TableBase setLetterSpacing(String letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -437,17 +614,26 @@ public class TableBase extends JsObject {
         } else {
             this.letterSpacing = letterSpacing;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLetterspacing(Double letterSpacing1) {
+    public TableBase setLetterSpacing(Double letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -456,19 +642,28 @@ public class TableBase extends JsObject {
         } else {
             this.letterSpacing1 = letterSpacing1;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String lineHeight;
     private Double lineHeight1;
 
-    public void setLineheight(String lineHeight) {
+    public TableBase setLineHeight(String lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -477,17 +672,26 @@ public class TableBase extends JsObject {
         } else {
             this.lineHeight = lineHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLineheight(Double lineHeight1) {
+    public TableBase setLineHeight(Double lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -496,36 +700,54 @@ public class TableBase extends JsObject {
         } else {
             this.lineHeight1 = lineHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean selectable;
 
-    public void setSelectable(Boolean selectable) {
+    public TableBase setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
 
-            js.append(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+                onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Direction textDirection;
     private String textDirection1;
 
-    public void setTextdirection(Direction textDirection) {
+    public TableBase setTextDirection(Direction textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -534,17 +756,26 @@ public class TableBase extends JsObject {
         } else {
             this.textDirection = textDirection;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", (textDirection != null) ? textDirection.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection != null) ? textDirection.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", (textDirection != null) ? textDirection.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextdirection(String textDirection1) {
+    public TableBase setTextDirection(String textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -553,36 +784,54 @@ public class TableBase extends JsObject {
         } else {
             this.textDirection1 = textDirection1;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", textDirection1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection1));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", textDirection1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double textIndent;
 
-    public void setTextindent(Double textIndent) {
+    public TableBase setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
 
-            js.append(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
 
-    public void setTextoverflow(TextOverflow textOverflow) {
+    public TableBase setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -591,17 +840,26 @@ public class TableBase extends JsObject {
         } else {
             this.textOverflow = textOverflow;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextoverflow(String textOverflow1) {
+    public TableBase setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -610,76 +868,54 @@ public class TableBase extends JsObject {
         } else {
             this.textOverflow1 = textOverflow1;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
                 js.setLength(0);
             }
         }
-    }
-
-    private TextTextWrap textWrap;
-    private String textWrap1;
-
-    public void setTextwrap(TextTextWrap textWrap) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap = textWrap;
-        } else {
-            this.textWrap = textWrap;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap != null) ? textWrap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTextwrap(String textWrap1) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap1 = textWrap1;
-        } else {
-            this.textWrap1 = textWrap1;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean useHtml;
 
-    public void setUsehtml(Boolean useHtml) {
+    public TableBase setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
 
-            js.append(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+                onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextVAlign vAlign;
     private String vAlign1;
 
-    public void setValign(TextVAlign vAlign) {
+    public TableBase setVAlign(TextVAlign vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -688,17 +924,26 @@ public class TableBase extends JsObject {
         } else {
             this.vAlign = vAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", (vAlign != null) ? vAlign.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign != null) ? vAlign.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", (vAlign != null) ? vAlign.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setValign(String vAlign1) {
+    public TableBase setVAlign(String vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -707,13 +952,138 @@ public class TableBase extends JsObject {
         } else {
             this.vAlign1 = vAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", vAlign1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign1));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", vAlign1));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+    private String wordBreak;
+    private EnumsWordBreak wordBreak1;
+
+    public TableBase setWordBreak(String wordBreak) {
+        if (jsBase == null) {
+            this.wordBreak = null;
+            this.wordBreak1 = null;
+            
+            this.wordBreak = wordBreak;
+        } else {
+            this.wordBreak = wordBreak;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TableBase setWordBreak(EnumsWordBreak wordBreak1) {
+        if (jsBase == null) {
+            this.wordBreak = null;
+            this.wordBreak1 = null;
+            
+            this.wordBreak1 = wordBreak1;
+        } else {
+            this.wordBreak1 = wordBreak1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String wordWrap;
+    private EnumsWordWrap wordWrap1;
+
+    public TableBase setWordWrap(String wordWrap) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap = wordWrap;
+        } else {
+            this.wordWrap = wordWrap;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TableBase setWordWrap(EnumsWordWrap wordWrap1) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap1 = wordWrap1;
+        } else {
+            this.wordWrap1 = wordWrap1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private String generateJSgetBorder() {
@@ -954,20 +1324,6 @@ public class TableBase extends JsObject {
         return "";
     }
 
-    private String generateJStextWrap() {
-        if (textWrap != null) {
-            return String.format(Locale.US, "textWrap: %s,", (textWrap != null) ? textWrap.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJStextWrap1() {
-        if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: %s,", textWrap1);
-        }
-        return "";
-    }
-
     private String generateJSuseHtml() {
         if (useHtml != null) {
             return String.format(Locale.US, "useHtml: %b,", useHtml);
@@ -989,9 +1345,53 @@ public class TableBase extends JsObject {
         return "";
     }
 
+    private String generateJSwordBreak() {
+        if (wordBreak != null) {
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
+        }
+        return "";
+    }
+
+    private String generateJSwordBreak1() {
+        if (wordBreak1 != null) {
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSwordWrap() {
+        if (wordWrap != null) {
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
+        }
+        return "";
+    }
+
+    private String generateJSwordWrap1() {
+        if (wordWrap1 != null) {
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
+        }
+        return "";
+    }
+
+
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetBorder());
+
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJScolor());
@@ -1027,14 +1427,17 @@ public class TableBase extends JsObject {
             js.append(generateJStextIndent());
             js.append(generateJStextOverflow());
             js.append(generateJStextOverflow1());
-            js.append(generateJStextWrap());
-            js.append(generateJStextWrap1());
             js.append(generateJSuseHtml());
             js.append(generateJSvAlign());
             js.append(generateJSvAlign1());
+            js.append(generateJSwordBreak());
+            js.append(generateJSwordBreak1());
+            js.append(generateJSwordWrap());
+            js.append(generateJSwordWrap1());
             js.append("}");
         }
-            js.append(generateJSgetBorder());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TableSelectable extends JsObject {
-
-    private String jsBase;
 
     public TableSelectable() {
 
@@ -16,11 +16,17 @@ public class TableSelectable extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected TableSelectable(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double key;
     private TableSearchMode mode;
 
-    public void setSearch(Double key, TableSearchMode mode) {
+    public TableselectableRowProxy setSearch(Double key, TableSearchMode mode) {
         if (jsBase == null) {
             this.key = key;
             this.mode = mode;
@@ -28,13 +34,22 @@ public class TableSelectable extends JsObject {
             this.key = key;
             this.mode = mode;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".search(%f, %s);", key, (mode != null) ? mode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s);", key, (mode != null) ? mode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", key, (mode != null) ? mode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new TableselectableRowProxy(jsBase);
     }
 
     private Double startDate;
@@ -44,7 +59,7 @@ public class TableSelectable extends JsObject {
     private Interval intervalUnit;
     private Double intervalCount;
 
-    public void setSelect(Double startDate, Double endDate, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable setSelect(Double startDate, Double endDate, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -62,17 +77,26 @@ public class TableSelectable extends JsObject {
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
 
-            js.append(String.format(Locale.US, jsBase + ".select(%f, %f, %s, %f);", startDate, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f, %f, %s, %f);", startDate, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSelect(Double startDate, String endDate1, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable setSelect(Double startDate, String endDate1, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -90,17 +114,26 @@ public class TableSelectable extends JsObject {
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
 
-            js.append(String.format(Locale.US, jsBase + ".select(%f, %s, %s, %f);", startDate, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f, %s, %s, %f);", startDate, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSelect(String startDate1, Double endDate, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable setSelect(String startDate1, Double endDate, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -118,17 +151,26 @@ public class TableSelectable extends JsObject {
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
 
-            js.append(String.format(Locale.US, jsBase + ".select(%s, %f, %s, %f);", startDate1, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%s, %f, %s, %f);", startDate1, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSelect(String startDate1, String endDate1, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable setSelect(String startDate1, String endDate1, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -146,19 +188,28 @@ public class TableSelectable extends JsObject {
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
 
-            js.append(String.format(Locale.US, jsBase + ".select(%s, %s, %s, %f);", startDate1, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%s, %s, %s, %f);", startDate1, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Interval intervalUnit1;
     private Double intervalCount1;
 
-    public void setSelectall(Interval intervalUnit1, Double intervalCount1) {
+    public TableSelectable setSelectAll(Interval intervalUnit1, Double intervalCount1) {
         if (jsBase == null) {
             this.intervalUnit = null;
             this.intervalUnit1 = null;
@@ -172,13 +223,22 @@ public class TableSelectable extends JsObject {
             this.intervalUnit1 = intervalUnit1;
             this.intervalCount1 = intervalCount1;
 
-            js.append(String.format(Locale.US, jsBase + ".selectAll(%s, %f);", (intervalUnit1 != null) ? intervalUnit1.generateJs() : "null", intervalCount1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit1 != null) ? intervalUnit1.generateJs() : "null", intervalCount1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectAll(%s, %f);", (intervalUnit1 != null) ? intervalUnit1.generateJs() : "null", intervalCount1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit1 != null) ? intervalUnit1.generateJs() : "null", intervalCount1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSkey() {
@@ -252,8 +312,23 @@ public class TableSelectable extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSkey());
@@ -268,6 +343,8 @@ public class TableSelectable extends JsObject {
             js.append(generateJSintervalCount1());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

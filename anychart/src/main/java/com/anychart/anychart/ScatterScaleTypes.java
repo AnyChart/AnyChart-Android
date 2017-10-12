@@ -3,7 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum ScatterScaleTypes implements JsObject.JsObjectInterface {
-    DATE_TIME("dateTime"),
+    DATE_TIME("date-time"),
     LINEAR("linear"),
     LOG("log");
 

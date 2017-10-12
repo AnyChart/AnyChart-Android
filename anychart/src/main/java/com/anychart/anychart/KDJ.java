@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class KDJ extends JsObject {
-
-    private String jsBase;
 
     public KDJ() {
 
@@ -16,56 +16,89 @@ public class KDJ extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected KDJ(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private MovingAverageType dMAType;
 
-    public void setDmatype(MovingAverageType dMAType) {
+    public KDJ setDMAType(MovingAverageType dMAType) {
         if (jsBase == null) {
             this.dMAType = dMAType;
         } else {
             this.dMAType = dMAType;
 
-            js.append(String.format(Locale.US, jsBase + ".dMAType(%s);", (dMAType != null) ? dMAType.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dMAType(%s)", (dMAType != null) ? dMAType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dMAType(%s);", (dMAType != null) ? dMAType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", (dMAType != null) ? dMAType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double dMultiplier;
 
-    public void setDmultiplier(Double dMultiplier) {
+    public KDJ setDMultiplier(Double dMultiplier) {
         if (jsBase == null) {
             this.dMultiplier = dMultiplier;
         } else {
             this.dMultiplier = dMultiplier;
 
-            js.append(String.format(Locale.US, jsBase + ".dMultiplier(%f);", dMultiplier));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dMultiplier(%f)", dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dMultiplier(%f);", dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, ".dMultiplier(%f)", dMultiplier));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double dPeriod;
 
-    public void setDperiod(Double dPeriod) {
+    public KDJ setDPeriod(Double dPeriod) {
         if (jsBase == null) {
             this.dPeriod = dPeriod;
         } else {
             this.dPeriod = dPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".dPeriod(%f);", dPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dPeriod(%f);", dPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getDSeries;
@@ -79,19 +112,28 @@ public class KDJ extends JsObject {
 
     private StockSeriesType type;
 
-    public void setDseries(StockSeriesType type) {
+    public KDJ setDSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = type;
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".dSeries(%s);", (type != null) ? type.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dSeries(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dSeries(%s);", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getJSeries;
@@ -105,7 +147,7 @@ public class KDJ extends JsObject {
 
     private StockSeriesType type1;
 
-    public void setJseries(StockSeriesType type1) {
+    public KDJ setJSeries(StockSeriesType type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -114,30 +156,48 @@ public class KDJ extends JsObject {
         } else {
             this.type1 = type1;
 
-            js.append(String.format(Locale.US, jsBase + ".jSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".jSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".jSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double kMAPeriod;
 
-    public void setKmaperiod(Double kMAPeriod) {
+    public KDJ setKMAPeriod(Double kMAPeriod) {
         if (jsBase == null) {
             this.kMAPeriod = kMAPeriod;
         } else {
             this.kMAPeriod = kMAPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".kMAPeriod(%f);", kMAPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMAPeriod(%f);", kMAPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private KDJ getKMAPeriod;
@@ -151,53 +211,80 @@ public class KDJ extends JsObject {
 
     private MovingAverageType kMAType;
 
-    public void setKmatype(MovingAverageType kMAType) {
+    public KDJ setKMAType(MovingAverageType kMAType) {
         if (jsBase == null) {
             this.kMAType = kMAType;
         } else {
             this.kMAType = kMAType;
 
-            js.append(String.format(Locale.US, jsBase + ".kMAType(%s);", (kMAType != null) ? kMAType.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kMAType(%s)", (kMAType != null) ? kMAType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMAType(%s);", (kMAType != null) ? kMAType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", (kMAType != null) ? kMAType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double kMultiplier;
 
-    public void setKmultiplier(Double kMultiplier) {
+    public KDJ setKMultiplier(Double kMultiplier) {
         if (jsBase == null) {
             this.kMultiplier = kMultiplier;
         } else {
             this.kMultiplier = kMultiplier;
 
-            js.append(String.format(Locale.US, jsBase + ".kMultiplier(%f);", kMultiplier));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kMultiplier(%f)", kMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMultiplier(%f);", kMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, ".kMultiplier(%f)", kMultiplier));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double kPeriod;
 
-    public void setKperiod(Double kPeriod) {
+    public KDJ setKPeriod(Double kPeriod) {
         if (jsBase == null) {
             this.kPeriod = kPeriod;
         } else {
             this.kPeriod = kPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".kPeriod(%f);", kPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kPeriod(%f);", kPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getKSeries;
@@ -211,7 +298,7 @@ public class KDJ extends JsObject {
 
     private StockSeriesType type2;
 
-    public void setKseries(StockSeriesType type2) {
+    public KDJ setKSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -221,13 +308,22 @@ public class KDJ extends JsObject {
         } else {
             this.type2 = type2;
 
-            js.append(String.format(Locale.US, jsBase + ".kSeries(%s);", (type2 != null) ? type2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kSeries(%s);", (type2 != null) ? type2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetDSeries() {
@@ -329,8 +425,27 @@ public class KDJ extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetDSeries());
+        jsGetters.append(generateJSgetJSeries());
+        jsGetters.append(generateJSgetKMAPeriod());
+        jsGetters.append(generateJSgetKSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdMAType());
@@ -345,10 +460,8 @@ public class KDJ extends JsObject {
             js.append(generateJStype2());
             js.append("}");
         }
-            js.append(generateJSgetDSeries());
-            js.append(generateJSgetJSeries());
-            js.append(generateJSgetKMAPeriod());
-            js.append(generateJSgetKSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

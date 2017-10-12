@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class DateTimeWithCalendar extends ScatterBase {
-
-    private String jsBase;
 
     public DateTimeWithCalendar() {
 
@@ -14,6 +14,12 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     protected DateTimeWithCalendar(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected DateTimeWithCalendar(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -28,50 +34,50 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double count;
 
-    public void setCount(Double count) {
+    public DateTimeWithCalendar setCount(Double count) {
         if (jsBase == null) {
             this.count = count;
         } else {
             this.count = count;
 
-            js.append(String.format(Locale.US, jsBase + ".count(%f);", count));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double date;
 
-    public void setDatetopix(Double date) {
+    public void setDateToPix(Double date) {
         if (jsBase == null) {
             this.date = date;
         } else {
             this.date = date;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".dateToPix(%f);", date));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f);", date));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Boolean silently;
-
-    public void setFinishautocalc(Boolean silently) {
-        if (jsBase == null) {
-            this.silently = silently;
-        } else {
-            this.silently = silently;
-
-            js.append(String.format(Locale.US, jsBase + ".finishAutoCalc(%b);", silently));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".finishAutoCalc(%b);", silently));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f)", date));
                 js.setLength(0);
             }
         }
@@ -83,7 +89,7 @@ public class DateTimeWithCalendar extends ScatterBase {
     private String unit1;
     private Double count1;
 
-    public void setGetticks(Interval unit, Double fromPix, Double toPix, Double count1) {
+    public void setGetTicks(Interval unit, Double fromPix, Double toPix, Double count1) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -100,18 +106,26 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.fromPix = fromPix;
             this.toPix = toPix;
             this.count1 = count1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", (unit != null) ? unit.generateJs() : "null", fromPix, toPix, count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", (unit != null) ? unit.generateJs() : "null", fromPix, toPix, count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", (unit != null) ? unit.generateJs() : "null", fromPix, toPix, count1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setGetticks(String unit1, Double fromPix, Double toPix, Double count1) {
+    public void setGetTicks(String unit1, Double fromPix, Double toPix, Double count1) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -129,116 +143,18 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.toPix = toPix;
             this.count1 = count1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", unit1, fromPix, toPix, count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f);", unit1, fromPix, toPix, count1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double ratio;
-
-    public void setInversetransform(Double ratio) {
-        if (jsBase == null) {
-            this.ratio = ratio;
-        } else {
-            this.ratio = ratio;
-
-            js.append(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Boolean inverted;
-
-    public void setInverted(Boolean inverted) {
-        if (jsBase == null) {
-            this.inverted = inverted;
-        } else {
-            this.inverted = inverted;
-
-            js.append(String.format(Locale.US, jsBase + ".inverted(%b);", inverted));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverted(%b);", inverted));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double maximum;
-
-    public void setMaximum(Double maximum) {
-        if (jsBase == null) {
-            this.maximum = maximum;
-        } else {
-            this.maximum = maximum;
-
-            js.append(String.format(Locale.US, jsBase + ".maximum(%f);", maximum));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximum(%f);", maximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", unit1, fromPix, toPix, count1));
                 js.setLength(0);
             }
         }
@@ -246,88 +162,76 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double maximumGap;
 
-    public void setMaximumgap(Double maximumGap) {
+    public DateTime setMaximumGap(Double maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
         } else {
             this.maximumGap = maximumGap;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double minimum;
-
-    public void setMinimum(Double minimum) {
-        if (jsBase == null) {
-            this.minimum = minimum;
-        } else {
-            this.minimum = minimum;
-
-            js.append(String.format(Locale.US, jsBase + ".minimum(%f);", minimum));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimum(%f);", minimum));
-                js.setLength(0);
-            }
-        }
+        return new DateTime(jsBase);
     }
 
     private Double minimumGap;
 
-    public void setMinimumgap(Double minimumGap) {
+    public DateTime setMinimumGap(Double minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
         } else {
             this.minimumGap = minimumGap;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
             }
         }
+        return new DateTime(jsBase);
     }
 
     private Double pix;
 
-    public void setPixtodate(Double pix) {
+    public void setPixToDate(Double pix) {
         if (jsBase == null) {
             this.pix = pix;
         } else {
             this.pix = pix;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".pixToDate(%f);", pix));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f);", pix));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f)", pix));
                 js.setLength(0);
             }
         }
@@ -335,59 +239,86 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Boolean skipHolidays;
 
-    public void setSkipholidays(Boolean skipHolidays) {
+    public DateTimeWithCalendar setSkipHolidays(Boolean skipHolidays) {
         if (jsBase == null) {
             this.skipHolidays = skipHolidays;
         } else {
             this.skipHolidays = skipHolidays;
 
-            js.append(String.format(Locale.US, jsBase + ".skipHolidays(%b);", skipHolidays));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".skipHolidays(%b);", skipHolidays));
+                onChangeListener.onChange(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double softMaximum;
 
-    public void setSoftmaximum(Double softMaximum) {
+    public DateTime setSoftMaximum(Double softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
         } else {
             this.softMaximum = softMaximum;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
             }
         }
+        return new DateTime(jsBase);
     }
 
     private Double softMinimum;
 
-    public void setSoftminimum(Double softMinimum) {
+    public DateTime setSoftMinimum(Double softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
         } else {
             this.softMinimum = softMinimum;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f)", softMinimum));
                 js.setLength(0);
             }
         }
+        return new DateTime(jsBase);
     }
 
     private Interval unit2;
     private String unit3;
 
-    public void setUnit(Interval unit2) {
+    public DateTimeWithCalendar setUnit(Interval unit2) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -398,17 +329,26 @@ public class DateTimeWithCalendar extends ScatterBase {
         } else {
             this.unit2 = unit2;
 
-            js.append(String.format(Locale.US, jsBase + ".unit(%s);", (unit2 != null) ? unit2.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".unit(%s)", (unit2 != null) ? unit2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unit(%s);", (unit2 != null) ? unit2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", (unit2 != null) ? unit2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setUnit(String unit3) {
+    public DateTimeWithCalendar setUnit(String unit3) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -419,19 +359,28 @@ public class DateTimeWithCalendar extends ScatterBase {
         } else {
             this.unit3 = unit3;
 
-            js.append(String.format(Locale.US, jsBase + ".unit(%s);", unit3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".unit(%s)", unit3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unit(%s);", unit3));
+                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", unit3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double unitPixSize;
     private String unitPixSize1;
 
-    public void setUnitpixsize(Double unitPixSize) {
+    public DateTimeWithCalendar setUnitPixSize(Double unitPixSize) {
         if (jsBase == null) {
             this.unitPixSize = null;
             this.unitPixSize1 = null;
@@ -440,17 +389,26 @@ public class DateTimeWithCalendar extends ScatterBase {
         } else {
             this.unitPixSize = unitPixSize;
 
-            js.append(String.format(Locale.US, jsBase + ".unitPixSize(%f);", unitPixSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unitPixSize(%f);", unitPixSize));
+                onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setUnitpixsize(String unitPixSize1) {
+    public DateTimeWithCalendar setUnitPixSize(String unitPixSize1) {
         if (jsBase == null) {
             this.unitPixSize = null;
             this.unitPixSize1 = null;
@@ -459,66 +417,22 @@ public class DateTimeWithCalendar extends ScatterBase {
         } else {
             this.unitPixSize1 = unitPixSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".unitPixSize(%s);", unitPixSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".unitPixSize(%s)", unitPixSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unitPixSize(%s);", unitPixSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%s)", unitPixSize1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSgetCalendar() {
@@ -538,13 +452,6 @@ public class DateTimeWithCalendar extends ScatterBase {
     private String generateJSdate() {
         if (date != null) {
             return String.format(Locale.US, "date: %f,", date);
-        }
-        return "";
-    }
-
-    private String generateJSsilently() {
-        if (silently != null) {
-            return String.format(Locale.US, "silently: %b,", silently);
         }
         return "";
     }
@@ -584,79 +491,9 @@ public class DateTimeWithCalendar extends ScatterBase {
         return "";
     }
 
-    private String generateJSratio() {
-        if (ratio != null) {
-            return String.format(Locale.US, "ratio: %f,", ratio);
-        }
-        return "";
-    }
-
-    private String generateJSinverted() {
-        if (inverted != null) {
-            return String.format(Locale.US, "inverted: %b,", inverted);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
-    private String generateJSmaximum() {
-        if (maximum != null) {
-            return String.format(Locale.US, "maximum: %f,", maximum);
-        }
-        return "";
-    }
-
     private String generateJSmaximumGap() {
         if (maximumGap != null) {
             return String.format(Locale.US, "maximumGap: %f,", maximumGap);
-        }
-        return "";
-    }
-
-    private String generateJSminimum() {
-        if (minimum != null) {
-            return String.format(Locale.US, "minimum: %f,", minimum);
         }
         return "";
     }
@@ -671,13 +508,6 @@ public class DateTimeWithCalendar extends ScatterBase {
     private String generateJSpix() {
         if (pix != null) {
             return String.format(Locale.US, "pix: %f,", pix);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -731,61 +561,37 @@ public class DateTimeWithCalendar extends ScatterBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
+    
+        jsGetters.append(generateJSgetCalendar());
 
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJScount());
             js.append(generateJSdate());
-            js.append(generateJSsilently());
             js.append(generateJSfromPix());
             js.append(generateJStoPix());
             js.append(generateJSunit());
             js.append(generateJSunit1());
             js.append(generateJScount1());
-            js.append(generateJSratio());
-            js.append(generateJSinverted());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
-            js.append(generateJSmaximum());
             js.append(generateJSmaximumGap());
-            js.append(generateJSminimum());
             js.append(generateJSminimumGap());
             js.append(generateJSpix());
-            js.append(generateJStype2());
             js.append(generateJSskipHolidays());
             js.append(generateJSsoftMaximum());
             js.append(generateJSsoftMinimum());
@@ -793,13 +599,10 @@ public class DateTimeWithCalendar extends ScatterBase {
             js.append(generateJSunit3());
             js.append(generateJSunitPixSize());
             js.append(generateJSunitPixSize1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgetCalendar());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

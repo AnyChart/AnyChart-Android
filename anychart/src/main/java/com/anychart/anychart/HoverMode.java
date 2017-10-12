@@ -3,8 +3,8 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum HoverMode implements JsObject.JsObjectInterface {
-    BY_SPOT("bySpot"),
-    BY_X("byX"),
+    BY_SPOT("by-spot"),
+    BY_X("by-x"),
     SINGLE("single");
 
     private final String value;

@@ -3,8 +3,8 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum ChartScrollerPosition implements JsObject.JsObjectInterface {
-    AFTER_AXES("afterAxes"),
-    BEFORE_AXES("beforeAxes");
+    AFTER_AXES("after-axes"),
+    BEFORE_AXES("before-axes");
 
     private final String value;
 

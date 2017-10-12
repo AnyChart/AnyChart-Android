@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
-// class
-public class CrosshairLabel extends JsObject {
+import android.text.TextUtils;
 
-    private String jsBase;
+// class
+public class CrosshairLabel extends CoreText {
 
     public CrosshairLabel() {
 
@@ -16,13 +16,19 @@ public class CrosshairLabel extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected CrosshairLabel(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private String bothOrByWidth;
     private Boolean[] bothOrByWidth1;
     private Boolean bothOrByWidth2;
     private Boolean byHeight;
 
-    public void setAdjustfontsize(String bothOrByWidth, Boolean byHeight) {
+    public CrosshairLabel setAdjustFontSize(String bothOrByWidth, Boolean byHeight) {
         if (jsBase == null) {
             this.bothOrByWidth = null;
             this.bothOrByWidth1 = null;
@@ -34,17 +40,26 @@ public class CrosshairLabel extends JsObject {
             this.bothOrByWidth = bothOrByWidth;
             this.byHeight = byHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", bothOrByWidth, byHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", bothOrByWidth, byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", bothOrByWidth, byHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", bothOrByWidth, byHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdjustfontsize(Boolean[] bothOrByWidth1, Boolean byHeight) {
+    public CrosshairLabel setAdjustFontSize(Boolean[] bothOrByWidth1, Boolean byHeight) {
         if (jsBase == null) {
             this.bothOrByWidth = null;
             this.bothOrByWidth1 = null;
@@ -56,17 +71,26 @@ public class CrosshairLabel extends JsObject {
             this.bothOrByWidth1 = bothOrByWidth1;
             this.byHeight = byHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(bothOrByWidth1), byHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(bothOrByWidth1), byHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdjustfontsize(Boolean bothOrByWidth2, Boolean byHeight) {
+    public CrosshairLabel setAdjustFontSize(Boolean bothOrByWidth2, Boolean byHeight) {
         if (jsBase == null) {
             this.bothOrByWidth = null;
             this.bothOrByWidth1 = null;
@@ -78,19 +102,28 @@ public class CrosshairLabel extends JsObject {
             this.bothOrByWidth2 = bothOrByWidth2;
             this.byHeight = byHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", bothOrByWidth2, byHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", bothOrByWidth2, byHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private EnumsAnchor anchor;
     private String anchor1;
 
-    public void setAnchor(EnumsAnchor anchor) {
+    public CrosshairLabel setAnchor(EnumsAnchor anchor) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -99,17 +132,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.anchor = anchor;
 
-            js.append(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".anchor(%s)", (anchor != null) ? anchor.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", (anchor != null) ? anchor.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAnchor(String anchor1) {
+    public CrosshairLabel setAnchor(String anchor1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -118,30 +160,48 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.anchor1 = anchor1;
 
-            js.append(String.format(Locale.US, jsBase + ".anchor(%s);", anchor1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".anchor(%s)", anchor1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", anchor1));
+                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", anchor1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double axisIndex;
 
-    public void setAxisindex(Double axisIndex) {
+    public CrosshairLabel setAxisIndex(Double axisIndex) {
         if (jsBase == null) {
             this.axisIndex = axisIndex;
         } else {
             this.axisIndex = axisIndex;
 
-            js.append(String.format(Locale.US, jsBase + ".axisIndex(%f);", axisIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".axisIndex(%f)", axisIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axisIndex(%f);", axisIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".axisIndex(%f)", axisIndex));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UiBackground getBackground;
@@ -157,7 +217,7 @@ public class CrosshairLabel extends JsObject {
     private String background1;
     private Boolean background2;
 
-    public void setBackground(String background) {
+    public CrosshairLabel setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -167,17 +227,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.background = background;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%s);", background));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%s)", background));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBackground(Boolean background2) {
+    public CrosshairLabel setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -187,19 +256,28 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.background2 = background2;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%b);", background2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double height;
     private String height1;
 
-    public void setHeight(Double height) {
+    public CrosshairLabel setHeight(Double height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -208,17 +286,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.height = height;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHeight(String height1) {
+    public CrosshairLabel setHeight(String height1) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -227,19 +314,28 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.height1 = height1;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%s);", height1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%s)", height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height1));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", height1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double maxFontSize;
     private String maxFontSize1;
 
-    public void setMaxfontsize(Double maxFontSize) {
+    public CrosshairLabel setMaxFontSize(Double maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -248,17 +344,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.maxFontSize = maxFontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMaxfontsize(String maxFontSize1) {
+    public CrosshairLabel setMaxFontSize(String maxFontSize1) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -267,19 +372,28 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.maxFontSize1 = maxFontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double minFontSize;
     private String minFontSize1;
 
-    public void setMinfontsize(Double minFontSize) {
+    public CrosshairLabel setMinFontSize(Double minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -288,17 +402,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.minFontSize = minFontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinfontsize(String minFontSize1) {
+    public CrosshairLabel setMinFontSize(String minFontSize1) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -307,19 +430,28 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.minFontSize1 = minFontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minFontSize(%s)", minFontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", minFontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double offsetX;
     private String offsetX1;
 
-    public void setOffsetx(Double offsetX) {
+    public CrosshairLabel setOffsetX(Double offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -328,17 +460,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.offsetX = offsetX;
 
-            js.append(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+                onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setOffsetx(String offsetX1) {
+    public CrosshairLabel setOffsetX(String offsetX1) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -347,19 +488,28 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.offsetX1 = offsetX1;
 
-            js.append(String.format(Locale.US, jsBase + ".offsetX(%s);", offsetX1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".offsetX(%s)", offsetX1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%s);", offsetX1));
+                onChangeListener.onChange(String.format(Locale.US, ".offsetX(%s)", offsetX1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double offsetY;
     private String offsetY1;
 
-    public void setOffsety(Double offsetY) {
+    public CrosshairLabel setOffsetY(Double offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -368,17 +518,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.offsetY = offsetY;
 
-            js.append(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+                onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setOffsety(String offsetY1) {
+    public CrosshairLabel setOffsetY(String offsetY1) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -387,13 +546,22 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.offsetY1 = offsetY1;
 
-            js.append(String.format(Locale.US, jsBase + ".offsetY(%s);", offsetY1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".offsetY(%s)", offsetY1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%s);", offsetY1));
+                onChangeListener.onChange(String.format(Locale.US, ".offsetY(%s)", offsetY1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UtilsPadding getPadding;
@@ -409,7 +577,7 @@ public class CrosshairLabel extends JsObject {
     private String[] padding1;
     private String padding2;
 
-    public void setPadding(Double[] padding) {
+    public CrosshairLabel setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -419,17 +587,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.padding = padding;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String[] padding1) {
+    public CrosshairLabel setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -439,17 +616,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.padding1 = padding1;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String padding2) {
+    public CrosshairLabel setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -459,13 +645,22 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.padding2 = padding2;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String value;
@@ -477,7 +672,7 @@ public class CrosshairLabel extends JsObject {
     private String value6;
     private Double value7;
 
-    public void setPadding(String value, String value2, String value4, String value6) {
+    public CrosshairLabel setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -525,17 +720,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, String value4, Double value7) {
+    public CrosshairLabel setPadding(String value, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -583,17 +787,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, Double value5, String value6) {
+    public CrosshairLabel setPadding(String value, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -641,17 +854,26 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, Double value5, Double value7) {
+    public CrosshairLabel setPadding(String value, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -699,17 +921,26 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, String value4, String value6) {
+    public CrosshairLabel setPadding(String value, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -757,17 +988,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, String value4, Double value7) {
+    public CrosshairLabel setPadding(String value, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -815,17 +1055,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, Double value5, String value6) {
+    public CrosshairLabel setPadding(String value, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -873,17 +1122,26 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, Double value5, Double value7) {
+    public CrosshairLabel setPadding(String value, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -931,17 +1189,26 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, String value4, String value6) {
+    public CrosshairLabel setPadding(Double value1, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -989,17 +1256,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value1, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value1, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value1, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value1, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, String value4, Double value7) {
+    public CrosshairLabel setPadding(Double value1, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1047,17 +1323,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value1, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value1, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value1, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value1, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, Double value5, String value6) {
+    public CrosshairLabel setPadding(Double value1, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1105,17 +1390,26 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value1, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value1, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value1, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value1, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, Double value5, Double value7) {
+    public CrosshairLabel setPadding(Double value1, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1163,17 +1457,26 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value1, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value1, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value1, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value1, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, String value4, String value6) {
+    public CrosshairLabel setPadding(Double value1, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1221,17 +1524,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value1, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value1, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value1, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value1, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, String value4, Double value7) {
+    public CrosshairLabel setPadding(Double value1, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1279,17 +1591,26 @@ public class CrosshairLabel extends JsObject {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value1, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value1, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value1, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value1, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, Double value5, String value6) {
+    public CrosshairLabel setPadding(Double value1, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1337,17 +1658,26 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value1, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value1, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value1, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value1, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public CrosshairLabel setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1395,19 +1725,28 @@ public class CrosshairLabel extends JsObject {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double width;
     private String width1;
 
-    public void setWidth(Double width) {
+    public CrosshairLabel setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1416,17 +1755,26 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.width = width;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(String width1) {
+    public CrosshairLabel setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1435,13 +1783,22 @@ public class CrosshairLabel extends JsObject {
         } else {
             this.width1 = width1;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%s)", width1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetBackground() {
@@ -1690,8 +2047,25 @@ public class CrosshairLabel extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetBackground());
+        jsGetters.append(generateJSgetPadding());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSbothOrByWidth());
@@ -1729,8 +2103,8 @@ public class CrosshairLabel extends JsObject {
             js.append(generateJSwidth1());
             js.append("}");
         }
-            js.append(generateJSgetBackground());
-            js.append(generateJSgetPadding());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

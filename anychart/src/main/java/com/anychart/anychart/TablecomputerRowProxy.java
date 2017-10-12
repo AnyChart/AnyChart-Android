@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TablecomputerRowProxy extends TableselectableRowProxy {
-
-    private String jsBase;
 
     public TablecomputerRowProxy() {
 
@@ -16,41 +16,13 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
         this.jsBase = jsBase;
     }
 
+    protected TablecomputerRowProxy(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
-    private String field;
-
-    public void setGet(String field) {
-        if (jsBase == null) {
-            this.field = field;
-        } else {
-            this.field = field;
-
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", field));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s);", field));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double column;
-
-    public void setGetcolumn(Double column) {
-        if (jsBase == null) {
-            this.column = column;
-        } else {
-            this.column = column;
-
-            js.append(String.format(Locale.US, jsBase + ".getColumn(%f);", column));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%f);", column));
-                js.setLength(0);
-            }
-        }
-    }
-
     private String name;
 
     public void setSet(String name) {
@@ -59,10 +31,18 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
         } else {
             this.name = name;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".set(%s);", name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", name));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s)", name));
                 js.setLength(0);
             }
         }
@@ -70,33 +50,27 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
 
     private Double index;
 
-    public void setSetcolumn(Double index) {
+    public void setSetColumn(Double index) {
         if (jsBase == null) {
             this.index = index;
         } else {
             this.index = index;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".setColumn(%f);", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setColumn(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setColumn(%f)", index));
                 js.setLength(0);
             }
         }
-    }
-
-    private String generateJSfield() {
-        if (field != null) {
-            return String.format(Locale.US, "field: %s,", field);
-        }
-        return "";
-    }
-
-    private String generateJScolumn() {
-        if (column != null) {
-            return String.format(Locale.US, "column: %f,", column);
-        }
-        return "";
     }
 
     private String generateJSname() {
@@ -114,16 +88,31 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
-            js.append(generateJSfield());
-            js.append(generateJScolumn());
             js.append(generateJSname());
             js.append(generateJSindex());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

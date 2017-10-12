@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Aroon extends JsObject {
-
-    private String jsBase;
 
     public Aroon() {
 
@@ -14,6 +14,12 @@ public class Aroon extends JsObject {
 
     protected Aroon(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected Aroon(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -29,7 +35,7 @@ public class Aroon extends JsObject {
     private String type;
     private StockSeriesType type1;
 
-    public void setDownseries(String type) {
+    public Aroon setDownSeries(String type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -38,17 +44,26 @@ public class Aroon extends JsObject {
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".downSeries(%s);", type));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".downSeries(%s)", type));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".downSeries(%s);", type));
+                onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", type));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setDownseries(StockSeriesType type1) {
+    public Aroon setDownSeries(StockSeriesType type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -57,30 +72,48 @@ public class Aroon extends JsObject {
         } else {
             this.type1 = type1;
 
-            js.append(String.format(Locale.US, jsBase + ".downSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".downSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".downSeries(%s);", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double period;
 
-    public void setPeriod(Double period) {
+    public Aroon setPeriod(Double period) {
         if (jsBase == null) {
             this.period = period;
         } else {
             this.period = period;
 
-            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getUpSeries;
@@ -95,7 +128,7 @@ public class Aroon extends JsObject {
     private String type2;
     private StockSeriesType type3;
 
-    public void setUpseries(String type2) {
+    public Aroon setUpSeries(String type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -106,17 +139,26 @@ public class Aroon extends JsObject {
         } else {
             this.type2 = type2;
 
-            js.append(String.format(Locale.US, jsBase + ".upSeries(%s);", type2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".upSeries(%s)", type2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upSeries(%s);", type2));
+                onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", type2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setUpseries(StockSeriesType type3) {
+    public Aroon setUpSeries(StockSeriesType type3) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -127,13 +169,22 @@ public class Aroon extends JsObject {
         } else {
             this.type3 = type3;
 
-            js.append(String.format(Locale.US, jsBase + ".upSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".upSeries(%s)", (type3 != null) ? type3.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upSeries(%s);", (type3 != null) ? type3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", (type3 != null) ? type3.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetDownSeries() {
@@ -186,8 +237,25 @@ public class Aroon extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetDownSeries());
+        jsGetters.append(generateJSgetUpSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJStype());
@@ -197,8 +265,8 @@ public class Aroon extends JsObject {
             js.append(generateJStype3());
             js.append("}");
         }
-            js.append(generateJSgetDownSeries());
-            js.append(generateJSgetUpSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

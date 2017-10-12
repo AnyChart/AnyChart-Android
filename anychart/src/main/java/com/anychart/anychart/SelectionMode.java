@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum SelectionMode implements JsObject.JsObjectInterface {
-    DRILL_DOWN("drillDown"),
-    MULTI_SELECT("multiSelect"),
+    DRILL_DOWN("drill-down"),
+    MULTI_SELECT("multi-select"),
     NONE("none"),
-    SINGLE_SELECT("singleSelect");
+    SINGLE_SELECT("single-select");
 
     private final String value;
 

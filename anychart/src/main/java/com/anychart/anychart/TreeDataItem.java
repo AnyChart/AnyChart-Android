@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class TreeDataItem extends JsObject {
-
-    private String jsBase;
 
     public TreeDataItem() {
 
@@ -16,11 +16,17 @@ public class TreeDataItem extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected TreeDataItem(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private String child;
     private TreeDataItem child1;
 
-    public void setAddchild(String child) {
+    public TreeDataItem setAddChild(String child) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -29,17 +35,26 @@ public class TreeDataItem extends JsObject {
         } else {
             this.child = child;
 
-            js.append(String.format(Locale.US, jsBase + ".addChild(%s);", child));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addChild(%s)", child));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", child));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", child));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAddchild(TreeDataItem child1) {
+    public TreeDataItem setAddChild(TreeDataItem child1) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -48,13 +63,22 @@ public class TreeDataItem extends JsObject {
         } else {
             this.child1 = child1;
 
-            js.append(String.format(Locale.US, jsBase + ".addChild(%s);", (child1 != null) ? child1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addChild(%s)", (child1 != null) ? child1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", (child1 != null) ? child1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", (child1 != null) ? child1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String child2;
@@ -62,7 +86,7 @@ public class TreeDataItem extends JsObject {
     private TreeviewDataItem child4;
     private Double index;
 
-    public void setAddchildat(String child2, Double index) {
+    public TreeDataItem setAddChildAt(String child2, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -76,17 +100,26 @@ public class TreeDataItem extends JsObject {
             this.child2 = child2;
             this.index = index;
 
-            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", child2, index));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", child2, index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", child2, index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", child2, index));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAddchildat(TreeDataItem child3, Double index) {
+    public TreeDataItem setAddChildAt(TreeDataItem child3, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -100,17 +133,26 @@ public class TreeDataItem extends JsObject {
             this.child3 = child3;
             this.index = index;
 
-            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child3 != null) ? child3.generateJs() : "null", index));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", (child3 != null) ? child3.generateJs() : "null", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child3 != null) ? child3.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", (child3 != null) ? child3.generateJs() : "null", index));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAddchildat(TreeviewDataItem child4, Double index) {
+    public TreeDataItem setAddChildAt(TreeviewDataItem child4, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -124,13 +166,22 @@ public class TreeDataItem extends JsObject {
             this.child4 = child4;
             this.index = index;
 
-            js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child4 != null) ? child4.generateJs() : "null", index));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", (child4 != null) ? child4.generateJs() : "null", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child4 != null) ? child4.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", (child4 != null) ? child4.generateJs() : "null", index));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String key;
@@ -141,10 +192,18 @@ public class TreeDataItem extends JsObject {
         } else {
             this.key = key;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".get(%s);", key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s);", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", key));
                 js.setLength(0);
             }
         }
@@ -152,7 +211,7 @@ public class TreeDataItem extends JsObject {
 
     private Double index1;
 
-    public void setGetchildat(Double index1) {
+    public TreeDataItem setGetChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -161,13 +220,22 @@ public class TreeDataItem extends JsObject {
         } else {
             this.index1 = index1;
 
-            js.append(String.format(Locale.US, jsBase + ".getChildAt(%f);", index1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".getChildAt(%f)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, ".getChildAt(%f)", index1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TreeDataItem getGetChildAt;
@@ -191,7 +259,7 @@ public class TreeDataItem extends JsObject {
     private TreeDataItem child5;
     private TreeviewDataItem child6;
 
-    public void setIndexofchild(TreeDataItem child5) {
+    public void setIndexOfChild(TreeDataItem child5) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -205,17 +273,25 @@ public class TreeDataItem extends JsObject {
         } else {
             this.child5 = child5;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child5 != null) ? child5.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child5 != null) ? child5.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", (child5 != null) ? child5.generateJs() : "null"));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setIndexofchild(TreeviewDataItem child6) {
+    public void setIndexOfChild(TreeviewDataItem child6) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -229,10 +305,18 @@ public class TreeDataItem extends JsObject {
         } else {
             this.child6 = child6;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child6 != null) ? child6.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child6 != null) ? child6.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", (child6 != null) ? child6.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -249,10 +333,18 @@ public class TreeDataItem extends JsObject {
         } else {
             this.key1 = key1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".meta(%s);", key1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s);", key1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key1));
                 js.setLength(0);
             }
         }
@@ -261,7 +353,7 @@ public class TreeDataItem extends JsObject {
     private String key2;
     private TreeDataItem child7;
 
-    public void setRemovechild(TreeDataItem child7) {
+    public TreeDataItem setRemoveChild(TreeDataItem child7) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -276,18 +368,27 @@ public class TreeDataItem extends JsObject {
         } else {
             this.child7 = child7;
 
-            js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", (child7 != null) ? child7.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".removeChild(%s)", (child7 != null) ? child7.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s);", (child7 != null) ? child7.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", (child7 != null) ? child7.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double index2;
 
-    public void setRemovechildat(Double index2) {
+    public TreeDataItem setRemoveChildAt(Double index2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -297,13 +398,22 @@ public class TreeDataItem extends JsObject {
         } else {
             this.index2 = index2;
 
-            js.append(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".removeChildAt(%f)", index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index2));
+                onChangeListener.onChange(String.format(Locale.US, ".removeChildAt(%f)", index2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetGetChildAt() {
@@ -419,8 +529,25 @@ public class TreeDataItem extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetGetChildAt());
+        jsGetters.append(generateJSgetGetParent());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSchild());
@@ -439,8 +566,8 @@ public class TreeDataItem extends JsObject {
             js.append(generateJSindex2());
             js.append("}");
         }
-            js.append(generateJSgetGetChildAt());
-            js.append(generateJSgetGetParent());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

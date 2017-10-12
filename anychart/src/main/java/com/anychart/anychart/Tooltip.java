@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Tooltip extends VisualBase {
-
-    private String jsBase;
 
     public Tooltip() {
 
@@ -16,13 +16,19 @@ public class Tooltip extends VisualBase {
         this.jsBase = jsBase;
     }
 
+    protected Tooltip(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Boolean adjustOrAdjustByWidth;
     private Boolean[] adjustOrAdjustByWidth1;
     private String adjustOrAdjustByWidth2;
     private Boolean adjustByHeight;
 
-    public void setAdjustfontsize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
+    public Tooltip setAdjustFontSize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
             this.adjustOrAdjustByWidth1 = null;
@@ -34,17 +40,26 @@ public class Tooltip extends VisualBase {
             this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
             this.adjustByHeight = adjustByHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustOrAdjustByWidth, adjustByHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustOrAdjustByWidth, adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdjustfontsize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
+    public Tooltip setAdjustFontSize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
             this.adjustOrAdjustByWidth1 = null;
@@ -56,17 +71,26 @@ public class Tooltip extends VisualBase {
             this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
             this.adjustByHeight = adjustByHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdjustfontsize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
+    public Tooltip setAdjustFontSize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
         if (jsBase == null) {
             this.adjustOrAdjustByWidth = null;
             this.adjustOrAdjustByWidth1 = null;
@@ -78,70 +102,106 @@ public class Tooltip extends VisualBase {
             this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
             this.adjustByHeight = adjustByHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", adjustOrAdjustByWidth2, adjustByHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", adjustOrAdjustByWidth2, adjustByHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", adjustOrAdjustByWidth2, adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", adjustOrAdjustByWidth2, adjustByHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean allowLeaveChart;
 
-    public void setAllowleavechart(Boolean allowLeaveChart) {
+    public Tooltip setAllowLeaveChart(Boolean allowLeaveChart) {
         if (jsBase == null) {
             this.allowLeaveChart = allowLeaveChart;
         } else {
             this.allowLeaveChart = allowLeaveChart;
 
-            js.append(String.format(Locale.US, jsBase + ".allowLeaveChart(%b);", allowLeaveChart));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".allowLeaveChart(%b)", allowLeaveChart));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".allowLeaveChart(%b);", allowLeaveChart));
+                onChangeListener.onChange(String.format(Locale.US, ".allowLeaveChart(%b)", allowLeaveChart));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean allowLeaveScreen;
 
-    public void setAllowleavescreen(Boolean allowLeaveScreen) {
+    public Tooltip setAllowLeaveScreen(Boolean allowLeaveScreen) {
         if (jsBase == null) {
             this.allowLeaveScreen = allowLeaveScreen;
         } else {
             this.allowLeaveScreen = allowLeaveScreen;
 
-            js.append(String.format(Locale.US, jsBase + ".allowLeaveScreen(%b);", allowLeaveScreen));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".allowLeaveScreen(%b)", allowLeaveScreen));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".allowLeaveScreen(%b);", allowLeaveScreen));
+                onChangeListener.onChange(String.format(Locale.US, ".allowLeaveScreen(%b)", allowLeaveScreen));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean allowLeaveStage;
 
-    public void setAllowleavestage(Boolean allowLeaveStage) {
+    public Tooltip setAllowLeaveStage(Boolean allowLeaveStage) {
         if (jsBase == null) {
             this.allowLeaveStage = allowLeaveStage;
         } else {
             this.allowLeaveStage = allowLeaveStage;
 
-            js.append(String.format(Locale.US, jsBase + ".allowLeaveStage(%b);", allowLeaveStage));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".allowLeaveStage(%b)", allowLeaveStage));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".allowLeaveStage(%b);", allowLeaveStage));
+                onChangeListener.onChange(String.format(Locale.US, ".allowLeaveStage(%b)", allowLeaveStage));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private EnumsAnchor anchor;
     private String anchor1;
 
-    public void setAnchor(EnumsAnchor anchor) {
+    public Tooltip setAnchor(EnumsAnchor anchor) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -150,17 +210,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.anchor = anchor;
 
-            js.append(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".anchor(%s)", (anchor != null) ? anchor.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", (anchor != null) ? anchor.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAnchor(String anchor1) {
+    public Tooltip setAnchor(String anchor1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -169,13 +238,22 @@ public class Tooltip extends VisualBase {
         } else {
             this.anchor1 = anchor1;
 
-            js.append(String.format(Locale.US, jsBase + ".anchor(%s);", anchor1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".anchor(%s)", anchor1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", anchor1));
+                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", anchor1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UiBackground getBackground;
@@ -191,7 +269,7 @@ public class Tooltip extends VisualBase {
     private String background1;
     private String background2;
 
-    public void setBackground(Boolean background) {
+    public Tooltip setBackground(Boolean background) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -201,17 +279,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.background = background;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%b);", background));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%b)", background));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBackground(String background1) {
+    public Tooltip setBackground(String background1) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -221,36 +308,54 @@ public class Tooltip extends VisualBase {
         } else {
             this.background1 = background1;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%s);", background1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%s)", background1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", background1));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean disablePointerEvents;
 
-    public void setDisablepointerevents(Boolean disablePointerEvents) {
+    public Tooltip setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
 
-            js.append(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TooltipDisplayMode displayMode;
     private String displayMode1;
 
-    public void setDisplaymode(TooltipDisplayMode displayMode) {
+    public Tooltip setDisplayMode(TooltipDisplayMode displayMode) {
         if (jsBase == null) {
             this.displayMode = null;
             this.displayMode1 = null;
@@ -259,17 +364,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.displayMode = displayMode;
 
-            js.append(String.format(Locale.US, jsBase + ".displayMode(%s);", (displayMode != null) ? displayMode.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".displayMode(%s)", (displayMode != null) ? displayMode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".displayMode(%s);", (displayMode != null) ? displayMode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", (displayMode != null) ? displayMode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setDisplaymode(String displayMode1) {
+    public Tooltip setDisplayMode(String displayMode1) {
         if (jsBase == null) {
             this.displayMode = null;
             this.displayMode1 = null;
@@ -278,53 +392,54 @@ public class Tooltip extends VisualBase {
         } else {
             this.displayMode1 = displayMode1;
 
-            js.append(String.format(Locale.US, jsBase + ".displayMode(%s);", displayMode1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".displayMode(%s)", displayMode1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".displayMode(%s);", displayMode1));
+                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", displayMode1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String fontColor;
 
-    public void setFontcolor(String fontColor) {
+    public Tooltip setFontColor(String fontColor) {
         if (jsBase == null) {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
 
-            js.append(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontColor(%s)", fontColor));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", fontColor));
+                onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", fontColor));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
 
-    public void setFontdecoration(Decoration fontDecoration) {
+    public Tooltip setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -333,17 +448,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontDecoration = fontDecoration;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", (fontDecoration != null) ? fontDecoration.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontdecoration(String fontDecoration1) {
+    public Tooltip setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -352,53 +476,80 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontDecoration1 = fontDecoration1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", fontDecoration1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", fontDecoration1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontFamily;
 
-    public void setFontfamily(String fontFamily) {
+    public Tooltip setFontFamily(String fontFamily) {
         if (jsBase == null) {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
 
-            js.append(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", fontFamily));
+                onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", fontFamily));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double fontOpacity;
 
-    public void setFontopacity(Double fontOpacity) {
+    public Tooltip setFontOpacity(Double fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
 
-            js.append(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double fontSize;
     private String fontSize1;
 
-    public void setFontsize(Double fontSize) {
+    public Tooltip setFontSize(Double fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -407,17 +558,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontSize = fontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontsize(String fontSize1) {
+    public Tooltip setFontSize(String fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -426,19 +586,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontSize1 = fontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", fontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontStyle;
     private TextFontStyle fontStyle1;
 
-    public void setFontstyle(String fontStyle) {
+    public Tooltip setFontStyle(String fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -447,17 +616,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontStyle = fontStyle;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", fontStyle));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", fontStyle));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", fontStyle));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontstyle(TextFontStyle fontStyle1) {
+    public Tooltip setFontStyle(TextFontStyle fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -466,19 +644,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontStyle1 = fontStyle1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontStyle(%s)", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", (fontStyle1 != null) ? fontStyle1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontVariant;
     private TextFontVariant fontVariant1;
 
-    public void setFontvariant(String fontVariant) {
+    public Tooltip setFontVariant(String fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -487,17 +674,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontVariant = fontVariant;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", fontVariant));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", fontVariant));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", fontVariant));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontvariant(TextFontVariant fontVariant1) {
+    public Tooltip setFontVariant(TextFontVariant fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -506,19 +702,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontVariant1 = fontVariant1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontVariant(%s)", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", (fontVariant1 != null) ? fontVariant1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fontWeight;
     private Double fontWeight1;
 
-    public void setFontweight(String fontWeight) {
+    public Tooltip setFontWeight(String fontWeight) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -527,17 +732,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontWeight = fontWeight;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", fontWeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setFontweight(Double fontWeight1) {
+    public Tooltip setFontWeight(Double fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -546,36 +760,54 @@ public class Tooltip extends VisualBase {
         } else {
             this.fontWeight1 = fontWeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String format;
 
-    public void setFormat(String format) {
+    public Tooltip setFormat(String format) {
         if (jsBase == null) {
             this.format = format;
         } else {
             this.format = format;
 
-            js.append(String.format(Locale.US, jsBase + ".format(%s);", format));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".format(%s)", format));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s);", format));
+                onChangeListener.onChange(String.format(Locale.US, ".format(%s)", format));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String hAlign;
     private TextHAlign hAlign1;
 
-    public void setHalign(String hAlign) {
+    public Tooltip setHAlign(String hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -584,17 +816,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.hAlign = hAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", hAlign));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", hAlign));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", hAlign));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHalign(TextHAlign hAlign1) {
+    public Tooltip setHAlign(TextHAlign hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -603,19 +844,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.hAlign1 = hAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hAlign(%s)", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", (hAlign1 != null) ? hAlign1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String height;
     private Double height1;
 
-    public void setHeight(String height) {
+    public Tooltip setHeight(String height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -624,17 +874,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.height = height;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%s);", height));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%s)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", height));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHeight(Double height1) {
+    public Tooltip setHeight(Double height1) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -643,13 +902,22 @@ public class Tooltip extends VisualBase {
         } else {
             this.height1 = height1;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%f)", height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height1));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean force;
@@ -660,10 +928,18 @@ public class Tooltip extends VisualBase {
         } else {
             this.force = force;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".hide(%b);", force));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hide(%b);", force));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hide(%b)", force));
                 js.setLength(0);
             }
         }
@@ -671,42 +947,60 @@ public class Tooltip extends VisualBase {
 
     private Double hideDelay;
 
-    public void setHidedelay(Double hideDelay) {
+    public Tooltip setHideDelay(Double hideDelay) {
         if (jsBase == null) {
             this.hideDelay = hideDelay;
         } else {
             this.hideDelay = hideDelay;
 
-            js.append(String.format(Locale.US, jsBase + ".hideDelay(%f);", hideDelay));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hideDelay(%f)", hideDelay));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hideDelay(%f);", hideDelay));
+                onChangeListener.onChange(String.format(Locale.US, ".hideDelay(%f)", hideDelay));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double letterSpacing;
 
-    public void setLetterspacing(Double letterSpacing) {
+    public Tooltip setLetterSpacing(Double letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = letterSpacing;
         } else {
             this.letterSpacing = letterSpacing;
 
-            js.append(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing));
+                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double lineHeight;
     private String lineHeight1;
 
-    public void setLineheight(Double lineHeight) {
+    public Tooltip setLineHeight(Double lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -715,17 +1009,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.lineHeight = lineHeight;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLineheight(String lineHeight1) {
+    public Tooltip setLineHeight(String lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -734,74 +1037,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.lineHeight1 = lineHeight1;
 
-            js.append(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double maxFontSize;
     private String maxFontSize1;
 
-    public void setMaxfontsize(Double maxFontSize) {
+    public Tooltip setMaxFontSize(Double maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -810,17 +1067,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.maxFontSize = maxFontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMaxfontsize(String maxFontSize1) {
+    public Tooltip setMaxFontSize(String maxFontSize1) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -829,19 +1095,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.maxFontSize1 = maxFontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double minFontSize;
     private String minFontSize1;
 
-    public void setMinfontsize(Double minFontSize) {
+    public Tooltip setMinFontSize(Double minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -850,17 +1125,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.minFontSize = minFontSize;
 
-            js.append(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMinfontsize(String minFontSize1) {
+    public Tooltip setMinFontSize(String minFontSize1) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -869,47 +1153,74 @@ public class Tooltip extends VisualBase {
         } else {
             this.minFontSize1 = minFontSize1;
 
-            js.append(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minFontSize(%s)", minFontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize1));
+                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", minFontSize1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double offsetX;
 
-    public void setOffsetx(Double offsetX) {
+    public Tooltip setOffsetX(Double offsetX) {
         if (jsBase == null) {
             this.offsetX = offsetX;
         } else {
             this.offsetX = offsetX;
 
-            js.append(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+                onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double offsetY;
 
-    public void setOffsety(Double offsetY) {
+    public Tooltip setOffsetY(Double offsetY) {
         if (jsBase == null) {
             this.offsetY = offsetY;
         } else {
             this.offsetY = offsetY;
 
-            js.append(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+                onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UtilsPadding getPadding;
@@ -925,7 +1236,7 @@ public class Tooltip extends VisualBase {
     private String[] padding1;
     private String padding2;
 
-    public void setPadding(Double[] padding) {
+    public Tooltip setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -935,17 +1246,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.padding = padding;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String[] padding1) {
+    public Tooltip setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -955,17 +1275,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.padding1 = padding1;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String padding2) {
+    public Tooltip setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -975,13 +1304,22 @@ public class Tooltip extends VisualBase {
         } else {
             this.padding2 = padding2;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String value;
@@ -993,7 +1331,7 @@ public class Tooltip extends VisualBase {
     private String value6;
     private Double value7;
 
-    public void setPadding(String value, String value2, String value4, String value6) {
+    public Tooltip setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1041,17 +1379,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, String value4, Double value7) {
+    public Tooltip setPadding(String value, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1099,17 +1446,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, Double value5, String value6) {
+    public Tooltip setPadding(String value, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1157,17 +1513,26 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, String value2, Double value5, Double value7) {
+    public Tooltip setPadding(String value, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1215,17 +1580,26 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, String value4, String value6) {
+    public Tooltip setPadding(String value, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1273,17 +1647,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, String value4, Double value7) {
+    public Tooltip setPadding(String value, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1331,17 +1714,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, Double value5, String value6) {
+    public Tooltip setPadding(String value, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1389,17 +1781,26 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value, Double value3, Double value5, Double value7) {
+    public Tooltip setPadding(String value, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1447,17 +1848,26 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, String value4, String value6) {
+    public Tooltip setPadding(Double value1, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1505,17 +1915,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value1, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value1, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value1, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value1, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, String value4, Double value7) {
+    public Tooltip setPadding(Double value1, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1563,17 +1982,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value1, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value1, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value1, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value1, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, Double value5, String value6) {
+    public Tooltip setPadding(Double value1, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1621,17 +2049,26 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value1, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value1, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value1, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value1, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, String value2, Double value5, Double value7) {
+    public Tooltip setPadding(Double value1, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1679,17 +2116,26 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value1, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value1, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value1, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value1, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, String value4, String value6) {
+    public Tooltip setPadding(Double value1, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1737,17 +2183,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value1, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value1, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value1, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value1, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, String value4, Double value7) {
+    public Tooltip setPadding(Double value1, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1795,17 +2250,26 @@ public class Tooltip extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value1, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value1, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value1, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value1, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, Double value5, String value6) {
+    public Tooltip setPadding(Double value1, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1853,17 +2317,26 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value1, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value1, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value1, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value1, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public Tooltip setPadding(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1911,19 +2384,28 @@ public class Tooltip extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Position position;
     private String position1;
 
-    public void setPosition(Position position) {
+    public Tooltip setPosition(Position position) {
         if (jsBase == null) {
             this.position = null;
             this.position1 = null;
@@ -1932,17 +2414,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.position = position;
 
-            js.append(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".position(%s)", (position != null) ? position.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", (position != null) ? position.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPosition(String position1) {
+    public Tooltip setPosition(String position1) {
         if (jsBase == null) {
             this.position = null;
             this.position1 = null;
@@ -1951,19 +2442,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.position1 = position1;
 
-            js.append(String.format(Locale.US, jsBase + ".position(%s);", position1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".position(%s)", position1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", position1));
+                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", position1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String positionMode;
     private TooltipPositionMode positionMode1;
 
-    public void setPositionmode(String positionMode) {
+    public Tooltip setPositionMode(String positionMode) {
         if (jsBase == null) {
             this.positionMode = null;
             this.positionMode1 = null;
@@ -1972,17 +2472,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.positionMode = positionMode;
 
-            js.append(String.format(Locale.US, jsBase + ".positionMode(%s);", positionMode));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".positionMode(%s)", positionMode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".positionMode(%s);", positionMode));
+                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", positionMode));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPositionmode(TooltipPositionMode positionMode1) {
+    public Tooltip setPositionMode(TooltipPositionMode positionMode1) {
         if (jsBase == null) {
             this.positionMode = null;
             this.positionMode1 = null;
@@ -1991,96 +2500,48 @@ public class Tooltip extends VisualBase {
         } else {
             this.positionMode1 = positionMode1;
 
-            js.append(String.format(Locale.US, jsBase + ".positionMode(%s);", (positionMode1 != null) ? positionMode1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".positionMode(%s)", (positionMode1 != null) ? positionMode1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".positionMode(%s);", (positionMode1 != null) ? positionMode1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", (positionMode1 != null) ? positionMode1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean selectable;
 
-    public void setSelectable(Boolean selectable) {
+    public Tooltip setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
 
-            js.append(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
+                onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Separator getSeparator;
@@ -2095,7 +2556,7 @@ public class Tooltip extends VisualBase {
     private Boolean separator;
     private String separator1;
 
-    public void setSeparator(Boolean separator) {
+    public Tooltip setSeparator(Boolean separator) {
         if (jsBase == null) {
             this.separator = null;
             this.separator1 = null;
@@ -2104,17 +2565,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.separator = separator;
 
-            js.append(String.format(Locale.US, jsBase + ".separator(%b);", separator));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".separator(%b)", separator));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".separator(%b);", separator));
+                onChangeListener.onChange(String.format(Locale.US, ".separator(%b)", separator));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSeparator(String separator1) {
+    public Tooltip setSeparator(String separator1) {
         if (jsBase == null) {
             this.separator = null;
             this.separator1 = null;
@@ -2123,19 +2593,28 @@ public class Tooltip extends VisualBase {
         } else {
             this.separator1 = separator1;
 
-            js.append(String.format(Locale.US, jsBase + ".separator(%s);", separator1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".separator(%s)", separator1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".separator(%s);", separator1));
+                onChangeListener.onChange(String.format(Locale.US, ".separator(%s)", separator1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String textDirection;
     private Direction textDirection1;
 
-    public void setTextdirection(String textDirection) {
+    public Tooltip setTextDirection(String textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -2144,17 +2623,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.textDirection = textDirection;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", textDirection));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", textDirection));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", textDirection));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextdirection(Direction textDirection1) {
+    public Tooltip setTextDirection(Direction textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -2163,36 +2651,54 @@ public class Tooltip extends VisualBase {
         } else {
             this.textDirection1 = textDirection1;
 
-            js.append(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textDirection(%s)", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", (textDirection1 != null) ? textDirection1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double textIndent;
 
-    public void setTextindent(Double textIndent) {
+    public Tooltip setTextIndent(Double textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
 
-            js.append(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
 
-    public void setTextoverflow(TextOverflow textOverflow) {
+    public Tooltip setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -2201,17 +2707,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.textOverflow = textOverflow;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", (textOverflow != null) ? textOverflow.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", (textOverflow != null) ? textOverflow.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextoverflow(String textOverflow1) {
+    public Tooltip setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -2220,30 +2735,48 @@ public class Tooltip extends VisualBase {
         } else {
             this.textOverflow1 = textOverflow1;
 
-            js.append(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", textOverflow1));
+                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", textOverflow1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String textSettings;
 
-    public void setTextsettings(String textSettings) {
+    public Tooltip setTextSettings(String textSettings) {
         if (jsBase == null) {
             this.textSettings = textSettings;
         } else {
             this.textSettings = textSettings;
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%s);", textSettings));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textSettings(%s)", textSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s);", textSettings));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s)", textSettings));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String name;
@@ -2251,7 +2784,7 @@ public class Tooltip extends VisualBase {
     private Double textSettings2;
     private Boolean textSettings3;
 
-    public void setTextsettings(String textSettings1, String name) {
+    public Tooltip setTextSettings(String textSettings1, String name) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
@@ -2264,17 +2797,26 @@ public class Tooltip extends VisualBase {
             this.textSettings1 = textSettings1;
             this.name = name;
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings1, name));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textSettings(%s, %s)", textSettings1, name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", textSettings1, name));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", textSettings1, name));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextsettings(Double textSettings2, String name) {
+    public Tooltip setTextSettings(Double textSettings2, String name) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
@@ -2287,17 +2829,26 @@ public class Tooltip extends VisualBase {
             this.textSettings2 = textSettings2;
             this.name = name;
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings2, name));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings2, name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%f, %s);", textSettings2, name));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings2, name));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTextsettings(Boolean textSettings3, String name) {
+    public Tooltip setTextSettings(Boolean textSettings3, String name) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
@@ -2310,53 +2861,22 @@ public class Tooltip extends VisualBase {
             this.textSettings3 = textSettings3;
             this.name = name;
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings3, name));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings3, name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%b, %s);", textSettings3, name));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings3, name));
                 js.setLength(0);
             }
         }
-    }
-
-    private String textWrap;
-    private TextTextWrap textWrap1;
-
-    public void setTextwrap(String textWrap) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap = textWrap;
-        } else {
-            this.textWrap = textWrap;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", textWrap));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTextwrap(TextTextWrap textWrap1) {
-        if (jsBase == null) {
-            this.textWrap = null;
-            this.textWrap1 = null;
-            
-            this.textWrap1 = textWrap1;
-        } else {
-            this.textWrap1 = textWrap1;
-
-            js.append(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap1 != null) ? textWrap1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textWrap(%s);", (textWrap1 != null) ? textWrap1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private UiTitle getTitle;
@@ -2371,7 +2891,7 @@ public class Tooltip extends VisualBase {
     private Boolean title;
     private String title1;
 
-    public void setTitle(Boolean title) {
+    public Tooltip setTitle(Boolean title) {
         if (jsBase == null) {
             this.title = null;
             this.title1 = null;
@@ -2380,17 +2900,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.title = title;
 
-            js.append(String.format(Locale.US, jsBase + ".title(%b);", title));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%b);", title));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTitle(String title1) {
+    public Tooltip setTitle(String title1) {
         if (jsBase == null) {
             this.title = null;
             this.title1 = null;
@@ -2399,123 +2928,106 @@ public class Tooltip extends VisualBase {
         } else {
             this.title1 = title1;
 
-            js.append(String.format(Locale.US, jsBase + ".title(%s);", title1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".title(%s)", title1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", title1));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", title1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String titleFormat;
 
-    public void setTitleformat(String titleFormat) {
+    public Tooltip setTitleFormat(String titleFormat) {
         if (jsBase == null) {
             this.titleFormat = titleFormat;
         } else {
             this.titleFormat = titleFormat;
 
-            js.append(String.format(Locale.US, jsBase + ".titleFormat(%s);", titleFormat));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".titleFormat(%s);", titleFormat));
+                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String unionFormat;
 
-    public void setUnionformat(String unionFormat) {
+    public Tooltip setUnionFormat(String unionFormat) {
         if (jsBase == null) {
             this.unionFormat = unionFormat;
         } else {
             this.unionFormat = unionFormat;
 
-            js.append(String.format(Locale.US, jsBase + ".unionFormat(%s);", unionFormat));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".unionFormat(%s)", unionFormat));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unionFormat(%s);", unionFormat));
+                onChangeListener.onChange(String.format(Locale.US, ".unionFormat(%s)", unionFormat));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Boolean useHtml;
 
-    public void setUsehtml(Boolean useHtml) {
+    public Tooltip setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
 
-            js.append(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
+                onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String vAlign;
     private TextVAlign vAlign1;
 
-    public void setValign(String vAlign) {
+    public Tooltip setVAlign(String vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -2524,17 +3036,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.vAlign = vAlign;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", vAlign));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", vAlign));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", vAlign));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setValign(TextVAlign vAlign1) {
+    public Tooltip setVAlign(TextVAlign vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -2543,53 +3064,80 @@ public class Tooltip extends VisualBase {
         } else {
             this.vAlign1 = vAlign1;
 
-            js.append(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".vAlign(%s)", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", (vAlign1 != null) ? vAlign1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String valuePostfix;
 
-    public void setValuepostfix(String valuePostfix) {
+    public Tooltip setValuePostfix(String valuePostfix) {
         if (jsBase == null) {
             this.valuePostfix = valuePostfix;
         } else {
             this.valuePostfix = valuePostfix;
 
-            js.append(String.format(Locale.US, jsBase + ".valuePostfix(%s);", valuePostfix));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".valuePostfix(%s)", valuePostfix));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valuePostfix(%s);", valuePostfix));
+                onChangeListener.onChange(String.format(Locale.US, ".valuePostfix(%s)", valuePostfix));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String valuePrefix;
 
-    public void setValueprefix(String valuePrefix) {
+    public Tooltip setValuePrefix(String valuePrefix) {
         if (jsBase == null) {
             this.valuePrefix = valuePrefix;
         } else {
             this.valuePrefix = valuePrefix;
 
-            js.append(String.format(Locale.US, jsBase + ".valuePrefix(%s);", valuePrefix));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".valuePrefix(%s)", valuePrefix));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valuePrefix(%s);", valuePrefix));
+                onChangeListener.onChange(String.format(Locale.US, ".valuePrefix(%s)", valuePrefix));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String width;
     private Double width1;
 
-    public void setWidth(String width) {
+    public Tooltip setWidth(String width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2598,17 +3146,26 @@ public class Tooltip extends VisualBase {
         } else {
             this.width = width;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(Double width1) {
+    public Tooltip setWidth(Double width1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2617,30 +3174,138 @@ public class Tooltip extends VisualBase {
         } else {
             this.width1 = width1;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%f)", width1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double zIndex;
+    private String wordBreak;
+    private EnumsWordBreak wordBreak1;
 
-    public void setZindex(Double zIndex) {
+    public Tooltip setWordBreak(String wordBreak) {
         if (jsBase == null) {
-            this.zIndex = zIndex;
+            this.wordBreak = null;
+            this.wordBreak1 = null;
+            
+            this.wordBreak = wordBreak;
         } else {
-            this.zIndex = zIndex;
+            this.wordBreak = wordBreak;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+
+    public Tooltip setWordBreak(EnumsWordBreak wordBreak1) {
+        if (jsBase == null) {
+            this.wordBreak = null;
+            this.wordBreak1 = null;
+            
+            this.wordBreak1 = wordBreak1;
+        } else {
+            this.wordBreak1 = wordBreak1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String wordWrap;
+    private EnumsWordWrap wordWrap1;
+
+    public Tooltip setWordWrap(String wordWrap) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap = wordWrap;
+        } else {
+            this.wordWrap = wordWrap;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Tooltip setWordWrap(EnumsWordWrap wordWrap1) {
+        if (jsBase == null) {
+            this.wordWrap = null;
+            this.wordWrap1 = null;
+            
+            this.wordWrap1 = wordWrap1;
+        } else {
+            this.wordWrap1 = wordWrap1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private String generateJSgetBackground() {
@@ -2772,13 +3437,6 @@ public class Tooltip extends VisualBase {
     private String generateJSdisplayMode1() {
         if (displayMode1 != null) {
             return String.format(Locale.US, "displayMode: %s,", displayMode1);
-        }
-        return "";
-    }
-
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
         }
         return "";
     }
@@ -2944,48 +3602,6 @@ public class Tooltip extends VisualBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
     private String generateJSmaxFontSize() {
         if (maxFontSize != null) {
             return String.format(Locale.US, "maxFontSize: %f,", maxFontSize);
@@ -3133,34 +3749,6 @@ public class Tooltip extends VisualBase {
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJSselectable() {
         if (selectable != null) {
             return String.format(Locale.US, "selectable: %b,", selectable);
@@ -3252,20 +3840,6 @@ public class Tooltip extends VisualBase {
         return "";
     }
 
-    private String generateJStextWrap() {
-        if (textWrap != null) {
-            return String.format(Locale.US, "textWrap: %s,", textWrap);
-        }
-        return "";
-    }
-
-    private String generateJStextWrap1() {
-        if (textWrap1 != null) {
-            return String.format(Locale.US, "textWrap: %s,", (textWrap1 != null) ? textWrap1.generateJs() : "null");
-        }
-        return "";
-    }
-
     private String generateJStitle() {
         if (title != null) {
             return String.format(Locale.US, "title: %b,", title);
@@ -3290,34 +3864,6 @@ public class Tooltip extends VisualBase {
     private String generateJSunionFormat() {
         if (unionFormat != null) {
             return String.format(Locale.US, "unionFormat: %s,", unionFormat);
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
         }
         return "";
     }
@@ -3371,16 +3917,56 @@ public class Tooltip extends VisualBase {
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
+    private String generateJSwordBreak() {
+        if (wordBreak != null) {
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
+        }
+        return "";
+    }
+
+    private String generateJSwordBreak1() {
+        if (wordBreak1 != null) {
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSwordWrap() {
+        if (wordWrap != null) {
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
+        }
+        return "";
+    }
+
+    private String generateJSwordWrap1() {
+        if (wordWrap1 != null) {
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
         }
         return "";
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetBackground());
+        jsGetters.append(generateJSgetPadding());
+        jsGetters.append(generateJSgetSeparator());
+        jsGetters.append(generateJSgetTitle());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSadjustOrAdjustByWidth());
@@ -3398,7 +3984,6 @@ public class Tooltip extends VisualBase {
             js.append(generateJSdisablePointerEvents());
             js.append(generateJSdisplayMode());
             js.append(generateJSdisplayMode1());
-            js.append(generateJSenabled());
             js.append(generateJSfontColor());
             js.append(generateJSfontDecoration());
             js.append(generateJSfontDecoration1());
@@ -3422,12 +4007,6 @@ public class Tooltip extends VisualBase {
             js.append(generateJSletterSpacing());
             js.append(generateJSlineHeight());
             js.append(generateJSlineHeight1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSmaxFontSize());
             js.append(generateJSmaxFontSize1());
             js.append(generateJSminFontSize());
@@ -3449,10 +4028,6 @@ public class Tooltip extends VisualBase {
             js.append(generateJSposition1());
             js.append(generateJSpositionMode());
             js.append(generateJSpositionMode1());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
             js.append(generateJSselectable());
             js.append(generateJSseparator());
             js.append(generateJSseparator1());
@@ -3466,16 +4041,10 @@ public class Tooltip extends VisualBase {
             js.append(generateJStextSettings1());
             js.append(generateJStextSettings2());
             js.append(generateJStextSettings3());
-            js.append(generateJStextWrap());
-            js.append(generateJStextWrap1());
             js.append(generateJStitle());
             js.append(generateJStitle1());
             js.append(generateJStitleFormat());
             js.append(generateJSunionFormat());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append(generateJSuseHtml());
             js.append(generateJSvAlign());
             js.append(generateJSvAlign1());
@@ -3483,13 +4052,14 @@ public class Tooltip extends VisualBase {
             js.append(generateJSvaluePrefix());
             js.append(generateJSwidth());
             js.append(generateJSwidth1());
-            js.append(generateJSzIndex());
+            js.append(generateJSwordBreak());
+            js.append(generateJSwordBreak1());
+            js.append(generateJSwordWrap());
+            js.append(generateJSwordWrap1());
             js.append("}");
         }
-            js.append(generateJSgetBackground());
-            js.append(generateJSgetPadding());
-            js.append(generateJSgetSeparator());
-            js.append(generateJSgetTitle());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

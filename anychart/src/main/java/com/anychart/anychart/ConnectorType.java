@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum ConnectorType implements JsObject.JsObjectInterface {
-    FINISH_FINISH("finishFinish"),
-    FINISH_START("finishStart"),
-    START_FINISH("startFinish"),
-    START_START("startStart");
+    FINISH_FINISH("finish-finish"),
+    FINISH_START("finish-start"),
+    START_FINISH("start-finish"),
+    START_START("start-start");
 
     private final String value;
 

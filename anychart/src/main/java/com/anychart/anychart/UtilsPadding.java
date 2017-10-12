@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class UtilsPadding extends CoreBase {
-
-    private String jsBase;
 
     public UtilsPadding() {
 
@@ -16,11 +16,17 @@ public class UtilsPadding extends CoreBase {
         this.jsBase = jsBase;
     }
 
+    protected UtilsPadding(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double bottom;
     private String bottom1;
 
-    public void setBottom(Double bottom) {
+    public UtilsPadding setBottom(Double bottom) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -29,17 +35,26 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.bottom = bottom;
 
-            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".bottom(%f)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBottom(String bottom1) {
+    public UtilsPadding setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -48,19 +63,28 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.bottom1 = bottom1;
 
-            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".bottom(%s)", bottom1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", bottom1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double left;
     private String left1;
 
-    public void setLeft(Double left) {
+    public UtilsPadding setLeft(Double left) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -69,17 +93,26 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".left(%f)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLeft(String left1) {
+    public UtilsPadding setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -88,95 +121,28 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".left(%s)", left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%s)", left1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double right;
     private String right1;
 
-    public void setRight(Double right) {
+    public UtilsPadding setRight(Double right) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -185,17 +151,26 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.right = right;
 
-            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".right(%f)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRight(String right1) {
+    public UtilsPadding setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -204,13 +179,22 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.right1 = right1;
 
-            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".right(%s)", right1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%s)", right1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String value;
@@ -225,1127 +209,7 @@ public class UtilsPadding extends CoreBase {
     private String value9;
     private Double value10;
 
-    public void setSet(String value, String value5, String value7, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value = value;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %s);", value, value5, value7, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %s);", value, value5, value7, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String value, String value5, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value = value;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %f);", value, value5, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %f);", value, value5, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String value, String value5, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value = value;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %s);", value, value5, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %s);", value, value5, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String value, String value5, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value = value;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %f);", value, value5, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %f);", value, value5, value8, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String value, Double value6, String value7, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value = value;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %s);", value, value6, value7, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %s);", value, value6, value7, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String value, Double value6, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value = value;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %f);", value, value6, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %f);", value, value6, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String value, Double value6, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value = value;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %s);", value, value6, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %s);", value, value6, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String value, Double value6, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value = value;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %f);", value, value6, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %f);", value, value6, value8, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, String value5, String value7, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value1 = value1;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %s, %s, %s);", value1, value5, value7, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %s, %s, %s);", value1, value5, value7, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, String value5, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value1 = value1;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %s, %s, %f);", value1, value5, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %s, %s, %f);", value1, value5, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, String value5, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value1 = value1;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %s, %f, %s);", value1, value5, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %s, %f, %s);", value1, value5, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, String value5, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value1 = value1;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %s, %f, %f);", value1, value5, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %s, %f, %f);", value1, value5, value8, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, Double value6, String value7, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value1 = value1;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %f, %s, %s);", value1, value6, value7, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %f, %s, %s);", value1, value6, value7, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, Double value6, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value1 = value1;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %f, %s, %f);", value1, value6, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %f, %s, %f);", value1, value6, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, Double value6, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value1 = value1;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %f, %f, %s);", value1, value6, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %f, %f, %s);", value1, value6, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double value1, Double value6, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value1 = value1;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %f, %f, %f);", value1, value6, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %f, %f, %f);", value1, value6, value8, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double[] value2, String value5, String value7, String value9) {
+    public UtilsPadding setSet(Double[] value2) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1360,552 +224,29 @@ public class UtilsPadding extends CoreBase {
             this.value10 = null;
             
             this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
         } else {
             this.value2 = value2;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value9 = value9;
 
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %s);", Arrays.toString(value2), value5, value7, value9));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(value2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %s);", Arrays.toString(value2), value5, value7, value9));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(value2)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSet(Double[] value2, String value5, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %f);", Arrays.toString(value2), value5, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %f);", Arrays.toString(value2), value5, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double[] value2, String value5, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %s);", Arrays.toString(value2), value5, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %s);", Arrays.toString(value2), value5, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double[] value2, String value5, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %f);", Arrays.toString(value2), value5, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %f);", Arrays.toString(value2), value5, value8, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double[] value2, Double value6, String value7, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value2 = value2;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %s);", Arrays.toString(value2), value6, value7, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %s);", Arrays.toString(value2), value6, value7, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double[] value2, Double value6, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value2 = value2;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %f);", Arrays.toString(value2), value6, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %f);", Arrays.toString(value2), value6, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double[] value2, Double value6, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value2 = value2;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %s);", Arrays.toString(value2), value6, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %s);", Arrays.toString(value2), value6, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(Double[] value2, Double value6, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value2 = value2;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %f);", Arrays.toString(value2), value6, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %f);", Arrays.toString(value2), value6, value8, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String[] value3, String value5, String value7, String value9) {
+    public UtilsPadding setSet(String[] value3) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1920,554 +261,31 @@ public class UtilsPadding extends CoreBase {
             this.value10 = null;
             
             this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
         } else {
             this.value3 = value3;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value9 = value9;
 
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %s);", Arrays.toString(value3), value5, value7, value9));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(value3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %s);", Arrays.toString(value3), value5, value7, value9));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(value3)));
                 js.setLength(0);
             }
         }
-    }
-
-
-    public void setSet(String[] value3, String value5, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %f);", Arrays.toString(value3), value5, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %s, %f);", Arrays.toString(value3), value5, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String[] value3, String value5, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %s);", Arrays.toString(value3), value5, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %s);", Arrays.toString(value3), value5, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String[] value3, String value5, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %f);", Arrays.toString(value3), value5, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s, %f, %f);", Arrays.toString(value3), value5, value8, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String[] value3, Double value6, String value7, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value3 = value3;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %s);", Arrays.toString(value3), value6, value7, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %s);", Arrays.toString(value3), value6, value7, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String[] value3, Double value6, String value7, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value7 = value7;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value3 = value3;
-            this.value6 = value6;
-            this.value7 = value7;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %f);", Arrays.toString(value3), value6, value7, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %s, %f);", Arrays.toString(value3), value6, value7, value10));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String[] value3, Double value6, Double value8, String value9) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value9 = value9;
-        } else {
-            this.value3 = value3;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value9 = value9;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %s);", Arrays.toString(value3), value6, value8, value9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %s);", Arrays.toString(value3), value6, value8, value9));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setSet(String[] value3, Double value6, Double value8, Double value10) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value6 = value6;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            
-            this.value10 = value10;
-        } else {
-            this.value3 = value3;
-            this.value6 = value6;
-            this.value8 = value8;
-            this.value10 = value10;
-
-            js.append(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %f);", Arrays.toString(value3), value6, value8, value10));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %f, %f, %f);", Arrays.toString(value3), value6, value8, value10));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double top;
     private String top1;
 
-    public void setTop(Double top) {
+    public UtilsPadding setTop(Double top) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -2476,17 +294,26 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.top = top;
 
-            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".top(%f)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTop(String top1) {
+    public UtilsPadding setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -2495,66 +322,22 @@ public class UtilsPadding extends CoreBase {
         } else {
             this.top1 = top1;
 
-            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".top(%s)", top1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%s)", top1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSbottom() {
@@ -2581,55 +364,6 @@ public class UtilsPadding extends CoreBase {
     private String generateJSleft1() {
         if (left1 != null) {
             return String.format(Locale.US, "left: %s,", left1);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -2739,50 +473,30 @@ public class UtilsPadding extends CoreBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
+    
 
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSbottom());
             js.append(generateJSbottom1());
             js.append(generateJSleft());
             js.append(generateJSleft1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
-            js.append(generateJStype2());
             js.append(generateJSright());
             js.append(generateJSright1());
             js.append(generateJSvalue());
@@ -2798,12 +512,10 @@ public class UtilsPadding extends CoreBase {
             js.append(generateJSvalue10());
             js.append(generateJStop());
             js.append(generateJStop1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

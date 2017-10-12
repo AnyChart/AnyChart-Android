@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class View extends CoreBase {
-
-    private String jsBase;
 
     public View() {
 
@@ -16,11 +16,17 @@ public class View extends CoreBase {
         this.jsBase = jsBase;
     }
 
+    protected View(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private View otherView;
     private String[] otherView1;
 
-    public void setConcat(View otherView) {
+    public View setConcat(View otherView) {
         if (jsBase == null) {
             this.otherView = null;
             this.otherView1 = null;
@@ -29,17 +35,26 @@ public class View extends CoreBase {
         } else {
             this.otherView = otherView;
 
-            js.append(String.format(Locale.US, jsBase + ".concat(%s);", (otherView != null) ? otherView.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".concat(%s)", (otherView != null) ? otherView.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".concat(%s);", (otherView != null) ? otherView.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", (otherView != null) ? otherView.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setConcat(String[] otherView1) {
+    public View setConcat(String[] otherView1) {
         if (jsBase == null) {
             this.otherView = null;
             this.otherView1 = null;
@@ -48,30 +63,48 @@ public class View extends CoreBase {
         } else {
             this.otherView1 = otherView1;
 
-            js.append(String.format(Locale.US, jsBase + ".concat(%s);", Arrays.toString(otherView1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".concat(%s)", Arrays.toString(otherView1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".concat(%s);", Arrays.toString(otherView1)));
+                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", Arrays.toString(otherView1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fieldName;
 
-    public void setFilter(String fieldName) {
+    public View setFilter(String fieldName) {
         if (jsBase == null) {
             this.fieldName = fieldName;
         } else {
             this.fieldName = fieldName;
 
-            js.append(String.format(Locale.US, jsBase + ".filter(%s);", fieldName));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".filter(%s)", fieldName));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".filter(%s);", fieldName));
+                onChangeListener.onChange(String.format(Locale.US, ".filter(%s)", fieldName));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fieldName1;
@@ -85,10 +118,18 @@ public class View extends CoreBase {
         } else {
             this.fieldName1 = fieldName1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".find(%s);", fieldName1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s);", fieldName1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s)", fieldName1));
                 js.setLength(0);
             }
         }
@@ -109,65 +150,18 @@ public class View extends CoreBase {
             this.rowIndex = rowIndex;
             this.fieldName2 = fieldName2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".get(%f, %s);", rowIndex, fieldName2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f, %s);", rowIndex, fieldName2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f, %s)", rowIndex, fieldName2));
                 js.setLength(0);
             }
         }
@@ -184,10 +178,18 @@ public class View extends CoreBase {
             this.index = index;
             this.name = name;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".meta(%f, %s);", index, name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%f, %s);", index, name));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%f, %s)", index, name));
                 js.setLength(0);
             }
         }
@@ -195,27 +197,6 @@ public class View extends CoreBase {
 
     private Double index1;
     private String name1;
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
-    }
-
     private Double rowIndex1;
 
     public void setRow(Double rowIndex1) {
@@ -227,10 +208,18 @@ public class View extends CoreBase {
         } else {
             this.rowIndex1 = rowIndex1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".row(%f);", rowIndex1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f);", rowIndex1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex1));
                 js.setLength(0);
             }
         }
@@ -240,7 +229,7 @@ public class View extends CoreBase {
     private Double rowIndex3;
     private String fieldName3;
 
-    public void setSet(Double rowIndex3, String fieldName3) {
+    public View setSet(Double rowIndex3, String fieldName3) {
         if (jsBase == null) {
             this.rowIndex = null;
             this.rowIndex1 = null;
@@ -258,18 +247,27 @@ public class View extends CoreBase {
             this.rowIndex3 = rowIndex3;
             this.fieldName3 = fieldName3;
 
-            js.append(String.format(Locale.US, jsBase + ".set(%f, %s);", rowIndex3, fieldName3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex3, fieldName3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %s);", rowIndex3, fieldName3));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex3, fieldName3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fieldName4;
 
-    public void setSort(String fieldName4) {
+    public View setSort(String fieldName4) {
         if (jsBase == null) {
             this.fieldName = null;
             this.fieldName1 = null;
@@ -281,19 +279,28 @@ public class View extends CoreBase {
         } else {
             this.fieldName4 = fieldName4;
 
-            js.append(String.format(Locale.US, jsBase + ".sort(%s);", fieldName4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".sort(%s)", fieldName4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sort(%s);", fieldName4));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", fieldName4));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String fieldName5;
     private Sort order;
 
-    public void setSort(String fieldName5, Sort order) {
+    public View setSort(String fieldName5, Sort order) {
         if (jsBase == null) {
             this.fieldName = null;
             this.fieldName1 = null;
@@ -308,66 +315,22 @@ public class View extends CoreBase {
             this.fieldName5 = fieldName5;
             this.order = order;
 
-            js.append(String.format(Locale.US, jsBase + ".sort(%s, %s);", fieldName5, (order != null) ? order.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".sort(%s, %s)", fieldName5, (order != null) ? order.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sort(%s, %s);", fieldName5, (order != null) ? order.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", fieldName5, (order != null) ? order.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSotherView() {
@@ -412,48 +375,6 @@ public class View extends CoreBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
     private String generateJSindex() {
         if (index != null) {
             return String.format(Locale.US, "index: %f,", index);
@@ -478,13 +399,6 @@ public class View extends CoreBase {
     private String generateJSname1() {
         if (name1 != null) {
             return String.format(Locale.US, "name: %s,", name1);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -538,37 +452,24 @@ public class View extends CoreBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
+    
 
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSotherView());
@@ -577,17 +478,10 @@ public class View extends CoreBase {
             js.append(generateJSfieldName1());
             js.append(generateJSrowIndex());
             js.append(generateJSfieldName2());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSindex());
             js.append(generateJSname());
             js.append(generateJSindex1());
             js.append(generateJSname1());
-            js.append(generateJStype2());
             js.append(generateJSrowIndex1());
             js.append(generateJSrowIndex2());
             js.append(generateJSrowIndex3());
@@ -595,12 +489,10 @@ public class View extends CoreBase {
             js.append(generateJSfieldName4());
             js.append(generateJSfieldName5());
             js.append(generateJSorder());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

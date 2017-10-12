@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class QuarterSettings extends CoreBase {
-
-    private String jsBase;
 
     public QuarterSettings() {
 
@@ -14,6 +14,12 @@ public class QuarterSettings extends CoreBase {
 
     protected QuarterSettings(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected QuarterSettings(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -28,19 +34,28 @@ public class QuarterSettings extends CoreBase {
 
     private String leftBottom;
 
-    public void setLeftbottom(String leftBottom) {
+    public QuarterSettings setLeftBottom(String leftBottom) {
         if (jsBase == null) {
             this.leftBottom = leftBottom;
         } else {
             this.leftBottom = leftBottom;
 
-            js.append(String.format(Locale.US, jsBase + ".leftBottom(%s);", leftBottom));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".leftBottom(%s)", leftBottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftBottom(%s);", leftBottom));
+                onChangeListener.onChange(String.format(Locale.US, ".leftBottom(%s)", leftBottom));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Quarter getLeftTop;
@@ -54,19 +69,28 @@ public class QuarterSettings extends CoreBase {
 
     private String leftTop;
 
-    public void setLefttop(String leftTop) {
+    public QuarterSettings setLeftTop(String leftTop) {
         if (jsBase == null) {
             this.leftTop = leftTop;
         } else {
             this.leftTop = leftTop;
 
-            js.append(String.format(Locale.US, jsBase + ".leftTop(%s);", leftTop));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".leftTop(%s)", leftTop));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftTop(%s);", leftTop));
+                onChangeListener.onChange(String.format(Locale.US, ".leftTop(%s)", leftTop));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Quarter getRightBottom;
@@ -80,19 +104,28 @@ public class QuarterSettings extends CoreBase {
 
     private String rightBottom;
 
-    public void setRightbottom(String rightBottom) {
+    public QuarterSettings setRightBottom(String rightBottom) {
         if (jsBase == null) {
             this.rightBottom = rightBottom;
         } else {
             this.rightBottom = rightBottom;
 
-            js.append(String.format(Locale.US, jsBase + ".rightBottom(%s);", rightBottom));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rightBottom(%s)", rightBottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightBottom(%s);", rightBottom));
+                onChangeListener.onChange(String.format(Locale.US, ".rightBottom(%s)", rightBottom));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Quarter getRightTop;
@@ -106,19 +139,28 @@ public class QuarterSettings extends CoreBase {
 
     private String rightTop;
 
-    public void setRighttop(String rightTop) {
+    public QuarterSettings setRightTop(String rightTop) {
         if (jsBase == null) {
             this.rightTop = rightTop;
         } else {
             this.rightTop = rightTop;
 
-            js.append(String.format(Locale.US, jsBase + ".rightTop(%s);", rightTop));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".rightTop(%s)", rightTop));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightTop(%s);", rightTop));
+                onChangeListener.onChange(String.format(Locale.US, ".rightTop(%s)", rightTop));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetLeftBottom() {
@@ -178,8 +220,27 @@ public class QuarterSettings extends CoreBase {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetLeftBottom());
+        jsGetters.append(generateJSgetLeftTop());
+        jsGetters.append(generateJSgetRightBottom());
+        jsGetters.append(generateJSgetRightTop());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSleftBottom());
@@ -188,10 +249,8 @@ public class QuarterSettings extends CoreBase {
             js.append(generateJSrightTop());
             js.append("}");
         }
-            js.append(generateJSgetLeftBottom());
-            js.append(generateJSgetLeftTop());
-            js.append(generateJSgetRightBottom());
-            js.append(generateJSgetRightTop());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

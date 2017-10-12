@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class MMA extends JsObject {
-
-    private String jsBase;
 
     public MMA() {
 
@@ -16,22 +16,37 @@ public class MMA extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected MMA(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double period;
 
-    public void setPeriod(Double period) {
+    public MMA setPeriod(Double period) {
         if (jsBase == null) {
             this.period = period;
         } else {
             this.period = period;
 
-            js.append(String.format(Locale.US, jsBase + ".period(%f);", period));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getSeries;
@@ -46,7 +61,7 @@ public class MMA extends JsObject {
     private StockSeriesType type;
     private String type1;
 
-    public void setSeries(StockSeriesType type) {
+    public MMA setSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -55,17 +70,26 @@ public class MMA extends JsObject {
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setSeries(String type1) {
+    public MMA setSeries(String type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -74,13 +98,22 @@ public class MMA extends JsObject {
         } else {
             this.type1 = type1;
 
-            js.append(String.format(Locale.US, jsBase + ".series(%s);", type1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", type1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", type1));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", type1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetSeries() {
@@ -112,8 +145,24 @@ public class MMA extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSperiod());
@@ -121,7 +170,8 @@ public class MMA extends JsObject {
             js.append(generateJStype1());
             js.append("}");
         }
-            js.append(generateJSgetSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

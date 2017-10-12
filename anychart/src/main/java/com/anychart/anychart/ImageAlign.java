@@ -4,15 +4,15 @@ import java.util.Locale;
 
 public enum ImageAlign implements JsObject.JsObjectInterface {
     NONE("none"),
-    X_MAX_Y_MAX("xMaxYMax"),
-    X_MAX_Y_MID("xMaxYMid"),
-    X_MAX_Y_MIN("xMaxYMin"),
-    X_MID_Y_MAX("xMidYMax"),
-    X_MID_Y_MID("xMidYMid"),
-    X_MID_Y_MIN("xMidYMin"),
-    X_MIN_Y_MAX("xMinYMax"),
-    X_MIN_Y_MID("xMinYMid"),
-    X_MIN_Y_MIN("xMinYMin");
+    X_MAX_Y_MAX("x-max-y-max"),
+    X_MAX_Y_MID("x-max-y-mid"),
+    X_MAX_Y_MIN("x-max-y-min"),
+    X_MID_Y_MAX("x-mid-y-max"),
+    X_MID_Y_MID("x-mid-y-mid"),
+    X_MID_Y_MIN("x-mid-y-min"),
+    X_MIN_Y_MAX("x-min-y-max"),
+    X_MIN_Y_MID("x-min-y-mid"),
+    X_MIN_Y_MIN("x-min-y-min");
 
     private final String value;
 

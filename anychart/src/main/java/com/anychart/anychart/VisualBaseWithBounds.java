@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class VisualBaseWithBounds extends VisualBase {
-
-    private String jsBase;
 
     public VisualBaseWithBounds() {
 
@@ -16,11 +16,17 @@ public class VisualBaseWithBounds extends VisualBase {
         this.jsBase = jsBase;
     }
 
+    protected VisualBaseWithBounds(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double bottom;
     private String bottom1;
 
-    public void setBottom(Double bottom) {
+    public VisualBaseWithBounds setBottom(Double bottom) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -29,17 +35,26 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.bottom = bottom;
 
-            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".bottom(%f)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBottom(String bottom1) {
+    public VisualBaseWithBounds setBottom(String bottom1) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -48,13 +63,22 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.bottom1 = bottom1;
 
-            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".bottom(%s)", bottom1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
+                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", bottom1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Bounds getBounds;
@@ -70,7 +94,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private AnychartMathRect bounds1;
     private Bounds bounds2;
 
-    public void setBounds(RectObj bounds) {
+    public VisualBase setBounds(RectObj bounds) {
         if (jsBase == null) {
             this.bounds = null;
             this.bounds1 = null;
@@ -79,18 +103,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.bounds = bounds;
         } else {
             this.bounds = bounds;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", (bounds != null) ? bounds.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(AnychartMathRect bounds1) {
+    public VisualBase setBounds(AnychartMathRect bounds1) {
         if (jsBase == null) {
             this.bounds = null;
             this.bounds1 = null;
@@ -99,18 +132,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.bounds1 = bounds1;
         } else {
             this.bounds1 = bounds1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", (bounds1 != null) ? bounds1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Bounds bounds2) {
+    public VisualBase setBounds(Bounds bounds2) {
         if (jsBase == null) {
             this.bounds = null;
             this.bounds1 = null;
@@ -120,13 +162,22 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.bounds2 = bounds2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", (bounds2 != null) ? bounds2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
     private Double x;
@@ -138,7 +189,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private Double height;
     private String height1;
 
-    public void setBounds(Double x, Double y, Double width, Double height) {
+    public VisualBase setBounds(Double x, Double y, Double width, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -161,18 +212,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width = width;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f)", x, y, width, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Double x, Double y, Double width, String height1) {
+    public VisualBase setBounds(Double x, Double y, Double width, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -195,18 +255,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width = width;
             this.height1 = height1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s)", x, y, width, height1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Double x, Double y, String width1, Double height) {
+    public VisualBase setBounds(Double x, Double y, String width1, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -229,18 +298,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width1 = width1;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f)", x, y, width1, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Double x, Double y, String width1, String height1) {
+    public VisualBase setBounds(Double x, Double y, String width1, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -263,18 +341,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width1 = width1;
             this.height1 = height1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s)", x, y, width1, height1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Double x, String y1, Double width, Double height) {
+    public VisualBase setBounds(Double x, String y1, Double width, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -297,18 +384,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width = width;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f)", x, y1, width, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Double x, String y1, Double width, String height1) {
+    public VisualBase setBounds(Double x, String y1, Double width, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -331,18 +427,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width = width;
             this.height1 = height1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s)", x, y1, width, height1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Double x, String y1, String width1, Double height) {
+    public VisualBase setBounds(Double x, String y1, String width1, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -365,18 +470,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width1 = width1;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f)", x, y1, width1, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(Double x, String y1, String width1, String height1) {
+    public VisualBase setBounds(Double x, String y1, String width1, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -399,18 +513,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width1 = width1;
             this.height1 = height1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s)", x, y1, width1, height1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, Double y, Double width, Double height) {
+    public VisualBase setBounds(String x1, Double y, Double width, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -433,18 +556,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width = width;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f)", x1, y, width, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, Double y, Double width, String height1) {
+    public VisualBase setBounds(String x1, Double y, Double width, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -467,18 +599,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width = width;
             this.height1 = height1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s)", x1, y, width, height1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, Double y, String width1, Double height) {
+    public VisualBase setBounds(String x1, Double y, String width1, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -501,18 +642,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width1 = width1;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f)", x1, y, width1, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, Double y, String width1, String height1) {
+    public VisualBase setBounds(String x1, Double y, String width1, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -535,18 +685,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width1 = width1;
             this.height1 = height1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s)", x1, y, width1, height1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, String y1, Double width, Double height) {
+    public VisualBase setBounds(String x1, String y1, Double width, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -569,18 +728,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width = width;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f)", x1, y1, width, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, String y1, Double width, String height1) {
+    public VisualBase setBounds(String x1, String y1, Double width, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -603,18 +771,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width = width;
             this.height1 = height1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s)", x1, y1, width, height1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, String y1, String width1, Double height) {
+    public VisualBase setBounds(String x1, String y1, String width1, Double height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -637,18 +814,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width1 = width1;
             this.height = height;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f)", x1, y1, width1, height));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setBounds(String x1, String y1, String width1, String height1) {
+    public VisualBase setBounds(String x1, String y1, String width1, String height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -672,36 +858,28 @@ public class VisualBaseWithBounds extends VisualBase {
             this.width1 = width1;
             this.height1 = height1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s)", x1, y1, width1, height1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return new VisualBase(jsBase);
     }
 
     private Double height2;
     private String height3;
 
-    public void setHeight(Double height2) {
+    public VisualBaseWithBounds setHeight(Double height2) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -712,17 +890,26 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.height2 = height2;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%f)", height2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height2));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setHeight(String height3) {
+    public VisualBaseWithBounds setHeight(String height3) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -733,19 +920,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.height3 = height3;
 
-            js.append(String.format(Locale.US, jsBase + ".height(%s);", height3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".height(%s)", height3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height3));
+                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", height3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double left;
     private String left1;
 
-    public void setLeft(Double left) {
+    public VisualBaseWithBounds setLeft(Double left) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -754,17 +950,26 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.left = left;
 
-            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".left(%f)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLeft(String left1) {
+    public VisualBaseWithBounds setLeft(String left1) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -773,74 +978,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.left1 = left1;
 
-            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".left(%s)", left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
+                onChangeListener.onChange(String.format(Locale.US, ".left(%s)", left1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double maxHeight;
     private String maxHeight1;
 
-    public void setMaxheight(Double maxHeight) {
+    public VisualBase setMaxHeight(Double maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
             this.maxHeight1 = null;
@@ -848,18 +1007,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.maxHeight = maxHeight;
         } else {
             this.maxHeight = maxHeight;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setMaxheight(String maxHeight1) {
+    public VisualBase setMaxHeight(String maxHeight1) {
         if (jsBase == null) {
             this.maxHeight = null;
             this.maxHeight1 = null;
@@ -868,19 +1036,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.maxHeight1 = maxHeight1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s)", maxHeight1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
     private Double maxWidth;
     private String maxWidth1;
 
-    public void setMaxwidth(Double maxWidth) {
+    public VisualBase setMaxWidth(Double maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
             this.maxWidth1 = null;
@@ -888,18 +1065,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.maxWidth = maxWidth;
         } else {
             this.maxWidth = maxWidth;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setMaxwidth(String maxWidth1) {
+    public VisualBase setMaxWidth(String maxWidth1) {
         if (jsBase == null) {
             this.maxWidth = null;
             this.maxWidth1 = null;
@@ -908,19 +1094,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.maxWidth1 = maxWidth1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s)", maxWidth1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
     private Double minHeight;
     private String minHeight1;
 
-    public void setMinheight(Double minHeight) {
+    public VisualBase setMinHeight(Double minHeight) {
         if (jsBase == null) {
             this.minHeight = null;
             this.minHeight1 = null;
@@ -928,18 +1123,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.minHeight = minHeight;
         } else {
             this.minHeight = minHeight;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f)", minHeight));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setMinheight(String minHeight1) {
+    public VisualBase setMinHeight(String minHeight1) {
         if (jsBase == null) {
             this.minHeight = null;
             this.minHeight1 = null;
@@ -948,19 +1152,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.minHeight1 = minHeight1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s)", minHeight1));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
     private Double minWidth;
     private String minWidth1;
 
-    public void setMinwidth(Double minWidth) {
+    public VisualBase setMinWidth(Double minWidth) {
         if (jsBase == null) {
             this.minWidth = null;
             this.minWidth1 = null;
@@ -968,18 +1181,27 @@ public class VisualBaseWithBounds extends VisualBase {
             this.minWidth = minWidth;
         } else {
             this.minWidth = minWidth;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f)", minWidth));
                 js.setLength(0);
             }
         }
+        return new VisualBase(jsBase);
     }
 
 
-    public void setMinwidth(String minWidth1) {
+    public VisualBase setMinWidth(String minWidth1) {
         if (jsBase == null) {
             this.minWidth = null;
             this.minWidth1 = null;
@@ -988,85 +1210,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.minWidth1 = minWidth1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s)", minWidth1));
                 js.setLength(0);
             }
         }
-    }
-
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
-
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
-        if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
-            
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-        } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
-
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return new VisualBase(jsBase);
     }
 
     private Double right;
     private String right1;
 
-    public void setRight(Double right) {
+    public VisualBaseWithBounds setRight(Double right) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -1075,17 +1240,26 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.right = right;
 
-            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".right(%f)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRight(String right1) {
+    public VisualBaseWithBounds setRight(String right1) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -1094,19 +1268,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.right1 = right1;
 
-            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".right(%s)", right1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
+                onChangeListener.onChange(String.format(Locale.US, ".right(%s)", right1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double top;
     private String top1;
 
-    public void setTop(Double top) {
+    public VisualBaseWithBounds setTop(Double top) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -1115,17 +1298,26 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.top = top;
 
-            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".top(%f)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTop(String top1) {
+    public VisualBaseWithBounds setTop(String top1) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -1134,72 +1326,28 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.top1 = top1;
 
-            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".top(%s)", top1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
+                onChangeListener.onChange(String.format(Locale.US, ".top(%s)", top1));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private Double width2;
     private String width3;
 
-    public void setWidth(Double width2) {
+    public VisualBaseWithBounds setWidth(Double width2) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1210,17 +1358,26 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.width2 = width2;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%f)", width2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(String width3) {
+    public VisualBaseWithBounds setWidth(String width3) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1231,30 +1388,22 @@ public class VisualBaseWithBounds extends VisualBase {
         } else {
             this.width3 = width3;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%s)", width3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width3));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width3));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double zIndex;
-
-    public void setZindex(Double zIndex) {
-        if (jsBase == null) {
-            this.zIndex = zIndex;
-        } else {
-            this.zIndex = zIndex;
-
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String generateJSgetBounds() {
@@ -1355,13 +1504,6 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
-
     private String generateJSheight2() {
         if (height2 != null) {
             return String.format(Locale.US, "height: %f,", height2);
@@ -1386,48 +1528,6 @@ public class VisualBaseWithBounds extends VisualBase {
     private String generateJSleft1() {
         if (left1 != null) {
             return String.format(Locale.US, "left: %s,", left1);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -1488,34 +1588,6 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
-        }
-        return "";
-    }
-
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJSright() {
         if (right != null) {
             return String.format(Locale.US, "right: %f,", right);
@@ -1544,34 +1616,6 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
     private String generateJSwidth2() {
         if (width2 != null) {
             return String.format(Locale.US, "width: %f,", width2);
@@ -1586,16 +1630,25 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
-        }
-        return "";
-    }
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetBounds());
+
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSbottom());
@@ -1611,17 +1664,10 @@ public class VisualBaseWithBounds extends VisualBase {
             js.append(generateJSwidth1());
             js.append(generateJSheight());
             js.append(generateJSheight1());
-            js.append(generateJSenabled());
             js.append(generateJSheight2());
             js.append(generateJSheight3());
             js.append(generateJSleft());
             js.append(generateJSleft1());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSmaxHeight());
             js.append(generateJSmaxHeight1());
             js.append(generateJSmaxWidth());
@@ -1630,24 +1676,16 @@ public class VisualBaseWithBounds extends VisualBase {
             js.append(generateJSminHeight1());
             js.append(generateJSminWidth());
             js.append(generateJSminWidth1());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
-            js.append(generateJStype2());
             js.append(generateJSright());
             js.append(generateJSright1());
             js.append(generateJStop());
             js.append(generateJStop1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append(generateJSwidth2());
             js.append(generateJSwidth3());
-            js.append(generateJSzIndex());
             js.append("}");
         }
-            js.append(generateJSgetBounds());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

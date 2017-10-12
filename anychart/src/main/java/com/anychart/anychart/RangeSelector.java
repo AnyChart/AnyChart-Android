@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class RangeSelector extends JsObject {
-
-    private String jsBase;
 
     public RangeSelector() {
 
@@ -14,6 +14,12 @@ public class RangeSelector extends JsObject {
 
     protected RangeSelector(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected RangeSelector(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -25,10 +31,18 @@ public class RangeSelector extends JsObject {
         } else {
             this.decorate = decorate;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".decorate(%s);", (decorate != null) ? decorate.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s);", (decorate != null) ? decorate.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s)", (decorate != null) ? decorate.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -42,10 +56,18 @@ public class RangeSelector extends JsObject {
         } else {
             this.ranges = ranges;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".ranges(%s);", arrayToString(ranges)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ranges(%s);", arrayToString(ranges)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ranges(%s)", arrayToString(ranges)));
                 js.setLength(0);
             }
         }
@@ -63,10 +85,18 @@ public class RangeSelector extends JsObject {
         } else {
             this.parentElement = parentElement;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".render(%s);", (parentElement != null) ? parentElement.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s);", (parentElement != null) ? parentElement.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", (parentElement != null) ? parentElement.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -82,10 +112,18 @@ public class RangeSelector extends JsObject {
         } else {
             this.parentElement1 = parentElement1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".render(%s);", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s);", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s)", (parentElement1 != null) ? parentElement1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -99,10 +137,18 @@ public class RangeSelector extends JsObject {
         } else {
             this.chart = chart;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".target(%s);", (chart != null) ? chart.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s);", (chart != null) ? chart.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s)", (chart != null) ? chart.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -110,19 +156,28 @@ public class RangeSelector extends JsObject {
 
     private String zoomLabelText;
 
-    public void setZoomlabeltext(String zoomLabelText) {
+    public RangeSelector setZoomLabelText(String zoomLabelText) {
         if (jsBase == null) {
             this.zoomLabelText = zoomLabelText;
         } else {
             this.zoomLabelText = zoomLabelText;
 
-            js.append(String.format(Locale.US, jsBase + ".zoomLabelText(%s);", zoomLabelText));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".zoomLabelText(%s)", zoomLabelText));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomLabelText(%s);", zoomLabelText));
+                onChangeListener.onChange(String.format(Locale.US, ".zoomLabelText(%s)", zoomLabelText));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSdecorate() {
@@ -168,8 +223,23 @@ public class RangeSelector extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdecorate());
@@ -180,6 +250,8 @@ public class RangeSelector extends JsObject {
             js.append(generateJSzoomLabelText());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

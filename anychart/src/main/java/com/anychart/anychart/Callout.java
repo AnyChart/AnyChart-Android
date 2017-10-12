@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Callout extends VisualBase {
-
-    private String jsBase;
 
     public Callout() {
 
@@ -16,11 +16,17 @@ public class Callout extends VisualBase {
         this.jsBase = jsBase;
     }
 
+    protected Callout(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private EnumsAlign align;
     private String align1;
 
-    public void setAlign(EnumsAlign align) {
+    public Callout setAlign(EnumsAlign align) {
         if (jsBase == null) {
             this.align = null;
             this.align1 = null;
@@ -29,17 +35,26 @@ public class Callout extends VisualBase {
         } else {
             this.align = align;
 
-            js.append(String.format(Locale.US, jsBase + ".align(%s);", (align != null) ? align.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".align(%s);", (align != null) ? align.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", (align != null) ? align.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAlign(String align1) {
+    public Callout setAlign(String align1) {
         if (jsBase == null) {
             this.align = null;
             this.align1 = null;
@@ -48,13 +63,22 @@ public class Callout extends VisualBase {
         } else {
             this.align1 = align1;
 
-            js.append(String.format(Locale.US, jsBase + ".align(%s);", align1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".align(%s)", align1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".align(%s);", align1));
+                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", align1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UiBackground getBackground;
@@ -70,7 +94,7 @@ public class Callout extends VisualBase {
     private String background1;
     private Boolean background2;
 
-    public void setBackground(String background) {
+    public Callout setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -80,17 +104,26 @@ public class Callout extends VisualBase {
         } else {
             this.background = background;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%s);", background));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%s)", background));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBackground(Boolean background2) {
+    public Callout setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -100,79 +133,83 @@ public class Callout extends VisualBase {
         } else {
             this.background2 = background2;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%b);", background2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private UiLabelsFactory getHoverLabels;
+    private StateSettings getHovered;
 
-    public UiLabelsFactory getHoverLabels() {
-        if (getHoverLabels == null)
-            getHoverLabels = new UiLabelsFactory(jsBase + ".hoverLabels()");
+    public StateSettings getHovered() {
+        if (getHovered == null)
+            getHovered = new StateSettings(jsBase + ".hovered()");
 
-        return getHoverLabels;
+        return getHovered;
     }
 
-    private String hoverLabels;
-    private Boolean hoverLabels1;
+    private String hovered;
 
-    public void setHoverlabels(String hoverLabels) {
+    public Callout setHovered(String hovered) {
         if (jsBase == null) {
-            this.hoverLabels = null;
-            this.hoverLabels1 = null;
-            
-            this.hoverLabels = hoverLabels;
+            this.hovered = hovered;
         } else {
-            this.hoverLabels = hoverLabels;
+            this.hovered = hovered;
 
-            js.append(String.format(Locale.US, jsBase + ".hoverLabels(%s);", hoverLabels));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".hovered(%s)", hovered));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverLabels(%s);", hoverLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", hovered));
                 js.setLength(0);
             }
         }
-    }
-
-
-    public void setHoverlabels(Boolean hoverLabels1) {
-        if (jsBase == null) {
-            this.hoverLabels = null;
-            this.hoverLabels1 = null;
-            
-            this.hoverLabels1 = hoverLabels1;
-        } else {
-            this.hoverLabels1 = hoverLabels1;
-
-            js.append(String.format(Locale.US, jsBase + ".hoverLabels(%b);", hoverLabels1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverLabels(%b);", hoverLabels1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private String[] items;
 
-    public void setItems(String[] items) {
+    public Callout setItems(String[] items) {
         if (jsBase == null) {
             this.items = items;
         } else {
             this.items = items;
 
-            js.append(String.format(Locale.US, jsBase + ".items(%s);", Arrays.toString(items)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".items(%s)", Arrays.toString(items)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s);", Arrays.toString(items)));
+                onChangeListener.onChange(String.format(Locale.US, ".items(%s)", Arrays.toString(items)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UiLabelsFactory getLabels;
@@ -187,7 +224,7 @@ public class Callout extends VisualBase {
     private String labels;
     private Boolean labels1;
 
-    public void setLabels(String labels) {
+    public Callout setLabels(String labels) {
         if (jsBase == null) {
             this.labels = null;
             this.labels1 = null;
@@ -196,17 +233,26 @@ public class Callout extends VisualBase {
         } else {
             this.labels = labels;
 
-            js.append(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".labels(%s)", labels));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", labels));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", labels));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLabels(Boolean labels1) {
+    public Callout setLabels(Boolean labels1) {
         if (jsBase == null) {
             this.labels = null;
             this.labels1 = null;
@@ -215,19 +261,28 @@ public class Callout extends VisualBase {
         } else {
             this.labels1 = labels1;
 
-            js.append(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+                onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String length;
     private Double length1;
 
-    public void setLength(String length) {
+    public Callout setLength(String length) {
         if (jsBase == null) {
             this.length = null;
             this.length1 = null;
@@ -236,17 +291,26 @@ public class Callout extends VisualBase {
         } else {
             this.length = length;
 
-            js.append(String.format(Locale.US, jsBase + ".length(%s);", length));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".length(%s)", length));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%s);", length));
+                onChangeListener.onChange(String.format(Locale.US, ".length(%s)", length));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLength(Double length1) {
+    public Callout setLength(Double length1) {
         if (jsBase == null) {
             this.length = null;
             this.length1 = null;
@@ -255,13 +319,22 @@ public class Callout extends VisualBase {
         } else {
             this.length1 = length1;
 
-            js.append(String.format(Locale.US, jsBase + ".length(%f);", length1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".length(%f)", length1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%f);", length1));
+                onChangeListener.onChange(String.format(Locale.US, ".length(%f)", length1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Margin getMargin;
@@ -277,7 +350,7 @@ public class Callout extends VisualBase {
     private String[] margin1;
     private String margin2;
 
-    public void setMargin(Double[] margin) {
+    public Callout setMargin(Double[] margin) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -287,17 +360,26 @@ public class Callout extends VisualBase {
         } else {
             this.margin = margin;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String[] margin1) {
+    public Callout setMargin(String[] margin1) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -307,17 +389,26 @@ public class Callout extends VisualBase {
         } else {
             this.margin1 = margin1;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin1)));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String margin2) {
+    public Callout setMargin(String margin2) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -327,13 +418,22 @@ public class Callout extends VisualBase {
         } else {
             this.margin2 = margin2;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s);", margin2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s)", margin2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", margin2));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String value;
@@ -345,7 +445,7 @@ public class Callout extends VisualBase {
     private String value6;
     private Double value7;
 
-    public void setMargin(String value, String value2, String value4, String value6) {
+    public Callout setMargin(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -393,17 +493,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", value, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", value, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String value, String value2, String value4, Double value7) {
+    public Callout setMargin(String value, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -451,17 +560,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", value, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", value, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %f);", value, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", value, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String value, String value2, Double value5, String value6) {
+    public Callout setMargin(String value, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -509,17 +627,26 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", value, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", value, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %s);", value, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", value, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String value, String value2, Double value5, Double value7) {
+    public Callout setMargin(String value, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -567,17 +694,26 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", value, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", value, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %f, %f);", value, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", value, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String value, Double value3, String value4, String value6) {
+    public Callout setMargin(String value, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -625,17 +761,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", value, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", value, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %s);", value, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", value, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String value, Double value3, String value4, Double value7) {
+    public Callout setMargin(String value, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -683,17 +828,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", value, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", value, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %s, %f);", value, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", value, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String value, Double value3, Double value5, String value6) {
+    public Callout setMargin(String value, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -741,17 +895,26 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", value, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", value, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %s);", value, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", value, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(String value, Double value3, Double value5, Double value7) {
+    public Callout setMargin(String value, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -799,17 +962,26 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", value, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", value, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %f, %f, %f);", value, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", value, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, String value2, String value4, String value6) {
+    public Callout setMargin(Double value1, String value2, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -857,17 +1029,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %s);", value1, value2, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %s)", value1, value2, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %s);", value1, value2, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %s)", value1, value2, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, String value2, String value4, Double value7) {
+    public Callout setMargin(Double value1, String value2, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -915,17 +1096,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %f);", value1, value2, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %f)", value1, value2, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %s, %f);", value1, value2, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %f)", value1, value2, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, String value2, Double value5, String value6) {
+    public Callout setMargin(Double value1, String value2, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -973,17 +1163,26 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s);", value1, value2, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %s)", value1, value2, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %s);", value1, value2, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %s)", value1, value2, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, String value2, Double value5, Double value7) {
+    public Callout setMargin(Double value1, String value2, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1031,17 +1230,26 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %f);", value1, value2, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %f)", value1, value2, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %s, %f, %f);", value1, value2, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %f)", value1, value2, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, Double value3, String value4, String value6) {
+    public Callout setMargin(Double value1, Double value3, String value4, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1089,17 +1297,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %s);", value1, value3, value4, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %s)", value1, value3, value4, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %s);", value1, value3, value4, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %s)", value1, value3, value4, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, Double value3, String value4, Double value7) {
+    public Callout setMargin(Double value1, Double value3, String value4, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1147,17 +1364,26 @@ public class Callout extends VisualBase {
             this.value4 = value4;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %f);", value1, value3, value4, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %f)", value1, value3, value4, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %s, %f);", value1, value3, value4, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %f)", value1, value3, value4, value7));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, Double value3, Double value5, String value6) {
+    public Callout setMargin(Double value1, Double value3, Double value5, String value6) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1205,17 +1431,26 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value6 = value6;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %s);", value1, value3, value5, value6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %s)", value1, value3, value5, value6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %s);", value1, value3, value5, value6));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %s)", value1, value3, value5, value6));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMargin(Double value1, Double value3, Double value5, Double value7) {
+    public Callout setMargin(Double value1, Double value3, Double value5, Double value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1263,19 +1498,63 @@ public class Callout extends VisualBase {
             this.value5 = value5;
             this.value7 = value7;
 
-            js.append(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+    private StateSettings getNormal;
+
+    public StateSettings getNormal() {
+        if (getNormal == null)
+            getNormal = new StateSettings(jsBase + ".normal()");
+
+        return getNormal;
+    }
+
+    private String normal;
+
+    public Callout setNormal(String normal) {
+        if (jsBase == null) {
+            this.normal = normal;
+        } else {
+            this.normal = normal;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".normal(%s)", normal));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", normal));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private String orientation;
     private Orientation orientation1;
 
-    public void setOrientation(String orientation) {
+    public Callout setOrientation(String orientation) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -1284,17 +1563,26 @@ public class Callout extends VisualBase {
         } else {
             this.orientation = orientation;
 
-            js.append(String.format(Locale.US, jsBase + ".orientation(%s);", orientation));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".orientation(%s)", orientation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", orientation));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setOrientation(Orientation orientation1) {
+    public Callout setOrientation(Orientation orientation1) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -1303,13 +1591,22 @@ public class Callout extends VisualBase {
         } else {
             this.orientation1 = orientation1;
 
-            js.append(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation1 != null) ? orientation1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".orientation(%s)", (orientation1 != null) ? orientation1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation1 != null) ? orientation1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation1 != null) ? orientation1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private UtilsPadding getPadding;
@@ -1325,7 +1622,7 @@ public class Callout extends VisualBase {
     private String[] padding1;
     private String padding2;
 
-    public void setPadding(Double[] padding) {
+    public Callout setPadding(Double[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -1335,17 +1632,26 @@ public class Callout extends VisualBase {
         } else {
             this.padding = padding;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String[] padding1) {
+    public Callout setPadding(String[] padding1) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -1355,17 +1661,26 @@ public class Callout extends VisualBase {
         } else {
             this.padding1 = padding1;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String padding2) {
+    public Callout setPadding(String padding2) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -1375,13 +1690,22 @@ public class Callout extends VisualBase {
         } else {
             this.padding2 = padding2;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String value8;
@@ -1393,7 +1717,7 @@ public class Callout extends VisualBase {
     private String value14;
     private Double value15;
 
-    public void setPadding(String value8, String value10, String value12, String value14) {
+    public Callout setPadding(String value8, String value10, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1473,17 +1797,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value8, value10, value12, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value8, value10, value12, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value8, String value10, String value12, Double value15) {
+    public Callout setPadding(String value8, String value10, String value12, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1563,17 +1896,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value8, value10, value12, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value8, value10, value12, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %f);", value8, value10, value12, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value8, value10, value12, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value8, String value10, Double value13, String value14) {
+    public Callout setPadding(String value8, String value10, Double value13, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1653,17 +1995,26 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value8, value10, value13, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value8, value10, value13, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %s);", value8, value10, value13, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value8, value10, value13, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value8, String value10, Double value13, Double value15) {
+    public Callout setPadding(String value8, String value10, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1743,17 +2094,26 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value8, value10, value13, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value8, value10, value13, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %f, %f);", value8, value10, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value8, value10, value13, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value8, Double value11, String value12, String value14) {
+    public Callout setPadding(String value8, Double value11, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1833,17 +2193,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value8, value11, value12, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value8, value11, value12, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %s);", value8, value11, value12, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value8, value11, value12, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value8, Double value11, String value12, Double value15) {
+    public Callout setPadding(String value8, Double value11, String value12, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1923,17 +2292,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value8, value11, value12, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value8, value11, value12, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %s, %f);", value8, value11, value12, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value8, value11, value12, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value8, Double value11, Double value13, String value14) {
+    public Callout setPadding(String value8, Double value11, Double value13, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2013,17 +2391,26 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value8, value11, value13, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value8, value11, value13, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %s);", value8, value11, value13, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value8, value11, value13, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(String value8, Double value11, Double value13, Double value15) {
+    public Callout setPadding(String value8, Double value11, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2103,17 +2490,26 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value8, value11, value13, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value8, value11, value13, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %f, %f, %f);", value8, value11, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value8, value11, value13, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, String value10, String value12, String value14) {
+    public Callout setPadding(Double value9, String value10, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2193,17 +2589,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value9, value10, value12, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value9, value10, value12, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %s);", value9, value10, value12, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value9, value10, value12, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, String value10, String value12, Double value15) {
+    public Callout setPadding(Double value9, String value10, String value12, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2283,17 +2688,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value9, value10, value12, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value9, value10, value12, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %s, %f);", value9, value10, value12, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value9, value10, value12, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, String value10, Double value13, String value14) {
+    public Callout setPadding(Double value9, String value10, Double value13, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2373,17 +2787,26 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value9, value10, value13, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value9, value10, value13, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %s);", value9, value10, value13, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value9, value10, value13, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, String value10, Double value13, Double value15) {
+    public Callout setPadding(Double value9, String value10, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2463,17 +2886,26 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value9, value10, value13, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value9, value10, value13, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %s, %f, %f);", value9, value10, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value9, value10, value13, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, Double value11, String value12, String value14) {
+    public Callout setPadding(Double value9, Double value11, String value12, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2553,17 +2985,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value9, value11, value12, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value9, value11, value12, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %s);", value9, value11, value12, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value9, value11, value12, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, Double value11, String value12, Double value15) {
+    public Callout setPadding(Double value9, Double value11, String value12, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2643,17 +3084,26 @@ public class Callout extends VisualBase {
             this.value12 = value12;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value9, value11, value12, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value9, value11, value12, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %s, %f);", value9, value11, value12, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value9, value11, value12, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, Double value11, Double value13, String value14) {
+    public Callout setPadding(Double value9, Double value11, Double value13, String value14) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2733,17 +3183,26 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value14 = value14;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value9, value11, value13, value14));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value9, value11, value13, value14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %s);", value9, value11, value13, value14));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value9, value11, value13, value14));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPadding(Double value9, Double value11, Double value13, Double value15) {
+    public Callout setPadding(Double value9, Double value11, Double value13, Double value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -2823,62 +3282,57 @@ public class Callout extends VisualBase {
             this.value13 = value13;
             this.value15 = value15;
 
-            js.append(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private UiLabelsFactory getSelectLabels;
+    private StateSettings getSelected;
 
-    public UiLabelsFactory getSelectLabels() {
-        if (getSelectLabels == null)
-            getSelectLabels = new UiLabelsFactory(jsBase + ".selectLabels()");
+    public StateSettings getSelected() {
+        if (getSelected == null)
+            getSelected = new StateSettings(jsBase + ".selected()");
 
-        return getSelectLabels;
+        return getSelected;
     }
 
-    private String selectLabels;
-    private Boolean selectLabels1;
+    private String selected;
 
-    public void setSelectlabels(String selectLabels) {
+    public Callout setSelected(String selected) {
         if (jsBase == null) {
-            this.selectLabels = null;
-            this.selectLabels1 = null;
-            
-            this.selectLabels = selectLabels;
+            this.selected = selected;
         } else {
-            this.selectLabels = selectLabels;
+            this.selected = selected;
 
-            js.append(String.format(Locale.US, jsBase + ".selectLabels(%s);", selectLabels));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selected(%s)", selected));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectLabels(%s);", selectLabels));
+                onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", selected));
                 js.setLength(0);
             }
         }
-    }
-
-
-    public void setSelectlabels(Boolean selectLabels1) {
-        if (jsBase == null) {
-            this.selectLabels = null;
-            this.selectLabels1 = null;
-            
-            this.selectLabels1 = selectLabels1;
-        } else {
-            this.selectLabels1 = selectLabels1;
-
-            js.append(String.format(Locale.US, jsBase + ".selectLabels(%b);", selectLabels1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectLabels(%b);", selectLabels1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private UiTitle getTitle;
@@ -2894,7 +3348,7 @@ public class Callout extends VisualBase {
     private String title1;
     private String title2;
 
-    public void setTitle(Boolean title) {
+    public Callout setTitle(Boolean title) {
         if (jsBase == null) {
             this.title = null;
             this.title1 = null;
@@ -2904,17 +3358,26 @@ public class Callout extends VisualBase {
         } else {
             this.title = title;
 
-            js.append(String.format(Locale.US, jsBase + ".title(%b);", title));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%b);", title));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setTitle(String title1) {
+    public Callout setTitle(String title1) {
         if (jsBase == null) {
             this.title = null;
             this.title1 = null;
@@ -2924,19 +3387,28 @@ public class Callout extends VisualBase {
         } else {
             this.title1 = title1;
 
-            js.append(String.format(Locale.US, jsBase + ".title(%s);", title1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".title(%s)", title1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", title1));
+                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", title1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double width;
     private String width1;
 
-    public void setWidth(Double width) {
+    public Callout setWidth(Double width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2945,17 +3417,26 @@ public class Callout extends VisualBase {
         } else {
             this.width = width;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setWidth(String width1) {
+    public Callout setWidth(String width1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2964,13 +3445,22 @@ public class Callout extends VisualBase {
         } else {
             this.width1 = width1;
 
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".width(%s)", width1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width1));
+                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", width1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetBackground() {
@@ -2980,9 +3470,9 @@ public class Callout extends VisualBase {
         return "";
     }
 
-    private String generateJSgetHoverLabels() {
-        if (getHoverLabels != null) {
-            return getHoverLabels.generateJs();
+    private String generateJSgetHovered() {
+        if (getHovered != null) {
+            return getHovered.generateJs();
         }
         return "";
     }
@@ -3001,6 +3491,13 @@ public class Callout extends VisualBase {
         return "";
     }
 
+    private String generateJSgetNormal() {
+        if (getNormal != null) {
+            return getNormal.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetPadding() {
         if (getPadding != null) {
             return getPadding.generateJs();
@@ -3008,9 +3505,9 @@ public class Callout extends VisualBase {
         return "";
     }
 
-    private String generateJSgetSelectLabels() {
-        if (getSelectLabels != null) {
-            return getSelectLabels.generateJs();
+    private String generateJSgetSelected() {
+        if (getSelected != null) {
+            return getSelected.generateJs();
         }
         return "";
     }
@@ -3057,16 +3554,9 @@ public class Callout extends VisualBase {
         return "";
     }
 
-    private String generateJShoverLabels() {
-        if (hoverLabels != null) {
-            return String.format(Locale.US, "hoverLabels: %s,", hoverLabels);
-        }
-        return "";
-    }
-
-    private String generateJShoverLabels1() {
-        if (hoverLabels1 != null) {
-            return String.format(Locale.US, "hoverLabels: %b,", hoverLabels1);
+    private String generateJShovered() {
+        if (hovered != null) {
+            return String.format(Locale.US, "hovered: %s,", hovered);
         }
         return "";
     }
@@ -3183,6 +3673,13 @@ public class Callout extends VisualBase {
         return "";
     }
 
+    private String generateJSnormal() {
+        if (normal != null) {
+            return String.format(Locale.US, "normal: %s,", normal);
+        }
+        return "";
+    }
+
     private String generateJSorientation() {
         if (orientation != null) {
             return String.format(Locale.US, "orientation: %s,", orientation);
@@ -3274,16 +3771,9 @@ public class Callout extends VisualBase {
         return "";
     }
 
-    private String generateJSselectLabels() {
-        if (selectLabels != null) {
-            return String.format(Locale.US, "selectLabels: %s,", selectLabels);
-        }
-        return "";
-    }
-
-    private String generateJSselectLabels1() {
-        if (selectLabels1 != null) {
-            return String.format(Locale.US, "selectLabels: %b,", selectLabels1);
+    private String generateJSselected() {
+        if (selected != null) {
+            return String.format(Locale.US, "selected: %s,", selected);
         }
         return "";
     }
@@ -3324,8 +3814,31 @@ public class Callout extends VisualBase {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetBackground());
+        jsGetters.append(generateJSgetHovered());
+        jsGetters.append(generateJSgetLabels());
+        jsGetters.append(generateJSgetMargin());
+        jsGetters.append(generateJSgetNormal());
+        jsGetters.append(generateJSgetPadding());
+        jsGetters.append(generateJSgetSelected());
+        jsGetters.append(generateJSgetTitle());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSalign());
@@ -3333,8 +3846,7 @@ public class Callout extends VisualBase {
             js.append(generateJSbackground());
             js.append(generateJSbackground1());
             js.append(generateJSbackground2());
-            js.append(generateJShoverLabels());
-            js.append(generateJShoverLabels1());
+            js.append(generateJShovered());
             js.append(generateJSitems());
             js.append(generateJSlabels());
             js.append(generateJSlabels1());
@@ -3351,6 +3863,7 @@ public class Callout extends VisualBase {
             js.append(generateJSvalue5());
             js.append(generateJSvalue6());
             js.append(generateJSvalue7());
+            js.append(generateJSnormal());
             js.append(generateJSorientation());
             js.append(generateJSorientation1());
             js.append(generateJSpadding());
@@ -3364,8 +3877,7 @@ public class Callout extends VisualBase {
             js.append(generateJSvalue13());
             js.append(generateJSvalue14());
             js.append(generateJSvalue15());
-            js.append(generateJSselectLabels());
-            js.append(generateJSselectLabels1());
+            js.append(generateJSselected());
             js.append(generateJStitle());
             js.append(generateJStitle1());
             js.append(generateJStitle2());
@@ -3373,13 +3885,8 @@ public class Callout extends VisualBase {
             js.append(generateJSwidth1());
             js.append("}");
         }
-            js.append(generateJSgetBackground());
-            js.append(generateJSgetHoverLabels());
-            js.append(generateJSgetLabels());
-            js.append(generateJSgetMargin());
-            js.append(generateJSgetPadding());
-            js.append(generateJSgetSelectLabels());
-            js.append(generateJSgetTitle());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

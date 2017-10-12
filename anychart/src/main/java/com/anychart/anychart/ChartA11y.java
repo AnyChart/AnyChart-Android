@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class ChartA11y extends A11y {
-
-    private String jsBase;
 
     public ChartA11y() {
 
@@ -16,28 +16,43 @@ public class ChartA11y extends A11y {
         this.jsBase = jsBase;
     }
 
+    protected ChartA11y(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Boolean enabled;
 
-    public void setEnabled(Boolean enabled) {
+    public ChartA11y setEnabled(Boolean enabled) {
         if (jsBase == null) {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
 
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
+                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private A11yMode mode;
     private String mode1;
 
-    public void setMode(A11yMode mode) {
+    public ChartA11y setMode(A11yMode mode) {
         if (jsBase == null) {
             this.mode = null;
             this.mode1 = null;
@@ -46,17 +61,26 @@ public class ChartA11y extends A11y {
         } else {
             this.mode = mode;
 
-            js.append(String.format(Locale.US, jsBase + ".mode(%s);", (mode != null) ? mode.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", (mode != null) ? mode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMode(String mode1) {
+    public ChartA11y setMode(String mode1) {
         if (jsBase == null) {
             this.mode = null;
             this.mode1 = null;
@@ -65,30 +89,48 @@ public class ChartA11y extends A11y {
         } else {
             this.mode1 = mode1;
 
-            js.append(String.format(Locale.US, jsBase + ".mode(%s);", mode1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".mode(%s)", mode1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", mode1));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", mode1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String titleFormat;
 
-    public void setTitleformat(String titleFormat) {
+    public ChartA11y setTitleFormat(String titleFormat) {
         if (jsBase == null) {
             this.titleFormat = titleFormat;
         } else {
             this.titleFormat = titleFormat;
 
-            js.append(String.format(Locale.US, jsBase + ".titleFormat(%s);", titleFormat));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".titleFormat(%s);", titleFormat));
+                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", titleFormat));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSenabled() {
@@ -120,8 +162,23 @@ public class ChartA11y extends A11y {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSenabled());
@@ -130,6 +187,8 @@ public class ChartA11y extends A11y {
             js.append(generateJStitleFormat());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

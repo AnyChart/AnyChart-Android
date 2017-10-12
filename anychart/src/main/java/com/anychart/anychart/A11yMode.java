@@ -3,8 +3,8 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum A11yMode implements JsObject.JsObjectInterface {
-    CHART_ELEMENTS("chartElements"),
-    DATA_TABLE("dataTable");
+    CHART_ELEMENTS("chart-elements"),
+    DATA_TABLE("data-table");
 
     private final String value;
 

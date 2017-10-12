@@ -5,14 +5,14 @@ import java.util.Locale;
 public enum VectorAnchor implements JsObject.JsObjectInterface {
     AUTO("auto"),
     CENTER("center"),
-    CENTER_BOTTOM("centerBottom"),
-    CENTER_TOP("centerTop"),
-    LEFT_BOTTOM("leftBottom"),
-    LEFT_CENTER("leftCenter"),
-    LEFT_TOP("leftTop"),
-    RIGHT_BOTTOM("rightBottom"),
-    RIGHT_CENTER("rightCenter"),
-    RIGHT_TOP("rightTop");
+    CENTER_BOTTOM("center-bottom"),
+    CENTER_TOP("center-top"),
+    LEFT_BOTTOM("left-bottom"),
+    LEFT_CENTER("left-center"),
+    LEFT_TOP("left-top"),
+    RIGHT_BOTTOM("right-bottom"),
+    RIGHT_CENTER("right-center"),
+    RIGHT_TOP("right-top");
 
     private final String value;
 

@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class CHO extends JsObject {
-
-    private String jsBase;
 
     public CHO() {
 
@@ -16,28 +16,43 @@ public class CHO extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected CHO(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private Double fastPeriod;
 
-    public void setFastperiod(Double fastPeriod) {
+    public CHO setFastPeriod(Double fastPeriod) {
         if (jsBase == null) {
             this.fastPeriod = fastPeriod;
         } else {
             this.fastPeriod = fastPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private MovingAverageType maType;
     private String maType1;
 
-    public void setMatype(MovingAverageType maType) {
+    public CHO setMaType(MovingAverageType maType) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
@@ -46,17 +61,26 @@ public class CHO extends JsObject {
         } else {
             this.maType = maType;
 
-            js.append(String.format(Locale.US, jsBase + ".maType(%s);", (maType != null) ? maType.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maType(%s)", (maType != null) ? maType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maType(%s);", (maType != null) ? maType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", (maType != null) ? maType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMatype(String maType1) {
+    public CHO setMaType(String maType1) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
@@ -65,13 +89,22 @@ public class CHO extends JsObject {
         } else {
             this.maType1 = maType1;
 
-            js.append(String.format(Locale.US, jsBase + ".maType(%s);", maType1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maType(%s)", maType1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maType(%s);", maType1));
+                onChangeListener.onChange(String.format(Locale.US, ".maType(%s)", maType1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private StockSeriesBase getSeries;
@@ -85,36 +118,54 @@ public class CHO extends JsObject {
 
     private StockSeriesType type;
 
-    public void setSeries(StockSeriesType type) {
+    public CHO setSeries(StockSeriesType type) {
         if (jsBase == null) {
             this.type = type;
         } else {
             this.type = type;
 
-            js.append(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double slowPeriod;
 
-    public void setSlowperiod(Double slowPeriod) {
+    public CHO setSlowPeriod(Double slowPeriod) {
         if (jsBase == null) {
             this.slowPeriod = slowPeriod;
         } else {
             this.slowPeriod = slowPeriod;
 
-            js.append(String.format(Locale.US, jsBase + ".slowPeriod(%f);", slowPeriod));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".slowPeriod(%f);", slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetSeries() {
@@ -160,8 +211,24 @@ public class CHO extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetSeries());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSfastPeriod());
@@ -171,7 +238,8 @@ public class CHO extends JsObject {
             js.append(generateJSslowPeriod());
             js.append("}");
         }
-            js.append(generateJSgetSeries());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

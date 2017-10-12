@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class CycledQueue extends JsObject {
-
-    private String jsBase;
 
     public CycledQueue() {
 
@@ -14,6 +14,12 @@ public class CycledQueue extends JsObject {
 
     protected CycledQueue(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected CycledQueue(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -25,10 +31,18 @@ public class CycledQueue extends JsObject {
         } else {
             this.newLengthLimit = newLengthLimit;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".clear(%f);", newLengthLimit));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clear(%f);", newLengthLimit));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clear(%f)", newLengthLimit));
                 js.setLength(0);
             }
         }
@@ -42,10 +56,18 @@ public class CycledQueue extends JsObject {
         } else {
             this.index = index;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".get(%f);", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f)", index));
                 js.setLength(0);
             }
         }
@@ -66,14 +88,31 @@ public class CycledQueue extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSnewLengthLimit());
             js.append(generateJSindex());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

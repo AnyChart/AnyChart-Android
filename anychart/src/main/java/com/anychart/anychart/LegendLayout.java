@@ -4,9 +4,9 @@ import java.util.Locale;
 
 public enum LegendLayout implements JsObject.JsObjectInterface {
     HORIZONTAL("horizontal"),
-    HORIZONTAL_EXPANDABLE("horizontalExpandable"),
+    HORIZONTAL_EXPANDABLE("horizontal-expandable"),
     VERTICAL("vertical"),
-    VERTICAL_EXPANDABLE("verticalExpandable");
+    VERTICAL_EXPANDABLE("vertical-expandable");
 
     private final String value;
 

@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Plot extends VisualBaseWithBounds {
-
-    private String jsBase;
 
     public Plot() {
 
@@ -16,19 +16,33 @@ public class Plot extends VisualBaseWithBounds {
         this.jsBase = jsBase;
     }
 
+    protected Plot(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private TableMapping var_args;
 
-    public void setAddseries(TableMapping var_args) {
+    public void setAddSeries(TableMapping var_args) {
         if (jsBase == null) {
             this.var_args = var_args;
         } else {
             this.var_args = var_args;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", (var_args != null) ? var_args.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", (var_args != null) ? var_args.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -37,7 +51,7 @@ public class Plot extends VisualBaseWithBounds {
     private TableMapping mapping;
     private StockSeriesType seriesType;
 
-    public void setAdl(TableMapping mapping, StockSeriesType seriesType) {
+    public ADL setAdl(TableMapping mapping, StockSeriesType seriesType) {
         if (jsBase == null) {
             this.mapping = mapping;
             this.seriesType = seriesType;
@@ -45,13 +59,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping = mapping;
             this.seriesType = seriesType;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", (mapping != null) ? mapping.generateJs() : "null", (seriesType != null) ? seriesType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s);", (mapping != null) ? mapping.generateJs() : "null", (seriesType != null) ? seriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", (mapping != null) ? mapping.generateJs() : "null", (seriesType != null) ? seriesType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new ADL(jsBase);
     }
 
     private TableMapping mapping1;
@@ -61,7 +84,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType1;
     private String seriesType2;
 
-    public void setAma(StockSeriesType seriesType1, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA setAma(StockSeriesType seriesType1, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -81,18 +104,27 @@ public class Plot extends VisualBaseWithBounds {
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", (seriesType1 != null) ? seriesType1.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", (seriesType1 != null) ? seriesType1.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", (seriesType1 != null) ? seriesType1.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
+        return new AMA(jsBase);
     }
 
 
-    public void setAma(String seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA setAma(String seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -113,13 +145,22 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", seriesType2, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", seriesType2, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", seriesType2, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
+        return new AMA(jsBase);
     }
 
     private PlotController getAnnotations;
@@ -133,19 +174,28 @@ public class Plot extends VisualBaseWithBounds {
 
     private String[] annotationsList;
 
-    public void setAnnotations(String[] annotationsList) {
+    public Plot setAnnotations(String[] annotationsList) {
         if (jsBase == null) {
             this.annotationsList = annotationsList;
         } else {
             this.annotationsList = annotationsList;
 
-            js.append(String.format(Locale.US, jsBase + ".annotations(%s);", Arrays.toString(annotationsList)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".annotations(%s);", Arrays.toString(annotationsList)));
+                onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", Arrays.toString(annotationsList)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TableMapping data;
@@ -155,7 +205,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings;
     private String csvSettings;
 
-    public void setArea(TableMapping data, String mappingSettings, String csvSettings) {
+    public StockSeriesArea setArea(TableMapping data, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -169,18 +219,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data = data;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", (data != null) ? data.generateJs() : "null", mappingSettings, csvSettings));
                 js.setLength(0);
             }
         }
+        return new StockSeriesArea(jsBase);
     }
 
 
-    public void setArea(DataTable data1, String mappingSettings, String csvSettings) {
+    public StockSeriesArea setArea(DataTable data1, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -194,18 +253,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data1 = data1;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", (data1 != null) ? data1.generateJs() : "null", mappingSettings, csvSettings));
                 js.setLength(0);
             }
         }
+        return new StockSeriesArea(jsBase);
     }
 
 
-    public void setArea(String data2, String mappingSettings, String csvSettings) {
+    public StockSeriesArea setArea(String data2, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -220,13 +288,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", data2, mappingSettings, csvSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s);", data2, mappingSettings, csvSettings));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", data2, mappingSettings, csvSettings));
                 js.setLength(0);
             }
         }
+        return new StockSeriesArea(jsBase);
     }
 
     private TableMapping mapping2;
@@ -234,7 +311,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType upSeriesType;
     private StockSeriesType downSeriesType;
 
-    public void setAroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
+    public Aroon setAroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -253,20 +330,29 @@ public class Plot extends VisualBaseWithBounds {
             this.upSeriesType = upSeriesType;
             this.downSeriesType = downSeriesType;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s);", (mapping2 != null) ? mapping2.generateJs() : "null", period1, (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s);", (mapping2 != null) ? mapping2.generateJs() : "null", period1, (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", (mapping2 != null) ? mapping2.generateJs() : "null", period1, (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new Aroon(jsBase);
     }
 
     private TableMapping mapping3;
     private Double period2;
     private StockSeriesType seriesType3;
 
-    public void setAtr(TableMapping mapping3, Double period2, StockSeriesType seriesType3) {
+    public ATR setAtr(TableMapping mapping3, Double period2, StockSeriesType seriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -290,13 +376,22 @@ public class Plot extends VisualBaseWithBounds {
             this.period2 = period2;
             this.seriesType3 = seriesType3;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".atr(%s, %f, %s);", (mapping3 != null) ? mapping3.generateJs() : "null", period2, (seriesType3 != null) ? seriesType3.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s);", (mapping3 != null) ? mapping3.generateJs() : "null", period2, (seriesType3 != null) ? seriesType3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", (mapping3 != null) ? mapping3.generateJs() : "null", period2, (seriesType3 != null) ? seriesType3.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new ATR(jsBase);
     }
 
     private UiBackground getBackground;
@@ -312,7 +407,7 @@ public class Plot extends VisualBaseWithBounds {
     private String background1;
     private Boolean background2;
 
-    public void setBackground(String background) {
+    public Plot setBackground(String background) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -322,17 +417,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.background = background;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%s);", background));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%s)", background));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", background));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", background));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setBackground(Boolean background2) {
+    public Plot setBackground(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -342,13 +446,22 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.background2 = background2;
 
-            js.append(String.format(Locale.US, jsBase + ".background(%b);", background2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
+                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TableMapping mapping4;
@@ -361,7 +474,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType middleSeriesType;
     private String middleSeriesType1;
 
-    public void setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -396,18 +509,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
 
-    public void setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -442,18 +564,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
 
-    public void setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -488,18 +619,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
 
-    public void setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -534,18 +674,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", (upperSeriesType != null) ? upperSeriesType.generateJs() : "null", lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
 
-    public void setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -580,18 +729,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
 
-    public void setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -626,18 +784,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, (lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null", middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
 
-    public void setBbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -672,18 +839,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, lowerSeriesType1, (middleSeriesType != null) ? middleSeriesType.generateJs() : "null", (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
 
-    public void setBbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands setBbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -719,13 +895,22 @@ public class Plot extends VisualBaseWithBounds {
             this.period3 = period3;
             this.deviation = deviation;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f);", upperSeriesType1, lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", upperSeriesType1, lowerSeriesType1, middleSeriesType1, (mapping4 != null) ? mapping4.generateJs() : "null", period3, deviation));
                 js.setLength(0);
             }
         }
+        return new BBands(jsBase);
     }
 
     private TableMapping mapping5;
@@ -734,7 +919,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType4;
     private String seriesType5;
 
-    public void setBbandsb(StockSeriesType seriesType4, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB setBbandsB(StockSeriesType seriesType4, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -768,18 +953,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping5 = mapping5;
             this.period4 = period4;
             this.deviation1 = deviation1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
                 js.setLength(0);
             }
         }
+        return new BBandsB(jsBase);
     }
 
 
-    public void setBbandsb(String seriesType5, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB setBbandsB(String seriesType5, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -814,13 +1008,22 @@ public class Plot extends VisualBaseWithBounds {
             this.period4 = period4;
             this.deviation1 = deviation1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", seriesType5, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", seriesType5, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", seriesType5, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
                 js.setLength(0);
             }
         }
+        return new BBandsB(jsBase);
     }
 
     private TableMapping mapping6;
@@ -829,7 +1032,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType6;
     private String seriesType7;
 
-    public void setBbandswidth(StockSeriesType seriesType6, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth setBbandsWidth(StockSeriesType seriesType6, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -868,18 +1071,27 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping6 = mapping6;
             this.period5 = period5;
             this.deviation2 = deviation2;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
                 js.setLength(0);
             }
         }
+        return new BBandsWidth(jsBase);
     }
 
 
-    public void setBbandswidth(String seriesType7, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth setBbandsWidth(String seriesType7, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -919,677 +1131,22 @@ public class Plot extends VisualBaseWithBounds {
             this.period5 = period5;
             this.deviation2 = deviation2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", seriesType7, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", seriesType7, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", seriesType7, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double bottom;
-    private String bottom1;
-
-    public void setBottom(Double bottom) {
-        if (jsBase == null) {
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-        } else {
-            this.bottom = bottom;
-
-            js.append(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBottom(String bottom1) {
-        if (jsBase == null) {
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-        } else {
-            this.bottom1 = bottom1;
-
-            js.append(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Bounds getBounds;
-
-    public Bounds getBounds() {
-        if (getBounds == null)
-            getBounds = new Bounds(jsBase + ".bounds()");
-
-        return getBounds;
-    }
-
-    private RectObj bounds;
-    private AnychartMathRect bounds1;
-    private Bounds bounds2;
-
-    public void setBounds(RectObj bounds) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds = bounds;
-        } else {
-            this.bounds = bounds;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(AnychartMathRect bounds1) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds1 = bounds1;
-        } else {
-            this.bounds1 = bounds1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds1 != null) ? bounds1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Bounds bounds2) {
-        if (jsBase == null) {
-            this.bounds = null;
-            this.bounds1 = null;
-            this.bounds2 = null;
-            
-            this.bounds2 = bounds2;
-        } else {
-            this.bounds2 = bounds2;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds2 != null) ? bounds2.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double x;
-    private String x1;
-    private Double y;
-    private String y1;
-    private Double width;
-    private String width1;
-    private Double height;
-    private String height1;
-
-    public void setBounds(Double x, Double y, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %s);", x, y, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %f);", x, y, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, Double y, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y = y;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %s, %s);", x, y, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %f);", x, y1, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %f, %s);", x, y1, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %f);", x, y1, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(Double x, String y1, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x = x;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %s, %s, %s);", x, y1, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %f);", x1, y, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %f, %s);", x1, y, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %f);", x1, y, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, Double y, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y = y;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %f, %s, %s);", x1, y, width1, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width = width;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %f);", x1, y1, width, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, Double width, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width = width;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width = width;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %f, %s);", x1, y1, width, height1));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, Double height) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height = height;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height = height;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %f);", x1, y1, width1, height));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setBounds(String x1, String y1, String width1, String height1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-            this.width = null;
-            this.width1 = null;
-            
-            this.width1 = width1;
-            this.height = null;
-            this.height1 = null;
-            
-            this.height1 = height1;
-        } else {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.width1 = width1;
-            this.height1 = height1;
-
-            js.append(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x1, y1, width1, height1));
-                js.setLength(0);
-            }
-        }
+        return new BBandsWidth(jsBase);
     }
 
     private TableMapping data4;
@@ -1599,7 +1156,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings1;
     private String csvSettings1;
 
-    public void setCandlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
+    public StockSeriesCandlestick setCandlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1623,18 +1180,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data4 = data4;
             this.mappingSettings1 = mappingSettings1;
             this.csvSettings1 = csvSettings1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", (data4 != null) ? data4.generateJs() : "null", mappingSettings1, csvSettings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", (data4 != null) ? data4.generateJs() : "null", mappingSettings1, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", (data4 != null) ? data4.generateJs() : "null", mappingSettings1, csvSettings1));
                 js.setLength(0);
             }
         }
+        return new StockSeriesCandlestick(jsBase);
     }
 
 
-    public void setCandlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
+    public StockSeriesCandlestick setCandlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1658,18 +1224,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data5 = data5;
             this.mappingSettings1 = mappingSettings1;
             this.csvSettings1 = csvSettings1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", (data5 != null) ? data5.generateJs() : "null", mappingSettings1, csvSettings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", (data5 != null) ? data5.generateJs() : "null", mappingSettings1, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", (data5 != null) ? data5.generateJs() : "null", mappingSettings1, csvSettings1));
                 js.setLength(0);
             }
         }
+        return new StockSeriesCandlestick(jsBase);
     }
 
 
-    public void setCandlestick(String data6, String mappingSettings1, String csvSettings1) {
+    public StockSeriesCandlestick setCandlestick(String data6, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1694,20 +1269,29 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings1 = mappingSettings1;
             this.csvSettings1 = csvSettings1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", data6, mappingSettings1, csvSettings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s);", data6, mappingSettings1, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", data6, mappingSettings1, csvSettings1));
                 js.setLength(0);
             }
         }
+        return new StockSeriesCandlestick(jsBase);
     }
 
     private TableMapping mapping7;
     private Double period6;
     private StockSeriesType seriesType8;
 
-    public void setCci(TableMapping mapping7, Double period6, StockSeriesType seriesType8) {
+    public CCI setCci(TableMapping mapping7, Double period6, StockSeriesType seriesType8) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1744,13 +1328,22 @@ public class Plot extends VisualBaseWithBounds {
             this.period6 = period6;
             this.seriesType8 = seriesType8;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".cci(%s, %f, %s);", (mapping7 != null) ? mapping7.generateJs() : "null", period6, (seriesType8 != null) ? seriesType8.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s);", (mapping7 != null) ? mapping7.generateJs() : "null", period6, (seriesType8 != null) ? seriesType8.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", (mapping7 != null) ? mapping7.generateJs() : "null", period6, (seriesType8 != null) ? seriesType8.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new CCI(jsBase);
     }
 
     private TableMapping mapping8;
@@ -1760,7 +1353,7 @@ public class Plot extends VisualBaseWithBounds {
     private MovingAverageType maType1;
     private StockSeriesType seriesType9;
 
-    public void setCho(String maType, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
+    public CHO setCho(String maType, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
@@ -1803,18 +1396,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod1 = fastPeriod1;
             this.slowPeriod1 = slowPeriod1;
             this.seriesType9 = seriesType9;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", maType, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", maType, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", maType, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new CHO(jsBase);
     }
 
 
-    public void setCho(MovingAverageType maType1, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
+    public CHO setCho(MovingAverageType maType1, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
@@ -1858,20 +1460,29 @@ public class Plot extends VisualBaseWithBounds {
             this.slowPeriod1 = slowPeriod1;
             this.seriesType9 = seriesType9;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", (maType1 != null) ? maType1.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", (maType1 != null) ? maType1.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", (maType1 != null) ? maType1.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new CHO(jsBase);
     }
 
     private TableMapping mapping9;
     private Double period7;
     private StockSeriesType seriesType10;
 
-    public void setCmf(TableMapping mapping9, Double period7, StockSeriesType seriesType10) {
+    public CMF setCmf(TableMapping mapping9, Double period7, StockSeriesType seriesType10) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1913,13 +1524,22 @@ public class Plot extends VisualBaseWithBounds {
             this.period7 = period7;
             this.seriesType10 = seriesType10;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s);", (mapping9 != null) ? mapping9.generateJs() : "null", period7, (seriesType10 != null) ? seriesType10.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s);", (mapping9 != null) ? mapping9.generateJs() : "null", period7, (seriesType10 != null) ? seriesType10.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", (mapping9 != null) ? mapping9.generateJs() : "null", period7, (seriesType10 != null) ? seriesType10.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new CMF(jsBase);
     }
 
     private TableMapping data8;
@@ -1929,7 +1549,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings2;
     private String csvSettings2;
 
-    public void setColumn(TableMapping data8, String mappingSettings2, String csvSettings2) {
+    public StockSeriesColumn setColumn(TableMapping data8, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1959,18 +1579,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data8 = data8;
             this.mappingSettings2 = mappingSettings2;
             this.csvSettings2 = csvSettings2;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", (data8 != null) ? data8.generateJs() : "null", mappingSettings2, csvSettings2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", (data8 != null) ? data8.generateJs() : "null", mappingSettings2, csvSettings2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", (data8 != null) ? data8.generateJs() : "null", mappingSettings2, csvSettings2));
                 js.setLength(0);
             }
         }
+        return new StockSeriesColumn(jsBase);
     }
 
 
-    public void setColumn(DataTable data9, String mappingSettings2, String csvSettings2) {
+    public StockSeriesColumn setColumn(DataTable data9, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2000,18 +1629,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data9 = data9;
             this.mappingSettings2 = mappingSettings2;
             this.csvSettings2 = csvSettings2;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", (data9 != null) ? data9.generateJs() : "null", mappingSettings2, csvSettings2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", (data9 != null) ? data9.generateJs() : "null", mappingSettings2, csvSettings2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", (data9 != null) ? data9.generateJs() : "null", mappingSettings2, csvSettings2));
                 js.setLength(0);
             }
         }
+        return new StockSeriesColumn(jsBase);
     }
 
 
-    public void setColumn(String data10, String mappingSettings2, String csvSettings2) {
+    public StockSeriesColumn setColumn(String data10, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2042,110 +1680,95 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings2 = mappingSettings2;
             this.csvSettings2 = csvSettings2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", data10, mappingSettings2, csvSettings2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s);", data10, mappingSettings2, csvSettings2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", data10, mappingSettings2, csvSettings2));
                 js.setLength(0);
             }
         }
+        return new StockSeriesColumn(jsBase);
     }
 
-    private Stroke color;
-    private ColoredFill color1;
-    private String color2;
-    private Double thickness;
-    private String dashpattern;
-    private StrokeLineJoin lineJoin;
-    private StrokeLineCap lineCap;
+    private Crosshair getCrosshair;
 
-    public void setDatetimehighlighter(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            
-            this.color = color;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-        } else {
-            this.color = color;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
+    public Crosshair getCrosshair() {
+        if (getCrosshair == null)
+            getCrosshair = new Crosshair(jsBase + ".crosshair()");
 
-            js.append(String.format(Locale.US, jsBase + ".dateTimeHighlighter(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateTimeHighlighter(%s, %f, %s, %s, %s);", (color != null) ? color.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
+        return getCrosshair;
     }
 
+    private String crosshair;
+    private Boolean crosshair1;
 
-    public void setDatetimehighlighter(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Plot setCrosshair(String crosshair) {
         if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
+            this.crosshair = null;
+            this.crosshair1 = null;
             
-            this.color1 = color1;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
+            this.crosshair = crosshair;
         } else {
-            this.color1 = color1;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
+            this.crosshair = crosshair;
 
-            js.append(String.format(Locale.US, jsBase + ".dateTimeHighlighter(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".crosshair(%s)", crosshair));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateTimeHighlighter(%s, %f, %s, %s, %s);", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", crosshair));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setDatetimehighlighter(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Plot setCrosshair(Boolean crosshair1) {
         if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
+            this.crosshair = null;
+            this.crosshair1 = null;
             
-            this.color2 = color2;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
+            this.crosshair1 = crosshair1;
         } else {
-            this.color2 = color2;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
+            this.crosshair1 = crosshair1;
 
-            js.append(String.format(Locale.US, jsBase + ".dateTimeHighlighter(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateTimeHighlighter(%s, %f, %s, %s, %s);", color2, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String defaultSeriesType;
     private StockSeriesType defaultSeriesType1;
 
-    public void setDefaultseriestype(String defaultSeriesType) {
+    public Plot setDefaultSeriesType(String defaultSeriesType) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
             this.defaultSeriesType1 = null;
@@ -2154,17 +1777,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.defaultSeriesType = defaultSeriesType;
 
-            js.append(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", defaultSeriesType));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", defaultSeriesType));
+                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setDefaultseriestype(StockSeriesType defaultSeriesType1) {
+    public Plot setDefaultSeriesType(StockSeriesType defaultSeriesType1) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
             this.defaultSeriesType1 = null;
@@ -2173,13 +1805,22 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.defaultSeriesType1 = defaultSeriesType1;
 
-            js.append(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TableMapping mapping10;
@@ -2190,7 +1831,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType ndiSeriesType;
     private StockSeriesType adxSeriesType;
 
-    public void setDmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
+    public DMI setDmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2230,13 +1871,22 @@ public class Plot extends VisualBaseWithBounds {
             this.ndiSeriesType = ndiSeriesType;
             this.adxSeriesType = adxSeriesType;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing, (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing, (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing, (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new DMI(jsBase);
     }
 
     private TableMapping mapping11;
@@ -2244,7 +1894,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType11;
     private StockSeriesType seriesType12;
 
-    public void setEma(String seriesType11, TableMapping mapping11, Double period9) {
+    public EMA setEma(String seriesType11, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -2291,18 +1941,27 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType11 = seriesType11;
             this.mapping11 = mapping11;
             this.period9 = period9;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", seriesType11, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", seriesType11, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", seriesType11, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
                 js.setLength(0);
             }
         }
+        return new EMA(jsBase);
     }
 
 
-    public void setEma(StockSeriesType seriesType12, TableMapping mapping11, Double period9) {
+    public EMA setEma(StockSeriesType seriesType12, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -2350,36 +2009,28 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping11 = mapping11;
             this.period9 = period9;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
                 js.setLength(0);
             }
         }
-    }
-
-    private Boolean enabled;
-
-    public void setEnabled(Boolean enabled) {
-        if (jsBase == null) {
-            this.enabled = enabled;
-        } else {
-            this.enabled = enabled;
-
-            js.append(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
-                js.setLength(0);
-            }
-        }
+        return new EMA(jsBase);
     }
 
     private Double id;
     private String id1;
 
-    public void setGetseries(Double id) {
+    public StockSeriesBase setGetSeries(Double id) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
@@ -2387,18 +2038,27 @@ public class Plot extends VisualBaseWithBounds {
             this.id = id;
         } else {
             this.id = id;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".getSeries(%f);", id));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%f);", id));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%f)", id));
                 js.setLength(0);
             }
         }
+        return new StockSeriesBase(jsBase);
     }
 
 
-    public void setGetseries(String id1) {
+    public StockSeriesBase setGetSeries(String id1) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
@@ -2407,13 +2067,22 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.id1 = id1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getSeries(%s);", id1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%s);", id1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%s)", id1));
                 js.setLength(0);
             }
         }
+        return new StockSeriesBase(jsBase);
     }
 
     private StockSeriesBase getGetSeries;
@@ -2427,19 +2096,28 @@ public class Plot extends VisualBaseWithBounds {
 
     private Double index;
 
-    public void setGetseriesat(Double index) {
+    public StockSeriesBase setGetSeriesAt(Double index) {
         if (jsBase == null) {
             this.index = index;
         } else {
             this.index = index;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getSeriesAt(%f);", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeriesAt(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeriesAt(%f)", index));
                 js.setLength(0);
             }
         }
+        return new StockSeriesBase(jsBase);
     }
 
     private StockSeriesBase getGetSeriesAt;
@@ -2449,132 +2127,6 @@ public class Plot extends VisualBaseWithBounds {
             getGetSeriesAt = new StockSeriesBase(jsBase + ".getSeriesAt()");
 
         return getGetSeriesAt;
-    }
-
-    private Double index1;
-
-    public void setGrid(Double index1) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
-        } else {
-            this.index1 = index1;
-
-            js.append(String.format(Locale.US, jsBase + ".grid(%f);", index1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".grid(%f);", index1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private GridsStock getGrid;
-
-    public GridsStock getGrid() {
-        if (getGrid == null)
-            getGrid = new GridsStock(jsBase + ".grid()");
-
-        return getGrid;
-    }
-
-    private String grid;
-    private Boolean grid1;
-
-    public void setGrid(String grid) {
-        if (jsBase == null) {
-            this.grid = null;
-            this.grid1 = null;
-            
-            this.grid = grid;
-        } else {
-            this.grid = grid;
-
-            js.append(String.format(Locale.US, jsBase + ".grid(%s);", grid));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".grid(%s);", grid));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setGrid(Boolean grid1) {
-        if (jsBase == null) {
-            this.grid = null;
-            this.grid1 = null;
-            
-            this.grid1 = grid1;
-        } else {
-            this.grid1 = grid1;
-
-            js.append(String.format(Locale.US, jsBase + ".grid(%b);", grid1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".grid(%b);", grid1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double index2;
-    private String grid2;
-    private Boolean grid3;
-
-    public void setGrid(String grid2, Double index2) {
-        if (jsBase == null) {
-            this.grid = null;
-            this.grid1 = null;
-            this.grid2 = null;
-            this.grid3 = null;
-            
-            this.grid2 = grid2;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
-        } else {
-            this.grid2 = grid2;
-            this.index2 = index2;
-
-            js.append(String.format(Locale.US, jsBase + ".grid(%s, %f);", grid2, index2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".grid(%s, %f);", grid2, index2));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setGrid(Boolean grid3, Double index2) {
-        if (jsBase == null) {
-            this.grid = null;
-            this.grid1 = null;
-            this.grid2 = null;
-            this.grid3 = null;
-            
-            this.grid3 = grid3;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
-        } else {
-            this.grid3 = grid3;
-            this.index2 = index2;
-
-            js.append(String.format(Locale.US, jsBase + ".grid(%b, %f);", grid3, index2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".grid(%b, %f);", grid3, index2));
-                js.setLength(0);
-            }
-        }
     }
 
     private HatchFills getHatchFillPalette;
@@ -2590,7 +2142,7 @@ public class Plot extends VisualBaseWithBounds {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
 
-    public void setHatchfillpalette(HatchFillType[] hatchFillPalette) {
+    public HatchFills setHatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
             this.hatchFillPalette1 = null;
@@ -2599,18 +2151,27 @@ public class Plot extends VisualBaseWithBounds {
             this.hatchFillPalette = hatchFillPalette;
         } else {
             this.hatchFillPalette = hatchFillPalette;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(hatchFillPalette)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(hatchFillPalette)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
                 js.setLength(0);
             }
         }
+        return new HatchFills(jsBase);
     }
 
 
-    public void setHatchfillpalette(String hatchFillPalette1) {
+    public HatchFills setHatchFillPalette(String hatchFillPalette1) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
             this.hatchFillPalette1 = null;
@@ -2619,18 +2180,27 @@ public class Plot extends VisualBaseWithBounds {
             this.hatchFillPalette1 = hatchFillPalette1;
         } else {
             this.hatchFillPalette1 = hatchFillPalette1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", hatchFillPalette1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", hatchFillPalette1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", hatchFillPalette1));
                 js.setLength(0);
             }
         }
+        return new HatchFills(jsBase);
     }
 
 
-    public void setHatchfillpalette(HatchFills hatchFillPalette2) {
+    public HatchFills setHatchFillPalette(HatchFills hatchFillPalette2) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
             this.hatchFillPalette1 = null;
@@ -2640,57 +2210,22 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.hatchFillPalette2 = hatchFillPalette2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double height2;
-    private String height3;
-
-    public void setHeight(Double height2) {
-        if (jsBase == null) {
-            this.height = null;
-            this.height1 = null;
-            this.height2 = null;
-            this.height3 = null;
-            
-            this.height2 = height2;
-        } else {
-            this.height2 = height2;
-
-            js.append(String.format(Locale.US, jsBase + ".height(%f);", height2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height2));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setHeight(String height3) {
-        if (jsBase == null) {
-            this.height = null;
-            this.height1 = null;
-            this.height2 = null;
-            this.height3 = null;
-            
-            this.height3 = height3;
-        } else {
-            this.height3 = height3;
-
-            js.append(String.format(Locale.US, jsBase + ".height(%s);", height3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height3));
-                js.setLength(0);
-            }
-        }
+        return new HatchFills(jsBase);
     }
 
     private TableMapping data12;
@@ -2700,7 +2235,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings3;
     private String csvSettings3;
 
-    public void setHilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
+    public StockSeriesHilo setHilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2736,18 +2271,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data12 = data12;
             this.mappingSettings3 = mappingSettings3;
             this.csvSettings3 = csvSettings3;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", (data12 != null) ? data12.generateJs() : "null", mappingSettings3, csvSettings3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", (data12 != null) ? data12.generateJs() : "null", mappingSettings3, csvSettings3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", (data12 != null) ? data12.generateJs() : "null", mappingSettings3, csvSettings3));
                 js.setLength(0);
             }
         }
+        return new StockSeriesHilo(jsBase);
     }
 
 
-    public void setHilo(DataTable data13, String mappingSettings3, String csvSettings3) {
+    public StockSeriesHilo setHilo(DataTable data13, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2783,18 +2327,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data13 = data13;
             this.mappingSettings3 = mappingSettings3;
             this.csvSettings3 = csvSettings3;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", (data13 != null) ? data13.generateJs() : "null", mappingSettings3, csvSettings3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", (data13 != null) ? data13.generateJs() : "null", mappingSettings3, csvSettings3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", (data13 != null) ? data13.generateJs() : "null", mappingSettings3, csvSettings3));
                 js.setLength(0);
             }
         }
+        return new StockSeriesHilo(jsBase);
     }
 
 
-    public void setHilo(String data14, String mappingSettings3, String csvSettings3) {
+    public StockSeriesHilo setHilo(String data14, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2831,13 +2384,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings3 = mappingSettings3;
             this.csvSettings3 = csvSettings3;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", data14, mappingSettings3, csvSettings3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s);", data14, mappingSettings3, csvSettings3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", data14, mappingSettings3, csvSettings3));
                 js.setLength(0);
             }
         }
+        return new StockSeriesHilo(jsBase);
     }
 
     private TableMapping data16;
@@ -2847,7 +2409,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings4;
     private String csvSettings4;
 
-    public void setJumpline(TableMapping data16, String mappingSettings4, String csvSettings4) {
+    public StockSeriesJumpLine setJumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2889,18 +2451,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data16 = data16;
             this.mappingSettings4 = mappingSettings4;
             this.csvSettings4 = csvSettings4;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", (data16 != null) ? data16.generateJs() : "null", mappingSettings4, csvSettings4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", (data16 != null) ? data16.generateJs() : "null", mappingSettings4, csvSettings4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", (data16 != null) ? data16.generateJs() : "null", mappingSettings4, csvSettings4));
                 js.setLength(0);
             }
         }
+        return new StockSeriesJumpLine(jsBase);
     }
 
 
-    public void setJumpline(DataTable data17, String mappingSettings4, String csvSettings4) {
+    public StockSeriesJumpLine setJumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2942,18 +2513,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data17 = data17;
             this.mappingSettings4 = mappingSettings4;
             this.csvSettings4 = csvSettings4;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", (data17 != null) ? data17.generateJs() : "null", mappingSettings4, csvSettings4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", (data17 != null) ? data17.generateJs() : "null", mappingSettings4, csvSettings4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", (data17 != null) ? data17.generateJs() : "null", mappingSettings4, csvSettings4));
                 js.setLength(0);
             }
         }
+        return new StockSeriesJumpLine(jsBase);
     }
 
 
-    public void setJumpline(String data18, String mappingSettings4, String csvSettings4) {
+    public StockSeriesJumpLine setJumpLine(String data18, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2996,13 +2576,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings4 = mappingSettings4;
             this.csvSettings4 = csvSettings4;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", data18, mappingSettings4, csvSettings4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s);", data18, mappingSettings4, csvSettings4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", data18, mappingSettings4, csvSettings4));
                 js.setLength(0);
             }
         }
+        return new StockSeriesJumpLine(jsBase);
     }
 
     private TableMapping mapping12;
@@ -3017,7 +2606,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType dSeriesType;
     private StockSeriesType jSeriesType;
 
-    public void setKdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, MovingAverageType dMAType, Double kMultiplier, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ setKdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, MovingAverageType dMAType, Double kMultiplier, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -3057,53 +2646,22 @@ public class Plot extends VisualBaseWithBounds {
             this.dSeriesType = dSeriesType;
             this.jSeriesType = jSeriesType;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %s, %f, %f, %s, %s, %s);", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMultiplier, dMultiplier, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %s, %f, %f, %s, %s, %s);", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMultiplier, dMultiplier, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %s, %f, %f, %s, %s, %s)", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMultiplier, dMultiplier, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double left;
-    private String left1;
-
-    public void setLeft(Double left) {
-        if (jsBase == null) {
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.left = left;
-
-            js.append(String.format(Locale.US, jsBase + ".left(%f);", left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setLeft(String left1) {
-        if (jsBase == null) {
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.left1 = left1;
-
-            js.append(String.format(Locale.US, jsBase + ".left(%s);", left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left1));
-                js.setLength(0);
-            }
-        }
+        return new KDJ(jsBase);
     }
 
     private UiLegend getLegend;
@@ -3118,7 +2676,7 @@ public class Plot extends VisualBaseWithBounds {
     private String legend;
     private Boolean legend1;
 
-    public void setLegend(String legend) {
+    public Plot setLegend(String legend) {
         if (jsBase == null) {
             this.legend = null;
             this.legend1 = null;
@@ -3127,17 +2685,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.legend = legend;
 
-            js.append(String.format(Locale.US, jsBase + ".legend(%s);", legend));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".legend(%s)", legend));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%s);", legend));
+                onChangeListener.onChange(String.format(Locale.US, ".legend(%s)", legend));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setLegend(Boolean legend1) {
+    public Plot setLegend(Boolean legend1) {
         if (jsBase == null) {
             this.legend = null;
             this.legend1 = null;
@@ -3146,13 +2713,22 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.legend1 = legend1;
 
-            js.append(String.format(Locale.US, jsBase + ".legend(%b);", legend1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".legend(%b)", legend1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%b);", legend1));
+                onChangeListener.onChange(String.format(Locale.US, ".legend(%b)", legend1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private TableMapping data20;
@@ -3162,7 +2738,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings5;
     private String csvSettings5;
 
-    public void setLine(TableMapping data20, String mappingSettings5, String csvSettings5) {
+    public StockSeriesLine setLine(TableMapping data20, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3210,18 +2786,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data20 = data20;
             this.mappingSettings5 = mappingSettings5;
             this.csvSettings5 = csvSettings5;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", (data20 != null) ? data20.generateJs() : "null", mappingSettings5, csvSettings5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", (data20 != null) ? data20.generateJs() : "null", mappingSettings5, csvSettings5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", (data20 != null) ? data20.generateJs() : "null", mappingSettings5, csvSettings5));
                 js.setLength(0);
             }
         }
+        return new StockSeriesLine(jsBase);
     }
 
 
-    public void setLine(DataTable data21, String mappingSettings5, String csvSettings5) {
+    public StockSeriesLine setLine(DataTable data21, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3269,18 +2854,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data21 = data21;
             this.mappingSettings5 = mappingSettings5;
             this.csvSettings5 = csvSettings5;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", (data21 != null) ? data21.generateJs() : "null", mappingSettings5, csvSettings5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", (data21 != null) ? data21.generateJs() : "null", mappingSettings5, csvSettings5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", (data21 != null) ? data21.generateJs() : "null", mappingSettings5, csvSettings5));
                 js.setLength(0);
             }
         }
+        return new StockSeriesLine(jsBase);
     }
 
 
-    public void setLine(String data22, String mappingSettings5, String csvSettings5) {
+    public StockSeriesLine setLine(String data22, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3329,68 +2923,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings5 = mappingSettings5;
             this.csvSettings5 = csvSettings5;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", data22, mappingSettings5, csvSettings5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s);", data22, mappingSettings5, csvSettings5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", data22, mappingSettings5, csvSettings5));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-                js.setLength(0);
-            }
-        }
+        return new StockSeriesLine(jsBase);
     }
 
     private TableMapping mapping13;
@@ -3404,7 +2952,7 @@ public class Plot extends VisualBaseWithBounds {
     private String histogramSeriesType;
     private StockSeriesType histogramSeriesType1;
 
-    public void setMacd(String macdSeriesType, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(String macdSeriesType, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3453,18 +3001,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
 
-    public void setMacd(String macdSeriesType, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(String macdSeriesType, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3513,18 +3070,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
 
-    public void setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3573,18 +3139,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
 
-    public void setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3633,18 +3208,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
 
-    public void setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3693,18 +3277,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
 
-    public void setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3753,18 +3346,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
 
-    public void setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3813,18 +3415,27 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
 
-    public void setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3874,13 +3485,22 @@ public class Plot extends VisualBaseWithBounds {
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
+        return new MACD(jsBase);
     }
 
     private TableMapping data24;
@@ -3890,7 +3510,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings6;
     private String csvSettings6;
 
-    public void setMarker(TableMapping data24, String mappingSettings6, String csvSettings6) {
+    public StockSeriesMarker setMarker(TableMapping data24, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3944,18 +3564,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data24 = data24;
             this.mappingSettings6 = mappingSettings6;
             this.csvSettings6 = csvSettings6;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", (data24 != null) ? data24.generateJs() : "null", mappingSettings6, csvSettings6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", (data24 != null) ? data24.generateJs() : "null", mappingSettings6, csvSettings6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", (data24 != null) ? data24.generateJs() : "null", mappingSettings6, csvSettings6));
                 js.setLength(0);
             }
         }
+        return new StockSeriesMarker(jsBase);
     }
 
 
-    public void setMarker(DataTable data25, String mappingSettings6, String csvSettings6) {
+    public StockSeriesMarker setMarker(DataTable data25, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4009,18 +3638,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data25 = data25;
             this.mappingSettings6 = mappingSettings6;
             this.csvSettings6 = csvSettings6;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", (data25 != null) ? data25.generateJs() : "null", mappingSettings6, csvSettings6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", (data25 != null) ? data25.generateJs() : "null", mappingSettings6, csvSettings6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", (data25 != null) ? data25.generateJs() : "null", mappingSettings6, csvSettings6));
                 js.setLength(0);
             }
         }
+        return new StockSeriesMarker(jsBase);
     }
 
 
-    public void setMarker(String data26, String mappingSettings6, String csvSettings6) {
+    public StockSeriesMarker setMarker(String data26, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4075,13 +3713,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings6 = mappingSettings6;
             this.csvSettings6 = csvSettings6;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", data26, mappingSettings6, csvSettings6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s);", data26, mappingSettings6, csvSettings6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", data26, mappingSettings6, csvSettings6));
                 js.setLength(0);
             }
         }
+        return new StockSeriesMarker(jsBase);
     }
 
     private Markers getMarkerPalette;
@@ -4097,7 +3744,7 @@ public class Plot extends VisualBaseWithBounds {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
 
-    public void setMarkerpalette(Markers markerPalette) {
+    public Plot setMarkerPalette(Markers markerPalette) {
         if (jsBase == null) {
             this.markerPalette = null;
             this.markerPalette1 = null;
@@ -4107,17 +3754,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.markerPalette = markerPalette;
 
-            js.append(String.format(Locale.US, jsBase + ".markerPalette(%s);", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s);", (markerPalette != null) ? markerPalette.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette != null) ? markerPalette.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMarkerpalette(String markerPalette1) {
+    public Plot setMarkerPalette(String markerPalette1) {
         if (jsBase == null) {
             this.markerPalette = null;
             this.markerPalette1 = null;
@@ -4127,17 +3783,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.markerPalette1 = markerPalette1;
 
-            js.append(String.format(Locale.US, jsBase + ".markerPalette(%s);", markerPalette1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s);", markerPalette1));
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMarkerpalette(MarkerType[] markerPalette2) {
+    public Plot setMarkerPalette(MarkerType[] markerPalette2) {
         if (jsBase == null) {
             this.markerPalette = null;
             this.markerPalette1 = null;
@@ -4147,293 +3812,138 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.markerPalette2 = markerPalette2;
 
-            js.append(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToString(markerPalette2)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToString(markerPalette2)));
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double maxHeight;
-    private String maxHeight1;
+    private Double maxPointWidth;
+    private String maxPointWidth1;
 
-    public void setMaxheight(Double maxHeight) {
+    public Plot setMaxPointWidth(Double maxPointWidth) {
         if (jsBase == null) {
-            this.maxHeight = null;
-            this.maxHeight1 = null;
+            this.maxPointWidth = null;
+            this.maxPointWidth1 = null;
             
-            this.maxHeight = maxHeight;
+            this.maxPointWidth = maxPointWidth;
         } else {
-            this.maxHeight = maxHeight;
+            this.maxPointWidth = maxPointWidth;
 
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMaxheight(String maxHeight1) {
+    public Plot setMaxPointWidth(String maxPointWidth1) {
         if (jsBase == null) {
-            this.maxHeight = null;
-            this.maxHeight1 = null;
+            this.maxPointWidth = null;
+            this.maxPointWidth1 = null;
             
-            this.maxHeight1 = maxHeight1;
+            this.maxPointWidth1 = maxPointWidth1;
         } else {
-            this.maxHeight1 = maxHeight1;
+            this.maxPointWidth1 = maxPointWidth1;
 
-            js.append(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight1));
+                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double maxWidth;
-    private String maxWidth1;
+    private Double minPointLength;
+    private String minPointLength1;
 
-    public void setMaxwidth(Double maxWidth) {
+    public Plot setMinPointLength(Double minPointLength) {
         if (jsBase == null) {
-            this.maxWidth = null;
-            this.maxWidth1 = null;
+            this.minPointLength = null;
+            this.minPointLength1 = null;
             
-            this.maxWidth = maxWidth;
+            this.minPointLength = minPointLength;
         } else {
-            this.maxWidth = maxWidth;
+            this.minPointLength = minPointLength;
 
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setMaxwidth(String maxWidth1) {
+    public Plot setMinPointLength(String minPointLength1) {
         if (jsBase == null) {
-            this.maxWidth = null;
-            this.maxWidth1 = null;
+            this.minPointLength = null;
+            this.minPointLength1 = null;
             
-            this.maxWidth1 = maxWidth1;
+            this.minPointLength1 = minPointLength1;
         } else {
-            this.maxWidth1 = maxWidth1;
+            this.minPointLength1 = minPointLength1;
 
-            js.append(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth1));
+                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength1));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double minHeight;
-    private String minHeight1;
-
-    public void setMinheight(Double minHeight) {
-        if (jsBase == null) {
-            this.minHeight = null;
-            this.minHeight1 = null;
-            
-            this.minHeight = minHeight;
-        } else {
-            this.minHeight = minHeight;
-
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinheight(String minHeight1) {
-        if (jsBase == null) {
-            this.minHeight = null;
-            this.minHeight1 = null;
-            
-            this.minHeight1 = minHeight1;
-        } else {
-            this.minHeight1 = minHeight1;
-
-            js.append(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double minWidth;
-    private String minWidth1;
-
-    public void setMinwidth(Double minWidth) {
-        if (jsBase == null) {
-            this.minWidth = null;
-            this.minWidth1 = null;
-            
-            this.minWidth = minWidth;
-        } else {
-            this.minWidth = minWidth;
-
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinwidth(String minWidth1) {
-        if (jsBase == null) {
-            this.minWidth = null;
-            this.minWidth1 = null;
-            
-            this.minWidth1 = minWidth1;
-        } else {
-            this.minWidth1 = minWidth1;
-
-            js.append(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double index3;
-
-    public void setMinorgrid(Double index3) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            
-            this.index3 = index3;
-        } else {
-            this.index3 = index3;
-
-            js.append(String.format(Locale.US, jsBase + ".minorGrid(%f);", index3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorGrid(%f);", index3));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private GridsStock getMinorGrid;
-
-    public GridsStock getMinorGrid() {
-        if (getMinorGrid == null)
-            getMinorGrid = new GridsStock(jsBase + ".minorGrid()");
-
-        return getMinorGrid;
-    }
-
-    private String minorGrid;
-    private Boolean minorGrid1;
-
-    public void setMinorgrid(String minorGrid) {
-        if (jsBase == null) {
-            this.minorGrid = null;
-            this.minorGrid1 = null;
-            
-            this.minorGrid = minorGrid;
-        } else {
-            this.minorGrid = minorGrid;
-
-            js.append(String.format(Locale.US, jsBase + ".minorGrid(%s);", minorGrid));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorGrid(%s);", minorGrid));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinorgrid(Boolean minorGrid1) {
-        if (jsBase == null) {
-            this.minorGrid = null;
-            this.minorGrid1 = null;
-            
-            this.minorGrid1 = minorGrid1;
-        } else {
-            this.minorGrid1 = minorGrid1;
-
-            js.append(String.format(Locale.US, jsBase + ".minorGrid(%b);", minorGrid1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorGrid(%b);", minorGrid1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double indexOrValue;
-    private String minorGrid2;
-    private Boolean minorGrid3;
-
-    public void setMinorgrid(String minorGrid2, Double indexOrValue) {
-        if (jsBase == null) {
-            this.minorGrid = null;
-            this.minorGrid1 = null;
-            this.minorGrid2 = null;
-            this.minorGrid3 = null;
-            
-            this.minorGrid2 = minorGrid2;
-            this.indexOrValue = indexOrValue;
-        } else {
-            this.minorGrid2 = minorGrid2;
-            this.indexOrValue = indexOrValue;
-
-            js.append(String.format(Locale.US, jsBase + ".minorGrid(%s, %f);", minorGrid2, indexOrValue));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorGrid(%s, %f);", minorGrid2, indexOrValue));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setMinorgrid(Boolean minorGrid3, Double indexOrValue) {
-        if (jsBase == null) {
-            this.minorGrid = null;
-            this.minorGrid1 = null;
-            this.minorGrid2 = null;
-            this.minorGrid3 = null;
-            
-            this.minorGrid3 = minorGrid3;
-            this.indexOrValue = indexOrValue;
-        } else {
-            this.minorGrid3 = minorGrid3;
-            this.indexOrValue = indexOrValue;
-
-            js.append(String.format(Locale.US, jsBase + ".minorGrid(%b, %f);", minorGrid3, indexOrValue));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorGrid(%b, %f);", minorGrid3, indexOrValue));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private TableMapping mapping14;
@@ -4441,7 +3951,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType13;
     private String seriesType14;
 
-    public void setMma(StockSeriesType seriesType13, TableMapping mapping14, Double period10) {
+    public MMA setMma(StockSeriesType seriesType13, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -4494,18 +4004,27 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType13 = seriesType13;
             this.mapping14 = mapping14;
             this.period10 = period10;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", (seriesType13 != null) ? seriesType13.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", (seriesType13 != null) ? seriesType13.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", (seriesType13 != null) ? seriesType13.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
                 js.setLength(0);
             }
         }
+        return new MMA(jsBase);
     }
 
 
-    public void setMma(String seriesType14, TableMapping mapping14, Double period10) {
+    public MMA setMma(String seriesType14, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -4559,13 +4078,57 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping14 = mapping14;
             this.period10 = period10;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", seriesType14, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", seriesType14, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", seriesType14, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
                 js.setLength(0);
             }
         }
+        return new MMA(jsBase);
+    }
+
+    private NoDataSettings getNoData;
+
+    public NoDataSettings getNoData() {
+        if (getNoData == null)
+            getNoData = new NoDataSettings(jsBase + ".noData()");
+
+        return getNoData;
+    }
+
+    private String noData;
+
+    public Plot setNoData(String noData) {
+        if (jsBase == null) {
+            this.noData = noData;
+        } else {
+            this.noData = noData;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".noData(%s)", noData));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", noData));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private TableMapping data28;
@@ -4575,7 +4138,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings7;
     private String csvSettings7;
 
-    public void setOhlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
+    public StockSeriesOHLC setOhlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4635,18 +4198,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data28 = data28;
             this.mappingSettings7 = mappingSettings7;
             this.csvSettings7 = csvSettings7;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", (data28 != null) ? data28.generateJs() : "null", mappingSettings7, csvSettings7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", (data28 != null) ? data28.generateJs() : "null", mappingSettings7, csvSettings7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", (data28 != null) ? data28.generateJs() : "null", mappingSettings7, csvSettings7));
                 js.setLength(0);
             }
         }
+        return new StockSeriesOHLC(jsBase);
     }
 
 
-    public void setOhlc(DataTable data29, String mappingSettings7, String csvSettings7) {
+    public StockSeriesOHLC setOhlc(DataTable data29, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4706,18 +4278,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data29 = data29;
             this.mappingSettings7 = mappingSettings7;
             this.csvSettings7 = csvSettings7;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", (data29 != null) ? data29.generateJs() : "null", mappingSettings7, csvSettings7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", (data29 != null) ? data29.generateJs() : "null", mappingSettings7, csvSettings7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", (data29 != null) ? data29.generateJs() : "null", mappingSettings7, csvSettings7));
                 js.setLength(0);
             }
         }
+        return new StockSeriesOHLC(jsBase);
     }
 
 
-    public void setOhlc(String data30, String mappingSettings7, String csvSettings7) {
+    public StockSeriesOHLC setOhlc(String data30, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4778,13 +4359,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings7 = mappingSettings7;
             this.csvSettings7 = csvSettings7;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", data30, mappingSettings7, csvSettings7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s);", data30, mappingSettings7, csvSettings7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", data30, mappingSettings7, csvSettings7));
                 js.setLength(0);
             }
         }
+        return new StockSeriesOHLC(jsBase);
     }
 
     private RangeColors getPalette;
@@ -4801,7 +4391,7 @@ public class Plot extends VisualBaseWithBounds {
     private String palette2;
     private String[] palette3;
 
-    public void setPalette(RangeColors palette) {
+    public Plot setPalette(RangeColors palette) {
         if (jsBase == null) {
             this.palette = null;
             this.palette1 = null;
@@ -4812,17 +4402,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.palette = palette;
 
-            js.append(String.format(Locale.US, jsBase + ".palette(%s);", (palette != null) ? palette.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", (palette != null) ? palette.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette != null) ? palette.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPalette(DistinctColors palette1) {
+    public Plot setPalette(DistinctColors palette1) {
         if (jsBase == null) {
             this.palette = null;
             this.palette1 = null;
@@ -4833,17 +4432,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.palette1 = palette1;
 
-            js.append(String.format(Locale.US, jsBase + ".palette(%s);", (palette1 != null) ? palette1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", (palette1 != null) ? palette1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", (palette1 != null) ? palette1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPalette(String palette2) {
+    public Plot setPalette(String palette2) {
         if (jsBase == null) {
             this.palette = null;
             this.palette1 = null;
@@ -4854,17 +4462,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.palette2 = palette2;
 
-            js.append(String.format(Locale.US, jsBase + ".palette(%s);", palette2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".palette(%s)", palette2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", palette2));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", palette2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPalette(String[] palette3) {
+    public Plot setPalette(String[] palette3) {
         if (jsBase == null) {
             this.palette = null;
             this.palette1 = null;
@@ -4875,58 +4492,251 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.palette3 = palette3;
 
-            js.append(String.format(Locale.US, jsBase + ".palette(%s);", Arrays.toString(palette3)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", Arrays.toString(palette3)));
+                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", Arrays.toString(palette3)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private PaperSize paperSizeOrOptions;
-    private String paperSizeOrOptions1;
-    private Boolean landscape;
+    private Double pointWidth;
+    private String pointWidth1;
 
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
+    public Plot setPointWidth(Double pointWidth) {
         if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
+            this.pointWidth = null;
+            this.pointWidth1 = null;
             
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
+            this.pointWidth = pointWidth;
         } else {
-            this.paperSizeOrOptions = paperSizeOrOptions;
-            this.landscape = landscape;
+            this.pointWidth = pointWidth;
 
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null", landscape));
+                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+    public Plot setPointWidth(String pointWidth1) {
         if (jsBase == null) {
-            this.paperSizeOrOptions = null;
-            this.paperSizeOrOptions1 = null;
+            this.pointWidth = null;
+            this.pointWidth1 = null;
             
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
+            this.pointWidth1 = pointWidth1;
         } else {
-            this.paperSizeOrOptions1 = paperSizeOrOptions1;
-            this.landscape = landscape;
+            this.pointWidth1 = pointWidth1;
 
-            js.append(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", paperSizeOrOptions1, landscape));
+                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth1));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+    private Double index1;
+
+    public CurrentPriceIndicator setPriceIndicator(Double index1) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+        } else {
+            this.index1 = index1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".priceIndicator(%f);", index1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".priceIndicator(%f)", index1));
+                js.setLength(0);
+            }
+        }
+        return new CurrentPriceIndicator(jsBase);
+    }
+
+    private CurrentPriceIndicator getPriceIndicator;
+
+    public CurrentPriceIndicator getPriceIndicator() {
+        if (getPriceIndicator == null)
+            getPriceIndicator = new CurrentPriceIndicator(jsBase + ".priceIndicator()");
+
+        return getPriceIndicator;
+    }
+
+    private String priceIndicator;
+    private Boolean priceIndicator1;
+
+    public Plot setPriceIndicator(String priceIndicator) {
+        if (jsBase == null) {
+            this.priceIndicator = null;
+            this.priceIndicator1 = null;
+            
+            this.priceIndicator = priceIndicator;
+        } else {
+            this.priceIndicator = priceIndicator;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".priceIndicator(%s)", priceIndicator));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s)", priceIndicator));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setPriceIndicator(Boolean priceIndicator1) {
+        if (jsBase == null) {
+            this.priceIndicator = null;
+            this.priceIndicator1 = null;
+            
+            this.priceIndicator1 = priceIndicator1;
+        } else {
+            this.priceIndicator1 = priceIndicator1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double index2;
+    private String priceIndicator2;
+    private Boolean priceIndicator3;
+
+    public Plot setPriceIndicator(String priceIndicator2, Double index2) {
+        if (jsBase == null) {
+            this.priceIndicator = null;
+            this.priceIndicator1 = null;
+            this.priceIndicator2 = null;
+            this.priceIndicator3 = null;
+            
+            this.priceIndicator2 = priceIndicator2;
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
+        } else {
+            this.priceIndicator2 = priceIndicator2;
+            this.index2 = index2;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index2));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setPriceIndicator(Boolean priceIndicator3, Double index2) {
+        if (jsBase == null) {
+            this.priceIndicator = null;
+            this.priceIndicator1 = null;
+            this.priceIndicator2 = null;
+            this.priceIndicator3 = null;
+            
+            this.priceIndicator3 = priceIndicator3;
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
+        } else {
+            this.priceIndicator3 = priceIndicator3;
+            this.index2 = index2;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index2));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private TableMapping data32;
@@ -4936,7 +4746,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings8;
     private String csvSettings8;
 
-    public void setRangearea(TableMapping data32, String mappingSettings8, String csvSettings8) {
+    public StockSeriesRangeArea setRangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5002,18 +4812,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data32 = data32;
             this.mappingSettings8 = mappingSettings8;
             this.csvSettings8 = csvSettings8;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", (data32 != null) ? data32.generateJs() : "null", mappingSettings8, csvSettings8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", (data32 != null) ? data32.generateJs() : "null", mappingSettings8, csvSettings8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", (data32 != null) ? data32.generateJs() : "null", mappingSettings8, csvSettings8));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeArea(jsBase);
     }
 
 
-    public void setRangearea(DataTable data33, String mappingSettings8, String csvSettings8) {
+    public StockSeriesRangeArea setRangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5079,18 +4898,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data33 = data33;
             this.mappingSettings8 = mappingSettings8;
             this.csvSettings8 = csvSettings8;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", (data33 != null) ? data33.generateJs() : "null", mappingSettings8, csvSettings8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", (data33 != null) ? data33.generateJs() : "null", mappingSettings8, csvSettings8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", (data33 != null) ? data33.generateJs() : "null", mappingSettings8, csvSettings8));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeArea(jsBase);
     }
 
 
-    public void setRangearea(String data34, String mappingSettings8, String csvSettings8) {
+    public StockSeriesRangeArea setRangeArea(String data34, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5157,13 +4985,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings8 = mappingSettings8;
             this.csvSettings8 = csvSettings8;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", data34, mappingSettings8, csvSettings8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s);", data34, mappingSettings8, csvSettings8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", data34, mappingSettings8, csvSettings8));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeArea(jsBase);
     }
 
     private TableMapping data36;
@@ -5173,7 +5010,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings9;
     private String csvSettings9;
 
-    public void setRangecolumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
+    public StockSeriesRangeColumn setRangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5245,18 +5082,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data36 = data36;
             this.mappingSettings9 = mappingSettings9;
             this.csvSettings9 = csvSettings9;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", (data36 != null) ? data36.generateJs() : "null", mappingSettings9, csvSettings9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", (data36 != null) ? data36.generateJs() : "null", mappingSettings9, csvSettings9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", (data36 != null) ? data36.generateJs() : "null", mappingSettings9, csvSettings9));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeColumn(jsBase);
     }
 
 
-    public void setRangecolumn(DataTable data37, String mappingSettings9, String csvSettings9) {
+    public StockSeriesRangeColumn setRangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5328,18 +5174,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data37 = data37;
             this.mappingSettings9 = mappingSettings9;
             this.csvSettings9 = csvSettings9;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", (data37 != null) ? data37.generateJs() : "null", mappingSettings9, csvSettings9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", (data37 != null) ? data37.generateJs() : "null", mappingSettings9, csvSettings9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", (data37 != null) ? data37.generateJs() : "null", mappingSettings9, csvSettings9));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeColumn(jsBase);
     }
 
 
-    public void setRangecolumn(String data38, String mappingSettings9, String csvSettings9) {
+    public StockSeriesRangeColumn setRangeColumn(String data38, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5412,13 +5267,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings9 = mappingSettings9;
             this.csvSettings9 = csvSettings9;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", data38, mappingSettings9, csvSettings9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s);", data38, mappingSettings9, csvSettings9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", data38, mappingSettings9, csvSettings9));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeColumn(jsBase);
     }
 
     private TableMapping data40;
@@ -5428,7 +5292,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings10;
     private String csvSettings10;
 
-    public void setRangesplinearea(TableMapping data40, String mappingSettings10, String csvSettings10) {
+    public StockSeriesRangeSplineArea setRangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5506,18 +5370,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data40 = data40;
             this.mappingSettings10 = mappingSettings10;
             this.csvSettings10 = csvSettings10;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", (data40 != null) ? data40.generateJs() : "null", mappingSettings10, csvSettings10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", (data40 != null) ? data40.generateJs() : "null", mappingSettings10, csvSettings10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", (data40 != null) ? data40.generateJs() : "null", mappingSettings10, csvSettings10));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeSplineArea(jsBase);
     }
 
 
-    public void setRangesplinearea(DataTable data41, String mappingSettings10, String csvSettings10) {
+    public StockSeriesRangeSplineArea setRangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5595,18 +5468,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data41 = data41;
             this.mappingSettings10 = mappingSettings10;
             this.csvSettings10 = csvSettings10;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", (data41 != null) ? data41.generateJs() : "null", mappingSettings10, csvSettings10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", (data41 != null) ? data41.generateJs() : "null", mappingSettings10, csvSettings10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", (data41 != null) ? data41.generateJs() : "null", mappingSettings10, csvSettings10));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeSplineArea(jsBase);
     }
 
 
-    public void setRangesplinearea(String data42, String mappingSettings10, String csvSettings10) {
+    public StockSeriesRangeSplineArea setRangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5685,13 +5567,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings10 = mappingSettings10;
             this.csvSettings10 = csvSettings10;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", data42, mappingSettings10, csvSettings10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s);", data42, mappingSettings10, csvSettings10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", data42, mappingSettings10, csvSettings10));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeSplineArea(jsBase);
     }
 
     private TableMapping data44;
@@ -5701,7 +5592,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings11;
     private String csvSettings11;
 
-    public void setRangesteparea(TableMapping data44, String mappingSettings11, String csvSettings11) {
+    public StockSeriesRangeStepArea setRangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5785,18 +5676,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data44 = data44;
             this.mappingSettings11 = mappingSettings11;
             this.csvSettings11 = csvSettings11;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", (data44 != null) ? data44.generateJs() : "null", mappingSettings11, csvSettings11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", (data44 != null) ? data44.generateJs() : "null", mappingSettings11, csvSettings11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", (data44 != null) ? data44.generateJs() : "null", mappingSettings11, csvSettings11));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeStepArea(jsBase);
     }
 
 
-    public void setRangesteparea(DataTable data45, String mappingSettings11, String csvSettings11) {
+    public StockSeriesRangeStepArea setRangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5880,18 +5780,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data45 = data45;
             this.mappingSettings11 = mappingSettings11;
             this.csvSettings11 = csvSettings11;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", (data45 != null) ? data45.generateJs() : "null", mappingSettings11, csvSettings11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", (data45 != null) ? data45.generateJs() : "null", mappingSettings11, csvSettings11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", (data45 != null) ? data45.generateJs() : "null", mappingSettings11, csvSettings11));
                 js.setLength(0);
             }
         }
+        return new StockSeriesRangeStepArea(jsBase);
     }
 
 
-    public void setRangesteparea(String data46, String mappingSettings11, String csvSettings11) {
+    public StockSeriesRangeStepArea setRangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5976,40 +5885,28 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings11 = mappingSettings11;
             this.csvSettings11 = csvSettings11;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", data46, mappingSettings11, csvSettings11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s);", data46, mappingSettings11, csvSettings11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", data46, mappingSettings11, csvSettings11));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return new StockSeriesRangeStepArea(jsBase);
     }
 
     private Double id2;
     private String id3;
 
-    public void setRemoveseries(Double id2) {
+    public Plot setRemoveSeries(Double id2) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
@@ -6020,17 +5917,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.id2 = id2;
 
-            js.append(String.format(Locale.US, jsBase + ".removeSeries(%f);", id2));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeSeries(%f);", id2));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setRemoveseries(String id3) {
+    public Plot setRemoveSeries(String id3) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
@@ -6041,76 +5947,53 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.id3 = id3;
 
-            js.append(String.format(Locale.US, jsBase + ".removeSeries(%s);", id3));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeSeries(%s);", id3));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double index4;
+    private Double index3;
 
-    public void setRemoveseriesat(Double index4) {
+    public Plot setRemoveSeriesAt(Double index3) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
             this.index2 = null;
             this.index3 = null;
-            this.index4 = null;
             
-            this.index4 = index4;
+            this.index3 = index3;
         } else {
-            this.index4 = index4;
+            this.index3 = index3;
 
-            js.append(String.format(Locale.US, jsBase + ".removeSeriesAt(%f);", index4));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeSeriesAt(%f);", index4));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double right;
-    private String right1;
-
-    public void setRight(Double right) {
-        if (jsBase == null) {
-            this.right = null;
-            this.right1 = null;
-            
-            this.right = right;
-        } else {
-            this.right = right;
-
-            js.append(String.format(Locale.US, jsBase + ".right(%f);", right));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setRight(String right1) {
-        if (jsBase == null) {
-            this.right = null;
-            this.right1 = null;
-            
-            this.right1 = right1;
-        } else {
-            this.right1 = right1;
-
-            js.append(String.format(Locale.US, jsBase + ".right(%s);", right1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right1));
-                js.setLength(0);
-            }
-        }
+        return this;
     }
 
     private TableMapping mapping15;
@@ -6118,7 +6001,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType15;
     private StockSeriesType seriesType16;
 
-    public void setRoc(String seriesType15, TableMapping mapping15, Double period11) {
+    public RoC setRoc(String seriesType15, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6175,18 +6058,27 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType15 = seriesType15;
             this.mapping15 = mapping15;
             this.period11 = period11;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", seriesType15, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", seriesType15, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", seriesType15, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
                 js.setLength(0);
             }
         }
+        return new RoC(jsBase);
     }
 
 
-    public void setRoc(StockSeriesType seriesType16, TableMapping mapping15, Double period11) {
+    public RoC setRoc(StockSeriesType seriesType16, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6244,13 +6136,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping15 = mapping15;
             this.period11 = period11;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
                 js.setLength(0);
             }
         }
+        return new RoC(jsBase);
     }
 
     private TableMapping mapping16;
@@ -6258,7 +6159,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType17;
     private StockSeriesType seriesType18;
 
-    public void setRsi(String seriesType17, TableMapping mapping16, Double period12) {
+    public RSI setRsi(String seriesType17, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6319,18 +6220,27 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType17 = seriesType17;
             this.mapping16 = mapping16;
             this.period12 = period12;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", seriesType17, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", seriesType17, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", seriesType17, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
                 js.setLength(0);
             }
         }
+        return new RSI(jsBase);
     }
 
 
-    public void setRsi(StockSeriesType seriesType18, TableMapping mapping16, Double period12) {
+    public RSI setRsi(StockSeriesType seriesType18, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6392,13 +6302,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping16 = mapping16;
             this.period12 = period12;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
                 js.setLength(0);
             }
         }
+        return new RSI(jsBase);
     }
 
     private TableMapping mapping17;
@@ -6406,7 +6325,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType19;
     private StockSeriesType seriesType20;
 
-    public void setSma(String seriesType19, TableMapping mapping17, Double period13) {
+    public SMA setSma(String seriesType19, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6471,18 +6390,27 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType19 = seriesType19;
             this.mapping17 = mapping17;
             this.period13 = period13;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", seriesType19, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", seriesType19, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", seriesType19, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
                 js.setLength(0);
             }
         }
+        return new SMA(jsBase);
     }
 
 
-    public void setSma(StockSeriesType seriesType20, TableMapping mapping17, Double period13) {
+    public SMA setSma(StockSeriesType seriesType20, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6548,13 +6476,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping17 = mapping17;
             this.period13 = period13;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
                 js.setLength(0);
             }
         }
+        return new SMA(jsBase);
     }
 
     private TableMapping data48;
@@ -6564,7 +6501,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings12;
     private String csvSettings12;
 
-    public void setSpline(TableMapping data48, String mappingSettings12, String csvSettings12) {
+    public StockSeriesSpline setSpline(TableMapping data48, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6654,18 +6591,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data48 = data48;
             this.mappingSettings12 = mappingSettings12;
             this.csvSettings12 = csvSettings12;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", (data48 != null) ? data48.generateJs() : "null", mappingSettings12, csvSettings12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", (data48 != null) ? data48.generateJs() : "null", mappingSettings12, csvSettings12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", (data48 != null) ? data48.generateJs() : "null", mappingSettings12, csvSettings12));
                 js.setLength(0);
             }
         }
+        return new StockSeriesSpline(jsBase);
     }
 
 
-    public void setSpline(DataTable data49, String mappingSettings12, String csvSettings12) {
+    public StockSeriesSpline setSpline(DataTable data49, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6755,18 +6701,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data49 = data49;
             this.mappingSettings12 = mappingSettings12;
             this.csvSettings12 = csvSettings12;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", (data49 != null) ? data49.generateJs() : "null", mappingSettings12, csvSettings12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", (data49 != null) ? data49.generateJs() : "null", mappingSettings12, csvSettings12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", (data49 != null) ? data49.generateJs() : "null", mappingSettings12, csvSettings12));
                 js.setLength(0);
             }
         }
+        return new StockSeriesSpline(jsBase);
     }
 
 
-    public void setSpline(String data50, String mappingSettings12, String csvSettings12) {
+    public StockSeriesSpline setSpline(String data50, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6857,13 +6812,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings12 = mappingSettings12;
             this.csvSettings12 = csvSettings12;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", data50, mappingSettings12, csvSettings12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s);", data50, mappingSettings12, csvSettings12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", data50, mappingSettings12, csvSettings12));
                 js.setLength(0);
             }
         }
+        return new StockSeriesSpline(jsBase);
     }
 
     private TableMapping data52;
@@ -6873,7 +6837,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings13;
     private String csvSettings13;
 
-    public void setSplinearea(TableMapping data52, String mappingSettings13, String csvSettings13) {
+    public StockSeriesSplineArea setSplineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6969,18 +6933,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data52 = data52;
             this.mappingSettings13 = mappingSettings13;
             this.csvSettings13 = csvSettings13;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", (data52 != null) ? data52.generateJs() : "null", mappingSettings13, csvSettings13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", (data52 != null) ? data52.generateJs() : "null", mappingSettings13, csvSettings13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", (data52 != null) ? data52.generateJs() : "null", mappingSettings13, csvSettings13));
                 js.setLength(0);
             }
         }
+        return new StockSeriesSplineArea(jsBase);
     }
 
 
-    public void setSplinearea(DataTable data53, String mappingSettings13, String csvSettings13) {
+    public StockSeriesSplineArea setSplineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7076,18 +7049,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data53 = data53;
             this.mappingSettings13 = mappingSettings13;
             this.csvSettings13 = csvSettings13;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", (data53 != null) ? data53.generateJs() : "null", mappingSettings13, csvSettings13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", (data53 != null) ? data53.generateJs() : "null", mappingSettings13, csvSettings13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", (data53 != null) ? data53.generateJs() : "null", mappingSettings13, csvSettings13));
                 js.setLength(0);
             }
         }
+        return new StockSeriesSplineArea(jsBase);
     }
 
 
-    public void setSplinearea(String data54, String mappingSettings13, String csvSettings13) {
+    public StockSeriesSplineArea setSplineArea(String data54, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7184,13 +7166,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings13 = mappingSettings13;
             this.csvSettings13 = csvSettings13;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", data54, mappingSettings13, csvSettings13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s);", data54, mappingSettings13, csvSettings13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", data54, mappingSettings13, csvSettings13));
                 js.setLength(0);
             }
         }
+        return new StockSeriesSplineArea(jsBase);
     }
 
     private TableMapping data56;
@@ -7200,7 +7191,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings14;
     private String csvSettings14;
 
-    public void setSteparea(TableMapping data56, String mappingSettings14, String csvSettings14) {
+    public StockSeriesStepArea setStepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7302,18 +7293,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data56 = data56;
             this.mappingSettings14 = mappingSettings14;
             this.csvSettings14 = csvSettings14;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", (data56 != null) ? data56.generateJs() : "null", mappingSettings14, csvSettings14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", (data56 != null) ? data56.generateJs() : "null", mappingSettings14, csvSettings14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", (data56 != null) ? data56.generateJs() : "null", mappingSettings14, csvSettings14));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStepArea(jsBase);
     }
 
 
-    public void setSteparea(DataTable data57, String mappingSettings14, String csvSettings14) {
+    public StockSeriesStepArea setStepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7415,18 +7415,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data57 = data57;
             this.mappingSettings14 = mappingSettings14;
             this.csvSettings14 = csvSettings14;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", (data57 != null) ? data57.generateJs() : "null", mappingSettings14, csvSettings14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", (data57 != null) ? data57.generateJs() : "null", mappingSettings14, csvSettings14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", (data57 != null) ? data57.generateJs() : "null", mappingSettings14, csvSettings14));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStepArea(jsBase);
     }
 
 
-    public void setSteparea(String data58, String mappingSettings14, String csvSettings14) {
+    public StockSeriesStepArea setStepArea(String data58, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7529,13 +7538,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings14 = mappingSettings14;
             this.csvSettings14 = csvSettings14;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", data58, mappingSettings14, csvSettings14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s);", data58, mappingSettings14, csvSettings14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", data58, mappingSettings14, csvSettings14));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStepArea(jsBase);
     }
 
     private TableMapping data60;
@@ -7545,7 +7563,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings15;
     private String csvSettings15;
 
-    public void setStepline(TableMapping data60, String mappingSettings15, String csvSettings15) {
+    public StockSeriesStepLine setStepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7653,18 +7671,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data60 = data60;
             this.mappingSettings15 = mappingSettings15;
             this.csvSettings15 = csvSettings15;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", (data60 != null) ? data60.generateJs() : "null", mappingSettings15, csvSettings15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", (data60 != null) ? data60.generateJs() : "null", mappingSettings15, csvSettings15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", (data60 != null) ? data60.generateJs() : "null", mappingSettings15, csvSettings15));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStepLine(jsBase);
     }
 
 
-    public void setStepline(DataTable data61, String mappingSettings15, String csvSettings15) {
+    public StockSeriesStepLine setStepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7772,18 +7799,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data61 = data61;
             this.mappingSettings15 = mappingSettings15;
             this.csvSettings15 = csvSettings15;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", (data61 != null) ? data61.generateJs() : "null", mappingSettings15, csvSettings15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", (data61 != null) ? data61.generateJs() : "null", mappingSettings15, csvSettings15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", (data61 != null) ? data61.generateJs() : "null", mappingSettings15, csvSettings15));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStepLine(jsBase);
     }
 
 
-    public void setStepline(String data62, String mappingSettings15, String csvSettings15) {
+    public StockSeriesStepLine setStepLine(String data62, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7892,13 +7928,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings15 = mappingSettings15;
             this.csvSettings15 = csvSettings15;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", data62, mappingSettings15, csvSettings15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s);", data62, mappingSettings15, csvSettings15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", data62, mappingSettings15, csvSettings15));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStepLine(jsBase);
     }
 
     private TableMapping data64;
@@ -7908,7 +7953,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings16;
     private String csvSettings16;
 
-    public void setStick(TableMapping data64, String mappingSettings16, String csvSettings16) {
+    public StockSeriesStick setStick(TableMapping data64, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -8022,18 +8067,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data64 = data64;
             this.mappingSettings16 = mappingSettings16;
             this.csvSettings16 = csvSettings16;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", (data64 != null) ? data64.generateJs() : "null", mappingSettings16, csvSettings16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", (data64 != null) ? data64.generateJs() : "null", mappingSettings16, csvSettings16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", (data64 != null) ? data64.generateJs() : "null", mappingSettings16, csvSettings16));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStick(jsBase);
     }
 
 
-    public void setStick(DataTable data65, String mappingSettings16, String csvSettings16) {
+    public StockSeriesStick setStick(DataTable data65, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -8147,18 +8201,27 @@ public class Plot extends VisualBaseWithBounds {
             this.data65 = data65;
             this.mappingSettings16 = mappingSettings16;
             this.csvSettings16 = csvSettings16;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", (data65 != null) ? data65.generateJs() : "null", mappingSettings16, csvSettings16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", (data65 != null) ? data65.generateJs() : "null", mappingSettings16, csvSettings16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", (data65 != null) ? data65.generateJs() : "null", mappingSettings16, csvSettings16));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStick(jsBase);
     }
 
 
-    public void setStick(String data66, String mappingSettings16, String csvSettings16) {
+    public StockSeriesStick setStick(String data66, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -8273,13 +8336,22 @@ public class Plot extends VisualBaseWithBounds {
             this.mappingSettings16 = mappingSettings16;
             this.csvSettings16 = csvSettings16;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", data66, mappingSettings16, csvSettings16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s);", data66, mappingSettings16, csvSettings16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", data66, mappingSettings16, csvSettings16));
                 js.setLength(0);
             }
         }
+        return new StockSeriesStick(jsBase);
     }
 
     private TableMapping mapping18;
@@ -8291,7 +8363,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType kSeriesType1;
     private StockSeriesType dSeriesType1;
 
-    public void setStochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType1, MovingAverageType dMAType1, StockSeriesType kSeriesType1, StockSeriesType dSeriesType1) {
+    public Stochastic setStochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType1, MovingAverageType dMAType1, StockSeriesType kSeriesType1, StockSeriesType dSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -8352,150 +8424,22 @@ public class Plot extends VisualBaseWithBounds {
             this.kSeriesType1 = kSeriesType1;
             this.dSeriesType1 = dSeriesType1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1, (kMAType1 != null) ? kMAType1.generateJs() : "null", (dMAType1 != null) ? dMAType1.generateJs() : "null", (kSeriesType1 != null) ? kSeriesType1.generateJs() : "null", (dSeriesType1 != null) ? dSeriesType1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1, (kMAType1 != null) ? kMAType1.generateJs() : "null", (dMAType1 != null) ? dMAType1.generateJs() : "null", (kSeriesType1 != null) ? kSeriesType1.generateJs() : "null", (dSeriesType1 != null) ? dSeriesType1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1, (kMAType1 != null) ? kMAType1.generateJs() : "null", (dMAType1 != null) ? dMAType1.generateJs() : "null", (kSeriesType1 != null) ? kSeriesType1.generateJs() : "null", (dSeriesType1 != null) ? dSeriesType1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
-    }
-
-    private Double top;
-    private String top1;
-
-    public void setTop(Double top) {
-        if (jsBase == null) {
-            this.top = null;
-            this.top1 = null;
-            
-            this.top = top;
-        } else {
-            this.top = top;
-
-            js.append(String.format(Locale.US, jsBase + ".top(%f);", top));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setTop(String top1) {
-        if (jsBase == null) {
-            this.top = null;
-            this.top1 = null;
-            
-            this.top1 = top1;
-        } else {
-            this.top1 = top1;
-
-            js.append(String.format(Locale.US, jsBase + ".top(%s);", top1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double width2;
-    private String width3;
-
-    public void setWidth(Double width2) {
-        if (jsBase == null) {
-            this.width = null;
-            this.width1 = null;
-            this.width2 = null;
-            this.width3 = null;
-            
-            this.width2 = width2;
-        } else {
-            this.width2 = width2;
-
-            js.append(String.format(Locale.US, jsBase + ".width(%f);", width2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setWidth(String width3) {
-        if (jsBase == null) {
-            this.width = null;
-            this.width1 = null;
-            this.width2 = null;
-            this.width3 = null;
-            
-            this.width3 = width3;
-        } else {
-            this.width3 = width3;
-
-            js.append(String.format(Locale.US, jsBase + ".width(%s);", width3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width3));
-                js.setLength(0);
-            }
-        }
+        return new Stochastic(jsBase);
     }
 
     private StockDateTime getXAxis;
@@ -8510,7 +8454,7 @@ public class Plot extends VisualBaseWithBounds {
     private String xAxis;
     private Boolean xAxis1;
 
-    public void setXaxis(String xAxis) {
+    public Plot setXAxis(String xAxis) {
         if (jsBase == null) {
             this.xAxis = null;
             this.xAxis1 = null;
@@ -8519,17 +8463,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.xAxis = xAxis;
 
-            js.append(String.format(Locale.US, jsBase + ".xAxis(%s);", xAxis));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xAxis(%s)", xAxis));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xAxis(%s);", xAxis));
+                onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", xAxis));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setXaxis(Boolean xAxis1) {
+    public Plot setXAxis(Boolean xAxis1) {
         if (jsBase == null) {
             this.xAxis = null;
             this.xAxis1 = null;
@@ -8538,19 +8491,135 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.xAxis1 = xAxis1;
 
-            js.append(String.format(Locale.US, jsBase + ".xAxis(%b);", xAxis1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xAxis(%b);", xAxis1));
+                onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+    private Double index4;
+
+    public GridsStock setXGrid(Double index4) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            
+            this.index4 = index4;
+        } else {
+            this.index4 = index4;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".xGrid(%f);", index4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xGrid(%f)", index4));
+                js.setLength(0);
+            }
+        }
+        return new GridsStock(jsBase);
+    }
+
+    private GridsStock getXGrid;
+
+    public GridsStock getXGrid() {
+        if (getXGrid == null)
+            getXGrid = new GridsStock(jsBase + ".xGrid()");
+
+        return getXGrid;
+    }
+
+    private String xGrid;
+    private Boolean xGrid1;
+
+    public Plot setXGrid(String xGrid) {
+        if (jsBase == null) {
+            this.xGrid = null;
+            this.xGrid1 = null;
+            
+            this.xGrid = xGrid;
+        } else {
+            this.xGrid = xGrid;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xGrid(%s)", xGrid));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", xGrid));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setXGrid(Boolean xGrid1) {
+        if (jsBase == null) {
+            this.xGrid = null;
+            this.xGrid1 = null;
+            
+            this.xGrid1 = xGrid1;
+        } else {
+            this.xGrid1 = xGrid1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private Double index5;
+    private String xGrid2;
+    private Boolean xGrid3;
 
-    public void setYaxis(Double index5) {
+    public Plot setXGrid(String xGrid2, Double index5) {
         if (jsBase == null) {
+            this.xGrid = null;
+            this.xGrid1 = null;
+            this.xGrid2 = null;
+            this.xGrid3 = null;
+            
+            this.xGrid2 = xGrid2;
             this.index = null;
             this.index1 = null;
             this.index2 = null;
@@ -8560,15 +8629,267 @@ public class Plot extends VisualBaseWithBounds {
             
             this.index5 = index5;
         } else {
+            this.xGrid2 = xGrid2;
             this.index5 = index5;
 
-            js.append(String.format(Locale.US, jsBase + ".yAxis(%f);", index5));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%f);", index5));
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index5));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+
+    public Plot setXGrid(Boolean xGrid3, Double index5) {
+        if (jsBase == null) {
+            this.xGrid = null;
+            this.xGrid1 = null;
+            this.xGrid2 = null;
+            this.xGrid3 = null;
+            
+            this.xGrid3 = xGrid3;
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            this.index5 = null;
+            
+            this.index5 = index5;
+        } else {
+            this.xGrid3 = xGrid3;
+            this.index5 = index5;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index5));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double index6;
+
+    public GridsStock setXMinorGrid(Double index6) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            this.index5 = null;
+            this.index6 = null;
+            
+            this.index6 = index6;
+        } else {
+            this.index6 = index6;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".xMinorGrid(%f);", index6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xMinorGrid(%f)", index6));
+                js.setLength(0);
+            }
+        }
+        return new GridsStock(jsBase);
+    }
+
+    private GridsStock getXMinorGrid;
+
+    public GridsStock getXMinorGrid() {
+        if (getXMinorGrid == null)
+            getXMinorGrid = new GridsStock(jsBase + ".xMinorGrid()");
+
+        return getXMinorGrid;
+    }
+
+    private String xMinorGrid;
+    private Boolean xMinorGrid1;
+
+    public Plot setXMinorGrid(String xMinorGrid) {
+        if (jsBase == null) {
+            this.xMinorGrid = null;
+            this.xMinorGrid1 = null;
+            
+            this.xMinorGrid = xMinorGrid;
+        } else {
+            this.xMinorGrid = xMinorGrid;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", xMinorGrid));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setXMinorGrid(Boolean xMinorGrid1) {
+        if (jsBase == null) {
+            this.xMinorGrid = null;
+            this.xMinorGrid1 = null;
+            
+            this.xMinorGrid1 = xMinorGrid1;
+        } else {
+            this.xMinorGrid1 = xMinorGrid1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double indexOrValue;
+    private String xMinorGrid2;
+    private Boolean xMinorGrid3;
+
+    public Plot setXMinorGrid(String xMinorGrid2, Double indexOrValue) {
+        if (jsBase == null) {
+            this.xMinorGrid = null;
+            this.xMinorGrid1 = null;
+            this.xMinorGrid2 = null;
+            this.xMinorGrid3 = null;
+            
+            this.xMinorGrid2 = xMinorGrid2;
+            this.indexOrValue = indexOrValue;
+        } else {
+            this.xMinorGrid2 = xMinorGrid2;
+            this.indexOrValue = indexOrValue;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, indexOrValue));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", xMinorGrid2, indexOrValue));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setXMinorGrid(Boolean xMinorGrid3, Double indexOrValue) {
+        if (jsBase == null) {
+            this.xMinorGrid = null;
+            this.xMinorGrid1 = null;
+            this.xMinorGrid2 = null;
+            this.xMinorGrid3 = null;
+            
+            this.xMinorGrid3 = xMinorGrid3;
+            this.indexOrValue = indexOrValue;
+        } else {
+            this.xMinorGrid3 = xMinorGrid3;
+            this.indexOrValue = indexOrValue;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double index7;
+
+    public CoreAxesLinear setYAxis(Double index7) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            this.index5 = null;
+            this.index6 = null;
+            this.index7 = null;
+            
+            this.index7 = index7;
+        } else {
+            this.index7 = index7;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".yAxis(%f);", index7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%f)", index7));
+                js.setLength(0);
+            }
+        }
+        return new CoreAxesLinear(jsBase);
     }
 
     private CoreAxesLinear getYAxis;
@@ -8583,7 +8904,7 @@ public class Plot extends VisualBaseWithBounds {
     private String yAxis;
     private Boolean yAxis1;
 
-    public void setYaxis(String yAxis) {
+    public Plot setYAxis(String yAxis) {
         if (jsBase == null) {
             this.yAxis = null;
             this.yAxis1 = null;
@@ -8592,17 +8913,26 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yAxis = yAxis;
 
-            js.append(String.format(Locale.US, jsBase + ".yAxis(%s);", yAxis));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yAxis(%s)", yAxis));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%s);", yAxis));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", yAxis));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setYaxis(Boolean yAxis1) {
+    public Plot setYAxis(Boolean yAxis1) {
         if (jsBase == null) {
             this.yAxis = null;
             this.yAxis1 = null;
@@ -8611,20 +8941,29 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yAxis1 = yAxis1;
 
-            js.append(String.format(Locale.US, jsBase + ".yAxis(%b);", yAxis1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%b);", yAxis1));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double index6;
+    private Double index8;
     private String yAxis2;
     private Boolean yAxis3;
 
-    public void setYaxis(String yAxis2, Double index6) {
+    public Plot setYAxis(String yAxis2, Double index8) {
         if (jsBase == null) {
             this.yAxis = null;
             this.yAxis1 = null;
@@ -8639,23 +8978,34 @@ public class Plot extends VisualBaseWithBounds {
             this.index4 = null;
             this.index5 = null;
             this.index6 = null;
+            this.index7 = null;
+            this.index8 = null;
             
-            this.index6 = index6;
+            this.index8 = index8;
         } else {
             this.yAxis2 = yAxis2;
-            this.index6 = index6;
+            this.index8 = index8;
 
-            js.append(String.format(Locale.US, jsBase + ".yAxis(%s, %f);", yAxis2, index6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%s, %f);", yAxis2, index6));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index8));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setYaxis(Boolean yAxis3, Double index6) {
+    public Plot setYAxis(Boolean yAxis3, Double index8) {
         if (jsBase == null) {
             this.yAxis = null;
             this.yAxis1 = null;
@@ -8670,19 +9020,404 @@ public class Plot extends VisualBaseWithBounds {
             this.index4 = null;
             this.index5 = null;
             this.index6 = null;
+            this.index7 = null;
+            this.index8 = null;
             
-            this.index6 = index6;
+            this.index8 = index8;
         } else {
             this.yAxis3 = yAxis3;
-            this.index6 = index6;
+            this.index8 = index8;
 
-            js.append(String.format(Locale.US, jsBase + ".yAxis(%b, %f);", yAxis3, index6));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%b, %f);", yAxis3, index6));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index8));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+    private Double index9;
+
+    public GridsStock setYGrid(Double index9) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            this.index5 = null;
+            this.index6 = null;
+            this.index7 = null;
+            this.index8 = null;
+            this.index9 = null;
+            
+            this.index9 = index9;
+        } else {
+            this.index9 = index9;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".yGrid(%f);", index9));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yGrid(%f)", index9));
+                js.setLength(0);
+            }
+        }
+        return new GridsStock(jsBase);
+    }
+
+    private GridsStock getYGrid;
+
+    public GridsStock getYGrid() {
+        if (getYGrid == null)
+            getYGrid = new GridsStock(jsBase + ".yGrid()");
+
+        return getYGrid;
+    }
+
+    private String yGrid;
+    private Boolean yGrid1;
+
+    public Plot setYGrid(String yGrid) {
+        if (jsBase == null) {
+            this.yGrid = null;
+            this.yGrid1 = null;
+            
+            this.yGrid = yGrid;
+        } else {
+            this.yGrid = yGrid;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yGrid(%s)", yGrid));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", yGrid));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setYGrid(Boolean yGrid1) {
+        if (jsBase == null) {
+            this.yGrid = null;
+            this.yGrid1 = null;
+            
+            this.yGrid1 = yGrid1;
+        } else {
+            this.yGrid1 = yGrid1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double index10;
+    private String yGrid2;
+    private Boolean yGrid3;
+
+    public Plot setYGrid(String yGrid2, Double index10) {
+        if (jsBase == null) {
+            this.yGrid = null;
+            this.yGrid1 = null;
+            this.yGrid2 = null;
+            this.yGrid3 = null;
+            
+            this.yGrid2 = yGrid2;
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            this.index5 = null;
+            this.index6 = null;
+            this.index7 = null;
+            this.index8 = null;
+            this.index9 = null;
+            this.index10 = null;
+            
+            this.index10 = index10;
+        } else {
+            this.yGrid2 = yGrid2;
+            this.index10 = index10;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index10));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setYGrid(Boolean yGrid3, Double index10) {
+        if (jsBase == null) {
+            this.yGrid = null;
+            this.yGrid1 = null;
+            this.yGrid2 = null;
+            this.yGrid3 = null;
+            
+            this.yGrid3 = yGrid3;
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            this.index5 = null;
+            this.index6 = null;
+            this.index7 = null;
+            this.index8 = null;
+            this.index9 = null;
+            this.index10 = null;
+            
+            this.index10 = index10;
+        } else {
+            this.yGrid3 = yGrid3;
+            this.index10 = index10;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index10));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index10));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double index11;
+
+    public GridsStock setYMinorGrid(Double index11) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            this.index3 = null;
+            this.index4 = null;
+            this.index5 = null;
+            this.index6 = null;
+            this.index7 = null;
+            this.index8 = null;
+            this.index9 = null;
+            this.index10 = null;
+            this.index11 = null;
+            
+            this.index11 = index11;
+        } else {
+            this.index11 = index11;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".yMinorGrid(%f);", index11));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yMinorGrid(%f)", index11));
+                js.setLength(0);
+            }
+        }
+        return new GridsStock(jsBase);
+    }
+
+    private GridsStock getYMinorGrid;
+
+    public GridsStock getYMinorGrid() {
+        if (getYMinorGrid == null)
+            getYMinorGrid = new GridsStock(jsBase + ".yMinorGrid()");
+
+        return getYMinorGrid;
+    }
+
+    private String yMinorGrid;
+    private Boolean yMinorGrid1;
+
+    public Plot setYMinorGrid(String yMinorGrid) {
+        if (jsBase == null) {
+            this.yMinorGrid = null;
+            this.yMinorGrid1 = null;
+            
+            this.yMinorGrid = yMinorGrid;
+        } else {
+            this.yMinorGrid = yMinorGrid;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", yMinorGrid));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setYMinorGrid(Boolean yMinorGrid1) {
+        if (jsBase == null) {
+            this.yMinorGrid = null;
+            this.yMinorGrid1 = null;
+            
+            this.yMinorGrid1 = yMinorGrid1;
+        } else {
+            this.yMinorGrid1 = yMinorGrid1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double indexOrValue1;
+    private String yMinorGrid2;
+    private Boolean yMinorGrid3;
+
+    public Plot setYMinorGrid(String yMinorGrid2, Double indexOrValue1) {
+        if (jsBase == null) {
+            this.yMinorGrid = null;
+            this.yMinorGrid1 = null;
+            this.yMinorGrid2 = null;
+            this.yMinorGrid3 = null;
+            
+            this.yMinorGrid2 = yMinorGrid2;
+            this.indexOrValue = null;
+            this.indexOrValue1 = null;
+            
+            this.indexOrValue1 = indexOrValue1;
+        } else {
+            this.yMinorGrid2 = yMinorGrid2;
+            this.indexOrValue1 = indexOrValue1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, indexOrValue1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", yMinorGrid2, indexOrValue1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setYMinorGrid(Boolean yMinorGrid3, Double indexOrValue1) {
+        if (jsBase == null) {
+            this.yMinorGrid = null;
+            this.yMinorGrid1 = null;
+            this.yMinorGrid2 = null;
+            this.yMinorGrid3 = null;
+            
+            this.yMinorGrid3 = yMinorGrid3;
+            this.indexOrValue = null;
+            this.indexOrValue1 = null;
+            
+            this.indexOrValue1 = indexOrValue1;
+        } else {
+            this.yMinorGrid3 = yMinorGrid3;
+            this.indexOrValue1 = indexOrValue1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private ScatterBase getYScale;
@@ -8696,59 +9431,92 @@ public class Plot extends VisualBaseWithBounds {
 
     private ScatterScaleTypes yScale;
     private ScatterBase yScale1;
+    private String yScale2;
 
-    public void setYscale(ScatterScaleTypes yScale) {
+    public Plot setYScale(ScatterScaleTypes yScale) {
         if (jsBase == null) {
             this.yScale = null;
             this.yScale1 = null;
+            this.yScale2 = null;
             
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
 
-            js.append(String.format(Locale.US, jsBase + ".yScale(%s);", (yScale != null) ? yScale.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", (yScale != null) ? yScale.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale != null) ? yScale.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setYscale(ScatterBase yScale1) {
+    public Plot setYScale(ScatterBase yScale1) {
         if (jsBase == null) {
             this.yScale = null;
             this.yScale1 = null;
+            this.yScale2 = null;
             
             this.yScale1 = yScale1;
         } else {
             this.yScale1 = yScale1;
 
-            js.append(String.format(Locale.US, jsBase + ".yScale(%s);", (yScale1 != null) ? yScale1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", (yScale1 != null) ? yScale1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double zIndex;
 
-    public void setZindex(Double zIndex) {
+    public Plot setYScale(String yScale2) {
         if (jsBase == null) {
-            this.zIndex = zIndex;
+            this.yScale = null;
+            this.yScale1 = null;
+            this.yScale2 = null;
+            
+            this.yScale2 = yScale2;
         } else {
-            this.zIndex = zIndex;
+            this.yScale2 = yScale2;
 
-            js.append(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".yScale(%s)", yScale2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetAnnotations() {
@@ -8765,9 +9533,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSgetBounds() {
-        if (getBounds != null) {
-            return getBounds.generateJs();
+    private String generateJSgetCrosshair() {
+        if (getCrosshair != null) {
+            return getCrosshair.generateJs();
         }
         return "";
     }
@@ -8782,13 +9550,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSgetGetSeriesAt() {
         if (getGetSeriesAt != null) {
             return getGetSeriesAt.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetGrid() {
-        if (getGrid != null) {
-            return getGrid.generateJs();
         }
         return "";
     }
@@ -8814,9 +9575,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSgetMinorGrid() {
-        if (getMinorGrid != null) {
-            return getMinorGrid.generateJs();
+    private String generateJSgetNoData() {
+        if (getNoData != null) {
+            return getNoData.generateJs();
         }
         return "";
     }
@@ -8828,6 +9589,13 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSgetPriceIndicator() {
+        if (getPriceIndicator != null) {
+            return getPriceIndicator.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
             return getXAxis.generateJs();
@@ -8835,9 +9603,37 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSgetXGrid() {
+        if (getXGrid != null) {
+            return getXGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetXMinorGrid() {
+        if (getXMinorGrid != null) {
+            return getXMinorGrid.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetYAxis() {
         if (getYAxis != null) {
             return getYAxis.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYGrid() {
+        if (getYGrid != null) {
+            return getYGrid.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetYMinorGrid() {
+        if (getYMinorGrid != null) {
+            return getYMinorGrid.generateJs();
         }
         return "";
     }
@@ -9164,97 +9960,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSbottom() {
-        if (bottom != null) {
-            return String.format(Locale.US, "bottom: %f,", bottom);
-        }
-        return "";
-    }
-
-    private String generateJSbottom1() {
-        if (bottom1 != null) {
-            return String.format(Locale.US, "bottom: %s,", bottom1);
-        }
-        return "";
-    }
-
-    private String generateJSbounds() {
-        if (bounds != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds != null) ? bounds.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbounds1() {
-        if (bounds1 != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds1 != null) ? bounds1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSbounds2() {
-        if (bounds2 != null) {
-            return String.format(Locale.US, "bounds: %s,", (bounds2 != null) ? bounds2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSx1() {
-        if (x1 != null) {
-            return String.format(Locale.US, "x: %s,", x1);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJSy1() {
-        if (y1 != null) {
-            return String.format(Locale.US, "y: %s,", y1);
-        }
-        return "";
-    }
-
-    private String generateJSwidth() {
-        if (width != null) {
-            return String.format(Locale.US, "width: %f,", width);
-        }
-        return "";
-    }
-
-    private String generateJSwidth1() {
-        if (width1 != null) {
-            return String.format(Locale.US, "width: %s,", width1);
-        }
-        return "";
-    }
-
-    private String generateJSheight() {
-        if (height != null) {
-            return String.format(Locale.US, "height: %f,", height);
-        }
-        return "";
-    }
-
-    private String generateJSheight1() {
-        if (height1 != null) {
-            return String.format(Locale.US, "height: %s,", height1);
-        }
-        return "";
-    }
-
     private String generateJSdata4() {
         if (data4 != null) {
             return String.format(Locale.US, "data: %s,", (data4 != null) ? data4.generateJs() : "null");
@@ -9423,51 +10128,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", (color != null) ? color.generateJs() : "null");
+    private String generateJScrosshair() {
+        if (crosshair != null) {
+            return String.format(Locale.US, "crosshair: %s,", crosshair);
         }
         return "";
     }
 
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", (color1 != null) ? color1.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJScolor2() {
-        if (color2 != null) {
-            return String.format(Locale.US, "color: %s,", color2);
-        }
-        return "";
-    }
-
-    private String generateJSthickness() {
-        if (thickness != null) {
-            return String.format(Locale.US, "thickness: %f,", thickness);
-        }
-        return "";
-    }
-
-    private String generateJSdashpattern() {
-        if (dashpattern != null) {
-            return String.format(Locale.US, "dashpattern: %s,", dashpattern);
-        }
-        return "";
-    }
-
-    private String generateJSlineJoin() {
-        if (lineJoin != null) {
-            return String.format(Locale.US, "lineJoin: %s,", (lineJoin != null) ? lineJoin.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSlineCap() {
-        if (lineCap != null) {
-            return String.format(Locale.US, "lineCap: %s,", (lineCap != null) ? lineCap.generateJs() : "null");
+    private String generateJScrosshair1() {
+        if (crosshair1 != null) {
+            return String.format(Locale.US, "crosshair: %b,", crosshair1);
         }
         return "";
     }
@@ -9563,13 +10233,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSenabled() {
-        if (enabled != null) {
-            return String.format(Locale.US, "enabled: %b,", enabled);
-        }
-        return "";
-    }
-
     private String generateJSid() {
         if (id != null) {
             return String.format(Locale.US, "id: %f,", id);
@@ -9591,48 +10254,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSgrid() {
-        if (grid != null) {
-            return String.format(Locale.US, "grid: %s,", grid);
-        }
-        return "";
-    }
-
-    private String generateJSgrid1() {
-        if (grid1 != null) {
-            return String.format(Locale.US, "grid: %b,", grid1);
-        }
-        return "";
-    }
-
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
-        }
-        return "";
-    }
-
-    private String generateJSgrid2() {
-        if (grid2 != null) {
-            return String.format(Locale.US, "grid: %s,", grid2);
-        }
-        return "";
-    }
-
-    private String generateJSgrid3() {
-        if (grid3 != null) {
-            return String.format(Locale.US, "grid: %b,", grid3);
-        }
-        return "";
-    }
-
     private String generateJShatchFillPalette() {
         if (hatchFillPalette != null) {
             return String.format(Locale.US, "hatchFillPalette: %s,", arrayToString(hatchFillPalette));
@@ -9650,20 +10271,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJShatchFillPalette2() {
         if (hatchFillPalette2 != null) {
             return String.format(Locale.US, "hatchFillPalette: %s,", (hatchFillPalette2 != null) ? hatchFillPalette2.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSheight2() {
-        if (height2 != null) {
-            return String.format(Locale.US, "height: %f,", height2);
-        }
-        return "";
-    }
-
-    private String generateJSheight3() {
-        if (height3 != null) {
-            return String.format(Locale.US, "height: %s,", height3);
         }
         return "";
     }
@@ -9829,20 +10436,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSleft() {
-        if (left != null) {
-            return String.format(Locale.US, "left: %f,", left);
-        }
-        return "";
-    }
-
-    private String generateJSleft1() {
-        if (left1 != null) {
-            return String.format(Locale.US, "left: %s,", left1);
-        }
-        return "";
-    }
-
     private String generateJSlegend() {
         if (legend != null) {
             return String.format(Locale.US, "legend: %s,", legend);
@@ -9895,48 +10488,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJScsvSettings5() {
         if (csvSettings5 != null) {
             return String.format(Locale.US, "csvSettings: %s,", csvSettings5);
-        }
-        return "";
-    }
-
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
         }
         return "";
     }
@@ -10074,100 +10625,30 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSmaxHeight() {
-        if (maxHeight != null) {
-            return String.format(Locale.US, "maxHeight: %f,", maxHeight);
+    private String generateJSmaxPointWidth() {
+        if (maxPointWidth != null) {
+            return String.format(Locale.US, "maxPointWidth: %f,", maxPointWidth);
         }
         return "";
     }
 
-    private String generateJSmaxHeight1() {
-        if (maxHeight1 != null) {
-            return String.format(Locale.US, "maxHeight: %s,", maxHeight1);
+    private String generateJSmaxPointWidth1() {
+        if (maxPointWidth1 != null) {
+            return String.format(Locale.US, "maxPointWidth: %s,", maxPointWidth1);
         }
         return "";
     }
 
-    private String generateJSmaxWidth() {
-        if (maxWidth != null) {
-            return String.format(Locale.US, "maxWidth: %f,", maxWidth);
+    private String generateJSminPointLength() {
+        if (minPointLength != null) {
+            return String.format(Locale.US, "minPointLength: %f,", minPointLength);
         }
         return "";
     }
 
-    private String generateJSmaxWidth1() {
-        if (maxWidth1 != null) {
-            return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight() {
-        if (minHeight != null) {
-            return String.format(Locale.US, "minHeight: %f,", minHeight);
-        }
-        return "";
-    }
-
-    private String generateJSminHeight1() {
-        if (minHeight1 != null) {
-            return String.format(Locale.US, "minHeight: %s,", minHeight1);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth() {
-        if (minWidth != null) {
-            return String.format(Locale.US, "minWidth: %f,", minWidth);
-        }
-        return "";
-    }
-
-    private String generateJSminWidth1() {
-        if (minWidth1 != null) {
-            return String.format(Locale.US, "minWidth: %s,", minWidth1);
-        }
-        return "";
-    }
-
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
-        }
-        return "";
-    }
-
-    private String generateJSminorGrid() {
-        if (minorGrid != null) {
-            return String.format(Locale.US, "minorGrid: %s,", minorGrid);
-        }
-        return "";
-    }
-
-    private String generateJSminorGrid1() {
-        if (minorGrid1 != null) {
-            return String.format(Locale.US, "minorGrid: %b,", minorGrid1);
-        }
-        return "";
-    }
-
-    private String generateJSindexOrValue() {
-        if (indexOrValue != null) {
-            return String.format(Locale.US, "indexOrValue: %f,", indexOrValue);
-        }
-        return "";
-    }
-
-    private String generateJSminorGrid2() {
-        if (minorGrid2 != null) {
-            return String.format(Locale.US, "minorGrid: %s,", minorGrid2);
-        }
-        return "";
-    }
-
-    private String generateJSminorGrid3() {
-        if (minorGrid3 != null) {
-            return String.format(Locale.US, "minorGrid: %b,", minorGrid3);
+    private String generateJSminPointLength1() {
+        if (minPointLength1 != null) {
+            return String.format(Locale.US, "minPointLength: %s,", minPointLength1);
         }
         return "";
     }
@@ -10196,6 +10677,13 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSseriesType14() {
         if (seriesType14 != null) {
             return String.format(Locale.US, "seriesType: %s,", seriesType14);
+        }
+        return "";
+    }
+
+    private String generateJSnoData() {
+        if (noData != null) {
+            return String.format(Locale.US, "noData: %s,", noData);
         }
         return "";
     }
@@ -10270,23 +10758,58 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions() {
-        if (paperSizeOrOptions != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", (paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null");
+    private String generateJSpointWidth() {
+        if (pointWidth != null) {
+            return String.format(Locale.US, "pointWidth: %f,", pointWidth);
         }
         return "";
     }
 
-    private String generateJSpaperSizeOrOptions1() {
-        if (paperSizeOrOptions1 != null) {
-            return String.format(Locale.US, "paperSizeOrOptions: %s,", paperSizeOrOptions1);
+    private String generateJSpointWidth1() {
+        if (pointWidth1 != null) {
+            return String.format(Locale.US, "pointWidth: %s,", pointWidth1);
         }
         return "";
     }
 
-    private String generateJSlandscape() {
-        if (landscape != null) {
-            return String.format(Locale.US, "landscape: %b,", landscape);
+    private String generateJSindex1() {
+        if (index1 != null) {
+            return String.format(Locale.US, "index: %f,", index1);
+        }
+        return "";
+    }
+
+    private String generateJSpriceIndicator() {
+        if (priceIndicator != null) {
+            return String.format(Locale.US, "priceIndicator: %s,", priceIndicator);
+        }
+        return "";
+    }
+
+    private String generateJSpriceIndicator1() {
+        if (priceIndicator1 != null) {
+            return String.format(Locale.US, "priceIndicator: %b,", priceIndicator1);
+        }
+        return "";
+    }
+
+    private String generateJSindex2() {
+        if (index2 != null) {
+            return String.format(Locale.US, "index: %f,", index2);
+        }
+        return "";
+    }
+
+    private String generateJSpriceIndicator2() {
+        if (priceIndicator2 != null) {
+            return String.format(Locale.US, "priceIndicator: %s,", priceIndicator2);
+        }
+        return "";
+    }
+
+    private String generateJSpriceIndicator3() {
+        if (priceIndicator3 != null) {
+            return String.format(Locale.US, "priceIndicator: %b,", priceIndicator3);
         }
         return "";
     }
@@ -10459,13 +10982,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
-        }
-        return "";
-    }
-
     private String generateJSid2() {
         if (id2 != null) {
             return String.format(Locale.US, "id: %f,", id2);
@@ -10480,23 +10996,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex4() {
-        if (index4 != null) {
-            return String.format(Locale.US, "index: %f,", index4);
-        }
-        return "";
-    }
-
-    private String generateJSright() {
-        if (right != null) {
-            return String.format(Locale.US, "right: %f,", right);
-        }
-        return "";
-    }
-
-    private String generateJSright1() {
-        if (right1 != null) {
-            return String.format(Locale.US, "right: %s,", right1);
+    private String generateJSindex3() {
+        if (index3 != null) {
+            return String.format(Locale.US, "index: %f,", index3);
         }
         return "";
     }
@@ -10851,62 +11353,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJStop() {
-        if (top != null) {
-            return String.format(Locale.US, "top: %f,", top);
-        }
-        return "";
-    }
-
-    private String generateJStop1() {
-        if (top1 != null) {
-            return String.format(Locale.US, "top: %s,", top1);
-        }
-        return "";
-    }
-
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
-
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
-    private String generateJSwidth2() {
-        if (width2 != null) {
-            return String.format(Locale.US, "width: %f,", width2);
-        }
-        return "";
-    }
-
-    private String generateJSwidth3() {
-        if (width3 != null) {
-            return String.format(Locale.US, "width: %s,", width3);
-        }
-        return "";
-    }
-
     private String generateJSxAxis() {
         if (xAxis != null) {
             return String.format(Locale.US, "xAxis: %s,", xAxis);
@@ -10921,9 +11367,93 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSindex4() {
+        if (index4 != null) {
+            return String.format(Locale.US, "index: %f,", index4);
+        }
+        return "";
+    }
+
+    private String generateJSxGrid() {
+        if (xGrid != null) {
+            return String.format(Locale.US, "xGrid: %s,", xGrid);
+        }
+        return "";
+    }
+
+    private String generateJSxGrid1() {
+        if (xGrid1 != null) {
+            return String.format(Locale.US, "xGrid: %b,", xGrid1);
+        }
+        return "";
+    }
+
     private String generateJSindex5() {
         if (index5 != null) {
             return String.format(Locale.US, "index: %f,", index5);
+        }
+        return "";
+    }
+
+    private String generateJSxGrid2() {
+        if (xGrid2 != null) {
+            return String.format(Locale.US, "xGrid: %s,", xGrid2);
+        }
+        return "";
+    }
+
+    private String generateJSxGrid3() {
+        if (xGrid3 != null) {
+            return String.format(Locale.US, "xGrid: %b,", xGrid3);
+        }
+        return "";
+    }
+
+    private String generateJSindex6() {
+        if (index6 != null) {
+            return String.format(Locale.US, "index: %f,", index6);
+        }
+        return "";
+    }
+
+    private String generateJSxMinorGrid() {
+        if (xMinorGrid != null) {
+            return String.format(Locale.US, "xMinorGrid: %s,", xMinorGrid);
+        }
+        return "";
+    }
+
+    private String generateJSxMinorGrid1() {
+        if (xMinorGrid1 != null) {
+            return String.format(Locale.US, "xMinorGrid: %b,", xMinorGrid1);
+        }
+        return "";
+    }
+
+    private String generateJSindexOrValue() {
+        if (indexOrValue != null) {
+            return String.format(Locale.US, "indexOrValue: %f,", indexOrValue);
+        }
+        return "";
+    }
+
+    private String generateJSxMinorGrid2() {
+        if (xMinorGrid2 != null) {
+            return String.format(Locale.US, "xMinorGrid: %s,", xMinorGrid2);
+        }
+        return "";
+    }
+
+    private String generateJSxMinorGrid3() {
+        if (xMinorGrid3 != null) {
+            return String.format(Locale.US, "xMinorGrid: %b,", xMinorGrid3);
+        }
+        return "";
+    }
+
+    private String generateJSindex7() {
+        if (index7 != null) {
+            return String.format(Locale.US, "index: %f,", index7);
         }
         return "";
     }
@@ -10942,9 +11472,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex6() {
-        if (index6 != null) {
-            return String.format(Locale.US, "index: %f,", index6);
+    private String generateJSindex8() {
+        if (index8 != null) {
+            return String.format(Locale.US, "index: %f,", index8);
         }
         return "";
     }
@@ -10963,6 +11493,90 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSindex9() {
+        if (index9 != null) {
+            return String.format(Locale.US, "index: %f,", index9);
+        }
+        return "";
+    }
+
+    private String generateJSyGrid() {
+        if (yGrid != null) {
+            return String.format(Locale.US, "yGrid: %s,", yGrid);
+        }
+        return "";
+    }
+
+    private String generateJSyGrid1() {
+        if (yGrid1 != null) {
+            return String.format(Locale.US, "yGrid: %b,", yGrid1);
+        }
+        return "";
+    }
+
+    private String generateJSindex10() {
+        if (index10 != null) {
+            return String.format(Locale.US, "index: %f,", index10);
+        }
+        return "";
+    }
+
+    private String generateJSyGrid2() {
+        if (yGrid2 != null) {
+            return String.format(Locale.US, "yGrid: %s,", yGrid2);
+        }
+        return "";
+    }
+
+    private String generateJSyGrid3() {
+        if (yGrid3 != null) {
+            return String.format(Locale.US, "yGrid: %b,", yGrid3);
+        }
+        return "";
+    }
+
+    private String generateJSindex11() {
+        if (index11 != null) {
+            return String.format(Locale.US, "index: %f,", index11);
+        }
+        return "";
+    }
+
+    private String generateJSyMinorGrid() {
+        if (yMinorGrid != null) {
+            return String.format(Locale.US, "yMinorGrid: %s,", yMinorGrid);
+        }
+        return "";
+    }
+
+    private String generateJSyMinorGrid1() {
+        if (yMinorGrid1 != null) {
+            return String.format(Locale.US, "yMinorGrid: %b,", yMinorGrid1);
+        }
+        return "";
+    }
+
+    private String generateJSindexOrValue1() {
+        if (indexOrValue1 != null) {
+            return String.format(Locale.US, "indexOrValue: %f,", indexOrValue1);
+        }
+        return "";
+    }
+
+    private String generateJSyMinorGrid2() {
+        if (yMinorGrid2 != null) {
+            return String.format(Locale.US, "yMinorGrid: %s,", yMinorGrid2);
+        }
+        return "";
+    }
+
+    private String generateJSyMinorGrid3() {
+        if (yMinorGrid3 != null) {
+            return String.format(Locale.US, "yMinorGrid: %b,", yMinorGrid3);
+        }
+        return "";
+    }
+
     private String generateJSyScale() {
         if (yScale != null) {
             return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
@@ -10977,16 +11591,49 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSzIndex() {
-        if (zIndex != null) {
-            return String.format(Locale.US, "zIndex: %f,", zIndex);
+    private String generateJSyScale2() {
+        if (yScale2 != null) {
+            return String.format(Locale.US, "yScale: %s,", yScale2);
         }
         return "";
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetAnnotations());
+        jsGetters.append(generateJSgetBackground());
+        jsGetters.append(generateJSgetCrosshair());
+        jsGetters.append(generateJSgetGetSeries());
+        jsGetters.append(generateJSgetGetSeriesAt());
+        jsGetters.append(generateJSgetHatchFillPalette());
+        jsGetters.append(generateJSgetLegend());
+        jsGetters.append(generateJSgetMarkerPalette());
+        jsGetters.append(generateJSgetNoData());
+        jsGetters.append(generateJSgetPalette());
+        jsGetters.append(generateJSgetPriceIndicator());
+        jsGetters.append(generateJSgetXAxis());
+        jsGetters.append(generateJSgetXGrid());
+        jsGetters.append(generateJSgetXMinorGrid());
+        jsGetters.append(generateJSgetYAxis());
+        jsGetters.append(generateJSgetYGrid());
+        jsGetters.append(generateJSgetYMinorGrid());
+        jsGetters.append(generateJSgetYScale());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSvar_args());
@@ -11034,19 +11681,6 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSdeviation2());
             js.append(generateJSseriesType6());
             js.append(generateJSseriesType7());
-            js.append(generateJSbottom());
-            js.append(generateJSbottom1());
-            js.append(generateJSbounds());
-            js.append(generateJSbounds1());
-            js.append(generateJSbounds2());
-            js.append(generateJSx());
-            js.append(generateJSx1());
-            js.append(generateJSy());
-            js.append(generateJSy1());
-            js.append(generateJSwidth());
-            js.append(generateJSwidth1());
-            js.append(generateJSheight());
-            js.append(generateJSheight1());
             js.append(generateJSdata4());
             js.append(generateJSdata5());
             js.append(generateJSdata6());
@@ -11071,13 +11705,8 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSdata11());
             js.append(generateJSmappingSettings2());
             js.append(generateJScsvSettings2());
-            js.append(generateJScolor());
-            js.append(generateJScolor1());
-            js.append(generateJScolor2());
-            js.append(generateJSthickness());
-            js.append(generateJSdashpattern());
-            js.append(generateJSlineJoin());
-            js.append(generateJSlineCap());
+            js.append(generateJScrosshair());
+            js.append(generateJScrosshair1());
             js.append(generateJSdefaultSeriesType());
             js.append(generateJSdefaultSeriesType1());
             js.append(generateJSmapping10());
@@ -11091,21 +11720,12 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSperiod9());
             js.append(generateJSseriesType11());
             js.append(generateJSseriesType12());
-            js.append(generateJSenabled());
             js.append(generateJSid());
             js.append(generateJSid1());
             js.append(generateJSindex());
-            js.append(generateJSindex1());
-            js.append(generateJSgrid());
-            js.append(generateJSgrid1());
-            js.append(generateJSindex2());
-            js.append(generateJSgrid2());
-            js.append(generateJSgrid3());
             js.append(generateJShatchFillPalette());
             js.append(generateJShatchFillPalette1());
             js.append(generateJShatchFillPalette2());
-            js.append(generateJSheight2());
-            js.append(generateJSheight3());
             js.append(generateJSdata12());
             js.append(generateJSdata13());
             js.append(generateJSdata14());
@@ -11129,8 +11749,6 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSkSeriesType());
             js.append(generateJSdSeriesType());
             js.append(generateJSjSeriesType());
-            js.append(generateJSleft());
-            js.append(generateJSleft1());
             js.append(generateJSlegend());
             js.append(generateJSlegend1());
             js.append(generateJSdata20());
@@ -11139,12 +11757,6 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSdata23());
             js.append(generateJSmappingSettings5());
             js.append(generateJScsvSettings5());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSmapping13());
             js.append(generateJSfastPeriod2());
             js.append(generateJSslowPeriod2());
@@ -11164,24 +11776,15 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSmarkerPalette());
             js.append(generateJSmarkerPalette1());
             js.append(generateJSmarkerPalette2());
-            js.append(generateJSmaxHeight());
-            js.append(generateJSmaxHeight1());
-            js.append(generateJSmaxWidth());
-            js.append(generateJSmaxWidth1());
-            js.append(generateJSminHeight());
-            js.append(generateJSminHeight1());
-            js.append(generateJSminWidth());
-            js.append(generateJSminWidth1());
-            js.append(generateJSindex3());
-            js.append(generateJSminorGrid());
-            js.append(generateJSminorGrid1());
-            js.append(generateJSindexOrValue());
-            js.append(generateJSminorGrid2());
-            js.append(generateJSminorGrid3());
+            js.append(generateJSmaxPointWidth());
+            js.append(generateJSmaxPointWidth1());
+            js.append(generateJSminPointLength());
+            js.append(generateJSminPointLength1());
             js.append(generateJSmapping14());
             js.append(generateJSperiod10());
             js.append(generateJSseriesType13());
             js.append(generateJSseriesType14());
+            js.append(generateJSnoData());
             js.append(generateJSdata28());
             js.append(generateJSdata29());
             js.append(generateJSdata30());
@@ -11192,9 +11795,14 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSpalette1());
             js.append(generateJSpalette2());
             js.append(generateJSpalette3());
-            js.append(generateJSpaperSizeOrOptions());
-            js.append(generateJSpaperSizeOrOptions1());
-            js.append(generateJSlandscape());
+            js.append(generateJSpointWidth());
+            js.append(generateJSpointWidth1());
+            js.append(generateJSindex1());
+            js.append(generateJSpriceIndicator());
+            js.append(generateJSpriceIndicator1());
+            js.append(generateJSindex2());
+            js.append(generateJSpriceIndicator2());
+            js.append(generateJSpriceIndicator3());
             js.append(generateJSdata32());
             js.append(generateJSdata33());
             js.append(generateJSdata34());
@@ -11219,12 +11827,9 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSdata47());
             js.append(generateJSmappingSettings11());
             js.append(generateJScsvSettings11());
-            js.append(generateJStype2());
             js.append(generateJSid2());
             js.append(generateJSid3());
-            js.append(generateJSindex4());
-            js.append(generateJSright());
-            js.append(generateJSright1());
+            js.append(generateJSindex3());
             js.append(generateJSmapping15());
             js.append(generateJSperiod11());
             js.append(generateJSseriesType15());
@@ -11275,41 +11880,45 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSdMAType1());
             js.append(generateJSkSeriesType1());
             js.append(generateJSdSeriesType1());
-            js.append(generateJStop());
-            js.append(generateJStop1());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
-            js.append(generateJSwidth2());
-            js.append(generateJSwidth3());
             js.append(generateJSxAxis());
             js.append(generateJSxAxis1());
+            js.append(generateJSindex4());
+            js.append(generateJSxGrid());
+            js.append(generateJSxGrid1());
             js.append(generateJSindex5());
+            js.append(generateJSxGrid2());
+            js.append(generateJSxGrid3());
+            js.append(generateJSindex6());
+            js.append(generateJSxMinorGrid());
+            js.append(generateJSxMinorGrid1());
+            js.append(generateJSindexOrValue());
+            js.append(generateJSxMinorGrid2());
+            js.append(generateJSxMinorGrid3());
+            js.append(generateJSindex7());
             js.append(generateJSyAxis());
             js.append(generateJSyAxis1());
-            js.append(generateJSindex6());
+            js.append(generateJSindex8());
             js.append(generateJSyAxis2());
             js.append(generateJSyAxis3());
+            js.append(generateJSindex9());
+            js.append(generateJSyGrid());
+            js.append(generateJSyGrid1());
+            js.append(generateJSindex10());
+            js.append(generateJSyGrid2());
+            js.append(generateJSyGrid3());
+            js.append(generateJSindex11());
+            js.append(generateJSyMinorGrid());
+            js.append(generateJSyMinorGrid1());
+            js.append(generateJSindexOrValue1());
+            js.append(generateJSyMinorGrid2());
+            js.append(generateJSyMinorGrid3());
             js.append(generateJSyScale());
             js.append(generateJSyScale1());
-            js.append(generateJSzIndex());
+            js.append(generateJSyScale2());
             js.append("}");
         }
-            js.append(generateJSgetAnnotations());
-            js.append(generateJSgetBackground());
-            js.append(generateJSgetBounds());
-            js.append(generateJSgetGetSeries());
-            js.append(generateJSgetGetSeriesAt());
-            js.append(generateJSgetGrid());
-            js.append(generateJSgetHatchFillPalette());
-            js.append(generateJSgetLegend());
-            js.append(generateJSgetMarkerPalette());
-            js.append(generateJSgetMinorGrid());
-            js.append(generateJSgetPalette());
-            js.append(generateJSgetXAxis());
-            js.append(generateJSgetYAxis());
-            js.append(generateJSgetYScale());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

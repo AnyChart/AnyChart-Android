@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class CoreBase extends JsObject {
-
-    private String jsBase;
 
     public CoreBase() {
 
@@ -14,6 +14,12 @@ public class CoreBase extends JsObject {
 
     protected CoreBase(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected CoreBase(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -31,10 +37,18 @@ public class CoreBase extends JsObject {
             this.useCapture = useCapture;
             this.listenerScope = listenerScope;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", type, useCapture, listenerScope));
                 js.setLength(0);
             }
         }
@@ -44,7 +58,7 @@ public class CoreBase extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
+    public void setListenOnce(String type1, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -63,10 +77,18 @@ public class CoreBase extends JsObject {
             this.useCapture1 = useCapture1;
             this.listenerScope1 = listenerScope1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", type1, useCapture1, listenerScope1));
                 js.setLength(0);
             }
         }
@@ -74,7 +96,7 @@ public class CoreBase extends JsObject {
 
     private String type2;
 
-    public void setRemovealllisteners(String type2) {
+    public void setRemoveAllListeners(String type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -84,10 +106,18 @@ public class CoreBase extends JsObject {
         } else {
             this.type2 = type2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", type2));
                 js.setLength(0);
             }
         }
@@ -120,10 +150,18 @@ public class CoreBase extends JsObject {
             this.useCapture2 = useCapture2;
             this.listenerScope2 = listenerScope2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", type3, useCapture2, listenerScope2));
                 js.setLength(0);
             }
         }
@@ -131,16 +169,24 @@ public class CoreBase extends JsObject {
 
     private String key;
 
-    public void setUnlistenbykey(String key) {
+    public void setUnlistenByKey(String key) {
         if (jsBase == null) {
             this.key = key;
         } else {
             this.key = key;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", key));
                 js.setLength(0);
             }
         }
@@ -224,8 +270,23 @@ public class CoreBase extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJStype());
@@ -241,6 +302,8 @@ public class CoreBase extends JsObject {
             js.append(generateJSkey());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

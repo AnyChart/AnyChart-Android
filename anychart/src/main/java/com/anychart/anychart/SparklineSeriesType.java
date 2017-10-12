@@ -6,7 +6,7 @@ public enum SparklineSeriesType implements JsObject.JsObjectInterface {
     AREA("area"),
     COLUMN("column"),
     LINE("line"),
-    WIN_LOSS("winLoss");
+    WIN_LOSS("win-loss");
 
     private final String value;
 

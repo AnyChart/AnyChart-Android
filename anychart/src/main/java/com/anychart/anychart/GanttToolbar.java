@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class GanttToolbar extends JsObject {
-
-    private String jsBase;
 
     public GanttToolbar() {
 
@@ -14,6 +14,12 @@ public class GanttToolbar extends JsObject {
 
     protected GanttToolbar(String jsBase) {
         this.jsBase = jsBase;
+    }
+
+    protected GanttToolbar(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
     }
 
     
@@ -29,7 +35,7 @@ public class GanttToolbar extends JsObject {
     private String element;
     private Element element1;
 
-    public void setContainer(String element) {
+    public GanttToolbar setContainer(String element) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -38,17 +44,26 @@ public class GanttToolbar extends JsObject {
         } else {
             this.element = element;
 
-            js.append(String.format(Locale.US, jsBase + ".container(%s);", element));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".container(%s)", element));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", element));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", element));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setContainer(Element element1) {
+    public GanttToolbar setContainer(Element element1) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -57,30 +72,48 @@ public class GanttToolbar extends JsObject {
         } else {
             this.element1 = element1;
 
-            js.append(String.format(Locale.US, jsBase + ".container(%s);", (element1 != null) ? element1.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".container(%s)", (element1 != null) ? element1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", (element1 != null) ? element1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", (element1 != null) ? element1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private PaperSize[] printPaperSizes;
 
-    public void setPrintpapersizes(PaperSize[] printPaperSizes) {
+    public GanttToolbar setPrintPaperSizes(PaperSize[] printPaperSizes) {
         if (jsBase == null) {
             this.printPaperSizes = printPaperSizes;
         } else {
             this.printPaperSizes = printPaperSizes;
 
-            js.append(String.format(Locale.US, jsBase + ".printPaperSizes(%s);", arrayToString(printPaperSizes)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".printPaperSizes(%s)", arrayToString(printPaperSizes)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".printPaperSizes(%s);", arrayToString(printPaperSizes)));
+                onChangeListener.onChange(String.format(Locale.US, ".printPaperSizes(%s)", arrayToString(printPaperSizes)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Chart getTarget;
@@ -94,19 +127,28 @@ public class GanttToolbar extends JsObject {
 
     private Chart target;
 
-    public void setTarget(Chart target) {
+    public GanttToolbar setTarget(Chart target) {
         if (jsBase == null) {
             this.target = target;
         } else {
             this.target = target;
 
-            js.append(String.format(Locale.US, jsBase + ".target(%s);", (target != null) ? target.generateJs() : "null"));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".target(%s)", (target != null) ? target.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s);", (target != null) ? target.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".target(%s)", (target != null) ? target.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSgetContainer() {
@@ -152,8 +194,25 @@ public class GanttToolbar extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+        jsGetters.append(generateJSgetContainer());
+        jsGetters.append(generateJSgetTarget());
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSelement());
@@ -162,8 +221,8 @@ public class GanttToolbar extends JsObject {
             js.append(generateJStarget());
             js.append("}");
         }
-            js.append(generateJSgetContainer());
-            js.append(generateJSgetTarget());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

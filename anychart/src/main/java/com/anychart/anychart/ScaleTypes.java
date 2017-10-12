@@ -3,12 +3,14 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum ScaleTypes implements JsObject.JsObjectInterface {
-    DATE_TIME("dateTime"),
+    DATE_TIME("date-time"),
+    DATE_TIME_WITH_CALENDAR("date-time-with-calendar"),
+    GANTT("gantt"),
     LINEAR("linear"),
-    LINEAR_COLOR("linearColor"),
+    LINEAR_COLOR("linear-color"),
     LOG("log"),
     ORDINAL("ordinal"),
-    ORDINAL_COLOR("ordinalColor");
+    ORDINAL_COLOR("ordinal-color");
 
     private final String value;
 

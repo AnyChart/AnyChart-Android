@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class StageCredits extends JsObject {
-
-    private String jsBase;
 
     public StageCredits() {
 
@@ -16,95 +16,179 @@ public class StageCredits extends JsObject {
         this.jsBase = jsBase;
     }
 
+    protected StageCredits(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private String alt;
 
-    public void setAlt(String alt) {
+    public StageCredits setAlt(String alt) {
         if (jsBase == null) {
             this.alt = alt;
         } else {
             this.alt = alt;
 
-            js.append(String.format(Locale.US, jsBase + ".alt(%s);", alt));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".alt(%s)", alt));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".alt(%s);", alt));
+                onChangeListener.onChange(String.format(Locale.US, ".alt(%s)", alt));
                 js.setLength(0);
             }
         }
+        return this;
+    }
+
+    private Boolean enabled;
+
+    public StageCredits setEnabled(Boolean enabled) {
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".enabled(%b)", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private String imgAlt;
 
-    public void setImgalt(String imgAlt) {
+    public StageCredits setImgAlt(String imgAlt) {
         if (jsBase == null) {
             this.imgAlt = imgAlt;
         } else {
             this.imgAlt = imgAlt;
 
-            js.append(String.format(Locale.US, jsBase + ".imgAlt(%s);", imgAlt));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".imgAlt(%s)", imgAlt));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".imgAlt(%s);", imgAlt));
+                onChangeListener.onChange(String.format(Locale.US, ".imgAlt(%s)", imgAlt));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String logoSrc;
 
-    public void setLogosrc(String logoSrc) {
+    public StageCredits setLogoSrc(String logoSrc) {
         if (jsBase == null) {
             this.logoSrc = logoSrc;
         } else {
             this.logoSrc = logoSrc;
 
-            js.append(String.format(Locale.US, jsBase + ".logoSrc(%s);", logoSrc));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".logoSrc(%s)", logoSrc));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".logoSrc(%s);", logoSrc));
+                onChangeListener.onChange(String.format(Locale.US, ".logoSrc(%s)", logoSrc));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String text;
 
-    public void setText(String text) {
+    public StageCredits setText(String text) {
         if (jsBase == null) {
             this.text = text;
         } else {
             this.text = text;
 
-            js.append(String.format(Locale.US, jsBase + ".text(%s);", text));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".text(%s)", text));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%s);", text));
+                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", text));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String url;
 
-    public void setUrl(String url) {
+    public StageCredits setUrl(String url) {
         if (jsBase == null) {
             this.url = url;
         } else {
             this.url = url;
 
-            js.append(String.format(Locale.US, jsBase + ".url(%s);", url));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".url(%s)", url));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".url(%s);", url));
+                onChangeListener.onChange(String.format(Locale.US, ".url(%s)", url));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String generateJSalt() {
         if (alt != null) {
             return String.format(Locale.US, "alt: %s,", alt);
+        }
+        return "";
+    }
+
+    private String generateJSenabled() {
+        if (enabled != null) {
+            return String.format(Locale.US, "enabled: %b,", enabled);
         }
         return "";
     }
@@ -138,17 +222,35 @@ public class StageCredits extends JsObject {
     }
 
 
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
+
+        jsGetters.append(super.generateJsGetters());
+
+    
+
+        return jsGetters.toString();
+    }
+
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSalt());
+            js.append(generateJSenabled());
             js.append(generateJSimgAlt());
             js.append(generateJSlogoSrc());
             js.append(generateJStext());
             js.append(generateJSurl());
             js.append("}");
         }
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

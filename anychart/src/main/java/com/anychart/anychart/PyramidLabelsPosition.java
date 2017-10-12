@@ -4,10 +4,10 @@ import java.util.Locale;
 
 public enum PyramidLabelsPosition implements JsObject.JsObjectInterface {
     INSIDE("inside"),
-    OUTSIDE_LEFT("outsideLeft"),
-    OUTSIDE_LEFT_IN_COLUMN("outsideLeftInColumn"),
-    OUTSIDE_RIGHT("outsideRight"),
-    OUTSIDE_RIGHT_IN_COLUMN("outsideRightInColumn");
+    OUTSIDE_LEFT("outside-left"),
+    OUTSIDE_LEFT_IN_COLUMN("outside-left-in-column"),
+    OUTSIDE_RIGHT("outside-right"),
+    OUTSIDE_RIGHT_IN_COLUMN("outside-right-in-column");
 
     private final String value;
 

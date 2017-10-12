@@ -23,6 +23,12 @@ abstract class JsObject {
         return js;
     }
 
+    protected static int variableIndex = 0;
+
+    protected String jsBase;
+
+    protected boolean isChain = false;
+
     OnChange onChangeListener;
 
     boolean isRendered = false;
@@ -35,6 +41,10 @@ abstract class JsObject {
         onChangeListener = listener;
 
         isRendered = true;
+    }
+
+    protected String generateJsGetters() {
+        return "";
     }
 
     public static String arrayToString(JsObject[] jsObjects) {

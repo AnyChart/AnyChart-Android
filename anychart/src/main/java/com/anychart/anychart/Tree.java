@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import java.util.Locale;
 import java.util.Arrays;
 
+import android.text.TextUtils;
+
 // class
 public class Tree extends CoreBase {
-
-    private String jsBase;
 
     public Tree() {
 
@@ -16,22 +16,37 @@ public class Tree extends CoreBase {
         this.jsBase = jsBase;
     }
 
+    protected Tree(StringBuilder js, String jsBase, boolean isChain) {
+        this.js = js;
+        this.jsBase = jsBase;
+        this.isChain = isChain;
+    }
+
     
     private String child;
 
-    public void setAddchild(String child) {
+    public TreeDataItem setAddChild(String child) {
         if (jsBase == null) {
             this.child = child;
         } else {
             this.child = child;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".addChild(%s);", child));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", child));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", child));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
     private String child1;
@@ -39,7 +54,7 @@ public class Tree extends CoreBase {
     private TreeviewDataItem child3;
     private Double index;
 
-    public void setAddchildat(String child1, Double index) {
+    public TreeDataItem setAddChildAt(String child1, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -51,18 +66,27 @@ public class Tree extends CoreBase {
         } else {
             this.child1 = child1;
             this.index = index;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", child1, index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", child1, index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", child1, index));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
 
-    public void setAddchildat(TreeDataItem child2, Double index) {
+    public TreeDataItem setAddChildAt(TreeDataItem child2, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -74,18 +98,27 @@ public class Tree extends CoreBase {
         } else {
             this.child2 = child2;
             this.index = index;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child2 != null) ? child2.generateJs() : "null", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child2 != null) ? child2.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", (child2 != null) ? child2.generateJs() : "null", index));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
 
-    public void setAddchildat(TreeviewDataItem child3, Double index) {
+    public TreeDataItem setAddChildAt(TreeviewDataItem child3, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -98,13 +131,22 @@ public class Tree extends CoreBase {
             this.child3 = child3;
             this.index = index;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child3 != null) ? child3.generateJs() : "null", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", (child3 != null) ? child3.generateJs() : "null", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", (child3 != null) ? child3.generateJs() : "null", index));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
     private String data;
@@ -114,7 +156,7 @@ public class Tree extends CoreBase {
     private String csvSettingsOrDeps;
     private Dependency[] csvSettingsOrDeps1;
 
-    public void setAdddata(String data, TreeFillingMethod fillingMethod, String csvSettingsOrDeps) {
+    public Tree setAddData(String data, TreeFillingMethod fillingMethod, String csvSettingsOrDeps) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -133,17 +175,26 @@ public class Tree extends CoreBase {
             this.fillingMethod = fillingMethod;
             this.csvSettingsOrDeps = csvSettingsOrDeps;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", csvSettingsOrDeps));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", csvSettingsOrDeps));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", csvSettingsOrDeps));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", csvSettingsOrDeps));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdddata(String data, TreeFillingMethod fillingMethod, Dependency[] csvSettingsOrDeps1) {
+    public Tree setAddData(String data, TreeFillingMethod fillingMethod, Dependency[] csvSettingsOrDeps1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -162,17 +213,26 @@ public class Tree extends CoreBase {
             this.fillingMethod = fillingMethod;
             this.csvSettingsOrDeps1 = csvSettingsOrDeps1;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", arrayToString(csvSettingsOrDeps1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", arrayToString(csvSettingsOrDeps1)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, (fillingMethod != null) ? fillingMethod.generateJs() : "null", arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdddata(String data, String fillingMethod1, String csvSettingsOrDeps) {
+    public Tree setAddData(String data, String fillingMethod1, String csvSettingsOrDeps) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -191,17 +251,26 @@ public class Tree extends CoreBase {
             this.fillingMethod1 = fillingMethod1;
             this.csvSettingsOrDeps = csvSettingsOrDeps;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, fillingMethod1, csvSettingsOrDeps));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, csvSettingsOrDeps));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, fillingMethod1, csvSettingsOrDeps));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, csvSettingsOrDeps));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
 
-    public void setAdddata(String data, String fillingMethod1, Dependency[] csvSettingsOrDeps1) {
+    public Tree setAddData(String data, String fillingMethod1, Dependency[] csvSettingsOrDeps1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -220,19 +289,28 @@ public class Tree extends CoreBase {
             this.fillingMethod1 = fillingMethod1;
             this.csvSettingsOrDeps1 = csvSettingsOrDeps1;
 
-            js.append(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, fillingMethod1, arrayToString(csvSettingsOrDeps1)));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", data, fillingMethod1, arrayToString(csvSettingsOrDeps1)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %s)", data, fillingMethod1, arrayToString(csvSettingsOrDeps1)));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String field;
     private Boolean asString;
 
-    public void setCreateindexon(String field, Boolean asString) {
+    public Tree setCreateIndexOn(String field, Boolean asString) {
         if (jsBase == null) {
             this.field = field;
             this.asString = asString;
@@ -240,35 +318,53 @@ public class Tree extends CoreBase {
             this.field = field;
             this.asString = asString;
 
-            js.append(String.format(Locale.US, jsBase + ".createIndexOn(%s, %b);", field, asString));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".createIndexOn(%s, %b)", field, asString));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createIndexOn(%s, %b);", field, asString));
+                onChangeListener.onChange(String.format(Locale.US, ".createIndexOn(%s, %b)", field, asString));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Boolean dispatchEvents;
 
-    public void setDispatchevents(Boolean dispatchEvents) {
+    public Tree setDispatchEvents(Boolean dispatchEvents) {
         if (jsBase == null) {
             this.dispatchEvents = dispatchEvents;
         } else {
             this.dispatchEvents = dispatchEvents;
 
-            js.append(String.format(Locale.US, jsBase + ".dispatchEvents(%b);", dispatchEvents));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dispatchEvents(%b)", dispatchEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dispatchEvents(%b);", dispatchEvents));
+                onChangeListener.onChange(String.format(Locale.US, ".dispatchEvents(%b)", dispatchEvents));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private Double index1;
 
-    public void setGetchildat(Double index1) {
+    public TreeDataItem setGetChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -277,13 +373,22 @@ public class Tree extends CoreBase {
         } else {
             this.index1 = index1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".getChildAt(%f);", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f)", index1));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
     private TreeDataItem getGetChildAt;
@@ -298,7 +403,7 @@ public class Tree extends CoreBase {
     private TreeDataItem child4;
     private TreeviewDataItem child5;
 
-    public void setIndexofchild(TreeDataItem child4) {
+    public void setIndexOfChild(TreeDataItem child4) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -310,18 +415,26 @@ public class Tree extends CoreBase {
             this.child4 = child4;
         } else {
             this.child4 = child4;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child4 != null) ? child4.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child4 != null) ? child4.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", (child4 != null) ? child4.generateJs() : "null"));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setIndexofchild(TreeviewDataItem child5) {
+    public void setIndexOfChild(TreeviewDataItem child5) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -334,65 +447,18 @@ public class Tree extends CoreBase {
         } else {
             this.child5 = child5;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child5 != null) ? child5.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child5 != null) ? child5.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type = type;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-
-            js.append(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s);", type, useCapture, listenerScope));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type1;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    public void setListenonce(String type1, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            
-            this.type1 = type1;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type1 = type1;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-
-            js.append(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s);", type1, useCapture1, listenerScope1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", (child5 != null) ? child5.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -400,45 +466,33 @@ public class Tree extends CoreBase {
 
     private String mapping;
 
-    public void setMapas(String mapping) {
+    public TreeView setMapAs(String mapping) {
         if (jsBase == null) {
             this.mapping = mapping;
         } else {
             this.mapping = mapping;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".mapAs(%s);", mapping));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s);", mapping));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", mapping));
                 js.setLength(0);
             }
         }
-    }
-
-    private String type2;
-
-    public void setRemovealllisteners(String type2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-        } else {
-            this.type2 = type2;
-
-            js.append(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", type2));
-                js.setLength(0);
-            }
-        }
+        return new TreeView(jsBase);
     }
 
     private TreeDataItem child6;
 
-    public void setRemovechild(TreeDataItem child6) {
+    public TreeDataItem setRemoveChild(TreeDataItem child6) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -452,18 +506,27 @@ public class Tree extends CoreBase {
         } else {
             this.child6 = child6;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".removeChild(%s);", (child6 != null) ? child6.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s);", (child6 != null) ? child6.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s)", (child6 != null) ? child6.generateJs() : "null"));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
     private Double index2;
 
-    public void setRemovechildat(Double index2) {
+    public TreeDataItem setRemoveChildAt(Double index2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -473,18 +536,27 @@ public class Tree extends CoreBase {
         } else {
             this.index2 = index2;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index2));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
     private String field1;
 
-    public void setRemoveindexon(String field1) {
+    public Tree setRemoveIndexOn(String field1) {
         if (jsBase == null) {
             this.field = null;
             this.field1 = null;
@@ -493,13 +565,22 @@ public class Tree extends CoreBase {
         } else {
             this.field1 = field1;
 
-            js.append(String.format(Locale.US, jsBase + ".removeIndexOn(%s);", field1));
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".removeIndexOn(%s)", field1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeIndexOn(%s);", field1));
+                onChangeListener.onChange(String.format(Locale.US, ".removeIndexOn(%s)", field1));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
     private String soughtField;
@@ -507,7 +588,7 @@ public class Tree extends CoreBase {
     private Double search1;
     private Boolean search2;
 
-    public void setSearch(String search, String soughtField) {
+    public TreeDataItem setSearch(String search, String soughtField) {
         if (jsBase == null) {
             this.search = null;
             this.search1 = null;
@@ -518,18 +599,27 @@ public class Tree extends CoreBase {
         } else {
             this.search = search;
             this.soughtField = soughtField;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".search(%s, %s);", search, soughtField));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s);", search, soughtField));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s)", search, soughtField));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
 
-    public void setSearch(Double search1, String soughtField) {
+    public TreeDataItem setSearch(Double search1, String soughtField) {
         if (jsBase == null) {
             this.search = null;
             this.search1 = null;
@@ -540,18 +630,27 @@ public class Tree extends CoreBase {
         } else {
             this.search1 = search1;
             this.soughtField = soughtField;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".search(%f, %s);", search1, soughtField));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s);", search1, soughtField));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", search1, soughtField));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
 
-    public void setSearch(Boolean search2, String soughtField) {
+    public TreeDataItem setSearch(Boolean search2, String soughtField) {
         if (jsBase == null) {
             this.search = null;
             this.search1 = null;
@@ -563,13 +662,22 @@ public class Tree extends CoreBase {
             this.search2 = search2;
             this.soughtField = soughtField;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".search(%b, %s);", search2, soughtField));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s);", search2, soughtField));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s)", search2, soughtField));
                 js.setLength(0);
             }
         }
+        return new TreeDataItem(jsBase);
     }
 
     private String soughtField1;
@@ -577,7 +685,7 @@ public class Tree extends CoreBase {
     private Double searchItems1;
     private Boolean searchItems2;
 
-    public void setSearchitems(String searchItems, String soughtField1) {
+    public void setSearchItems(String searchItems, String soughtField1) {
         if (jsBase == null) {
             this.searchItems = null;
             this.searchItems1 = null;
@@ -591,18 +699,26 @@ public class Tree extends CoreBase {
         } else {
             this.searchItems = searchItems;
             this.soughtField1 = soughtField1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%s, %s);", searchItems, soughtField1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s);", searchItems, soughtField1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s)", searchItems, soughtField1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setSearchitems(Double searchItems1, String soughtField1) {
+    public void setSearchItems(Double searchItems1, String soughtField1) {
         if (jsBase == null) {
             this.searchItems = null;
             this.searchItems1 = null;
@@ -616,18 +732,26 @@ public class Tree extends CoreBase {
         } else {
             this.searchItems1 = searchItems1;
             this.soughtField1 = soughtField1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
 
             js.append(String.format(Locale.US, jsBase + ".searchItems(%f, %s);", searchItems1, soughtField1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s);", searchItems1, soughtField1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s)", searchItems1, soughtField1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void setSearchitems(Boolean searchItems2, String soughtField1) {
+    public void setSearchItems(Boolean searchItems2, String soughtField1) {
         if (jsBase == null) {
             this.searchItems = null;
             this.searchItems1 = null;
@@ -642,63 +766,18 @@ public class Tree extends CoreBase {
             this.searchItems2 = searchItems2;
             this.soughtField1 = soughtField1;
 
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
             js.append(String.format(Locale.US, jsBase + ".searchItems(%b, %s);", searchItems2, soughtField1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s);", searchItems2, soughtField1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type3 = type3;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-
-            js.append(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s);", type3, useCapture2, listenerScope2));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    public void setUnlistenbykey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s)", searchItems2, soughtField1));
                 js.setLength(0);
             }
         }
@@ -830,58 +909,9 @@ public class Tree extends CoreBase {
         return "";
     }
 
-    private String generateJStype() {
-        if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture() {
-        if (useCapture != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope() {
-        if (listenerScope != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope);
-        }
-        return "";
-    }
-
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", type1);
-        }
-        return "";
-    }
-
-    private String generateJSuseCapture1() {
-        if (useCapture1 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture1);
-        }
-        return "";
-    }
-
-    private String generateJSlistenerScope1() {
-        if (listenerScope1 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope1);
-        }
-        return "";
-    }
-
     private String generateJSmapping() {
         if (mapping != null) {
             return String.format(Locale.US, "mapping: %s,", mapping);
-        }
-        return "";
-    }
-
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", type2);
         }
         return "";
     }
@@ -963,37 +993,25 @@ public class Tree extends CoreBase {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", type3);
-        }
-        return "";
-    }
 
-    private String generateJSuseCapture2() {
-        if (useCapture2 != null) {
-            return String.format(Locale.US, "useCapture: %b,", useCapture2);
-        }
-        return "";
-    }
+    protected String generateJsGetters() {
+        StringBuilder jsGetters = new StringBuilder();
 
-    private String generateJSlistenerScope2() {
-        if (listenerScope2 != null) {
-            return String.format(Locale.US, "listenerScope: %s,", listenerScope2);
-        }
-        return "";
-    }
+        jsGetters.append(super.generateJsGetters());
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
+    
+        jsGetters.append(generateJSgetGetChildAt());
 
+        return jsGetters.toString();
+    }
 
     @Override
     protected String generateJs() {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSchild());
@@ -1013,14 +1031,7 @@ public class Tree extends CoreBase {
             js.append(generateJSindex1());
             js.append(generateJSchild4());
             js.append(generateJSchild5());
-            js.append(generateJStype());
-            js.append(generateJSuseCapture());
-            js.append(generateJSlistenerScope());
-            js.append(generateJStype1());
-            js.append(generateJSuseCapture1());
-            js.append(generateJSlistenerScope1());
             js.append(generateJSmapping());
-            js.append(generateJStype2());
             js.append(generateJSchild6());
             js.append(generateJSindex2());
             js.append(generateJSfield1());
@@ -1032,13 +1043,10 @@ public class Tree extends CoreBase {
             js.append(generateJSsearchItems());
             js.append(generateJSsearchItems1());
             js.append(generateJSsearchItems2());
-            js.append(generateJStype3());
-            js.append(generateJSuseCapture2());
-            js.append(generateJSlistenerScope2());
-            js.append(generateJSkey());
             js.append("}");
         }
-            js.append(generateJSgetGetChildAt());
+
+        js.append(generateJsGetters());
 
         String result = js.toString();
         js.setLength(0);

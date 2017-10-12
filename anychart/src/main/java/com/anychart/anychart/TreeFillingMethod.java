@@ -3,8 +3,8 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 public enum TreeFillingMethod implements JsObject.JsObjectInterface {
-    AS_TABLE("asTable"),
-    AS_TREE("asTree");
+    AS_TABLE("as-table"),
+    AS_TREE("as-tree");
 
     private final String value;
 

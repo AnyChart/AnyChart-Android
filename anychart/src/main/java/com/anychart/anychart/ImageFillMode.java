@@ -4,7 +4,7 @@ import java.util.Locale;
 
 public enum ImageFillMode implements JsObject.JsObjectInterface {
     FIT("fit"),
-    FIT_MAX("fitMax"),
+    FIT_MAX("fit-max"),
     STRETCH("stretch"),
     TILE("tile");
 
