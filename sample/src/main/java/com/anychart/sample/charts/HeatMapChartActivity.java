@@ -21,29 +21,45 @@ public class HeatMapChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         HeatMap riskMap = new HeatMap();
-        riskMap.getTooltip().setUseHtml(true);
-        riskMap.getTooltip().setFormat("function () {\n" +
-                "                return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
-                "                        '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
-                "            }");
-        riskMap.setTitle("'Risk Matrix in Project Server'");
-        riskMap.getTitle().setPadding(0d, 0d, 20d, 0d);
+
         riskMap.setStroke("'#fff'", 1d, null, null, null);
-        riskMap.getHovered().setStroke("'#fff'", 6d, null, null, null);
-        riskMap.getHovered().setFill(new SolidFill("'#545f69'", 1d));
-        riskMap.getHovered().setLabels("{'fontColor': '#fff'}");
+        riskMap.getHovered()
+                .setStroke("'#fff'", 6d, null, null, null)
+                .setFill(new SolidFill("'#545f69'", 1d))
+                .setLabels("{'fontColor': '#fff'}");
+
         riskMap.getInteractivity().setSelectionMode(SelectionMode.NONE);
+
+        riskMap.getTitle().setEnabled(true);
+        riskMap.getTitle()
+                .setText("'Risk Matrix in Project Server'")
+                .setPadding(0d, 0d, 20d, 0d);
+
         riskMap.getLabels().setEnabled(true);
-        riskMap.getLabels().setFontSize(14d);
-        riskMap.getLabels().setFormat("function() {\n" +
-                "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
-                "      return namesList[this.heat];\n" +
-                "    }");
+        riskMap.getLabels()
+                .setMinFontSize(14d)
+                .setFormat("function() {\n" +
+                        "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
+                        "      return namesList[this.heat];\n" +
+                        "    }");
+
         riskMap.getYAxis().setStroke((Stroke) null, null, null, null, null);
         riskMap.getYAxis().getLabels().setPadding(0d, 15d, 0d, 0d);
         riskMap.getYAxis().setTicks(false);
         riskMap.getXAxis().setStroke((Stroke) null, null, null, null, null);
         riskMap.getXAxis().setTicks(false);
+
+        riskMap.getTooltip().getTitle().setUseHtml(true);
+        riskMap.getTooltip()
+                .setUseHtml(true)
+                .setTitleFormat("function() {\n" +
+                        "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
+                        "      return '<b>' + namesList[this.heat] + '</b> Residual Risk';\n" +
+                        "    }")
+                .setFormat("function () {\n" +
+                        "       return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
+                        "           '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
+                        "   }");
 
         riskMap.setData(new String[] {
                 "{x: 'Rare', y: 'Insignificant', heat: 0, fill: '#90caf9'}",
