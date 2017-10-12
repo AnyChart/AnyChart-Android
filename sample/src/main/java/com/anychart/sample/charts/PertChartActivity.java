@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.Milestones;
 import com.anychart.anychart.Pert;
+import com.anychart.anychart.Tasks;
+import com.anychart.anychart.Tooltip;
 import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.sample.R;
 
@@ -19,35 +22,40 @@ public class PertChartActivity extends AppCompatActivity {
 
         Pert pert = new Pert();
 
+        pert.setData(getData(), TreeFillingMethod.AS_TABLE, null)
+                .setHorizontalSpacing("'18.7%'")
+                .setPadding(new Double[] { 25d, 50d, 0d, 50d });
+
         // TODO problems with stat
 //        pert.setGetstat();
-//        pert.getTitle().setPadding(0d, 0d, 35d, 0d);
-        pert.getTitle().setPadding(new Double[]{ 0d, 0d, 35d, 0d });
-        pert.setTitle("'Airplane Design Process with PERT Chart'");
-        pert.setHorizontalSpacing("'18.7%'");
-        pert.setPadding(new Double[] { 25d, 50d, 0d, 50d });
 
-        pert.setData(getData(), TreeFillingMethod.AS_TABLE, null);
+        pert.getTitle().setEnabled(true);
+        pert.getTitle().setUseHtml(true);
+        pert.getTitle()
+                .setPadding(new Double[]{ 0d, 0d, 35d, 0d })
+                .setText("'Airplane Design Process with PERT Chart'");
 
-//        pert.getStat
-
-        pert.getTasks().getUpperLabels().setFormat(
+        Tasks tasks = pert.getTasks();
+        tasks.getUpperLabels().setFormat(
                 "function() {\n" +
                 "    return this.item.get('fullName');\n" +
                 "  }");
 
-        pert.getTasks().getLowerLabels().setFormat("'{%duration} days'");
+        tasks.getLowerLabels().setFormat("'{%duration} days'");
 
-        pert.getTasks().getTooltip().setSeparator(true);
-        pert.getTasks().getTooltip().setUseHtml(true);
-        pert.getTasks().getTooltip().setTitleFormat(
-                "function() {\n" +
-                "      return this.item.get('fullName');\n" +
-                "    }");
+        Tooltip tooltip = tasks.getTooltip();
+        tooltip.setSeparator(true)
+                .setTitleFormat(
+                        "function() {\n" +
+                        "      return this.item.get('fullName');\n" +
+                        "    }");
+        tooltip.getTitle().setUseHtml(true);
 
-        pert.getMilestones().setColor("'#2C81D5'");
-        pert.getMilestones().setSize("'6.5%'");
-        pert.getMilestones().getTooltip().setFormat("" +
+        Milestones milestones = pert.getMilestones();
+        milestones.fill("'#2C81D5'", 1d)
+                .setSize("'6.5%'");
+        milestones.getHovered().fill("'#2C81D5'", 0.75d);
+        milestones.getTooltip().setFormat("" +
                 "function() {\n" +
                 "  var result = '';\n" +
                 "  var i = 0;\n" +
@@ -67,37 +75,18 @@ public class PertChartActivity extends AppCompatActivity {
                 "  }\n" +
                 "  return result;\n" +
                 "}");
-//        pert.getMilestones().setHoverfill();
-//        .hoverFill(function() {
-//            return anychart.color.lighten(this.sourceColor, 0.25);
-//        });
-        pert.getMilestones().getTooltip().setFormat(
-                "function defuaultMilesoneTooltipTextFormatter() {\n" +
-                "  var result = '';\n" +
-                "  var i = 0;\n" +
-                "  if (this['successors'] && this['successors'].length) {\n" +
-                "    result += 'Successors:';\n" +
-                "    for (i = 0; i < this['successors'].length; i++) {\n" +
-                "      result += '\\n - ' + this['successors'][i].get('fullName');\n" +
-                "    }\n" +
-                "    if (this['predecessors'] && this['predecessors'].length)\n" +
-                "      result += '\\n\\n';\n" +
-                "  }\n" +
-                "  if (this['predecessors'] && this['predecessors'].length) {\n" +
-                "    result += 'Predecessors:';\n" +
-                "    for (i = 0; i < this['predecessors'].length; i++) {\n" +
-                "      result += '\\n - ' + this['predecessors'][i].get('fullName');\n" +
-                "    }\n" +
-                "  }\n" +
-                "  return result;\n" +
-                "}");
 
-        pert.getCriticalPath().getMilestones().getLabels().setFormat(
+        Milestones critMilestones = pert.getCriticalPath().getMilestones();
+        critMilestones.getLabels().setFormat(
                 "function() {\n" +
                 "    return this['creator'] ? this['creator'].get('name') : this['isStart'] ? 'Start' : 'Finish';\n" +
                 "  }");
-        pert.getCriticalPath().getMilestones().setColor("'#E24B26'");
-//        pert.getCriticalPath().getMilestones().setFill();
+        // TODO color
+//        critMilestones.color("'#E24B26'", 1d);
+        critMilestones.fill("'#E24B26'", 1d);
+
+        // TODO stoke as function
+//        critMilestones.getHovered().setStroke();
 
         anyChartView.setChart(pert);
     }
