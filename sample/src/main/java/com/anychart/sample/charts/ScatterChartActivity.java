@@ -11,6 +11,7 @@ import com.anychart.anychart.MarkerType;
 import com.anychart.anychart.Scatter;
 import com.anychart.anychart.ScatterSeriesLine;
 import com.anychart.anychart.ScatterSeriesMarker;
+import com.anychart.anychart.SolidFill;
 import com.anychart.anychart.TextHAlign;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.anychart.TooltipDisplayMode;
@@ -26,31 +27,45 @@ public class ScatterChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
         Scatter scatter = new Scatter();
-        scatter.setAnimation(true)
-                .setTitle("'System interruptions'");
-        ScatterSeriesMarker marker = scatter.marker(getMarkerData(), TextParsingMode.CSV);
-        marker.setType(MarkerType.TRIANGLE_UP);
-//        marker.setFill("'#000'", 1d);
-        marker.getTooltip().setHAlign(TextHAlign.LEFT);
 
-        ScatterSeriesLine scatterSeriesLine = scatter.line(getLineData(), TextParsingMode.CSV);
+        scatter.setAnimation(true);
 
-        scatter.getXScale().setMinimum(1.5d);
-        scatter.getXScale().setMaximum(5.5d);
-//        scatter.getXScale().settick
-        scatter.getYScale().setMinimum(40d);
-        scatter.getYScale().setMaximum(100d);
+        scatter.setTitle("'System interruptions'");
+
+        scatter.getXScale()
+                .setMinimum(1.5d)
+                .setMaximum(5.5d);
+//        scatter.getXScale().setTick
+        scatter.getYScale()
+                .setMinimum(40d)
+                .setMaximum(100d);
 
         scatter.getYAxis().setTitle("'Waiting time between interruptions (Min)'");
-        scatter.getXAxis().setTitle("'Interruption duration (Min)'");
-        scatter.getXAxis().setDrawFirstLabel(false);
-        scatter.getXAxis().setDrawLastLabel(false);
+        scatter.getXAxis()
+                .setTitle("'Interruption duration (Min)'")
+                .setDrawFirstLabel(false)
+                .setDrawLastLabel(false);
 
-        scatter.getInteractivity().setHoverMode(HoverMode.BY_SPOT);
-        scatter.getInteractivity().setSpotRadius(30d);
-//        Bounds bounds = new Bounds();bounds.setSet()
+        scatter.getInteractivity()
+                .setHoverMode(HoverMode.BY_SPOT)
+                .setSpotRadius(30d);
 
         scatter.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);
+
+        ScatterSeriesMarker marker = scatter.marker(getMarkerData(), TextParsingMode.CSV);
+        marker.setType(MarkerType.TRIANGLE_UP)
+                .setSize(4d);
+        marker.getHovered()
+                .setSize(7d)
+                .setFill(new SolidFill("'gold'", 1d))
+                .setStroke("'anychart.color.darken('gold')'", null, null, null, null);
+        marker.getTooltip()
+                .setHAlign(TextHAlign.START)
+                .setFormat("function() {\n" +
+                        "      return 'Waiting time: ' + this.value + ' min.\\nDuration: ' + this.x + ' min.';\n" +
+                        "    }");
+
+        ScatterSeriesLine scatterSeriesLine = scatter.line(getLineData(), TextParsingMode.CSV);
 
         GradientKey gradientKey[] = new GradientKey[] {
                 new GradientKey("'#abcabc'", 0d, 1d),
