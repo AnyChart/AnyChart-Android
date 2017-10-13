@@ -25,7 +25,7 @@ public class ScatterBase extends ScalesBase {
     
     private Double ratio;
 
-    public void setInverseTransform(Double ratio) {
+    public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {

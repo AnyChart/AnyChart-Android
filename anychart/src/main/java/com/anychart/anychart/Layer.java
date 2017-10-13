@@ -25,7 +25,7 @@ public class Layer extends Element {
     
     private Element element;
 
-    public Layer setAddChild(Element element) {
+    public Layer addChild(Element element) {
         if (jsBase == null) {
             this.element = element;
         } else {
@@ -52,7 +52,7 @@ public class Layer extends Element {
     private Element element1;
     private Double index;
 
-    public Layer setAddChildAt(Element element1, Double index) {
+    public Layer addChildAt(Element element1, Double index) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -85,7 +85,7 @@ public class Layer extends Element {
     private Double cy;
     private Double radius;
 
-    public Circle setCircle(Double cx, Double cy, Double radius) {
+    public Circle circle(Double cx, Double cy, Double radius) {
         if (jsBase == null) {
             this.cx = cx;
             this.cy = cy;
@@ -118,7 +118,7 @@ public class Layer extends Element {
     private Double rx;
     private Double ry;
 
-    public VectorEllipse setEllipse(Double cx1, Double cy1, Double rx, Double ry) {
+    public VectorEllipse ellipse(Double cx1, Double cy1, Double rx, Double ry) {
         if (jsBase == null) {
             this.cx = null;
             this.cx1 = null;
@@ -156,7 +156,7 @@ public class Layer extends Element {
 
     private Double index1;
 
-    public Element setGetChildAt(Double index1) {
+    public Element getChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -185,7 +185,7 @@ public class Layer extends Element {
 
     private Element element2;
 
-    public void setHasChild(Element element2) {
+    public void hasChild(Element element2) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -216,7 +216,7 @@ public class Layer extends Element {
     private Double y;
     private String text;
 
-    public VectorText setHtml(Double x, Double y, String text) {
+    public VectorText html(Double x, Double y, String text) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -250,7 +250,7 @@ public class Layer extends Element {
     private Double width;
     private Double height;
 
-    public Image setImage(String src, Double x1, Double y1, Double width, Double height) {
+    public Image image(String src, Double x1, Double y1, Double width, Double height) {
         if (jsBase == null) {
             this.src = src;
             this.x = null;
@@ -290,7 +290,7 @@ public class Layer extends Element {
 
     private Element element3;
 
-    public void setIndexOfChild(Element element3) {
+    public void indexOfChild(Element element3) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -323,7 +323,7 @@ public class Layer extends Element {
     private Double width1;
     private Double height1;
 
-    public VectorRect setRect(Double x2, Double y2, Double width1, Double height1) {
+    public VectorRect rect(Double x2, Double y2, Double width1, Double height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -369,7 +369,7 @@ public class Layer extends Element {
 
     private Element element4;
 
-    public Element setRemoveChild(Element element4) {
+    public Element removeChild(Element element4) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -401,7 +401,7 @@ public class Layer extends Element {
 
     private Double index2;
 
-    public Element setRemoveChildAt(Double index2) {
+    public Element removeChildAt(Double index2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -432,7 +432,7 @@ public class Layer extends Element {
     private Element element5;
     private Element element6;
 
-    public Layer setSwapChildren(Element element5, Element element6) {
+    public Layer swapChildren(Element element5, Element element6) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -477,7 +477,7 @@ public class Layer extends Element {
     private Double index3;
     private Double index4;
 
-    public Layer setSwapChildrenAt(Double index3, Double index4) {
+    public Layer swapChildrenAt(Double index3, Double index4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -519,7 +519,7 @@ public class Layer extends Element {
     private Double y3;
     private String text1;
 
-    public VectorText setText(Double x3, Double y3, String text1) {
+    public VectorText text(Double x3, Double y3, String text1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;

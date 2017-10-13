@@ -52,7 +52,7 @@ public class StockSeriesRangeSplineArea extends StockSeriesBase {
     private String color;
     private Double opacity;
 
-    public StockSeriesRangeSplineArea setFill(String color, Double opacity) {
+    public StockSeriesRangeSplineArea fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;

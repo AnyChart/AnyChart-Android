@@ -104,7 +104,7 @@ public class UiScroller extends VisualBase {
     private String color;
     private Double opacity;
 
-    public UiScroller setFill(String color, Double opacity) {
+    public UiScroller fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -138,7 +138,7 @@ public class UiScroller extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public UiScroller setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiScroller fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -179,7 +179,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiScroller fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -220,7 +220,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiScroller fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -261,7 +261,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiScroller fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -302,7 +302,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiScroller fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -343,7 +343,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiScroller fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -392,7 +392,7 @@ public class UiScroller extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public UiScroller setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiScroller fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -443,7 +443,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiScroller fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -873,7 +873,7 @@ public class UiScroller extends VisualBase {
     private String color1;
     private Double opacity3;
 
-    public UiScroller setSelectedFill(String color1, Double opacity3) {
+    public UiScroller selectedFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -915,7 +915,7 @@ public class UiScroller extends VisualBase {
     private String mode6;
     private Double opacity4;
 
-    public UiScroller setSelectedFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public UiScroller selectedFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -970,7 +970,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setSelectedFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiScroller selectedFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1025,7 +1025,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setSelectedFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public UiScroller selectedFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1080,7 +1080,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setSelectedFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public UiScroller selectedFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1135,7 +1135,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setSelectedFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiScroller selectedFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1190,7 +1190,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setSelectedFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public UiScroller selectedFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1253,7 +1253,7 @@ public class UiScroller extends VisualBase {
     private Double fx1;
     private Double fy1;
 
-    public UiScroller setSelectedFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiScroller selectedFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1327,7 +1327,7 @@ public class UiScroller extends VisualBase {
     }
 
 
-    public UiScroller setSelectedFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiScroller selectedFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

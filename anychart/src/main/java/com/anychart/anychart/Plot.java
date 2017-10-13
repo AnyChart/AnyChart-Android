@@ -25,7 +25,7 @@ public class Plot extends VisualBaseWithBounds {
     
     private TableMapping var_args;
 
-    public void setAddSeries(TableMapping var_args) {
+    public void addSeries(TableMapping var_args) {
         if (jsBase == null) {
             this.var_args = var_args;
         } else {
@@ -51,7 +51,7 @@ public class Plot extends VisualBaseWithBounds {
     private TableMapping mapping;
     private StockSeriesType seriesType;
 
-    public ADL setAdl(TableMapping mapping, StockSeriesType seriesType) {
+    public ADL adl(TableMapping mapping, StockSeriesType seriesType) {
         if (jsBase == null) {
             this.mapping = mapping;
             this.seriesType = seriesType;
@@ -84,7 +84,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType1;
     private String seriesType2;
 
-    public AMA setAma(StockSeriesType seriesType1, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(StockSeriesType seriesType1, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -124,7 +124,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public AMA setAma(String seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(String seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -205,7 +205,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings;
     private String csvSettings;
 
-    public StockSeriesArea setArea(TableMapping data, String mappingSettings, String csvSettings) {
+    public StockSeriesArea area(TableMapping data, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -239,7 +239,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesArea setArea(DataTable data1, String mappingSettings, String csvSettings) {
+    public StockSeriesArea area(DataTable data1, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -273,7 +273,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesArea setArea(String data2, String mappingSettings, String csvSettings) {
+    public StockSeriesArea area(String data2, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -311,7 +311,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType upSeriesType;
     private StockSeriesType downSeriesType;
 
-    public Aroon setAroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
+    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -352,7 +352,7 @@ public class Plot extends VisualBaseWithBounds {
     private Double period2;
     private StockSeriesType seriesType3;
 
-    public ATR setAtr(TableMapping mapping3, Double period2, StockSeriesType seriesType3) {
+    public ATR atr(TableMapping mapping3, Double period2, StockSeriesType seriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -474,7 +474,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType middleSeriesType;
     private String middleSeriesType1;
 
-    public BBands setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -529,7 +529,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBands setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -584,7 +584,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBands setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -639,7 +639,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBands setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -694,7 +694,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -749,7 +749,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -804,7 +804,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -859,7 +859,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -919,7 +919,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType4;
     private String seriesType5;
 
-    public BBandsB setBbandsB(StockSeriesType seriesType4, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(StockSeriesType seriesType4, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -973,7 +973,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBandsB setBbandsB(String seriesType5, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(String seriesType5, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1032,7 +1032,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType6;
     private String seriesType7;
 
-    public BBandsWidth setBbandsWidth(StockSeriesType seriesType6, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(StockSeriesType seriesType6, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1091,7 +1091,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBandsWidth setBbandsWidth(String seriesType7, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(String seriesType7, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1156,7 +1156,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings1;
     private String csvSettings1;
 
-    public StockSeriesCandlestick setCandlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
+    public StockSeriesCandlestick candlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1200,7 +1200,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesCandlestick setCandlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
+    public StockSeriesCandlestick candlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1244,7 +1244,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesCandlestick setCandlestick(String data6, String mappingSettings1, String csvSettings1) {
+    public StockSeriesCandlestick candlestick(String data6, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1291,7 +1291,7 @@ public class Plot extends VisualBaseWithBounds {
     private Double period6;
     private StockSeriesType seriesType8;
 
-    public CCI setCci(TableMapping mapping7, Double period6, StockSeriesType seriesType8) {
+    public CCI cci(TableMapping mapping7, Double period6, StockSeriesType seriesType8) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1353,7 +1353,7 @@ public class Plot extends VisualBaseWithBounds {
     private MovingAverageType maType1;
     private StockSeriesType seriesType9;
 
-    public CHO setCho(String maType, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
+    public CHO cho(String maType, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
@@ -1416,7 +1416,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public CHO setCho(MovingAverageType maType1, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
+    public CHO cho(MovingAverageType maType1, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
@@ -1482,7 +1482,7 @@ public class Plot extends VisualBaseWithBounds {
     private Double period7;
     private StockSeriesType seriesType10;
 
-    public CMF setCmf(TableMapping mapping9, Double period7, StockSeriesType seriesType10) {
+    public CMF cmf(TableMapping mapping9, Double period7, StockSeriesType seriesType10) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1549,7 +1549,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings2;
     private String csvSettings2;
 
-    public StockSeriesColumn setColumn(TableMapping data8, String mappingSettings2, String csvSettings2) {
+    public StockSeriesColumn column(TableMapping data8, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1599,7 +1599,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesColumn setColumn(DataTable data9, String mappingSettings2, String csvSettings2) {
+    public StockSeriesColumn column(DataTable data9, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1649,7 +1649,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesColumn setColumn(String data10, String mappingSettings2, String csvSettings2) {
+    public StockSeriesColumn column(String data10, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1831,7 +1831,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType ndiSeriesType;
     private StockSeriesType adxSeriesType;
 
-    public DMI setDmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1894,7 +1894,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType11;
     private StockSeriesType seriesType12;
 
-    public EMA setEma(String seriesType11, TableMapping mapping11, Double period9) {
+    public EMA ema(String seriesType11, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1961,7 +1961,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public EMA setEma(StockSeriesType seriesType12, TableMapping mapping11, Double period9) {
+    public EMA ema(StockSeriesType seriesType12, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -2027,64 +2027,6 @@ public class Plot extends VisualBaseWithBounds {
         return new EMA(jsBase);
     }
 
-    private Double id;
-    private String id1;
-
-    public StockSeriesBase setGetSeries(Double id) {
-        if (jsBase == null) {
-            this.id = null;
-            this.id1 = null;
-            
-            this.id = id;
-        } else {
-            this.id = id;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getSeries(%f);", id));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%f)", id));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesBase(jsBase);
-    }
-
-
-    public StockSeriesBase setGetSeries(String id1) {
-        if (jsBase == null) {
-            this.id = null;
-            this.id1 = null;
-            
-            this.id1 = id1;
-        } else {
-            this.id1 = id1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getSeries(%s);", id1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%s)", id1));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesBase(jsBase);
-    }
-
     private StockSeriesBase getGetSeries;
 
     public StockSeriesBase getGetSeries() {
@@ -2092,32 +2034,6 @@ public class Plot extends VisualBaseWithBounds {
             getGetSeries = new StockSeriesBase(jsBase + ".getSeries()");
 
         return getGetSeries;
-    }
-
-    private Double index;
-
-    public StockSeriesBase setGetSeriesAt(Double index) {
-        if (jsBase == null) {
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getSeriesAt(%f);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeriesAt(%f)", index));
-                js.setLength(0);
-            }
-        }
-        return new StockSeriesBase(jsBase);
     }
 
     private StockSeriesBase getGetSeriesAt;
@@ -2235,7 +2151,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings3;
     private String csvSettings3;
 
-    public StockSeriesHilo setHilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
+    public StockSeriesHilo hilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2291,7 +2207,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesHilo setHilo(DataTable data13, String mappingSettings3, String csvSettings3) {
+    public StockSeriesHilo hilo(DataTable data13, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2347,7 +2263,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesHilo setHilo(String data14, String mappingSettings3, String csvSettings3) {
+    public StockSeriesHilo hilo(String data14, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2409,7 +2325,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings4;
     private String csvSettings4;
 
-    public StockSeriesJumpLine setJumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
+    public StockSeriesJumpLine jumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2471,7 +2387,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesJumpLine setJumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
+    public StockSeriesJumpLine jumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2533,7 +2449,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesJumpLine setJumpLine(String data18, String mappingSettings4, String csvSettings4) {
+    public StockSeriesJumpLine jumpLine(String data18, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2606,7 +2522,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType dSeriesType;
     private StockSeriesType jSeriesType;
 
-    public KDJ setKdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, MovingAverageType dMAType, Double kMultiplier, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, MovingAverageType dMAType, Double kMultiplier, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2738,7 +2654,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings5;
     private String csvSettings5;
 
-    public StockSeriesLine setLine(TableMapping data20, String mappingSettings5, String csvSettings5) {
+    public StockSeriesLine line(TableMapping data20, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2806,7 +2722,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesLine setLine(DataTable data21, String mappingSettings5, String csvSettings5) {
+    public StockSeriesLine line(DataTable data21, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2874,7 +2790,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesLine setLine(String data22, String mappingSettings5, String csvSettings5) {
+    public StockSeriesLine line(String data22, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2952,7 +2868,7 @@ public class Plot extends VisualBaseWithBounds {
     private String histogramSeriesType;
     private StockSeriesType histogramSeriesType1;
 
-    public MACD setMacd(String macdSeriesType, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3021,7 +2937,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD setMacd(String macdSeriesType, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3090,7 +3006,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3159,7 +3075,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3228,7 +3144,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3297,7 +3213,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3366,7 +3282,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3435,7 +3351,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3510,7 +3426,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings6;
     private String csvSettings6;
 
-    public StockSeriesMarker setMarker(TableMapping data24, String mappingSettings6, String csvSettings6) {
+    public StockSeriesMarker marker(TableMapping data24, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3584,7 +3500,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesMarker setMarker(DataTable data25, String mappingSettings6, String csvSettings6) {
+    public StockSeriesMarker marker(DataTable data25, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3658,7 +3574,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesMarker setMarker(String data26, String mappingSettings6, String csvSettings6) {
+    public StockSeriesMarker marker(String data26, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3951,7 +3867,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType seriesType13;
     private String seriesType14;
 
-    public MMA setMma(StockSeriesType seriesType13, TableMapping mapping14, Double period10) {
+    public MMA mma(StockSeriesType seriesType13, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -4024,7 +3940,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MMA setMma(String seriesType14, TableMapping mapping14, Double period10) {
+    public MMA mma(String seriesType14, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -4138,7 +4054,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings7;
     private String csvSettings7;
 
-    public StockSeriesOHLC setOhlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
+    public StockSeriesOHLC ohlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4218,7 +4134,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesOHLC setOhlc(DataTable data29, String mappingSettings7, String csvSettings7) {
+    public StockSeriesOHLC ohlc(DataTable data29, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4298,7 +4214,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesOHLC setOhlc(String data30, String mappingSettings7, String csvSettings7) {
+    public StockSeriesOHLC ohlc(String data30, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4568,35 +4484,6 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index1;
-
-    public CurrentPriceIndicator setPriceIndicator(Double index1) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
-        } else {
-            this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".priceIndicator(%f);", index1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".priceIndicator(%f)", index1));
-                js.setLength(0);
-            }
-        }
-        return new CurrentPriceIndicator(jsBase);
-    }
-
     private CurrentPriceIndicator getPriceIndicator;
 
     public CurrentPriceIndicator getPriceIndicator() {
@@ -4664,11 +4551,11 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index2;
+    private Double index;
     private String priceIndicator2;
     private Boolean priceIndicator3;
 
-    public Plot setPriceIndicator(String priceIndicator2, Double index2) {
+    public Plot setPriceIndicator(String priceIndicator2, Double index) {
         if (jsBase == null) {
             this.priceIndicator = null;
             this.priceIndicator1 = null;
@@ -4676,14 +4563,10 @@ public class Plot extends VisualBaseWithBounds {
             this.priceIndicator3 = null;
             
             this.priceIndicator2 = priceIndicator2;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
+            this.index = index;
         } else {
             this.priceIndicator2 = priceIndicator2;
-            this.index2 = index2;
+            this.index = index;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -4693,10 +4576,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index2));
+            js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index2));
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", priceIndicator2, index));
                 js.setLength(0);
             }
         }
@@ -4704,7 +4587,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setPriceIndicator(Boolean priceIndicator3, Double index2) {
+    public Plot setPriceIndicator(Boolean priceIndicator3, Double index) {
         if (jsBase == null) {
             this.priceIndicator = null;
             this.priceIndicator1 = null;
@@ -4712,14 +4595,10 @@ public class Plot extends VisualBaseWithBounds {
             this.priceIndicator3 = null;
             
             this.priceIndicator3 = priceIndicator3;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
+            this.index = index;
         } else {
             this.priceIndicator3 = priceIndicator3;
-            this.index2 = index2;
+            this.index = index;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -4729,10 +4608,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index2));
+            js.append(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index2));
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
                 js.setLength(0);
             }
         }
@@ -4746,7 +4625,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings8;
     private String csvSettings8;
 
-    public StockSeriesRangeArea setRangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
+    public StockSeriesRangeArea rangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4832,7 +4711,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeArea setRangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
+    public StockSeriesRangeArea rangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4918,7 +4797,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeArea setRangeArea(String data34, String mappingSettings8, String csvSettings8) {
+    public StockSeriesRangeArea rangeArea(String data34, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5010,7 +4889,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings9;
     private String csvSettings9;
 
-    public StockSeriesRangeColumn setRangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
+    public StockSeriesRangeColumn rangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5102,7 +4981,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeColumn setRangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
+    public StockSeriesRangeColumn rangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5194,7 +5073,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeColumn setRangeColumn(String data38, String mappingSettings9, String csvSettings9) {
+    public StockSeriesRangeColumn rangeColumn(String data38, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5292,7 +5171,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings10;
     private String csvSettings10;
 
-    public StockSeriesRangeSplineArea setRangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
+    public StockSeriesRangeSplineArea rangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5390,7 +5269,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeSplineArea setRangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
+    public StockSeriesRangeSplineArea rangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5488,7 +5367,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeSplineArea setRangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
+    public StockSeriesRangeSplineArea rangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5592,7 +5471,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings11;
     private String csvSettings11;
 
-    public StockSeriesRangeStepArea setRangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
+    public StockSeriesRangeStepArea rangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5696,7 +5575,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeStepArea setRangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
+    public StockSeriesRangeStepArea rangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5800,7 +5679,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesRangeStepArea setRangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
+    public StockSeriesRangeStepArea rangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5903,19 +5782,17 @@ public class Plot extends VisualBaseWithBounds {
         return new StockSeriesRangeStepArea(jsBase);
     }
 
-    private Double id2;
-    private String id3;
+    private Double id;
+    private String id1;
 
-    public Plot setRemoveSeries(Double id2) {
+    public Plot removeSeries(Double id) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
-            this.id2 = null;
-            this.id3 = null;
             
-            this.id2 = id2;
+            this.id = id;
         } else {
-            this.id2 = id2;
+            this.id = id;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -5925,10 +5802,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
+            js.append(String.format(Locale.US, ".removeSeries(%f)", id));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id));
                 js.setLength(0);
             }
         }
@@ -5936,16 +5813,14 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setRemoveSeries(String id3) {
+    public Plot removeSeries(String id1) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
-            this.id2 = null;
-            this.id3 = null;
             
-            this.id3 = id3;
+            this.id1 = id1;
         } else {
-            this.id3 = id3;
+            this.id1 = id1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -5955,28 +5830,26 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
+            js.append(String.format(Locale.US, ".removeSeries(%s)", id1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private Double index3;
+    private Double index1;
 
-    public Plot setRemoveSeriesAt(Double index3) {
+    public Plot removeSeriesAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
             
-            this.index3 = index3;
+            this.index1 = index1;
         } else {
-            this.index3 = index3;
+            this.index1 = index1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -5986,10 +5859,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
+            js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
                 js.setLength(0);
             }
         }
@@ -6001,7 +5874,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType15;
     private StockSeriesType seriesType16;
 
-    public RoC setRoc(String seriesType15, TableMapping mapping15, Double period11) {
+    public RoC roc(String seriesType15, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6078,7 +5951,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public RoC setRoc(StockSeriesType seriesType16, TableMapping mapping15, Double period11) {
+    public RoC roc(StockSeriesType seriesType16, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6159,7 +6032,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType17;
     private StockSeriesType seriesType18;
 
-    public RSI setRsi(String seriesType17, TableMapping mapping16, Double period12) {
+    public RSI rsi(String seriesType17, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6240,7 +6113,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public RSI setRsi(StockSeriesType seriesType18, TableMapping mapping16, Double period12) {
+    public RSI rsi(StockSeriesType seriesType18, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6325,7 +6198,7 @@ public class Plot extends VisualBaseWithBounds {
     private String seriesType19;
     private StockSeriesType seriesType20;
 
-    public SMA setSma(String seriesType19, TableMapping mapping17, Double period13) {
+    public SMA sma(String seriesType19, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6410,7 +6283,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public SMA setSma(StockSeriesType seriesType20, TableMapping mapping17, Double period13) {
+    public SMA sma(StockSeriesType seriesType20, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6501,7 +6374,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings12;
     private String csvSettings12;
 
-    public StockSeriesSpline setSpline(TableMapping data48, String mappingSettings12, String csvSettings12) {
+    public StockSeriesSpline spline(TableMapping data48, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6611,7 +6484,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesSpline setSpline(DataTable data49, String mappingSettings12, String csvSettings12) {
+    public StockSeriesSpline spline(DataTable data49, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6721,7 +6594,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesSpline setSpline(String data50, String mappingSettings12, String csvSettings12) {
+    public StockSeriesSpline spline(String data50, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6837,7 +6710,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings13;
     private String csvSettings13;
 
-    public StockSeriesSplineArea setSplineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
+    public StockSeriesSplineArea splineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6953,7 +6826,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesSplineArea setSplineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
+    public StockSeriesSplineArea splineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7069,7 +6942,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesSplineArea setSplineArea(String data54, String mappingSettings13, String csvSettings13) {
+    public StockSeriesSplineArea splineArea(String data54, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7191,7 +7064,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings14;
     private String csvSettings14;
 
-    public StockSeriesStepArea setStepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
+    public StockSeriesStepArea stepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7313,7 +7186,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesStepArea setStepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
+    public StockSeriesStepArea stepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7435,7 +7308,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesStepArea setStepArea(String data58, String mappingSettings14, String csvSettings14) {
+    public StockSeriesStepArea stepArea(String data58, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7563,7 +7436,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings15;
     private String csvSettings15;
 
-    public StockSeriesStepLine setStepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
+    public StockSeriesStepLine stepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7691,7 +7564,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesStepLine setStepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
+    public StockSeriesStepLine stepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7819,7 +7692,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesStepLine setStepLine(String data62, String mappingSettings15, String csvSettings15) {
+    public StockSeriesStepLine stepLine(String data62, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7953,7 +7826,7 @@ public class Plot extends VisualBaseWithBounds {
     private String mappingSettings16;
     private String csvSettings16;
 
-    public StockSeriesStick setStick(TableMapping data64, String mappingSettings16, String csvSettings16) {
+    public StockSeriesStick stick(TableMapping data64, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -8087,7 +7960,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesStick setStick(DataTable data65, String mappingSettings16, String csvSettings16) {
+    public StockSeriesStick stick(DataTable data65, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -8221,7 +8094,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public StockSeriesStick setStick(String data66, String mappingSettings16, String csvSettings16) {
+    public StockSeriesStick stick(String data66, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -8363,7 +8236,7 @@ public class Plot extends VisualBaseWithBounds {
     private StockSeriesType kSeriesType1;
     private StockSeriesType dSeriesType1;
 
-    public Stochastic setStochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType1, MovingAverageType dMAType1, StockSeriesType kSeriesType1, StockSeriesType dSeriesType1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType1, MovingAverageType dMAType1, StockSeriesType kSeriesType1, StockSeriesType dSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -8509,38 +8382,6 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index4;
-
-    public GridsStock setXGrid(Double index4) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            
-            this.index4 = index4;
-        } else {
-            this.index4 = index4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".xGrid(%f);", index4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xGrid(%f)", index4));
-                js.setLength(0);
-            }
-        }
-        return new GridsStock(jsBase);
-    }
-
     private GridsStock getXGrid;
 
     public GridsStock getXGrid() {
@@ -8608,11 +8449,11 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index5;
+    private Double index2;
     private String xGrid2;
     private Boolean xGrid3;
 
-    public Plot setXGrid(String xGrid2, Double index5) {
+    public Plot setXGrid(String xGrid2, Double index2) {
         if (jsBase == null) {
             this.xGrid = null;
             this.xGrid1 = null;
@@ -8623,14 +8464,11 @@ public class Plot extends VisualBaseWithBounds {
             this.index = null;
             this.index1 = null;
             this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
             
-            this.index5 = index5;
+            this.index2 = index2;
         } else {
             this.xGrid2 = xGrid2;
-            this.index5 = index5;
+            this.index2 = index2;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -8640,10 +8478,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index5));
+            js.append(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index5));
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", xGrid2, index2));
                 js.setLength(0);
             }
         }
@@ -8651,7 +8489,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setXGrid(Boolean xGrid3, Double index5) {
+    public Plot setXGrid(Boolean xGrid3, Double index2) {
         if (jsBase == null) {
             this.xGrid = null;
             this.xGrid1 = null;
@@ -8662,14 +8500,11 @@ public class Plot extends VisualBaseWithBounds {
             this.index = null;
             this.index1 = null;
             this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
             
-            this.index5 = index5;
+            this.index2 = index2;
         } else {
             this.xGrid3 = xGrid3;
-            this.index5 = index5;
+            this.index2 = index2;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -8679,48 +8514,14 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index5));
+            js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index5));
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
                 js.setLength(0);
             }
         }
         return this;
-    }
-
-    private Double index6;
-
-    public GridsStock setXMinorGrid(Double index6) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            
-            this.index6 = index6;
-        } else {
-            this.index6 = index6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".xMinorGrid(%f);", index6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xMinorGrid(%f)", index6));
-                js.setLength(0);
-            }
-        }
-        return new GridsStock(jsBase);
     }
 
     private GridsStock getXMinorGrid;
@@ -8857,41 +8658,6 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index7;
-
-    public CoreAxesLinear setYAxis(Double index7) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            this.index7 = null;
-            
-            this.index7 = index7;
-        } else {
-            this.index7 = index7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".yAxis(%f);", index7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%f)", index7));
-                js.setLength(0);
-            }
-        }
-        return new CoreAxesLinear(jsBase);
-    }
-
     private CoreAxesLinear getYAxis;
 
     public CoreAxesLinear getYAxis() {
@@ -8959,11 +8725,11 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index8;
+    private Double index3;
     private String yAxis2;
     private Boolean yAxis3;
 
-    public Plot setYAxis(String yAxis2, Double index8) {
+    public Plot setYAxis(String yAxis2, Double index3) {
         if (jsBase == null) {
             this.yAxis = null;
             this.yAxis1 = null;
@@ -8975,16 +8741,11 @@ public class Plot extends VisualBaseWithBounds {
             this.index1 = null;
             this.index2 = null;
             this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            this.index7 = null;
-            this.index8 = null;
             
-            this.index8 = index8;
+            this.index3 = index3;
         } else {
             this.yAxis2 = yAxis2;
-            this.index8 = index8;
+            this.index3 = index3;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -8994,10 +8755,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index8));
+            js.append(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index8));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", yAxis2, index3));
                 js.setLength(0);
             }
         }
@@ -9005,7 +8766,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setYAxis(Boolean yAxis3, Double index8) {
+    public Plot setYAxis(Boolean yAxis3, Double index3) {
         if (jsBase == null) {
             this.yAxis = null;
             this.yAxis1 = null;
@@ -9017,16 +8778,11 @@ public class Plot extends VisualBaseWithBounds {
             this.index1 = null;
             this.index2 = null;
             this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            this.index7 = null;
-            this.index8 = null;
             
-            this.index8 = index8;
+            this.index3 = index3;
         } else {
             this.yAxis3 = yAxis3;
-            this.index8 = index8;
+            this.index3 = index3;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -9036,51 +8792,14 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index8));
+            js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index8));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
                 js.setLength(0);
             }
         }
         return this;
-    }
-
-    private Double index9;
-
-    public GridsStock setYGrid(Double index9) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            this.index7 = null;
-            this.index8 = null;
-            this.index9 = null;
-            
-            this.index9 = index9;
-        } else {
-            this.index9 = index9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".yGrid(%f);", index9));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yGrid(%f)", index9));
-                js.setLength(0);
-            }
-        }
-        return new GridsStock(jsBase);
     }
 
     private GridsStock getYGrid;
@@ -9150,11 +8869,11 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index10;
+    private Double index4;
     private String yGrid2;
     private Boolean yGrid3;
 
-    public Plot setYGrid(String yGrid2, Double index10) {
+    public Plot setYGrid(String yGrid2, Double index4) {
         if (jsBase == null) {
             this.yGrid = null;
             this.yGrid1 = null;
@@ -9167,17 +8886,11 @@ public class Plot extends VisualBaseWithBounds {
             this.index2 = null;
             this.index3 = null;
             this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            this.index7 = null;
-            this.index8 = null;
-            this.index9 = null;
-            this.index10 = null;
             
-            this.index10 = index10;
+            this.index4 = index4;
         } else {
             this.yGrid2 = yGrid2;
-            this.index10 = index10;
+            this.index4 = index4;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -9187,10 +8900,10 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index10));
+            js.append(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index10));
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", yGrid2, index4));
                 js.setLength(0);
             }
         }
@@ -9198,7 +8911,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setYGrid(Boolean yGrid3, Double index10) {
+    public Plot setYGrid(Boolean yGrid3, Double index4) {
         if (jsBase == null) {
             this.yGrid = null;
             this.yGrid1 = null;
@@ -9211,17 +8924,11 @@ public class Plot extends VisualBaseWithBounds {
             this.index2 = null;
             this.index3 = null;
             this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            this.index7 = null;
-            this.index8 = null;
-            this.index9 = null;
-            this.index10 = null;
             
-            this.index10 = index10;
+            this.index4 = index4;
         } else {
             this.yGrid3 = yGrid3;
-            this.index10 = index10;
+            this.index4 = index4;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -9231,53 +8938,14 @@ public class Plot extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index10));
+            js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index10));
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
                 js.setLength(0);
             }
         }
         return this;
-    }
-
-    private Double index11;
-
-    public GridsStock setYMinorGrid(Double index11) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
-            this.index6 = null;
-            this.index7 = null;
-            this.index8 = null;
-            this.index9 = null;
-            this.index10 = null;
-            this.index11 = null;
-            
-            this.index11 = index11;
-        } else {
-            this.index11 = index11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".yMinorGrid(%f);", index11));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yMinorGrid(%f)", index11));
-                js.setLength(0);
-            }
-        }
-        return new GridsStock(jsBase);
     }
 
     private GridsStock getYMinorGrid;
@@ -10233,27 +9901,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSid() {
-        if (id != null) {
-            return String.format(Locale.US, "id: %f,", id);
-        }
-        return "";
-    }
-
-    private String generateJSid1() {
-        if (id1 != null) {
-            return String.format(Locale.US, "id: %s,", id1);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
     private String generateJShatchFillPalette() {
         if (hatchFillPalette != null) {
             return String.format(Locale.US, "hatchFillPalette: %s,", arrayToString(hatchFillPalette));
@@ -10772,13 +10419,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
     private String generateJSpriceIndicator() {
         if (priceIndicator != null) {
             return String.format(Locale.US, "priceIndicator: %s,", priceIndicator);
@@ -10793,9 +10433,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
+    private String generateJSindex() {
+        if (index != null) {
+            return String.format(Locale.US, "index: %f,", index);
         }
         return "";
     }
@@ -10982,23 +10622,23 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSid2() {
-        if (id2 != null) {
-            return String.format(Locale.US, "id: %f,", id2);
+    private String generateJSid() {
+        if (id != null) {
+            return String.format(Locale.US, "id: %f,", id);
         }
         return "";
     }
 
-    private String generateJSid3() {
-        if (id3 != null) {
-            return String.format(Locale.US, "id: %s,", id3);
+    private String generateJSid1() {
+        if (id1 != null) {
+            return String.format(Locale.US, "id: %s,", id1);
         }
         return "";
     }
 
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
+    private String generateJSindex1() {
+        if (index1 != null) {
+            return String.format(Locale.US, "index: %f,", index1);
         }
         return "";
     }
@@ -11367,13 +11007,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex4() {
-        if (index4 != null) {
-            return String.format(Locale.US, "index: %f,", index4);
-        }
-        return "";
-    }
-
     private String generateJSxGrid() {
         if (xGrid != null) {
             return String.format(Locale.US, "xGrid: %s,", xGrid);
@@ -11388,9 +11021,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex5() {
-        if (index5 != null) {
-            return String.format(Locale.US, "index: %f,", index5);
+    private String generateJSindex2() {
+        if (index2 != null) {
+            return String.format(Locale.US, "index: %f,", index2);
         }
         return "";
     }
@@ -11405,13 +11038,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSxGrid3() {
         if (xGrid3 != null) {
             return String.format(Locale.US, "xGrid: %b,", xGrid3);
-        }
-        return "";
-    }
-
-    private String generateJSindex6() {
-        if (index6 != null) {
-            return String.format(Locale.US, "index: %f,", index6);
         }
         return "";
     }
@@ -11451,13 +11077,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex7() {
-        if (index7 != null) {
-            return String.format(Locale.US, "index: %f,", index7);
-        }
-        return "";
-    }
-
     private String generateJSyAxis() {
         if (yAxis != null) {
             return String.format(Locale.US, "yAxis: %s,", yAxis);
@@ -11472,9 +11091,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex8() {
-        if (index8 != null) {
-            return String.format(Locale.US, "index: %f,", index8);
+    private String generateJSindex3() {
+        if (index3 != null) {
+            return String.format(Locale.US, "index: %f,", index3);
         }
         return "";
     }
@@ -11493,13 +11112,6 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex9() {
-        if (index9 != null) {
-            return String.format(Locale.US, "index: %f,", index9);
-        }
-        return "";
-    }
-
     private String generateJSyGrid() {
         if (yGrid != null) {
             return String.format(Locale.US, "yGrid: %s,", yGrid);
@@ -11514,9 +11126,9 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex10() {
-        if (index10 != null) {
-            return String.format(Locale.US, "index: %f,", index10);
+    private String generateJSindex4() {
+        if (index4 != null) {
+            return String.format(Locale.US, "index: %f,", index4);
         }
         return "";
     }
@@ -11531,13 +11143,6 @@ public class Plot extends VisualBaseWithBounds {
     private String generateJSyGrid3() {
         if (yGrid3 != null) {
             return String.format(Locale.US, "yGrid: %b,", yGrid3);
-        }
-        return "";
-    }
-
-    private String generateJSindex11() {
-        if (index11 != null) {
-            return String.format(Locale.US, "index: %f,", index11);
         }
         return "";
     }
@@ -11720,9 +11325,6 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSperiod9());
             js.append(generateJSseriesType11());
             js.append(generateJSseriesType12());
-            js.append(generateJSid());
-            js.append(generateJSid1());
-            js.append(generateJSindex());
             js.append(generateJShatchFillPalette());
             js.append(generateJShatchFillPalette1());
             js.append(generateJShatchFillPalette2());
@@ -11797,10 +11399,9 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSpalette3());
             js.append(generateJSpointWidth());
             js.append(generateJSpointWidth1());
-            js.append(generateJSindex1());
             js.append(generateJSpriceIndicator());
             js.append(generateJSpriceIndicator1());
-            js.append(generateJSindex2());
+            js.append(generateJSindex());
             js.append(generateJSpriceIndicator2());
             js.append(generateJSpriceIndicator3());
             js.append(generateJSdata32());
@@ -11827,9 +11428,9 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSdata47());
             js.append(generateJSmappingSettings11());
             js.append(generateJScsvSettings11());
-            js.append(generateJSid2());
-            js.append(generateJSid3());
-            js.append(generateJSindex3());
+            js.append(generateJSid());
+            js.append(generateJSid1());
+            js.append(generateJSindex1());
             js.append(generateJSmapping15());
             js.append(generateJSperiod11());
             js.append(generateJSseriesType15());
@@ -11882,31 +11483,26 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSdSeriesType1());
             js.append(generateJSxAxis());
             js.append(generateJSxAxis1());
-            js.append(generateJSindex4());
             js.append(generateJSxGrid());
             js.append(generateJSxGrid1());
-            js.append(generateJSindex5());
+            js.append(generateJSindex2());
             js.append(generateJSxGrid2());
             js.append(generateJSxGrid3());
-            js.append(generateJSindex6());
             js.append(generateJSxMinorGrid());
             js.append(generateJSxMinorGrid1());
             js.append(generateJSindexOrValue());
             js.append(generateJSxMinorGrid2());
             js.append(generateJSxMinorGrid3());
-            js.append(generateJSindex7());
             js.append(generateJSyAxis());
             js.append(generateJSyAxis1());
-            js.append(generateJSindex8());
+            js.append(generateJSindex3());
             js.append(generateJSyAxis2());
             js.append(generateJSyAxis3());
-            js.append(generateJSindex9());
             js.append(generateJSyGrid());
             js.append(generateJSyGrid1());
-            js.append(generateJSindex10());
+            js.append(generateJSindex4());
             js.append(generateJSyGrid2());
             js.append(generateJSyGrid3());
-            js.append(generateJSindex11());
             js.append(generateJSyMinorGrid());
             js.append(generateJSyMinorGrid1());
             js.append(generateJSindexOrValue1());

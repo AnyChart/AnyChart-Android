@@ -25,7 +25,7 @@ public class PointContext extends RenderingsettingsContext {
     
     private String name;
 
-    public void setGetDataValue(String name) {
+    public void getDataValue(String name) {
         if (jsBase == null) {
             this.name = name;
         } else {

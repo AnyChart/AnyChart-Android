@@ -261,7 +261,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
-    public ResourceResourceList setEvenFill(String color, Double opacity) {
+    public ResourceResourceList evenFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -295,7 +295,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public ResourceResourceList setEvenFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public ResourceResourceList evenFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -336,7 +336,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setEvenFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public ResourceResourceList evenFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -377,7 +377,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setEvenFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public ResourceResourceList evenFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -418,7 +418,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setEvenFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public ResourceResourceList evenFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -459,7 +459,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setEvenFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public ResourceResourceList evenFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -500,7 +500,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setEvenFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public ResourceResourceList evenFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -549,7 +549,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public ResourceResourceList setEvenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ResourceResourceList evenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -600,7 +600,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setEvenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ResourceResourceList evenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -750,7 +750,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String color1;
     private Double opacity3;
 
-    public ResourceResourceList setOddFill(String color1, Double opacity3) {
+    public ResourceResourceList oddFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -792,7 +792,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
-    public ResourceResourceList setOddFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public ResourceResourceList oddFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -847,7 +847,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setOddFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public ResourceResourceList oddFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -902,7 +902,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setOddFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public ResourceResourceList oddFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -957,7 +957,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setOddFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public ResourceResourceList oddFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1012,7 +1012,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setOddFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public ResourceResourceList oddFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1067,7 +1067,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setOddFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public ResourceResourceList oddFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1130,7 +1130,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
-    public ResourceResourceList setOddFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public ResourceResourceList oddFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1204,7 +1204,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
 
-    public ResourceResourceList setOddFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public ResourceResourceList oddFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

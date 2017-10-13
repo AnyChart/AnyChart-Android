@@ -198,7 +198,7 @@ public class ChartsMekko extends SeparateChart {
 
     public SeriesMekko getGetSeries(String id1) {
         if (getGetSeries1 == null)
-            getGetSeries1 = new SeriesMekko(jsBase + ".getSeries1("+ id1+")");
+            getGetSeries1 = new SeriesMekko(jsBase + ".getSeries("+ id1+")");
 
         return getGetSeries1;
     }
@@ -673,7 +673,7 @@ public class ChartsMekko extends SeparateChart {
 
     public CoreAxesLinear getXAxis(Double index2) {
         if (getXAxis1 == null)
-            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis1("+ index2+")");
+            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis("+ index2+")");
 
         return getXAxis1;
     }
@@ -914,7 +914,7 @@ public class ChartsMekko extends SeparateChart {
 
     public CoreAxesLinear getYAxis(Double index4) {
         if (getYAxis1 == null)
-            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis1("+ index4+")");
+            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis("+ index4+")");
 
         return getYAxis1;
     }

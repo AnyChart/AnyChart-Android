@@ -1,7 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+
+import android.text.TextUtils;
 
 // class
 public class Set extends CoreBase {
@@ -159,7 +161,7 @@ public class Set extends CoreBase {
 
     private Double index;
 
-    public Set setInsert(Double index) {
+    public Set insert(Double index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -185,7 +187,7 @@ public class Set extends CoreBase {
 
     private String mapping;
 
-    public Mapping setMapAs(String mapping) {
+    public Mapping mapAs(String mapping) {
         if (jsBase == null) {
             this.mapping = mapping;
         } else {
@@ -211,7 +213,7 @@ public class Set extends CoreBase {
 
     private Double index1;
 
-    public Set setRemove(Double index1) {
+    public Set remove(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -263,7 +265,6 @@ public class Set extends CoreBase {
         }
     }
 
-    private Double rowIndex1;
     private String generateJSdata() {
         if (data != null) {
             return String.format(Locale.US, "data: %s,", Arrays.toString(data));
@@ -320,13 +321,6 @@ public class Set extends CoreBase {
         return "";
     }
 
-    private String generateJSrowIndex1() {
-        if (rowIndex1 != null) {
-            return String.format(Locale.US, "rowIndex: %f,", rowIndex1);
-        }
-        return "";
-    }
-
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -355,7 +349,6 @@ public class Set extends CoreBase {
             js.append(generateJSmapping());
             js.append(generateJSindex1());
             js.append(generateJSrowIndex());
-            js.append(generateJSrowIndex1());
             js.append("}");
         }
 

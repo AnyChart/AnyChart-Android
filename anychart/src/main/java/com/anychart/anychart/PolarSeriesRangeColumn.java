@@ -52,7 +52,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     private String color;
     private Double opacity;
 
-    public PolarSeriesRangeColumn setFill(String color, Double opacity) {
+    public PolarSeriesRangeColumn fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     private String mode2;
     private Double opacity1;
 
-    public PolarSeriesRangeColumn setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public PolarSeriesRangeColumn fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     }
 
 
-    public PolarSeriesRangeColumn setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public PolarSeriesRangeColumn fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     }
 
 
-    public PolarSeriesRangeColumn setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public PolarSeriesRangeColumn fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     }
 
 
-    public PolarSeriesRangeColumn setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public PolarSeriesRangeColumn fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     }
 
 
-    public PolarSeriesRangeColumn setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public PolarSeriesRangeColumn fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     }
 
 
-    public PolarSeriesRangeColumn setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public PolarSeriesRangeColumn fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     private Double fx;
     private Double fy;
 
-    public PolarSeriesRangeColumn setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public PolarSeriesRangeColumn fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class PolarSeriesRangeColumn extends PolarSeriesBase {
     }
 
 
-    public PolarSeriesRangeColumn setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public PolarSeriesRangeColumn fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

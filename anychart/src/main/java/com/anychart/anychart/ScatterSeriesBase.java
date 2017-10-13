@@ -196,7 +196,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private Double indexes;
     private Double[] indexes1;
 
-    public void setExcludePoint(Double indexes) {
+    public void excludePoint(Double indexes) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -223,7 +223,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public void setExcludePoint(Double[] indexes1) {
+    public void excludePoint(Double[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -252,7 +252,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private Double indexes2;
     private Double[] indexes3;
 
-    public void setIncludePoint(Double indexes2) {
+    public void includePoint(Double indexes2) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -281,7 +281,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public void setIncludePoint(Double[] indexes3) {
+    public void includePoint(Double[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -312,7 +312,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     private Double indexes4;
     private Double[] indexes5;
 
-    public void setKeepOnlyPoints(Double indexes4) {
+    public void keepOnlyPoints(Double indexes4) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -343,7 +343,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public void setKeepOnlyPoints(Double[] indexes5) {
+    public void keepOnlyPoints(Double[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;

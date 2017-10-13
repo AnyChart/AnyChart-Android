@@ -52,7 +52,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
-    public TimelineHeader setBackgroundFill(String color, Double opacity) {
+    public TimelineHeader backgroundFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public TimelineHeader setBackgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public TimelineHeader backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
 
-    public TimelineHeader setBackgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public TimelineHeader backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
 
-    public TimelineHeader setBackgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public TimelineHeader backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
 
-    public TimelineHeader setBackgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public TimelineHeader backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
 
-    public TimelineHeader setBackgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public TimelineHeader backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
 
-    public TimelineHeader setBackgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public TimelineHeader backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public TimelineHeader setBackgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TimelineHeader backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
 
-    public TimelineHeader setBackgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TimelineHeader backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -494,64 +494,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".levelsSeparationStroke(%s)", levelsSeparationStroke1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private String lowLevel;
-    private Boolean lowLevel1;
-
-    public TimelineHeader setLowLevel(String lowLevel) {
-        if (jsBase == null) {
-            this.lowLevel = null;
-            this.lowLevel1 = null;
-            
-            this.lowLevel = lowLevel;
-        } else {
-            this.lowLevel = lowLevel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".lowLevel(%s)", lowLevel));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowLevel(%s)", lowLevel));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public TimelineHeader setLowLevel(Boolean lowLevel1) {
-        if (jsBase == null) {
-            this.lowLevel = null;
-            this.lowLevel1 = null;
-            
-            this.lowLevel1 = lowLevel1;
-        } else {
-            this.lowLevel1 = lowLevel1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".lowLevel(%b)", lowLevel1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowLevel(%b)", lowLevel1));
                 js.setLength(0);
             }
         }
@@ -837,20 +779,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSlowLevel() {
-        if (lowLevel != null) {
-            return String.format(Locale.US, "lowLevel: %s,", lowLevel);
-        }
-        return "";
-    }
-
-    private String generateJSlowLevel1() {
-        if (lowLevel1 != null) {
-            return String.format(Locale.US, "lowLevel: %b,", lowLevel1);
-        }
-        return "";
-    }
-
     private String generateJSmidLevel() {
         if (midLevel != null) {
             return String.format(Locale.US, "midLevel: %s,", midLevel);
@@ -921,8 +849,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
             js.append(generateJSimageSettings());
             js.append(generateJSlevelsSeparationStroke());
             js.append(generateJSlevelsSeparationStroke1());
-            js.append(generateJSlowLevel());
-            js.append(generateJSlowLevel1());
             js.append(generateJSmidLevel());
             js.append(generateJSmidLevel1());
             js.append(generateJStopLevel());

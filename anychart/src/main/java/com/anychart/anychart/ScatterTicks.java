@@ -190,7 +190,7 @@ public class ScatterTicks extends CoreBase {
 
     private String[] ticks;
 
-    public ScatterTicks setSet(String[] ticks) {
+    public ScatterTicks set(String[] ticks) {
         if (jsBase == null) {
             this.ticks = ticks;
         } else {

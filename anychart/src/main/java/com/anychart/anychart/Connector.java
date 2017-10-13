@@ -81,64 +81,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
         return this;
     }
 
-    private Double endSize;
-    private String endSize1;
-
-    public Connector setEndSize(Double endSize) {
-        if (jsBase == null) {
-            this.endSize = null;
-            this.endSize1 = null;
-            
-            this.endSize = endSize;
-        } else {
-            this.endSize = endSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".endSize(%f)", endSize));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endSize(%f)", endSize));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Connector setEndSize(String endSize1) {
-        if (jsBase == null) {
-            this.endSize = null;
-            this.endSize1 = null;
-            
-            this.endSize1 = endSize1;
-        } else {
-            this.endSize1 = endSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".endSize(%s)", endSize1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endSize(%s)", endSize1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private Connector getEndSize;
 
     public Connector getEndSize() {
@@ -227,20 +169,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
         return "";
     }
 
-    private String generateJSendSize() {
-        if (endSize != null) {
-            return String.format(Locale.US, "endSize: %f,", endSize);
-        }
-        return "";
-    }
-
-    private String generateJSendSize1() {
-        if (endSize1 != null) {
-            return String.format(Locale.US, "endSize: %s,", endSize1);
-        }
-        return "";
-    }
-
     private String generateJSstartSize() {
         if (startSize != null) {
             return String.format(Locale.US, "startSize: %f,", startSize);
@@ -278,8 +206,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             js.append("{");
             js.append(generateJScurvature());
             js.append(generateJScurvature1());
-            js.append(generateJSendSize());
-            js.append(generateJSendSize1());
             js.append(generateJSstartSize());
             js.append(generateJSstartSize1());
             js.append("}");

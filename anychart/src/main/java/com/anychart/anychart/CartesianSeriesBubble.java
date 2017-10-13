@@ -78,7 +78,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private String color;
     private Double opacity;
 
-    public CartesianSeriesBubble setFill(String color, Double opacity) {
+    public CartesianSeriesBubble fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -112,7 +112,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private String mode2;
     private Double opacity1;
 
-    public CartesianSeriesBubble setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -153,7 +153,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -194,7 +194,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -235,7 +235,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -276,7 +276,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -317,7 +317,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -366,7 +366,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private Double fx;
     private Double fy;
 
-    public CartesianSeriesBubble setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBubble fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -417,7 +417,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBubble fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -669,7 +669,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private String color2;
     private Double opacity3;
 
-    public CartesianSeriesBubble setNegativeFill(String color2, Double opacity3) {
+    public CartesianSeriesBubble negativeFill(String color2, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -712,7 +712,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private String mode6;
     private Double opacity4;
 
-    public CartesianSeriesBubble setNegativeFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -767,7 +767,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setNegativeFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -822,7 +822,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setNegativeFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -877,7 +877,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setNegativeFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -932,7 +932,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setNegativeFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -987,7 +987,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setNegativeFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1050,7 +1050,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private Double fx1;
     private Double fy1;
 
-    public CartesianSeriesBubble setNegativeFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1124,7 +1124,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
 
-    public CartesianSeriesBubble setNegativeFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBubble negativeFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

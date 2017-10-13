@@ -78,7 +78,7 @@ public class Tasks extends JsObject {
     private String color1;
     private Double opacity;
 
-    public Tasks setDummyFill(String color1, Double opacity) {
+    public Tasks dummyFill(String color1, Double opacity) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -115,7 +115,7 @@ public class Tasks extends JsObject {
     private String mode2;
     private Double opacity1;
 
-    public Tasks setDummyFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Tasks dummyFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -156,7 +156,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setDummyFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Tasks dummyFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -197,7 +197,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setDummyFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Tasks dummyFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -238,7 +238,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setDummyFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Tasks dummyFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -279,7 +279,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setDummyFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Tasks dummyFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -320,7 +320,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setDummyFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Tasks dummyFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -369,7 +369,7 @@ public class Tasks extends JsObject {
     private Double fx;
     private Double fy;
 
-    public Tasks setDummyFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Tasks dummyFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -420,7 +420,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setDummyFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Tasks dummyFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -624,7 +624,7 @@ public class Tasks extends JsObject {
     private String color5;
     private Double opacity3;
 
-    public Tasks setFill(String color5, Double opacity3) {
+    public Tasks fill(String color5, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -670,7 +670,7 @@ public class Tasks extends JsObject {
     private String mode6;
     private Double opacity4;
 
-    public Tasks setFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public Tasks fill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -725,7 +725,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public Tasks fill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -780,7 +780,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public Tasks fill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -835,7 +835,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public Tasks fill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -890,7 +890,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public Tasks fill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -945,7 +945,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public Tasks fill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1008,7 +1008,7 @@ public class Tasks extends JsObject {
     private Double fx1;
     private Double fy1;
 
-    public Tasks setFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Tasks fill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1082,7 +1082,7 @@ public class Tasks extends JsObject {
     }
 
 
-    public Tasks setFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Tasks fill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

@@ -27,7 +27,7 @@ public class Chart extends VisualBaseWithBounds {
 
     public ChartA11y getA11y() {
         if (getA11y == null)
-            getA11y = new ChartA11y(jsBase + ".a11y()");
+            getA11y = new ChartA11y(jsBase + ".ay()");
 
         return getA11y;
     }
@@ -423,7 +423,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private Boolean async;
 
-    public Chart setDraw(Boolean async) {
+    public Chart draw(Boolean async) {
         if (jsBase == null) {
             this.async = async;
         } else {
@@ -488,7 +488,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double quality;
     private Boolean forceTransparentWhite;
 
-    public void setGetJpgBase64String(String onSuccessOrOptions, Double width, Double height, Double quality, Boolean forceTransparentWhite) {
+    public void getJpgBase64String(String onSuccessOrOptions, Double width, Double height, Double quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
             this.onSuccessOrOptions = onSuccessOrOptions;
             this.width = width;
@@ -527,7 +527,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double x;
     private Double y;
 
-    public void setGetPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, String onSuccessOrOptions1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -568,7 +568,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setGetPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, String onSuccessOrOptions1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -609,7 +609,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setGetPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, String onSuccessOrOptions1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -650,7 +650,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setGetPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, String onSuccessOrOptions1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -695,7 +695,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double height1;
     private Double quality1;
 
-    public void setGetPngBase64String(String onSuccessOrOptions2, Double width1, Double height1, Double quality1) {
+    public void getPngBase64String(String onSuccessOrOptions2, Double width1, Double height1, Double quality1) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -737,69 +737,13 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private String key;
-    private Statistics key1;
-
-    public void setGetStat(String key) {
-        if (jsBase == null) {
-            this.key = null;
-            this.key1 = null;
-            
-            this.key = key;
-        } else {
-            this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", key));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setGetStat(Statistics key1) {
-        if (jsBase == null) {
-            this.key = null;
-            this.key1 = null;
-            
-            this.key1 = key1;
-        } else {
-            this.key1 = key1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", (key1 != null) ? key1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
     private String onSuccessOrOptions3;
     private String paperSizeOrWidth2;
     private Double paperSizeOrWidth3;
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
-    public void setGetSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight, String onSuccessOrOptions3) {
+    public void getSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight, String onSuccessOrOptions3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -840,7 +784,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setGetSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1, String onSuccessOrOptions3) {
+    public void getSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1, String onSuccessOrOptions3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -881,7 +825,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setGetSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight, String onSuccessOrOptions3) {
+    public void getSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight, String onSuccessOrOptions3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -922,7 +866,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setGetSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1, String onSuccessOrOptions3) {
+    public void getSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1, String onSuccessOrOptions3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -965,7 +909,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double xCoord;
     private Double yCoord;
 
-    public void setGlobalToLocal(Double xCoord, Double yCoord) {
+    public void globalToLocal(Double xCoord, Double yCoord) {
         if (jsBase == null) {
             this.xCoord = xCoord;
             this.yCoord = yCoord;
@@ -988,64 +932,6 @@ public class Chart extends VisualBaseWithBounds {
                 js.setLength(0);
             }
         }
-    }
-
-    private String index;
-    private Double index1;
-
-    public UiLabel setLabel(String index) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".label(%s);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s)", index));
-                js.setLength(0);
-            }
-        }
-        return new UiLabel(jsBase);
-    }
-
-
-    public UiLabel setLabel(Double index1) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
-        } else {
-            this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".label(%f);", index1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f)", index1));
-                js.setLength(0);
-            }
-        }
-        return new UiLabel(jsBase);
     }
 
     private UiLabel getLabel;
@@ -1089,20 +975,47 @@ public class Chart extends VisualBaseWithBounds {
         return this;
     }
 
-    private String index2;
-    private Double index3;
+
+    public Chart setLabel(String label1) {
+        if (jsBase == null) {
+            this.label = null;
+            this.label1 = null;
+            this.label2 = null;
+            
+            this.label1 = label1;
+        } else {
+            this.label1 = label1;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".label(%s)", label1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", label1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String index;
+    private Double index1;
     private Boolean label3;
     private String label4;
     private String label5;
 
-    public Chart setLabel(String index2, Boolean label3) {
+    public Chart setLabel(String index, Boolean label3) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
             
-            this.index2 = index2;
+            this.index = index;
             this.label = null;
             this.label1 = null;
             this.label2 = null;
@@ -1112,7 +1025,7 @@ public class Chart extends VisualBaseWithBounds {
             
             this.label3 = label3;
         } else {
-            this.index2 = index2;
+            this.index = index;
             this.label3 = label3;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -1123,10 +1036,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s, %b)", index2, label3));
+            js.append(String.format(Locale.US, ".label(%s, %b)", index, label3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", index2, label3));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %b)", index, label3));
                 js.setLength(0);
             }
         }
@@ -1134,14 +1047,12 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setLabel(String index2, String label4) {
+    public Chart setLabel(String index, String label4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
             
-            this.index2 = index2;
+            this.index = index;
             this.label = null;
             this.label1 = null;
             this.label2 = null;
@@ -1151,7 +1062,7 @@ public class Chart extends VisualBaseWithBounds {
             
             this.label4 = label4;
         } else {
-            this.index2 = index2;
+            this.index = index;
             this.label4 = label4;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -1162,10 +1073,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%s, %s)", index2, label4));
+            js.append(String.format(Locale.US, ".label(%s, %s)", index, label4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", index2, label4));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%s, %s)", index, label4));
                 js.setLength(0);
             }
         }
@@ -1173,14 +1084,12 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setLabel(Double index3, Boolean label3) {
+    public Chart setLabel(Double index1, Boolean label3) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
             
-            this.index3 = index3;
+            this.index1 = index1;
             this.label = null;
             this.label1 = null;
             this.label2 = null;
@@ -1190,7 +1099,7 @@ public class Chart extends VisualBaseWithBounds {
             
             this.label3 = label3;
         } else {
-            this.index3 = index3;
+            this.index1 = index1;
             this.label3 = label3;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -1201,10 +1110,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%f, %b)", index3, label3));
+            js.append(String.format(Locale.US, ".label(%f, %b)", index1, label3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %b)", index3, label3));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %b)", index1, label3));
                 js.setLength(0);
             }
         }
@@ -1212,14 +1121,12 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setLabel(Double index3, String label4) {
+    public Chart setLabel(Double index1, String label4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
             
-            this.index3 = index3;
+            this.index1 = index1;
             this.label = null;
             this.label1 = null;
             this.label2 = null;
@@ -1229,7 +1136,7 @@ public class Chart extends VisualBaseWithBounds {
             
             this.label4 = label4;
         } else {
-            this.index3 = index3;
+            this.index1 = index1;
             this.label4 = label4;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -1240,10 +1147,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".label(%f, %s)", index3, label4));
+            js.append(String.format(Locale.US, ".label(%f, %s)", index1, label4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index3, label4));
+                onChangeListener.onChange(String.format(Locale.US, ".label(%f, %s)", index1, label4));
                 js.setLength(0);
             }
         }
@@ -1253,7 +1160,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double xCoord1;
     private Double yCoord1;
 
-    public void setLocalToGlobal(Double xCoord1, Double yCoord1) {
+    public void localToGlobal(Double xCoord1, Double yCoord1) {
         if (jsBase == null) {
             this.xCoord = null;
             this.xCoord1 = null;
@@ -1354,35 +1261,6 @@ public class Chart extends VisualBaseWithBounds {
         return this;
     }
 
-
-    public Chart setMargin(String margin2) {
-        if (jsBase == null) {
-            this.margin = null;
-            this.margin1 = null;
-            this.margin2 = null;
-            
-            this.margin2 = margin2;
-        } else {
-            this.margin2 = margin2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s)", margin2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private String value;
     private Double value1;
     private String value2;
@@ -1452,944 +1330,6 @@ public class Chart extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value, value2, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(String value, String value2, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value2 = value2;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", value, value2, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", value, value2, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(String value, String value2, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value = value;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", value, value2, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", value, value2, value5, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(String value, String value2, Double value5, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", value, value2, value5, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", value, value2, value5, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(String value, Double value3, String value4, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", value, value3, value4, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", value, value3, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(String value, Double value3, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", value, value3, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", value, value3, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(String value, Double value3, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", value, value3, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", value, value3, value5, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(String value, Double value3, Double value5, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", value, value3, value5, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", value, value3, value5, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(Double value1, String value2, String value4, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value4 = value4;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %s)", value1, value2, value4, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %s)", value1, value2, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(Double value1, String value2, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %f)", value1, value2, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %f)", value1, value2, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(Double value1, String value2, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %s)", value1, value2, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %s)", value1, value2, value5, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(Double value1, String value2, Double value5, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %f)", value1, value2, value5, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %f)", value1, value2, value5, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(Double value1, Double value3, String value4, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %s)", value1, value3, value4, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %s)", value1, value3, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(Double value1, Double value3, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value1 = value1;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %f)", value1, value3, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %f)", value1, value3, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setMargin(Double value1, Double value3, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %s)", value1, value3, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %s)", value1, value3, value5, value6));
                 js.setLength(0);
             }
         }
@@ -2568,35 +1508,6 @@ public class Chart extends VisualBaseWithBounds {
         return this;
     }
 
-
-    public Chart setPadding(String padding2) {
-        if (jsBase == null) {
-            this.padding = null;
-            this.padding1 = null;
-            this.padding2 = null;
-            
-            this.padding2 = padding2;
-        } else {
-            this.padding2 = padding2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s)", padding2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private String value8;
     private Double value9;
     private String value10;
@@ -2698,1392 +1609,6 @@ public class Chart extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value8, value10, value12, value14));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(String value8, String value10, String value12, Double value15) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value10 = value10;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value12 = value12;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value15 = value15;
-        } else {
-            this.value8 = value8;
-            this.value10 = value10;
-            this.value12 = value12;
-            this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value8, value10, value12, value15));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %f)", value8, value10, value12, value15));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(String value8, String value10, Double value13, String value14) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value10 = value10;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value13 = value13;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value14 = value14;
-        } else {
-            this.value8 = value8;
-            this.value10 = value10;
-            this.value13 = value13;
-            this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value8, value10, value13, value14));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %s)", value8, value10, value13, value14));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(String value8, String value10, Double value13, Double value15) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value10 = value10;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value13 = value13;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value15 = value15;
-        } else {
-            this.value8 = value8;
-            this.value10 = value10;
-            this.value13 = value13;
-            this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value8, value10, value13, value15));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %f, %f)", value8, value10, value13, value15));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(String value8, Double value11, String value12, String value14) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value12 = value12;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value14 = value14;
-        } else {
-            this.value8 = value8;
-            this.value11 = value11;
-            this.value12 = value12;
-            this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value8, value11, value12, value14));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %s)", value8, value11, value12, value14));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(String value8, Double value11, String value12, Double value15) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value12 = value12;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value15 = value15;
-        } else {
-            this.value8 = value8;
-            this.value11 = value11;
-            this.value12 = value12;
-            this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value8, value11, value12, value15));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %s, %f)", value8, value11, value12, value15));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(String value8, Double value11, Double value13, String value14) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value13 = value13;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value14 = value14;
-        } else {
-            this.value8 = value8;
-            this.value11 = value11;
-            this.value13 = value13;
-            this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value8, value11, value13, value14));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %s)", value8, value11, value13, value14));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(String value8, Double value11, Double value13, Double value15) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value8 = value8;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value13 = value13;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value15 = value15;
-        } else {
-            this.value8 = value8;
-            this.value11 = value11;
-            this.value13 = value13;
-            this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value8, value11, value13, value15));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %f, %f, %f)", value8, value11, value13, value15));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(Double value9, String value10, String value12, String value14) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value10 = value10;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value12 = value12;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value14 = value14;
-        } else {
-            this.value9 = value9;
-            this.value10 = value10;
-            this.value12 = value12;
-            this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value9, value10, value12, value14));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %s)", value9, value10, value12, value14));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(Double value9, String value10, String value12, Double value15) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value10 = value10;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value12 = value12;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value15 = value15;
-        } else {
-            this.value9 = value9;
-            this.value10 = value10;
-            this.value12 = value12;
-            this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value9, value10, value12, value15));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %s, %f)", value9, value10, value12, value15));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(Double value9, String value10, Double value13, String value14) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value10 = value10;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value13 = value13;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value14 = value14;
-        } else {
-            this.value9 = value9;
-            this.value10 = value10;
-            this.value13 = value13;
-            this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value9, value10, value13, value14));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %s)", value9, value10, value13, value14));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(Double value9, String value10, Double value13, Double value15) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value10 = value10;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value13 = value13;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value15 = value15;
-        } else {
-            this.value9 = value9;
-            this.value10 = value10;
-            this.value13 = value13;
-            this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value9, value10, value13, value15));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %s, %f, %f)", value9, value10, value13, value15));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(Double value9, Double value11, String value12, String value14) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value12 = value12;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value14 = value14;
-        } else {
-            this.value9 = value9;
-            this.value11 = value11;
-            this.value12 = value12;
-            this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value9, value11, value12, value14));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %s)", value9, value11, value12, value14));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(Double value9, Double value11, String value12, Double value15) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value12 = value12;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value15 = value15;
-        } else {
-            this.value9 = value9;
-            this.value11 = value11;
-            this.value12 = value12;
-            this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value9, value11, value12, value15));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %s, %f)", value9, value11, value12, value15));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Chart setPadding(Double value9, Double value11, Double value13, String value14) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value9 = value9;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value11 = value11;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value13 = value13;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            this.value8 = null;
-            this.value9 = null;
-            this.value10 = null;
-            this.value11 = null;
-            this.value12 = null;
-            this.value13 = null;
-            this.value14 = null;
-            this.value15 = null;
-            
-            this.value14 = value14;
-        } else {
-            this.value9 = value9;
-            this.value11 = value11;
-            this.value13 = value13;
-            this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value9, value11, value13, value14));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %s)", value9, value11, value13, value14));
                 js.setLength(0);
             }
         }
@@ -4194,7 +1719,7 @@ public class Chart extends VisualBaseWithBounds {
     private String csvSettings;
     private String filename;
 
-    public void setSaveAsCsv(String chartDataExportMode, String csvSettings, String filename) {
+    public void saveAsCsv(String chartDataExportMode, String csvSettings, String filename) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -4225,7 +1750,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setSaveAsCsv(ChartDataExportMode chartDataExportMode1, String csvSettings, String filename) {
+    public void saveAsCsv(ChartDataExportMode chartDataExportMode1, String csvSettings, String filename) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -4262,7 +1787,7 @@ public class Chart extends VisualBaseWithBounds {
     private Boolean forceTransparentWhite1;
     private String filename1;
 
-    public void setSaveAsJpg(Double width2, Double height2, Double quality2, Boolean forceTransparentWhite1, String filename1) {
+    public void saveAsJpg(Double width2, Double height2, Double quality2, Boolean forceTransparentWhite1, String filename1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4313,7 +1838,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setSaveAsJpg(String width3, Double height2, Double quality2, Boolean forceTransparentWhite1, String filename1) {
+    public void saveAsJpg(String width3, Double height2, Double quality2, Boolean forceTransparentWhite1, String filename1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4365,7 +1890,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private String filename2;
 
-    public void setSaveAsJson(String filename2) {
+    public void saveAsJson(String filename2) {
         if (jsBase == null) {
             this.filename = null;
             this.filename1 = null;
@@ -4400,7 +1925,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double y1;
     private String filename3;
 
-    public void setSaveAsPdf(Double paperSizeOrWidthOrOptions, Boolean landscape, Double x1, Double y1, String filename3) {
+    public void saveAsPdf(Double paperSizeOrWidthOrOptions, Boolean landscape, Double x1, Double y1, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidthOrOptions = null;
             this.paperSizeOrWidthOrOptions1 = null;
@@ -4447,7 +1972,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setSaveAsPdf(String paperSizeOrWidthOrOptions1, Boolean landscape, Double x1, Double y1, String filename3) {
+    public void saveAsPdf(String paperSizeOrWidthOrOptions1, Boolean landscape, Double x1, Double y1, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidthOrOptions = null;
             this.paperSizeOrWidthOrOptions1 = null;
@@ -4499,7 +2024,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double quality3;
     private String filename4;
 
-    public void setSaveAsPng(Double width4, Double height3, Double quality3, String filename4) {
+    public void saveAsPng(Double width4, Double height3, Double quality3, String filename4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4552,7 +2077,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setSaveAsPng(String width5, Double height3, Double quality3, String filename4) {
+    public void saveAsPng(String width5, Double height3, Double quality3, String filename4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4609,7 +2134,7 @@ public class Chart extends VisualBaseWithBounds {
     private Boolean landscape1;
     private String filename5;
 
-    public void setSaveAsSvg(String paperSize, Boolean landscape1, String filename5) {
+    public void saveAsSvg(String paperSize, Boolean landscape1, String filename5) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -4652,7 +2177,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double width6;
     private Double height4;
 
-    public void setSaveAsSvg(Double width6, Double height4) {
+    public void saveAsSvg(Double width6, Double height4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4695,7 +2220,7 @@ public class Chart extends VisualBaseWithBounds {
     private ChartDataExportMode chartDataExportMode3;
     private String filename6;
 
-    public void setSaveAsXlsx(String chartDataExportMode2, String filename6) {
+    public void saveAsXlsx(String chartDataExportMode2, String filename6) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -4734,7 +2259,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setSaveAsXlsx(ChartDataExportMode chartDataExportMode3, String filename6) {
+    public void saveAsXlsx(ChartDataExportMode chartDataExportMode3, String filename6) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -4774,7 +2299,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private String filename7;
 
-    public void setSaveAsXml(String filename7) {
+    public void saveAsXml(String filename7) {
         if (jsBase == null) {
             this.filename = null;
             this.filename1 = null;
@@ -4835,7 +2360,7 @@ public class Chart extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
-    public Chart setSelectMarqueeFill(String color, Double opacity) {
+    public Chart selectMarqueeFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -4869,7 +2394,7 @@ public class Chart extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public Chart setSelectMarqueeFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4910,7 +2435,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setSelectMarqueeFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4951,7 +2476,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setSelectMarqueeFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4992,7 +2517,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setSelectMarqueeFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5033,7 +2558,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setSelectMarqueeFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5074,7 +2599,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setSelectMarqueeFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5123,7 +2648,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public Chart setSelectMarqueeFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Chart selectMarqueeFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5174,7 +2699,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public Chart setSelectMarqueeFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Chart selectMarqueeFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5354,7 +2879,7 @@ public class Chart extends VisualBaseWithBounds {
     private Boolean forceTransparentWhite2;
     private String filename8;
 
-    public void setShareAsJpg(String onSuccessOrOptions4, Boolean asBase, Double width7, Double height5, Double quality4, Boolean forceTransparentWhite2, String filename8) {
+    public void shareAsJpg(String onSuccessOrOptions4, Boolean asBase, Double width7, Double height5, Double quality4, Boolean forceTransparentWhite2, String filename8) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -5441,7 +2966,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double y2;
     private String filename9;
 
-    public void setShareAsPdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5518,7 +3043,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsPdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5595,7 +3120,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsPdf(String paperSizeOrWidth5, Double landscapeOrWidth2, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(String paperSizeOrWidth5, Double landscapeOrWidth2, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5672,7 +3197,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsPdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5755,7 +3280,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double quality5;
     private String filename10;
 
-    public void setShareAsPng(String onSuccessOrOptions6, Boolean asBase2, Double width8, Double height6, Double quality5, String filename10) {
+    public void shareAsPng(String onSuccessOrOptions6, Boolean asBase2, Double width8, Double height6, Double quality5, String filename10) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -5845,7 +3370,7 @@ public class Chart extends VisualBaseWithBounds {
     private String landscapeOrHeight3;
     private String filename11;
 
-    public void setShareAsSvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5918,7 +3443,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsSvg(String paperSizeOrWidth6, String landscapeOrHeight3, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(String paperSizeOrWidth6, String landscapeOrHeight3, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5991,7 +3516,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsSvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -6064,7 +3589,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsSvg(Double paperSizeOrWidth7, String landscapeOrHeight3, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(Double paperSizeOrWidth7, String landscapeOrHeight3, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -6142,7 +3667,7 @@ public class Chart extends VisualBaseWithBounds {
     private String name;
     private String description;
 
-    public void setShareWithFacebook(String captionOrOptions, String link, String name, String description) {
+    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
         if (jsBase == null) {
             this.captionOrOptions = null;
             this.captionOrOptions1 = null;
@@ -6178,7 +3703,7 @@ public class Chart extends VisualBaseWithBounds {
     private String captionOrOptions3;
     private String description1;
 
-    public void setShareWithLinkedIn(String captionOrOptions2, String description1) {
+    public void shareWithLinkedIn(String captionOrOptions2, String description1) {
         if (jsBase == null) {
             this.captionOrOptions = null;
             this.captionOrOptions1 = null;
@@ -6215,7 +3740,7 @@ public class Chart extends VisualBaseWithBounds {
     private String linkOrOptions1;
     private String description2;
 
-    public void setShareWithPinterest(String linkOrOptions, String description2) {
+    public void shareWithPinterest(String linkOrOptions, String description2) {
         if (jsBase == null) {
             this.linkOrOptions = null;
             this.linkOrOptions1 = null;
@@ -6249,7 +3774,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private Boolean repeat;
 
-    public Chart setStartSelectMarquee(Boolean repeat) {
+    public Chart startSelectMarquee(Boolean repeat) {
         if (jsBase == null) {
             this.repeat = repeat;
         } else {
@@ -6346,7 +3871,7 @@ public class Chart extends VisualBaseWithBounds {
     private String title3;
     private Boolean asString;
 
-    public Element setToA11yTable(String title3, Boolean asString) {
+    public Element toA11yTable(String title3, Boolean asString) {
         if (jsBase == null) {
             this.title = null;
             this.title1 = null;
@@ -6381,7 +3906,7 @@ public class Chart extends VisualBaseWithBounds {
     private ChartDataExportMode chartDataExportMode5;
     private String csvSettings1;
 
-    public void setToCsv(String chartDataExportMode4, String csvSettings1) {
+    public void toCsv(String chartDataExportMode4, String csvSettings1) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -6417,7 +3942,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
 
-    public void setToCsv(ChartDataExportMode chartDataExportMode5, String csvSettings1) {
+    public void toCsv(ChartDataExportMode chartDataExportMode5, String csvSettings1) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -6455,7 +3980,7 @@ public class Chart extends VisualBaseWithBounds {
     private String title4;
     private Boolean asString1;
 
-    public Element setToHtmlTable(String title4, Boolean asString1) {
+    public Element toHtmlTable(String title4, Boolean asString1) {
         if (jsBase == null) {
             this.title = null;
             this.title1 = null;
@@ -6492,7 +4017,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private Boolean stringify;
 
-    public void setToJson(Boolean stringify) {
+    public void toJson(Boolean stringify) {
         if (jsBase == null) {
             this.stringify = stringify;
         } else {
@@ -6519,7 +4044,7 @@ public class Chart extends VisualBaseWithBounds {
     private String paperSize3;
     private Boolean landscape2;
 
-    public void setToSvg(String paperSize2, Boolean landscape2) {
+    public void toSvg(String paperSize2, Boolean landscape2) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -6556,7 +4081,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double width9;
     private Double height7;
 
-    public void setToSvg(Double width9, Double height7) {
+    public void toSvg(Double width9, Double height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -6603,7 +4128,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private Boolean asXmlNode;
 
-    public void setToXml(Boolean asXmlNode) {
+    public void toXml(Boolean asXmlNode) {
         if (jsBase == null) {
             this.asXmlNode = asXmlNode;
         } else {
@@ -6994,20 +4519,6 @@ public class Chart extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
-    private String generateJSkey1() {
-        if (key1 != null) {
-            return String.format(Locale.US, "key: %s,", (key1 != null) ? key1.generateJs() : "null");
-        }
-        return "";
-    }
-
     private String generateJSonSuccessOrOptions3() {
         if (onSuccessOrOptions3 != null) {
             return String.format(Locale.US, "onSuccessOrOptions: %s,", onSuccessOrOptions3);
@@ -7057,20 +4568,6 @@ public class Chart extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %s,", index);
-        }
-        return "";
-    }
-
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
     private String generateJSlabel() {
         if (label != null) {
             return String.format(Locale.US, "label: %b,", label);
@@ -7092,16 +4589,16 @@ public class Chart extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %s,", index2);
+    private String generateJSindex() {
+        if (index != null) {
+            return String.format(Locale.US, "index: %s,", index);
         }
         return "";
     }
 
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
+    private String generateJSindex1() {
+        if (index1 != null) {
+            return String.format(Locale.US, "index: %f,", index1);
         }
         return "";
     }
@@ -8198,8 +5695,6 @@ public class Chart extends VisualBaseWithBounds {
             js.append(generateJSwidth1());
             js.append(generateJSheight1());
             js.append(generateJSquality1());
-            js.append(generateJSkey());
-            js.append(generateJSkey1());
             js.append(generateJSonSuccessOrOptions3());
             js.append(generateJSpaperSizeOrWidth2());
             js.append(generateJSpaperSizeOrWidth3());
@@ -8207,13 +5702,11 @@ public class Chart extends VisualBaseWithBounds {
             js.append(generateJSlandscapeOrHeight1());
             js.append(generateJSxCoord());
             js.append(generateJSyCoord());
-            js.append(generateJSindex());
-            js.append(generateJSindex1());
             js.append(generateJSlabel());
             js.append(generateJSlabel1());
             js.append(generateJSlabel2());
-            js.append(generateJSindex2());
-            js.append(generateJSindex3());
+            js.append(generateJSindex());
+            js.append(generateJSindex1());
             js.append(generateJSlabel3());
             js.append(generateJSlabel4());
             js.append(generateJSlabel5());

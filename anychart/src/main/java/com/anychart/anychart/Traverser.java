@@ -34,7 +34,7 @@ public class Traverser extends JsObject {
 
     private String key;
 
-    public void setGet(String key) {
+    public void setMeta(String key) {
         if (jsBase == null) {
             this.key = key;
         } else {
@@ -48,10 +48,10 @@ public class Traverser extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", key));
+            js.append(String.format(Locale.US, jsBase + ".meta(%s);", key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", key));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key));
                 js.setLength(0);
             }
         }
@@ -59,7 +59,7 @@ public class Traverser extends JsObject {
 
     private String key1;
 
-    public void setMeta(String key1) {
+    public Traverser setSet(String key1) {
         if (jsBase == null) {
             this.key = null;
             this.key1 = null;
@@ -67,37 +67,6 @@ public class Traverser extends JsObject {
             this.key1 = key1;
         } else {
             this.key1 = key1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".meta(%s);", key1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key2;
-    private String key3;
-
-    public Traverser setSet(String key3) {
-        if (jsBase == null) {
-            this.key = null;
-            this.key1 = null;
-            this.key2 = null;
-            this.key3 = null;
-            
-            this.key3 = key3;
-        } else {
-            this.key3 = key3;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -107,10 +76,10 @@ public class Traverser extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", key3));
+            js.append(String.format(Locale.US, ".set(%s)", key1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", key3));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", key1));
                 js.setLength(0);
             }
         }
@@ -138,20 +107,6 @@ public class Traverser extends JsObject {
         return "";
     }
 
-    private String generateJSkey2() {
-        if (key2 != null) {
-            return String.format(Locale.US, "key: %s,", key2);
-        }
-        return "";
-    }
-
-    private String generateJSkey3() {
-        if (key3 != null) {
-            return String.format(Locale.US, "key: %s,", key3);
-        }
-        return "";
-    }
-
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -175,8 +130,6 @@ public class Traverser extends JsObject {
             js.append("{");
             js.append(generateJSkey());
             js.append(generateJSkey1());
-            js.append(generateJSkey2());
-            js.append(generateJSkey3());
             js.append("}");
         }
 

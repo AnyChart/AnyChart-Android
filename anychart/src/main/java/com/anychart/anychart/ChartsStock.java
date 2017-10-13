@@ -268,7 +268,7 @@ public class ChartsStock extends Chart {
 
     public Plot getPlot(Double index) {
         if (getPlot1 == null)
-            getPlot1 = new Plot(jsBase + ".plot1("+ index+")");
+            getPlot1 = new Plot(jsBase + ".plot("+ index+")");
 
         return getPlot1;
     }

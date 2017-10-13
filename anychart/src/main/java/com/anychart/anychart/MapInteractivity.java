@@ -25,7 +25,7 @@ public class MapInteractivity extends Interactivity {
     
     private Boolean drag;
 
-    public MapInteractivity setDrag(Boolean drag) {
+    public MapInteractivity drag(Boolean drag) {
         if (jsBase == null) {
             this.drag = drag;
         } else {
@@ -51,7 +51,7 @@ public class MapInteractivity extends Interactivity {
 
     private Boolean keyboardZoomAndMove;
 
-    public Interactivity setKeyboardZoomAndMove(Boolean keyboardZoomAndMove) {
+    public Interactivity keyboardZoomAndMove(Boolean keyboardZoomAndMove) {
         if (jsBase == null) {
             this.keyboardZoomAndMove = keyboardZoomAndMove;
         } else {
@@ -77,7 +77,7 @@ public class MapInteractivity extends Interactivity {
 
     private Boolean zoomOnDoubleClick;
 
-    public Interactivity setZoomOnDoubleClick(Boolean zoomOnDoubleClick) {
+    public Interactivity zoomOnDoubleClick(Boolean zoomOnDoubleClick) {
         if (jsBase == null) {
             this.zoomOnDoubleClick = zoomOnDoubleClick;
         } else {
@@ -103,7 +103,7 @@ public class MapInteractivity extends Interactivity {
 
     private Boolean zoomOnMouseWheel;
 
-    public Interactivity setZoomOnMouseWheel(Boolean zoomOnMouseWheel) {
+    public Interactivity zoomOnMouseWheel(Boolean zoomOnMouseWheel) {
         if (jsBase == null) {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
         } else {

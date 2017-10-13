@@ -52,7 +52,7 @@ public class ContextMenu extends JsObject {
     private Chart target1;
     private Boolean capture;
 
-    public ContextMenu setAttach(Element target, Boolean capture) {
+    public ContextMenu attach(Element target, Boolean capture) {
         if (jsBase == null) {
             this.target = null;
             this.target1 = null;
@@ -82,7 +82,7 @@ public class ContextMenu extends JsObject {
     }
 
 
-    public ContextMenu setAttach(Chart target1, Boolean capture) {
+    public ContextMenu attach(Chart target1, Boolean capture) {
         if (jsBase == null) {
             this.target = null;
             this.target1 = null;
@@ -114,7 +114,7 @@ public class ContextMenu extends JsObject {
     private Element target2;
     private Boolean capture1;
 
-    public ContextMenu setDetach(Element target2, Boolean capture1) {
+    public ContextMenu detach(Element target2, Boolean capture1) {
         if (jsBase == null) {
             this.target = null;
             this.target1 = null;
@@ -203,7 +203,7 @@ public class ContextMenu extends JsObject {
     private Boolean useCapture;
     private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
+    public void listen(String type, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = type;
             this.useCapture = useCapture;
@@ -232,7 +232,7 @@ public class ContextMenu extends JsObject {
 
     private String className1;
 
-    public void setRemoveClassName(String className1) {
+    public void removeClassName(String className1) {
         if (jsBase == null) {
             this.className = null;
             this.className1 = null;
@@ -264,7 +264,7 @@ public class ContextMenu extends JsObject {
     private String var_args3;
     private Boolean var_args4;
 
-    public ContextMenu setSetup(String var_args) {
+    public ContextMenu setup(String var_args) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -295,7 +295,7 @@ public class ContextMenu extends JsObject {
     }
 
 
-    public ContextMenu setSetup(String[] var_args1) {
+    public ContextMenu setup(String[] var_args1) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -326,7 +326,7 @@ public class ContextMenu extends JsObject {
     }
 
 
-    public ContextMenu setSetup(Double var_args2) {
+    public ContextMenu setup(Double var_args2) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -357,7 +357,7 @@ public class ContextMenu extends JsObject {
     }
 
 
-    public ContextMenu setSetup(Boolean var_args4) {
+    public ContextMenu setup(Boolean var_args4) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -390,7 +390,7 @@ public class ContextMenu extends JsObject {
     private Double x;
     private Double y;
 
-    public void setShow(Double x, Double y) {
+    public void show(Double x, Double y) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -419,7 +419,7 @@ public class ContextMenu extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
-    public void setUnlisten(String type1, Boolean useCapture1, String listenerScope1) {
+    public void unlisten(String type1, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;

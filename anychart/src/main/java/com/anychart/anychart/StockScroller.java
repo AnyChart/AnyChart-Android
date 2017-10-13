@@ -27,7 +27,7 @@ public class StockScroller extends UiScroller {
     private Set var_args1;
     private String[] var_args2;
 
-    public void setAddSeries(View var_args) {
+    public void addSeries(View var_args) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -55,7 +55,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public void setAddSeries(Set var_args1) {
+    public void addSeries(Set var_args1) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -83,7 +83,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public void setAddSeries(String[] var_args2) {
+    public void addSeries(String[] var_args2) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -113,7 +113,7 @@ public class StockScroller extends UiScroller {
     private TableMapping mapping;
     private StockSeriesType seriesType;
 
-    public ADL setAdl(TableMapping mapping, StockSeriesType seriesType) {
+    public ADL adl(TableMapping mapping, StockSeriesType seriesType) {
         if (jsBase == null) {
             this.mapping = mapping;
             this.seriesType = seriesType;
@@ -146,7 +146,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType1;
     private String seriesType2;
 
-    public AMA setAma(StockSeriesType seriesType1, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(StockSeriesType seriesType1, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -186,7 +186,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public AMA setAma(String seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(String seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -232,7 +232,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings;
     private String csvSettings;
 
-    public ScrollerseriesArea setArea(TableMapping data, String mappingSettings, String csvSettings) {
+    public ScrollerseriesArea area(TableMapping data, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -266,7 +266,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesArea setArea(DataTable data1, String mappingSettings, String csvSettings) {
+    public ScrollerseriesArea area(DataTable data1, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -300,7 +300,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesArea setArea(String data2, String mappingSettings, String csvSettings) {
+    public ScrollerseriesArea area(String data2, String mappingSettings, String csvSettings) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -338,7 +338,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType upSeriesType;
     private StockSeriesType downSeriesType;
 
-    public Aroon setAroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
+    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -379,7 +379,7 @@ public class StockScroller extends UiScroller {
     private Double period2;
     private StockSeriesType seriesType3;
 
-    public ATR setAtr(TableMapping mapping3, Double period2, StockSeriesType seriesType3) {
+    public ATR atr(TableMapping mapping3, Double period2, StockSeriesType seriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -431,7 +431,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType middleSeriesType;
     private String middleSeriesType1;
 
-    public BBands setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -486,7 +486,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBands setBbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -541,7 +541,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBands setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -596,7 +596,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBands setBbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -651,7 +651,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -706,7 +706,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -761,7 +761,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -816,7 +816,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBands setBbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
         if (jsBase == null) {
             this.upperSeriesType = null;
             this.upperSeriesType1 = null;
@@ -876,7 +876,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType4;
     private String seriesType5;
 
-    public BBandsB setBbandsB(StockSeriesType seriesType4, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(StockSeriesType seriesType4, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -930,7 +930,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBandsB setBbandsB(String seriesType5, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(String seriesType5, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -989,7 +989,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType6;
     private String seriesType7;
 
-    public BBandsWidth setBbandsWidth(StockSeriesType seriesType6, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(StockSeriesType seriesType6, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1048,7 +1048,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public BBandsWidth setBbandsWidth(String seriesType7, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(String seriesType7, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1113,7 +1113,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings1;
     private String csvSettings1;
 
-    public ScrollerseriesCandlestick setCandlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
+    public ScrollerseriesCandlestick candlestick(TableMapping data4, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1157,7 +1157,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesCandlestick setCandlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
+    public ScrollerseriesCandlestick candlestick(DataTable data5, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1201,7 +1201,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesCandlestick setCandlestick(String data6, String mappingSettings1, String csvSettings1) {
+    public ScrollerseriesCandlestick candlestick(String data6, String mappingSettings1, String csvSettings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1248,7 +1248,7 @@ public class StockScroller extends UiScroller {
     private Double period6;
     private StockSeriesType seriesType8;
 
-    public CCI setCci(TableMapping mapping7, Double period6, StockSeriesType seriesType8) {
+    public CCI cci(TableMapping mapping7, Double period6, StockSeriesType seriesType8) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1309,7 +1309,7 @@ public class StockScroller extends UiScroller {
     private String maType;
     private StockSeriesType seriesType9;
 
-    public CHO setCho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType, StockSeriesType seriesType9) {
+    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType, StockSeriesType seriesType9) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1372,7 +1372,7 @@ public class StockScroller extends UiScroller {
     private Double period7;
     private StockSeriesType seriesType10;
 
-    public CMF setCmf(TableMapping mapping9, Double period7, StockSeriesType seriesType10) {
+    public CMF cmf(TableMapping mapping9, Double period7, StockSeriesType seriesType10) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1439,7 +1439,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings2;
     private String csvSettings2;
 
-    public ScrollerseriesColumn setColumn(TableMapping data8, String mappingSettings2, String csvSettings2) {
+    public ScrollerseriesColumn column(TableMapping data8, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1489,7 +1489,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesColumn setColumn(DataTable data9, String mappingSettings2, String csvSettings2) {
+    public ScrollerseriesColumn column(DataTable data9, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1539,7 +1539,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesColumn setColumn(String data10, String mappingSettings2, String csvSettings2) {
+    public ScrollerseriesColumn column(String data10, String mappingSettings2, String csvSettings2) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -1654,7 +1654,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType ndiSeriesType;
     private StockSeriesType adxSeriesType;
 
-    public DMI setDmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1717,7 +1717,7 @@ public class StockScroller extends UiScroller {
     private String seriesType11;
     private StockSeriesType seriesType12;
 
-    public EMA setEma(String seriesType11, TableMapping mapping11, Double period9) {
+    public EMA ema(String seriesType11, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1784,7 +1784,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public EMA setEma(StockSeriesType seriesType12, TableMapping mapping11, Double period9) {
+    public EMA ema(StockSeriesType seriesType12, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1850,64 +1850,6 @@ public class StockScroller extends UiScroller {
         return new EMA(jsBase);
     }
 
-    private Double id;
-    private String id1;
-
-    public ScrollerseriesBase setGetSeries(Double id) {
-        if (jsBase == null) {
-            this.id = null;
-            this.id1 = null;
-            
-            this.id = id;
-        } else {
-            this.id = id;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getSeries(%f);", id));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%f)", id));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
-    }
-
-
-    public ScrollerseriesBase setGetSeries(String id1) {
-        if (jsBase == null) {
-            this.id = null;
-            this.id1 = null;
-            
-            this.id1 = id1;
-        } else {
-            this.id1 = id1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getSeries(%s);", id1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeries(%s)", id1));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
-    }
-
     private ScrollerseriesBase getGetSeries;
 
     public ScrollerseriesBase getGetSeries() {
@@ -1915,32 +1857,6 @@ public class StockScroller extends UiScroller {
             getGetSeries = new ScrollerseriesBase(jsBase + ".getSeries()");
 
         return getGetSeries;
-    }
-
-    private Double index;
-
-    public ScrollerseriesBase setGetSeriesAt(Double index) {
-        if (jsBase == null) {
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getSeriesAt(%f);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSeriesAt(%f)", index));
-                js.setLength(0);
-            }
-        }
-        return new ScrollerseriesBase(jsBase);
     }
 
     private ScrollerseriesBase getGetSeriesAt;
@@ -1965,7 +1881,7 @@ public class StockScroller extends UiScroller {
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
 
-    public StockScroller setHatchFillPalette(HatchFillType[] hatchFillPalette) {
+    public StockScroller hatchFillPalette(HatchFillType[] hatchFillPalette) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
             this.hatchFillPalette1 = null;
@@ -1994,7 +1910,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public StockScroller setHatchFillPalette(String hatchFillPalette1) {
+    public StockScroller hatchFillPalette(String hatchFillPalette1) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
             this.hatchFillPalette1 = null;
@@ -2023,7 +1939,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public StockScroller setHatchFillPalette(HatchFills hatchFillPalette2) {
+    public StockScroller hatchFillPalette(HatchFills hatchFillPalette2) {
         if (jsBase == null) {
             this.hatchFillPalette = null;
             this.hatchFillPalette1 = null;
@@ -2058,7 +1974,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings3;
     private String csvSettings3;
 
-    public ScrollerseriesHilo setHilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
+    public ScrollerseriesHilo hilo(TableMapping data12, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2114,7 +2030,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesHilo setHilo(DataTable data13, String mappingSettings3, String csvSettings3) {
+    public ScrollerseriesHilo hilo(DataTable data13, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2170,7 +2086,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesHilo setHilo(String data14, String mappingSettings3, String csvSettings3) {
+    public ScrollerseriesHilo hilo(String data14, String mappingSettings3, String csvSettings3) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2232,7 +2148,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings4;
     private String csvSettings4;
 
-    public ScrollerseriesJumpLine setJumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
+    public ScrollerseriesJumpLine jumpLine(TableMapping data16, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2294,7 +2210,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesJumpLine setJumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
+    public ScrollerseriesJumpLine jumpLine(DataTable data17, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2356,7 +2272,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesJumpLine setJumpLine(String data18, String mappingSettings4, String csvSettings4) {
+    public ScrollerseriesJumpLine jumpLine(String data18, String mappingSettings4, String csvSettings4) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2429,7 +2345,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType dSeriesType;
     private StockSeriesType jSeriesType;
 
-    public KDJ setKdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, MovingAverageType dMAType, Double kMultiplier, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, MovingAverageType dMAType, Double kMultiplier, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2494,7 +2410,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings5;
     private String csvSettings5;
 
-    public ScrollerseriesLine setLine(TableMapping data20, String mappingSettings5, String csvSettings5) {
+    public ScrollerseriesLine line(TableMapping data20, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2562,7 +2478,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesLine setLine(DataTable data21, String mappingSettings5, String csvSettings5) {
+    public ScrollerseriesLine line(DataTable data21, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2630,7 +2546,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesLine setLine(String data22, String mappingSettings5, String csvSettings5) {
+    public ScrollerseriesLine line(String data22, String mappingSettings5, String csvSettings5) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -2708,7 +2624,7 @@ public class StockScroller extends UiScroller {
     private String histogramSeriesType;
     private StockSeriesType histogramSeriesType1;
 
-    public MACD setMacd(String macdSeriesType, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -2777,7 +2693,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MACD setMacd(String macdSeriesType, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -2846,7 +2762,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MACD setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -2915,7 +2831,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MACD setMacd(String macdSeriesType, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -2984,7 +2900,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3053,7 +2969,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3122,7 +3038,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3191,7 +3107,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MACD setMacd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3266,7 +3182,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings6;
     private String csvSettings6;
 
-    public ScrollerseriesMarker setMarker(TableMapping data24, String mappingSettings6, String csvSettings6) {
+    public ScrollerseriesMarker marker(TableMapping data24, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3340,7 +3256,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesMarker setMarker(DataTable data25, String mappingSettings6, String csvSettings6) {
+    public ScrollerseriesMarker marker(DataTable data25, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3414,7 +3330,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesMarker setMarker(String data26, String mappingSettings6, String csvSettings6) {
+    public ScrollerseriesMarker marker(String data26, String mappingSettings6, String csvSettings6) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3492,7 +3408,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType seriesType13;
     private String seriesType14;
 
-    public MMA setMma(StockSeriesType seriesType13, TableMapping mapping14, Double period10) {
+    public MMA mma(StockSeriesType seriesType13, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -3565,7 +3481,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public MMA setMma(String seriesType14, TableMapping mapping14, Double period10) {
+    public MMA mma(String seriesType14, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -3644,7 +3560,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings7;
     private String csvSettings7;
 
-    public ScrollerseriesOHLC setOhlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
+    public ScrollerseriesOHLC ohlc(TableMapping data28, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3724,7 +3640,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesOHLC setOhlc(DataTable data29, String mappingSettings7, String csvSettings7) {
+    public ScrollerseriesOHLC ohlc(DataTable data29, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -3804,7 +3720,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesOHLC setOhlc(String data30, String mappingSettings7, String csvSettings7) {
+    public ScrollerseriesOHLC ohlc(String data30, String mappingSettings7, String csvSettings7) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4023,7 +3939,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings8;
     private String csvSettings8;
 
-    public ScrollerseriesRangeArea setRangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
+    public ScrollerseriesRangeArea rangeArea(TableMapping data32, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4109,7 +4025,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeArea setRangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
+    public ScrollerseriesRangeArea rangeArea(DataTable data33, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4195,7 +4111,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeArea setRangeArea(String data34, String mappingSettings8, String csvSettings8) {
+    public ScrollerseriesRangeArea rangeArea(String data34, String mappingSettings8, String csvSettings8) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4287,7 +4203,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings9;
     private String csvSettings9;
 
-    public ScrollerseriesRangeColumn setRangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
+    public ScrollerseriesRangeColumn rangeColumn(TableMapping data36, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4379,7 +4295,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeColumn setRangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
+    public ScrollerseriesRangeColumn rangeColumn(DataTable data37, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4471,7 +4387,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeColumn setRangeColumn(String data38, String mappingSettings9, String csvSettings9) {
+    public ScrollerseriesRangeColumn rangeColumn(String data38, String mappingSettings9, String csvSettings9) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4569,7 +4485,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings10;
     private String csvSettings10;
 
-    public ScrollerseriesRangeSplineArea setRangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
+    public ScrollerseriesRangeSplineArea rangeSplineArea(TableMapping data40, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4667,7 +4583,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeSplineArea setRangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
+    public ScrollerseriesRangeSplineArea rangeSplineArea(DataTable data41, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4765,7 +4681,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeSplineArea setRangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
+    public ScrollerseriesRangeSplineArea rangeSplineArea(String data42, String mappingSettings10, String csvSettings10) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4869,7 +4785,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings11;
     private String csvSettings11;
 
-    public ScrollerseriesRangeStepArea setRangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
+    public ScrollerseriesRangeStepArea rangeStepArea(TableMapping data44, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -4973,7 +4889,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeStepArea setRangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
+    public ScrollerseriesRangeStepArea rangeStepArea(DataTable data45, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5077,7 +4993,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesRangeStepArea setRangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
+    public ScrollerseriesRangeStepArea rangeStepArea(String data46, String mappingSettings11, String csvSettings11) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5180,19 +5096,17 @@ public class StockScroller extends UiScroller {
         return new ScrollerseriesRangeStepArea(jsBase);
     }
 
-    private Double id2;
-    private String id3;
+    private Double id;
+    private String id1;
 
-    public StockScroller setRemoveSeries(Double id2) {
+    public StockScroller removeSeries(Double id) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
-            this.id2 = null;
-            this.id3 = null;
             
-            this.id2 = id2;
+            this.id = id;
         } else {
-            this.id2 = id2;
+            this.id = id;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -5202,10 +5116,10 @@ public class StockScroller extends UiScroller {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
+            js.append(String.format(Locale.US, ".removeSeries(%f)", id));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id));
                 js.setLength(0);
             }
         }
@@ -5213,16 +5127,14 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public StockScroller setRemoveSeries(String id3) {
+    public StockScroller removeSeries(String id1) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
-            this.id2 = null;
-            this.id3 = null;
             
-            this.id3 = id3;
+            this.id1 = id1;
         } else {
-            this.id3 = id3;
+            this.id1 = id1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -5232,26 +5144,23 @@ public class StockScroller extends UiScroller {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeSeries(%s)", id3));
+            js.append(String.format(Locale.US, ".removeSeries(%s)", id1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id3));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private Double index1;
+    private Double index;
 
-    public StockScroller setRemoveSeriesAt(Double index1) {
+    public StockScroller removeSeriesAt(Double index) {
         if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
         } else {
-            this.index1 = index1;
+            this.index = index;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -5261,10 +5170,10 @@ public class StockScroller extends UiScroller {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+            js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+                onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index));
                 js.setLength(0);
             }
         }
@@ -5276,7 +5185,7 @@ public class StockScroller extends UiScroller {
     private String seriesType15;
     private StockSeriesType seriesType16;
 
-    public RoC setRoc(String seriesType15, TableMapping mapping15, Double period11) {
+    public RoC roc(String seriesType15, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5353,7 +5262,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public RoC setRoc(StockSeriesType seriesType16, TableMapping mapping15, Double period11) {
+    public RoC roc(StockSeriesType seriesType16, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5434,7 +5343,7 @@ public class StockScroller extends UiScroller {
     private String seriesType17;
     private StockSeriesType seriesType18;
 
-    public RSI setRsi(String seriesType17, TableMapping mapping16, Double period12) {
+    public RSI rsi(String seriesType17, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5515,7 +5424,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public RSI setRsi(StockSeriesType seriesType18, TableMapping mapping16, Double period12) {
+    public RSI rsi(StockSeriesType seriesType18, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5600,7 +5509,7 @@ public class StockScroller extends UiScroller {
     private String seriesType19;
     private StockSeriesType seriesType20;
 
-    public SMA setSma(String seriesType19, TableMapping mapping17, Double period13) {
+    public SMA sma(String seriesType19, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5685,7 +5594,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public SMA setSma(StockSeriesType seriesType20, TableMapping mapping17, Double period13) {
+    public SMA sma(StockSeriesType seriesType20, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5776,7 +5685,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings12;
     private String csvSettings12;
 
-    public ScrollerseriesSpline setSpline(TableMapping data48, String mappingSettings12, String csvSettings12) {
+    public ScrollerseriesSpline spline(TableMapping data48, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5886,7 +5795,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesSpline setSpline(DataTable data49, String mappingSettings12, String csvSettings12) {
+    public ScrollerseriesSpline spline(DataTable data49, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -5996,7 +5905,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesSpline setSpline(String data50, String mappingSettings12, String csvSettings12) {
+    public ScrollerseriesSpline spline(String data50, String mappingSettings12, String csvSettings12) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6112,7 +6021,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings13;
     private String csvSettings13;
 
-    public ScrollerseriesSplineArea setSplineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
+    public ScrollerseriesSplineArea splineArea(TableMapping data52, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6228,7 +6137,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesSplineArea setSplineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
+    public ScrollerseriesSplineArea splineArea(DataTable data53, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6344,7 +6253,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesSplineArea setSplineArea(String data54, String mappingSettings13, String csvSettings13) {
+    public ScrollerseriesSplineArea splineArea(String data54, String mappingSettings13, String csvSettings13) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6466,7 +6375,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings14;
     private String csvSettings14;
 
-    public ScrollerseriesStepArea setStepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
+    public ScrollerseriesStepArea stepArea(TableMapping data56, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6588,7 +6497,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesStepArea setStepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
+    public ScrollerseriesStepArea stepArea(DataTable data57, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6710,7 +6619,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesStepArea setStepArea(String data58, String mappingSettings14, String csvSettings14) {
+    public ScrollerseriesStepArea stepArea(String data58, String mappingSettings14, String csvSettings14) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6838,7 +6747,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings15;
     private String csvSettings15;
 
-    public ScrollerseriesStepLine setStepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
+    public ScrollerseriesStepLine stepLine(TableMapping data60, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -6966,7 +6875,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesStepLine setStepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
+    public ScrollerseriesStepLine stepLine(DataTable data61, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7094,7 +7003,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesStepLine setStepLine(String data62, String mappingSettings15, String csvSettings15) {
+    public ScrollerseriesStepLine stepLine(String data62, String mappingSettings15, String csvSettings15) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7228,7 +7137,7 @@ public class StockScroller extends UiScroller {
     private String mappingSettings16;
     private String csvSettings16;
 
-    public ScrollerseriesStick setStick(TableMapping data64, String mappingSettings16, String csvSettings16) {
+    public ScrollerseriesStick stick(TableMapping data64, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7362,7 +7271,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesStick setStick(DataTable data65, String mappingSettings16, String csvSettings16) {
+    public ScrollerseriesStick stick(DataTable data65, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7496,7 +7405,7 @@ public class StockScroller extends UiScroller {
     }
 
 
-    public ScrollerseriesStick setStick(String data66, String mappingSettings16, String csvSettings16) {
+    public ScrollerseriesStick stick(String data66, String mappingSettings16, String csvSettings16) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -7638,7 +7547,7 @@ public class StockScroller extends UiScroller {
     private StockSeriesType kSeriesType1;
     private StockSeriesType dSeriesType1;
 
-    public Stochastic setStochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType1, MovingAverageType dMAType1, StockSeriesType kSeriesType1, StockSeriesType dSeriesType1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType1, MovingAverageType dMAType1, StockSeriesType kSeriesType1, StockSeriesType dSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -8478,27 +8387,6 @@ public class StockScroller extends UiScroller {
         return "";
     }
 
-    private String generateJSid() {
-        if (id != null) {
-            return String.format(Locale.US, "id: %f,", id);
-        }
-        return "";
-    }
-
-    private String generateJSid1() {
-        if (id1 != null) {
-            return String.format(Locale.US, "id: %s,", id1);
-        }
-        return "";
-    }
-
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
     private String generateJShatchFillPalette() {
         if (hatchFillPalette != null) {
             return String.format(Locale.US, "hatchFillPalette: %s,", arrayToString(hatchFillPalette));
@@ -9101,23 +8989,23 @@ public class StockScroller extends UiScroller {
         return "";
     }
 
-    private String generateJSid2() {
-        if (id2 != null) {
-            return String.format(Locale.US, "id: %f,", id2);
+    private String generateJSid() {
+        if (id != null) {
+            return String.format(Locale.US, "id: %f,", id);
         }
         return "";
     }
 
-    private String generateJSid3() {
-        if (id3 != null) {
-            return String.format(Locale.US, "id: %s,", id3);
+    private String generateJSid1() {
+        if (id1 != null) {
+            return String.format(Locale.US, "id: %s,", id1);
         }
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
+    private String generateJSindex() {
+        if (index != null) {
+            return String.format(Locale.US, "index: %f,", index);
         }
         return "";
     }
@@ -9612,9 +9500,6 @@ public class StockScroller extends UiScroller {
             js.append(generateJSperiod9());
             js.append(generateJSseriesType11());
             js.append(generateJSseriesType12());
-            js.append(generateJSid());
-            js.append(generateJSid1());
-            js.append(generateJSindex());
             js.append(generateJShatchFillPalette());
             js.append(generateJShatchFillPalette1());
             js.append(generateJShatchFillPalette2());
@@ -9701,9 +9586,9 @@ public class StockScroller extends UiScroller {
             js.append(generateJSdata47());
             js.append(generateJSmappingSettings11());
             js.append(generateJScsvSettings11());
-            js.append(generateJSid2());
-            js.append(generateJSid3());
-            js.append(generateJSindex1());
+            js.append(generateJSid());
+            js.append(generateJSid1());
+            js.append(generateJSindex());
             js.append(generateJSmapping15());
             js.append(generateJSperiod11());
             js.append(generateJSseriesType15());

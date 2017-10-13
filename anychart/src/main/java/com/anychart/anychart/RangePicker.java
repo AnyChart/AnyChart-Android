@@ -25,7 +25,7 @@ public class RangePicker extends JsObject {
     
     private Element decorate;
 
-    public void setDecorate(Element decorate) {
+    public void decorate(Element decorate) {
         if (jsBase == null) {
             this.decorate = decorate;
         } else {
@@ -102,7 +102,7 @@ public class RangePicker extends JsObject {
     private ChartsStock parentElement;
     private Element parentElement1;
 
-    public void setRender(ChartsStock parentElement) {
+    public void render(ChartsStock parentElement) {
         if (jsBase == null) {
             this.parentElement = null;
             this.parentElement1 = null;
@@ -129,7 +129,7 @@ public class RangePicker extends JsObject {
     }
 
 
-    public void setRender(Element parentElement1) {
+    public void render(Element parentElement1) {
         if (jsBase == null) {
             this.parentElement = null;
             this.parentElement1 = null;

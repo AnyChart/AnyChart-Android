@@ -25,7 +25,7 @@ public class Stage extends JsObject {
     
     private Element element;
 
-    public Stage setAddChild(Element element) {
+    public Stage addChild(Element element) {
         if (jsBase == null) {
             this.element = element;
         } else {
@@ -52,7 +52,7 @@ public class Stage extends JsObject {
     private Element element1;
     private Double index;
 
-    public Stage setAddChildAt(Element element1, Double index) {
+    public Stage addChildAt(Element element1, Double index) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -88,7 +88,7 @@ public class Stage extends JsObject {
     private Double m4;
     private Double m5;
 
-    public Stage setAppendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
+    public Stage appendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -194,7 +194,7 @@ public class Stage extends JsObject {
     private Double cy;
     private Double radius;
 
-    public Circle setCircle(Double cx, Double cy, Double radius) {
+    public Circle circle(Double cx, Double cy, Double radius) {
         if (jsBase == null) {
             this.cx = cx;
             this.cy = cy;
@@ -233,7 +233,7 @@ public class Stage extends JsObject {
 
     private GraphicsMathRect clip;
 
-    public Stage setClip(GraphicsMathRect clip) {
+    public Stage clip(GraphicsMathRect clip) {
         if (jsBase == null) {
             this.clip = clip;
         } else {
@@ -287,7 +287,7 @@ public class Stage extends JsObject {
     private GraphicsMathRect rect1;
     private String rect2;
 
-    public Clip setCreateClip(Double[] rect) {
+    public Clip createClip(Double[] rect) {
         if (jsBase == null) {
             this.rect = null;
             this.rect1 = null;
@@ -316,7 +316,7 @@ public class Stage extends JsObject {
     }
 
 
-    public Clip setCreateClip(GraphicsMathRect rect1) {
+    public Clip createClip(GraphicsMathRect rect1) {
         if (jsBase == null) {
             this.rect = null;
             this.rect1 = null;
@@ -345,7 +345,7 @@ public class Stage extends JsObject {
     }
 
 
-    public Clip setCreateClip(String rect2) {
+    public Clip createClip(String rect2) {
         if (jsBase == null) {
             this.rect = null;
             this.rect1 = null;
@@ -378,7 +378,7 @@ public class Stage extends JsObject {
     private Double width;
     private Double height;
 
-    public Clip setCreateClip(Double left, Double top, Double width, Double height) {
+    public Clip createClip(Double left, Double top, Double width, Double height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;
@@ -477,7 +477,7 @@ public class Stage extends JsObject {
 
     private String data;
 
-    public Stage setData(String data) {
+    public Stage data(String data) {
         if (jsBase == null) {
             this.data = data;
         } else {
@@ -532,7 +532,7 @@ public class Stage extends JsObject {
     private Double rx;
     private Double ry;
 
-    public VectorEllipse setEllipse(Double cx1, Double cy1, Double rx, Double ry) {
+    public VectorEllipse ellipse(Double cx1, Double cy1, Double rx, Double ry) {
         if (jsBase == null) {
             this.cx = null;
             this.cx1 = null;
@@ -570,7 +570,7 @@ public class Stage extends JsObject {
 
     private Double index1;
 
-    public Element setGetChildAt(Double index1) {
+    public Element getChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -602,7 +602,7 @@ public class Stage extends JsObject {
     private Double quality;
     private Boolean forceTransparentWhite;
 
-    public void setGetJpgBase64String(Double width1, Double height1, Double quality, Boolean forceTransparentWhite) {
+    public void getJpgBase64String(Double width1, Double height1, Double quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -644,7 +644,7 @@ public class Stage extends JsObject {
     private Double x;
     private Double y;
 
-    public void setGetPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -680,7 +680,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setGetPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -716,7 +716,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setGetPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -752,7 +752,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setGetPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -791,7 +791,7 @@ public class Stage extends JsObject {
     private Double height2;
     private Double quality1;
 
-    public void setGetPngBase64String(Double width2, Double height2, Double quality1) {
+    public void getPngBase64String(Double width2, Double height2, Double quality1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -834,7 +834,7 @@ public class Stage extends JsObject {
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
-    public void setGetSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight) {
+    public void getSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -868,7 +868,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setGetSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1) {
+    public void getSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -902,7 +902,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setGetSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
+    public void getSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -936,7 +936,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setGetSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
+    public void getSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -971,7 +971,7 @@ public class Stage extends JsObject {
 
     private Element element2;
 
-    public void setHasChild(Element element2) {
+    public void hasChild(Element element2) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -1003,7 +1003,7 @@ public class Stage extends JsObject {
     private Double thickness;
     private Double size;
 
-    public HatchFill setHatchFill(HatchFillType type, String color, Double thickness, Double size) {
+    public HatchFill hatchFill(HatchFillType type, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = type;
             this.color = color;
@@ -1101,7 +1101,7 @@ public class Stage extends JsObject {
     private Double y1;
     private String text;
 
-    public VectorText setHtml(Double x1, Double y1, String text) {
+    public VectorText html(Double x1, Double y1, String text) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -1167,7 +1167,7 @@ public class Stage extends JsObject {
     private Double width3;
     private Double height5;
 
-    public Image setImage(String src, Double x2, Double y2, Double width3, Double height5) {
+    public Image image(String src, Double x2, Double y2, Double width3, Double height5) {
         if (jsBase == null) {
             this.src = src;
             this.x = null;
@@ -1221,7 +1221,7 @@ public class Stage extends JsObject {
 
     private Element element3;
 
-    public void setIndexOfChild(Element element3) {
+    public void indexOfChild(Element element3) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -1254,7 +1254,7 @@ public class Stage extends JsObject {
     private Boolean useCapture;
     private String listenerScope;
 
-    public void setListen(String type1, Boolean useCapture, String listenerScope) {
+    public void listen(String type1, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -1286,7 +1286,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setListen(StageEventType type2, Boolean useCapture, String listenerScope) {
+    public void listen(StageEventType type2, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -1322,7 +1322,7 @@ public class Stage extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
-    public void setListenOnce(String type3, Boolean useCapture1, String listenerScope1) {
+    public void listenOnce(String type3, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -1362,7 +1362,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setListenOnce(StageEventType type4, Boolean useCapture1, String listenerScope1) {
+    public void listenOnce(StageEventType type4, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -1429,7 +1429,7 @@ public class Stage extends JsObject {
 
     private GraphicsMathRect bounds;
 
-    public PatternFill setPattern(GraphicsMathRect bounds) {
+    public PatternFill pattern(GraphicsMathRect bounds) {
         if (jsBase == null) {
             this.bounds = bounds;
         } else {
@@ -1458,7 +1458,7 @@ public class Stage extends JsObject {
     private Boolean landscapeOrHeight2;
     private String landscapeOrHeight3;
 
-    public void setPrint(String paperSizeOrWidth4, Boolean landscapeOrHeight2) {
+    public void print(String paperSizeOrWidth4, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1496,7 +1496,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setPrint(String paperSizeOrWidth4, String landscapeOrHeight3) {
+    public void print(String paperSizeOrWidth4, String landscapeOrHeight3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1534,7 +1534,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setPrint(Double paperSizeOrWidth5, Boolean landscapeOrHeight2) {
+    public void print(Double paperSizeOrWidth5, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1572,7 +1572,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setPrint(Double paperSizeOrWidth5, String landscapeOrHeight3) {
+    public void print(Double paperSizeOrWidth5, String landscapeOrHeight3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1614,7 +1614,7 @@ public class Stage extends JsObject {
     private Double width4;
     private Double height6;
 
-    public VectorRect setRect(Double x3, Double y3, Double width4, Double height6) {
+    public VectorRect rect(Double x3, Double y3, Double width4, Double height6) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -1670,7 +1670,7 @@ public class Stage extends JsObject {
 
     private String type5;
 
-    public void setRemoveAllListeners(String type5) {
+    public void removeAllListeners(String type5) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -1702,7 +1702,7 @@ public class Stage extends JsObject {
 
     private Element element4;
 
-    public Element setRemoveChild(Element element4) {
+    public Element removeChild(Element element4) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -1734,7 +1734,7 @@ public class Stage extends JsObject {
 
     private Double index2;
 
-    public Element setRemoveChildAt(Double index2) {
+    public Element removeChildAt(Double index2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -1767,7 +1767,7 @@ public class Stage extends JsObject {
     private Double height7;
     private String height8;
 
-    public void setResize(Double width5, Double height7) {
+    public void resize(Double width5, Double height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1811,7 +1811,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setResize(Double width5, String height8) {
+    public void resize(Double width5, String height8) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1855,7 +1855,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setResize(String width6, Double height7) {
+    public void resize(String width6, Double height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1899,7 +1899,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setResize(String width6, String height8) {
+    public void resize(String width6, String height8) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1944,7 +1944,7 @@ public class Stage extends JsObject {
 
     private Boolean force;
 
-    public Stage setResume(Boolean force) {
+    public Stage resume(Boolean force) {
         if (jsBase == null) {
             this.force = force;
         } else {
@@ -1972,7 +1972,7 @@ public class Stage extends JsObject {
     private Double cx2;
     private Double cy2;
 
-    public Stage setRotate(Double degrees, Double cx2, Double cy2) {
+    public Stage rotate(Double degrees, Double cx2, Double cy2) {
         if (jsBase == null) {
             this.degrees = degrees;
             this.cx = null;
@@ -2012,7 +2012,7 @@ public class Stage extends JsObject {
     private VectorAnchor anchor;
     private String anchor1;
 
-    public Stage setRotateByAnchor(VectorAnchor anchor, Double degrees1) {
+    public Stage rotateByAnchor(VectorAnchor anchor, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -2045,7 +2045,7 @@ public class Stage extends JsObject {
     }
 
 
-    public Stage setRotateByAnchor(String anchor1, Double degrees1) {
+    public Stage rotateByAnchor(String anchor1, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -2083,7 +2083,7 @@ public class Stage extends JsObject {
     private Boolean forceTransparentWhite1;
     private String filename;
 
-    public void setSaveAsJpg(Double width7, Double height9, Double quality2, Boolean forceTransparentWhite1, String filename) {
+    public void saveAsJpg(Double width7, Double height9, Double quality2, Boolean forceTransparentWhite1, String filename) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2147,7 +2147,7 @@ public class Stage extends JsObject {
     private Double y4;
     private String filename1;
 
-    public void setSaveAsPdf(String paperSize, Boolean landscape, Double x4, Double y4, String filename1) {
+    public void saveAsPdf(String paperSize, Boolean landscape, Double x4, Double y4, String filename1) {
         if (jsBase == null) {
             this.paperSize = paperSize;
             this.landscape = landscape;
@@ -2198,7 +2198,7 @@ public class Stage extends JsObject {
     private Double quality3;
     private String filename2;
 
-    public void setSaveAsPng(Double width8, Double height10, Double quality3, String filename2) {
+    public void saveAsPng(Double width8, Double height10, Double quality3, String filename2) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2262,7 +2262,7 @@ public class Stage extends JsObject {
     private Boolean landscape1;
     private String filename3;
 
-    public void setSaveAsSvg(String paperSize1, Boolean landscape1, String filename3) {
+    public void saveAsSvg(String paperSize1, Boolean landscape1, String filename3) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -2303,7 +2303,7 @@ public class Stage extends JsObject {
     private Double width9;
     private Double height11;
 
-    public void setSaveAsSvg(Double width9, Double height11) {
+    public void saveAsSvg(Double width9, Double height11) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2357,7 +2357,7 @@ public class Stage extends JsObject {
     private Double cx3;
     private Double cy3;
 
-    public Stage setScale(Double sx, Double sy, Double cx3, Double cy3) {
+    public Stage scale(Double sx, Double sy, Double cx3, Double cy3) {
         if (jsBase == null) {
             this.sx = sx;
             this.sy = sy;
@@ -2402,7 +2402,7 @@ public class Stage extends JsObject {
     private VectorAnchor anchor2;
     private String anchor3;
 
-    public Stage setScaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
+    public Stage scaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -2442,7 +2442,7 @@ public class Stage extends JsObject {
     }
 
 
-    public Stage setScaleByAnchor(String anchor3, Double sx1, Double sy1) {
+    public Stage scaleByAnchor(String anchor3, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -2528,7 +2528,7 @@ public class Stage extends JsObject {
     private Double cx4;
     private Double cy4;
 
-    public Stage setSetRotation(Double degrees2, Double cx4, Double cy4) {
+    public Stage setRotation(Double degrees2, Double cx4, Double cy4) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -2576,7 +2576,7 @@ public class Stage extends JsObject {
     private VectorAnchor anchor4;
     private String anchor5;
 
-    public Stage setSetRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
+    public Stage setRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -2615,7 +2615,7 @@ public class Stage extends JsObject {
     }
 
 
-    public Stage setSetRotationByAnchor(String anchor5, Double degrees3) {
+    public Stage setRotationByAnchor(String anchor5, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -2779,7 +2779,7 @@ public class Stage extends JsObject {
     private Boolean forceTransparentWhite2;
     private String filename4;
 
-    public void setShareAsJpg(Boolean asBase, Double width10, Double height12, Double quality4, Boolean forceTransparentWhite2, String filename4) {
+    public void shareAsJpg(Boolean asBase, Double width10, Double height12, Double quality4, Boolean forceTransparentWhite2, String filename4) {
         if (jsBase == null) {
             this.asBase = asBase;
             this.width = null;
@@ -2863,7 +2863,7 @@ public class Stage extends JsObject {
     private Double y6;
     private String filename5;
 
-    public void setShareAsPdf(Double paperSizeOrWidth6, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(Double paperSizeOrWidth6, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2937,7 +2937,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setShareAsPdf(Double paperSizeOrWidth6, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(Double paperSizeOrWidth6, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3011,7 +3011,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setShareAsPdf(String paperSizeOrWidth7, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(String paperSizeOrWidth7, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3085,7 +3085,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setShareAsPdf(String paperSizeOrWidth7, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(String paperSizeOrWidth7, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3164,7 +3164,7 @@ public class Stage extends JsObject {
     private Double quality5;
     private String filename6;
 
-    public void setShareAsPng(Boolean asBase2, Double width11, Double height13, Double quality5, String filename6) {
+    public void shareAsPng(Boolean asBase2, Double width11, Double height13, Double quality5, String filename6) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3249,7 +3249,7 @@ public class Stage extends JsObject {
     private String landscapeOrHeight5;
     private String filename7;
 
-    public void setShareAsSvg(String paperSizeOrWidth8, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
+    public void shareAsSvg(String paperSizeOrWidth8, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3311,7 +3311,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setShareAsSvg(String paperSizeOrWidth8, String landscapeOrHeight5, Boolean asBase3, String filename7) {
+    public void shareAsSvg(String paperSizeOrWidth8, String landscapeOrHeight5, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3373,7 +3373,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setShareAsSvg(Double paperSizeOrWidth9, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
+    public void shareAsSvg(Double paperSizeOrWidth9, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3435,7 +3435,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setShareAsSvg(Double paperSizeOrWidth9, String landscapeOrHeight5, Boolean asBase3, String filename7) {
+    public void shareAsSvg(Double paperSizeOrWidth9, String landscapeOrHeight5, Boolean asBase3, String filename7) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3499,7 +3499,7 @@ public class Stage extends JsObject {
     private Element element5;
     private Element element6;
 
-    public Stage setSwapChildren(Element element5, Element element6) {
+    public Stage swapChildren(Element element5, Element element6) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -3544,7 +3544,7 @@ public class Stage extends JsObject {
     private Double index3;
     private Double index4;
 
-    public Stage setSwapChildrenAt(Double index3, Double index4) {
+    public Stage swapChildrenAt(Double index3, Double index4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -3586,7 +3586,7 @@ public class Stage extends JsObject {
     private Double y7;
     private String text1;
 
-    public VectorText setText(Double x7, Double y7, String text1) {
+    public VectorText text(Double x7, Double y7, String text1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -3664,7 +3664,7 @@ public class Stage extends JsObject {
     private String paperSize2;
     private Boolean landscape2;
 
-    public void setToSvg(String paperSize2, Boolean landscape2) {
+    public void toSvg(String paperSize2, Boolean landscape2) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -3700,7 +3700,7 @@ public class Stage extends JsObject {
     private Double width12;
     private Double height14;
 
-    public void setToSvg(Double width12, Double height14) {
+    public void toSvg(Double width12, Double height14) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -3758,7 +3758,7 @@ public class Stage extends JsObject {
     private Double tx;
     private Double ty;
 
-    public Stage setTranslate(Double tx, Double ty) {
+    public Stage translate(Double tx, Double ty) {
         if (jsBase == null) {
             this.tx = tx;
             this.ty = ty;
@@ -3789,7 +3789,7 @@ public class Stage extends JsObject {
     private Boolean useCapture2;
     private String listenerScope2;
 
-    public void setUnlisten(String type6, Boolean useCapture2, String listenerScope2) {
+    public void unlisten(String type6, Boolean useCapture2, String listenerScope2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -3834,7 +3834,7 @@ public class Stage extends JsObject {
     }
 
 
-    public void setUnlisten(StageEventType type7, Boolean useCapture2, String listenerScope2) {
+    public void unlisten(StageEventType type7, Boolean useCapture2, String listenerScope2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -3880,7 +3880,7 @@ public class Stage extends JsObject {
 
     private String key;
 
-    public void setUnlistenByKey(String key) {
+    public void unlistenByKey(String key) {
         if (jsBase == null) {
             this.key = key;
         } else {
@@ -3905,7 +3905,7 @@ public class Stage extends JsObject {
 
     private Boolean isVisible;
 
-    public Stage setVisible(Boolean isVisible) {
+    public Stage visible(Boolean isVisible) {
         if (jsBase == null) {
             this.isVisible = isVisible;
         } else {

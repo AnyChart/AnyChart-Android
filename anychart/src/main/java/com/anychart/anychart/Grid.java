@@ -226,7 +226,7 @@ public class Grid extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
-    public Grid setEvenFill(String color, Double opacity) {
+    public Grid evenFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -260,7 +260,7 @@ public class Grid extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public Grid setEvenFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Grid evenFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -301,7 +301,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Grid evenFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -342,7 +342,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Grid evenFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -383,7 +383,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Grid evenFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -424,7 +424,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Grid evenFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -465,7 +465,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Grid evenFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -514,7 +514,7 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public Grid setEvenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Grid evenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -565,7 +565,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Grid evenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -817,7 +817,7 @@ public class Grid extends VisualBaseWithBounds {
     private String color2;
     private Double opacity3;
 
-    public Grid setEvenHolidayFill(String color2, Double opacity3) {
+    public Grid evenHolidayFill(String color2, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -860,7 +860,7 @@ public class Grid extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
-    public Grid setEvenHolidayFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public Grid evenHolidayFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -915,7 +915,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenHolidayFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public Grid evenHolidayFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -970,7 +970,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenHolidayFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public Grid evenHolidayFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1025,7 +1025,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenHolidayFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public Grid evenHolidayFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1080,7 +1080,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenHolidayFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public Grid evenHolidayFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1135,7 +1135,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenHolidayFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public Grid evenHolidayFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1198,7 +1198,7 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
-    public Grid setEvenHolidayFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Grid evenHolidayFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1272,7 +1272,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setEvenHolidayFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Grid evenHolidayFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1737,7 +1737,7 @@ public class Grid extends VisualBaseWithBounds {
     private String color7;
     private Double opacity6;
 
-    public Grid setOddFill(String color7, Double opacity6) {
+    public Grid oddFill(String color7, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1788,7 +1788,7 @@ public class Grid extends VisualBaseWithBounds {
     private String mode10;
     private Double opacity7;
 
-    public Grid setOddFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public Grid oddFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1855,7 +1855,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public Grid oddFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1922,7 +1922,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public Grid oddFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1989,7 +1989,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public Grid oddFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2056,7 +2056,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public Grid oddFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2123,7 +2123,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public Grid oddFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2198,7 +2198,7 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx2;
     private Double fy2;
 
-    public Grid setOddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Grid oddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2287,7 +2287,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Grid oddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2673,7 +2673,7 @@ public class Grid extends VisualBaseWithBounds {
     private String color9;
     private Double opacity9;
 
-    public Grid setOddHolidayFill(String color9, Double opacity9) {
+    public Grid oddHolidayFill(String color9, Double opacity9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2729,7 +2729,7 @@ public class Grid extends VisualBaseWithBounds {
     private String mode14;
     private Double opacity10;
 
-    public Grid setOddHolidayFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
+    public Grid oddHolidayFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2808,7 +2808,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddHolidayFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
+    public Grid oddHolidayFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2887,7 +2887,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddHolidayFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
+    public Grid oddHolidayFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2966,7 +2966,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddHolidayFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
+    public Grid oddHolidayFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3045,7 +3045,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddHolidayFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
+    public Grid oddHolidayFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3124,7 +3124,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddHolidayFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
+    public Grid oddHolidayFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3211,7 +3211,7 @@ public class Grid extends VisualBaseWithBounds {
     private Double fx3;
     private Double fy3;
 
-    public Grid setOddHolidayFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Grid oddHolidayFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3315,7 +3315,7 @@ public class Grid extends VisualBaseWithBounds {
     }
 
 
-    public Grid setOddHolidayFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Grid oddHolidayFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

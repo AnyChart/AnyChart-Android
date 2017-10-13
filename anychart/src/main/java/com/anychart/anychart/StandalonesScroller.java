@@ -221,7 +221,7 @@ public class StandalonesScroller extends UiScroller {
     private Double startRatio;
     private Double endRatio1;
 
-    public StandalonesScroller setSetRange(Double startRatio, Double endRatio1) {
+    public StandalonesScroller setRange(Double startRatio, Double endRatio1) {
         if (jsBase == null) {
             this.startRatio = startRatio;
             this.endRatio = null;

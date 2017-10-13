@@ -25,7 +25,7 @@ public class ScalesBase extends CoreBase {
     
     private Boolean silently;
 
-    public void setFinishAutoCalc(Boolean silently) {
+    public void finishAutoCalc(Boolean silently) {
         if (jsBase == null) {
             this.silently = silently;
         } else {

@@ -23,34 +23,9 @@ public class Iterator extends JsObject {
     }
 
     
-    private String fieldName;
-
-    public void setGet(String fieldName) {
-        if (jsBase == null) {
-            this.fieldName = fieldName;
-        } else {
-            this.fieldName = fieldName;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", fieldName));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", fieldName));
-                js.setLength(0);
-            }
-        }
-    }
-
     private String name;
 
-    public void setMeta(String name) {
+    public Iterator setMeta(String name) {
         if (jsBase == null) {
             this.name = name;
         } else {
@@ -59,21 +34,21 @@ public class Iterator extends JsObject {
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
 //            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".meta(%s);", name));
+            js.append(String.format(Locale.US, ".meta(%s)", name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", name));
+                onChangeListener.onChange(String.format(Locale.US, ".meta(%s)", name));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private String name1;
     private Double index;
 
     public void setSelect(Double index) {
@@ -99,23 +74,9 @@ public class Iterator extends JsObject {
         }
     }
 
-    private String generateJSfieldName() {
-        if (fieldName != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName);
-        }
-        return "";
-    }
-
     private String generateJSname() {
         if (name != null) {
             return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
-    private String generateJSname1() {
-        if (name1 != null) {
-            return String.format(Locale.US, "name: %s,", name1);
         }
         return "";
     }
@@ -147,9 +108,7 @@ public class Iterator extends JsObject {
 
         if (jsBase == null) {
             js.append("{");
-            js.append(generateJSfieldName());
             js.append(generateJSname());
-            js.append(generateJSname1());
             js.append(generateJSindex());
             js.append("}");
         }

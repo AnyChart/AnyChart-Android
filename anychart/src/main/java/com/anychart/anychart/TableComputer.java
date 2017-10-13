@@ -26,7 +26,7 @@ public class TableComputer extends JsObject {
     private String name;
     private String uid;
 
-    public void setAddOutputField(String name, String uid) {
+    public void addOutputField(String name, String uid) {
         if (jsBase == null) {
             this.name = name;
             this.uid = uid;
@@ -53,7 +53,7 @@ public class TableComputer extends JsObject {
 
     private String name1;
 
-    public void setGetFieldIndex(String name1) {
+    public void getFieldIndex(String name1) {
         if (jsBase == null) {
             this.name = null;
             this.name1 = null;

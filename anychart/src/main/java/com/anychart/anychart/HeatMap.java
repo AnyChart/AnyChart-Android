@@ -1502,7 +1502,7 @@ public class HeatMap extends SeparateChart {
 
     public CoreAxesLinear getXAxis(Double index) {
         if (getXAxis1 == null)
-            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis1("+ index+")");
+            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis("+ index+")");
 
         return getXAxis1;
     }
@@ -1643,7 +1643,7 @@ public class HeatMap extends SeparateChart {
 
     public CoreGridsLinear getXGrid(Double index2) {
         if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid1("+ index2+")");
+            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid("+ index2+")");
 
         return getXGrid1;
     }
@@ -2021,7 +2021,7 @@ public class HeatMap extends SeparateChart {
 
     public CoreAxesLinear getYAxis(Double index4) {
         if (getYAxis1 == null)
-            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis1("+ index4+")");
+            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis("+ index4+")");
 
         return getYAxis1;
     }
@@ -2162,7 +2162,7 @@ public class HeatMap extends SeparateChart {
 
     public CoreGridsLinear getYGrid(Double index6) {
         if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid1("+ index6+")");
+            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid("+ index6+")");
 
         return getYGrid1;
     }

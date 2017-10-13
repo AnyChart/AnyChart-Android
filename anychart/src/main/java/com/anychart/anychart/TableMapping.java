@@ -28,7 +28,7 @@ public class TableMapping extends CoreBase {
     private AggregationType type;
     private Double weightsColumn;
 
-    public TableMapping setAddField(String name, Double column, AggregationType type, Double weightsColumn) {
+    public TableMapping addField(String name, Double column, AggregationType type, Double weightsColumn) {
         if (jsBase == null) {
             this.name = name;
             this.column = column;

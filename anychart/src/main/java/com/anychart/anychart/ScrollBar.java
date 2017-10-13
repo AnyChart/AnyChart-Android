@@ -52,7 +52,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
-    public ScrollBar setBackgroundFill(String color, Double opacity) {
+    public ScrollBar backgroundFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public ScrollBar setBackgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public ScrollBar backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setBackgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public ScrollBar backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setBackgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public ScrollBar backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setBackgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public ScrollBar backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setBackgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public ScrollBar backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setBackgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public ScrollBar backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public ScrollBar setBackgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScrollBar backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setBackgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScrollBar backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -693,7 +693,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String color1;
     private Double opacity3;
 
-    public ScrollBar setSliderFill(String color1, Double opacity3) {
+    public ScrollBar sliderFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -735,7 +735,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
-    public ScrollBar setSliderFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public ScrollBar sliderFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -790,7 +790,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setSliderFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public ScrollBar sliderFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -845,7 +845,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setSliderFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public ScrollBar sliderFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -900,7 +900,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setSliderFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public ScrollBar sliderFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -955,7 +955,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setSliderFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public ScrollBar sliderFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1010,7 +1010,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setSliderFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public ScrollBar sliderFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1073,7 +1073,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
-    public ScrollBar setSliderFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public ScrollBar sliderFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1147,7 +1147,7 @@ public class ScrollBar extends VisualBaseWithBounds {
     }
 
 
-    public ScrollBar setSliderFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public ScrollBar sliderFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

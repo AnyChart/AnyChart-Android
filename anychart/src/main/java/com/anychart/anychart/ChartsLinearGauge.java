@@ -45,7 +45,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     public AxesLinearGauge getAxis(Double index) {
         if (getAxis1 == null)
-            getAxis1 = new AxesLinearGauge(jsBase + ".axis1("+ index+")");
+            getAxis1 = new AxesLinearGauge(jsBase + ".axis("+ index+")");
 
         return getAxis1;
     }
@@ -972,7 +972,7 @@ public class ChartsLinearGauge extends SeparateChart {
 
     public ScaleBar getScaleBar(Double index4) {
         if (getScaleBar1 == null)
-            getScaleBar1 = new ScaleBar(jsBase + ".scaleBar1("+ index4+")");
+            getScaleBar1 = new ScaleBar(jsBase + ".scaleBar("+ index4+")");
 
         return getScaleBar1;
     }

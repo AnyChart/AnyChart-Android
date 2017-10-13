@@ -49,32 +49,6 @@ public class BBandsB extends JsObject {
         return this;
     }
 
-    private Double period;
-
-    public BBandsB setPeriod(Double period) {
-        if (jsBase == null) {
-            this.period = period;
-        } else {
-            this.period = period;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".period(%f)", period));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private BBandsB getPeriod;
 
     public BBandsB getPeriod() {
@@ -172,13 +146,6 @@ public class BBandsB extends JsObject {
         return "";
     }
 
-    private String generateJSperiod() {
-        if (period != null) {
-            return String.format(Locale.US, "period: %f,", period);
-        }
-        return "";
-    }
-
     private String generateJStype() {
         if (type != null) {
             return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
@@ -216,7 +183,6 @@ public class BBandsB extends JsObject {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdeviation());
-            js.append(generateJSperiod());
             js.append(generateJStype());
             js.append(generateJStype1());
             js.append("}");

@@ -52,7 +52,7 @@ public class Separator extends VisualBase {
     private String color;
     private Double opacity;
 
-    public Separator setFill(String color, Double opacity) {
+    public Separator fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class Separator extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public Separator setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Separator fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Separator fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Separator fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Separator fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Separator fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Separator fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class Separator extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public Separator setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Separator fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Separator fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -512,7 +512,7 @@ public class Separator extends VisualBase {
     private String left;
     private Double left1;
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -558,7 +558,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -604,7 +604,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -650,7 +650,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -696,7 +696,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -742,7 +742,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -788,7 +788,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -834,7 +834,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -880,7 +880,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -926,7 +926,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -972,7 +972,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1018,7 +1018,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1064,7 +1064,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1110,7 +1110,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1156,7 +1156,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1202,7 +1202,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1248,7 +1248,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1294,7 +1294,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1340,7 +1340,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1386,7 +1386,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1432,7 +1432,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1478,7 +1478,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1524,7 +1524,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1570,7 +1570,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1616,7 +1616,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1662,7 +1662,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1708,7 +1708,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1754,7 +1754,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1800,7 +1800,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1846,7 +1846,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1892,7 +1892,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1938,7 +1938,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1986,7 +1986,7 @@ public class Separator extends VisualBase {
     private Orientation orientation;
     private String orientation1;
 
-    public Separator setOrientation(Orientation orientation) {
+    public Separator orientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -2014,7 +2014,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setOrientation(String orientation1) {
+    public Separator orientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -2049,7 +2049,7 @@ public class Separator extends VisualBase {
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public Separator setStroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator stroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -2086,7 +2086,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setStroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator stroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -2123,7 +2123,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator setStroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator stroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;

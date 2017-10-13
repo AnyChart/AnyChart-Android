@@ -501,7 +501,7 @@ public class Bounds extends CoreBase {
     private Double height2;
     private String height3;
 
-    public Bounds setSet(Double[] xOrRect2) {
+    public Bounds set(Double[] xOrRect2) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -534,7 +534,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public Bounds setSet(String[] xOrRect3) {
+    public Bounds set(String[] xOrRect3) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -567,7 +567,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public Bounds setSet(RectObj xOrRect4) {
+    public Bounds set(RectObj xOrRect4) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -600,7 +600,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public Bounds setSet(AnychartMathRect xOrRect5) {
+    public Bounds set(AnychartMathRect xOrRect5) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -633,7 +633,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public Bounds setSet(Bounds xOrRect6) {
+    public Bounds set(Bounds xOrRect6) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -672,7 +672,7 @@ public class Bounds extends CoreBase {
     private Double parentWidth;
     private Double parentHeight;
 
-    public AnychartMathRect setToRect(Double parentLeftOrRect, Double parentTop, Double parentWidth, Double parentHeight) {
+    public AnychartMathRect toRect(Double parentLeftOrRect, Double parentTop, Double parentWidth, Double parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
             this.parentLeftOrRect1 = null;
@@ -707,7 +707,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public AnychartMathRect setToRect(AnychartMathRect parentLeftOrRect1, Double parentTop, Double parentWidth, Double parentHeight) {
+    public AnychartMathRect toRect(AnychartMathRect parentLeftOrRect1, Double parentTop, Double parentWidth, Double parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
             this.parentLeftOrRect1 = null;
@@ -742,7 +742,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public AnychartMathRect setToRect(String parentLeftOrRect2, Double parentTop, Double parentWidth, Double parentHeight) {
+    public AnychartMathRect toRect(String parentLeftOrRect2, Double parentTop, Double parentWidth, Double parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
             this.parentLeftOrRect1 = null;

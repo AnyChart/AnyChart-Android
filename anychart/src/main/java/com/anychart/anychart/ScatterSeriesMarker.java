@@ -52,7 +52,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     private String color;
     private Double opacity;
 
-    public ScatterSeriesMarker setFill(String color, Double opacity) {
+    public ScatterSeriesMarker fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     private String mode2;
     private Double opacity1;
 
-    public ScatterSeriesMarker setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public ScatterSeriesMarker fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     }
 
 
-    public ScatterSeriesMarker setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public ScatterSeriesMarker fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     }
 
 
-    public ScatterSeriesMarker setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public ScatterSeriesMarker fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     }
 
 
-    public ScatterSeriesMarker setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public ScatterSeriesMarker fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     }
 
 
-    public ScatterSeriesMarker setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public ScatterSeriesMarker fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     }
 
 
-    public ScatterSeriesMarker setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public ScatterSeriesMarker fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     private Double fx;
     private Double fy;
 
-    public ScatterSeriesMarker setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScatterSeriesMarker fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     }
 
 
-    public ScatterSeriesMarker setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScatterSeriesMarker fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

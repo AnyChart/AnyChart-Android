@@ -25,7 +25,7 @@ public class OrdinalColor extends ScalesBase {
     
     private String colorToValue;
 
-    public void setColorToValue(String colorToValue) {
+    public void colorToValue(String colorToValue) {
         if (jsBase == null) {
             this.colorToValue = colorToValue;
         } else {
@@ -76,7 +76,7 @@ public class OrdinalColor extends ScalesBase {
 
     private Double getIndexByValue;
 
-    public void setGetIndexByValue(Double getIndexByValue) {
+    public void getIndexByValue(Double getIndexByValue) {
         if (jsBase == null) {
             this.getIndexByValue = getIndexByValue;
         } else {
@@ -101,7 +101,7 @@ public class OrdinalColor extends ScalesBase {
 
     private Double getRangeByValue;
 
-    public void setGetRangeByValue(Double getRangeByValue) {
+    public void getRangeByValue(Double getRangeByValue) {
         if (jsBase == null) {
             this.getRangeByValue = getRangeByValue;
         } else {
@@ -126,7 +126,7 @@ public class OrdinalColor extends ScalesBase {
 
     private Double ratio;
 
-    public void setInverseTransform(Double ratio) {
+    public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {
@@ -270,7 +270,7 @@ public class OrdinalColor extends ScalesBase {
 
     private Double subRangeRatio;
 
-    public void setTransform(Double subRangeRatio) {
+    public void transform(Double subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
         } else {
@@ -295,7 +295,7 @@ public class OrdinalColor extends ScalesBase {
 
     private Double valueToColor;
 
-    public void setValueToColor(Double valueToColor) {
+    public void valueToColor(Double valueToColor) {
         if (jsBase == null) {
             this.valueToColor = valueToColor;
         } else {

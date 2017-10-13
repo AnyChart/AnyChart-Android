@@ -52,7 +52,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
-    public UiDataGrid setBackgroundFill(String color, Double opacity) {
+    public UiDataGrid backgroundFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public UiDataGrid setBackgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setBackgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setBackgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setBackgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setBackgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setBackgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public UiDataGrid setBackgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiDataGrid backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setBackgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiDataGrid backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -442,32 +442,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
     private Fill imageSettings;
-    private Double index;
-
-    public DatagridColumn setColumn(Double index) {
-        if (jsBase == null) {
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".column(%f);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%f)", index));
-                js.setLength(0);
-            }
-        }
-        return new DatagridColumn(jsBase);
-    }
-
     private DatagridColumn getColumn;
 
     public DatagridColumn getColumn() {
@@ -503,21 +477,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index1;
+    private Double index;
     private DatagridColumn column1;
 
-    public UiDataGrid setColumn(Double index1, DatagridColumn column1) {
+    public UiDataGrid setColumn(Double index, DatagridColumn column1) {
         if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
             this.column = null;
             this.column1 = null;
             
             this.column1 = column1;
         } else {
-            this.index1 = index1;
+            this.index = index;
             this.column1 = column1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -528,10 +499,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".column(%f, %s)", index1, (column1 != null) ? column1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".column(%f, %s)", index, (column1 != null) ? column1.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".column(%f, %s)", index1, (column1 != null) ? column1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".column(%f, %s)", index, (column1 != null) ? column1.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -718,7 +689,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color1;
     private Double opacity3;
 
-    public UiDataGrid setEditStructurePreviewFill(String color1, Double opacity3) {
+    public UiDataGrid editStructurePreviewFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -760,7 +731,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
-    public UiDataGrid setEditStructurePreviewFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -815,7 +786,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setEditStructurePreviewFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -870,7 +841,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setEditStructurePreviewFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -925,7 +896,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setEditStructurePreviewFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -980,7 +951,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setEditStructurePreviewFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1035,7 +1006,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setEditStructurePreviewFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1098,7 +1069,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
-    public UiDataGrid setEditStructurePreviewFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1172,7 +1143,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setEditStructurePreviewFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiDataGrid editStructurePreviewFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1306,7 +1277,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private Boolean editing;
 
-    public StandalonesDataGrid setEditing(Boolean editing) {
+    public StandalonesDataGrid editing(Boolean editing) {
         if (jsBase == null) {
             this.editing = editing;
         } else {
@@ -1446,7 +1417,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color2;
     private Double opacity6;
 
-    public UiDataGrid setRowEvenFill(String color2, Double opacity6) {
+    public UiDataGrid rowEvenFill(String color2, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1492,7 +1463,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode10;
     private Double opacity7;
 
-    public UiDataGrid setRowEvenFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1559,7 +1530,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowEvenFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1626,7 +1597,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowEvenFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1693,7 +1664,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowEvenFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1760,7 +1731,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowEvenFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1827,7 +1798,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowEvenFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1902,7 +1873,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx2;
     private Double fy2;
 
-    public UiDataGrid setRowEvenFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1991,7 +1962,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowEvenFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiDataGrid rowEvenFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2109,7 +2080,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color3;
     private Double opacity9;
 
-    public UiDataGrid setRowFill(String color3, Double opacity9) {
+    public UiDataGrid rowFill(String color3, Double opacity9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2159,7 +2130,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode14;
     private Double opacity10;
 
-    public UiDataGrid setRowFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2238,7 +2209,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2317,7 +2288,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2396,7 +2367,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2475,7 +2446,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2554,7 +2525,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2641,7 +2612,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx3;
     private Double fy3;
 
-    public UiDataGrid setRowFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public UiDataGrid rowFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2745,7 +2716,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public UiDataGrid rowFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2878,7 +2849,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color4;
     private Double opacity12;
 
-    public UiDataGrid setRowHoverFill(String color4, Double opacity12) {
+    public UiDataGrid rowHoverFill(String color4, Double opacity12) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2932,7 +2903,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode18;
     private Double opacity13;
 
-    public UiDataGrid setRowHoverFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3023,7 +2994,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowHoverFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3114,7 +3085,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowHoverFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3205,7 +3176,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowHoverFill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3296,7 +3267,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowHoverFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3387,7 +3358,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowHoverFill(String[] keys17, String mode18, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(String[] keys17, String mode18, Double angle4, Double opacity13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3486,7 +3457,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx4;
     private Double fy4;
 
-    public UiDataGrid setRowHoverFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3605,7 +3576,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowHoverFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public UiDataGrid rowHoverFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3753,7 +3724,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color5;
     private Double opacity15;
 
-    public UiDataGrid setRowOddFill(String color5, Double opacity15) {
+    public UiDataGrid rowOddFill(String color5, Double opacity15) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3811,7 +3782,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String mode22;
     private Double opacity16;
 
-    public UiDataGrid setRowOddFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3914,7 +3885,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowOddFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4017,7 +3988,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowOddFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4120,7 +4091,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowOddFill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4223,7 +4194,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowOddFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4326,7 +4297,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowOddFill(String[] keys21, String mode22, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(String[] keys21, String mode22, Double angle5, Double opacity16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4437,7 +4408,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx5;
     private Double fy5;
 
-    public UiDataGrid setRowOddFill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public UiDataGrid rowOddFill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4571,7 +4542,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowOddFill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public UiDataGrid rowOddFill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4734,7 +4705,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private String color6;
     private Double opacity18;
 
-    public UiDataGrid setRowSelectedFill(String color6, Double opacity18) {
+    public UiDataGrid rowSelectedFill(String color6, Double opacity18) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4795,7 +4766,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private VectorRect mode25;
     private String mode26;
 
-    public UiDataGrid setRowSelectedFill(GradientKey[] keys24, Boolean mode24, Double angle6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Boolean mode24, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4887,7 +4858,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowSelectedFill(GradientKey[] keys24, VectorRect mode25, Double angle6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, VectorRect mode25, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4979,7 +4950,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowSelectedFill(GradientKey[] keys24, String mode26, Double angle6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, String mode26, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5071,7 +5042,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowSelectedFill(String[] keys25, Boolean mode24, Double angle6) {
+    public UiDataGrid rowSelectedFill(String[] keys25, Boolean mode24, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5163,7 +5134,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowSelectedFill(String[] keys25, VectorRect mode25, Double angle6) {
+    public UiDataGrid rowSelectedFill(String[] keys25, VectorRect mode25, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5255,7 +5226,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowSelectedFill(String[] keys25, String mode26, Double angle6) {
+    public UiDataGrid rowSelectedFill(String[] keys25, String mode26, Double angle6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5355,7 +5326,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double fx6;
     private Double fy6;
 
-    public UiDataGrid setRowSelectedFill(GradientKey[] keys26, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys26, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5503,7 +5474,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
 
-    public UiDataGrid setRowSelectedFill(String[] keys27, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
+    public UiDataGrid rowSelectedFill(String[] keys27, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5686,69 +5657,11 @@ public class UiDataGrid extends VisualBaseWithBounds {
         return getTooltip;
     }
 
-    private String tooltip;
-    private Boolean tooltip1;
-
-    public UiDataGrid setTooltip(String tooltip) {
-        if (jsBase == null) {
-            this.tooltip = null;
-            this.tooltip1 = null;
-            
-            this.tooltip = tooltip;
-        } else {
-            this.tooltip = tooltip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".tooltip(%s)", tooltip));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", tooltip));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiDataGrid setTooltip(Boolean tooltip1) {
-        if (jsBase == null) {
-            this.tooltip = null;
-            this.tooltip1 = null;
-            
-            this.tooltip1 = tooltip1;
-        } else {
-            this.tooltip1 = tooltip1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private UiDataGrid getTooltip1;
 
     public UiDataGrid getTooltip1() {
         if (getTooltip1 == null)
-            getTooltip1 = new UiDataGrid(jsBase + ".tooltip1()");
+            getTooltip1 = new UiDataGrid(jsBase + ".tooltip()");
 
         return getTooltip1;
     }
@@ -5947,13 +5860,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
     private String generateJScolumn() {
         if (column != null) {
             return String.format(Locale.US, "column: %s,", (column != null) ? column.generateJs() : "null");
@@ -5961,9 +5867,9 @@ public class UiDataGrid extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
+    private String generateJSindex() {
+        if (index != null) {
+            return String.format(Locale.US, "index: %f,", index);
         }
         return "";
     }
@@ -6850,20 +6756,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJStooltip() {
-        if (tooltip != null) {
-            return String.format(Locale.US, "tooltip: %s,", tooltip);
-        }
-        return "";
-    }
-
-    private String generateJStooltip1() {
-        if (tooltip1 != null) {
-            return String.format(Locale.US, "tooltip: %b,", tooltip1);
-        }
-        return "";
-    }
-
     private String generateJSverticalOffset() {
         if (verticalOffset != null) {
             return String.format(Locale.US, "verticalOffset: %f,", verticalOffset);
@@ -6915,9 +6807,8 @@ public class UiDataGrid extends VisualBaseWithBounds {
             js.append(generateJSfx());
             js.append(generateJSfy());
             js.append(generateJSimageSettings());
-            js.append(generateJSindex());
             js.append(generateJScolumn());
-            js.append(generateJSindex1());
+            js.append(generateJSindex());
             js.append(generateJScolumn1());
             js.append(generateJScolumnStroke());
             js.append(generateJScolumnStroke1());
@@ -7044,8 +6935,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             js.append(generateJSfy6());
             js.append(generateJSimageSettings6());
             js.append(generateJSstartIndex());
-            js.append(generateJStooltip());
-            js.append(generateJStooltip1());
             js.append(generateJSverticalOffset());
             js.append("}");
         }

@@ -26,7 +26,7 @@ public class TableSelectable extends JsObject {
     private Double key;
     private TableSearchMode mode;
 
-    public TableselectableRowProxy setSearch(Double key, TableSearchMode mode) {
+    public TableselectableRowProxy search(Double key, TableSearchMode mode) {
         if (jsBase == null) {
             this.key = key;
             this.mode = mode;
@@ -59,7 +59,7 @@ public class TableSelectable extends JsObject {
     private Interval intervalUnit;
     private Double intervalCount;
 
-    public TableSelectable setSelect(Double startDate, Double endDate, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable select(Double startDate, Double endDate, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -96,7 +96,7 @@ public class TableSelectable extends JsObject {
     }
 
 
-    public TableSelectable setSelect(Double startDate, String endDate1, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable select(Double startDate, String endDate1, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -133,7 +133,7 @@ public class TableSelectable extends JsObject {
     }
 
 
-    public TableSelectable setSelect(String startDate1, Double endDate, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable select(String startDate1, Double endDate, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -170,7 +170,7 @@ public class TableSelectable extends JsObject {
     }
 
 
-    public TableSelectable setSelect(String startDate1, String endDate1, Interval intervalUnit, Double intervalCount) {
+    public TableSelectable select(String startDate1, String endDate1, Interval intervalUnit, Double intervalCount) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -209,7 +209,7 @@ public class TableSelectable extends JsObject {
     private Interval intervalUnit1;
     private Double intervalCount1;
 
-    public TableSelectable setSelectAll(Interval intervalUnit1, Double intervalCount1) {
+    public TableSelectable selectAll(Interval intervalUnit1, Double intervalCount1) {
         if (jsBase == null) {
             this.intervalUnit = null;
             this.intervalUnit1 = null;

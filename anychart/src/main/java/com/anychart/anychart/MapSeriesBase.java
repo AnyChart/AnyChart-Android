@@ -26,7 +26,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double indexes;
     private Double[] indexes1;
 
-    public void setExcludePoint(Double indexes) {
+    public void excludePoint(Double indexes) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -53,7 +53,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public void setExcludePoint(Double[] indexes1) {
+    public void excludePoint(Double[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -108,7 +108,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String color;
     private Double opacity;
 
-    public MapSeriesBase setFill(String color, Double opacity) {
+    public MapSeriesBase fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -142,7 +142,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String mode2;
     private Double opacity1;
 
-    public MapSeriesBase setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public MapSeriesBase fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -183,7 +183,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public MapSeriesBase setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public MapSeriesBase fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -224,7 +224,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public MapSeriesBase setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public MapSeriesBase fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -265,7 +265,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public MapSeriesBase setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public MapSeriesBase fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -306,7 +306,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public MapSeriesBase setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public MapSeriesBase fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -347,7 +347,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public MapSeriesBase setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public MapSeriesBase fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -396,7 +396,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double fx;
     private Double fy;
 
-    public MapSeriesBase setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public MapSeriesBase fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -447,7 +447,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public MapSeriesBase setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public MapSeriesBase fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -744,7 +744,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double indexes2;
     private Double[] indexes3;
 
-    public void setIncludePoint(Double indexes2) {
+    public void includePoint(Double indexes2) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -773,7 +773,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public void setIncludePoint(Double[] indexes3) {
+    public void includePoint(Double[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -804,7 +804,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double indexes4;
     private Double[] indexes5;
 
-    public void setKeepOnlyPoints(Double indexes4) {
+    public void keepOnlyPoints(Double indexes4) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -835,7 +835,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
 
-    public void setKeepOnlyPoints(Double[] indexes5) {
+    public void keepOnlyPoints(Double[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -1085,7 +1085,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double xCoord;
     private Double yCoord;
 
-    public void setTransformXY(Double xCoord, Double yCoord) {
+    public void transformXY(Double xCoord, Double yCoord) {
         if (jsBase == null) {
             this.xCoord = xCoord;
             this.yCoord = yCoord;

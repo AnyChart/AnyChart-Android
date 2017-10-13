@@ -24,42 +24,14 @@ public class DistinctColors extends CoreBase {
 
     
     private Double index;
-
-    public void setItemAt(Double index) {
-        if (jsBase == null) {
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%f);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f)", index));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double index1;
     private Fill color;
 
-    public DistinctColors setItemAt(Double index1, Fill color) {
+    public DistinctColors setItemAt(Double index, Fill color) {
         if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
             this.color = color;
         } else {
-            this.index1 = index1;
+            this.index = index;
             this.color = color;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -70,10 +42,10 @@ public class DistinctColors extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index1, (color != null) ? color.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, (color != null) ? color.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index1, (color != null) ? color.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, (color != null) ? color.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -150,13 +122,6 @@ public class DistinctColors extends CoreBase {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
     private String generateJScolor() {
         if (color != null) {
             return String.format(Locale.US, "color: %s,", (color != null) ? color.generateJs() : "null");
@@ -206,7 +171,6 @@ public class DistinctColors extends CoreBase {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSindex());
-            js.append(generateJSindex1());
             js.append(generateJScolor());
             js.append(generateJSitems());
             js.append(generateJSitems1());

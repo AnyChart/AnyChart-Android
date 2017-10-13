@@ -26,7 +26,7 @@ public class View extends CoreBase {
     private View otherView;
     private String[] otherView1;
 
-    public View setConcat(View otherView) {
+    public View concat(View otherView) {
         if (jsBase == null) {
             this.otherView = null;
             this.otherView1 = null;
@@ -54,7 +54,7 @@ public class View extends CoreBase {
     }
 
 
-    public View setConcat(String[] otherView1) {
+    public View concat(String[] otherView1) {
         if (jsBase == null) {
             this.otherView = null;
             this.otherView1 = null;
@@ -83,7 +83,7 @@ public class View extends CoreBase {
 
     private String fieldName;
 
-    public View setFilter(String fieldName) {
+    public View filter(String fieldName) {
         if (jsBase == null) {
             this.fieldName = fieldName;
         } else {
@@ -109,7 +109,7 @@ public class View extends CoreBase {
 
     private String fieldName1;
 
-    public void setFind(String fieldName1) {
+    public void find(String fieldName1) {
         if (jsBase == null) {
             this.fieldName = null;
             this.fieldName1 = null;
@@ -135,108 +135,100 @@ public class View extends CoreBase {
         }
     }
 
-    private Double rowIndex;
-    private String fieldName2;
+    private Double index;
+    private String name;
 
-    public void setGet(Double rowIndex, String fieldName2) {
+    public View setMeta(Double index, String name) {
+        if (jsBase == null) {
+            this.index = index;
+            this.name = name;
+        } else {
+            this.index = index;
+            this.name = name;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".meta(%f, %s)", index, name));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".meta(%f, %s)", index, name));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double rowIndex;
+
+    public void setRow(Double rowIndex) {
         if (jsBase == null) {
             this.rowIndex = rowIndex;
+        } else {
+            this.rowIndex = rowIndex;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex));
+                js.setLength(0);
+            }
+        }
+    }
+
+    private Double rowIndex1;
+    private String fieldName2;
+
+    public View setSet(Double rowIndex1, String fieldName2) {
+        if (jsBase == null) {
+            this.rowIndex = null;
+            this.rowIndex1 = null;
+            
+            this.rowIndex1 = rowIndex1;
             this.fieldName = null;
             this.fieldName1 = null;
             this.fieldName2 = null;
             
             this.fieldName2 = fieldName2;
         } else {
-            this.rowIndex = rowIndex;
+            this.rowIndex1 = rowIndex1;
             this.fieldName2 = fieldName2;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
 //            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".get(%f, %s);", rowIndex, fieldName2));
+            js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, fieldName2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f, %s)", rowIndex, fieldName2));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex1, fieldName2));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private Double index;
-    private String name;
-
-    public void setMeta(Double index, String name) {
-        if (jsBase == null) {
-            this.index = index;
-            this.name = name;
-        } else {
-            this.index = index;
-            this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".meta(%f, %s);", index, name));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%f, %s)", index, name));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double index1;
-    private String name1;
-    private Double rowIndex1;
-
-    public void setRow(Double rowIndex1) {
-        if (jsBase == null) {
-            this.rowIndex = null;
-            this.rowIndex1 = null;
-            
-            this.rowIndex1 = rowIndex1;
-        } else {
-            this.rowIndex1 = rowIndex1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".row(%f);", rowIndex1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double rowIndex2;
-    private Double rowIndex3;
     private String fieldName3;
 
-    public View setSet(Double rowIndex3, String fieldName3) {
+    public View sort(String fieldName3) {
         if (jsBase == null) {
-            this.rowIndex = null;
-            this.rowIndex1 = null;
-            this.rowIndex2 = null;
-            this.rowIndex3 = null;
-            
-            this.rowIndex3 = rowIndex3;
             this.fieldName = null;
             this.fieldName1 = null;
             this.fieldName2 = null;
@@ -244,7 +236,6 @@ public class View extends CoreBase {
             
             this.fieldName3 = fieldName3;
         } else {
-            this.rowIndex3 = rowIndex3;
             this.fieldName3 = fieldName3;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -255,10 +246,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex3, fieldName3));
+            js.append(String.format(Locale.US, ".sort(%s)", fieldName3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex3, fieldName3));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", fieldName3));
                 js.setLength(0);
             }
         }
@@ -266,53 +257,20 @@ public class View extends CoreBase {
     }
 
     private String fieldName4;
-
-    public View setSort(String fieldName4) {
-        if (jsBase == null) {
-            this.fieldName = null;
-            this.fieldName1 = null;
-            this.fieldName2 = null;
-            this.fieldName3 = null;
-            this.fieldName4 = null;
-            
-            this.fieldName4 = fieldName4;
-        } else {
-            this.fieldName4 = fieldName4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".sort(%s)", fieldName4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", fieldName4));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private String fieldName5;
     private Sort order;
 
-    public View setSort(String fieldName5, Sort order) {
+    public View sort(String fieldName4, Sort order) {
         if (jsBase == null) {
             this.fieldName = null;
             this.fieldName1 = null;
             this.fieldName2 = null;
             this.fieldName3 = null;
             this.fieldName4 = null;
-            this.fieldName5 = null;
             
-            this.fieldName5 = fieldName5;
+            this.fieldName4 = fieldName4;
             this.order = order;
         } else {
-            this.fieldName5 = fieldName5;
+            this.fieldName4 = fieldName4;
             this.order = order;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -323,10 +281,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".sort(%s, %s)", fieldName5, (order != null) ? order.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".sort(%s, %s)", fieldName4, (order != null) ? order.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", fieldName5, (order != null) ? order.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", fieldName4, (order != null) ? order.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -361,20 +319,6 @@ public class View extends CoreBase {
         return "";
     }
 
-    private String generateJSrowIndex() {
-        if (rowIndex != null) {
-            return String.format(Locale.US, "rowIndex: %f,", rowIndex);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName2() {
-        if (fieldName2 != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName2);
-        }
-        return "";
-    }
-
     private String generateJSindex() {
         if (index != null) {
             return String.format(Locale.US, "index: %f,", index);
@@ -389,16 +333,9 @@ public class View extends CoreBase {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
-    private String generateJSname1() {
-        if (name1 != null) {
-            return String.format(Locale.US, "name: %s,", name1);
+    private String generateJSrowIndex() {
+        if (rowIndex != null) {
+            return String.format(Locale.US, "rowIndex: %f,", rowIndex);
         }
         return "";
     }
@@ -410,16 +347,9 @@ public class View extends CoreBase {
         return "";
     }
 
-    private String generateJSrowIndex2() {
-        if (rowIndex2 != null) {
-            return String.format(Locale.US, "rowIndex: %f,", rowIndex2);
-        }
-        return "";
-    }
-
-    private String generateJSrowIndex3() {
-        if (rowIndex3 != null) {
-            return String.format(Locale.US, "rowIndex: %f,", rowIndex3);
+    private String generateJSfieldName2() {
+        if (fieldName2 != null) {
+            return String.format(Locale.US, "fieldName: %s,", fieldName2);
         }
         return "";
     }
@@ -434,13 +364,6 @@ public class View extends CoreBase {
     private String generateJSfieldName4() {
         if (fieldName4 != null) {
             return String.format(Locale.US, "fieldName: %s,", fieldName4);
-        }
-        return "";
-    }
-
-    private String generateJSfieldName5() {
-        if (fieldName5 != null) {
-            return String.format(Locale.US, "fieldName: %s,", fieldName5);
         }
         return "";
     }
@@ -476,18 +399,13 @@ public class View extends CoreBase {
             js.append(generateJSotherView1());
             js.append(generateJSfieldName());
             js.append(generateJSfieldName1());
-            js.append(generateJSrowIndex());
-            js.append(generateJSfieldName2());
             js.append(generateJSindex());
             js.append(generateJSname());
-            js.append(generateJSindex1());
-            js.append(generateJSname1());
+            js.append(generateJSrowIndex());
             js.append(generateJSrowIndex1());
-            js.append(generateJSrowIndex2());
-            js.append(generateJSrowIndex3());
+            js.append(generateJSfieldName2());
             js.append(generateJSfieldName3());
             js.append(generateJSfieldName4());
-            js.append(generateJSfieldName5());
             js.append(generateJSorder());
             js.append("}");
         }

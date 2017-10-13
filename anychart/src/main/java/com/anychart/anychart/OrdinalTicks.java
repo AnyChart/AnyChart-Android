@@ -77,7 +77,7 @@ public class OrdinalTicks extends CoreBase {
 
     private String[] ticks;
 
-    public OrdinalTicks setSet(String[] ticks) {
+    public OrdinalTicks set(String[] ticks) {
         if (jsBase == null) {
             this.ticks = ticks;
         } else {

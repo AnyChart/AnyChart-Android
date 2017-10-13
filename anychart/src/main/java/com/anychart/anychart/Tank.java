@@ -84,7 +84,7 @@ public class Tank extends LineargaugePointersBase {
     private String color;
     private Double opacity;
 
-    public Tank setEmptyFill(String color, Double opacity) {
+    public Tank emptyFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;

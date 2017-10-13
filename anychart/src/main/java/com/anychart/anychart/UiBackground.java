@@ -227,64 +227,6 @@ public class UiBackground extends VisualBaseWithBounds {
     private String corners1;
     private Double[] corners2;
 
-    public UiBackground setCorners(Double corners) {
-        if (jsBase == null) {
-            this.corners = null;
-            this.corners1 = null;
-            this.corners2 = null;
-            
-            this.corners = corners;
-        } else {
-            this.corners = corners;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f)", corners));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f)", corners));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String corners1) {
-        if (jsBase == null) {
-            this.corners = null;
-            this.corners1 = null;
-            this.corners2 = null;
-            
-            this.corners1 = corners1;
-        } else {
-            this.corners1 = corners1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s)", corners1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s)", corners1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
     public UiBackground setCorners(Double[] corners2) {
         if (jsBase == null) {
             this.corners = null;
@@ -321,651 +263,6 @@ public class UiBackground extends VisualBaseWithBounds {
     private String bottomRight1;
     private Double bottomLeft;
     private String bottomLeft1;
-
-    public UiBackground setCorners(Double topLeft, Double topRight, Double bottomRight, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight = topRight;
-            this.bottomRight = bottomRight;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %f, %f, %f)", topLeft, topRight, bottomRight, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %f, %f, %f)", topLeft, topRight, bottomRight, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(Double topLeft, Double topRight, Double bottomRight, String bottomLeft1) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft1 = bottomLeft1;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight = topRight;
-            this.bottomRight = bottomRight;
-            this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %f, %f, %s)", topLeft, topRight, bottomRight, bottomLeft1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %f, %f, %s)", topLeft, topRight, bottomRight, bottomLeft1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(Double topLeft, Double topRight, String bottomRight1, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight = topRight;
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %f, %s, %f)", topLeft, topRight, bottomRight1, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %f, %s, %f)", topLeft, topRight, bottomRight1, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(Double topLeft, Double topRight, String bottomRight1, String bottomLeft1) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft1 = bottomLeft1;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight = topRight;
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %f, %s, %s)", topLeft, topRight, bottomRight1, bottomLeft1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %f, %s, %s)", topLeft, topRight, bottomRight1, bottomLeft1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(Double topLeft, String topRight1, Double bottomRight, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight1 = topRight1;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight1 = topRight1;
-            this.bottomRight = bottomRight;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %s, %f, %f)", topLeft, topRight1, bottomRight, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %s, %f, %f)", topLeft, topRight1, bottomRight, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(Double topLeft, String topRight1, Double bottomRight, String bottomLeft1) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight1 = topRight1;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft1 = bottomLeft1;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight1 = topRight1;
-            this.bottomRight = bottomRight;
-            this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %s, %f, %s)", topLeft, topRight1, bottomRight, bottomLeft1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %s, %f, %s)", topLeft, topRight1, bottomRight, bottomLeft1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(Double topLeft, String topRight1, String bottomRight1, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight1 = topRight1;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight1 = topRight1;
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %s, %s, %f)", topLeft, topRight1, bottomRight1, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %s, %s, %f)", topLeft, topRight1, bottomRight1, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(Double topLeft, String topRight1, String bottomRight1, String bottomLeft1) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft = topLeft;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight1 = topRight1;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft1 = bottomLeft1;
-        } else {
-            this.topLeft = topLeft;
-            this.topRight1 = topRight1;
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%f, %s, %s, %s)", topLeft, topRight1, bottomRight1, bottomLeft1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %s, %s, %s)", topLeft, topRight1, bottomRight1, bottomLeft1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String topLeft1, Double topRight, Double bottomRight, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft1 = topLeft1;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft1 = topLeft1;
-            this.topRight = topRight;
-            this.bottomRight = bottomRight;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s, %f, %f, %f)", topLeft1, topRight, bottomRight, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %f, %f, %f)", topLeft1, topRight, bottomRight, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String topLeft1, Double topRight, Double bottomRight, String bottomLeft1) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft1 = topLeft1;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft1 = bottomLeft1;
-        } else {
-            this.topLeft1 = topLeft1;
-            this.topRight = topRight;
-            this.bottomRight = bottomRight;
-            this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s, %f, %f, %s)", topLeft1, topRight, bottomRight, bottomLeft1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %f, %f, %s)", topLeft1, topRight, bottomRight, bottomLeft1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String topLeft1, Double topRight, String bottomRight1, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft1 = topLeft1;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft1 = topLeft1;
-            this.topRight = topRight;
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s, %f, %s, %f)", topLeft1, topRight, bottomRight1, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %f, %s, %f)", topLeft1, topRight, bottomRight1, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String topLeft1, Double topRight, String bottomRight1, String bottomLeft1) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft1 = topLeft1;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight = topRight;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft1 = bottomLeft1;
-        } else {
-            this.topLeft1 = topLeft1;
-            this.topRight = topRight;
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s, %f, %s, %s)", topLeft1, topRight, bottomRight1, bottomLeft1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %f, %s, %s)", topLeft1, topRight, bottomRight1, bottomLeft1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String topLeft1, String topRight1, Double bottomRight, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft1 = topLeft1;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight1 = topRight1;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft1 = topLeft1;
-            this.topRight1 = topRight1;
-            this.bottomRight = bottomRight;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s, %s, %f, %f)", topLeft1, topRight1, bottomRight, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %s, %f, %f)", topLeft1, topRight1, bottomRight, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String topLeft1, String topRight1, Double bottomRight, String bottomLeft1) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft1 = topLeft1;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight1 = topRight1;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight = bottomRight;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft1 = bottomLeft1;
-        } else {
-            this.topLeft1 = topLeft1;
-            this.topRight1 = topRight1;
-            this.bottomRight = bottomRight;
-            this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s, %s, %f, %s)", topLeft1, topRight1, bottomRight, bottomLeft1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %s, %f, %s)", topLeft1, topRight1, bottomRight, bottomLeft1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiBackground setCorners(String topLeft1, String topRight1, String bottomRight1, Double bottomLeft) {
-        if (jsBase == null) {
-            this.topLeft = null;
-            this.topLeft1 = null;
-            
-            this.topLeft1 = topLeft1;
-            this.topRight = null;
-            this.topRight1 = null;
-            
-            this.topRight1 = topRight1;
-            this.bottomRight = null;
-            this.bottomRight1 = null;
-            
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = null;
-            this.bottomLeft1 = null;
-            
-            this.bottomLeft = bottomLeft;
-        } else {
-            this.topLeft1 = topLeft1;
-            this.topRight1 = topRight1;
-            this.bottomRight1 = bottomRight1;
-            this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".corners(%s, %s, %s, %f)", topLeft1, topRight1, bottomRight1, bottomLeft));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".corners(%s, %s, %s, %f)", topLeft1, topRight1, bottomRight1, bottomLeft));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
 
     public UiBackground setCorners(String topLeft1, String topRight1, String bottomRight1, String bottomLeft1) {
         if (jsBase == null) {
@@ -1009,6 +306,49 @@ public class UiBackground extends VisualBaseWithBounds {
         return this;
     }
 
+
+    public UiBackground setCorners(Double topLeft, Double topRight, Double bottomRight, Double bottomLeft) {
+        if (jsBase == null) {
+            this.topLeft = null;
+            this.topLeft1 = null;
+            
+            this.topLeft = topLeft;
+            this.topRight = null;
+            this.topRight1 = null;
+            
+            this.topRight = topRight;
+            this.bottomRight = null;
+            this.bottomRight1 = null;
+            
+            this.bottomRight = bottomRight;
+            this.bottomLeft = null;
+            this.bottomLeft1 = null;
+            
+            this.bottomLeft = bottomLeft;
+        } else {
+            this.topLeft = topLeft;
+            this.topRight = topRight;
+            this.bottomRight = bottomRight;
+            this.bottomLeft = bottomLeft;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".corners(%f, %f, %f, %f)", topLeft, topRight, bottomRight, bottomLeft));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".corners(%f, %f, %f, %f)", topLeft, topRight, bottomRight, bottomLeft));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill fill;
 
     public UiBackground setFill(Fill fill) {
@@ -1038,7 +378,7 @@ public class UiBackground extends VisualBaseWithBounds {
     private String color;
     private Double opacity;
 
-    public UiBackground setFill(String color, Double opacity) {
+    public UiBackground fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -1072,7 +412,7 @@ public class UiBackground extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public UiBackground setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiBackground fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1113,7 +453,7 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
-    public UiBackground setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiBackground fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1154,7 +494,7 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
-    public UiBackground setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiBackground fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1195,7 +535,7 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
-    public UiBackground setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiBackground fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1236,7 +576,7 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
-    public UiBackground setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiBackground fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1277,7 +617,7 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
-    public UiBackground setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiBackground fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1326,7 +666,7 @@ public class UiBackground extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public UiBackground setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiBackground fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1377,7 +717,7 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
 
-    public UiBackground setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiBackground fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

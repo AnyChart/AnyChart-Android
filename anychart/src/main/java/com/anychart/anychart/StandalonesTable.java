@@ -26,7 +26,7 @@ public class StandalonesTable extends UiTable {
     private String csvSettings;
     private String filename;
 
-    public void setSaveAsCsv(String csvSettings, String filename) {
+    public void saveAsCsv(String csvSettings, String filename) {
         if (jsBase == null) {
             this.csvSettings = csvSettings;
             this.filename = filename;
@@ -53,7 +53,7 @@ public class StandalonesTable extends UiTable {
 
     private String filename1;
 
-    public void setSaveAsXlsx(String filename1) {
+    public void saveAsXlsx(String filename1) {
         if (jsBase == null) {
             this.filename = null;
             this.filename1 = null;
@@ -81,7 +81,7 @@ public class StandalonesTable extends UiTable {
 
     private String csvSettings1;
 
-    public void setToCsv(String csvSettings1) {
+    public void toCsv(String csvSettings1) {
         if (jsBase == null) {
             this.csvSettings = null;
             this.csvSettings1 = null;

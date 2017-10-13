@@ -25,7 +25,7 @@ public class OrdinalZoom extends JsObject {
     
     private Boolean continuous;
 
-    public OrdinalZoom setContinuous(Boolean continuous) {
+    public OrdinalZoom continuous(Boolean continuous) {
         if (jsBase == null) {
             this.continuous = continuous;
         } else {
@@ -82,7 +82,7 @@ public class OrdinalZoom extends JsObject {
     private Boolean fromEnd;
     private ScalesBase scale;
 
-    public OrdinalZoom setSetToPointsCount(Double pointsCount, Boolean fromEnd, ScalesBase scale) {
+    public OrdinalZoom setToPointsCount(Double pointsCount, Boolean fromEnd, ScalesBase scale) {
         if (jsBase == null) {
             this.pointsCount = pointsCount;
             this.fromEnd = fromEnd;
@@ -112,7 +112,7 @@ public class OrdinalZoom extends JsObject {
 
     private ScalesBase scale1;
 
-    public OrdinalZoom setSetToValues(ScalesBase scale1) {
+    public OrdinalZoom setToValues(ScalesBase scale1) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;

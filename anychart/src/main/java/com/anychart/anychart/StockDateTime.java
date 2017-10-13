@@ -381,69 +381,11 @@ public class StockDateTime extends VisualBase {
         return getTicks;
     }
 
-    private String ticks;
-    private Boolean ticks1;
-
-    public StockDateTime setTicks(String ticks) {
-        if (jsBase == null) {
-            this.ticks = null;
-            this.ticks1 = null;
-            
-            this.ticks = ticks;
-        } else {
-            this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".ticks(%s)", ticks));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", ticks));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public StockDateTime setTicks(Boolean ticks1) {
-        if (jsBase == null) {
-            this.ticks = null;
-            this.ticks1 = null;
-            
-            this.ticks1 = ticks1;
-        } else {
-            this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private StockDateTime getTicks1;
 
     public StockDateTime getTicks1() {
         if (getTicks1 == null)
-            getTicks1 = new StockDateTime(jsBase + ".ticks1()");
+            getTicks1 = new StockDateTime(jsBase + ".ticks()");
 
         return getTicks1;
     }
@@ -574,20 +516,6 @@ public class StockDateTime extends VisualBase {
         return "";
     }
 
-    private String generateJSticks() {
-        if (ticks != null) {
-            return String.format(Locale.US, "ticks: %s,", ticks);
-        }
-        return "";
-    }
-
-    private String generateJSticks1() {
-        if (ticks1 != null) {
-            return String.format(Locale.US, "ticks: %b,", ticks1);
-        }
-        return "";
-    }
-
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -626,8 +554,6 @@ public class StockDateTime extends VisualBase {
             js.append(generateJSminorTicks1());
             js.append(generateJSoverlapMode());
             js.append(generateJSshowHelperLabel());
-            js.append(generateJSticks());
-            js.append(generateJSticks1());
             js.append("}");
         }
 

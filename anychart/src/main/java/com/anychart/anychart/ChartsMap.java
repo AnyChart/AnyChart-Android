@@ -412,7 +412,7 @@ public class ChartsMap extends SeparateChart {
 
     public Callout getCallout(Double index) {
         if (getCallout1 == null)
-            getCallout1 = new Callout(jsBase + ".callout1("+ index+")");
+            getCallout1 = new Callout(jsBase + ".callout("+ index+")");
 
         return getCallout1;
     }
@@ -1561,7 +1561,7 @@ public class ChartsMap extends SeparateChart {
 
     public MapSeriesBase getGetSeries(String id8) {
         if (getGetSeries1 == null)
-            getGetSeries1 = new MapSeriesBase(jsBase + ".getSeries1("+ id8+")");
+            getGetSeries1 = new MapSeriesBase(jsBase + ".getSeries("+ id8+")");
 
         return getGetSeries1;
     }

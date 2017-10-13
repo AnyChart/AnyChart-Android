@@ -25,7 +25,7 @@ public class CycledQueue extends JsObject {
     
     private Double newLengthLimit;
 
-    public void setClear(Double newLengthLimit) {
+    public void clear(Double newLengthLimit) {
         if (jsBase == null) {
             this.newLengthLimit = newLengthLimit;
         } else {
@@ -50,7 +50,7 @@ public class CycledQueue extends JsObject {
 
     private Double index;
 
-    public void setGet(Double index) {
+    public void get(Double index) {
         if (jsBase == null) {
             this.index = index;
         } else {

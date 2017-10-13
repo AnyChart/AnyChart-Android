@@ -406,37 +406,11 @@ public class GanttText extends CoreText {
         return getScale;
     }
 
-    private GanttDateTime scale;
-
-    public GanttText setScale(GanttDateTime scale) {
-        if (jsBase == null) {
-            this.scale = scale;
-        } else {
-            this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale != null) ? scale.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private GanttText getScale1;
 
     public GanttText getScale1() {
         if (getScale1 == null)
-            getScale1 = new GanttText(jsBase + ".scale1()");
+            getScale1 = new GanttText(jsBase + ".scale()");
 
         return getScale1;
     }
@@ -720,13 +694,6 @@ public class GanttText extends CoreText {
         return "";
     }
 
-    private String generateJSscale() {
-        if (scale != null) {
-            return String.format(Locale.US, "scale: %s,", (scale != null) ? scale.generateJs() : "null");
-        }
-        return "";
-    }
-
     private String generateJStext() {
         if (text != null) {
             return String.format(Locale.US, "text: %s,", text);
@@ -804,7 +771,6 @@ public class GanttText extends CoreText {
             js.append(generateJSoffsetY());
             js.append(generateJSoffsetY1());
             js.append(generateJSrotation());
-            js.append(generateJSscale());
             js.append(generateJStext());
             js.append(generateJSvalue());
             js.append(generateJSvalue1());

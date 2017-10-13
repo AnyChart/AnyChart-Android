@@ -26,7 +26,7 @@ public class Geo extends CoreBase {
     private Double x;
     private Double y;
 
-    public Geo setExtendDataRange(Double x, Double y) {
+    public Geo extendDataRange(Double x, Double y) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;

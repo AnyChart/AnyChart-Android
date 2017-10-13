@@ -26,7 +26,7 @@ public class TreeDataItem extends JsObject {
     private String child;
     private TreeDataItem child1;
 
-    public TreeDataItem setAddChild(String child) {
+    public TreeDataItem addChild(String child) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -54,7 +54,7 @@ public class TreeDataItem extends JsObject {
     }
 
 
-    public TreeDataItem setAddChild(TreeDataItem child1) {
+    public TreeDataItem addChild(TreeDataItem child1) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -86,7 +86,7 @@ public class TreeDataItem extends JsObject {
     private TreeviewDataItem child4;
     private Double index;
 
-    public TreeDataItem setAddChildAt(String child2, Double index) {
+    public TreeDataItem addChildAt(String child2, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -119,7 +119,7 @@ public class TreeDataItem extends JsObject {
     }
 
 
-    public TreeDataItem setAddChildAt(TreeDataItem child3, Double index) {
+    public TreeDataItem addChildAt(TreeDataItem child3, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -152,7 +152,7 @@ public class TreeDataItem extends JsObject {
     }
 
 
-    public TreeDataItem setAddChildAt(TreeviewDataItem child4, Double index) {
+    public TreeDataItem addChildAt(TreeviewDataItem child4, Double index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -184,60 +184,6 @@ public class TreeDataItem extends JsObject {
         return this;
     }
 
-    private String key;
-
-    public void setGet(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".get(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", key));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double index1;
-
-    public TreeDataItem setGetChildAt(Double index1) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
-        } else {
-            this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".getChildAt(%f)", index1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".getChildAt(%f)", index1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private TreeDataItem getGetChildAt;
 
     public TreeDataItem getGetChildAt() {
@@ -256,10 +202,34 @@ public class TreeDataItem extends JsObject {
         return getGetParent;
     }
 
+    private String key;
+
+    public void setMeta(String key) {
+        if (jsBase == null) {
+            this.key = key;
+        } else {
+            this.key = key;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".meta(%s);", key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key));
+                js.setLength(0);
+            }
+        }
+    }
+
     private TreeDataItem child5;
-    private TreeviewDataItem child6;
 
-    public void setIndexOfChild(TreeDataItem child5) {
+    public TreeDataItem removeChild(TreeDataItem child5) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -267,106 +237,10 @@ public class TreeDataItem extends JsObject {
             this.child3 = null;
             this.child4 = null;
             this.child5 = null;
-            this.child6 = null;
             
             this.child5 = child5;
         } else {
             this.child5 = child5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child5 != null) ? child5.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", (child5 != null) ? child5.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setIndexOfChild(TreeviewDataItem child6) {
-        if (jsBase == null) {
-            this.child = null;
-            this.child1 = null;
-            this.child2 = null;
-            this.child3 = null;
-            this.child4 = null;
-            this.child5 = null;
-            this.child6 = null;
-            
-            this.child6 = child6;
-        } else {
-            this.child6 = child6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (child6 != null) ? child6.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s)", (child6 != null) ? child6.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key1;
-
-    public void setMeta(String key1) {
-        if (jsBase == null) {
-            this.key = null;
-            this.key1 = null;
-            
-            this.key1 = key1;
-        } else {
-            this.key1 = key1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".meta(%s);", key1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", key1));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key2;
-    private TreeDataItem child7;
-
-    public TreeDataItem setRemoveChild(TreeDataItem child7) {
-        if (jsBase == null) {
-            this.child = null;
-            this.child1 = null;
-            this.child2 = null;
-            this.child3 = null;
-            this.child4 = null;
-            this.child5 = null;
-            this.child6 = null;
-            this.child7 = null;
-            
-            this.child7 = child7;
-        } else {
-            this.child7 = child7;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -376,27 +250,26 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeChild(%s)", (child7 != null) ? child7.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".removeChild(%s)", (child5 != null) ? child5.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", (child7 != null) ? child7.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".removeChild(%s)", (child5 != null) ? child5.generateJs() : "null"));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private Double index2;
+    private Double index1;
 
-    public TreeDataItem setRemoveChildAt(Double index2) {
+    public TreeDataItem removeChildAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
             
-            this.index2 = index2;
+            this.index1 = index1;
         } else {
-            this.index2 = index2;
+            this.index1 = index1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -406,10 +279,10 @@ public class TreeDataItem extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".removeChildAt(%f)", index2));
+            js.append(String.format(Locale.US, ".removeChildAt(%f)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChildAt(%f)", index2));
+                onChangeListener.onChange(String.format(Locale.US, ".removeChildAt(%f)", index1));
                 js.setLength(0);
             }
         }
@@ -479,13 +352,6 @@ public class TreeDataItem extends JsObject {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
     private String generateJSchild5() {
         if (child5 != null) {
             return String.format(Locale.US, "child: %s,", (child5 != null) ? child5.generateJs() : "null");
@@ -493,37 +359,9 @@ public class TreeDataItem extends JsObject {
         return "";
     }
 
-    private String generateJSchild6() {
-        if (child6 != null) {
-            return String.format(Locale.US, "child: %s,", (child6 != null) ? child6.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSkey1() {
-        if (key1 != null) {
-            return String.format(Locale.US, "key: %s,", key1);
-        }
-        return "";
-    }
-
-    private String generateJSkey2() {
-        if (key2 != null) {
-            return String.format(Locale.US, "key: %s,", key2);
-        }
-        return "";
-    }
-
-    private String generateJSchild7() {
-        if (child7 != null) {
-            return String.format(Locale.US, "child: %s,", (child7 != null) ? child7.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
+    private String generateJSindex1() {
+        if (index1 != null) {
+            return String.format(Locale.US, "index: %f,", index1);
         }
         return "";
     }
@@ -557,13 +395,8 @@ public class TreeDataItem extends JsObject {
             js.append(generateJSchild4());
             js.append(generateJSindex());
             js.append(generateJSkey());
-            js.append(generateJSindex1());
             js.append(generateJSchild5());
-            js.append(generateJSchild6());
-            js.append(generateJSkey1());
-            js.append(generateJSkey2());
-            js.append(generateJSchild7());
-            js.append(generateJSindex2());
+            js.append(generateJSindex1());
             js.append("}");
         }
 

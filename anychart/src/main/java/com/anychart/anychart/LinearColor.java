@@ -25,7 +25,7 @@ public class LinearColor extends ScatterBase {
     
     private String colorToValue;
 
-    public void setColorToValue(String colorToValue) {
+    public void colorToValue(String colorToValue) {
         if (jsBase == null) {
             this.colorToValue = colorToValue;
         } else {
@@ -464,7 +464,7 @@ public class LinearColor extends ScatterBase {
 
     private Double valueToColor;
 
-    public void setValueToColor(Double valueToColor) {
+    public void valueToColor(Double valueToColor) {
         if (jsBase == null) {
             this.valueToColor = valueToColor;
         } else {

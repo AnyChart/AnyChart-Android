@@ -25,7 +25,7 @@ public class StockScatterDateTime extends CoreBase {
     
     private Double ratio;
 
-    public void setInverseTransform(Double ratio) {
+    public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {
@@ -51,7 +51,7 @@ public class StockScatterDateTime extends CoreBase {
     private Double transform;
     private String transform1;
 
-    public void setTransform(Double transform) {
+    public void transform(Double transform) {
         if (jsBase == null) {
             this.transform = null;
             this.transform1 = null;
@@ -78,7 +78,7 @@ public class StockScatterDateTime extends CoreBase {
     }
 
 
-    public void setTransform(String transform1) {
+    public void transform(String transform1) {
         if (jsBase == null) {
             this.transform = null;
             this.transform1 = null;

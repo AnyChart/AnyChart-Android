@@ -29,7 +29,7 @@ public class DataTable extends CoreBase {
     private Double removeFromStart1;
     private String csvSettings;
 
-    public DataTable setAddData(String[] rawData, Boolean removeFromStart, String csvSettings) {
+    public DataTable addData(String[] rawData, Boolean removeFromStart, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -64,7 +64,7 @@ public class DataTable extends CoreBase {
     }
 
 
-    public DataTable setAddData(String[] rawData, Double removeFromStart1, String csvSettings) {
+    public DataTable addData(String[] rawData, Double removeFromStart1, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -99,7 +99,7 @@ public class DataTable extends CoreBase {
     }
 
 
-    public DataTable setAddData(String rawData1, Boolean removeFromStart, String csvSettings) {
+    public DataTable addData(String rawData1, Boolean removeFromStart, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -134,7 +134,7 @@ public class DataTable extends CoreBase {
     }
 
 
-    public DataTable setAddData(String rawData1, Double removeFromStart1, String csvSettings) {
+    public DataTable addData(String rawData1, Double removeFromStart1, String csvSettings) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -171,7 +171,7 @@ public class DataTable extends CoreBase {
     private TableMapping mappingSettingsOrMapping;
     private String mappingSettingsOrMapping1;
 
-    public TableComputer setCreateComputer(TableMapping mappingSettingsOrMapping) {
+    public TableComputer createComputer(TableMapping mappingSettingsOrMapping) {
         if (jsBase == null) {
             this.mappingSettingsOrMapping = null;
             this.mappingSettingsOrMapping1 = null;
@@ -199,7 +199,7 @@ public class DataTable extends CoreBase {
     }
 
 
-    public TableComputer setCreateComputer(String mappingSettingsOrMapping1) {
+    public TableComputer createComputer(String mappingSettingsOrMapping1) {
         if (jsBase == null) {
             this.mappingSettingsOrMapping = null;
             this.mappingSettingsOrMapping1 = null;
@@ -228,7 +228,7 @@ public class DataTable extends CoreBase {
 
     private String fields;
 
-    public TableMapping setMapAs(String fields) {
+    public TableMapping mapAs(String fields) {
         if (jsBase == null) {
             this.fields = fields;
         } else {
@@ -257,7 +257,7 @@ public class DataTable extends CoreBase {
     private Double endKey;
     private String endKey1;
 
-    public DataTable setRemove(Double startKey, Double endKey) {
+    public DataTable remove(Double startKey, Double endKey) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -290,7 +290,7 @@ public class DataTable extends CoreBase {
     }
 
 
-    public DataTable setRemove(Double startKey, String endKey1) {
+    public DataTable remove(Double startKey, String endKey1) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -323,7 +323,7 @@ public class DataTable extends CoreBase {
     }
 
 
-    public DataTable setRemove(String startKey1, Double endKey) {
+    public DataTable remove(String startKey1, Double endKey) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -356,7 +356,7 @@ public class DataTable extends CoreBase {
     }
 
 
-    public DataTable setRemove(String startKey1, String endKey1) {
+    public DataTable remove(String startKey1, String endKey1) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -390,7 +390,7 @@ public class DataTable extends CoreBase {
 
     private Double count;
 
-    public DataTable setRemoveFirst(Double count) {
+    public DataTable removeFirst(Double count) {
         if (jsBase == null) {
             this.count = count;
         } else {

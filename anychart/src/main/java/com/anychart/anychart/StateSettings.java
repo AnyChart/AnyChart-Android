@@ -52,7 +52,7 @@ public class StateSettings extends CoreBase {
     private String color;
     private Double opacity;
 
-    public StateSettings setDummyFill(String color, Double opacity) {
+    public StateSettings dummyFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class StateSettings extends CoreBase {
     private String mode2;
     private Double opacity1;
 
-    public StateSettings setDummyFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public StateSettings dummyFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setDummyFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public StateSettings dummyFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setDummyFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public StateSettings dummyFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setDummyFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public StateSettings dummyFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setDummyFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public StateSettings dummyFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setDummyFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public StateSettings dummyFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class StateSettings extends CoreBase {
     private Double fx;
     private Double fy;
 
-    public StateSettings setDummyFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public StateSettings dummyFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setDummyFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public StateSettings dummyFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -624,7 +624,7 @@ public class StateSettings extends CoreBase {
     private String color4;
     private Double opacity3;
 
-    public StateSettings setEmptyFill(String color4, Double opacity3) {
+    public StateSettings emptyFill(String color4, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -942,7 +942,7 @@ public class StateSettings extends CoreBase {
     private String color6;
     private Double opacity4;
 
-    public CartesianSeriesBase setFallingFill(String color6, Double opacity4) {
+    public CartesianSeriesBase fallingFill(String color6, Double opacity4) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -990,7 +990,7 @@ public class StateSettings extends CoreBase {
     private String mode6;
     private Double opacity5;
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1046,7 +1046,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1102,7 +1102,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1158,7 +1158,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1214,7 +1214,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1270,7 +1270,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys5, String mode6, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(String[] keys5, String mode6, Double angle1, Double opacity5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1334,7 +1334,7 @@ public class StateSettings extends CoreBase {
     private Double fx1;
     private Double fy1;
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1409,7 +1409,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
+    public CartesianSeriesBase fallingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1679,7 +1679,7 @@ public class StateSettings extends CoreBase {
     private String color7;
     private Double opacity7;
 
-    public StateSettings setFill(String color7, Double opacity7) {
+    public StateSettings fill(String color7, Double opacity7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1731,7 +1731,7 @@ public class StateSettings extends CoreBase {
     private String mode10;
     private Double opacity8;
 
-    public StateSettings setFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity8) {
+    public StateSettings fill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1799,7 +1799,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity8) {
+    public StateSettings fill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1867,7 +1867,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity8) {
+    public StateSettings fill(GradientKey[] keys8, String mode10, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1935,7 +1935,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setFill(String[] keys9, Boolean mode8, Double angle2, Double opacity8) {
+    public StateSettings fill(String[] keys9, Boolean mode8, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2003,7 +2003,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity8) {
+    public StateSettings fill(String[] keys9, VectorRect mode9, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2071,7 +2071,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setFill(String[] keys9, String mode10, Double angle2, Double opacity8) {
+    public StateSettings fill(String[] keys9, String mode10, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2147,7 +2147,7 @@ public class StateSettings extends CoreBase {
     private Double fx2;
     private Double fy2;
 
-    public StateSettings setFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
+    public StateSettings fill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2237,7 +2237,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
+    public StateSettings fill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4040,7 +4040,7 @@ public class StateSettings extends CoreBase {
     private String color18;
     private Double opacity10;
 
-    public StateSettings setNegativeFill(String color18, Double opacity10) {
+    public StateSettings negativeFill(String color18, Double opacity10) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4106,7 +4106,7 @@ public class StateSettings extends CoreBase {
     private String mode14;
     private Double opacity11;
 
-    public StateSettings setNegativeFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4186,7 +4186,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setNegativeFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4266,7 +4266,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setNegativeFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4346,7 +4346,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setNegativeFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4426,7 +4426,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setNegativeFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4506,7 +4506,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setNegativeFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4594,7 +4594,7 @@ public class StateSettings extends CoreBase {
     private Double fx3;
     private Double fy3;
 
-    public StateSettings setNegativeFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
+    public StateSettings negativeFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4699,7 +4699,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setNegativeFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
+    public StateSettings negativeFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5556,7 +5556,7 @@ public class StateSettings extends CoreBase {
     private String color23;
     private Double opacity13;
 
-    public ScrollerseriesBase setRisingFill(String color23, Double opacity13) {
+    public ScrollerseriesBase risingFill(String color23, Double opacity13) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5630,7 +5630,7 @@ public class StateSettings extends CoreBase {
     private String mode18;
     private Double opacity14;
 
-    public ScrollerseriesBase setRisingFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5722,7 +5722,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public ScrollerseriesBase setRisingFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5814,7 +5814,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public ScrollerseriesBase setRisingFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5906,7 +5906,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public ScrollerseriesBase setRisingFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5998,7 +5998,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public ScrollerseriesBase setRisingFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6090,7 +6090,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public ScrollerseriesBase setRisingFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6190,7 +6190,7 @@ public class StateSettings extends CoreBase {
     private Double fx4;
     private Double fy4;
 
-    public StateSettings setRisingFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
+    public StateSettings risingFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6310,7 +6310,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setRisingFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
+    public StateSettings risingFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

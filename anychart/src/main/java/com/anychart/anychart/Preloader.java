@@ -25,7 +25,7 @@ public class Preloader extends JsObject {
     
     private Element element;
 
-    public void setDecorate(Element element) {
+    public void decorate(Element element) {
         if (jsBase == null) {
             this.element = element;
         } else {
@@ -50,7 +50,7 @@ public class Preloader extends JsObject {
 
     private Element parentElement;
 
-    public void setRender(Element parentElement) {
+    public void render(Element parentElement) {
         if (jsBase == null) {
             this.parentElement = parentElement;
         } else {

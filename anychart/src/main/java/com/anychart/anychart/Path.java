@@ -28,7 +28,7 @@ public class Path extends JsObject {
     private Double fromAngle;
     private Double extent;
 
-    public Path setArcTo(Double rx, Double ry, Double fromAngle, Double extent) {
+    public Path arcTo(Double rx, Double ry, Double fromAngle, Double extent) {
         if (jsBase == null) {
             this.rx = rx;
             this.ry = ry;
@@ -63,7 +63,7 @@ public class Path extends JsObject {
     private Double fromAngle1;
     private Double extent1;
 
-    public Path setArcToAsCurves(Double rx1, Double ry1, Double fromAngle1, Double extent1) {
+    public Path arcToAsCurves(Double rx1, Double ry1, Double fromAngle1, Double extent1) {
         if (jsBase == null) {
             this.rx = null;
             this.rx1 = null;
@@ -112,7 +112,7 @@ public class Path extends JsObject {
     private Boolean largeArc;
     private Boolean clockwiseArc;
 
-    public Path setArcToByEndPoint(Double x, Double y, Double rx2, Double ry2, Boolean largeArc, Boolean clockwiseArc) {
+    public Path arcToByEndPoint(Double x, Double y, Double rx2, Double ry2, Boolean largeArc, Boolean clockwiseArc) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -162,7 +162,7 @@ public class Path extends JsObject {
     private Double sweep;
     private Boolean lineTo;
 
-    public Path setCircularArc(Double cx, Double cy, Double rx3, Double ry3, Double fromAngle2, Double sweep, Boolean lineTo) {
+    public Path circularArc(Double cx, Double cy, Double rx3, Double ry3, Double fromAngle2, Double sweep, Boolean lineTo) {
         if (jsBase == null) {
             this.cx = cx;
             this.cy = cy;
@@ -220,7 +220,7 @@ public class Path extends JsObject {
     private Double endY;
     private Double var_args;
 
-    public Path setCurveTo(Double controlX, Double controlY, Double controlX1, Double controlY1, Double endX, Double endY, Double var_args) {
+    public Path curveTo(Double controlX, Double controlY, Double controlX1, Double controlY1, Double endX, Double endY, Double var_args) {
         if (jsBase == null) {
             this.controlX = null;
             this.controlX1 = null;
@@ -272,7 +272,7 @@ public class Path extends JsObject {
     private Double y1;
     private Double var_args1;
 
-    public Path setLineTo(Double x1, Double y1, Double var_args1) {
+    public Path lineTo(Double x1, Double y1, Double var_args1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -312,7 +312,7 @@ public class Path extends JsObject {
     private Double x2;
     private Double y2;
 
-    public Path setMoveTo(Double x2, Double y2) {
+    public Path moveTo(Double x2, Double y2) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -352,7 +352,7 @@ public class Path extends JsObject {
     private Double endY1;
     private Double var_args2;
 
-    public Path setQuadraticCurveTo(Double controlX2, Double controlY2, Double endX1, Double endY1, Double var_args2) {
+    public Path quadraticCurveTo(Double controlX2, Double controlY2, Double endX1, Double endY1, Double var_args2) {
         if (jsBase == null) {
             this.controlX = null;
             this.controlX1 = null;

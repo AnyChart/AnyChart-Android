@@ -78,7 +78,7 @@ public class UnboundRegionsSettings extends JsObject {
     private String color;
     private Double opacity;
 
-    public UnboundRegionsSettings setFill(String color, Double opacity) {
+    public UnboundRegionsSettings fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -112,7 +112,7 @@ public class UnboundRegionsSettings extends JsObject {
     private String mode2;
     private Double opacity1;
 
-    public UnboundRegionsSettings setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UnboundRegionsSettings fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -153,7 +153,7 @@ public class UnboundRegionsSettings extends JsObject {
     }
 
 
-    public UnboundRegionsSettings setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UnboundRegionsSettings fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -194,7 +194,7 @@ public class UnboundRegionsSettings extends JsObject {
     }
 
 
-    public UnboundRegionsSettings setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UnboundRegionsSettings fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -235,7 +235,7 @@ public class UnboundRegionsSettings extends JsObject {
     }
 
 
-    public UnboundRegionsSettings setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UnboundRegionsSettings fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -276,7 +276,7 @@ public class UnboundRegionsSettings extends JsObject {
     }
 
 
-    public UnboundRegionsSettings setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UnboundRegionsSettings fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -317,7 +317,7 @@ public class UnboundRegionsSettings extends JsObject {
     }
 
 
-    public UnboundRegionsSettings setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UnboundRegionsSettings fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -366,7 +366,7 @@ public class UnboundRegionsSettings extends JsObject {
     private Double fx;
     private Double fy;
 
-    public UnboundRegionsSettings setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UnboundRegionsSettings fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -417,7 +417,7 @@ public class UnboundRegionsSettings extends JsObject {
     }
 
 
-    public UnboundRegionsSettings setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UnboundRegionsSettings fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

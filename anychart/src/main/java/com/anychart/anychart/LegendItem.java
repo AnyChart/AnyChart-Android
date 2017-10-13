@@ -23,32 +23,6 @@ public class LegendItem extends CoreText {
     }
 
     
-    private Fill iconFill;
-
-    public LegendItem setIconFill(Fill iconFill) {
-        if (jsBase == null) {
-            this.iconFill = iconFill;
-        } else {
-            this.iconFill = iconFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".iconFill(%s)", (iconFill != null) ? iconFill.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconFill(%s)", (iconFill != null) ? iconFill.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private LegendItem getIconFill;
 
     public LegendItem getIconFill() {
@@ -218,32 +192,6 @@ public class LegendItem extends CoreText {
         return this;
     }
 
-    private Stroke iconStroke;
-
-    public LegendItem setIconStroke(Stroke iconStroke) {
-        if (jsBase == null) {
-            this.iconStroke = iconStroke;
-        } else {
-            this.iconStroke = iconStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".iconStroke(%s)", (iconStroke != null) ? iconStroke.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconStroke(%s)", (iconStroke != null) ? iconStroke.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private LegendItem getIconStroke;
 
     public LegendItem getIconStroke() {
@@ -253,32 +201,6 @@ public class LegendItem extends CoreText {
         return getIconStroke;
     }
 
-    private Double iconTextSpacing;
-
-    public LegendItem setIconTextSpacing(Double iconTextSpacing) {
-        if (jsBase == null) {
-            this.iconTextSpacing = iconTextSpacing;
-        } else {
-            this.iconTextSpacing = iconTextSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconTextSpacing(%f)", iconTextSpacing));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private LegendItem getIconTextSpacing;
 
     public LegendItem getIconTextSpacing() {
@@ -286,32 +208,6 @@ public class LegendItem extends CoreText {
             getIconTextSpacing = new LegendItem(jsBase + ".iconTextSpacing()");
 
         return getIconTextSpacing;
-    }
-
-    private String iconType;
-
-    public LegendItem setIconType(String iconType) {
-        if (jsBase == null) {
-            this.iconType = iconType;
-        } else {
-            this.iconType = iconType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".iconType(%s)", iconType));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".iconType(%s)", iconType));
-                js.setLength(0);
-            }
-        }
-        return this;
     }
 
     private LegendItem getIconType;
@@ -439,32 +335,6 @@ public class LegendItem extends CoreText {
         return this;
     }
 
-    private String text;
-
-    public LegendItem setText(String text) {
-        if (jsBase == null) {
-            this.text = text;
-        } else {
-            this.text = text;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".text(%s)", text));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", text));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private LegendItem getText;
 
     public LegendItem getText() {
@@ -474,64 +344,6 @@ public class LegendItem extends CoreText {
         return getText;
     }
 
-    private Double x;
-    private String x1;
-
-    public LegendItem setX(Double x) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x = x;
-        } else {
-            this.x = x;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".x(%f)", x));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".x(%f)", x));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public LegendItem setX(String x1) {
-        if (jsBase == null) {
-            this.x = null;
-            this.x1 = null;
-            
-            this.x1 = x1;
-        } else {
-            this.x1 = x1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".x(%s)", x1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".x(%s)", x1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private LegendItem getX;
 
     public LegendItem getX() {
@@ -539,64 +351,6 @@ public class LegendItem extends CoreText {
             getX = new LegendItem(jsBase + ".x()");
 
         return getX;
-    }
-
-    private Double y;
-    private String y1;
-
-    public LegendItem setY(Double y) {
-        if (jsBase == null) {
-            this.y = null;
-            this.y1 = null;
-            
-            this.y = y;
-        } else {
-            this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".y(%f)", y));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".y(%f)", y));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public LegendItem setY(String y1) {
-        if (jsBase == null) {
-            this.y = null;
-            this.y1 = null;
-            
-            this.y1 = y1;
-        } else {
-            this.y1 = y1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".y(%s)", y1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".y(%s)", y1));
-                js.setLength(0);
-            }
-        }
-        return this;
     }
 
     private LegendItem getY;
@@ -664,13 +418,6 @@ public class LegendItem extends CoreText {
         return "";
     }
 
-    private String generateJSiconFill() {
-        if (iconFill != null) {
-            return String.format(Locale.US, "iconFill: %s,", (iconFill != null) ? iconFill.generateJs() : "null");
-        }
-        return "";
-    }
-
     private String generateJSpatternFillOrType() {
         if (patternFillOrType != null) {
             return String.format(Locale.US, "patternFillOrType: %s,", (patternFillOrType != null) ? patternFillOrType.generateJs() : "null");
@@ -720,27 +467,6 @@ public class LegendItem extends CoreText {
         return "";
     }
 
-    private String generateJSiconStroke() {
-        if (iconStroke != null) {
-            return String.format(Locale.US, "iconStroke: %s,", (iconStroke != null) ? iconStroke.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSiconTextSpacing() {
-        if (iconTextSpacing != null) {
-            return String.format(Locale.US, "iconTextSpacing: %f,", iconTextSpacing);
-        }
-        return "";
-    }
-
-    private String generateJSiconType() {
-        if (iconType != null) {
-            return String.format(Locale.US, "iconType: %s,", iconType);
-        }
-        return "";
-    }
-
     private String generateJSmaxHeight() {
         if (maxHeight != null) {
             return String.format(Locale.US, "maxHeight: %f,", maxHeight);
@@ -765,41 +491,6 @@ public class LegendItem extends CoreText {
     private String generateJSmaxWidth1() {
         if (maxWidth1 != null) {
             return String.format(Locale.US, "maxWidth: %s,", maxWidth1);
-        }
-        return "";
-    }
-
-    private String generateJStext() {
-        if (text != null) {
-            return String.format(Locale.US, "text: %s,", text);
-        }
-        return "";
-    }
-
-    private String generateJSx() {
-        if (x != null) {
-            return String.format(Locale.US, "x: %f,", x);
-        }
-        return "";
-    }
-
-    private String generateJSx1() {
-        if (x1 != null) {
-            return String.format(Locale.US, "x: %s,", x1);
-        }
-        return "";
-    }
-
-    private String generateJSy() {
-        if (y != null) {
-            return String.format(Locale.US, "y: %f,", y);
-        }
-        return "";
-    }
-
-    private String generateJSy1() {
-        if (y1 != null) {
-            return String.format(Locale.US, "y: %s,", y1);
         }
         return "";
     }
@@ -832,7 +523,6 @@ public class LegendItem extends CoreText {
 
         if (jsBase == null) {
             js.append("{");
-            js.append(generateJSiconFill());
             js.append(generateJSpatternFillOrType());
             js.append(generateJSpatternFillOrType1());
             js.append(generateJSpatternFillOrType2());
@@ -840,18 +530,10 @@ public class LegendItem extends CoreText {
             js.append(generateJScolor());
             js.append(generateJSthickness());
             js.append(generateJSsize());
-            js.append(generateJSiconStroke());
-            js.append(generateJSiconTextSpacing());
-            js.append(generateJSiconType());
             js.append(generateJSmaxHeight());
             js.append(generateJSmaxHeight1());
             js.append(generateJSmaxWidth());
             js.append(generateJSmaxWidth1());
-            js.append(generateJStext());
-            js.append(generateJSx());
-            js.append(generateJSx1());
-            js.append(generateJSy());
-            js.append(generateJSy1());
             js.append("}");
         }
 

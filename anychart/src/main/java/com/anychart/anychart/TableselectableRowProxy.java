@@ -25,7 +25,7 @@ public class TableselectableRowProxy extends JsObject {
     
     private String field;
 
-    public void setGet(String field) {
+    public void get(String field) {
         if (jsBase == null) {
             this.field = field;
         } else {
@@ -50,7 +50,7 @@ public class TableselectableRowProxy extends JsObject {
 
     private Double column;
 
-    public void setGetColumn(Double column) {
+    public void getColumn(Double column) {
         if (jsBase == null) {
             this.column = column;
         } else {

@@ -30,7 +30,7 @@ public class Element extends JsObject {
     private Double m4;
     private Double m5;
 
-    public Element setAppendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
+    public Element appendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -108,7 +108,7 @@ public class Element extends JsObject {
 
     private String key;
 
-    public void setAttr(String key) {
+    public Element setAttr(String key) {
         if (jsBase == null) {
             this.key = key;
         } else {
@@ -117,21 +117,21 @@ public class Element extends JsObject {
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
 //            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".attr(%s);", key));
+            js.append(String.format(Locale.US, ".attr(%s)", key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attr(%s)", key));
+                onChangeListener.onChange(String.format(Locale.US, ".attr(%s)", key));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private String key1;
     private GraphicsMathRect getClip;
 
     public GraphicsMathRect getClip() {
@@ -253,7 +253,7 @@ public class Element extends JsObject {
 
     private Boolean disablePointerEvents;
 
-    public Element setDisablePointerEvents(Boolean disablePointerEvents) {
+    public Element disablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
@@ -306,7 +306,7 @@ public class Element extends JsObject {
     private Boolean drag;
     private GraphicsMathRect drag1;
 
-    public Element setDrag(Boolean drag) {
+    public Element drag(Boolean drag) {
         if (jsBase == null) {
             this.drag = null;
             this.drag1 = null;
@@ -334,7 +334,7 @@ public class Element extends JsObject {
     }
 
 
-    public Element setDrag(GraphicsMathRect drag1) {
+    public Element drag(GraphicsMathRect drag1) {
         if (jsBase == null) {
             this.drag = null;
             this.drag1 = null;
@@ -400,7 +400,7 @@ public class Element extends JsObject {
     private Boolean useCapture;
     private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
+    public void listen(String type, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = type;
             this.useCapture = useCapture;
@@ -431,7 +431,7 @@ public class Element extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
-    public void setListenOnce(String type1, Boolean useCapture1, String listenerScope1) {
+    public void listenOnce(String type1, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -470,7 +470,7 @@ public class Element extends JsObject {
     private Layer parent;
     private Stage parent1;
 
-    public Element setParent(Layer parent) {
+    public Element parent(Layer parent) {
         if (jsBase == null) {
             this.parent = null;
             this.parent1 = null;
@@ -498,7 +498,7 @@ public class Element extends JsObject {
     }
 
 
-    public Element setParent(Stage parent1) {
+    public Element parent(Stage parent1) {
         if (jsBase == null) {
             this.parent = null;
             this.parent1 = null;
@@ -527,7 +527,7 @@ public class Element extends JsObject {
 
     private String type2;
 
-    public void setRemoveAllListeners(String type2) {
+    public void removeAllListeners(String type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -558,7 +558,7 @@ public class Element extends JsObject {
     private Double cx;
     private Double cy;
 
-    public Element setRotate(Double degrees, Double cx, Double cy) {
+    public Element rotate(Double degrees, Double cx, Double cy) {
         if (jsBase == null) {
             this.degrees = degrees;
             this.cx = cx;
@@ -590,7 +590,7 @@ public class Element extends JsObject {
     private VectorAnchor anchor;
     private String anchor1;
 
-    public Element setRotateByAnchor(VectorAnchor anchor, Double degrees1) {
+    public Element rotateByAnchor(VectorAnchor anchor, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -623,7 +623,7 @@ public class Element extends JsObject {
     }
 
 
-    public Element setRotateByAnchor(String anchor1, Double degrees1) {
+    public Element rotateByAnchor(String anchor1, Double degrees1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -660,7 +660,7 @@ public class Element extends JsObject {
     private Double cx1;
     private Double cy1;
 
-    public Element setScale(Double sx, Double sy, Double cx1, Double cy1) {
+    public Element scale(Double sx, Double sy, Double cx1, Double cy1) {
         if (jsBase == null) {
             this.sx = sx;
             this.sy = sy;
@@ -701,7 +701,7 @@ public class Element extends JsObject {
     private VectorAnchor anchor2;
     private String anchor3;
 
-    public Element setScaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
+    public Element scaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -741,7 +741,7 @@ public class Element extends JsObject {
     }
 
 
-    public Element setScaleByAnchor(String anchor3, Double sx1, Double sy1) {
+    public Element scaleByAnchor(String anchor3, Double sx1, Double sy1) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -813,7 +813,7 @@ public class Element extends JsObject {
     private Double cx2;
     private Double cy2;
 
-    public Element setSetRotation(Double degrees2, Double cx2, Double cy2) {
+    public Element setRotation(Double degrees2, Double cx2, Double cy2) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -857,7 +857,7 @@ public class Element extends JsObject {
     private VectorAnchor anchor4;
     private String anchor5;
 
-    public Element setSetRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
+    public Element setRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -896,7 +896,7 @@ public class Element extends JsObject {
     }
 
 
-    public Element setSetRotationByAnchor(String anchor5, Double degrees3) {
+    public Element setRotationByAnchor(String anchor5, Double degrees3) {
         if (jsBase == null) {
             this.anchor = null;
             this.anchor1 = null;
@@ -1082,7 +1082,7 @@ public class Element extends JsObject {
     private Double tx;
     private Double ty;
 
-    public Element setTranslate(Double tx, Double ty) {
+    public Element translate(Double tx, Double ty) {
         if (jsBase == null) {
             this.tx = tx;
             this.ty = ty;
@@ -1112,7 +1112,7 @@ public class Element extends JsObject {
     private Boolean useCapture2;
     private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+    public void unlisten(String type3, Boolean useCapture2, String listenerScope2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -1152,17 +1152,16 @@ public class Element extends JsObject {
         }
     }
 
-    private String key2;
+    private String key1;
 
-    public void setUnlistenByKey(String key2) {
+    public void unlistenByKey(String key1) {
         if (jsBase == null) {
             this.key = null;
             this.key1 = null;
-            this.key2 = null;
             
-            this.key2 = key2;
+            this.key1 = key1;
         } else {
-            this.key2 = key2;
+            this.key1 = key1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -1172,10 +1171,10 @@ public class Element extends JsObject {
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key2));
+            js.append(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", key1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", key2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", key1));
                 js.setLength(0);
             }
         }
@@ -1183,7 +1182,7 @@ public class Element extends JsObject {
 
     private Boolean isVisible;
 
-    public Element setVisible(Boolean isVisible) {
+    public Element visible(Boolean isVisible) {
         if (jsBase == null) {
             this.isVisible = isVisible;
         } else {
@@ -1292,13 +1291,6 @@ public class Element extends JsObject {
     private String generateJSkey() {
         if (key != null) {
             return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
-    private String generateJSkey1() {
-        if (key1 != null) {
-            return String.format(Locale.US, "key: %s,", key1);
         }
         return "";
     }
@@ -1667,9 +1659,9 @@ public class Element extends JsObject {
         return "";
     }
 
-    private String generateJSkey2() {
-        if (key2 != null) {
-            return String.format(Locale.US, "key: %s,", key2);
+    private String generateJSkey1() {
+        if (key1 != null) {
+            return String.format(Locale.US, "key: %s,", key1);
         }
         return "";
     }
@@ -1717,7 +1709,6 @@ public class Element extends JsObject {
             js.append(generateJSm4());
             js.append(generateJSm5());
             js.append(generateJSkey());
-            js.append(generateJSkey1());
             js.append(generateJSclip());
             js.append(generateJSclip1());
             js.append(generateJScursor());
@@ -1770,7 +1761,7 @@ public class Element extends JsObject {
             js.append(generateJStype3());
             js.append(generateJSuseCapture2());
             js.append(generateJSlistenerScope2());
-            js.append(generateJSkey2());
+            js.append(generateJSkey1());
             js.append(generateJSisVisible());
             js.append(generateJSzIndex());
             js.append("}");

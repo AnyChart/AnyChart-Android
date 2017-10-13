@@ -159,7 +159,7 @@ public class CircularGauge extends Chart {
 
     public GaugePointersBar getBar(Double index1) {
         if (getBar1 == null)
-            getBar1 = new GaugePointersBar(jsBase + ".bar1("+ index1+")");
+            getBar1 = new GaugePointersBar(jsBase + ".bar("+ index1+")");
 
         return getBar1;
     }
@@ -1084,7 +1084,7 @@ public class CircularGauge extends Chart {
 
     public Knob getKnob(Double index3) {
         if (getKnob1 == null)
-            getKnob1 = new Knob(jsBase + ".knob1("+ index3+")");
+            getKnob1 = new Knob(jsBase + ".knob("+ index3+")");
 
         return getKnob1;
     }
@@ -1225,7 +1225,7 @@ public class CircularGauge extends Chart {
 
     public GaugePointersMarker getMarker(Double index5) {
         if (getMarker1 == null)
-            getMarker1 = new GaugePointersMarker(jsBase + ".marker1("+ index5+")");
+            getMarker1 = new GaugePointersMarker(jsBase + ".marker("+ index5+")");
 
         return getMarker1;
     }
@@ -1366,7 +1366,7 @@ public class CircularGauge extends Chart {
 
     public Needle getNeedle(Double index7) {
         if (getNeedle1 == null)
-            getNeedle1 = new Needle(jsBase + ".needle1("+ index7+")");
+            getNeedle1 = new Needle(jsBase + ".needle("+ index7+")");
 
         return getNeedle1;
     }
@@ -1507,7 +1507,7 @@ public class CircularGauge extends Chart {
 
     public CircularRange getRange(Double index9) {
         if (getRange1 == null)
-            getRange1 = new CircularRange(jsBase + ".range1("+ index9+")");
+            getRange1 = new CircularRange(jsBase + ".range("+ index9+")");
 
         return getRange1;
     }

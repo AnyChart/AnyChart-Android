@@ -25,7 +25,7 @@ public class Point extends JsObject {
     
     private String field;
 
-    public void setGet(String field) {
+    public void get(String field) {
         if (jsBase == null) {
             this.field = field;
         } else {
@@ -55,62 +55,6 @@ public class Point extends JsObject {
             getGetChart = new SeparateChart(jsBase + ".getChart()");
 
         return getGetChart;
-    }
-
-    private String key;
-    private Statistics key1;
-
-    public void setGetStat(String key) {
-        if (jsBase == null) {
-            this.key = null;
-            this.key1 = null;
-            
-            this.key = key;
-        } else {
-            this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", key));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", key));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setGetStat(Statistics key1) {
-        if (jsBase == null) {
-            this.key = null;
-            this.key1 = null;
-            
-            this.key1 = key1;
-        } else {
-            this.key1 = key1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getStat(%s);", (key1 != null) ? key1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", (key1 != null) ? key1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
     }
 
     private Boolean hovered;
@@ -208,20 +152,6 @@ public class Point extends JsObject {
         return "";
     }
 
-    private String generateJSkey() {
-        if (key != null) {
-            return String.format(Locale.US, "key: %s,", key);
-        }
-        return "";
-    }
-
-    private String generateJSkey1() {
-        if (key1 != null) {
-            return String.format(Locale.US, "key: %s,", (key1 != null) ? key1.generateJs() : "null");
-        }
-        return "";
-    }
-
     private String generateJShovered() {
         if (hovered != null) {
             return String.format(Locale.US, "hovered: %b,", hovered);
@@ -265,8 +195,6 @@ public class Point extends JsObject {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSfield());
-            js.append(generateJSkey());
-            js.append(generateJSkey1());
             js.append(generateJShovered());
             js.append(generateJSselected());
             js.append(generateJSfield1());

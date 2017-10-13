@@ -25,7 +25,7 @@ public class ChartController extends CoreBase {
     
     private AnnotationsBase annotation;
 
-    public ChartController setRemoveAnnotation(AnnotationsBase annotation) {
+    public ChartController removeAnnotation(AnnotationsBase annotation) {
         if (jsBase == null) {
             this.annotation = annotation;
         } else {
@@ -51,7 +51,7 @@ public class ChartController extends CoreBase {
 
     private AnnotationsBase annotation1;
 
-    public ChartController setSelect(AnnotationsBase annotation1) {
+    public ChartController select(AnnotationsBase annotation1) {
         if (jsBase == null) {
             this.annotation = null;
             this.annotation1 = null;
@@ -81,7 +81,7 @@ public class ChartController extends CoreBase {
     private AnnotationTypes annotationTypeOrConfig;
     private AnnotationJSONFormat annotationTypeOrConfig1;
 
-    public AnnotationsBase setStartDrawing(AnnotationTypes annotationTypeOrConfig) {
+    public AnnotationsBase startDrawing(AnnotationTypes annotationTypeOrConfig) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
@@ -109,7 +109,7 @@ public class ChartController extends CoreBase {
     }
 
 
-    public AnnotationsBase setStartDrawing(AnnotationJSONFormat annotationTypeOrConfig1) {
+    public AnnotationsBase startDrawing(AnnotationJSONFormat annotationTypeOrConfig1) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;

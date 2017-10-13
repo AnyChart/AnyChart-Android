@@ -130,7 +130,7 @@ public class LegendItemSettings extends CoreText {
     private String color;
     private Double opacity;
 
-    public LegendItemSettings setIconFill(String color, Double opacity) {
+    public LegendItemSettings iconFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -164,7 +164,7 @@ public class LegendItemSettings extends CoreText {
     private String mode2;
     private Double opacity1;
 
-    public LegendItemSettings setIconFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public LegendItemSettings iconFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -205,7 +205,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public LegendItemSettings iconFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -246,7 +246,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public LegendItemSettings iconFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -287,7 +287,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public LegendItemSettings iconFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -328,7 +328,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public LegendItemSettings iconFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -369,7 +369,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public LegendItemSettings iconFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -418,7 +418,7 @@ public class LegendItemSettings extends CoreText {
     private Double fx;
     private Double fy;
 
-    public LegendItemSettings setIconFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public LegendItemSettings iconFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -469,7 +469,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public LegendItemSettings iconFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -720,7 +720,7 @@ public class LegendItemSettings extends CoreText {
     private String color2;
     private Double opacity3;
 
-    public LegendItemSettings setIconMarkerFill(String color2, Double opacity3) {
+    public LegendItemSettings iconMarkerFill(String color2, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -763,7 +763,7 @@ public class LegendItemSettings extends CoreText {
     private String mode6;
     private Double opacity4;
 
-    public LegendItemSettings setIconMarkerFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -818,7 +818,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconMarkerFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -873,7 +873,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconMarkerFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -928,7 +928,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconMarkerFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public LegendItemSettings iconMarkerFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -983,7 +983,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconMarkerFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public LegendItemSettings iconMarkerFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1038,7 +1038,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconMarkerFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public LegendItemSettings iconMarkerFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1101,7 +1101,7 @@ public class LegendItemSettings extends CoreText {
     private Double fx1;
     private Double fy1;
 
-    public LegendItemSettings setIconMarkerFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1175,7 +1175,7 @@ public class LegendItemSettings extends CoreText {
     }
 
 
-    public LegendItemSettings setIconMarkerFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public LegendItemSettings iconMarkerFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

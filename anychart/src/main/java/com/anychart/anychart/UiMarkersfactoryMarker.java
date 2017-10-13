@@ -142,7 +142,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     private String color;
     private Double opacity;
 
-    public UiMarkersfactoryMarker setFill(String color, Double opacity) {
+    public UiMarkersfactoryMarker fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -176,7 +176,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public UiMarkersfactoryMarker setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiMarkersfactoryMarker fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -217,7 +217,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     }
 
 
-    public UiMarkersfactoryMarker setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiMarkersfactoryMarker fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -258,7 +258,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     }
 
 
-    public UiMarkersfactoryMarker setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiMarkersfactoryMarker fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -299,7 +299,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     }
 
 
-    public UiMarkersfactoryMarker setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiMarkersfactoryMarker fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     }
 
 
-    public UiMarkersfactoryMarker setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiMarkersfactoryMarker fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -381,7 +381,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     }
 
 
-    public UiMarkersfactoryMarker setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiMarkersfactoryMarker fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -430,7 +430,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public UiMarkersfactoryMarker setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiMarkersfactoryMarker fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -481,7 +481,7 @@ public class UiMarkersfactoryMarker extends VisualBase {
     }
 
 
-    public UiMarkersfactoryMarker setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiMarkersfactoryMarker fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

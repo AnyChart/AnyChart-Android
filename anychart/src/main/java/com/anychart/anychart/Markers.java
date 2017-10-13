@@ -24,42 +24,14 @@ public class Markers extends CoreBase {
 
     
     private Double index;
-
-    public void setItemAt(Double index) {
-        if (jsBase == null) {
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%f);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f)", index));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private Double index1;
     private String type;
 
-    public Markers setItemAt(Double index1, String type) {
+    public Markers setItemAt(Double index, String type) {
         if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
             this.type = type;
         } else {
-            this.index1 = index1;
+            this.index = index;
             this.type = type;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -70,10 +42,10 @@ public class Markers extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index1, type));
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, type));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index1, type));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index, type));
                 js.setLength(0);
             }
         }
@@ -150,13 +122,6 @@ public class Markers extends CoreBase {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
     private String generateJStype() {
         if (type != null) {
             return String.format(Locale.US, "type: %s,", type);
@@ -206,7 +171,6 @@ public class Markers extends CoreBase {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSindex());
-            js.append(generateJSindex1());
             js.append(generateJStype());
             js.append(generateJSitems());
             js.append(generateJSitems1());

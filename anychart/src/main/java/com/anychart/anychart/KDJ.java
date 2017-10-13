@@ -174,32 +174,6 @@ public class KDJ extends JsObject {
         return this;
     }
 
-    private Double kMAPeriod;
-
-    public KDJ setKMAPeriod(Double kMAPeriod) {
-        if (jsBase == null) {
-            this.kMAPeriod = kMAPeriod;
-        } else {
-            this.kMAPeriod = kMAPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private KDJ getKMAPeriod;
 
     public KDJ getKMAPeriod() {
@@ -389,13 +363,6 @@ public class KDJ extends JsObject {
         return "";
     }
 
-    private String generateJSkMAPeriod() {
-        if (kMAPeriod != null) {
-            return String.format(Locale.US, "kMAPeriod: %f,", kMAPeriod);
-        }
-        return "";
-    }
-
     private String generateJSkMAType() {
         if (kMAType != null) {
             return String.format(Locale.US, "kMAType: %s,", (kMAType != null) ? kMAType.generateJs() : "null");
@@ -453,7 +420,6 @@ public class KDJ extends JsObject {
             js.append(generateJSdPeriod());
             js.append(generateJStype());
             js.append(generateJStype1());
-            js.append(generateJSkMAPeriod());
             js.append(generateJSkMAType());
             js.append(generateJSkMultiplier());
             js.append(generateJSkPeriod());

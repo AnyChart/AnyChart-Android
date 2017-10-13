@@ -347,7 +347,7 @@ public class ChartsRadar extends SeparateChart {
 
     public RadarSeriesBase getGetSeries(String id1) {
         if (getGetSeries1 == null)
-            getGetSeries1 = new RadarSeriesBase(jsBase + ".getSeries1("+ id1+")");
+            getGetSeries1 = new RadarSeriesBase(jsBase + ".getSeries("+ id1+")");
 
         return getGetSeries1;
     }
@@ -1690,7 +1690,7 @@ public class ChartsRadar extends SeparateChart {
 
     public CoreGridsRadar getXGrid(Double index2) {
         if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsRadar(jsBase + ".xGrid1("+ index2+")");
+            getXGrid1 = new CoreGridsRadar(jsBase + ".xGrid("+ index2+")");
 
         return getXGrid1;
     }
@@ -1831,7 +1831,7 @@ public class ChartsRadar extends SeparateChart {
 
     public CoreGridsRadar getXMinorGrid(Double index4) {
         if (getXMinorGrid1 == null)
-            getXMinorGrid1 = new CoreGridsRadar(jsBase + ".xMinorGrid1("+ index4+")");
+            getXMinorGrid1 = new CoreGridsRadar(jsBase + ".xMinorGrid("+ index4+")");
 
         return getXMinorGrid1;
     }
@@ -2080,7 +2080,7 @@ public class ChartsRadar extends SeparateChart {
 
     public CoreGridsRadar getYGrid(Double index6) {
         if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsRadar(jsBase + ".yGrid1("+ index6+")");
+            getYGrid1 = new CoreGridsRadar(jsBase + ".yGrid("+ index6+")");
 
         return getYGrid1;
     }
@@ -2221,7 +2221,7 @@ public class ChartsRadar extends SeparateChart {
 
     public CoreGridsRadar getYMinorGrid(Double index8) {
         if (getYMinorGrid1 == null)
-            getYMinorGrid1 = new CoreGridsRadar(jsBase + ".yMinorGrid1("+ index8+")");
+            getYMinorGrid1 = new CoreGridsRadar(jsBase + ".yMinorGrid("+ index8+")");
 
         return getYMinorGrid1;
     }

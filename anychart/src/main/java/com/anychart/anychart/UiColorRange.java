@@ -174,69 +174,11 @@ public class UiColorRange extends CoreAxesLinear {
         return getMarker;
     }
 
-    private UiMarkersfactoryMarker marker;
-    private String marker1;
-
-    public UiColorRange setMarker(UiMarkersfactoryMarker marker) {
-        if (jsBase == null) {
-            this.marker = null;
-            this.marker1 = null;
-            
-            this.marker = marker;
-        } else {
-            this.marker = marker;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".marker(%s)", (marker != null) ? marker.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".marker(%s)", (marker != null) ? marker.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiColorRange setMarker(String marker1) {
-        if (jsBase == null) {
-            this.marker = null;
-            this.marker1 = null;
-            
-            this.marker1 = marker1;
-        } else {
-            this.marker1 = marker1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".marker(%s)", marker1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".marker(%s)", marker1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private UiColorRange getMarker1;
 
     public UiColorRange getMarker1() {
         if (getMarker1 == null)
-            getMarker1 = new UiColorRange(jsBase + ".marker1()");
+            getMarker1 = new UiColorRange(jsBase + ".marker()");
 
         return getMarker1;
     }
@@ -290,20 +232,6 @@ public class UiColorRange extends CoreAxesLinear {
         return "";
     }
 
-    private String generateJSmarker() {
-        if (marker != null) {
-            return String.format(Locale.US, "marker: %s,", (marker != null) ? marker.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmarker1() {
-        if (marker1 != null) {
-            return String.format(Locale.US, "marker: %s,", marker1);
-        }
-        return "";
-    }
-
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -331,8 +259,6 @@ public class UiColorRange extends CoreAxesLinear {
             js.append(generateJScolorLineSize());
             js.append(generateJSlength());
             js.append(generateJSlength1());
-            js.append(generateJSmarker());
-            js.append(generateJSmarker1());
             js.append("}");
         }
 

@@ -150,7 +150,7 @@ public class DateTimeTicks extends CoreBase {
 
     private String[] ticks;
 
-    public DateTimeTicks setSet(String[] ticks) {
+    public DateTimeTicks set(String[] ticks) {
         if (jsBase == null) {
             this.ticks = ticks;
         } else {

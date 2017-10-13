@@ -27,7 +27,7 @@ public class Paginator extends CoreText {
     private String background1;
     private Boolean background2;
 
-    public Paginator setBackground(String background) {
+    public Paginator background(String background) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -56,7 +56,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setBackground(Boolean background2) {
+    public Paginator background(Boolean background2) {
         if (jsBase == null) {
             this.background = null;
             this.background1 = null;
@@ -212,7 +212,7 @@ public class Paginator extends CoreText {
     private String left;
     private Double left1;
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, String left) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -258,7 +258,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -304,7 +304,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -350,7 +350,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -396,7 +396,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -442,7 +442,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -488,7 +488,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -534,7 +534,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Paginator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -580,7 +580,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, String left) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -626,7 +626,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -672,7 +672,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -718,7 +718,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -764,7 +764,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -810,7 +810,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -856,7 +856,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -902,7 +902,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Paginator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -948,7 +948,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, String left) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -994,7 +994,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1040,7 +1040,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1086,7 +1086,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1132,7 +1132,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1178,7 +1178,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1224,7 +1224,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1270,7 +1270,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Paginator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1316,7 +1316,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, String left) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1362,7 +1362,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1408,7 +1408,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, String left) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1454,7 +1454,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, Double left1) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1500,7 +1500,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, String left) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1546,7 +1546,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, Double left1) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1592,7 +1592,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, String left) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, String left) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1638,7 +1638,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setMargin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Paginator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1686,7 +1686,7 @@ public class Paginator extends CoreText {
     private Orientation orientation;
     private String orientation1;
 
-    public Paginator setOrientation(Orientation orientation) {
+    public Paginator orientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -1714,7 +1714,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setOrientation(String orientation1) {
+    public Paginator orientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -1753,7 +1753,7 @@ public class Paginator extends CoreText {
     private String left2;
     private Double left3;
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, String bottom2, String left2) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1810,7 +1810,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, String bottom2, Double left3) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1867,7 +1867,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, Double bottom3, String left2) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1924,7 +1924,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, Double bottom3, Double left3) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, String rightOrRightAndLeft2, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1981,7 +1981,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, String bottom2, String left2) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2038,7 +2038,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, String bottom2, Double left3) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2095,7 +2095,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, Double bottom3, String left2) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2152,7 +2152,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
+    public Paginator padding(String spaceOrTopOrTopAndBottom5, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2209,7 +2209,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, String bottom2, String left2) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2266,7 +2266,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, String bottom2, Double left3) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2323,7 +2323,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, Double bottom3, String left2) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2380,7 +2380,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, Double bottom3, Double left3) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, String rightOrRightAndLeft2, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2437,7 +2437,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, String bottom2, String left2) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2494,7 +2494,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, String bottom2, Double left3) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2551,7 +2551,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, Double bottom3, String left2) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2608,7 +2608,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
+    public Paginator padding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2665,7 +2665,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, String bottom2, String left2) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2722,7 +2722,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, String bottom2, Double left3) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2779,7 +2779,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, Double bottom3, String left2) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2836,7 +2836,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, Double bottom3, Double left3) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, String rightOrRightAndLeft2, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2893,7 +2893,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, String bottom2, String left2) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -2950,7 +2950,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, String bottom2, Double left3) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3007,7 +3007,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, Double bottom3, String left2) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3064,7 +3064,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
+    public Paginator padding(Double[] spaceOrTopOrTopAndBottom7, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3121,7 +3121,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, String bottom2, String left2) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3178,7 +3178,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, String bottom2, Double left3) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3235,7 +3235,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, Double bottom3, String left2) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3292,7 +3292,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, Double bottom3, Double left3) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, String rightOrRightAndLeft2, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3349,7 +3349,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, String bottom2, String left2) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, String bottom2, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3406,7 +3406,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, String bottom2, Double left3) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, String bottom2, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3463,7 +3463,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, Double bottom3, String left2) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, Double bottom3, String left2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -3520,7 +3520,7 @@ public class Paginator extends CoreText {
     }
 
 
-    public Paginator setPadding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
+    public Paginator padding(String[] spaceOrTopOrTopAndBottom8, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;

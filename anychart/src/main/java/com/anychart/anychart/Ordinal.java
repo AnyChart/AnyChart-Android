@@ -25,7 +25,7 @@ public class Ordinal extends ScalesBase {
     
     private Double ratio;
 
-    public void setInverseTransform(Double ratio) {
+    public void inverseTransform(Double ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {
@@ -143,7 +143,7 @@ public class Ordinal extends ScalesBase {
 
     private Double subRangeRatio;
 
-    public void setTransform(Double subRangeRatio) {
+    public void transform(Double subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
         } else {

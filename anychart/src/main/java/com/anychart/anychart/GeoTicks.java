@@ -106,7 +106,7 @@ public class GeoTicks extends CoreBase {
 
     private String[] ticks;
 
-    public GeoTicks setSet(String[] ticks) {
+    public GeoTicks set(String[] ticks) {
         if (jsBase == null) {
             this.ticks = ticks;
         } else {

@@ -27,7 +27,7 @@ public class RenderingsettingsContext extends JsObject {
     private Double baseZIndex;
     private String restrictShapes;
 
-    public void setGetShapesGroup(PointState state, Double baseZIndex, String restrictShapes) {
+    public void getShapesGroup(PointState state, Double baseZIndex, String restrictShapes) {
         if (jsBase == null) {
             this.state = state;
             this.baseZIndex = baseZIndex;
@@ -56,7 +56,7 @@ public class RenderingsettingsContext extends JsObject {
 
     private String key;
 
-    public void setGetStat(String key) {
+    public void getStat(String key) {
         if (jsBase == null) {
             this.key = key;
         } else {

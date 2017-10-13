@@ -27,7 +27,7 @@ public class CoreBase extends JsObject {
     private Boolean useCapture;
     private String listenerScope;
 
-    public void setListen(String type, Boolean useCapture, String listenerScope) {
+    public void listen(String type, Boolean useCapture, String listenerScope) {
         if (jsBase == null) {
             this.type = type;
             this.useCapture = useCapture;
@@ -58,7 +58,7 @@ public class CoreBase extends JsObject {
     private Boolean useCapture1;
     private String listenerScope1;
 
-    public void setListenOnce(String type1, Boolean useCapture1, String listenerScope1) {
+    public void listenOnce(String type1, Boolean useCapture1, String listenerScope1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -96,7 +96,7 @@ public class CoreBase extends JsObject {
 
     private String type2;
 
-    public void setRemoveAllListeners(String type2) {
+    public void removeAllListeners(String type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -127,7 +127,7 @@ public class CoreBase extends JsObject {
     private Boolean useCapture2;
     private String listenerScope2;
 
-    public void setUnlisten(String type3, Boolean useCapture2, String listenerScope2) {
+    public void unlisten(String type3, Boolean useCapture2, String listenerScope2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -169,7 +169,7 @@ public class CoreBase extends JsObject {
 
     private String key;
 
-    public void setUnlistenByKey(String key) {
+    public void unlistenByKey(String key) {
         if (jsBase == null) {
             this.key = key;
         } else {

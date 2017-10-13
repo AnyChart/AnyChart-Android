@@ -333,7 +333,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String color3;
     private Double opacity;
 
-    public UiTable setCellFill(String color3, Double opacity) {
+    public UiTable cellFill(String color3, Double opacity) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -372,7 +372,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String mode2;
     private Double opacity1;
 
-    public UiTable setCellFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiTable cellFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -413,7 +413,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setCellFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTable cellFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -454,7 +454,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setCellFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiTable cellFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -495,7 +495,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setCellFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiTable cellFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -536,7 +536,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setCellFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTable cellFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -577,7 +577,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setCellFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiTable cellFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -626,7 +626,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double fx;
     private Double fy;
 
-    public UiTable setCellFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTable cellFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -677,7 +677,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setCellFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTable cellFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -798,35 +798,6 @@ public class UiTable extends VisualBaseWithBounds {
         return this;
     }
 
-
-    public UiTable setCellPadding(String cellPadding2) {
-        if (jsBase == null) {
-            this.cellPadding = null;
-            this.cellPadding1 = null;
-            this.cellPadding2 = null;
-            
-            this.cellPadding2 = cellPadding2;
-        } else {
-            this.cellPadding2 = cellPadding2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private String value;
     private Double value1;
     private String value2;
@@ -896,944 +867,6 @@ public class UiTable extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value, value2, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(String value, String value2, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value2 = value2;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %f)", value, value2, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %f)", value, value2, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(String value, String value2, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value = value;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %s)", value, value2, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %f, %s)", value, value2, value5, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(String value, String value2, Double value5, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %f)", value, value2, value5, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %f, %f)", value, value2, value5, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(String value, Double value3, String value4, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %s)", value, value3, value4, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %s, %s)", value, value3, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(String value, Double value3, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %f)", value, value3, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %s, %f)", value, value3, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(String value, Double value3, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %s)", value, value3, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %f, %s)", value, value3, value5, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(String value, Double value3, Double value5, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value = value;
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %f)", value, value3, value5, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %f, %f)", value, value3, value5, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(Double value1, String value2, String value4, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value4 = value4;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %s)", value1, value2, value4, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %s, %s)", value1, value2, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(Double value1, String value2, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %f)", value1, value2, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %s, %f)", value1, value2, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(Double value1, String value2, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %s)", value1, value2, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %f, %s)", value1, value2, value5, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(Double value1, String value2, Double value5, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value1 = value1;
-            this.value2 = value2;
-            this.value5 = value5;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %f)", value1, value2, value5, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %f, %f)", value1, value2, value5, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(Double value1, Double value3, String value4, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %s)", value1, value3, value4, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %s, %s)", value1, value3, value4, value6));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(Double value1, Double value3, String value4, Double value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value1 = value1;
-            this.value3 = value3;
-            this.value4 = value4;
-            this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %f)", value1, value3, value4, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %s, %f)", value1, value3, value4, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public UiTable setCellPadding(Double value1, Double value3, Double value5, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value1 = value1;
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %s)", value1, value3, value5, value6));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %f, %s)", value1, value3, value5, value6));
                 js.setLength(0);
             }
         }
@@ -2533,7 +1566,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double row;
     private Double col;
 
-    public Cell setGetCell(Double row, Double col) {
+    public Cell getCell(Double row, Double col) {
         if (jsBase == null) {
             this.row = row;
             this.col = col;
@@ -2561,7 +1594,7 @@ public class UiTable extends VisualBaseWithBounds {
 
     private Double col1;
 
-    public TableColumn setGetCol(Double col1) {
+    public TableColumn getCol(Double col1) {
         if (jsBase == null) {
             this.col = null;
             this.col1 = null;
@@ -2593,7 +1626,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double quality;
     private Boolean forceTransparentWhite;
 
-    public void setGetJpgBase64String(Double width, Double height, Double quality, Boolean forceTransparentWhite) {
+    public void getJpgBase64String(Double width, Double height, Double quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
             this.width = width;
             this.height = height;
@@ -2629,7 +1662,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double x;
     private Double y;
 
-    public void setGetPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2665,7 +1698,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setGetPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2701,7 +1734,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setGetPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2737,7 +1770,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setGetPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2776,7 +1809,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double height1;
     private Double quality1;
 
-    public void setGetPngBase64String(Double width1, Double height1, Double quality1) {
+    public void getPngBase64String(Double width1, Double height1, Double quality1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2814,7 +1847,7 @@ public class UiTable extends VisualBaseWithBounds {
 
     private Double row1;
 
-    public Row setGetRow(Double row1) {
+    public Row getRow(Double row1) {
         if (jsBase == null) {
             this.row = null;
             this.row1 = null;
@@ -2846,7 +1879,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
-    public void setGetSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight) {
+    public void getSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2880,7 +1913,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setGetSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1) {
+    public void getSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2914,7 +1947,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setGetSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
+    public void getSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2948,7 +1981,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setGetSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
+    public void getSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -3184,7 +2217,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String color4;
     private Double opacity3;
 
-    public UiTable setRowEvenFill(String color4, Double opacity3) {
+    public UiTable rowEvenFill(String color4, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3229,7 +2262,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String mode6;
     private Double opacity4;
 
-    public UiTable setRowEvenFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3284,7 +2317,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowEvenFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3339,7 +2372,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowEvenFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3394,7 +2427,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowEvenFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3449,7 +2482,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowEvenFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3504,7 +2537,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowEvenFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3567,7 +2600,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double fx1;
     private Double fy1;
 
-    public UiTable setRowEvenFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTable rowEvenFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3641,7 +2674,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowEvenFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTable rowEvenFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3744,7 +2777,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String color5;
     private Double opacity6;
 
-    public UiTable setRowOddFill(String color5, Double opacity6) {
+    public UiTable rowOddFill(String color5, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3793,7 +2826,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String mode10;
     private Double opacity7;
 
-    public UiTable setRowOddFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3860,7 +2893,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowOddFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3927,7 +2960,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowOddFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3994,7 +3027,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowOddFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4061,7 +3094,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowOddFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4128,7 +3161,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowOddFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4203,7 +3236,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double fx2;
     private Double fy2;
 
-    public UiTable setRowOddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTable rowOddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4292,7 +3325,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setRowOddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTable rowOddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4586,7 +3619,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double quality2;
     private Boolean forceTransparentWhite1;
 
-    public void setSaveAsJpg(Double width2, Double height2, Double quality2, Boolean forceTransparentWhite1) {
+    public void saveAsJpg(Double width2, Double height2, Double quality2, Boolean forceTransparentWhite1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4635,7 +3668,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double x1;
     private Double y1;
 
-    public void setSaveAsPdf(String paperSize, Boolean landscape, Double x1, Double y1) {
+    public void saveAsPdf(String paperSize, Boolean landscape, Double x1, Double y1) {
         if (jsBase == null) {
             this.paperSize = paperSize;
             this.landscape = landscape;
@@ -4674,7 +3707,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double height3;
     private Double quality3;
 
-    public void setSaveAsPng(Double width3, Double height3, Double quality3) {
+    public void saveAsPng(Double width3, Double height3, Double quality3) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4719,7 +3752,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String paperSize1;
     private Boolean landscape1;
 
-    public void setSaveAsSvg(String paperSize1, Boolean landscape1) {
+    public void saveAsSvg(String paperSize1, Boolean landscape1) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -4753,7 +3786,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double width4;
     private Double height4;
 
-    public void setSaveAsSvg(Double width4, Double height4) {
+    public void saveAsSvg(Double width4, Double height4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4823,7 +3856,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Boolean forceTransparentWhite2;
     private String filename;
 
-    public void setShareAsJpg(Boolean asBase, Double width5, Double height5, Double quality4, Boolean forceTransparentWhite2, String filename) {
+    public void shareAsJpg(Boolean asBase, Double width5, Double height5, Double quality4, Boolean forceTransparentWhite2, String filename) {
         if (jsBase == null) {
             this.asBase = asBase;
             this.width = null;
@@ -4889,7 +3922,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double y2;
     private String filename1;
 
-    public void setShareAsPdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -4949,7 +3982,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsPdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5009,7 +4042,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsPdf(String paperSizeOrWidth5, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(String paperSizeOrWidth5, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5069,7 +4102,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsPdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5134,7 +4167,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double quality5;
     private String filename2;
 
-    public void setShareAsPng(Boolean asBase2, Double width6, Double height6, Double quality5, String filename2) {
+    public void shareAsPng(Boolean asBase2, Double width6, Double height6, Double quality5, String filename2) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -5203,7 +4236,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String landscapeOrHeight3;
     private String filename3;
 
-    public void setShareAsSvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
+    public void shareAsSvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5257,7 +4290,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsSvg(String paperSizeOrWidth6, String landscapeOrHeight3, Boolean asBase3, String filename3) {
+    public void shareAsSvg(String paperSizeOrWidth6, String landscapeOrHeight3, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5311,7 +4344,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsSvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
+    public void shareAsSvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5365,7 +4398,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public void setShareAsSvg(Double paperSizeOrWidth7, String landscapeOrHeight3, Boolean asBase3, String filename3) {
+    public void shareAsSvg(Double paperSizeOrWidth7, String landscapeOrHeight3, Boolean asBase3, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -5563,7 +4596,7 @@ public class UiTable extends VisualBaseWithBounds {
     private String paperSize2;
     private Boolean landscape2;
 
-    public void setToSvg(String paperSize2, Boolean landscape2) {
+    public void toSvg(String paperSize2, Boolean landscape2) {
         if (jsBase == null) {
             this.paperSize = null;
             this.paperSize1 = null;
@@ -5599,7 +4632,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Double width7;
     private Double height7;
 
-    public void setToSvg(Double width7, Double height7) {
+    public void toSvg(Double width7, Double height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

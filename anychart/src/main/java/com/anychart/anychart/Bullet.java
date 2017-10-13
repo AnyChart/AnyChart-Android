@@ -510,7 +510,7 @@ public class Bullet extends Chart {
 
     public CoreAxismarkersRange getRange(Double index) {
         if (getRange1 == null)
-            getRange1 = new CoreAxismarkersRange(jsBase + ".range1("+ index+")");
+            getRange1 = new CoreAxismarkersRange(jsBase + ".range("+ index+")");
 
         return getRange1;
     }

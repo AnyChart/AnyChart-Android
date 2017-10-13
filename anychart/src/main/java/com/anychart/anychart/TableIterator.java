@@ -25,7 +25,7 @@ public class TableIterator extends JsObject {
     
     private String field;
 
-    public void setGet(String field) {
+    public void get(String field) {
         if (jsBase == null) {
             this.field = field;
         } else {

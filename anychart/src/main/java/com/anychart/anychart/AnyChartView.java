@@ -77,6 +77,8 @@ public class AnyChartView extends FrameLayout {
                 if (chart != null) {
                     js.append(chart.generateJs());
                     System.out.println(js.toString());
+                } else {
+                    throw new NullPointerException();
                 }
 
                 String resultJs = js.append("chart.container(\"container\");" +

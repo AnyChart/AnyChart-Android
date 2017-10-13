@@ -25,7 +25,7 @@ public class ChoroplethPoint extends SeriesPoint {
     
     private String crs;
 
-    public ChoroplethPoint setCrs(String crs) {
+    public ChoroplethPoint crs(String crs) {
         if (jsBase == null) {
             this.crs = crs;
         } else {
@@ -112,7 +112,7 @@ public class ChoroplethPoint extends SeriesPoint {
 
     private Double scale;
 
-    public ChoroplethPoint setScaleFactor(Double scale) {
+    public ChoroplethPoint scaleFactor(Double scale) {
         if (jsBase == null) {
             this.scale = scale;
         } else {
@@ -139,7 +139,7 @@ public class ChoroplethPoint extends SeriesPoint {
     private Double dx;
     private Double dy;
 
-    public ChoroplethPoint setTranslate(Double dx, Double dy) {
+    public ChoroplethPoint translate(Double dx, Double dy) {
         if (jsBase == null) {
             this.dx = dx;
             this.dy = dy;

@@ -53,7 +53,7 @@ public class VisualBase extends CoreBase {
     private String paperSizeOrOptions1;
     private Boolean landscape;
 
-    public void setPrint(PaperSize paperSizeOrOptions, Boolean landscape) {
+    public void print(PaperSize paperSizeOrOptions, Boolean landscape) {
         if (jsBase == null) {
             this.paperSizeOrOptions = null;
             this.paperSizeOrOptions1 = null;
@@ -82,7 +82,7 @@ public class VisualBase extends CoreBase {
     }
 
 
-    public void setPrint(String paperSizeOrOptions1, Boolean landscape) {
+    public void print(String paperSizeOrOptions1, Boolean landscape) {
         if (jsBase == null) {
             this.paperSizeOrOptions = null;
             this.paperSizeOrOptions1 = null;

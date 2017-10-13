@@ -52,7 +52,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     private String color;
     private Double opacity;
 
-    public ScrollerseriesColumn setFill(String color, Double opacity) {
+    public ScrollerseriesColumn fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     private String mode2;
     private Double opacity1;
 
-    public ScrollerseriesColumn setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public ScrollerseriesColumn fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     }
 
 
-    public ScrollerseriesColumn setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public ScrollerseriesColumn fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     }
 
 
-    public ScrollerseriesColumn setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public ScrollerseriesColumn fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     }
 
 
-    public ScrollerseriesColumn setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public ScrollerseriesColumn fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     }
 
 
-    public ScrollerseriesColumn setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public ScrollerseriesColumn fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     }
 
 
-    public ScrollerseriesColumn setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public ScrollerseriesColumn fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     private Double fx;
     private Double fy;
 
-    public ScrollerseriesColumn setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScrollerseriesColumn fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class ScrollerseriesColumn extends ScrollerseriesDiscreteBase {
     }
 
 
-    public ScrollerseriesColumn setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScrollerseriesColumn fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

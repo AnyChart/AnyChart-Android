@@ -32,69 +32,11 @@ public class GridsStock extends VisualBase {
         return getAxis;
     }
 
-    private StockDateTime axis;
-    private CoreAxesLinear axis1;
-
-    public GridsStock setAxis(StockDateTime axis) {
-        if (jsBase == null) {
-            this.axis = null;
-            this.axis1 = null;
-            
-            this.axis = axis;
-        } else {
-            this.axis = axis;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".axis(%s)", (axis != null) ? axis.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", (axis != null) ? axis.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public GridsStock setAxis(CoreAxesLinear axis1) {
-        if (jsBase == null) {
-            this.axis = null;
-            this.axis1 = null;
-            
-            this.axis1 = axis1;
-        } else {
-            this.axis1 = axis1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".axis(%s)", (axis1 != null) ? axis1.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axis(%s)", (axis1 != null) ? axis1.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private GridsStock getAxis1;
 
     public GridsStock getAxis1() {
         if (getAxis1 == null)
-            getAxis1 = new GridsStock(jsBase + ".axis1()");
+            getAxis1 = new GridsStock(jsBase + ".axis()");
 
         return getAxis1;
     }
@@ -180,7 +122,7 @@ public class GridsStock extends VisualBase {
     private String color;
     private Double opacity;
 
-    public GridsStock setFill(String color, Double opacity) {
+    public GridsStock fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -214,7 +156,7 @@ public class GridsStock extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public GridsStock setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public GridsStock fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -255,7 +197,7 @@ public class GridsStock extends VisualBase {
     }
 
 
-    public GridsStock setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public GridsStock fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -296,7 +238,7 @@ public class GridsStock extends VisualBase {
     }
 
 
-    public GridsStock setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public GridsStock fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -337,7 +279,7 @@ public class GridsStock extends VisualBase {
     }
 
 
-    public GridsStock setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public GridsStock fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -378,7 +320,7 @@ public class GridsStock extends VisualBase {
     }
 
 
-    public GridsStock setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public GridsStock fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -419,7 +361,7 @@ public class GridsStock extends VisualBase {
     }
 
 
-    public GridsStock setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public GridsStock fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -468,7 +410,7 @@ public class GridsStock extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public GridsStock setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public GridsStock fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -519,7 +461,7 @@ public class GridsStock extends VisualBase {
     }
 
 
-    public GridsStock setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public GridsStock fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -977,20 +919,6 @@ public class GridsStock extends VisualBase {
         return "";
     }
 
-    private String generateJSaxis() {
-        if (axis != null) {
-            return String.format(Locale.US, "axis: %s,", (axis != null) ? axis.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSaxis1() {
-        if (axis1 != null) {
-            return String.format(Locale.US, "axis: %s,", (axis1 != null) ? axis1.generateJs() : "null");
-        }
-        return "";
-    }
-
     private String generateJSdrawFirstLine() {
         if (drawFirstLine != null) {
             return String.format(Locale.US, "drawFirstLine: %b,", drawFirstLine);
@@ -1267,8 +1195,6 @@ public class GridsStock extends VisualBase {
 
         if (jsBase == null) {
             js.append("{");
-            js.append(generateJSaxis());
-            js.append(generateJSaxis1());
             js.append(generateJSdrawFirstLine());
             js.append(generateJSdrawLastLine());
             js.append(generateJSfill());

@@ -49,77 +49,6 @@ public class Calendar extends CoreBase {
         return this;
     }
 
-    private Double startDate;
-    private Double endDate;
-    private Interval unit;
-    private String unit1;
-    private Double count;
-
-    public void setGetWorkingSchedule(Interval unit, Double startDate, Double endDate, Double count) {
-        if (jsBase == null) {
-            this.unit = null;
-            this.unit1 = null;
-            
-            this.unit = unit;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.count = count;
-        } else {
-            this.unit = unit;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.count = count;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getWorkingSchedule(%s, %f, %f, %f);", (unit != null) ? unit.generateJs() : "null", startDate, endDate, count));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getWorkingSchedule(%s, %f, %f, %f)", (unit != null) ? unit.generateJs() : "null", startDate, endDate, count));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    public void setGetWorkingSchedule(String unit1, Double startDate, Double endDate, Double count) {
-        if (jsBase == null) {
-            this.unit = null;
-            this.unit1 = null;
-            
-            this.unit1 = unit1;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.count = count;
-        } else {
-            this.unit1 = unit1;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.count = count;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".getWorkingSchedule(%s, %f, %f, %f);", unit1, startDate, endDate, count));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getWorkingSchedule(%s, %f, %f, %f)", unit1, startDate, endDate, count));
-                js.setLength(0);
-            }
-        }
-    }
-
     private Double var_value;
 
     public Calendar setTimezoneOffset(Double var_value) {
@@ -182,41 +111,6 @@ public class Calendar extends CoreBase {
         return "";
     }
 
-    private String generateJSstartDate() {
-        if (startDate != null) {
-            return String.format(Locale.US, "startDate: %f,", startDate);
-        }
-        return "";
-    }
-
-    private String generateJSendDate() {
-        if (endDate != null) {
-            return String.format(Locale.US, "endDate: %f,", endDate);
-        }
-        return "";
-    }
-
-    private String generateJSunit() {
-        if (unit != null) {
-            return String.format(Locale.US, "unit: %s,", (unit != null) ? unit.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSunit1() {
-        if (unit1 != null) {
-            return String.format(Locale.US, "unit: %s,", unit1);
-        }
-        return "";
-    }
-
-    private String generateJScount() {
-        if (count != null) {
-            return String.format(Locale.US, "count: %f,", count);
-        }
-        return "";
-    }
-
     private String generateJSvar_value() {
         if (var_value != null) {
             return String.format(Locale.US, "var_value: %f,", var_value);
@@ -252,11 +146,6 @@ public class Calendar extends CoreBase {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSavailabilities());
-            js.append(generateJSstartDate());
-            js.append(generateJSendDate());
-            js.append(generateJSunit());
-            js.append(generateJSunit1());
-            js.append(generateJScount());
             js.append(generateJSvar_value());
             js.append(generateJSvar_value1());
             js.append("}");

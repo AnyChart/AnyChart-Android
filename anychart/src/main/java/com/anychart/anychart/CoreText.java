@@ -759,51 +759,48 @@ public class CoreText extends VisualBase {
         return this;
     }
 
-    private String name;
+    private String objectWithSettings;
 
-    public void setTextSettings(String name) {
+    public CoreText setTextSettings(String objectWithSettings) {
         if (jsBase == null) {
-            this.name = name;
+            this.objectWithSettings = objectWithSettings;
         } else {
-            this.name = name;
+            this.objectWithSettings = objectWithSettings;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
 //            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".textSettings(%s);", name));
+            js.append(String.format(Locale.US, ".textSettings(%s)", objectWithSettings));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textSettings(%s)", name));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s)", objectWithSettings));
                 js.setLength(0);
             }
         }
+        return this;
     }
 
-    private String objectWithSettings;
-    private String name1;
+    private String name;
     private String textSettings;
     private Double textSettings1;
     private Boolean textSettings2;
 
-    public CoreText setTextSettings(String textSettings, String name1) {
+    public CoreText setTextSettings(String textSettings, String name) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
             this.textSettings2 = null;
             
             this.textSettings = textSettings;
-            this.name = null;
-            this.name1 = null;
-            
-            this.name1 = name1;
+            this.name = name;
         } else {
             this.textSettings = textSettings;
-            this.name1 = name1;
+            this.name = name;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -813,10 +810,10 @@ public class CoreText extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textSettings(%s, %s)", textSettings, name1));
+            js.append(String.format(Locale.US, ".textSettings(%s, %s)", textSettings, name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", textSettings, name1));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", textSettings, name));
                 js.setLength(0);
             }
         }
@@ -824,20 +821,17 @@ public class CoreText extends VisualBase {
     }
 
 
-    public CoreText setTextSettings(Double textSettings1, String name1) {
+    public CoreText setTextSettings(Double textSettings1, String name) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
             this.textSettings2 = null;
             
             this.textSettings1 = textSettings1;
-            this.name = null;
-            this.name1 = null;
-            
-            this.name1 = name1;
+            this.name = name;
         } else {
             this.textSettings1 = textSettings1;
-            this.name1 = name1;
+            this.name = name;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -847,10 +841,10 @@ public class CoreText extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, name1));
+            js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, name1));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, name));
                 js.setLength(0);
             }
         }
@@ -858,20 +852,17 @@ public class CoreText extends VisualBase {
     }
 
 
-    public CoreText setTextSettings(Boolean textSettings2, String name1) {
+    public CoreText setTextSettings(Boolean textSettings2, String name) {
         if (jsBase == null) {
             this.textSettings = null;
             this.textSettings1 = null;
             this.textSettings2 = null;
             
             this.textSettings2 = textSettings2;
-            this.name = null;
-            this.name1 = null;
-            
-            this.name1 = name1;
+            this.name = name;
         } else {
             this.textSettings2 = textSettings2;
-            this.name1 = name1;
+            this.name = name;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -881,10 +872,10 @@ public class CoreText extends VisualBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, name1));
+            js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, name));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, name1));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, name));
                 js.setLength(0);
             }
         }
@@ -1273,13 +1264,6 @@ public class CoreText extends VisualBase {
         return "";
     }
 
-    private String generateJSname() {
-        if (name != null) {
-            return String.format(Locale.US, "name: %s,", name);
-        }
-        return "";
-    }
-
     private String generateJSobjectWithSettings() {
         if (objectWithSettings != null) {
             return String.format(Locale.US, "objectWithSettings: %s,", objectWithSettings);
@@ -1287,9 +1271,9 @@ public class CoreText extends VisualBase {
         return "";
     }
 
-    private String generateJSname1() {
-        if (name1 != null) {
-            return String.format(Locale.US, "name: %s,", name1);
+    private String generateJSname() {
+        if (name != null) {
+            return String.format(Locale.US, "name: %s,", name);
         }
         return "";
     }
@@ -1410,9 +1394,8 @@ public class CoreText extends VisualBase {
             js.append(generateJStextIndent());
             js.append(generateJStextOverflow());
             js.append(generateJStextOverflow1());
-            js.append(generateJSname());
             js.append(generateJSobjectWithSettings());
-            js.append(generateJSname1());
+            js.append(generateJSname());
             js.append(generateJStextSettings());
             js.append(generateJStextSettings1());
             js.append(generateJStextSettings2());

@@ -2148,7 +2148,7 @@ public class Sparkline extends Chart {
 
     public CoreAxismarkersLine getLineMarker(Double index) {
         if (getLineMarker1 == null)
-            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker1("+ index+")");
+            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index+")");
 
         return getLineMarker1;
     }
@@ -4284,7 +4284,7 @@ public class Sparkline extends Chart {
 
     public CoreAxismarkersRange getRangeMarker(Double index2) {
         if (getRangeMarker1 == null)
-            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker1("+ index2+")");
+            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index2+")");
 
         return getRangeMarker1;
     }
@@ -4591,7 +4591,7 @@ public class Sparkline extends Chart {
 
     public CoreAxismarkersText getTextMarker(Double index4) {
         if (getTextMarker1 == null)
-            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker1("+ index4+")");
+            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker("+ index4+")");
 
         return getTextMarker1;
     }

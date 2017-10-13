@@ -529,7 +529,7 @@ public class Scatter extends SeparateChart {
 
     public ScatterSeriesBase getGetSeries(String id1) {
         if (getGetSeries1 == null)
-            getGetSeries1 = new ScatterSeriesBase(jsBase + ".getSeries1("+ id1+")");
+            getGetSeries1 = new ScatterSeriesBase(jsBase + ".getSeries("+ id1+")");
 
         return getGetSeries1;
     }
@@ -1025,7 +1025,7 @@ public class Scatter extends SeparateChart {
 
     public CoreAxismarkersLine getLineMarker(Double index1) {
         if (getLineMarker1 == null)
-            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker1("+ index1+")");
+            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
 
         return getLineMarker1;
     }
@@ -1854,7 +1854,7 @@ public class Scatter extends SeparateChart {
 
     public CoreAxismarkersRange getRangeMarker(Double index3) {
         if (getRangeMarker1 == null)
-            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker1("+ index3+")");
+            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
 
         return getRangeMarker1;
     }
@@ -2124,7 +2124,7 @@ public class Scatter extends SeparateChart {
 
     public CoreAxismarkersText getTextMarker(Double index6) {
         if (getTextMarker1 == null)
-            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker1("+ index6+")");
+            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
 
         return getTextMarker1;
     }
@@ -2265,7 +2265,7 @@ public class Scatter extends SeparateChart {
 
     public CoreAxesLinear getXAxis(Double index8) {
         if (getXAxis1 == null)
-            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis1("+ index8+")");
+            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
 
         return getXAxis1;
     }
@@ -2406,7 +2406,7 @@ public class Scatter extends SeparateChart {
 
     public CoreGridsLinear getXGrid(Double index10) {
         if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid1("+ index10+")");
+            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
 
         return getXGrid1;
     }
@@ -2547,7 +2547,7 @@ public class Scatter extends SeparateChart {
 
     public CoreGridsLinear getXMinorGrid(Double index12) {
         if (getXMinorGrid1 == null)
-            getXMinorGrid1 = new CoreGridsLinear(jsBase + ".xMinorGrid1("+ index12+")");
+            getXMinorGrid1 = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
 
         return getXMinorGrid1;
     }
@@ -2788,7 +2788,7 @@ public class Scatter extends SeparateChart {
 
     public CoreAxesLinear getYAxis(Double index14) {
         if (getYAxis1 == null)
-            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis1("+ index14+")");
+            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
 
         return getYAxis1;
     }
@@ -2929,7 +2929,7 @@ public class Scatter extends SeparateChart {
 
     public CoreGridsLinear getYGrid(Double index16) {
         if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid1("+ index16+")");
+            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
 
         return getYGrid1;
     }
@@ -3070,7 +3070,7 @@ public class Scatter extends SeparateChart {
 
     public CoreGridsLinear getYMinorGrid(Double index18) {
         if (getYMinorGrid1 == null)
-            getYMinorGrid1 = new CoreGridsLinear(jsBase + ".yMinorGrid1("+ index18+")");
+            getYMinorGrid1 = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
 
         return getYMinorGrid1;
     }

@@ -87,7 +87,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private String color;
     private Double opacity;
 
-    public CoreAxismarkersRange setFill(String color, Double opacity) {
+    public CoreAxismarkersRange fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -121,7 +121,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private String mode2;
     private Double opacity1;
 
-    public CoreAxismarkersRange setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public CoreAxismarkersRange fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -162,7 +162,7 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
-    public CoreAxismarkersRange setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public CoreAxismarkersRange fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -203,7 +203,7 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
-    public CoreAxismarkersRange setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public CoreAxismarkersRange fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -244,7 +244,7 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
-    public CoreAxismarkersRange setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public CoreAxismarkersRange fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -285,7 +285,7 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
-    public CoreAxismarkersRange setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public CoreAxismarkersRange fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -326,7 +326,7 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
-    public CoreAxismarkersRange setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public CoreAxismarkersRange fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -375,7 +375,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private Double fx;
     private Double fy;
 
-    public CoreAxismarkersRange setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreAxismarkersRange fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -426,7 +426,7 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
 
-    public CoreAxismarkersRange setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreAxismarkersRange fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

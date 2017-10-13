@@ -52,7 +52,7 @@ public class SeriesWaterfall extends WidthBased {
     private String color;
     private Double opacity;
 
-    public SeriesWaterfall setFallingFill(String color, Double opacity) {
+    public SeriesWaterfall fallingFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class SeriesWaterfall extends WidthBased {
     private String mode2;
     private Double opacity1;
 
-    public SeriesWaterfall setFallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class SeriesWaterfall extends WidthBased {
     private Double fx;
     private Double fy;
 
-    public SeriesWaterfall setFallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public SeriesWaterfall fallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -471,7 +471,7 @@ public class SeriesWaterfall extends WidthBased {
     private String color1;
     private Double opacity3;
 
-    public SeriesWaterfall setFill(String color1, Double opacity3) {
+    public SeriesWaterfall fill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -513,7 +513,7 @@ public class SeriesWaterfall extends WidthBased {
     private String mode6;
     private Double opacity4;
 
-    public SeriesWaterfall setFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -568,7 +568,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -623,7 +623,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -678,7 +678,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -733,7 +733,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -788,7 +788,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -851,7 +851,7 @@ public class SeriesWaterfall extends WidthBased {
     private Double fx1;
     private Double fy1;
 
-    public SeriesWaterfall setFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public SeriesWaterfall fill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -925,7 +925,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public SeriesWaterfall fill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1028,7 +1028,7 @@ public class SeriesWaterfall extends WidthBased {
     private String color2;
     private Double opacity6;
 
-    public SeriesWaterfall setRisingFill(String color2, Double opacity6) {
+    public SeriesWaterfall risingFill(String color2, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1074,7 +1074,7 @@ public class SeriesWaterfall extends WidthBased {
     private String mode10;
     private Double opacity7;
 
-    public SeriesWaterfall setRisingFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1141,7 +1141,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setRisingFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1208,7 +1208,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setRisingFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1275,7 +1275,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setRisingFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1342,7 +1342,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setRisingFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1409,7 +1409,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setRisingFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1484,7 +1484,7 @@ public class SeriesWaterfall extends WidthBased {
     private Double fx2;
     private Double fy2;
 
-    public SeriesWaterfall setRisingFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public SeriesWaterfall risingFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1573,7 +1573,7 @@ public class SeriesWaterfall extends WidthBased {
     }
 
 
-    public SeriesWaterfall setRisingFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public SeriesWaterfall risingFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

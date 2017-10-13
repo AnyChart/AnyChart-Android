@@ -288,32 +288,6 @@ public class DMI extends JsObject {
         return this;
     }
 
-    private Boolean useWildersSmoothing;
-
-    public DMI setUseWildersSmoothing(Boolean useWildersSmoothing) {
-        if (jsBase == null) {
-            this.useWildersSmoothing = useWildersSmoothing;
-        } else {
-            this.useWildersSmoothing = useWildersSmoothing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".useWildersSmoothing(%b)", useWildersSmoothing));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".useWildersSmoothing(%b)", useWildersSmoothing));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private DMI getUseWildersSmoothing;
 
     public DMI getUseWildersSmoothing() {
@@ -407,13 +381,6 @@ public class DMI extends JsObject {
         return "";
     }
 
-    private String generateJSuseWildersSmoothing() {
-        if (useWildersSmoothing != null) {
-            return String.format(Locale.US, "useWildersSmoothing: %b,", useWildersSmoothing);
-        }
-        return "";
-    }
-
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -446,7 +413,6 @@ public class DMI extends JsObject {
             js.append(generateJStype4());
             js.append(generateJStype5());
             js.append(generateJSperiod());
-            js.append(generateJSuseWildersSmoothing());
             js.append("}");
         }
 

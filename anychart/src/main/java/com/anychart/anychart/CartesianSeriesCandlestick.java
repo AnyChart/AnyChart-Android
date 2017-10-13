@@ -52,7 +52,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String color;
     private Double opacity;
 
-    public CartesianSeriesBase setFallingFill(String color, Double opacity) {
+    public CartesianSeriesBase fallingFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String mode2;
     private Double opacity1;
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private Double fx;
     private Double fy;
 
-    public CartesianSeriesBase setFallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setFallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBase fallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -688,7 +688,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String color2;
     private Double opacity3;
 
-    public CartesianSeriesBase setRisingFill(String color2, Double opacity3) {
+    public CartesianSeriesBase risingFill(String color2, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -731,7 +731,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String mode6;
     private Double opacity4;
 
-    public CartesianSeriesBase setRisingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -786,7 +786,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setRisingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -841,7 +841,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setRisingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -896,7 +896,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setRisingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -951,7 +951,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setRisingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1006,7 +1006,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setRisingFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1069,7 +1069,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private Double fx1;
     private Double fy1;
 
-    public CartesianSeriesBase setRisingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1143,7 +1143,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
 
-    public CartesianSeriesBase setRisingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBase risingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

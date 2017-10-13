@@ -1,9 +1,7 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
 import java.util.Arrays;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 public class AnnotationsEllipse extends AnnotationsBase {
@@ -52,7 +50,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     private String color;
     private Double opacity;
 
-    public AnnotationsEllipse setFill(String color, Double opacity) {
+    public AnnotationsEllipse fill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +84,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     private String mode2;
     private Double opacity1;
 
-    public AnnotationsEllipse setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public AnnotationsEllipse fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +125,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     }
 
 
-    public AnnotationsEllipse setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public AnnotationsEllipse fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +166,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     }
 
 
-    public AnnotationsEllipse setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public AnnotationsEllipse fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +207,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     }
 
 
-    public AnnotationsEllipse setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public AnnotationsEllipse fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +248,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     }
 
 
-    public AnnotationsEllipse setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public AnnotationsEllipse fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +289,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     }
 
 
-    public AnnotationsEllipse setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public AnnotationsEllipse fill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +338,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     private Double fx;
     private Double fy;
 
-    public AnnotationsEllipse setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public AnnotationsEllipse fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +389,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     }
 
 
-    public AnnotationsEllipse setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public AnnotationsEllipse fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

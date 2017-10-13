@@ -23,32 +23,6 @@ public class HatchFills extends CoreBase {
     }
 
     
-    private Double index;
-
-    public HatchFill setItemAt(Double index) {
-        if (jsBase == null) {
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".itemAt(%f);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f)", index));
-                js.setLength(0);
-            }
-        }
-        return new HatchFill(jsBase);
-    }
-
     private HatchFill getItemAt;
 
     public HatchFill getItemAt() {
@@ -58,29 +32,26 @@ public class HatchFills extends CoreBase {
         return getItemAt;
     }
 
-    private Double index1;
+    private Double index;
     private HatchFillType type;
     private String type1;
     private String color;
     private Double thickness;
     private Double size;
 
-    public HatchFills setItemAt(HatchFillType type, Double index1, String color, Double thickness, Double size) {
+    public HatchFills setItemAt(HatchFillType type, Double index, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
             
             this.type = type;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
             this.color = color;
             this.thickness = thickness;
             this.size = size;
         } else {
             this.type = type;
-            this.index1 = index1;
+            this.index = index;
             this.color = color;
             this.thickness = thickness;
             this.size = size;
@@ -93,10 +64,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", (type != null) ? type.generateJs() : "null", index1, color, thickness, size));
+            js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", (type != null) ? type.generateJs() : "null", index, color, thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", (type != null) ? type.generateJs() : "null", index1, color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", (type != null) ? type.generateJs() : "null", index, color, thickness, size));
                 js.setLength(0);
             }
         }
@@ -104,22 +75,19 @@ public class HatchFills extends CoreBase {
     }
 
 
-    public HatchFills setItemAt(String type1, Double index1, String color, Double thickness, Double size) {
+    public HatchFills setItemAt(String type1, Double index, String color, Double thickness, Double size) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
             
             this.type1 = type1;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
             this.color = color;
             this.thickness = thickness;
             this.size = size;
         } else {
             this.type1 = type1;
-            this.index1 = index1;
+            this.index = index;
             this.color = color;
             this.thickness = thickness;
             this.size = size;
@@ -132,10 +100,42 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", type1, index1, color, thickness, size));
+            js.append(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", type1, index, color, thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", type1, index1, color, thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%s, %f, %s, %f, %f)", type1, index, color, thickness, size));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Double index1;
+    private PatternFill patternFill;
+
+    public HatchFills setItemAt(Double index1, PatternFill patternFill) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+            this.patternFill = patternFill;
+        } else {
+            this.index1 = index1;
+            this.patternFill = patternFill;
+
+//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
+//                js.setLength(js.length() - 1);
+//            }
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index1, (patternFill != null) ? patternFill.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index1, (patternFill != null) ? patternFill.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -143,19 +143,19 @@ public class HatchFills extends CoreBase {
     }
 
     private Double index2;
-    private PatternFill patternFill;
+    private HatchFill instance;
 
-    public HatchFills setItemAt(Double index2, PatternFill patternFill) {
+    public HatchFills setItemAt(Double index2, HatchFill instance) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
             this.index2 = null;
             
             this.index2 = index2;
-            this.patternFill = patternFill;
+            this.instance = instance;
         } else {
             this.index2 = index2;
-            this.patternFill = patternFill;
+            this.instance = instance;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -165,10 +165,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index2, (patternFill != null) ? patternFill.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index2, (instance != null) ? instance.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index2, (patternFill != null) ? patternFill.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index2, (instance != null) ? instance.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -176,54 +176,19 @@ public class HatchFills extends CoreBase {
     }
 
     private Double index3;
-    private HatchFill instance;
-
-    public HatchFills setItemAt(Double index3, HatchFill instance) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            
-            this.index3 = index3;
-            this.instance = instance;
-        } else {
-            this.index3 = index3;
-            this.instance = instance;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index3, (instance != null) ? instance.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %s)", index3, (instance != null) ? instance.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private Double index4;
     private Boolean state;
 
-    public HatchFills setItemAt(Double index4, Boolean state) {
+    public HatchFills itemAt(Double index3, Boolean state) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
             this.index2 = null;
             this.index3 = null;
-            this.index4 = null;
             
-            this.index4 = index4;
+            this.index3 = index3;
             this.state = state;
         } else {
-            this.index4 = index4;
+            this.index3 = index3;
             this.state = state;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
@@ -234,10 +199,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemAt(%f, %b)", index4, state));
+            js.append(String.format(Locale.US, ".itemAt(%f, %b)", index3, state));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %b)", index4, state));
+                onChangeListener.onChange(String.format(Locale.US, ".itemAt(%f, %b)", index3, state));
                 js.setLength(0);
             }
         }
@@ -579,13 +544,6 @@ public class HatchFills extends CoreBase {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
-        }
-        return "";
-    }
-
     private String generateJStype() {
         if (type != null) {
             return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
@@ -621,9 +579,9 @@ public class HatchFills extends CoreBase {
         return "";
     }
 
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
+    private String generateJSindex1() {
+        if (index1 != null) {
+            return String.format(Locale.US, "index: %f,", index1);
         }
         return "";
     }
@@ -635,9 +593,9 @@ public class HatchFills extends CoreBase {
         return "";
     }
 
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
+    private String generateJSindex2() {
+        if (index2 != null) {
+            return String.format(Locale.US, "index: %f,", index2);
         }
         return "";
     }
@@ -649,9 +607,9 @@ public class HatchFills extends CoreBase {
         return "";
     }
 
-    private String generateJSindex4() {
-        if (index4 != null) {
-            return String.format(Locale.US, "index: %f,", index4);
+    private String generateJSindex3() {
+        if (index3 != null) {
+            return String.format(Locale.US, "index: %f,", index3);
         }
         return "";
     }
@@ -727,17 +685,16 @@ public class HatchFills extends CoreBase {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSindex());
-            js.append(generateJSindex1());
             js.append(generateJStype());
             js.append(generateJStype1());
             js.append(generateJScolor());
             js.append(generateJSthickness());
             js.append(generateJSsize());
-            js.append(generateJSindex2());
+            js.append(generateJSindex1());
             js.append(generateJSpatternFill());
-            js.append(generateJSindex3());
+            js.append(generateJSindex2());
             js.append(generateJSinstance());
-            js.append(generateJSindex4());
+            js.append(generateJSindex3());
             js.append(generateJSstate());
             js.append(generateJSitems());
             js.append(generateJSitems1());

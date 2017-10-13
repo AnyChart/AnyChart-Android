@@ -26,7 +26,7 @@ public class PlotController extends VisualBase {
     private AnnotationTypes annotationTypeOrConfig;
     private AnnotationJSONFormat annotationTypeOrConfig1;
 
-    public AnnotationsBase setAdd(AnnotationTypes annotationTypeOrConfig) {
+    public AnnotationsBase add(AnnotationTypes annotationTypeOrConfig) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
@@ -54,7 +54,7 @@ public class PlotController extends VisualBase {
     }
 
 
-    public AnnotationsBase setAdd(AnnotationJSONFormat annotationTypeOrConfig1) {
+    public AnnotationsBase add(AnnotationJSONFormat annotationTypeOrConfig1) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
@@ -83,7 +83,7 @@ public class PlotController extends VisualBase {
 
     private String config;
 
-    public AndrewsPitchfork setAndrewsPitchfork(String config) {
+    public AndrewsPitchfork andrewsPitchfork(String config) {
         if (jsBase == null) {
             this.config = config;
         } else {
@@ -109,7 +109,7 @@ public class PlotController extends VisualBase {
 
     private String config1;
 
-    public AnnotationsEllipse setEllipse(String config1) {
+    public AnnotationsEllipse ellipse(String config1) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -138,7 +138,7 @@ public class PlotController extends VisualBase {
 
     private String config2;
 
-    public FibonacciArc setFibonacciArc(String config2) {
+    public FibonacciArc fibonacciArc(String config2) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -168,7 +168,7 @@ public class PlotController extends VisualBase {
 
     private String config3;
 
-    public FibonacciFan setFibonacciFan(String config3) {
+    public FibonacciFan fibonacciFan(String config3) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -199,7 +199,7 @@ public class PlotController extends VisualBase {
 
     private String config4;
 
-    public FibonacciRetracement setFibonacciRetracement(String config4) {
+    public FibonacciRetracement fibonacciRetracement(String config4) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -231,7 +231,7 @@ public class PlotController extends VisualBase {
 
     private String config5;
 
-    public FibonacciTimezones setFibonacciTimezones(String config5) {
+    public FibonacciTimezones fibonacciTimezones(String config5) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -265,7 +265,7 @@ public class PlotController extends VisualBase {
     private String config6;
     private String config7;
 
-    public PlotController setFromJson(String config6) {
+    public PlotController fromJson(String config6) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -300,7 +300,7 @@ public class PlotController extends VisualBase {
 
     private String config8;
 
-    public PlotController setFromXml(String config8) {
+    public PlotController fromXml(String config8) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -336,7 +336,7 @@ public class PlotController extends VisualBase {
 
     private Double index;
 
-    public AnnotationsBase setGetAnnotationAt(Double index) {
+    public AnnotationsBase getAnnotationAt(Double index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -362,7 +362,7 @@ public class PlotController extends VisualBase {
 
     private String config9;
 
-    public HorizontalLine setHorizontalLine(String config9) {
+    public HorizontalLine horizontalLine(String config9) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -399,7 +399,7 @@ public class PlotController extends VisualBase {
 
     private String config10;
 
-    public InfiniteLine setInfiniteLine(String config10) {
+    public InfiniteLine infiniteLine(String config10) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -437,7 +437,7 @@ public class PlotController extends VisualBase {
 
     private String config11;
 
-    public AnnotationsLine setLine(String config11) {
+    public AnnotationsLine line(String config11) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -476,7 +476,7 @@ public class PlotController extends VisualBase {
 
     private String config12;
 
-    public AnnotationsMarker setMarker(String config12) {
+    public AnnotationsMarker marker(String config12) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -516,7 +516,7 @@ public class PlotController extends VisualBase {
 
     private String config13;
 
-    public Ray setRay(String config13) {
+    public Ray ray(String config13) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -557,7 +557,7 @@ public class PlotController extends VisualBase {
 
     private String config14;
 
-    public Rectangle setRectangle(String config14) {
+    public Rectangle rectangle(String config14) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -599,7 +599,7 @@ public class PlotController extends VisualBase {
 
     private AnnotationsBase annotation;
 
-    public PlotController setRemoveAnnotation(AnnotationsBase annotation) {
+    public PlotController removeAnnotation(AnnotationsBase annotation) {
         if (jsBase == null) {
             this.annotation = annotation;
         } else {
@@ -625,7 +625,7 @@ public class PlotController extends VisualBase {
 
     private Double index1;
 
-    public PlotController setRemoveAnnotationAt(Double index1) {
+    public PlotController removeAnnotationAt(Double index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -654,7 +654,7 @@ public class PlotController extends VisualBase {
 
     private AnnotationsBase annotation1;
 
-    public PlotController setSelect(AnnotationsBase annotation1) {
+    public PlotController select(AnnotationsBase annotation1) {
         if (jsBase == null) {
             this.annotation = null;
             this.annotation1 = null;
@@ -684,7 +684,7 @@ public class PlotController extends VisualBase {
     private AnnotationTypes annotationTypeOrConfig2;
     private AnnotationJSONFormat annotationTypeOrConfig3;
 
-    public AnnotationsBase setStartDrawing(AnnotationTypes annotationTypeOrConfig2) {
+    public AnnotationsBase startDrawing(AnnotationTypes annotationTypeOrConfig2) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
@@ -714,7 +714,7 @@ public class PlotController extends VisualBase {
     }
 
 
-    public AnnotationsBase setStartDrawing(AnnotationJSONFormat annotationTypeOrConfig3) {
+    public AnnotationsBase startDrawing(AnnotationJSONFormat annotationTypeOrConfig3) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
@@ -745,7 +745,7 @@ public class PlotController extends VisualBase {
 
     private Boolean stringify;
 
-    public void setToJson(Boolean stringify) {
+    public void toJson(Boolean stringify) {
         if (jsBase == null) {
             this.stringify = stringify;
         } else {
@@ -770,7 +770,7 @@ public class PlotController extends VisualBase {
 
     private Boolean asXmlNode;
 
-    public void setToXml(Boolean asXmlNode) {
+    public void toXml(Boolean asXmlNode) {
         if (jsBase == null) {
             this.asXmlNode = asXmlNode;
         } else {
@@ -795,7 +795,7 @@ public class PlotController extends VisualBase {
 
     private String config15;
 
-    public TrendChannel setTrendChannel(String config15) {
+    public TrendChannel trendChannel(String config15) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -838,7 +838,7 @@ public class PlotController extends VisualBase {
 
     private String config16;
 
-    public Triangle setTriangle(String config16) {
+    public Triangle triangle(String config16) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -882,7 +882,7 @@ public class PlotController extends VisualBase {
 
     private String config17;
 
-    public VerticalLine setVerticalLine(String config17) {
+    public VerticalLine verticalLine(String config17) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;

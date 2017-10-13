@@ -60,7 +60,7 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double date;
 
-    public void setDateToPix(Double date) {
+    public void dateToPix(Double date) {
         if (jsBase == null) {
             this.date = date;
         } else {
@@ -89,7 +89,7 @@ public class DateTimeWithCalendar extends ScatterBase {
     private String unit1;
     private Double count1;
 
-    public void setGetTicks(Interval unit, Double fromPix, Double toPix, Double count1) {
+    public void getTicks(Interval unit, Double fromPix, Double toPix, Double count1) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -125,7 +125,7 @@ public class DateTimeWithCalendar extends ScatterBase {
     }
 
 
-    public void setGetTicks(String unit1, Double fromPix, Double toPix, Double count1) {
+    public void getTicks(String unit1, Double fromPix, Double toPix, Double count1) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -214,7 +214,7 @@ public class DateTimeWithCalendar extends ScatterBase {
 
     private Double pix;
 
-    public void setPixToDate(Double pix) {
+    public void pixToDate(Double pix) {
         if (jsBase == null) {
             this.pix = pix;
         } else {

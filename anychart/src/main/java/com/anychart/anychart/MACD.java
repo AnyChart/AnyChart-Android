@@ -288,32 +288,6 @@ public class MACD extends JsObject {
         return this;
     }
 
-    private Double slowPeriod;
-
-    public MACD setSlowPeriod(Double slowPeriod) {
-        if (jsBase == null) {
-            this.slowPeriod = slowPeriod;
-        } else {
-            this.slowPeriod = slowPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private MACD getSlowPeriod;
 
     public MACD getSlowPeriod() {
@@ -407,13 +381,6 @@ public class MACD extends JsObject {
         return "";
     }
 
-    private String generateJSslowPeriod() {
-        if (slowPeriod != null) {
-            return String.format(Locale.US, "slowPeriod: %f,", slowPeriod);
-        }
-        return "";
-    }
-
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -446,7 +413,6 @@ public class MACD extends JsObject {
             js.append(generateJSsignalPeriod());
             js.append(generateJStype4());
             js.append(generateJStype5());
-            js.append(generateJSslowPeriod());
             js.append("}");
         }
 

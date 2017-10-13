@@ -52,7 +52,7 @@ public class Timeline extends JsObject {
     private String color;
     private Double opacity;
 
-    public Timeline setBackgroundFill(String color, Double opacity) {
+    public Timeline backgroundFill(String color, Double opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -86,7 +86,7 @@ public class Timeline extends JsObject {
     private String mode2;
     private Double opacity1;
 
-    public Timeline setBackgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Timeline backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,7 +127,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBackgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Timeline backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,7 +168,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBackgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Timeline backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,7 +209,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBackgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Timeline backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,7 +250,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBackgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Timeline backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,7 +291,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBackgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Timeline backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -340,7 +340,7 @@ public class Timeline extends JsObject {
     private Double fx;
     private Double fy;
 
-    public Timeline setBackgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Timeline backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBackgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Timeline backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -471,7 +471,7 @@ public class Timeline extends JsObject {
     private String color1;
     private Double opacity3;
 
-    public Timeline setBaseFill(String color1, Double opacity3) {
+    public Timeline baseFill(String color1, Double opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -513,7 +513,7 @@ public class Timeline extends JsObject {
     private String mode6;
     private Double opacity4;
 
-    public Timeline setBaseFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public Timeline baseFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -568,7 +568,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaseFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public Timeline baseFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -623,7 +623,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaseFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public Timeline baseFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -678,7 +678,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaseFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public Timeline baseFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -733,7 +733,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaseFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public Timeline baseFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -788,7 +788,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaseFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public Timeline baseFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -851,7 +851,7 @@ public class Timeline extends JsObject {
     private Double fx1;
     private Double fy1;
 
-    public Timeline setBaseFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Timeline baseFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -925,7 +925,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaseFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Timeline baseFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1239,7 +1239,7 @@ public class Timeline extends JsObject {
     private String color2;
     private Double opacity6;
 
-    public Timeline setBaselineFill(String color2, Double opacity6) {
+    public Timeline baselineFill(String color2, Double opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1285,7 +1285,7 @@ public class Timeline extends JsObject {
     private String mode10;
     private Double opacity7;
 
-    public Timeline setBaselineFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public Timeline baselineFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1352,7 +1352,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaselineFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public Timeline baselineFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1419,7 +1419,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaselineFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public Timeline baselineFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1486,7 +1486,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaselineFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public Timeline baselineFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1553,7 +1553,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaselineFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public Timeline baselineFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1620,7 +1620,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaselineFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public Timeline baselineFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1695,7 +1695,7 @@ public class Timeline extends JsObject {
     private Double fx2;
     private Double fy2;
 
-    public Timeline setBaselineFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Timeline baselineFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1784,7 +1784,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setBaselineFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Timeline baselineFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2750,7 +2750,7 @@ public class Timeline extends JsObject {
     private String color3;
     private Double opacity10;
 
-    public Timeline setEditConnectorThumbFill(String color3, Double opacity10) {
+    public Timeline editConnectorThumbFill(String color3, Double opacity10) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2801,7 +2801,7 @@ public class Timeline extends JsObject {
     private String mode14;
     private Double opacity11;
 
-    public Timeline setEditConnectorThumbFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
+    public Timeline editConnectorThumbFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2881,7 +2881,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditConnectorThumbFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
+    public Timeline editConnectorThumbFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2961,7 +2961,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditConnectorThumbFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
+    public Timeline editConnectorThumbFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3041,7 +3041,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditConnectorThumbFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
+    public Timeline editConnectorThumbFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3121,7 +3121,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditConnectorThumbFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
+    public Timeline editConnectorThumbFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3201,7 +3201,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditConnectorThumbFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
+    public Timeline editConnectorThumbFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3289,7 +3289,7 @@ public class Timeline extends JsObject {
     private Double fx4;
     private Double fy4;
 
-    public Timeline setEditConnectorThumbFill(GradientKey[] keys14, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
+    public Timeline editConnectorThumbFill(GradientKey[] keys14, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3398,7 +3398,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditConnectorThumbFill(String[] keys15, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
+    public Timeline editConnectorThumbFill(String[] keys15, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3829,7 +3829,7 @@ public class Timeline extends JsObject {
     private String color4;
     private Double opacity13;
 
-    public Timeline setEditIntervalThumbFill(String color4, Double opacity13) {
+    public Timeline editIntervalThumbFill(String color4, Double opacity13) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3884,7 +3884,7 @@ public class Timeline extends JsObject {
     private String mode18;
     private Double opacity14;
 
-    public Timeline setEditIntervalThumbFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
+    public Timeline editIntervalThumbFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3976,7 +3976,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditIntervalThumbFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
+    public Timeline editIntervalThumbFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4068,7 +4068,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditIntervalThumbFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
+    public Timeline editIntervalThumbFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4160,7 +4160,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditIntervalThumbFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
+    public Timeline editIntervalThumbFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4252,7 +4252,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditIntervalThumbFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
+    public Timeline editIntervalThumbFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4344,7 +4344,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditIntervalThumbFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
+    public Timeline editIntervalThumbFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4444,7 +4444,7 @@ public class Timeline extends JsObject {
     private Double fx5;
     private Double fy5;
 
-    public Timeline setEditIntervalThumbFill(GradientKey[] keys18, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
+    public Timeline editIntervalThumbFill(GradientKey[] keys18, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4568,7 +4568,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditIntervalThumbFill(String[] keys19, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
+    public Timeline editIntervalThumbFill(String[] keys19, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4949,7 +4949,7 @@ public class Timeline extends JsObject {
     private String color5;
     private Double opacity16;
 
-    public Timeline setEditPreviewFill(String color5, Double opacity16) {
+    public Timeline editPreviewFill(String color5, Double opacity16) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5008,7 +5008,7 @@ public class Timeline extends JsObject {
     private String mode22;
     private Double opacity17;
 
-    public Timeline setEditPreviewFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity17) {
+    public Timeline editPreviewFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5112,7 +5112,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditPreviewFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity17) {
+    public Timeline editPreviewFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5216,7 +5216,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditPreviewFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity17) {
+    public Timeline editPreviewFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5320,7 +5320,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditPreviewFill(String[] keys21, Boolean mode20, Double angle5, Double opacity17) {
+    public Timeline editPreviewFill(String[] keys21, Boolean mode20, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5424,7 +5424,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditPreviewFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity17) {
+    public Timeline editPreviewFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5528,7 +5528,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditPreviewFill(String[] keys21, String mode22, Double angle5, Double opacity17) {
+    public Timeline editPreviewFill(String[] keys21, String mode22, Double angle5, Double opacity17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5640,7 +5640,7 @@ public class Timeline extends JsObject {
     private Double fx6;
     private Double fy6;
 
-    public Timeline setEditPreviewFill(GradientKey[] keys22, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
+    public Timeline editPreviewFill(GradientKey[] keys22, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5779,7 +5779,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditPreviewFill(String[] keys23, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
+    public Timeline editPreviewFill(String[] keys23, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6161,7 +6161,7 @@ public class Timeline extends JsObject {
     private String color6;
     private Double opacity19;
 
-    public Timeline setEditProgressFill(String color6, Double opacity19) {
+    public Timeline editProgressFill(String color6, Double opacity19) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -6224,7 +6224,7 @@ public class Timeline extends JsObject {
     private String mode26;
     private Double opacity20;
 
-    public Timeline setEditProgressFill(GradientKey[] keys24, Boolean mode24, Double angle6, Double opacity20) {
+    public Timeline editProgressFill(GradientKey[] keys24, Boolean mode24, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6340,7 +6340,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditProgressFill(GradientKey[] keys24, VectorRect mode25, Double angle6, Double opacity20) {
+    public Timeline editProgressFill(GradientKey[] keys24, VectorRect mode25, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6456,7 +6456,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditProgressFill(GradientKey[] keys24, String mode26, Double angle6, Double opacity20) {
+    public Timeline editProgressFill(GradientKey[] keys24, String mode26, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6572,7 +6572,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditProgressFill(String[] keys25, Boolean mode24, Double angle6, Double opacity20) {
+    public Timeline editProgressFill(String[] keys25, Boolean mode24, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6688,7 +6688,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditProgressFill(String[] keys25, VectorRect mode25, Double angle6, Double opacity20) {
+    public Timeline editProgressFill(String[] keys25, VectorRect mode25, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6804,7 +6804,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditProgressFill(String[] keys25, String mode26, Double angle6, Double opacity20) {
+    public Timeline editProgressFill(String[] keys25, String mode26, Double angle6, Double opacity20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6928,7 +6928,7 @@ public class Timeline extends JsObject {
     private Double fx7;
     private Double fy7;
 
-    public Timeline setEditProgressFill(GradientKey[] keys26, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
+    public Timeline editProgressFill(GradientKey[] keys26, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7082,7 +7082,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditProgressFill(String[] keys27, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
+    public Timeline editProgressFill(String[] keys27, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7832,7 +7832,7 @@ public class Timeline extends JsObject {
     private String color7;
     private Double opacity22;
 
-    public Timeline setEditStructurePreviewFill(String color7, Double opacity22) {
+    public Timeline editStructurePreviewFill(String color7, Double opacity22) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -7899,7 +7899,7 @@ public class Timeline extends JsObject {
     private String mode30;
     private Double opacity23;
 
-    public Timeline setEditStructurePreviewFill(GradientKey[] keys28, Boolean mode28, Double angle7, Double opacity23) {
+    public Timeline editStructurePreviewFill(GradientKey[] keys28, Boolean mode28, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8027,7 +8027,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditStructurePreviewFill(GradientKey[] keys28, VectorRect mode29, Double angle7, Double opacity23) {
+    public Timeline editStructurePreviewFill(GradientKey[] keys28, VectorRect mode29, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8155,7 +8155,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditStructurePreviewFill(GradientKey[] keys28, String mode30, Double angle7, Double opacity23) {
+    public Timeline editStructurePreviewFill(GradientKey[] keys28, String mode30, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8283,7 +8283,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditStructurePreviewFill(String[] keys29, Boolean mode28, Double angle7, Double opacity23) {
+    public Timeline editStructurePreviewFill(String[] keys29, Boolean mode28, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8411,7 +8411,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditStructurePreviewFill(String[] keys29, VectorRect mode29, Double angle7, Double opacity23) {
+    public Timeline editStructurePreviewFill(String[] keys29, VectorRect mode29, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8539,7 +8539,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditStructurePreviewFill(String[] keys29, String mode30, Double angle7, Double opacity23) {
+    public Timeline editStructurePreviewFill(String[] keys29, String mode30, Double angle7, Double opacity23) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8675,7 +8675,7 @@ public class Timeline extends JsObject {
     private Double fx8;
     private Double fy8;
 
-    public Timeline setEditStructurePreviewFill(GradientKey[] keys30, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
+    public Timeline editStructurePreviewFill(GradientKey[] keys30, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8844,7 +8844,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setEditStructurePreviewFill(String[] keys31, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
+    public Timeline editStructurePreviewFill(String[] keys31, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9265,7 +9265,7 @@ public class Timeline extends JsObject {
 
     private Boolean editing;
 
-    public Timeline setEditing(Boolean editing) {
+    public Timeline editing(Boolean editing) {
         if (jsBase == null) {
             this.editing = editing;
         } else {
@@ -9394,32 +9394,6 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Double index;
-
-    public GanttLine setLineMarker(Double index) {
-        if (jsBase == null) {
-            this.index = index;
-        } else {
-            this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".lineMarker(%f);", index));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineMarker(%f)", index));
-                js.setLength(0);
-            }
-        }
-        return new GanttLine(jsBase);
-    }
-
     private GanttLine getLineMarker;
 
     public GanttLine getLineMarker() {
@@ -9487,12 +9461,12 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Double index1;
+    private Double index;
     private String lineMarker2;
     private Boolean lineMarker3;
     private GanttDateTimeMarkers lineMarker4;
 
-    public Timeline setLineMarker(String lineMarker2, Double index1) {
+    public Timeline setLineMarker(String lineMarker2, Double index) {
         if (jsBase == null) {
             this.lineMarker = null;
             this.lineMarker1 = null;
@@ -9501,13 +9475,10 @@ public class Timeline extends JsObject {
             this.lineMarker4 = null;
             
             this.lineMarker2 = lineMarker2;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
         } else {
             this.lineMarker2 = lineMarker2;
-            this.index1 = index1;
+            this.index = index;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -9517,10 +9488,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
+            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", lineMarker2, index));
                 js.setLength(0);
             }
         }
@@ -9528,7 +9499,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setLineMarker(Boolean lineMarker3, Double index1) {
+    public Timeline setLineMarker(Boolean lineMarker3, Double index) {
         if (jsBase == null) {
             this.lineMarker = null;
             this.lineMarker1 = null;
@@ -9537,13 +9508,10 @@ public class Timeline extends JsObject {
             this.lineMarker4 = null;
             
             this.lineMarker3 = lineMarker3;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
         } else {
             this.lineMarker3 = lineMarker3;
-            this.index1 = index1;
+            this.index = index;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -9553,10 +9521,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
+            js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
                 js.setLength(0);
             }
         }
@@ -9564,7 +9532,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setLineMarker(GanttDateTimeMarkers lineMarker4, Double index1) {
+    public Timeline setLineMarker(GanttDateTimeMarkers lineMarker4, Double index) {
         if (jsBase == null) {
             this.lineMarker = null;
             this.lineMarker1 = null;
@@ -9573,13 +9541,10 @@ public class Timeline extends JsObject {
             this.lineMarker4 = null;
             
             this.lineMarker4 = lineMarker4;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
+            this.index = index;
         } else {
             this.lineMarker4 = lineMarker4;
-            this.index1 = index1;
+            this.index = index;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -9589,10 +9554,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", (lineMarker4 != null) ? lineMarker4.generateJs() : "null", index1));
+            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", (lineMarker4 != null) ? lineMarker4.generateJs() : "null", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", (lineMarker4 != null) ? lineMarker4.generateJs() : "null", index1));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", (lineMarker4 != null) ? lineMarker4.generateJs() : "null", index));
                 js.setLength(0);
             }
         }
@@ -9663,7 +9628,7 @@ public class Timeline extends JsObject {
     private String color8;
     private Double opacity25;
 
-    public Timeline setMilestoneFill(String color8, Double opacity25) {
+    public Timeline milestoneFill(String color8, Double opacity25) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -9734,7 +9699,7 @@ public class Timeline extends JsObject {
     private String mode34;
     private Double opacity26;
 
-    public Timeline setMilestoneFill(GradientKey[] keys32, Boolean mode32, Double angle8, Double opacity26) {
+    public Timeline milestoneFill(GradientKey[] keys32, Boolean mode32, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9874,7 +9839,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setMilestoneFill(GradientKey[] keys32, VectorRect mode33, Double angle8, Double opacity26) {
+    public Timeline milestoneFill(GradientKey[] keys32, VectorRect mode33, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10014,7 +9979,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setMilestoneFill(GradientKey[] keys32, String mode34, Double angle8, Double opacity26) {
+    public Timeline milestoneFill(GradientKey[] keys32, String mode34, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10154,7 +10119,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setMilestoneFill(String[] keys33, Boolean mode32, Double angle8, Double opacity26) {
+    public Timeline milestoneFill(String[] keys33, Boolean mode32, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10294,7 +10259,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setMilestoneFill(String[] keys33, VectorRect mode33, Double angle8, Double opacity26) {
+    public Timeline milestoneFill(String[] keys33, VectorRect mode33, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10434,7 +10399,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setMilestoneFill(String[] keys33, String mode34, Double angle8, Double opacity26) {
+    public Timeline milestoneFill(String[] keys33, String mode34, Double angle8, Double opacity26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10582,7 +10547,7 @@ public class Timeline extends JsObject {
     private Double fx9;
     private Double fy9;
 
-    public Timeline setMilestoneFill(GradientKey[] keys34, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
+    public Timeline milestoneFill(GradientKey[] keys34, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10766,7 +10731,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setMilestoneFill(String[] keys35, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
+    public Timeline milestoneFill(String[] keys35, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11308,7 +11273,7 @@ public class Timeline extends JsObject {
     private String color9;
     private Double opacity28;
 
-    public Timeline setParentFill(String color9, Double opacity28) {
+    public Timeline parentFill(String color9, Double opacity28) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -11383,7 +11348,7 @@ public class Timeline extends JsObject {
     private String mode38;
     private Double opacity29;
 
-    public Timeline setParentFill(GradientKey[] keys36, Boolean mode36, Double angle9, Double opacity29) {
+    public Timeline parentFill(GradientKey[] keys36, Boolean mode36, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11535,7 +11500,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setParentFill(GradientKey[] keys36, VectorRect mode37, Double angle9, Double opacity29) {
+    public Timeline parentFill(GradientKey[] keys36, VectorRect mode37, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11687,7 +11652,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setParentFill(GradientKey[] keys36, String mode38, Double angle9, Double opacity29) {
+    public Timeline parentFill(GradientKey[] keys36, String mode38, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11839,7 +11804,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setParentFill(String[] keys37, Boolean mode36, Double angle9, Double opacity29) {
+    public Timeline parentFill(String[] keys37, Boolean mode36, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11991,7 +11956,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setParentFill(String[] keys37, VectorRect mode37, Double angle9, Double opacity29) {
+    public Timeline parentFill(String[] keys37, VectorRect mode37, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12143,7 +12108,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setParentFill(String[] keys37, String mode38, Double angle9, Double opacity29) {
+    public Timeline parentFill(String[] keys37, String mode38, Double angle9, Double opacity29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12303,7 +12268,7 @@ public class Timeline extends JsObject {
     private Double fx10;
     private Double fy10;
 
-    public Timeline setParentFill(GradientKey[] keys38, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
+    public Timeline parentFill(GradientKey[] keys38, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12502,7 +12467,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setParentFill(String[] keys39, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
+    public Timeline parentFill(String[] keys39, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13071,7 +13036,7 @@ public class Timeline extends JsObject {
     private String color10;
     private Double opacity31;
 
-    public Timeline setProgressFill(String color10, Double opacity31) {
+    public Timeline progressFill(String color10, Double opacity31) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -13150,7 +13115,7 @@ public class Timeline extends JsObject {
     private String mode42;
     private Double opacity32;
 
-    public Timeline setProgressFill(GradientKey[] keys40, Boolean mode40, Double angle10, Double opacity32) {
+    public Timeline progressFill(GradientKey[] keys40, Boolean mode40, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13314,7 +13279,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setProgressFill(GradientKey[] keys40, VectorRect mode41, Double angle10, Double opacity32) {
+    public Timeline progressFill(GradientKey[] keys40, VectorRect mode41, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13478,7 +13443,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setProgressFill(GradientKey[] keys40, String mode42, Double angle10, Double opacity32) {
+    public Timeline progressFill(GradientKey[] keys40, String mode42, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13642,7 +13607,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setProgressFill(String[] keys41, Boolean mode40, Double angle10, Double opacity32) {
+    public Timeline progressFill(String[] keys41, Boolean mode40, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13806,7 +13771,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setProgressFill(String[] keys41, VectorRect mode41, Double angle10, Double opacity32) {
+    public Timeline progressFill(String[] keys41, VectorRect mode41, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13970,7 +13935,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setProgressFill(String[] keys41, String mode42, Double angle10, Double opacity32) {
+    public Timeline progressFill(String[] keys41, String mode42, Double angle10, Double opacity32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14142,7 +14107,7 @@ public class Timeline extends JsObject {
     private Double fx11;
     private Double fy11;
 
-    public Timeline setProgressFill(GradientKey[] keys42, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
+    public Timeline progressFill(GradientKey[] keys42, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14356,7 +14321,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setProgressFill(String[] keys43, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
+    public Timeline progressFill(String[] keys43, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14923,36 +14888,6 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Double index2;
-
-    public GanttRange setRangeMarker(Double index2) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
-        } else {
-            this.index2 = index2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".rangeMarker(%f);", index2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeMarker(%f)", index2));
-                js.setLength(0);
-            }
-        }
-        return new GanttRange(jsBase);
-    }
-
     private GanttRange getRangeMarker;
 
     public GanttRange getRangeMarker() {
@@ -15020,129 +14955,11 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Double index3;
-    private String rangeMarker2;
-    private Boolean rangeMarker3;
-    private GanttDateTimeMarkers rangeMarker4;
-
-    public Timeline setRangeMarker(String rangeMarker2, Double index3) {
-        if (jsBase == null) {
-            this.rangeMarker = null;
-            this.rangeMarker1 = null;
-            this.rangeMarker2 = null;
-            this.rangeMarker3 = null;
-            this.rangeMarker4 = null;
-            
-            this.rangeMarker2 = rangeMarker2;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            
-            this.index3 = index3;
-        } else {
-            this.rangeMarker2 = rangeMarker2;
-            this.index3 = index3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", rangeMarker2, index3));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Timeline setRangeMarker(Boolean rangeMarker3, Double index3) {
-        if (jsBase == null) {
-            this.rangeMarker = null;
-            this.rangeMarker1 = null;
-            this.rangeMarker2 = null;
-            this.rangeMarker3 = null;
-            this.rangeMarker4 = null;
-            
-            this.rangeMarker3 = rangeMarker3;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            
-            this.index3 = index3;
-        } else {
-            this.rangeMarker3 = rangeMarker3;
-            this.index3 = index3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Timeline setRangeMarker(GanttDateTimeMarkers rangeMarker4, Double index3) {
-        if (jsBase == null) {
-            this.rangeMarker = null;
-            this.rangeMarker1 = null;
-            this.rangeMarker2 = null;
-            this.rangeMarker3 = null;
-            this.rangeMarker4 = null;
-            
-            this.rangeMarker4 = rangeMarker4;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            
-            this.index3 = index3;
-        } else {
-            this.rangeMarker4 = rangeMarker4;
-            this.index3 = index3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", (rangeMarker4 != null) ? rangeMarker4.generateJs() : "null", index3));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", (rangeMarker4 != null) ? rangeMarker4.generateJs() : "null", index3));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private Timeline getRangeMarker1;
 
     public Timeline getRangeMarker1() {
         if (getRangeMarker1 == null)
-            getRangeMarker1 = new Timeline(jsBase + ".rangeMarker1()");
+            getRangeMarker1 = new Timeline(jsBase + ".rangeMarker()");
 
         return getRangeMarker1;
     }
@@ -15176,7 +14993,7 @@ public class Timeline extends JsObject {
     private String color11;
     private Double opacity34;
 
-    public Timeline setRowEvenFill(String color11, Double opacity34) {
+    public Timeline rowEvenFill(String color11, Double opacity34) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -15259,7 +15076,7 @@ public class Timeline extends JsObject {
     private String mode46;
     private Double opacity35;
 
-    public Timeline setRowEvenFill(GradientKey[] keys44, Boolean mode44, Double angle11, Double opacity35) {
+    public Timeline rowEvenFill(GradientKey[] keys44, Boolean mode44, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15435,7 +15252,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowEvenFill(GradientKey[] keys44, VectorRect mode45, Double angle11, Double opacity35) {
+    public Timeline rowEvenFill(GradientKey[] keys44, VectorRect mode45, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15611,7 +15428,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowEvenFill(GradientKey[] keys44, String mode46, Double angle11, Double opacity35) {
+    public Timeline rowEvenFill(GradientKey[] keys44, String mode46, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15787,7 +15604,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowEvenFill(String[] keys45, Boolean mode44, Double angle11, Double opacity35) {
+    public Timeline rowEvenFill(String[] keys45, Boolean mode44, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15963,7 +15780,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowEvenFill(String[] keys45, VectorRect mode45, Double angle11, Double opacity35) {
+    public Timeline rowEvenFill(String[] keys45, VectorRect mode45, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16139,7 +15956,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowEvenFill(String[] keys45, String mode46, Double angle11, Double opacity35) {
+    public Timeline rowEvenFill(String[] keys45, String mode46, Double angle11, Double opacity35) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16323,7 +16140,7 @@ public class Timeline extends JsObject {
     private Double fx12;
     private Double fy12;
 
-    public Timeline setRowEvenFill(GradientKey[] keys46, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
+    public Timeline rowEvenFill(GradientKey[] keys46, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16552,7 +16369,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowEvenFill(String[] keys47, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
+    public Timeline rowEvenFill(String[] keys47, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16810,7 +16627,7 @@ public class Timeline extends JsObject {
     private String color12;
     private Double opacity37;
 
-    public Timeline setRowFill(String color12, Double opacity37) {
+    public Timeline rowFill(String color12, Double opacity37) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -16897,7 +16714,7 @@ public class Timeline extends JsObject {
     private String mode50;
     private Double opacity38;
 
-    public Timeline setRowFill(GradientKey[] keys48, Boolean mode48, Double angle12, Double opacity38) {
+    public Timeline rowFill(GradientKey[] keys48, Boolean mode48, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17085,7 +16902,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowFill(GradientKey[] keys48, VectorRect mode49, Double angle12, Double opacity38) {
+    public Timeline rowFill(GradientKey[] keys48, VectorRect mode49, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17273,7 +17090,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowFill(GradientKey[] keys48, String mode50, Double angle12, Double opacity38) {
+    public Timeline rowFill(GradientKey[] keys48, String mode50, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17461,7 +17278,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowFill(String[] keys49, Boolean mode48, Double angle12, Double opacity38) {
+    public Timeline rowFill(String[] keys49, Boolean mode48, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17649,7 +17466,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowFill(String[] keys49, VectorRect mode49, Double angle12, Double opacity38) {
+    public Timeline rowFill(String[] keys49, VectorRect mode49, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17837,7 +17654,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowFill(String[] keys49, String mode50, Double angle12, Double opacity38) {
+    public Timeline rowFill(String[] keys49, String mode50, Double angle12, Double opacity38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18033,7 +17850,7 @@ public class Timeline extends JsObject {
     private Double fx13;
     private Double fy13;
 
-    public Timeline setRowFill(GradientKey[] keys50, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
+    public Timeline rowFill(GradientKey[] keys50, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18277,7 +18094,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowFill(String[] keys51, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
+    public Timeline rowFill(String[] keys51, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18550,7 +18367,7 @@ public class Timeline extends JsObject {
     private String color13;
     private Double opacity40;
 
-    public Timeline setRowHoverFill(String color13, Double opacity40) {
+    public Timeline rowHoverFill(String color13, Double opacity40) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -18641,7 +18458,7 @@ public class Timeline extends JsObject {
     private String mode54;
     private Double opacity41;
 
-    public Timeline setRowHoverFill(GradientKey[] keys52, Boolean mode52, Double angle13, Double opacity41) {
+    public Timeline rowHoverFill(GradientKey[] keys52, Boolean mode52, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18841,7 +18658,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowHoverFill(GradientKey[] keys52, VectorRect mode53, Double angle13, Double opacity41) {
+    public Timeline rowHoverFill(GradientKey[] keys52, VectorRect mode53, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19041,7 +18858,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowHoverFill(GradientKey[] keys52, String mode54, Double angle13, Double opacity41) {
+    public Timeline rowHoverFill(GradientKey[] keys52, String mode54, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19241,7 +19058,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowHoverFill(String[] keys53, Boolean mode52, Double angle13, Double opacity41) {
+    public Timeline rowHoverFill(String[] keys53, Boolean mode52, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19441,7 +19258,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowHoverFill(String[] keys53, VectorRect mode53, Double angle13, Double opacity41) {
+    public Timeline rowHoverFill(String[] keys53, VectorRect mode53, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19641,7 +19458,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowHoverFill(String[] keys53, String mode54, Double angle13, Double opacity41) {
+    public Timeline rowHoverFill(String[] keys53, String mode54, Double angle13, Double opacity41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19849,7 +19666,7 @@ public class Timeline extends JsObject {
     private Double fx14;
     private Double fy14;
 
-    public Timeline setRowHoverFill(GradientKey[] keys54, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
+    public Timeline rowHoverFill(GradientKey[] keys54, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20108,7 +19925,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowHoverFill(String[] keys55, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
+    public Timeline rowHoverFill(String[] keys55, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20395,7 +20212,7 @@ public class Timeline extends JsObject {
     private String color14;
     private Double opacity43;
 
-    public Timeline setRowOddFill(String color14, Double opacity43) {
+    public Timeline rowOddFill(String color14, Double opacity43) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -20490,7 +20307,7 @@ public class Timeline extends JsObject {
     private String mode58;
     private Double opacity44;
 
-    public Timeline setRowOddFill(GradientKey[] keys56, Boolean mode56, Double angle14, Double opacity44) {
+    public Timeline rowOddFill(GradientKey[] keys56, Boolean mode56, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20702,7 +20519,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowOddFill(GradientKey[] keys56, VectorRect mode57, Double angle14, Double opacity44) {
+    public Timeline rowOddFill(GradientKey[] keys56, VectorRect mode57, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20914,7 +20731,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowOddFill(GradientKey[] keys56, String mode58, Double angle14, Double opacity44) {
+    public Timeline rowOddFill(GradientKey[] keys56, String mode58, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21126,7 +20943,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowOddFill(String[] keys57, Boolean mode56, Double angle14, Double opacity44) {
+    public Timeline rowOddFill(String[] keys57, Boolean mode56, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21338,7 +21155,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowOddFill(String[] keys57, VectorRect mode57, Double angle14, Double opacity44) {
+    public Timeline rowOddFill(String[] keys57, VectorRect mode57, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21550,7 +21367,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowOddFill(String[] keys57, String mode58, Double angle14, Double opacity44) {
+    public Timeline rowOddFill(String[] keys57, String mode58, Double angle14, Double opacity44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21770,7 +21587,7 @@ public class Timeline extends JsObject {
     private Double fx15;
     private Double fy15;
 
-    public Timeline setRowOddFill(GradientKey[] keys58, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
+    public Timeline rowOddFill(GradientKey[] keys58, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22044,7 +21861,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowOddFill(String[] keys59, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
+    public Timeline rowOddFill(String[] keys59, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22347,7 +22164,7 @@ public class Timeline extends JsObject {
     private String color15;
     private Double opacity46;
 
-    public Timeline setRowSelectedFill(String color15, Double opacity46) {
+    public Timeline rowSelectedFill(String color15, Double opacity46) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -22445,7 +22262,7 @@ public class Timeline extends JsObject {
     private VectorRect mode61;
     private String mode62;
 
-    public Timeline setRowSelectedFill(GradientKey[] keys60, Boolean mode60, Double angle15) {
+    public Timeline rowSelectedFill(GradientKey[] keys60, Boolean mode60, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22618,7 +22435,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowSelectedFill(GradientKey[] keys60, VectorRect mode61, Double angle15) {
+    public Timeline rowSelectedFill(GradientKey[] keys60, VectorRect mode61, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22791,7 +22608,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowSelectedFill(GradientKey[] keys60, String mode62, Double angle15) {
+    public Timeline rowSelectedFill(GradientKey[] keys60, String mode62, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22964,7 +22781,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowSelectedFill(String[] keys61, Boolean mode60, Double angle15) {
+    public Timeline rowSelectedFill(String[] keys61, Boolean mode60, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23137,7 +22954,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowSelectedFill(String[] keys61, VectorRect mode61, Double angle15) {
+    public Timeline rowSelectedFill(String[] keys61, VectorRect mode61, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23310,7 +23127,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowSelectedFill(String[] keys61, String mode62, Double angle15) {
+    public Timeline rowSelectedFill(String[] keys61, String mode62, Double angle15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23491,7 +23308,7 @@ public class Timeline extends JsObject {
     private Double fx16;
     private Double fy16;
 
-    public Timeline setRowSelectedFill(GradientKey[] keys62, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
+    public Timeline rowSelectedFill(GradientKey[] keys62, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23779,7 +23596,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setRowSelectedFill(String[] keys63, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
+    public Timeline rowSelectedFill(String[] keys63, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24131,7 +23948,7 @@ public class Timeline extends JsObject {
     private String color16;
     private Double opacity48;
 
-    public Timeline setSelectedElementFill(String color16, Double opacity48) {
+    public Timeline selectedElementFill(String color16, Double opacity48) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -24233,7 +24050,7 @@ public class Timeline extends JsObject {
     private String mode66;
     private Double opacity49;
 
-    public Timeline setSelectedElementFill(GradientKey[] keys64, Boolean mode64, Double angle16, Double opacity49) {
+    public Timeline selectedElementFill(GradientKey[] keys64, Boolean mode64, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24468,7 +24285,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setSelectedElementFill(GradientKey[] keys64, VectorRect mode65, Double angle16, Double opacity49) {
+    public Timeline selectedElementFill(GradientKey[] keys64, VectorRect mode65, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24703,7 +24520,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setSelectedElementFill(GradientKey[] keys64, String mode66, Double angle16, Double opacity49) {
+    public Timeline selectedElementFill(GradientKey[] keys64, String mode66, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24938,7 +24755,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setSelectedElementFill(String[] keys65, Boolean mode64, Double angle16, Double opacity49) {
+    public Timeline selectedElementFill(String[] keys65, Boolean mode64, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25173,7 +24990,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setSelectedElementFill(String[] keys65, VectorRect mode65, Double angle16, Double opacity49) {
+    public Timeline selectedElementFill(String[] keys65, VectorRect mode65, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25408,7 +25225,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setSelectedElementFill(String[] keys65, String mode66, Double angle16, Double opacity49) {
+    public Timeline selectedElementFill(String[] keys65, String mode66, Double angle16, Double opacity49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25651,7 +25468,7 @@ public class Timeline extends JsObject {
     private Double fx17;
     private Double fy17;
 
-    public Timeline setSelectedElementFill(GradientKey[] keys66, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
+    public Timeline selectedElementFill(GradientKey[] keys66, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25954,7 +25771,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setSelectedElementFill(String[] keys67, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
+    public Timeline selectedElementFill(String[] keys67, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -26555,38 +26372,6 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Double index4;
-
-    public GanttText setTextMarker(Double index4) {
-        if (jsBase == null) {
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            
-            this.index4 = index4;
-        } else {
-            this.index4 = index4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".textMarker(%f);", index4));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textMarker(%f)", index4));
-                js.setLength(0);
-            }
-        }
-        return new GanttText(jsBase);
-    }
-
     private GanttText getTextMarker;
 
     public GanttText getTextMarker() {
@@ -26654,12 +26439,12 @@ public class Timeline extends JsObject {
         return this;
     }
 
-    private Double index5;
+    private Double index1;
     private String textMarker2;
     private Boolean textMarker3;
     private GanttDateTimeMarkers textMarker4;
 
-    public Timeline setTextMarker(String textMarker2, Double index5) {
+    public Timeline setTextMarker(String textMarker2, Double index1) {
         if (jsBase == null) {
             this.textMarker = null;
             this.textMarker1 = null;
@@ -26670,15 +26455,11 @@ public class Timeline extends JsObject {
             this.textMarker2 = textMarker2;
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
             
-            this.index5 = index5;
+            this.index1 = index1;
         } else {
             this.textMarker2 = textMarker2;
-            this.index5 = index5;
+            this.index1 = index1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -26688,10 +26469,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
+            js.append(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index5));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", textMarker2, index1));
                 js.setLength(0);
             }
         }
@@ -26699,7 +26480,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setTextMarker(Boolean textMarker3, Double index5) {
+    public Timeline setTextMarker(Boolean textMarker3, Double index1) {
         if (jsBase == null) {
             this.textMarker = null;
             this.textMarker1 = null;
@@ -26710,15 +26491,11 @@ public class Timeline extends JsObject {
             this.textMarker3 = textMarker3;
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
             
-            this.index5 = index5;
+            this.index1 = index1;
         } else {
             this.textMarker3 = textMarker3;
-            this.index5 = index5;
+            this.index1 = index1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -26728,10 +26505,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
+            js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index1));
                 js.setLength(0);
             }
         }
@@ -26739,7 +26516,7 @@ public class Timeline extends JsObject {
     }
 
 
-    public Timeline setTextMarker(GanttDateTimeMarkers textMarker4, Double index5) {
+    public Timeline setTextMarker(GanttDateTimeMarkers textMarker4, Double index1) {
         if (jsBase == null) {
             this.textMarker = null;
             this.textMarker1 = null;
@@ -26750,15 +26527,11 @@ public class Timeline extends JsObject {
             this.textMarker4 = textMarker4;
             this.index = null;
             this.index1 = null;
-            this.index2 = null;
-            this.index3 = null;
-            this.index4 = null;
-            this.index5 = null;
             
-            this.index5 = index5;
+            this.index1 = index1;
         } else {
             this.textMarker4 = textMarker4;
-            this.index5 = index5;
+            this.index1 = index1;
 
 //            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
 //                js.setLength(js.length() - 1);
@@ -26768,10 +26541,10 @@ public class Timeline extends JsObject {
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".textMarker(%s, %f)", (textMarker4 != null) ? textMarker4.generateJs() : "null", index5));
+            js.append(String.format(Locale.US, ".textMarker(%s, %f)", (textMarker4 != null) ? textMarker4.generateJs() : "null", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", (textMarker4 != null) ? textMarker4.generateJs() : "null", index5));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", (textMarker4 != null) ? textMarker4.generateJs() : "null", index1));
                 js.setLength(0);
             }
         }
@@ -28749,13 +28522,6 @@ public class Timeline extends JsObject {
         return "";
     }
 
-    private String generateJSindex() {
-        if (index != null) {
-            return String.format(Locale.US, "index: %f,", index);
-        }
-        return "";
-    }
-
     private String generateJSlineMarker() {
         if (lineMarker != null) {
             return String.format(Locale.US, "lineMarker: %s,", lineMarker);
@@ -28770,9 +28536,9 @@ public class Timeline extends JsObject {
         return "";
     }
 
-    private String generateJSindex1() {
-        if (index1 != null) {
-            return String.format(Locale.US, "index: %f,", index1);
+    private String generateJSindex() {
+        if (index != null) {
+            return String.format(Locale.US, "index: %f,", index);
         }
         return "";
     }
@@ -29393,13 +29159,6 @@ public class Timeline extends JsObject {
         return "";
     }
 
-    private String generateJSindex2() {
-        if (index2 != null) {
-            return String.format(Locale.US, "index: %f,", index2);
-        }
-        return "";
-    }
-
     private String generateJSrangeMarker() {
         if (rangeMarker != null) {
             return String.format(Locale.US, "rangeMarker: %s,", rangeMarker);
@@ -29410,34 +29169,6 @@ public class Timeline extends JsObject {
     private String generateJSrangeMarker1() {
         if (rangeMarker1 != null) {
             return String.format(Locale.US, "rangeMarker: %b,", rangeMarker1);
-        }
-        return "";
-    }
-
-    private String generateJSindex3() {
-        if (index3 != null) {
-            return String.format(Locale.US, "index: %f,", index3);
-        }
-        return "";
-    }
-
-    private String generateJSrangeMarker2() {
-        if (rangeMarker2 != null) {
-            return String.format(Locale.US, "rangeMarker: %s,", rangeMarker2);
-        }
-        return "";
-    }
-
-    private String generateJSrangeMarker3() {
-        if (rangeMarker3 != null) {
-            return String.format(Locale.US, "rangeMarker: %b,", rangeMarker3);
-        }
-        return "";
-    }
-
-    private String generateJSrangeMarker4() {
-        if (rangeMarker4 != null) {
-            return String.format(Locale.US, "rangeMarker: %s,", (rangeMarker4 != null) ? rangeMarker4.generateJs() : "null");
         }
         return "";
     }
@@ -30282,13 +30013,6 @@ public class Timeline extends JsObject {
         return "";
     }
 
-    private String generateJSindex4() {
-        if (index4 != null) {
-            return String.format(Locale.US, "index: %f,", index4);
-        }
-        return "";
-    }
-
     private String generateJStextMarker() {
         if (textMarker != null) {
             return String.format(Locale.US, "textMarker: %s,", textMarker);
@@ -30303,9 +30027,9 @@ public class Timeline extends JsObject {
         return "";
     }
 
-    private String generateJSindex5() {
-        if (index5 != null) {
-            return String.format(Locale.US, "index: %f,", index5);
+    private String generateJSindex1() {
+        if (index1 != null) {
+            return String.format(Locale.US, "index: %f,", index1);
         }
         return "";
     }
@@ -30639,10 +30363,9 @@ public class Timeline extends JsObject {
             js.append(generateJSheader());
             js.append(generateJShorizontalScrollBar());
             js.append(generateJSlabels());
-            js.append(generateJSindex());
             js.append(generateJSlineMarker());
             js.append(generateJSlineMarker1());
-            js.append(generateJSindex1());
+            js.append(generateJSindex());
             js.append(generateJSlineMarker2());
             js.append(generateJSlineMarker3());
             js.append(generateJSlineMarker4());
@@ -30731,13 +30454,8 @@ public class Timeline extends JsObject {
             js.append(generateJSdashpattern12());
             js.append(generateJSlineJoin12());
             js.append(generateJSlineCap12());
-            js.append(generateJSindex2());
             js.append(generateJSrangeMarker());
             js.append(generateJSrangeMarker1());
-            js.append(generateJSindex3());
-            js.append(generateJSrangeMarker2());
-            js.append(generateJSrangeMarker3());
-            js.append(generateJSrangeMarker4());
             js.append(generateJSrowEvenFill());
             js.append(generateJScolor11());
             js.append(generateJSopacity34());
@@ -30858,10 +30576,9 @@ public class Timeline extends JsObject {
             js.append(generateJSdashpattern13());
             js.append(generateJSlineJoin13());
             js.append(generateJSlineCap13());
-            js.append(generateJSindex4());
             js.append(generateJStextMarker());
             js.append(generateJStextMarker1());
-            js.append(generateJSindex5());
+            js.append(generateJSindex1());
             js.append(generateJStextMarker2());
             js.append(generateJStextMarker3());
             js.append(generateJStextMarker4());

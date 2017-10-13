@@ -25,7 +25,7 @@ public class Zoom extends JsObject {
     
     private Element decorate;
 
-    public void setDecorate(Element decorate) {
+    public void decorate(Element decorate) {
         if (jsBase == null) {
             this.decorate = decorate;
         } else {
@@ -51,7 +51,7 @@ public class Zoom extends JsObject {
     private ChartsMap parentElement;
     private Element parentElement1;
 
-    public void setRender(ChartsMap parentElement) {
+    public void render(ChartsMap parentElement) {
         if (jsBase == null) {
             this.parentElement = null;
             this.parentElement1 = null;
@@ -78,7 +78,7 @@ public class Zoom extends JsObject {
     }
 
 
-    public void setRender(Element parentElement1) {
+    public void render(Element parentElement1) {
         if (jsBase == null) {
             this.parentElement = null;
             this.parentElement1 = null;
@@ -106,7 +106,7 @@ public class Zoom extends JsObject {
 
     private ChartsMap chart;
 
-    public void setTarget(ChartsMap chart) {
+    public void target(ChartsMap chart) {
         if (jsBase == null) {
             this.chart = chart;
         } else {
