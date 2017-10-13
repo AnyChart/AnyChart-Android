@@ -74,11 +74,12 @@ public class VerticalChartActivity extends AppCompatActivity {
                         "        '\\n' + 'Fact: $' + this.points[0].value + ' mln';\n" +
                         "    }");
 
-//        cartesian.getInteractivity().setHoverMode(HoverMode.BY_X);
-        cartesian.getInteractivity().setHoverMode(HoverMode.SINGLE);
+        cartesian.getInteractivity().setHoverMode(HoverMode.BY_X);
 
         cartesian.setXAxis(true);
-        cartesian.getYAxis().getLabels().setFormat("'${%Value} mln'");
+        cartesian.setYAxis(false);
+//        cartesian.getYAxis().getLabels().setFormat("'${%Value} mln'");
+        cartesian.setIsVertical(true);
 
         anyChartView.setChart(cartesian);
     }

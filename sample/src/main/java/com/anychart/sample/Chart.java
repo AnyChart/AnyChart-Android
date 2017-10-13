@@ -6,9 +6,11 @@ import com.anychart.sample.charts.ColumnChartActivity;
 import com.anychart.sample.charts.FunnelChartActivity;
 import com.anychart.sample.charts.HeatMapChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
+import com.anychart.sample.charts.ParetoChartActivity;
 import com.anychart.sample.charts.PertChartActivity;
 import com.anychart.sample.charts.PieChartActivity;
 import com.anychart.sample.charts.PolarChartActivity;
+import com.anychart.sample.charts.PyramidActivity;
 import com.anychart.sample.charts.RadarChartActivity;
 import com.anychart.sample.charts.RangeChartActivity;
 import com.anychart.sample.charts.ResourceChartActivity;
@@ -18,6 +20,8 @@ import com.anychart.sample.charts.TreeMapChartActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
 import com.anychart.sample.charts.VerticalChartActivity;
 import com.anychart.sample.charts.WaterfallChartActivity;
+import com.anychart.sample.charts.CombinedChartActivity;
+import com.anychart.sample.charts.MarkerAndBubleChartActivity;
 
 import java.util.ArrayList;
 
@@ -63,6 +67,10 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.vertical_chart), VerticalChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.funnel_chart), FunnelChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.pert_chart), PertChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.combined_chart), CombinedChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.multi_series_bubble_chart), MarkerAndBubleChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.pareto_chart), ParetoChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.pyramid_chart), PyramidActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
 
         return chartList;

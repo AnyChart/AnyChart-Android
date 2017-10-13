@@ -28,7 +28,7 @@ public class RadarChartActivity extends AppCompatActivity {
         radar.getYScale().setMinimumGap(0d);
         radar.getYScale().getTicks().setInterval(50d);
 
-        radar.getXAxis().getLabels().setPadding(5d);
+        radar.getXAxis().getLabels().setPadding(5d, 5d, 5d, 5d);
 
         radar.getLegend()
                 .setAlign(EnumsAlign.CENTER)

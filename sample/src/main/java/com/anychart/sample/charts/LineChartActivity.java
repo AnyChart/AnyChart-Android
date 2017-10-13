@@ -45,7 +45,7 @@ public class LineChartActivity extends AppCompatActivity {
         cartesian.setTitle("'Trend of Sales of the Most Popular Products of ACME Corp.'");
 
         cartesian.getYAxis().setTitle("'Number of Bottles Sold (thousands)'");
-        cartesian.getXAxis().getLabels().setPadding(5d);
+        cartesian.getXAxis().getLabels().setPadding(5d, 5d, 5d, 5d);
 
         CartesianSeriesLine series1 = cartesian.line(new String[] {
                 "['1986', 3.6]",

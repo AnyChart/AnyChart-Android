@@ -26,7 +26,7 @@ public class FunnelChartActivity extends AppCompatActivity {
                 "['Purchased', 79128]"
         }, TextParsingMode.CSV);
 
-        funnel.setMargin(10d, "'20%'", 10d, "'20%'");
+        funnel.setMargin(new String[] { "10", "'20%'", "10", "'20%'" });
         funnel.setBaseWidth("'70%'")
                 .setNeckWidth("'17%'");
 

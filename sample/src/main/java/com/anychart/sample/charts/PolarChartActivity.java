@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsPolar;
 import com.anychart.anychart.PolarSeriesType;
-import com.anychart.anychart.ScaleStackMode;
 import com.anychart.anychart.ScaleTypes;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.anychart.TooltipDisplayMode;
@@ -81,7 +80,7 @@ public class PolarChartActivity extends AppCompatActivity {
         polar.getTitle().getMargin().setBottom(20d);
 
         // TODO stackMode
-        polar.getYScale().setStackMode(ScaleStackMode.VALUE);
+//        polar.getYScale().setStackMode(ScaleStackMode.VALUE);
 
         polar.getTooltip()
                 .setValuePrefix("'$'")

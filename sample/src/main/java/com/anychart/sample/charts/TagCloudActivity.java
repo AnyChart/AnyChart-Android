@@ -21,15 +21,16 @@ public class TagCloudActivity extends AppCompatActivity {
 
         tagCloud.setTitle("'World Population'");
 
-        // TODO look there
+        // TODO colorScale
 //        OrdinalColor ordinalColor = new OrdinalColor();
 //        ordinalColor.setColors(new String[] {
-//                "'#26959f'", "'#f18126'", "'#3b8ad8'", "'#60727b'", "'#e24b26'"
+//                "'#ffffff'", "'#ffffff'", "'#fffff'", "'#fffff'", "'#ffffff'"
 //        });
 //        tagCloud.setColorScale(ordinalColor);
 //        tagCloud.getColorScale().setColors(new String[] {
 //                "'#26959f'", "'#f18126'", "'#3b8ad8'", "'#60727b'", "'#e24b26'"
 //        });
+        tagCloud.setColorScale("anychart.scales.ordinalColor().colors(['#26959f', '#f18126', '#3b8ad8', '#60727b', '#e24b26'])");
         tagCloud.setAngles(new Double[] {-90d, 0d, 90d});
 
         tagCloud.getColorRange().setEnabled(true);
