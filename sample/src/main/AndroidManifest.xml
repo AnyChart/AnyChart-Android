@@ -54,6 +54,14 @@
         </activity>
         <activity android:name=".charts.GanttChartActivity">
         </activity>
+        <activity android:name=".charts.CombinedChartActivity">
+        </activity>
+        <activity android:name=".charts.MarkerAndBubleChartActivity">
+        </activity>
+        <activity android:name=".charts.ParetoChartActivity">
+        </activity>
+        <activity android:name=".charts.PyramidActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -18,4 +18,8 @@
     <string name="funnel_chart">Funnel Chart</string>
     <string name="pert_chart">Pert Chart</string>
     <string name="gantt_chart">Gantt Chart</string>
+    <string name="combined_chart">Combined Chart</string>
+    <string name="multi_series_bubble_chart">Multi-Series Bubble Chart</string>
+    <string name="pareto_chart">Pareto Chart</string>
+    <string name="pyramid_chart">Pyramid Chart</string>
 </resources>
