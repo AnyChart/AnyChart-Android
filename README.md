@@ -294,6 +294,18 @@ AnyChart product family includes more than 60 different chart types and we're co
             </sup>            
         </td>
     </tr>
+    <tr>
+        <td>
+            <h3 align="center">Area Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/areachart.png" width="320px" height="400px" alt="Area Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/AreaChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
 </table>  
 
 ## Running Demos
