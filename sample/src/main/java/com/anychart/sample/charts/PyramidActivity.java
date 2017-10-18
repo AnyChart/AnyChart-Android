@@ -1,8 +1,9 @@
 package com.anychart.sample.charts;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.LegendLayout;
@@ -20,7 +21,7 @@ public class PyramidActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Pyramid pyramid = new Pyramid();
+        Pyramid pyramid = AnyChart.pyramid();
         pyramid.setData(new String[] {
                 "{name: 'TV promotion', value: 6371664}",
                 "{name: 'Radio promotion', value: 7216301}",

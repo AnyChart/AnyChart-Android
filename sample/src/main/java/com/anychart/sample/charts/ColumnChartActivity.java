@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesColumn;
@@ -22,7 +23,7 @@ public class ColumnChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(com.anychart.sample.R.id.any_chart_view);
 
-        Cartesian cartesian = new Cartesian();
+        Cartesian cartesian = AnyChart.column();
         CartesianSeriesColumn column = cartesian.column(new String[] {
                 "['Rouge', '80540']",
                 "['Foundation', '94190']",

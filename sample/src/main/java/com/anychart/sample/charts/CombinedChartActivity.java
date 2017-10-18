@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesLine;
@@ -22,7 +23,7 @@ public class CombinedChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Cartesian cartesian = new Cartesian();
+        Cartesian cartesian = AnyChart.cartesian();
 
         cartesian.setAnimation(true);
 

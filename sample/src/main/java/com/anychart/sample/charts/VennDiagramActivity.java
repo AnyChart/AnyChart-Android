@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Venn;
 import com.anychart.sample.R;
@@ -16,7 +17,7 @@ public class VennDiagramActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Venn venn = new Venn();
+        Venn venn = AnyChart.venn();
         venn.setData(new String[] {
                 "{x: 'A', name: 'Data Science', value: 100}",
                 "{x: 'B', name: 'Computer Science', value: 25}",
@@ -35,7 +36,7 @@ public class VennDiagramActivity extends AppCompatActivity {
 
         venn.getLabels().setFormat("'{%Name}'");
 
-        venn.getIntersections().getHovered().fill("'black'", 0.25d);
+        venn.getIntersections().getHovered().setFill("'black'", 0.25d);
 
         venn.getIntersections().getLabels().setFontWeight("'bold'");
         venn.getIntersections().getLabels().setFormat("'{%Name}'");

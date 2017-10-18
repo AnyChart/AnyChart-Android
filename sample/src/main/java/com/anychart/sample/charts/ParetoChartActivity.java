@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.CartesianSeriesBase;
 import com.anychart.anychart.EnumsAnchor;
@@ -21,7 +22,7 @@ public class ParetoChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Pareto pareto = new Pareto();
+        Pareto pareto = AnyChart.pareto();
         pareto.setData(new String[] {
                 "{ x: 'Food is tasteless', value: 65 }",
                 "{ x: 'Wait time', value: 109 }",
@@ -45,21 +46,21 @@ public class ParetoChartActivity extends AppCompatActivity {
 
         pareto.getLineMarker()
                 .setValue(80d)
+                // TODO axis
 //                .setAxis(pareto.getXAxis(1d))
                 .setStroke("'#A5B3B3'", 1d, "'5 2'", StrokeLineJoin.ROUND, StrokeLineCap.ROUND);
 
         pareto.getGetSeries(0d).getTooltip().setFormat("'Value: {%Value}'");
 
-//        CartesianSeriesBaseWithMarkers
         CartesianSeriesBase line = pareto.getGetSeries(1d);
-        line.setSeriesType("'spline'");
-//        line.setMarkers(true);
-
+        line.setSeriesType("'spline'")
+                .setMarkers(true);
+        // TODO ticks
+//        line.getYScale().setTicks();
         line.getLabels().setEnabled(true);
         line.getLabels()
                 .setAnchor(EnumsAnchor.RIGHT_BOTTOM)
                 .setFormat("'{%CF}%'");
-
         line.getTooltip().setFormat("'Cumulative Frequency: {%CF}% \\n Relative Frequency: {%RF}%'");
 
         pareto.getCrosshair().setEnabled(true);

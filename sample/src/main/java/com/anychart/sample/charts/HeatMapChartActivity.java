@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.HeatMap;
 import com.anychart.anychart.SelectionMode;
@@ -20,7 +21,7 @@ public class HeatMapChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        HeatMap riskMap = new HeatMap();
+        HeatMap riskMap = AnyChart.heatMap();
 
         riskMap.setStroke("'#fff'", 1d, null, null, null);
         riskMap.getHovered()
@@ -49,17 +50,17 @@ public class HeatMapChartActivity extends AppCompatActivity {
         riskMap.getXAxis().setStroke((Stroke) null, null, null, null, null);
         riskMap.getXAxis().setTicks(false);
 
-        riskMap.getTooltip().getTitle().setUseHtml(true);
-        riskMap.getTooltip()
-                .setUseHtml(true)
-                .setTitleFormat("function() {\n" +
-                        "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
-                        "      return '<b>' + namesList[this.heat] + '</b> Residual Risk';\n" +
-                        "    }")
-                .setFormat("function () {\n" +
-                        "       return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
-                        "           '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
-                        "   }");
+//        riskMap.getTooltip().getTitle().setUseHtml(true);
+//        riskMap.getTooltip()
+//                .setUseHtml(true)
+//                .setTitleFormat("function() {\n" +
+//                        "      var namesList = [\"Low\", \"Medium\", \"High\", \"Extreme\"];\n" +
+//                        "      return '<b>' + namesList[this.heat] + '</b> Residual Risk';\n" +
+//                        "    }")
+//                .setFormat("function () {\n" +
+//                        "       return '<span style=\"color: #CECECE\">Likelihood: </span>' + this.x + '<br/>' +\n" +
+//                        "           '<span style=\"color: #CECECE\">Consequence: </span>' + this.y;\n" +
+//                        "   }");
 
         riskMap.setData(new String[] {
                 "{x: 'Rare', y: 'Insignificant', heat: 0, fill: '#90caf9'}",

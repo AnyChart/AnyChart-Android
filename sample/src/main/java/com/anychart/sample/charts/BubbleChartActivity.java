@@ -3,12 +3,13 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Scatter;
 import com.anychart.anychart.TextParsingMode;
 import com.anychart.sample.R;
 
-public class MarkerAndBubleChartActivity extends AppCompatActivity {
+public class BubbleChartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,39 +18,39 @@ public class MarkerAndBubleChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Scatter scatter = new Scatter();
+        Scatter bubble = AnyChart.bubble();
 
-        scatter.setAnimation(true);
+        bubble.setAnimation(true);
 
-        scatter.getTitle().setEnabled(true);
-        scatter.getTitle().setUseHtml(true);
-        scatter.getTitle()
+        bubble.getTitle().setEnabled(true);
+        bubble.getTitle().setUseHtml(true);
+        bubble.getTitle()
                 .setPadding(0d, 0d, 10d, 0d)
                 .setText("'Best sportsmen training data ' +\n" +
                         "        '<br/><span  style=\"color:#929292; font-size: 12px;\">' +\n" +
                         "        '(bubble size means duration, each bubble represents one training)</span>'");
 
-        scatter.setPadding(20d, 20d, 10d, 20d);
+        bubble.setPadding(20d, 20d, 10d, 20d);
 
-        scatter.setYGrid(true)
+        bubble.setYGrid(true)
                 .setXGrid(true)
                 .setXMinorGrid(true)
                 .setYMinorGrid(true);
 
-        scatter.setMinBubbleSize(5d)
+        bubble.setMinBubbleSize(5d)
                 .setMaxBubbleSize(40d);
 
-        scatter.getXAxis()
+        bubble.getXAxis()
                 .setTitle("'Average pulse during training'")
                 .setMinorTicks(true);
-        scatter.getYAxis()
+        bubble.getYAxis()
                 .setTitle("'Average power'")
                 .setMinorTicks(true);
 
-        scatter.getLegend().setEnabled(true);
-        scatter.getLabels().setPadding(0d, 0d, 10d, 0d);
+        bubble.getLegend().setEnabled(true);
+        bubble.getLabels().setPadding(0d, 0d, 10d, 0d);
 
-        scatter.bubble(new String[] {
+        bubble.bubble(new String[] {
                 "{'training':1, 'x':184, 'value':113, 'data':'10/13/2014', 'size':120}",
                 "{'training':1, 'x':180, 'value':94, 'data':'03/25/2015', 'size':45}",
                 "{'training':1, 'x':145, 'value':137, 'data':'11/23/2014', 'size':123}",
@@ -62,7 +63,7 @@ public class MarkerAndBubleChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV)
                 .setName("'Christopher Sanchez'");
 
-        scatter.bubble(new String[] {
+        bubble.bubble(new String[] {
                 "{'training':2, 'x':165, 'value':145, 'data':'10/22/2014', 'size':95}",
                 "{'training':2, 'x':147, 'value':71, 'data':'07/25/2014', 'size':53}",
                 "{'training':2, 'x':157, 'value':138, 'data':'08/18/2014', 'size':115}",
@@ -75,7 +76,7 @@ public class MarkerAndBubleChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV)
                 .setName("'Judy Evans'");
 
-        scatter.bubble(new String[] {
+        bubble.bubble(new String[] {
                 "{'training':3, 'x':145, 'value':141, 'data':'09/15/2014', 'size':25}",
                 "{'training':3, 'x':174, 'value':144, 'data':'10/28/2014', 'size':50}",
                 "{'training':3, 'x':180, 'value':94, 'data':'03/03/2015', 'size':50}",
@@ -87,7 +88,7 @@ public class MarkerAndBubleChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV)
                 .setName("'Walter Burke'");
 
-        scatter.bubble(new String[] {
+        bubble.bubble(new String[] {
                 "{'training':4, 'x':169, 'value':84, 'data':'05/16/2014', 'size':46}",
                 "{'training':4, 'x':176, 'value':123, 'data':'01/10/2015', 'size':43}",
                 "{'training':4, 'x':163, 'value':106, 'data':'08/06/2014', 'size':105}",
@@ -99,7 +100,7 @@ public class MarkerAndBubleChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV)
                 .setName("'Daniel Williamson'");
 
-        scatter.getTooltip()
+        bubble.getTooltip()
                 .setUseHtml(true)
                 .setFontColor("'#fff'")
                 .setFormat("function() {\n" +
@@ -112,6 +113,6 @@ public class MarkerAndBubleChartActivity extends AppCompatActivity {
                         "          this.getData('size') + ' min.</span></strong>';\n" +
                         "      }");
 
-        anyChartView.setChart(scatter);
+        anyChartView.setChart(bubble);
     }
 }

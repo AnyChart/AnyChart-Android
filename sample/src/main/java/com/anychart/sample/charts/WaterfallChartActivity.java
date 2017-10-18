@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsWaterfall;
 import com.anychart.sample.R;
@@ -16,7 +17,7 @@ public class WaterfallChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        ChartsWaterfall waterfall = new ChartsWaterfall();
+        ChartsWaterfall waterfall = AnyChart.waterfall();
 
         waterfall.setTitle("'ACME corp. Revenue Flow 2017'");
 

@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsRadar;
 import com.anychart.anychart.EnumsAlign;
@@ -20,7 +21,7 @@ public class RadarChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        ChartsRadar radar = new ChartsRadar();
+        ChartsRadar radar = AnyChart.radar();
 
         radar.setTitle("'WoW base stats comparison radar chart: Shaman vs Warrior vs Priest'");
 

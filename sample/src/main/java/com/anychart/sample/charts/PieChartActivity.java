@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.LegendLayout;
@@ -19,7 +20,7 @@ public class PieChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Pie pie = new Pie();
+        Pie pie = AnyChart.pie();
         pie.setData(new String[] {
                 "['Apples', 6371664]",
                 "['Pears', 789622]",

@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsPolar;
 import com.anychart.anychart.PolarSeriesType;
@@ -20,7 +21,7 @@ public class PolarChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        ChartsPolar polar = new ChartsPolar();
+        ChartsPolar polar = AnyChart.polar();
         polar.column(new String[] {
                 "['Nail polish', 12814]",
                 "['Eyebrow pencil', 13012]",

@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Funnel;
 import com.anychart.anychart.TextParsingMode;
@@ -17,7 +18,7 @@ public class FunnelChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Funnel funnel = new Funnel();
+        Funnel funnel = AnyChart.funnel();
         funnel.setData(new String[] {
                 "['Website Visits', 528756]",
                 "['Downloads', 164052]",

@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesJumpLine;
@@ -22,12 +23,12 @@ public class VerticalChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Cartesian cartesian = new Cartesian();
+        Cartesian vertical = AnyChart.vertical();
 
-        cartesian.setAnimation(true)
+        vertical.setAnimation(true)
                 .setTitle("'Vertical Combination of Bar and Jump Line Chart'");
 
-        SeriesBar bar = cartesian.bar(new String[] {
+        SeriesBar bar = vertical.bar(new String[] {
                 "['Jan', 11.5]",
                 "['Feb', 12]",
                 "['Mar', 11.7]",
@@ -43,7 +44,7 @@ public class VerticalChartActivity extends AppCompatActivity {
         }, TextParsingMode.CSV);
         bar.getLabels().setFormat("'${%Value} mln'");
 
-        CartesianSeriesJumpLine jumpLine = cartesian.jumpLine(new String[] {
+        CartesianSeriesJumpLine jumpLine = vertical.jumpLine(new String[] {
                 "['Jan', 9.3]",
                 "['Feb', 10.5]",
                 "['Mar', 11.2]",
@@ -58,14 +59,14 @@ public class VerticalChartActivity extends AppCompatActivity {
                 "['Dec', 15.5]"
         }, TextParsingMode.CSV);
         jumpLine.setStroke("'#60727B'", 2d, null, null, null);
-        jumpLine.setIsVertical(true);
+//        jumpLine.setIsVertical(true);
         jumpLine.getLabels().setEnabled(false);
 
-        cartesian.getYScale().setMinimum(0d);
+        vertical.getYScale().setMinimum(0d);
 
-        cartesian.setLabels(true);
+        vertical.setLabels(true);
 
-        cartesian.getTooltip()
+        vertical.getTooltip()
                 .setDisplayMode(TooltipDisplayMode.UNION)
                 .setPositionMode(TooltipPositionMode.POINT)
                 .setUnionFormat(
@@ -74,13 +75,13 @@ public class VerticalChartActivity extends AppCompatActivity {
                         "        '\\n' + 'Fact: $' + this.points[0].value + ' mln';\n" +
                         "    }");
 
-        cartesian.getInteractivity().setHoverMode(HoverMode.BY_X);
+        vertical.getInteractivity().setHoverMode(HoverMode.BY_X);
 
-        cartesian.setXAxis(true);
-        cartesian.setYAxis(false);
-//        cartesian.getYAxis().getLabels().setFormat("'${%Value} mln'");
-        cartesian.setIsVertical(true);
+        vertical.setXAxis(true);
+        vertical.setYAxis(true);
+        vertical.getYAxis().getLabels().setFormat("'${%Value} mln'");
+//        cartesian.setIsVertical(true);
 
-        anyChartView.setChart(cartesian);
+        anyChartView.setChart(vertical);
     }
 }

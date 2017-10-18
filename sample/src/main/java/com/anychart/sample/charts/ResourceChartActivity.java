@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Availability;
 import com.anychart.anychart.AvailabilityPeriod;
@@ -23,17 +24,17 @@ public class ResourceChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Resource resource = new Resource();
+        Resource resource = AnyChart.resource();
 
         resource.setZoomLevel(1d)
-                .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART);
-//        resource.setCurrentStartDate()
+                .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART)
+                .setCurrentStartDate("'2016-09-30'");
 
         resource.getCalendar().setAvailabilities(new Availability[] {
-                new Availability((Double) null, 10d, (Double) null, (Double) null, 18d, AvailabilityPeriod.DAY, true),
-                new Availability((Double) null, 14d, (Double) null, (Double) null, 15d, AvailabilityPeriod.DAY, false),
-                new Availability((Double) null, (Double) null, 5d, (Double) null, 18d, AvailabilityPeriod.WEEK, false),
-                new Availability((Double) null, (Double) null, 6d, (Double) null, 18d, AvailabilityPeriod.WEEK, false)
+                new Availability(AvailabilityPeriod.DAY, (Double) null, 10d, (Double) null, (Double) null, 18d, true),
+                new Availability(AvailabilityPeriod.DAY, (Double) null, 14d, (Double) null, (Double) null, 15d, false),
+                new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, 5d, (Double) null, 18d, false),
+                new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, 6d, (Double) null, 18d, false)
         });
 
         resource.setData(getData(), TextParsingMode.CSV);

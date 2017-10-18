@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.TagCloud;
 import com.anychart.anychart.TextParsingMode;
@@ -17,7 +18,7 @@ public class TagCloudActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        TagCloud tagCloud = new TagCloud();
+        TagCloud tagCloud = AnyChart.tagCloud();
 
         tagCloud.setTitle("'World Population'");
 

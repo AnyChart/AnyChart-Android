@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.GradientKey;
 import com.anychart.anychart.HoverMode;
@@ -26,7 +27,7 @@ public class ScatterChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Scatter scatter = new Scatter();
+        Scatter scatter = AnyChart.scatter();
 
         scatter.setAnimation(true);
 

@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesLine;
@@ -29,7 +30,7 @@ public class LineChartActivity extends AppCompatActivity {
 //        Mapping seriesData2 = dataSet.mapAs("{ 'x': 0, 'value': 2 }");
 //        Mapping seriesData3 = dataSet.mapAs("{ 'x': 0, 'value': 3 }");
 
-        Cartesian cartesian = new Cartesian();
+        Cartesian cartesian = AnyChart.line();
 
         cartesian.setAnimation(true);
 
@@ -47,6 +48,7 @@ public class LineChartActivity extends AppCompatActivity {
         cartesian.getYAxis().setTitle("'Number of Bottles Sold (thousands)'");
         cartesian.getXAxis().getLabels().setPadding(5d, 5d, 5d, 5d);
 
+//        CartesianSeriesLine series1 = cartesian.line(seriesData1, TextParsingMode.CSV);
         CartesianSeriesLine series1 = cartesian.line(new String[] {
                 "['1986', 3.6]",
                 "['1987', 7.1]",

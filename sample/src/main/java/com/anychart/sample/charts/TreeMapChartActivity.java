@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.LegendLayout;
@@ -23,7 +24,7 @@ public class TreeMapChartActivity extends AppCompatActivity {
         AnyChartView anyChart = (AnyChartView) findViewById(R.id.any_chart_view);
 
 //        Tree tree = new Tree();
-        TreeMap treeMap = new TreeMap();
+        TreeMap treeMap = AnyChart.treeMap();
         treeMap.setData(getData(), TreeFillingMethod.AS_TABLE);
 
         UiTitle title = treeMap.getTitle();
@@ -64,7 +65,7 @@ public class TreeMapChartActivity extends AppCompatActivity {
 
         treeMap.setPadding(10d, 10d, 10d, 20d);
         treeMap.setMaxDepth(2d);
-        treeMap.getHovered().fill("'#bdbdbd'", 1d);
+        treeMap.getHovered().setFill("'#bdbdbd'", 1d);
         treeMap.setSelectionMode(SelectionMode.NONE);
 
         treeMap.getLegend().setEnabled(true);

@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Gantt;
 import com.anychart.sample.R;
@@ -16,7 +17,7 @@ public class GanttChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Gantt gantt = new Gantt();
+        Gantt gantt = AnyChart.ganttProject();
         gantt.setSplitterPosition(320d);
 
         anyChartView.setChart(gantt);

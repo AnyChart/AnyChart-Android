@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Milestones;
 import com.anychart.anychart.Pert;
@@ -20,7 +21,7 @@ public class PertChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Pert pert = new Pert();
+        Pert pert = AnyChart.pert();
 
         pert.setData(getData(), TreeFillingMethod.AS_TABLE, null)
                 .setHorizontalSpacing("'18.7%'")
@@ -52,9 +53,9 @@ public class PertChartActivity extends AppCompatActivity {
         tooltip.getTitle().setUseHtml(true);
 
         Milestones milestones = pert.getMilestones();
-        milestones.fill("'#2C81D5'", 1d)
+        milestones.setColor("'#2C81D5'")
                 .setSize("'6.5%'");
-        milestones.getHovered().fill("'#2C81D5'", 0.75d);
+        milestones.getHovered().setFill("'#2C81D5'", 0.75d);
         milestones.getTooltip().setFormat("" +
                 "function() {\n" +
                 "  var result = '';\n" +
@@ -81,9 +82,7 @@ public class PertChartActivity extends AppCompatActivity {
                 "function() {\n" +
                 "    return this['creator'] ? this['creator'].get('name') : this['isStart'] ? 'Start' : 'Finish';\n" +
                 "  }");
-        // TODO color
-//        critMilestones.color("'#E24B26'", 1d);
-        critMilestones.fill("'#E24B26'", 1d);
+        critMilestones.setColor("'#E24B26'");
 
         // TODO stoke as function
 //        critMilestones.getHovered().setStroke();

@@ -3,6 +3,7 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesRangeColumn;
@@ -18,7 +19,7 @@ public class RangeChartActivity extends AppCompatActivity {
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 
-        Cartesian cartesian = new Cartesian();
+        Cartesian cartesian = AnyChart.cartesian();
 
         cartesian.setTitle("'Coastal Water Temperature \\nin London vs Edinburgh in 2015 (°C)'");
 
