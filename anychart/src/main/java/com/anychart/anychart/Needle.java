@@ -34,10 +34,6 @@ public class Needle extends GaugePointersBase {
             this.endRadius = endRadius;
         } else {
             this.endRadius = endRadius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Needle extends GaugePointersBase {
             this.endRadius1 = endRadius1;
         } else {
             this.endRadius1 = endRadius1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class Needle extends GaugePointersBase {
             this.endWidth = endWidth;
         } else {
             this.endWidth = endWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class Needle extends GaugePointersBase {
             this.endWidth1 = endWidth1;
         } else {
             this.endWidth1 = endWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -150,10 +134,6 @@ public class Needle extends GaugePointersBase {
             this.middleRadius = middleRadius;
         } else {
             this.middleRadius = middleRadius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +158,6 @@ public class Needle extends GaugePointersBase {
             this.middleRadius1 = middleRadius1;
         } else {
             this.middleRadius1 = middleRadius1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -208,10 +184,6 @@ public class Needle extends GaugePointersBase {
             this.middleWidth = middleWidth;
         } else {
             this.middleWidth = middleWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -236,10 +208,6 @@ public class Needle extends GaugePointersBase {
             this.middleWidth1 = middleWidth1;
         } else {
             this.middleWidth1 = middleWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -266,10 +234,6 @@ public class Needle extends GaugePointersBase {
             this.startRadius = startRadius;
         } else {
             this.startRadius = startRadius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -294,10 +258,6 @@ public class Needle extends GaugePointersBase {
             this.startRadius1 = startRadius1;
         } else {
             this.startRadius1 = startRadius1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -324,10 +284,6 @@ public class Needle extends GaugePointersBase {
             this.startWidth = startWidth;
         } else {
             this.startWidth = startWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -352,10 +308,6 @@ public class Needle extends GaugePointersBase {
             this.startWidth1 = startWidth1;
         } else {
             this.startWidth1 = startWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

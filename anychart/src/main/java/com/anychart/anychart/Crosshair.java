@@ -34,10 +34,6 @@ public class Crosshair extends VisualBase {
             this.displayMode = displayMode;
         } else {
             this.displayMode = displayMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Crosshair extends VisualBase {
             this.displayMode1 = displayMode1;
         } else {
             this.displayMode1 = displayMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -101,10 +93,6 @@ public class Crosshair extends VisualBase {
             this.xLabel = xLabel;
         } else {
             this.xLabel = xLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -129,10 +117,6 @@ public class Crosshair extends VisualBase {
             this.xLabel1 = xLabel1;
         } else {
             this.xLabel1 = xLabel1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -171,10 +155,6 @@ public class Crosshair extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -207,10 +187,6 @@ public class Crosshair extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -246,10 +222,6 @@ public class Crosshair extends VisualBase {
             this.yLabel = yLabel;
         } else {
             this.yLabel = yLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -274,10 +246,6 @@ public class Crosshair extends VisualBase {
             this.yLabel1 = yLabel1;
         } else {
             this.yLabel1 = yLabel1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -328,10 +296,6 @@ public class Crosshair extends VisualBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -376,10 +340,6 @@ public class Crosshair extends VisualBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

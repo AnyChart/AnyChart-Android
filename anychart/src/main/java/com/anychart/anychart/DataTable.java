@@ -44,10 +44,6 @@ public class DataTable extends CoreBase {
             this.rawData = rawData;
             this.removeFromStart = removeFromStart;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -79,10 +75,6 @@ public class DataTable extends CoreBase {
             this.rawData = rawData;
             this.removeFromStart1 = removeFromStart1;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -114,10 +106,6 @@ public class DataTable extends CoreBase {
             this.rawData1 = rawData1;
             this.removeFromStart = removeFromStart;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -149,10 +137,6 @@ public class DataTable extends CoreBase {
             this.rawData1 = rawData1;
             this.removeFromStart1 = removeFromStart1;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -168,64 +152,6 @@ public class DataTable extends CoreBase {
         return this;
     }
 
-    private TableMapping mappingSettingsOrMapping;
-    private String mappingSettingsOrMapping1;
-
-    public TableComputer createComputer(TableMapping mappingSettingsOrMapping) {
-        if (jsBase == null) {
-            this.mappingSettingsOrMapping = null;
-            this.mappingSettingsOrMapping1 = null;
-            
-            this.mappingSettingsOrMapping = mappingSettingsOrMapping;
-        } else {
-            this.mappingSettingsOrMapping = mappingSettingsOrMapping;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".createComputer(%s);", (mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s)", (mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return new TableComputer(jsBase);
-    }
-
-
-    public TableComputer createComputer(String mappingSettingsOrMapping1) {
-        if (jsBase == null) {
-            this.mappingSettingsOrMapping = null;
-            this.mappingSettingsOrMapping1 = null;
-            
-            this.mappingSettingsOrMapping1 = mappingSettingsOrMapping1;
-        } else {
-            this.mappingSettingsOrMapping1 = mappingSettingsOrMapping1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".createComputer(%s);", mappingSettingsOrMapping1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s)", mappingSettingsOrMapping1));
-                js.setLength(0);
-            }
-        }
-        return new TableComputer(jsBase);
-    }
-
     private String fields;
 
     public TableMapping mapAs(String fields) {
@@ -233,10 +159,6 @@ public class DataTable extends CoreBase {
             this.fields = fields;
         } else {
             this.fields = fields;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -270,10 +192,6 @@ public class DataTable extends CoreBase {
         } else {
             this.startKey = startKey;
             this.endKey = endKey;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -303,10 +221,6 @@ public class DataTable extends CoreBase {
         } else {
             this.startKey = startKey;
             this.endKey1 = endKey1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -336,10 +250,6 @@ public class DataTable extends CoreBase {
         } else {
             this.startKey1 = startKey1;
             this.endKey = endKey;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -369,10 +279,6 @@ public class DataTable extends CoreBase {
         } else {
             this.startKey1 = startKey1;
             this.endKey1 = endKey1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -395,10 +301,6 @@ public class DataTable extends CoreBase {
             this.count = count;
         } else {
             this.count = count;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -445,20 +347,6 @@ public class DataTable extends CoreBase {
     private String generateJScsvSettings() {
         if (csvSettings != null) {
             return String.format(Locale.US, "csvSettings: %s,", csvSettings);
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettingsOrMapping() {
-        if (mappingSettingsOrMapping != null) {
-            return String.format(Locale.US, "mappingSettingsOrMapping: %s,", (mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSmappingSettingsOrMapping1() {
-        if (mappingSettingsOrMapping1 != null) {
-            return String.format(Locale.US, "mappingSettingsOrMapping: %s,", mappingSettingsOrMapping1);
         }
         return "";
     }
@@ -530,8 +418,6 @@ public class DataTable extends CoreBase {
             js.append(generateJSremoveFromStart());
             js.append(generateJSremoveFromStart1());
             js.append(generateJScsvSettings());
-            js.append(generateJSmappingSettingsOrMapping());
-            js.append(generateJSmappingSettingsOrMapping1());
             js.append(generateJSfields());
             js.append(generateJSstartKey());
             js.append(generateJSstartKey1());

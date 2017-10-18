@@ -30,10 +30,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.color = color;
         } else {
             this.color = color;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.index = index;
         } else {
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +74,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -114,10 +102,6 @@ public class LineargaugePointersBase extends VisualBase {
         } else {
             this.color1 = color1;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -162,10 +146,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -203,10 +183,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -244,10 +220,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -285,10 +257,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -326,10 +294,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -367,10 +331,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -426,10 +386,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -477,10 +433,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -536,10 +488,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.color2 = color2;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -577,10 +525,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.color2 = color2;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -618,10 +562,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.color2 = color2;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -659,10 +599,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.color2 = color2;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -700,10 +636,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.color2 = color2;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -735,10 +667,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.hovered = hovered;
         } else {
             this.hovered = hovered;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -776,10 +704,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.label = label;
         } else {
             this.label = label;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -805,10 +729,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.label1 = label1;
         } else {
             this.label1 = label1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -834,10 +754,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.label2 = label2;
         } else {
             this.label2 = label2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -869,10 +785,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.legendItem = legendItem;
         } else {
             this.legendItem = legendItem;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -895,10 +807,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.name = name;
         } else {
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -930,10 +838,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.normal = normal;
         } else {
             this.normal = normal;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -956,10 +860,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.offset = offset;
         } else {
             this.offset = offset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -991,10 +891,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.scale = scale;
         } else {
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1026,10 +922,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.selected = selected;
         } else {
             this.selected = selected;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1052,10 +944,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.stroke = stroke;
         } else {
             this.stroke = stroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1102,10 +990,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1145,10 +1029,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1188,10 +1068,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1214,10 +1090,6 @@ public class LineargaugePointersBase extends VisualBase {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

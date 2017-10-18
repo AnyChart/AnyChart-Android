@@ -45,10 +45,6 @@ public class Quarter extends UiBackground {
             this.label = label;
         } else {
             this.label = label;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -74,10 +70,6 @@ public class Quarter extends UiBackground {
             this.label1 = label1;
         } else {
             this.label1 = label1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -116,10 +108,6 @@ public class Quarter extends UiBackground {
         } else {
             this.index = index;
             this.label3 = label3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -153,10 +141,6 @@ public class Quarter extends UiBackground {
         } else {
             this.index = index;
             this.label4 = label4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -190,10 +174,6 @@ public class Quarter extends UiBackground {
         } else {
             this.index1 = index1;
             this.label3 = label3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -227,10 +207,6 @@ public class Quarter extends UiBackground {
         } else {
             this.index1 = index1;
             this.label4 = label4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -268,10 +244,6 @@ public class Quarter extends UiBackground {
             this.margin = margin;
         } else {
             this.margin = margin;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -297,10 +269,6 @@ public class Quarter extends UiBackground {
             this.margin1 = margin1;
         } else {
             this.margin1 = margin1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -310,6 +278,31 @@ public class Quarter extends UiBackground {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Quarter setMargin(String margin2) {
+        if (jsBase == null) {
+            this.margin = null;
+            this.margin1 = null;
+            this.margin2 = null;
+            
+            this.margin2 = margin2;
+        } else {
+            this.margin2 = margin2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s)", margin2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
                 js.setLength(0);
             }
         }
@@ -372,10 +365,6 @@ public class Quarter extends UiBackground {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -439,10 +428,6 @@ public class Quarter extends UiBackground {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -480,10 +465,6 @@ public class Quarter extends UiBackground {
             this.padding = padding;
         } else {
             this.padding = padding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -509,10 +490,6 @@ public class Quarter extends UiBackground {
             this.padding1 = padding1;
         } else {
             this.padding1 = padding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -522,6 +499,31 @@ public class Quarter extends UiBackground {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
+        return new Chart(jsBase);
+    }
+
+
+    public Chart setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".padding(%s);", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
@@ -616,10 +618,6 @@ public class Quarter extends UiBackground {
             this.value10 = value10;
             this.value12 = value12;
             this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -715,10 +713,6 @@ public class Quarter extends UiBackground {
             this.value11 = value11;
             this.value13 = value13;
             this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -756,10 +750,6 @@ public class Quarter extends UiBackground {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -785,10 +775,6 @@ public class Quarter extends UiBackground {
             this.title1 = title1;
         } else {
             this.title1 = title1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

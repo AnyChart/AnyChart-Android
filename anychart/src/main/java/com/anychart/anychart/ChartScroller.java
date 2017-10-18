@@ -30,10 +30,6 @@ public class ChartScroller extends UiScroller {
             this.inverted = inverted;
         } else {
             this.inverted = inverted;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -60,10 +56,6 @@ public class ChartScroller extends UiScroller {
             this.position = position;
         } else {
             this.position = position;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class ChartScroller extends UiScroller {
             this.position1 = position1;
         } else {
             this.position1 = position1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -39,10 +39,6 @@ public class Path extends JsObject {
             this.ry = ry;
             this.fromAngle = fromAngle;
             this.extent = extent;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -86,10 +82,6 @@ public class Path extends JsObject {
             this.ry1 = ry1;
             this.fromAngle1 = fromAngle1;
             this.extent1 = extent1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -135,10 +127,6 @@ public class Path extends JsObject {
             this.ry2 = ry2;
             this.largeArc = largeArc;
             this.clockwiseArc = clockwiseArc;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -193,10 +181,6 @@ public class Path extends JsObject {
             this.fromAngle2 = fromAngle2;
             this.sweep = sweep;
             this.lineTo = lineTo;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -249,10 +233,6 @@ public class Path extends JsObject {
             this.endX = endX;
             this.endY = endY;
             this.var_args = var_args;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -290,10 +270,6 @@ public class Path extends JsObject {
             this.x1 = x1;
             this.y1 = y1;
             this.var_args1 = var_args1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -327,10 +303,6 @@ public class Path extends JsObject {
         } else {
             this.x2 = x2;
             this.y2 = y2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -383,10 +355,6 @@ public class Path extends JsObject {
             this.endX1 = endX1;
             this.endY1 = endY1;
             this.var_args2 = var_args2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -39,10 +39,6 @@ public class UiLabel extends CoreText {
         } else {
             this.bothOrByWidth = bothOrByWidth;
             this.byHeight = byHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -70,10 +66,6 @@ public class UiLabel extends CoreText {
         } else {
             this.bothOrByWidth1 = bothOrByWidth1;
             this.byHeight = byHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -101,10 +93,6 @@ public class UiLabel extends CoreText {
         } else {
             this.bothOrByWidth2 = bothOrByWidth2;
             this.byHeight = byHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -131,10 +119,6 @@ public class UiLabel extends CoreText {
             this.anchor = anchor;
         } else {
             this.anchor = anchor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -159,10 +143,6 @@ public class UiLabel extends CoreText {
             this.anchor1 = anchor1;
         } else {
             this.anchor1 = anchor1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -200,10 +180,6 @@ public class UiLabel extends CoreText {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -229,10 +205,6 @@ public class UiLabel extends CoreText {
             this.background2 = background2;
         } else {
             this.background2 = background2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -259,10 +231,6 @@ public class UiLabel extends CoreText {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -287,10 +255,6 @@ public class UiLabel extends CoreText {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -317,10 +281,6 @@ public class UiLabel extends CoreText {
             this.maxFontSize = maxFontSize;
         } else {
             this.maxFontSize = maxFontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -345,10 +305,6 @@ public class UiLabel extends CoreText {
             this.maxFontSize1 = maxFontSize1;
         } else {
             this.maxFontSize1 = maxFontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -375,10 +331,6 @@ public class UiLabel extends CoreText {
             this.minFontSize = minFontSize;
         } else {
             this.minFontSize = minFontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -403,10 +355,6 @@ public class UiLabel extends CoreText {
             this.minFontSize1 = minFontSize1;
         } else {
             this.minFontSize1 = minFontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -433,10 +381,6 @@ public class UiLabel extends CoreText {
             this.offsetX = offsetX;
         } else {
             this.offsetX = offsetX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -461,10 +405,6 @@ public class UiLabel extends CoreText {
             this.offsetX1 = offsetX1;
         } else {
             this.offsetX1 = offsetX1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -491,10 +431,6 @@ public class UiLabel extends CoreText {
             this.offsetY = offsetY;
         } else {
             this.offsetY = offsetY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -519,10 +455,6 @@ public class UiLabel extends CoreText {
             this.offsetY1 = offsetY1;
         } else {
             this.offsetY1 = offsetY1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -560,10 +492,6 @@ public class UiLabel extends CoreText {
             this.padding = padding;
         } else {
             this.padding = padding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -589,10 +517,6 @@ public class UiLabel extends CoreText {
             this.padding1 = padding1;
         } else {
             this.padding1 = padding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -602,6 +526,31 @@ public class UiLabel extends CoreText {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public UiLabel setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
@@ -664,10 +613,6 @@ public class UiLabel extends CoreText {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -731,10 +676,6 @@ public class UiLabel extends CoreText {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -761,10 +702,6 @@ public class UiLabel extends CoreText {
             this.position = position;
         } else {
             this.position = position;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -789,10 +726,6 @@ public class UiLabel extends CoreText {
             this.position1 = position1;
         } else {
             this.position1 = position1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -815,10 +748,6 @@ public class UiLabel extends CoreText {
             this.text = text;
         } else {
             this.text = text;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -845,10 +774,6 @@ public class UiLabel extends CoreText {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -873,10 +798,6 @@ public class UiLabel extends CoreText {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

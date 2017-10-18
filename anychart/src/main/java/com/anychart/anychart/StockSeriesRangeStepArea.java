@@ -30,10 +30,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -114,10 +106,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -153,10 +141,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -192,10 +176,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -231,10 +211,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -280,10 +256,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -322,10 +294,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -364,10 +332,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -426,10 +390,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -481,10 +441,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -536,10 +492,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -566,10 +518,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.stepDirection = stepDirection;
         } else {
             this.stepDirection = stepDirection;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -594,10 +542,6 @@ public class StockSeriesRangeStepArea extends StockSeriesBase {
             this.stepDirection1 = stepDirection1;
         } else {
             this.stepDirection1 = stepDirection1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

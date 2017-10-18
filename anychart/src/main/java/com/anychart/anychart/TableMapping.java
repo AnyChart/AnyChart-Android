@@ -26,32 +26,62 @@ public class TableMapping extends CoreBase {
     private String name;
     private Double column;
     private AggregationType type;
+    private String type1;
     private Double weightsColumn;
 
-    public TableMapping addField(String name, Double column, AggregationType type, Double weightsColumn) {
+    public TableMapping addField(AggregationType type, String name, Double column, Double weightsColumn) {
         if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type = type;
             this.name = name;
             this.column = column;
-            this.type = type;
             this.weightsColumn = weightsColumn;
         } else {
+            this.type = type;
             this.name = name;
             this.column = column;
-            this.type = type;
             this.weightsColumn = weightsColumn;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".addField(%s, %f, %s, %f)", name, column, (type != null) ? type.generateJs() : "null", weightsColumn));
+            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", (type != null) ? type.generateJs() : "null", name, column, weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %f, %s, %f)", name, column, (type != null) ? type.generateJs() : "null", weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", (type != null) ? type.generateJs() : "null", name, column, weightsColumn));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TableMapping addField(String type1, String name, Double column, Double weightsColumn) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+            this.name = name;
+            this.column = column;
+            this.weightsColumn = weightsColumn;
+        } else {
+            this.type1 = type1;
+            this.name = name;
+            this.column = column;
+            this.weightsColumn = weightsColumn;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", type1, name, column, weightsColumn));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", type1, name, column, weightsColumn));
                 js.setLength(0);
             }
         }
@@ -75,6 +105,13 @@ public class TableMapping extends CoreBase {
     private String generateJStype() {
         if (type != null) {
             return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJStype1() {
+        if (type1 != null) {
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -109,6 +146,7 @@ public class TableMapping extends CoreBase {
             js.append(generateJSname());
             js.append(generateJScolumn());
             js.append(generateJStype());
+            js.append(generateJStype1());
             js.append(generateJSweightsColumn());
             js.append("}");
         }

@@ -30,10 +30,6 @@ public class PointContext extends RenderingsettingsContext {
             this.name = name;
         } else {
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

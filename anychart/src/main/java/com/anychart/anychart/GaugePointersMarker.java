@@ -34,10 +34,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             this.position = position;
         } else {
             this.position = position;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             this.position1 = position1;
         } else {
             this.position1 = position1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             this.radius = radius;
         } else {
             this.radius = radius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             this.radius1 = radius1;
         } else {
             this.radius1 = radius1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -150,10 +134,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             this.size = size;
         } else {
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +158,6 @@ public class GaugePointersMarker extends GaugePointersBase {
             this.size1 = size1;
         } else {
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -199,19 +175,17 @@ public class GaugePointersMarker extends GaugePointersBase {
 
     private MarkerType type;
     private String type1;
+    private String type2;
 
     public GaugePointersMarker setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
+            this.type2 = null;
             
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -232,14 +206,11 @@ public class GaugePointersMarker extends GaugePointersBase {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
+            this.type2 = null;
             
             this.type1 = type1;
         } else {
             this.type1 = type1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -311,6 +282,13 @@ public class GaugePointersMarker extends GaugePointersBase {
         return "";
     }
 
+    private String generateJStype2() {
+        if (type2 != null) {
+            return String.format(Locale.US, "type: %s,", type2);
+        }
+        return "";
+    }
+
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -339,6 +317,7 @@ public class GaugePointersMarker extends GaugePointersBase {
             js.append(generateJSsize1());
             js.append(generateJStype());
             js.append(generateJStype1());
+            js.append(generateJStype2());
             js.append("}");
         }
 

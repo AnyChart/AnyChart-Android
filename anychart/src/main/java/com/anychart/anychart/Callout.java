@@ -34,10 +34,6 @@ public class Callout extends VisualBase {
             this.align = align;
         } else {
             this.align = align;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Callout extends VisualBase {
             this.align1 = align1;
         } else {
             this.align1 = align1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -103,10 +95,6 @@ public class Callout extends VisualBase {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -132,10 +120,6 @@ public class Callout extends VisualBase {
             this.background2 = background2;
         } else {
             this.background2 = background2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -167,10 +151,6 @@ public class Callout extends VisualBase {
             this.hovered = hovered;
         } else {
             this.hovered = hovered;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -193,10 +173,6 @@ public class Callout extends VisualBase {
             this.items = items;
         } else {
             this.items = items;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -232,10 +208,6 @@ public class Callout extends VisualBase {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -260,10 +232,6 @@ public class Callout extends VisualBase {
             this.labels1 = labels1;
         } else {
             this.labels1 = labels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -290,10 +258,6 @@ public class Callout extends VisualBase {
             this.length = length;
         } else {
             this.length = length;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -318,10 +282,6 @@ public class Callout extends VisualBase {
             this.length1 = length1;
         } else {
             this.length1 = length1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -359,10 +319,6 @@ public class Callout extends VisualBase {
             this.margin = margin;
         } else {
             this.margin = margin;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -388,10 +344,6 @@ public class Callout extends VisualBase {
             this.margin1 = margin1;
         } else {
             this.margin1 = margin1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -401,6 +353,31 @@ public class Callout extends VisualBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Callout setMargin(String margin2) {
+        if (jsBase == null) {
+            this.margin = null;
+            this.margin1 = null;
+            this.margin2 = null;
+            
+            this.margin2 = margin2;
+        } else {
+            this.margin2 = margin2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s)", margin2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
                 js.setLength(0);
             }
         }
@@ -463,10 +440,6 @@ public class Callout extends VisualBase {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -530,10 +503,6 @@ public class Callout extends VisualBase {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -565,10 +534,6 @@ public class Callout extends VisualBase {
             this.normal = normal;
         } else {
             this.normal = normal;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -584,10 +549,10 @@ public class Callout extends VisualBase {
         return this;
     }
 
-    private String orientation;
-    private Orientation orientation1;
+    private Orientation orientation;
+    private String orientation1;
 
-    public Callout setOrientation(String orientation) {
+    public Callout setOrientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -595,19 +560,15 @@ public class Callout extends VisualBase {
             this.orientation = orientation;
         } else {
             this.orientation = orientation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".orientation(%s)", orientation));
+            js.append(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -615,7 +576,7 @@ public class Callout extends VisualBase {
     }
 
 
-    public Callout setOrientation(Orientation orientation1) {
+    public Callout setOrientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -623,19 +584,15 @@ public class Callout extends VisualBase {
             this.orientation1 = orientation1;
         } else {
             this.orientation1 = orientation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".orientation(%s)", (orientation1 != null) ? orientation1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".orientation(%s)", orientation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation1 != null) ? orientation1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation1));
                 js.setLength(0);
             }
         }
@@ -664,10 +621,6 @@ public class Callout extends VisualBase {
             this.padding = padding;
         } else {
             this.padding = padding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -693,10 +646,6 @@ public class Callout extends VisualBase {
             this.padding1 = padding1;
         } else {
             this.padding1 = padding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -706,6 +655,31 @@ public class Callout extends VisualBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Callout setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
@@ -800,10 +774,6 @@ public class Callout extends VisualBase {
             this.value10 = value10;
             this.value12 = value12;
             this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -899,10 +869,6 @@ public class Callout extends VisualBase {
             this.value11 = value11;
             this.value13 = value13;
             this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -934,10 +900,6 @@ public class Callout extends VisualBase {
             this.selected = selected;
         } else {
             this.selected = selected;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -975,10 +937,6 @@ public class Callout extends VisualBase {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1004,10 +962,6 @@ public class Callout extends VisualBase {
             this.title1 = title1;
         } else {
             this.title1 = title1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1034,10 +988,6 @@ public class Callout extends VisualBase {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1062,10 +1012,6 @@ public class Callout extends VisualBase {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1300,14 +1246,14 @@ public class Callout extends VisualBase {
 
     private String generateJSorientation() {
         if (orientation != null) {
-            return String.format(Locale.US, "orientation: %s,", orientation);
+            return String.format(Locale.US, "orientation: %s,", (orientation != null) ? orientation.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSorientation1() {
         if (orientation1 != null) {
-            return String.format(Locale.US, "orientation: %s,", (orientation1 != null) ? orientation1.generateJs() : "null");
+            return String.format(Locale.US, "orientation: %s,", orientation1);
         }
         return "";
     }

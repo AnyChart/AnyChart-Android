@@ -30,10 +30,6 @@ public class UiScroller extends VisualBase {
             this.allowRangeChange = allowRangeChange;
         } else {
             this.allowRangeChange = allowRangeChange;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class UiScroller extends VisualBase {
             this.autoHide = autoHide;
         } else {
             this.autoHide = autoHide;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +74,6 @@ public class UiScroller extends VisualBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -111,10 +99,6 @@ public class UiScroller extends VisualBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -159,10 +143,6 @@ public class UiScroller extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -200,10 +180,6 @@ public class UiScroller extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -241,10 +217,6 @@ public class UiScroller extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -282,10 +254,6 @@ public class UiScroller extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -323,10 +291,6 @@ public class UiScroller extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -364,10 +328,6 @@ public class UiScroller extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -423,10 +383,6 @@ public class UiScroller extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -474,10 +430,6 @@ public class UiScroller extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -505,10 +457,6 @@ public class UiScroller extends VisualBase {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -533,10 +481,6 @@ public class UiScroller extends VisualBase {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -563,10 +507,6 @@ public class UiScroller extends VisualBase {
             this.maxHeight = maxHeight;
         } else {
             this.maxHeight = maxHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -591,10 +531,6 @@ public class UiScroller extends VisualBase {
             this.maxHeight1 = maxHeight1;
         } else {
             this.maxHeight1 = maxHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -621,10 +557,6 @@ public class UiScroller extends VisualBase {
             this.minHeight = minHeight;
         } else {
             this.minHeight = minHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -649,10 +581,6 @@ public class UiScroller extends VisualBase {
             this.minHeight1 = minHeight1;
         } else {
             this.minHeight1 = minHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -679,10 +607,6 @@ public class UiScroller extends VisualBase {
             this.orientation = orientation;
         } else {
             this.orientation = orientation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -707,10 +631,6 @@ public class UiScroller extends VisualBase {
             this.orientation1 = orientation1;
         } else {
             this.orientation1 = orientation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -751,10 +671,6 @@ public class UiScroller extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -788,10 +704,6 @@ public class UiScroller extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -825,10 +737,6 @@ public class UiScroller extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -851,10 +759,6 @@ public class UiScroller extends VisualBase {
             this.selectedFill = selectedFill;
         } else {
             this.selectedFill = selectedFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -888,10 +792,6 @@ public class UiScroller extends VisualBase {
         } else {
             this.color1 = color1;
             this.opacity3 = opacity3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -950,10 +850,6 @@ public class UiScroller extends VisualBase {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1005,10 +901,6 @@ public class UiScroller extends VisualBase {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1060,10 +952,6 @@ public class UiScroller extends VisualBase {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1115,10 +1003,6 @@ public class UiScroller extends VisualBase {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1170,10 +1054,6 @@ public class UiScroller extends VisualBase {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1225,10 +1105,6 @@ public class UiScroller extends VisualBase {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1307,10 +1183,6 @@ public class UiScroller extends VisualBase {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1381,10 +1253,6 @@ public class UiScroller extends VisualBase {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1421,10 +1289,6 @@ public class UiScroller extends VisualBase {
             this.thumbs = thumbs;
         } else {
             this.thumbs = thumbs;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1449,10 +1313,6 @@ public class UiScroller extends VisualBase {
             this.thumbs1 = thumbs1;
         } else {
             this.thumbs1 = thumbs1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -43,10 +43,6 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
             this.colorScale = colorScale;
         } else {
             this.colorScale = colorScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -71,10 +67,6 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
             this.colorScale1 = colorScale1;
         } else {
             this.colorScale1 = colorScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

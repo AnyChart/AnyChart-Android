@@ -43,10 +43,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.clip = clip;
         } else {
             this.clip = clip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.clip1 = clip1;
         } else {
             this.clip1 = clip1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -114,10 +106,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.error = error;
         } else {
             this.error = error;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -144,10 +132,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.error1 = error1;
         } else {
             this.error1 = error1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -174,10 +158,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.error3 = error3;
         } else {
             this.error3 = error3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -204,10 +184,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.indexes = indexes;
         } else {
             this.indexes = indexes;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -231,10 +207,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.indexes1 = indexes1;
         } else {
             this.indexes1 = indexes1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -262,10 +234,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.indexes2 = indexes2;
         } else {
             this.indexes2 = indexes2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -291,10 +259,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.indexes3 = indexes3;
         } else {
             this.indexes3 = indexes3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -324,10 +288,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.indexes4 = indexes4;
         } else {
             this.indexes4 = indexes4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -355,10 +315,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.indexes5 = indexes5;
         } else {
             this.indexes5 = indexes5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -389,10 +345,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.xScale = xScale;
         } else {
             this.xScale = xScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -432,10 +384,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -462,10 +410,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.yScale1 = yScale1;
         } else {
             this.yScale1 = yScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -492,10 +436,6 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
             this.yScale2 = yScale2;
         } else {
             this.yScale2 = yScale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

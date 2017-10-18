@@ -30,10 +30,6 @@ public class Ticks extends VisualBase {
             this.length = length;
         } else {
             this.length = length;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -60,10 +56,6 @@ public class Ticks extends VisualBase {
             this.position = position;
         } else {
             this.position = position;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class Ticks extends VisualBase {
             this.position1 = position1;
         } else {
             this.position1 = position1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -114,10 +102,6 @@ public class Ticks extends VisualBase {
             this.stroke = stroke;
         } else {
             this.stroke = stroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -152,10 +136,6 @@ public class Ticks extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

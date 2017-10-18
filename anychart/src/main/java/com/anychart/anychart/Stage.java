@@ -30,10 +30,6 @@ public class Stage extends JsObject {
             this.element = element;
         } else {
             this.element = element;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Stage extends JsObject {
         } else {
             this.element1 = element1;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -145,10 +137,6 @@ public class Stage extends JsObject {
             this.m3 = m3;
             this.m4 = m4;
             this.m5 = m5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -171,10 +159,6 @@ public class Stage extends JsObject {
             this.asyncMode = asyncMode;
         } else {
             this.asyncMode = asyncMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -203,10 +187,6 @@ public class Stage extends JsObject {
             this.cx = cx;
             this.cy = cy;
             this.radius = radius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -238,10 +218,6 @@ public class Stage extends JsObject {
             this.clip = clip;
         } else {
             this.clip = clip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -264,10 +240,6 @@ public class Stage extends JsObject {
             this.container = container;
         } else {
             this.container = container;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -296,10 +268,6 @@ public class Stage extends JsObject {
             this.rect = rect;
         } else {
             this.rect = rect;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -325,10 +293,6 @@ public class Stage extends JsObject {
             this.rect1 = rect1;
         } else {
             this.rect1 = rect1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -354,10 +318,6 @@ public class Stage extends JsObject {
             this.rect2 = rect2;
         } else {
             this.rect2 = rect2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -389,10 +349,6 @@ public class Stage extends JsObject {
             this.top = top;
             this.width = width;
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -428,10 +384,6 @@ public class Stage extends JsObject {
             this.credits = credits;
         } else {
             this.credits = credits;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -456,10 +408,6 @@ public class Stage extends JsObject {
             this.credits1 = credits1;
         } else {
             this.credits1 = credits1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -482,10 +430,6 @@ public class Stage extends JsObject {
             this.data = data;
         } else {
             this.data = data;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -508,10 +452,6 @@ public class Stage extends JsObject {
             this.desc = desc;
         } else {
             this.desc = desc;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -549,10 +489,6 @@ public class Stage extends JsObject {
             this.cy1 = cy1;
             this.rx = rx;
             this.ry = ry;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -578,10 +514,6 @@ public class Stage extends JsObject {
             this.index1 = index1;
         } else {
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -619,10 +551,6 @@ public class Stage extends JsObject {
             this.height1 = height1;
             this.quality = quality;
             this.forceTransparentWhite = forceTransparentWhite;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -661,10 +589,6 @@ public class Stage extends JsObject {
             this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -697,10 +621,6 @@ public class Stage extends JsObject {
             this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -733,10 +653,6 @@ public class Stage extends JsObject {
             this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -769,10 +685,6 @@ public class Stage extends JsObject {
             this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -811,10 +723,6 @@ public class Stage extends JsObject {
             this.width2 = width2;
             this.height2 = height2;
             this.quality1 = quality1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -849,10 +757,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight = landscapeOrHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -883,10 +787,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight1 = landscapeOrHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -917,10 +817,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight = landscapeOrHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -951,10 +847,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight1 = landscapeOrHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -980,10 +872,6 @@ public class Stage extends JsObject {
             this.element2 = element2;
         } else {
             this.element2 = element2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1014,10 +902,6 @@ public class Stage extends JsObject {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1047,10 +931,6 @@ public class Stage extends JsObject {
             this.height3 = height3;
         } else {
             this.height3 = height3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1078,10 +958,6 @@ public class Stage extends JsObject {
             this.height4 = height4;
         } else {
             this.height4 = height4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1116,10 +992,6 @@ public class Stage extends JsObject {
             this.x1 = x1;
             this.y1 = y1;
             this.text = text;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1142,10 +1014,6 @@ public class Stage extends JsObject {
             this.id = id;
         } else {
             this.id = id;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1200,10 +1068,6 @@ public class Stage extends JsObject {
             this.y2 = y2;
             this.width3 = width3;
             this.height5 = height5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1231,10 +1095,6 @@ public class Stage extends JsObject {
             this.element3 = element3;
         } else {
             this.element3 = element3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1267,10 +1127,6 @@ public class Stage extends JsObject {
             this.type1 = type1;
             this.useCapture = useCapture;
             this.listenerScope = listenerScope;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1299,10 +1155,6 @@ public class Stage extends JsObject {
             this.type2 = type2;
             this.useCapture = useCapture;
             this.listenerScope = listenerScope;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1343,10 +1195,6 @@ public class Stage extends JsObject {
             this.type3 = type3;
             this.useCapture1 = useCapture1;
             this.listenerScope1 = listenerScope1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1383,10 +1231,6 @@ public class Stage extends JsObject {
             this.type4 = type4;
             this.useCapture1 = useCapture1;
             this.listenerScope1 = listenerScope1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1408,10 +1252,6 @@ public class Stage extends JsObject {
             this.maxResizeDelay = maxResizeDelay;
         } else {
             this.maxResizeDelay = maxResizeDelay;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1434,10 +1274,6 @@ public class Stage extends JsObject {
             this.bounds = bounds;
         } else {
             this.bounds = bounds;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1477,10 +1313,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.landscapeOrHeight2 = landscapeOrHeight2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1515,10 +1347,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.landscapeOrHeight3 = landscapeOrHeight3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1553,10 +1381,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.landscapeOrHeight2 = landscapeOrHeight2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1591,10 +1415,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.landscapeOrHeight3 = landscapeOrHeight3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1649,10 +1469,6 @@ public class Stage extends JsObject {
             this.y3 = y3;
             this.width4 = width4;
             this.height6 = height6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1682,10 +1498,6 @@ public class Stage extends JsObject {
             this.type5 = type5;
         } else {
             this.type5 = type5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1713,10 +1525,6 @@ public class Stage extends JsObject {
             this.element4 = element4;
         } else {
             this.element4 = element4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1743,10 +1551,6 @@ public class Stage extends JsObject {
             this.index2 = index2;
         } else {
             this.index2 = index2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1792,10 +1596,6 @@ public class Stage extends JsObject {
         } else {
             this.width5 = width5;
             this.height7 = height7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1836,10 +1636,6 @@ public class Stage extends JsObject {
         } else {
             this.width5 = width5;
             this.height8 = height8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1880,10 +1676,6 @@ public class Stage extends JsObject {
         } else {
             this.width6 = width6;
             this.height7 = height7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1924,10 +1716,6 @@ public class Stage extends JsObject {
         } else {
             this.width6 = width6;
             this.height8 = height8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1949,10 +1737,6 @@ public class Stage extends JsObject {
             this.force = force;
         } else {
             this.force = force;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1989,10 +1773,6 @@ public class Stage extends JsObject {
             this.degrees = degrees;
             this.cx2 = cx2;
             this.cy2 = cy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2025,10 +1805,6 @@ public class Stage extends JsObject {
         } else {
             this.anchor = anchor;
             this.degrees1 = degrees1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2058,10 +1834,6 @@ public class Stage extends JsObject {
         } else {
             this.anchor1 = anchor1;
             this.degrees1 = degrees1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2123,10 +1895,6 @@ public class Stage extends JsObject {
             this.quality2 = quality2;
             this.forceTransparentWhite1 = forceTransparentWhite1;
             this.filename = filename;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2175,10 +1943,6 @@ public class Stage extends JsObject {
             this.x4 = x4;
             this.y4 = y4;
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2240,10 +2004,6 @@ public class Stage extends JsObject {
             this.height10 = height10;
             this.quality3 = quality3;
             this.filename2 = filename2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2282,10 +2042,6 @@ public class Stage extends JsObject {
             this.paperSize1 = paperSize1;
             this.landscape1 = landscape1;
             this.filename3 = filename3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2334,10 +2090,6 @@ public class Stage extends JsObject {
         } else {
             this.width9 = width9;
             this.height11 = height11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2378,10 +2130,6 @@ public class Stage extends JsObject {
             this.sy = sy;
             this.cx3 = cx3;
             this.cy3 = cy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2422,10 +2170,6 @@ public class Stage extends JsObject {
             this.anchor2 = anchor2;
             this.sx1 = sx1;
             this.sy1 = sy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2462,10 +2206,6 @@ public class Stage extends JsObject {
             this.anchor3 = anchor3;
             this.sx1 = sx1;
             this.sy1 = sy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2505,10 +2245,6 @@ public class Stage extends JsObject {
         } else {
             this.x5 = x5;
             this.y5 = y5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2553,10 +2289,6 @@ public class Stage extends JsObject {
             this.degrees2 = degrees2;
             this.cx4 = cx4;
             this.cy4 = cy4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2595,10 +2327,6 @@ public class Stage extends JsObject {
         } else {
             this.anchor4 = anchor4;
             this.degrees3 = degrees3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2634,10 +2362,6 @@ public class Stage extends JsObject {
         } else {
             this.anchor5 = anchor5;
             this.degrees3 = degrees3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2753,10 +2477,6 @@ public class Stage extends JsObject {
             this.m9 = m9;
             this.m10 = m10;
             this.m11 = m11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2836,10 +2556,6 @@ public class Stage extends JsObject {
             this.quality4 = quality4;
             this.forceTransparentWhite2 = forceTransparentWhite2;
             this.filename4 = filename4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2918,10 +2634,6 @@ public class Stage extends JsObject {
             this.x6 = x6;
             this.y6 = y6;
             this.filename5 = filename5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2992,10 +2704,6 @@ public class Stage extends JsObject {
             this.x6 = x6;
             this.y6 = y6;
             this.filename5 = filename5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3066,10 +2774,6 @@ public class Stage extends JsObject {
             this.x6 = x6;
             this.y6 = y6;
             this.filename5 = filename5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3140,10 +2844,6 @@ public class Stage extends JsObject {
             this.x6 = x6;
             this.y6 = y6;
             this.filename5 = filename5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3224,10 +2924,6 @@ public class Stage extends JsObject {
             this.height13 = height13;
             this.quality5 = quality5;
             this.filename6 = filename6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3292,10 +2988,6 @@ public class Stage extends JsObject {
             this.landscapeOrHeight4 = landscapeOrHeight4;
             this.asBase3 = asBase3;
             this.filename7 = filename7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3354,10 +3046,6 @@ public class Stage extends JsObject {
             this.landscapeOrHeight5 = landscapeOrHeight5;
             this.asBase3 = asBase3;
             this.filename7 = filename7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3416,10 +3104,6 @@ public class Stage extends JsObject {
             this.landscapeOrHeight4 = landscapeOrHeight4;
             this.asBase3 = asBase3;
             this.filename7 = filename7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3478,10 +3162,6 @@ public class Stage extends JsObject {
             this.landscapeOrHeight5 = landscapeOrHeight5;
             this.asBase3 = asBase3;
             this.filename7 = filename7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3522,10 +3202,6 @@ public class Stage extends JsObject {
         } else {
             this.element5 = element5;
             this.element6 = element6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3563,10 +3239,6 @@ public class Stage extends JsObject {
         } else {
             this.index3 = index3;
             this.index4 = index4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3616,10 +3288,6 @@ public class Stage extends JsObject {
             this.x7 = x7;
             this.y7 = y7;
             this.text1 = text1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3642,10 +3310,6 @@ public class Stage extends JsObject {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3679,10 +3343,6 @@ public class Stage extends JsObject {
         } else {
             this.paperSize2 = paperSize2;
             this.landscape2 = landscape2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3737,10 +3397,6 @@ public class Stage extends JsObject {
         } else {
             this.width12 = width12;
             this.height14 = height14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3765,10 +3421,6 @@ public class Stage extends JsObject {
         } else {
             this.tx = tx;
             this.ty = ty;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3815,10 +3467,6 @@ public class Stage extends JsObject {
             this.type6 = type6;
             this.useCapture2 = useCapture2;
             this.listenerScope2 = listenerScope2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3860,10 +3508,6 @@ public class Stage extends JsObject {
             this.type7 = type7;
             this.useCapture2 = useCapture2;
             this.listenerScope2 = listenerScope2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3885,10 +3529,6 @@ public class Stage extends JsObject {
             this.key = key;
         } else {
             this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3910,10 +3550,6 @@ public class Stage extends JsObject {
             this.isVisible = isVisible;
         } else {
             this.isVisible = isVisible;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3953,10 +3589,6 @@ public class Stage extends JsObject {
             this.width13 = width13;
         } else {
             this.width13 = width13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3994,10 +3626,6 @@ public class Stage extends JsObject {
             this.width14 = width14;
         } else {
             this.width14 = width14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class Pert extends SeparateChart {
 
-    public Pert() {
-        js.append("chart = anychart.pert();");
+    protected Pert(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private CriticalPath getCriticalPath;
 
     public CriticalPath getCriticalPath() {
@@ -22,7 +25,6 @@ public class Pert extends SeparateChart {
 
         return getCriticalPath;
     }
-
     private String criticalPath;
     private List<Pert> setCriticalPath = new ArrayList<>();
 
@@ -53,6 +55,7 @@ public class Pert extends SeparateChart {
         return "";
     }
 
+
     private Tree getData;
 
     public Tree getData() {
@@ -61,7 +64,6 @@ public class Pert extends SeparateChart {
 
         return getData;
     }
-
     private Tree data;
     private TreeView data1;
     private String data2;
@@ -314,6 +316,7 @@ public class Pert extends SeparateChart {
         return "";
     }
 
+
     private Milestones getMilestones;
 
     public Milestones getMilestones() {
@@ -322,7 +325,6 @@ public class Pert extends SeparateChart {
 
         return getMilestones;
     }
-
     private String milestones;
     private List<Pert> setMilestones = new ArrayList<>();
 
@@ -353,6 +355,7 @@ public class Pert extends SeparateChart {
         return "";
     }
 
+
     private Tasks getTasks;
 
     public Tasks getTasks() {
@@ -361,7 +364,6 @@ public class Pert extends SeparateChart {
 
         return getTasks;
     }
-
     private String tasks;
     private List<Pert> setTasks = new ArrayList<>();
 

@@ -30,10 +30,6 @@ public class ChartController extends CoreBase {
             this.annotation = annotation;
         } else {
             this.annotation = annotation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class ChartController extends CoreBase {
             this.annotation1 = annotation1;
         } else {
             this.annotation1 = annotation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -79,20 +71,18 @@ public class ChartController extends CoreBase {
     }
 
     private AnnotationTypes annotationTypeOrConfig;
-    private AnnotationJSONFormat annotationTypeOrConfig1;
+    private String annotationTypeOrConfig1;
+    private AnnotationJSONFormat annotationTypeOrConfig2;
 
     public AnnotationsBase startDrawing(AnnotationTypes annotationTypeOrConfig) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
             
             this.annotationTypeOrConfig = annotationTypeOrConfig;
         } else {
             this.annotationTypeOrConfig = annotationTypeOrConfig;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -109,27 +99,49 @@ public class ChartController extends CoreBase {
     }
 
 
-    public AnnotationsBase startDrawing(AnnotationJSONFormat annotationTypeOrConfig1) {
+    public AnnotationsBase startDrawing(String annotationTypeOrConfig1) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
             
             this.annotationTypeOrConfig1 = annotationTypeOrConfig1;
         } else {
             this.annotationTypeOrConfig1 = annotationTypeOrConfig1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig1 != null) ? annotationTypeOrConfig1.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", annotationTypeOrConfig1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig1 != null) ? annotationTypeOrConfig1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", annotationTypeOrConfig1));
+                js.setLength(0);
+            }
+        }
+        return new AnnotationsBase(jsBase);
+    }
+
+
+    public AnnotationsBase startDrawing(AnnotationJSONFormat annotationTypeOrConfig2) {
+        if (jsBase == null) {
+            this.annotationTypeOrConfig = null;
+            this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
+            
+            this.annotationTypeOrConfig2 = annotationTypeOrConfig2;
+        } else {
+            this.annotationTypeOrConfig2 = annotationTypeOrConfig2;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -159,7 +171,14 @@ public class ChartController extends CoreBase {
 
     private String generateJSannotationTypeOrConfig1() {
         if (annotationTypeOrConfig1 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig1 != null) ? annotationTypeOrConfig1.generateJs() : "null");
+            return String.format(Locale.US, "annotationTypeOrConfig: %s,", annotationTypeOrConfig1);
+        }
+        return "";
+    }
+
+    private String generateJSannotationTypeOrConfig2() {
+        if (annotationTypeOrConfig2 != null) {
+            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null");
         }
         return "";
     }
@@ -188,6 +207,7 @@ public class ChartController extends CoreBase {
             js.append(generateJSannotation1());
             js.append(generateJSannotationTypeOrConfig());
             js.append(generateJSannotationTypeOrConfig1());
+            js.append(generateJSannotationTypeOrConfig2());
             js.append("}");
         }
 

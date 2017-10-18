@@ -34,10 +34,6 @@ public class GanttText extends CoreText {
             this.align = align;
         } else {
             this.align = align;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class GanttText extends CoreText {
             this.align1 = align1;
         } else {
             this.align1 = align1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class GanttText extends CoreText {
             this.anchor = anchor;
         } else {
             this.anchor = anchor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class GanttText extends CoreText {
             this.anchor1 = anchor1;
         } else {
             this.anchor1 = anchor1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -150,10 +134,6 @@ public class GanttText extends CoreText {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +158,6 @@ public class GanttText extends CoreText {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -208,10 +184,6 @@ public class GanttText extends CoreText {
             this.layout = layout;
         } else {
             this.layout = layout;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -236,10 +208,6 @@ public class GanttText extends CoreText {
             this.layout1 = layout1;
         } else {
             this.layout1 = layout1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -266,10 +234,6 @@ public class GanttText extends CoreText {
             this.offsetX = offsetX;
         } else {
             this.offsetX = offsetX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -294,10 +258,6 @@ public class GanttText extends CoreText {
             this.offsetX1 = offsetX1;
         } else {
             this.offsetX1 = offsetX1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -324,10 +284,6 @@ public class GanttText extends CoreText {
             this.offsetY = offsetY;
         } else {
             this.offsetY = offsetY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -352,10 +308,6 @@ public class GanttText extends CoreText {
             this.offsetY1 = offsetY1;
         } else {
             this.offsetY1 = offsetY1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -378,10 +330,6 @@ public class GanttText extends CoreText {
             this.rotation = rotation;
         } else {
             this.rotation = rotation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -422,10 +370,6 @@ public class GanttText extends CoreText {
             this.text = text;
         } else {
             this.text = text;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -454,10 +398,6 @@ public class GanttText extends CoreText {
             this.value = value;
         } else {
             this.value = value;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -483,10 +423,6 @@ public class GanttText extends CoreText {
             this.value1 = value1;
         } else {
             this.value1 = value1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -512,10 +448,6 @@ public class GanttText extends CoreText {
             this.value2 = value2;
         } else {
             this.value2 = value2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -542,10 +474,6 @@ public class GanttText extends CoreText {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -570,10 +498,6 @@ public class GanttText extends CoreText {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

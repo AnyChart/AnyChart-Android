@@ -30,10 +30,6 @@ public class CHO extends JsObject {
             this.fastPeriod = fastPeriod;
         } else {
             this.fastPeriod = fastPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -60,10 +56,6 @@ public class CHO extends JsObject {
             this.maType = maType;
         } else {
             this.maType = maType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class CHO extends JsObject {
             this.maType1 = maType1;
         } else {
             this.maType1 = maType1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -117,16 +105,16 @@ public class CHO extends JsObject {
     }
 
     private StockSeriesType type;
+    private String type1;
 
     public CHO setSeries(StockSeriesType type) {
         if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -142,6 +130,30 @@ public class CHO extends JsObject {
         return this;
     }
 
+
+    public CHO setSeries(String type1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", type1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", type1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Double slowPeriod;
 
     public CHO setSlowPeriod(Double slowPeriod) {
@@ -149,10 +161,6 @@ public class CHO extends JsObject {
             this.slowPeriod = slowPeriod;
         } else {
             this.slowPeriod = slowPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -203,6 +211,13 @@ public class CHO extends JsObject {
         return "";
     }
 
+    private String generateJStype1() {
+        if (type1 != null) {
+            return String.format(Locale.US, "type: %s,", type1);
+        }
+        return "";
+    }
+
     private String generateJSslowPeriod() {
         if (slowPeriod != null) {
             return String.format(Locale.US, "slowPeriod: %f,", slowPeriod);
@@ -235,6 +250,7 @@ public class CHO extends JsObject {
             js.append(generateJSmaType());
             js.append(generateJSmaType1());
             js.append(generateJStype());
+            js.append(generateJStype1());
             js.append(generateJSslowPeriod());
             js.append("}");
         }

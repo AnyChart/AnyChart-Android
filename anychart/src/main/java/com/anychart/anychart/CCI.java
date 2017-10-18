@@ -30,10 +30,6 @@ public class CCI extends JsObject {
             this.period = period;
         } else {
             this.period = period;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,16 +55,16 @@ public class CCI extends JsObject {
     }
 
     private StockSeriesType type;
+    private String type1;
 
     public CCI setSeries(StockSeriesType type) {
         if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -78,6 +74,30 @@ public class CCI extends JsObject {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".series(%s)", (type != null) ? type.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public CCI setSeries(String type1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".series(%s)", type1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", type1));
                 js.setLength(0);
             }
         }
@@ -105,6 +125,13 @@ public class CCI extends JsObject {
         return "";
     }
 
+    private String generateJStype1() {
+        if (type1 != null) {
+            return String.format(Locale.US, "type: %s,", type1);
+        }
+        return "";
+    }
+
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -128,6 +155,7 @@ public class CCI extends JsObject {
             js.append("{");
             js.append(generateJSperiod());
             js.append(generateJStype());
+            js.append(generateJStype1());
             js.append("}");
         }
 

@@ -52,10 +52,6 @@ public class Exports extends JsObject {
             this.width = width;
             this.height = height;
             this.appId = appId;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -77,10 +73,6 @@ public class Exports extends JsObject {
             this.filename = filename;
         } else {
             this.filename = filename;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -112,10 +104,6 @@ public class Exports extends JsObject {
         } else {
             this.widthOrOptions = widthOrOptions;
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -162,10 +150,6 @@ public class Exports extends JsObject {
             this.description1 = description1;
             this.width1 = width1;
             this.height2 = height2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -213,10 +197,6 @@ public class Exports extends JsObject {
             this.description2 = description2;
             this.width2 = width2;
             this.height3 = height3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -259,10 +239,6 @@ public class Exports extends JsObject {
             this.urlOrOptions = urlOrOptions;
             this.width3 = width3;
             this.height4 = height4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

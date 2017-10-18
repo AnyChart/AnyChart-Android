@@ -30,10 +30,6 @@ public class GanttRange extends VisualBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class GanttRange extends VisualBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -107,10 +99,6 @@ public class GanttRange extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -148,10 +136,6 @@ public class GanttRange extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -189,10 +173,6 @@ public class GanttRange extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -230,10 +210,6 @@ public class GanttRange extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -271,10 +247,6 @@ public class GanttRange extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -312,10 +284,6 @@ public class GanttRange extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -371,10 +339,6 @@ public class GanttRange extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -422,10 +386,6 @@ public class GanttRange extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -455,10 +415,6 @@ public class GanttRange extends VisualBase {
             this.from = from;
         } else {
             this.from = from;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -484,10 +440,6 @@ public class GanttRange extends VisualBase {
             this.from1 = from1;
         } else {
             this.from1 = from1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -513,10 +465,6 @@ public class GanttRange extends VisualBase {
             this.from2 = from2;
         } else {
             this.from2 = from2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -543,10 +491,6 @@ public class GanttRange extends VisualBase {
             this.layout = layout;
         } else {
             this.layout = layout;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -571,10 +515,6 @@ public class GanttRange extends VisualBase {
             this.layout1 = layout1;
         } else {
             this.layout1 = layout1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -606,10 +546,6 @@ public class GanttRange extends VisualBase {
             this.scale = scale;
         } else {
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -638,10 +574,6 @@ public class GanttRange extends VisualBase {
             this.to = to;
         } else {
             this.to = to;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -667,10 +599,6 @@ public class GanttRange extends VisualBase {
             this.to1 = to1;
         } else {
             this.to1 = to1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -696,10 +624,6 @@ public class GanttRange extends VisualBase {
             this.to2 = to2;
         } else {
             this.to2 = to2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -30,10 +30,6 @@ public class GeoTicks extends CoreBase {
             this.count = count;
         } else {
             this.count = count;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class GeoTicks extends CoreBase {
         } else {
             this.minimumCount = minimumCount;
             this.maximumCount = maximumCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -85,10 +77,6 @@ public class GeoTicks extends CoreBase {
             this.interval = interval;
         } else {
             this.interval = interval;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -111,10 +99,6 @@ public class GeoTicks extends CoreBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

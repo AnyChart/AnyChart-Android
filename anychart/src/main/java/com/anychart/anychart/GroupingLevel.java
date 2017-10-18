@@ -8,13 +8,20 @@ public class GroupingLevel extends JsObject  {
     
     private Double count;
     private Interval unit;
+    private String unit1;
 
     
-    public GroupingLevel(Double count, Interval unit) {
-        this.count = count;
+    public GroupingLevel(Interval unit, Double count) {
         this.unit = unit;
+        this.count = count;
 
-        js.append(String.format(Locale.US, "{count: %f,unit: %s}",  count, (unit != null) ? unit.generateJs() : "null"));
+        js.append(String.format(Locale.US, "{unit: %s,count: %f}",  (unit != null) ? unit.generateJs() : "null", count));
+    }
+    public GroupingLevel(String unit1, Double count) {
+        this.unit1 = unit1;
+        this.count = count;
+
+        js.append(String.format(Locale.US, "{unit: %s,count: %f}",  unit1, count));
     }
 
     @Override

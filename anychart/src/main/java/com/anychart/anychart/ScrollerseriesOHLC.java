@@ -48,10 +48,6 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -85,10 +81,6 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -122,10 +114,6 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +166,6 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -227,10 +211,6 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -276,10 +256,6 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

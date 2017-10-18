@@ -30,10 +30,6 @@ public class RangeSelector extends JsObject {
             this.decorate = decorate;
         } else {
             this.decorate = decorate;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -55,10 +51,6 @@ public class RangeSelector extends JsObject {
             this.ranges = ranges;
         } else {
             this.ranges = ranges;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -84,10 +76,6 @@ public class RangeSelector extends JsObject {
             this.parentElement = parentElement;
         } else {
             this.parentElement = parentElement;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -111,10 +99,6 @@ public class RangeSelector extends JsObject {
             this.parentElement1 = parentElement1;
         } else {
             this.parentElement1 = parentElement1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -136,10 +120,6 @@ public class RangeSelector extends JsObject {
             this.chart = chart;
         } else {
             this.chart = chart;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -161,10 +141,6 @@ public class RangeSelector extends JsObject {
             this.zoomLabelText = zoomLabelText;
         } else {
             this.zoomLabelText = zoomLabelText;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

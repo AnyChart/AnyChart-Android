@@ -43,10 +43,6 @@ public class Led extends LineargaugePointersBase {
             this.colorScale = colorScale;
         } else {
             this.colorScale = colorScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class Led extends LineargaugePointersBase {
             this.colorScale1 = colorScale1;
         } else {
             this.colorScale1 = colorScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -97,10 +89,6 @@ public class Led extends LineargaugePointersBase {
             this.count = count;
         } else {
             this.count = count;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -127,10 +115,6 @@ public class Led extends LineargaugePointersBase {
             this.gap = gap;
         } else {
             this.gap = gap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -155,10 +139,6 @@ public class Led extends LineargaugePointersBase {
             this.gap1 = gap1;
         } else {
             this.gap1 = gap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -185,10 +165,6 @@ public class Led extends LineargaugePointersBase {
             this.size = size;
         } else {
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -213,10 +189,6 @@ public class Led extends LineargaugePointersBase {
             this.size1 = size1;
         } else {
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

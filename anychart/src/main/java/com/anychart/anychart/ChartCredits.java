@@ -30,10 +30,6 @@ public class ChartCredits extends CoreBase {
             this.alt = alt;
         } else {
             this.alt = alt;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class ChartCredits extends CoreBase {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +74,6 @@ public class ChartCredits extends CoreBase {
             this.imgAlt = imgAlt;
         } else {
             this.imgAlt = imgAlt;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -108,10 +96,6 @@ public class ChartCredits extends CoreBase {
             this.logoSrc = logoSrc;
         } else {
             this.logoSrc = logoSrc;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -134,10 +118,6 @@ public class ChartCredits extends CoreBase {
             this.text = text;
         } else {
             this.text = text;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -160,10 +140,6 @@ public class ChartCredits extends CoreBase {
             this.url = url;
         } else {
             this.url = url;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

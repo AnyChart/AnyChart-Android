@@ -39,10 +39,6 @@ public class VectorEllipse extends Shape {
             this.center = center;
         } else {
             this.center = center;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -65,10 +61,6 @@ public class VectorEllipse extends Shape {
             this.centerX = centerX;
         } else {
             this.centerX = centerX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -91,10 +83,6 @@ public class VectorEllipse extends Shape {
             this.centerY = centerY;
         } else {
             this.centerY = centerY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -117,10 +105,6 @@ public class VectorEllipse extends Shape {
             this.radiusX = radiusX;
         } else {
             this.radiusX = radiusX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -143,10 +127,6 @@ public class VectorEllipse extends Shape {
             this.radiusY = radiusY;
         } else {
             this.radiusY = radiusY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -172,10 +152,6 @@ public class VectorEllipse extends Shape {
         } else {
             this.rx = rx;
             this.ry = ry;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

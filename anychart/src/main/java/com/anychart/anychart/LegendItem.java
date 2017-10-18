@@ -65,10 +65,6 @@ public class LegendItem extends CoreText {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -101,10 +97,6 @@ public class LegendItem extends CoreText {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -137,10 +129,6 @@ public class LegendItem extends CoreText {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -173,10 +161,6 @@ public class LegendItem extends CoreText {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -230,10 +214,6 @@ public class LegendItem extends CoreText {
             this.maxHeight = maxHeight;
         } else {
             this.maxHeight = maxHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -258,10 +238,6 @@ public class LegendItem extends CoreText {
             this.maxHeight1 = maxHeight1;
         } else {
             this.maxHeight1 = maxHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -288,10 +264,6 @@ public class LegendItem extends CoreText {
             this.maxWidth = maxWidth;
         } else {
             this.maxWidth = maxWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -316,10 +288,6 @@ public class LegendItem extends CoreText {
             this.maxWidth1 = maxWidth1;
         } else {
             this.maxWidth1 = maxWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

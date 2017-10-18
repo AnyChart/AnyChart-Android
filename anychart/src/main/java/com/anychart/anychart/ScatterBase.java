@@ -30,10 +30,6 @@ public class ScatterBase extends ScalesBase {
             this.ratio = ratio;
         } else {
             this.ratio = ratio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -55,10 +51,6 @@ public class ScatterBase extends ScalesBase {
             this.maxTicksCount = maxTicksCount;
         } else {
             this.maxTicksCount = maxTicksCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -81,10 +73,6 @@ public class ScatterBase extends ScalesBase {
             this.maximum = maximum;
         } else {
             this.maximum = maximum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -107,10 +95,6 @@ public class ScatterBase extends ScalesBase {
             this.minimum = minimum;
         } else {
             this.minimum = minimum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

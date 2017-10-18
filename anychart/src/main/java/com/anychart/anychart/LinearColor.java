@@ -30,10 +30,6 @@ public class LinearColor extends ScatterBase {
             this.colorToValue = colorToValue;
         } else {
             this.colorToValue = colorToValue;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -71,10 +67,6 @@ public class LinearColor extends ScatterBase {
             this.var_args = var_args;
         } else {
             this.var_args = var_args;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -105,10 +97,6 @@ public class LinearColor extends ScatterBase {
             this.var_args1 = var_args1;
         } else {
             this.var_args1 = var_args1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -139,10 +127,6 @@ public class LinearColor extends ScatterBase {
             this.var_args2 = var_args2;
         } else {
             this.var_args2 = var_args2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -173,10 +157,6 @@ public class LinearColor extends ScatterBase {
             this.var_args3 = var_args3;
         } else {
             this.var_args3 = var_args3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -207,10 +187,6 @@ public class LinearColor extends ScatterBase {
             this.var_args4 = var_args4;
         } else {
             this.var_args4 = var_args4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -241,10 +217,6 @@ public class LinearColor extends ScatterBase {
             this.var_args5 = var_args5;
         } else {
             this.var_args5 = var_args5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -275,10 +247,6 @@ public class LinearColor extends ScatterBase {
             this.var_args6 = var_args6;
         } else {
             this.var_args6 = var_args6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -309,10 +277,6 @@ public class LinearColor extends ScatterBase {
             this.var_args7 = var_args7;
         } else {
             this.var_args7 = var_args7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -348,10 +312,6 @@ public class LinearColor extends ScatterBase {
             this.minorTicks = minorTicks;
         } else {
             this.minorTicks = minorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -376,10 +336,6 @@ public class LinearColor extends ScatterBase {
             this.minorTicks1 = minorTicks1;
         } else {
             this.minorTicks1 = minorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -415,10 +371,6 @@ public class LinearColor extends ScatterBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -443,10 +395,6 @@ public class LinearColor extends ScatterBase {
             this.ticks1 = ticks1;
         } else {
             this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -469,10 +417,6 @@ public class LinearColor extends ScatterBase {
             this.valueToColor = valueToColor;
         } else {
             this.valueToColor = valueToColor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

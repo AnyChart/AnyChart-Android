@@ -30,10 +30,6 @@ public class BBands extends JsObject {
             this.deviation = deviation;
         } else {
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -69,10 +65,6 @@ public class BBands extends JsObject {
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -97,10 +89,6 @@ public class BBands extends JsObject {
             this.type1 = type1;
         } else {
             this.type1 = type1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -126,20 +114,18 @@ public class BBands extends JsObject {
     }
 
     private StockSeriesType type2;
+    private String type3;
 
     public BBands setMiddleSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
             this.type2 = null;
+            this.type3 = null;
             
             this.type2 = type2;
         } else {
             this.type2 = type2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -155,6 +141,32 @@ public class BBands extends JsObject {
         return this;
     }
 
+
+    public BBands setMiddleSeries(String type3) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+        } else {
+            this.type3 = type3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".middleSeries(%s)", type3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".middleSeries(%s)", type3));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Double period;
 
     public BBands setPeriod(Double period) {
@@ -162,10 +174,6 @@ public class BBands extends JsObject {
             this.period = period;
         } else {
             this.period = period;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -190,33 +198,30 @@ public class BBands extends JsObject {
         return getUpperSeries;
     }
 
-    private StockSeriesType type3;
-    private String type4;
+    private StockSeriesType type4;
+    private String type5;
 
-    public BBands setUpperSeries(StockSeriesType type3) {
+    public BBands setUpperSeries(StockSeriesType type4) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
             this.type2 = null;
             this.type3 = null;
             this.type4 = null;
+            this.type5 = null;
             
-            this.type3 = type3;
+            this.type4 = type4;
         } else {
-            this.type3 = type3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.type4 = type4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".upperSeries(%s)", (type3 != null) ? type3.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".upperSeries(%s)", (type4 != null) ? type4.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", (type3 != null) ? type3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", (type4 != null) ? type4.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -224,30 +229,27 @@ public class BBands extends JsObject {
     }
 
 
-    public BBands setUpperSeries(String type4) {
+    public BBands setUpperSeries(String type5) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
             this.type2 = null;
             this.type3 = null;
             this.type4 = null;
+            this.type5 = null;
             
-            this.type4 = type4;
+            this.type5 = type5;
         } else {
-            this.type4 = type4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.type5 = type5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".upperSeries(%s)", type4));
+            js.append(String.format(Locale.US, ".upperSeries(%s)", type5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", type4));
+                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", type5));
                 js.setLength(0);
             }
         }
@@ -303,6 +305,13 @@ public class BBands extends JsObject {
         return "";
     }
 
+    private String generateJStype3() {
+        if (type3 != null) {
+            return String.format(Locale.US, "type: %s,", type3);
+        }
+        return "";
+    }
+
     private String generateJSperiod() {
         if (period != null) {
             return String.format(Locale.US, "period: %f,", period);
@@ -310,16 +319,16 @@ public class BBands extends JsObject {
         return "";
     }
 
-    private String generateJStype3() {
-        if (type3 != null) {
-            return String.format(Locale.US, "type: %s,", (type3 != null) ? type3.generateJs() : "null");
+    private String generateJStype4() {
+        if (type4 != null) {
+            return String.format(Locale.US, "type: %s,", (type4 != null) ? type4.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJStype4() {
-        if (type4 != null) {
-            return String.format(Locale.US, "type: %s,", type4);
+    private String generateJStype5() {
+        if (type5 != null) {
+            return String.format(Locale.US, "type: %s,", type5);
         }
         return "";
     }
@@ -351,9 +360,10 @@ public class BBands extends JsObject {
             js.append(generateJStype());
             js.append(generateJStype1());
             js.append(generateJStype2());
-            js.append(generateJSperiod());
             js.append(generateJStype3());
+            js.append(generateJSperiod());
             js.append(generateJStype4());
+            js.append(generateJStype5());
             js.append("}");
         }
 

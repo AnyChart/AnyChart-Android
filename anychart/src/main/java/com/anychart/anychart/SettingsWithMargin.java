@@ -45,10 +45,6 @@ public class SettingsWithMargin extends JsObject {
             this.margin = margin;
         } else {
             this.margin = margin;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -74,10 +70,6 @@ public class SettingsWithMargin extends JsObject {
             this.margin1 = margin1;
         } else {
             this.margin1 = margin1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -87,6 +79,31 @@ public class SettingsWithMargin extends JsObject {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public SettingsWithMargin setMargin(String margin2) {
+        if (jsBase == null) {
+            this.margin = null;
+            this.margin1 = null;
+            this.margin2 = null;
+            
+            this.margin2 = margin2;
+        } else {
+            this.margin2 = margin2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s)", margin2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
                 js.setLength(0);
             }
         }
@@ -149,10 +166,6 @@ public class SettingsWithMargin extends JsObject {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -216,10 +229,6 @@ public class SettingsWithMargin extends JsObject {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

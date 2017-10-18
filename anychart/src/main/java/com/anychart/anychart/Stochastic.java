@@ -24,16 +24,16 @@ public class Stochastic extends JsObject {
 
     
     private MovingAverageType dMAType;
+    private String dMAType1;
 
     public Stochastic setDMAType(MovingAverageType dMAType) {
         if (jsBase == null) {
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
         } else {
             this.dMAType = dMAType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -49,6 +49,30 @@ public class Stochastic extends JsObject {
         return this;
     }
 
+
+    public Stochastic setDMAType(String dMAType1) {
+        if (jsBase == null) {
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+        } else {
+            this.dMAType1 = dMAType1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dMAType(%s)", dMAType1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", dMAType1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Double dPeriod;
 
     public Stochastic setDPeriod(Double dPeriod) {
@@ -56,10 +80,6 @@ public class Stochastic extends JsObject {
             this.dPeriod = dPeriod;
         } else {
             this.dPeriod = dPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -85,16 +105,16 @@ public class Stochastic extends JsObject {
     }
 
     private StockSeriesType type;
+    private String type1;
 
     public Stochastic setDSeries(StockSeriesType type) {
         if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -110,6 +130,30 @@ public class Stochastic extends JsObject {
         return this;
     }
 
+
+    public Stochastic setDSeries(String type1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dSeries(%s)", type1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", type1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Double kMAPeriod;
 
     public Stochastic setKMAPeriod(Double kMAPeriod) {
@@ -117,10 +161,6 @@ public class Stochastic extends JsObject {
             this.kMAPeriod = kMAPeriod;
         } else {
             this.kMAPeriod = kMAPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -137,16 +177,16 @@ public class Stochastic extends JsObject {
     }
 
     private MovingAverageType kMAType;
+    private String kMAType1;
 
     public Stochastic setKMAType(MovingAverageType kMAType) {
         if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
         } else {
             this.kMAType = kMAType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -162,6 +202,30 @@ public class Stochastic extends JsObject {
         return this;
     }
 
+
+    public Stochastic setKMAType(String kMAType1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+        } else {
+            this.kMAType1 = kMAType1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kMAType(%s)", kMAType1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", kMAType1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Double kPeriod;
 
     public Stochastic setKPeriod(Double kPeriod) {
@@ -169,10 +233,6 @@ public class Stochastic extends JsObject {
             this.kPeriod = kPeriod;
         } else {
             this.kPeriod = kPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -197,29 +257,54 @@ public class Stochastic extends JsObject {
         return getKSeries;
     }
 
-    private StockSeriesType type1;
+    private StockSeriesType type2;
+    private String type3;
 
-    public Stochastic setKSeries(StockSeriesType type1) {
+    public Stochastic setKSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
             
-            this.type1 = type1;
+            this.type2 = type2;
         } else {
-            this.type1 = type1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.type2 = type2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".kSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Stochastic setKSeries(String type3) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+        } else {
+            this.type3 = type3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kSeries(%s)", type3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", type3));
                 js.setLength(0);
             }
         }
@@ -247,6 +332,13 @@ public class Stochastic extends JsObject {
         return "";
     }
 
+    private String generateJSdMAType1() {
+        if (dMAType1 != null) {
+            return String.format(Locale.US, "dMAType: %s,", dMAType1);
+        }
+        return "";
+    }
+
     private String generateJSdPeriod() {
         if (dPeriod != null) {
             return String.format(Locale.US, "dPeriod: %f,", dPeriod);
@@ -257,6 +349,13 @@ public class Stochastic extends JsObject {
     private String generateJStype() {
         if (type != null) {
             return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJStype1() {
+        if (type1 != null) {
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }
@@ -275,6 +374,13 @@ public class Stochastic extends JsObject {
         return "";
     }
 
+    private String generateJSkMAType1() {
+        if (kMAType1 != null) {
+            return String.format(Locale.US, "kMAType: %s,", kMAType1);
+        }
+        return "";
+    }
+
     private String generateJSkPeriod() {
         if (kPeriod != null) {
             return String.format(Locale.US, "kPeriod: %f,", kPeriod);
@@ -282,9 +388,16 @@ public class Stochastic extends JsObject {
         return "";
     }
 
-    private String generateJStype1() {
-        if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", (type1 != null) ? type1.generateJs() : "null");
+    private String generateJStype2() {
+        if (type2 != null) {
+            return String.format(Locale.US, "type: %s,", (type2 != null) ? type2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJStype3() {
+        if (type3 != null) {
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -312,12 +425,16 @@ public class Stochastic extends JsObject {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdMAType());
+            js.append(generateJSdMAType1());
             js.append(generateJSdPeriod());
             js.append(generateJStype());
+            js.append(generateJStype1());
             js.append(generateJSkMAPeriod());
             js.append(generateJSkMAType());
+            js.append(generateJSkMAType1());
             js.append(generateJSkPeriod());
-            js.append(generateJStype1());
+            js.append(generateJStype2());
+            js.append(generateJStype3());
             js.append("}");
         }
 

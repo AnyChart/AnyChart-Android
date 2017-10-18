@@ -34,10 +34,6 @@ public class UiTitle extends CoreText {
             this.align = align;
         } else {
             this.align = align;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class UiTitle extends CoreText {
             this.align1 = align1;
         } else {
             this.align1 = align1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -103,10 +95,6 @@ public class UiTitle extends CoreText {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -132,10 +120,6 @@ public class UiTitle extends CoreText {
             this.background2 = background2;
         } else {
             this.background2 = background2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -162,10 +146,6 @@ public class UiTitle extends CoreText {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -190,10 +170,6 @@ public class UiTitle extends CoreText {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -235,10 +211,6 @@ public class UiTitle extends CoreText {
             this.allValues2 = allValues2;
         } else {
             this.allValues2 = allValues2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -266,10 +238,6 @@ public class UiTitle extends CoreText {
             this.allValues3 = allValues3;
         } else {
             this.allValues3 = allValues3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -341,10 +309,6 @@ public class UiTitle extends CoreText {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -408,10 +372,6 @@ public class UiTitle extends CoreText {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -438,10 +398,6 @@ public class UiTitle extends CoreText {
             this.orientation = orientation;
         } else {
             this.orientation = orientation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -466,10 +422,6 @@ public class UiTitle extends CoreText {
             this.orientation1 = orientation1;
         } else {
             this.orientation1 = orientation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -511,10 +463,6 @@ public class UiTitle extends CoreText {
             this.padding2 = padding2;
         } else {
             this.padding2 = padding2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -542,10 +490,6 @@ public class UiTitle extends CoreText {
             this.padding3 = padding3;
         } else {
             this.padding3 = padding3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -649,10 +593,6 @@ public class UiTitle extends CoreText {
             this.value10 = value10;
             this.value12 = value12;
             this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -748,10 +688,6 @@ public class UiTitle extends CoreText {
             this.value11 = value11;
             this.value13 = value13;
             this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -774,10 +710,6 @@ public class UiTitle extends CoreText {
             this.rotation = rotation;
         } else {
             this.rotation = rotation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -800,10 +732,6 @@ public class UiTitle extends CoreText {
             this.text = text;
         } else {
             this.text = text;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -830,10 +758,6 @@ public class UiTitle extends CoreText {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -858,10 +782,6 @@ public class UiTitle extends CoreText {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

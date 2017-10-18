@@ -30,10 +30,6 @@ public class AxesLinearGauge extends CoreAxesLinear {
             this.offset = offset;
         } else {
             this.offset = offset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -36,10 +36,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.bottomStroke = bottomStroke;
         } else {
             this.bottomStroke = bottomStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -65,10 +61,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.bottomStroke1 = bottomStroke1;
         } else {
             this.bottomStroke1 = bottomStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -94,10 +86,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.bottomStroke2 = bottomStroke2;
         } else {
             this.bottomStroke2 = bottomStroke2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -139,10 +127,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +162,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -198,16 +178,16 @@ public class UiBackground extends VisualBaseWithBounds {
     }
 
     private BackgroundCornersType cornerType;
+    private String cornerType1;
 
     public UiBackground setCornerType(BackgroundCornersType cornerType) {
         if (jsBase == null) {
+            this.cornerType = null;
+            this.cornerType1 = null;
+            
             this.cornerType = cornerType;
         } else {
             this.cornerType = cornerType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -217,6 +197,30 @@ public class UiBackground extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", (cornerType != null) ? cornerType.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public UiBackground setCornerType(String cornerType1) {
+        if (jsBase == null) {
+            this.cornerType = null;
+            this.cornerType1 = null;
+            
+            this.cornerType1 = cornerType1;
+        } else {
+            this.cornerType1 = cornerType1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cornerType(%s)", cornerType1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".cornerType(%s)", cornerType1));
                 js.setLength(0);
             }
         }
@@ -236,10 +240,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.corners2 = corners2;
         } else {
             this.corners2 = corners2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -249,6 +249,31 @@ public class UiBackground extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".corners(%s)", Arrays.toString(corners2)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public UiBackground setCorners(String corners1) {
+        if (jsBase == null) {
+            this.corners = null;
+            this.corners1 = null;
+            this.corners2 = null;
+            
+            this.corners1 = corners1;
+        } else {
+            this.corners1 = corners1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".corners(%s)", corners1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".corners(%s)", corners1));
                 js.setLength(0);
             }
         }
@@ -287,10 +312,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.topRight1 = topRight1;
             this.bottomRight1 = bottomRight1;
             this.bottomLeft1 = bottomLeft1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -330,10 +351,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.topRight = topRight;
             this.bottomRight = bottomRight;
             this.bottomLeft = bottomLeft;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -356,10 +373,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -385,10 +398,6 @@ public class UiBackground extends VisualBaseWithBounds {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -433,10 +442,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -474,10 +479,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -515,10 +516,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -556,10 +553,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -597,10 +590,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -638,10 +627,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -697,10 +682,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -748,10 +729,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -778,10 +755,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.leftStroke = leftStroke;
         } else {
             this.leftStroke = leftStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -806,10 +779,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.leftStroke1 = leftStroke1;
         } else {
             this.leftStroke1 = leftStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -862,10 +831,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -912,10 +877,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -944,10 +905,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.rightStroke = rightStroke;
         } else {
             this.rightStroke = rightStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -973,10 +930,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.rightStroke1 = rightStroke1;
         } else {
             this.rightStroke1 = rightStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1002,10 +955,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.rightStroke2 = rightStroke2;
         } else {
             this.rightStroke2 = rightStroke2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1063,10 +1012,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1118,10 +1063,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1150,10 +1091,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.stroke = stroke;
         } else {
             this.stroke = stroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1179,10 +1116,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.stroke1 = stroke1;
         } else {
             this.stroke1 = stroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1208,10 +1141,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.stroke2 = stroke2;
         } else {
             this.stroke2 = stroke2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1273,10 +1202,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1332,10 +1257,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1364,10 +1285,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.topStroke = topStroke;
         } else {
             this.topStroke = topStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1393,10 +1310,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.topStroke1 = topStroke1;
         } else {
             this.topStroke1 = topStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1422,10 +1335,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.topStroke2 = topStroke2;
         } else {
             this.topStroke2 = topStroke2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1491,10 +1400,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1554,10 +1459,6 @@ public class UiBackground extends VisualBaseWithBounds {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1639,6 +1540,13 @@ public class UiBackground extends VisualBaseWithBounds {
     private String generateJScornerType() {
         if (cornerType != null) {
             return String.format(Locale.US, "cornerType: %s,", (cornerType != null) ? cornerType.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJScornerType1() {
+        if (cornerType1 != null) {
+            return String.format(Locale.US, "cornerType: %s,", cornerType1);
         }
         return "";
     }
@@ -2121,6 +2029,7 @@ public class UiBackground extends VisualBaseWithBounds {
             js.append(generateJSlineJoin());
             js.append(generateJSlineCap());
             js.append(generateJScornerType());
+            js.append(generateJScornerType1());
             js.append(generateJScorners());
             js.append(generateJScorners1());
             js.append(generateJScorners2());

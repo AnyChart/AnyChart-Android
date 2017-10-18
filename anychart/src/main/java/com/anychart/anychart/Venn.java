@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class Venn extends SeparateChart {
 
-    public Venn() {
-        js.append("chart = anychart.venn();");
+    protected Venn(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private View getData;
 
     public View getData() {
@@ -22,7 +25,6 @@ public class Venn extends SeparateChart {
 
         return getData;
     }
-
     private View data;
     private Mapping data1;
     private Set data2;
@@ -580,6 +582,7 @@ public class Venn extends SeparateChart {
     }
 
     private Fill imageSettings;
+
     private PatternFill getHatchFill;
 
     public PatternFill getHatchFill() {
@@ -588,7 +591,6 @@ public class Venn extends SeparateChart {
 
         return getHatchFill;
     }
-
     private PatternFill patternFillOrType;
     private HatchFill patternFillOrType1;
     private HatchFillType patternFillOrType2;
@@ -757,6 +759,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private HatchFills getHatchFillPalette;
 
     public HatchFills getHatchFillPalette() {
@@ -765,7 +768,6 @@ public class Venn extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -916,6 +918,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -924,7 +927,6 @@ public class Venn extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<Venn> setHovered = new ArrayList<>();
 
@@ -955,6 +957,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private Intersections getIntersections;
 
     public Intersections getIntersections() {
@@ -963,7 +966,6 @@ public class Venn extends SeparateChart {
 
         return getIntersections;
     }
-
     private String intersections;
     private List<Venn> setIntersections = new ArrayList<>();
 
@@ -994,6 +996,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -1002,7 +1005,6 @@ public class Venn extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<Venn> setLabels = new ArrayList<>();
@@ -1063,6 +1065,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -1071,10 +1074,10 @@ public class Venn extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<Venn> setMarkerPalette = new ArrayList<>();
 
     public Venn setMarkerPalette(Markers markerPalette) {
@@ -1162,6 +1165,36 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+    private List<Venn> setMarkerPalette3 = new ArrayList<>();
+
+    public Venn setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Venn item : setMarkerPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
@@ -1170,7 +1203,6 @@ public class Venn extends SeparateChart {
 
         return getMarkers;
     }
-
     private String markers;
     private Boolean markers1;
     private String markers2;
@@ -1232,6 +1264,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1240,7 +1273,6 @@ public class Venn extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<Venn> setNormal = new ArrayList<>();
 
@@ -1271,6 +1303,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -1279,7 +1312,6 @@ public class Venn extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -1461,6 +1493,7 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -1469,7 +1502,6 @@ public class Venn extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<Venn> setSelected = new ArrayList<>();
 
@@ -1855,6 +1887,7 @@ public class Venn extends SeparateChart {
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetMarkers());
         js.append(generateJSsetMarkers1());
         js.append(generateJSsetNormal());

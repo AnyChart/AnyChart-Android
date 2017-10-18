@@ -30,10 +30,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.fallingFill = fallingFill;
         } else {
             this.fallingFill = fallingFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -84,10 +80,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -121,10 +113,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -158,10 +146,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -195,10 +179,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -232,10 +212,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color = color;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -258,10 +234,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.risingFill = risingFill;
         } else {
             this.risingFill = risingFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -326,10 +298,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color1 = color1;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -377,10 +345,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color1 = color1;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -428,10 +392,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color1 = color1;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -479,10 +439,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color1 = color1;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -530,10 +486,6 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
             this.color1 = color1;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

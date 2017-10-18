@@ -30,10 +30,6 @@ public class RenderingSettings extends CoreBase {
             this.needsWidth = needsWidth;
         } else {
             this.needsWidth = needsWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class RenderingSettings extends CoreBase {
             this.needsZero = needsZero;
         } else {
             this.needsZero = needsZero;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +74,6 @@ public class RenderingSettings extends CoreBase {
             this.shapes = shapes;
         } else {
             this.shapes = shapes;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -108,10 +96,6 @@ public class RenderingSettings extends CoreBase {
             this.yValues = yValues;
         } else {
             this.yValues = yValues;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

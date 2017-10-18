@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class CircularGauge extends Chart {
 
-    public CircularGauge() {
-        js.append("chart = anychart.circularGauge();");
+    protected CircularGauge(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private Circular getAxis;
 
     public Circular getAxis() {
@@ -22,7 +25,6 @@ public class CircularGauge extends Chart {
 
         return getAxis;
     }
-
     private String axis;
     private Boolean axis1;
     private List<CircularGauge> setAxis = new ArrayList<>();
@@ -146,6 +148,7 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+
     private GaugePointersBar getBar;
 
     public GaugePointersBar getBar() {
@@ -155,15 +158,13 @@ public class CircularGauge extends Chart {
         return getBar;
     }
 
-    private GaugePointersBar getBar1;
+    private List<GaugePointersBar> getBar1 = new ArrayList<>();
 
     public GaugePointersBar getBar(Double index1) {
-        if (getBar1 == null)
-            getBar1 = new GaugePointersBar(jsBase + ".bar("+ index1+")");
-
-        return getBar1;
+        GaugePointersBar item = new GaugePointersBar(jsBase + ".bar("+ index1+")");
+        getBar1.add(item);
+        return item;
     }
-
     private String bar;
     private Boolean bar1;
     private List<CircularGauge> setBar = new ArrayList<>();
@@ -287,6 +288,7 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+
     private Cap getCap;
 
     public Cap getCap() {
@@ -295,7 +297,6 @@ public class CircularGauge extends Chart {
 
         return getCap;
     }
-
     private String cap;
     private Boolean cap1;
     private List<CircularGauge> setCap = new ArrayList<>();
@@ -416,6 +417,7 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -424,13 +426,13 @@ public class CircularGauge extends Chart {
 
         return getData;
     }
-
     private View data;
     private Set data1;
     private String[] data2;
     private String data3;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<CircularGauge> setData = new ArrayList<>();
 
     public CircularGauge setData(View data, TextParsingMode csvSettings) {
@@ -463,19 +465,19 @@ public class CircularGauge extends Chart {
 
     private List<CircularGauge> setData1 = new ArrayList<>();
 
-    public CircularGauge setData(View data, TextParsingSettings csvSettings1) {
+    public CircularGauge setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -492,6 +494,36 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setData2 = new ArrayList<>();
+
+    public CircularGauge setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularGauge item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CircularGauge> setData3 = new ArrayList<>();
 
     public CircularGauge setData(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -510,36 +542,6 @@ public class CircularGauge extends Chart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CircularGauge item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<CircularGauge> setData3 = new ArrayList<>();
-
-    public CircularGauge setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -552,6 +554,66 @@ public class CircularGauge extends Chart {
     }
 
     private List<CircularGauge> setData4 = new ArrayList<>();
+
+    public CircularGauge setData(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularGauge item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CircularGauge> setData5 = new ArrayList<>();
+
+    public CircularGauge setData(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularGauge item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CircularGauge> setData6 = new ArrayList<>();
 
     public CircularGauge setData(String[] data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -570,10 +632,10 @@ public class CircularGauge extends Chart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CircularGauge item : setData4) {
+            for (CircularGauge item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -581,29 +643,29 @@ public class CircularGauge extends Chart {
         return "";
     }
 
-    private List<CircularGauge> setData5 = new ArrayList<>();
+    private List<CircularGauge> setData7 = new ArrayList<>();
 
-    public CircularGauge setData(String[] data2, TextParsingSettings csvSettings1) {
+    public CircularGauge setData(String[] data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CircularGauge item : setData5) {
+            for (CircularGauge item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -611,7 +673,37 @@ public class CircularGauge extends Chart {
         return "";
     }
 
-    private List<CircularGauge> setData6 = new ArrayList<>();
+    private List<CircularGauge> setData8 = new ArrayList<>();
+
+    public CircularGauge setData(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularGauge item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CircularGauge> setData9 = new ArrayList<>();
 
     public CircularGauge setData(String data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -630,10 +722,10 @@ public class CircularGauge extends Chart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CircularGauge item : setData6) {
+            for (CircularGauge item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -641,29 +733,59 @@ public class CircularGauge extends Chart {
         return "";
     }
 
-    private List<CircularGauge> setData7 = new ArrayList<>();
+    private List<CircularGauge> setData10 = new ArrayList<>();
 
-    public CircularGauge setData(String data3, TextParsingSettings csvSettings1) {
+    public CircularGauge setData(String data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CircularGauge item : setData7) {
+            for (CircularGauge item : setData10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CircularGauge> setData11 = new ArrayList<>();
+
+    public CircularGauge setData(String data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularGauge item : setData11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1071,6 +1193,7 @@ public class CircularGauge extends Chart {
     }
 
     private Fill imageSettings;
+
     private Knob getKnob;
 
     public Knob getKnob() {
@@ -1080,15 +1203,13 @@ public class CircularGauge extends Chart {
         return getKnob;
     }
 
-    private Knob getKnob1;
+    private List<Knob> getKnob1 = new ArrayList<>();
 
     public Knob getKnob(Double index3) {
-        if (getKnob1 == null)
-            getKnob1 = new Knob(jsBase + ".knob("+ index3+")");
-
-        return getKnob1;
+        Knob item = new Knob(jsBase + ".knob("+ index3+")");
+        getKnob1.add(item);
+        return item;
     }
-
     private String knob;
     private Boolean knob1;
     private List<CircularGauge> setKnob = new ArrayList<>();
@@ -1212,6 +1333,7 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+
     private GaugePointersMarker getMarker;
 
     public GaugePointersMarker getMarker() {
@@ -1221,15 +1343,13 @@ public class CircularGauge extends Chart {
         return getMarker;
     }
 
-    private GaugePointersMarker getMarker1;
+    private List<GaugePointersMarker> getMarker1 = new ArrayList<>();
 
     public GaugePointersMarker getMarker(Double index5) {
-        if (getMarker1 == null)
-            getMarker1 = new GaugePointersMarker(jsBase + ".marker("+ index5+")");
-
-        return getMarker1;
+        GaugePointersMarker item = new GaugePointersMarker(jsBase + ".marker("+ index5+")");
+        getMarker1.add(item);
+        return item;
     }
-
     private String marker;
     private Boolean marker1;
     private List<CircularGauge> setMarker = new ArrayList<>();
@@ -1353,6 +1473,7 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+
     private Needle getNeedle;
 
     public Needle getNeedle() {
@@ -1362,15 +1483,13 @@ public class CircularGauge extends Chart {
         return getNeedle;
     }
 
-    private Needle getNeedle1;
+    private List<Needle> getNeedle1 = new ArrayList<>();
 
     public Needle getNeedle(Double index7) {
-        if (getNeedle1 == null)
-            getNeedle1 = new Needle(jsBase + ".needle("+ index7+")");
-
-        return getNeedle1;
+        Needle item = new Needle(jsBase + ".needle("+ index7+")");
+        getNeedle1.add(item);
+        return item;
     }
-
     private String needle;
     private Boolean needle1;
     private List<CircularGauge> setNeedle = new ArrayList<>();
@@ -1494,6 +1613,7 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+
     private CircularRange getRange;
 
     public CircularRange getRange() {
@@ -1503,15 +1623,13 @@ public class CircularGauge extends Chart {
         return getRange;
     }
 
-    private CircularRange getRange1;
+    private List<CircularRange> getRange1 = new ArrayList<>();
 
     public CircularRange getRange(Double index9) {
-        if (getRange1 == null)
-            getRange1 = new CircularRange(jsBase + ".range("+ index9+")");
-
-        return getRange1;
+        CircularRange item = new CircularRange(jsBase + ".range("+ index9+")");
+        getRange1.add(item);
+        return item;
     }
-
     private String range;
     private Boolean range1;
     private List<CircularGauge> setRange = new ArrayList<>();
@@ -1876,11 +1994,16 @@ public class CircularGauge extends Chart {
     }
 
     private String generateJSgetBar1() {
-        if (getBar1 != null) {
-            return getBar1.generateJs();
+        if (!getBar1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBar item : getBar1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetCap() {
         if (getCap != null) {
@@ -1904,11 +2027,16 @@ public class CircularGauge extends Chart {
     }
 
     private String generateJSgetKnob1() {
-        if (getKnob1 != null) {
-            return getKnob1.generateJs();
+        if (!getKnob1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Knob item : getKnob1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetMarker() {
         if (getMarker != null) {
@@ -1918,11 +2046,16 @@ public class CircularGauge extends Chart {
     }
 
     private String generateJSgetMarker1() {
-        if (getMarker1 != null) {
-            return getMarker1.generateJs();
+        if (!getMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : getMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetNeedle() {
         if (getNeedle != null) {
@@ -1932,11 +2065,16 @@ public class CircularGauge extends Chart {
     }
 
     private String generateJSgetNeedle1() {
-        if (getNeedle1 != null) {
-            return getNeedle1.generateJs();
+        if (!getNeedle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : getNeedle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetRange() {
         if (getRange != null) {
@@ -1946,11 +2084,16 @@ public class CircularGauge extends Chart {
     }
 
     private String generateJSgetRange1() {
-        if (getRange1 != null) {
-            return getRange1.generateJs();
+        if (!getRange1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : getRange1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
 
     @Override
@@ -1992,6 +2135,10 @@ public class CircularGauge extends Chart {
         js.append(generateJSsetData5());
         js.append(generateJSsetData6());
         js.append(generateJSsetData7());
+        js.append(generateJSsetData8());
+        js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
         js.append(generateJSsetEncloseWithStraightLine());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());

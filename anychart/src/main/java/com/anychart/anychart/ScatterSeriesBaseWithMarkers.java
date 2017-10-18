@@ -45,10 +45,6 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
             this.markers = markers;
         } else {
             this.markers = markers;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -74,10 +70,6 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
             this.markers1 = markers1;
         } else {
             this.markers1 = markers1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

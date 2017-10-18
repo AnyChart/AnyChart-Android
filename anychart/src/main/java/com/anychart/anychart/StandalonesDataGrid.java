@@ -43,10 +43,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.container = container;
         } else {
             this.container = container;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -97,10 +89,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.defaultRowHeight = defaultRowHeight;
         } else {
             this.defaultRowHeight = defaultRowHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -123,10 +111,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.headerHeight = headerHeight;
         } else {
             this.headerHeight = headerHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -162,10 +146,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -190,10 +170,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.parentBounds1 = parentBounds1;
         } else {
             this.parentBounds1 = parentBounds1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -225,10 +201,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.top = top;
             this.width = width;
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -255,10 +227,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.rowStroke = rowStroke;
         } else {
             this.rowStroke = rowStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -283,10 +251,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.rowStroke1 = rowStroke1;
         } else {
             this.rowStroke1 = rowStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -318,10 +282,6 @@ public class StandalonesDataGrid extends UiDataGrid {
             this.verticalScrollBar = verticalScrollBar;
         } else {
             this.verticalScrollBar = verticalScrollBar;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

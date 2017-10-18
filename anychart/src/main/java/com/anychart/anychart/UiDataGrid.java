@@ -30,10 +30,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.backgroundFill = backgroundFill;
         } else {
             this.backgroundFill = backgroundFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -107,10 +99,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -148,10 +136,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -189,10 +173,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -230,10 +210,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -271,10 +247,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -312,10 +284,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -371,10 +339,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -422,10 +386,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -458,10 +418,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.column = column;
         } else {
             this.column = column;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -490,10 +446,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.index = index;
             this.column1 = column1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -520,10 +472,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.columnStroke = columnStroke;
         } else {
             this.columnStroke = columnStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -548,10 +496,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.columnStroke1 = columnStroke1;
         } else {
             this.columnStroke1 = columnStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -583,10 +527,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.data = data;
         } else {
             this.data = data;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -613,10 +553,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.editStructurePreviewDashStroke = editStructurePreviewDashStroke;
         } else {
             this.editStructurePreviewDashStroke = editStructurePreviewDashStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -641,10 +577,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.editStructurePreviewDashStroke1 = editStructurePreviewDashStroke1;
         } else {
             this.editStructurePreviewDashStroke1 = editStructurePreviewDashStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -667,10 +599,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.editStructurePreviewFill = editStructurePreviewFill;
         } else {
             this.editStructurePreviewFill = editStructurePreviewFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -704,10 +632,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.color1 = color1;
             this.opacity3 = opacity3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -766,10 +690,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -821,10 +741,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -876,10 +792,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -931,10 +843,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -986,10 +894,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1041,10 +945,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1123,10 +1023,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1197,10 +1093,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1228,10 +1120,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.editStructurePreviewStroke = editStructurePreviewStroke;
         } else {
             this.editStructurePreviewStroke = editStructurePreviewStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1256,10 +1144,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.editStructurePreviewStroke1 = editStructurePreviewStroke1;
         } else {
             this.editStructurePreviewStroke1 = editStructurePreviewStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1282,10 +1166,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.editing = editing;
         } else {
             this.editing = editing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1308,10 +1188,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.endIndex = endIndex;
         } else {
             this.endIndex = endIndex;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1334,10 +1210,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.horizontalOffset = horizontalOffset;
         } else {
             this.horizontalOffset = horizontalOffset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1369,10 +1241,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.horizontalScrollBar = horizontalScrollBar;
         } else {
             this.horizontalScrollBar = horizontalScrollBar;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1395,10 +1263,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.rowEvenFill = rowEvenFill;
         } else {
             this.rowEvenFill = rowEvenFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1436,10 +1300,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.color2 = color2;
             this.opacity6 = opacity6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1510,10 +1370,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1577,10 +1433,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1644,10 +1496,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1711,10 +1559,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1778,10 +1622,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1845,10 +1685,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1942,10 +1778,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2031,10 +1863,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2058,10 +1886,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.rowFill = rowFill;
         } else {
             this.rowFill = rowFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2103,10 +1927,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.color3 = color3;
             this.opacity9 = opacity9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2189,10 +2009,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2268,10 +2084,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2347,10 +2159,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2426,10 +2234,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2505,10 +2309,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2584,10 +2384,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2696,10 +2492,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity11 = opacity11;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2800,10 +2592,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity11 = opacity11;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2827,10 +2615,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.rowHoverFill = rowHoverFill;
         } else {
             this.rowHoverFill = rowHoverFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2876,10 +2660,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.color4 = color4;
             this.opacity12 = opacity12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2974,10 +2754,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3065,10 +2841,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3156,10 +2928,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3247,10 +3015,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3338,10 +3102,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3429,10 +3189,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3556,10 +3312,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity14 = opacity14;
             this.fx4 = fx4;
             this.fy4 = fy4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3675,10 +3427,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity14 = opacity14;
             this.fx4 = fx4;
             this.fy4 = fy4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3702,10 +3450,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.rowOddFill = rowOddFill;
         } else {
             this.rowOddFill = rowOddFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3755,10 +3499,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.color5 = color5;
             this.opacity15 = opacity15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3865,10 +3605,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3968,10 +3704,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4071,10 +3803,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4174,10 +3902,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4277,10 +4001,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4380,10 +4100,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4522,10 +4238,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity17 = opacity17;
             this.fx5 = fx5;
             this.fy5 = fy5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4656,10 +4368,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity17 = opacity17;
             this.fx5 = fx5;
             this.fy5 = fy5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4683,10 +4391,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.rowSelectedFill = rowSelectedFill;
         } else {
             this.rowSelectedFill = rowSelectedFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4740,10 +4444,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
         } else {
             this.color6 = color6;
             this.opacity18 = opacity18;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4838,10 +4538,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.keys24 = keys24;
             this.mode24 = mode24;
             this.angle6 = angle6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4930,10 +4626,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.keys24 = keys24;
             this.mode25 = mode25;
             this.angle6 = angle6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5022,10 +4714,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.keys24 = keys24;
             this.mode26 = mode26;
             this.angle6 = angle6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5114,10 +4802,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.keys25 = keys25;
             this.mode24 = mode24;
             this.angle6 = angle6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5206,10 +4890,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.keys25 = keys25;
             this.mode25 = mode25;
             this.angle6 = angle6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5298,10 +4978,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.keys25 = keys25;
             this.mode26 = mode26;
             this.angle6 = angle6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5454,10 +5130,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity19 = opacity19;
             this.fx6 = fx6;
             this.fy6 = fy6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5602,10 +5274,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.opacity19 = opacity19;
             this.fx6 = fx6;
             this.fy6 = fy6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5629,10 +5297,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.startIndex = startIndex;
         } else {
             this.startIndex = startIndex;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5673,10 +5337,6 @@ public class UiDataGrid extends VisualBaseWithBounds {
             this.verticalOffset = verticalOffset;
         } else {
             this.verticalOffset = verticalOffset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -30,10 +30,6 @@ public class DateTimeTicks extends CoreBase {
             this.count = count;
         } else {
             this.count = count;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class DateTimeTicks extends CoreBase {
             this.isodate = isodate;
         } else {
             this.isodate = isodate;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -76,10 +68,14 @@ public class DateTimeTicks extends CoreBase {
     }
 
     private Interval unit;
+    private String unit1;
     private Double count1;
 
     public DateTimeTicks setInterval(Interval unit, Double count1) {
         if (jsBase == null) {
+            this.unit = null;
+            this.unit1 = null;
+            
             this.unit = unit;
             this.count = null;
             this.count1 = null;
@@ -88,10 +84,6 @@ public class DateTimeTicks extends CoreBase {
         } else {
             this.unit = unit;
             this.count1 = count1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -101,6 +93,35 @@ public class DateTimeTicks extends CoreBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".interval(%s, %f)", (unit != null) ? unit.generateJs() : "null", count1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public DateTimeTicks setInterval(String unit1, Double count1) {
+        if (jsBase == null) {
+            this.unit = null;
+            this.unit1 = null;
+            
+            this.unit1 = unit1;
+            this.count = null;
+            this.count1 = null;
+            
+            this.count1 = count1;
+        } else {
+            this.unit1 = unit1;
+            this.count1 = count1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".interval(%s, %f)", unit1, count1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".interval(%s, %f)", unit1, count1));
                 js.setLength(0);
             }
         }
@@ -129,10 +150,6 @@ public class DateTimeTicks extends CoreBase {
             this.hours = hours;
             this.minutes = minutes;
             this.seconds = seconds;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -155,10 +172,6 @@ public class DateTimeTicks extends CoreBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -191,6 +204,13 @@ public class DateTimeTicks extends CoreBase {
     private String generateJSunit() {
         if (unit != null) {
             return String.format(Locale.US, "unit: %s,", (unit != null) ? unit.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSunit1() {
+        if (unit1 != null) {
+            return String.format(Locale.US, "unit: %s,", unit1);
         }
         return "";
     }
@@ -274,6 +294,7 @@ public class DateTimeTicks extends CoreBase {
             js.append(generateJScount());
             js.append(generateJSisodate());
             js.append(generateJSunit());
+            js.append(generateJSunit1());
             js.append(generateJScount1());
             js.append(generateJSyears());
             js.append(generateJSmonths());

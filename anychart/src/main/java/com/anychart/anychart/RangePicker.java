@@ -30,10 +30,6 @@ public class RangePicker extends JsObject {
             this.decorate = decorate;
         } else {
             this.decorate = decorate;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -55,10 +51,6 @@ public class RangePicker extends JsObject {
             this.format = format;
         } else {
             this.format = format;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -80,10 +72,6 @@ public class RangePicker extends JsObject {
             this.fromLabelText = fromLabelText;
         } else {
             this.fromLabelText = fromLabelText;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -110,10 +98,6 @@ public class RangePicker extends JsObject {
             this.parentElement = parentElement;
         } else {
             this.parentElement = parentElement;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -137,10 +121,6 @@ public class RangePicker extends JsObject {
             this.parentElement1 = parentElement1;
         } else {
             this.parentElement1 = parentElement1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -162,10 +142,6 @@ public class RangePicker extends JsObject {
             this.chart = chart;
         } else {
             this.chart = chart;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -187,10 +163,6 @@ public class RangePicker extends JsObject {
             this.toLabelText = toLabelText;
         } else {
             this.toLabelText = toLabelText;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

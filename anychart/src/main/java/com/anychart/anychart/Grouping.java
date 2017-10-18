@@ -30,10 +30,6 @@ public class Grouping extends CoreBase {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class Grouping extends CoreBase {
             this.forced = forced;
         } else {
             this.forced = forced;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +74,6 @@ public class Grouping extends CoreBase {
             this.levels = levels;
         } else {
             this.levels = levels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -108,10 +96,6 @@ public class Grouping extends CoreBase {
             this.maxVisiblePoints = maxVisiblePoints;
         } else {
             this.maxVisiblePoints = maxVisiblePoints;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -134,10 +118,6 @@ public class Grouping extends CoreBase {
             this.minPixPerPoint = minPixPerPoint;
         } else {
             this.minPixPerPoint = minPixPerPoint;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

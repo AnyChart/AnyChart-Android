@@ -30,10 +30,6 @@ public class OrdinalZoom extends JsObject {
             this.continuous = continuous;
         } else {
             this.continuous = continuous;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class OrdinalZoom extends JsObject {
         } else {
             this.startRatio = startRatio;
             this.endRatio = endRatio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -91,10 +83,6 @@ public class OrdinalZoom extends JsObject {
             this.pointsCount = pointsCount;
             this.fromEnd = fromEnd;
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class OrdinalZoom extends JsObject {
             this.scale1 = scale1;
         } else {
             this.scale1 = scale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

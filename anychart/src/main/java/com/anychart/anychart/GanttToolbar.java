@@ -43,10 +43,6 @@ public class GanttToolbar extends JsObject {
             this.element = element;
         } else {
             this.element = element;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class GanttToolbar extends JsObject {
             this.element1 = element1;
         } else {
             this.element1 = element1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -97,10 +89,6 @@ public class GanttToolbar extends JsObject {
             this.printPaperSizes = printPaperSizes;
         } else {
             this.printPaperSizes = printPaperSizes;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -132,10 +120,6 @@ public class GanttToolbar extends JsObject {
             this.target = target;
         } else {
             this.target = target;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -43,10 +43,6 @@ public class StandalonesLegend extends UiLegend {
             this.container = container;
         } else {
             this.container = container;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class StandalonesLegend extends UiLegend {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -110,10 +102,6 @@ public class StandalonesLegend extends UiLegend {
             this.itemsSource = itemsSource;
         } else {
             this.itemsSource = itemsSource;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -138,10 +126,6 @@ public class StandalonesLegend extends UiLegend {
             this.itemsSource1 = itemsSource1;
         } else {
             this.itemsSource1 = itemsSource1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -177,10 +161,6 @@ public class StandalonesLegend extends UiLegend {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -205,10 +185,6 @@ public class StandalonesLegend extends UiLegend {
             this.parentBounds1 = parentBounds1;
         } else {
             this.parentBounds1 = parentBounds1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -240,10 +216,6 @@ public class StandalonesLegend extends UiLegend {
             this.top = top;
             this.width = width;
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

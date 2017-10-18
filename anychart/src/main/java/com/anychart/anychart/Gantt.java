@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class Gantt extends SeparateChart {
 
-    public Gantt() {
-        js.append("chart = anychart.gantt();");
+    protected Gantt(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -104,6 +106,7 @@ public class Gantt extends SeparateChart {
         return "";
     }
 
+
     private Tree getData;
 
     public Tree getData() {
@@ -112,7 +115,6 @@ public class Gantt extends SeparateChart {
 
         return getData;
     }
-
     private Tree data;
     private TreeView data1;
     private String data2;
@@ -298,6 +300,7 @@ public class Gantt extends SeparateChart {
         return "";
     }
 
+
     private UiDataGrid getDataGrid;
 
     public UiDataGrid getDataGrid() {
@@ -306,7 +309,6 @@ public class Gantt extends SeparateChart {
 
         return getDataGrid;
     }
-
     private Boolean enabled;
     private List<Gantt> setDataGrid = new ArrayList<>();
 
@@ -457,6 +459,7 @@ public class Gantt extends SeparateChart {
         return "";
     }
 
+
     private Timeline getGetTimeline;
 
     public Timeline getGetTimeline() {
@@ -465,7 +468,6 @@ public class Gantt extends SeparateChart {
 
         return getGetTimeline;
     }
-
     private Double headerHeight;
     private String headerHeight1;
     private List<Gantt> setHeaderHeight = new ArrayList<>();
@@ -1414,6 +1416,7 @@ public class Gantt extends SeparateChart {
         return "";
     }
 
+
     private GanttDateTime getXScale;
 
     public GanttDateTime getXScale() {
@@ -1422,7 +1425,6 @@ public class Gantt extends SeparateChart {
 
         return getXScale;
     }
-
     private String xScale;
     private List<Gantt> setXScale = new ArrayList<>();
 
@@ -1546,24 +1548,26 @@ public class Gantt extends SeparateChart {
     }
 
     private Interval unit;
+    private String unit1;
     private Double count;
     private GanttRangeAnchor anchor;
+    private String anchor1;
     private List<Gantt> setZoomTo1 = new ArrayList<>();
 
-    public Gantt setZoomTo(Interval unit, Double count, GanttRangeAnchor anchor) {
+    public Gantt setZoomTo(Interval unit, GanttRangeAnchor anchor, Double count) {
         this.unit = unit;
-        this.count = count;
         this.anchor = anchor;
+        this.count = count;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %f, %s)", (unit != null) ? unit.generateJs() : "null", count, (anchor != null) ? anchor.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
 
-//        js.append(String.format(Locale.US, ".zoomTo(%s, %f, %s)", (unit != null) ? unit.generateJs() : "null", count, (anchor != null) ? anchor.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %f, %s)", (unit != null) ? unit.generateJs() : "null", count, (anchor != null) ? anchor.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", (anchor != null) ? anchor.generateJs() : "null", count));
             js.setLength(0);
         }
         return this;
@@ -1572,6 +1576,99 @@ public class Gantt extends SeparateChart {
         if (!setZoomTo1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Gantt item : setZoomTo1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Gantt> setZoomTo2 = new ArrayList<>();
+
+    public Gantt setZoomTo(Interval unit, String anchor1, Double count) {
+        this.unit = unit;
+        this.anchor1 = anchor1;
+        this.count = count;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
+
+//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", (unit != null) ? unit.generateJs() : "null", anchor1, count));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetZoomTo2() {
+        if (!setZoomTo2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Gantt item : setZoomTo2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Gantt> setZoomTo3 = new ArrayList<>();
+
+    public Gantt setZoomTo(String unit1, GanttRangeAnchor anchor, Double count) {
+        this.unit1 = unit1;
+        this.anchor = anchor;
+        this.count = count;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
+
+//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, (anchor != null) ? anchor.generateJs() : "null", count));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetZoomTo3() {
+        if (!setZoomTo3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Gantt item : setZoomTo3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Gantt> setZoomTo4 = new ArrayList<>();
+
+    public Gantt setZoomTo(String unit1, String anchor1, Double count) {
+        this.unit1 = unit1;
+        this.anchor1 = anchor1;
+        this.count = count;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
+
+//        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", unit1, anchor1, count));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetZoomTo4() {
+        if (!setZoomTo4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Gantt item : setZoomTo4) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1666,6 +1763,9 @@ public class Gantt extends SeparateChart {
         js.append(generateJSsetZoomOut());
         js.append(generateJSsetZoomTo());
         js.append(generateJSsetZoomTo1());
+        js.append(generateJSsetZoomTo2());
+        js.append(generateJSsetZoomTo3());
+        js.append(generateJSsetZoomTo4());
 
         js.append(super.generateJsGetters());
 

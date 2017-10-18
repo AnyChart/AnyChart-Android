@@ -23,10 +23,10 @@ public class Error extends CoreBase {
     }
 
     
-    private String mode;
-    private ErrorMode mode1;
+    private ErrorMode mode;
+    private String mode1;
 
-    public Error setMode(String mode) {
+    public Error setMode(ErrorMode mode) {
         if (jsBase == null) {
             this.mode = null;
             this.mode1 = null;
@@ -34,19 +34,15 @@ public class Error extends CoreBase {
             this.mode = mode;
         } else {
             this.mode = mode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".mode(%s)", mode));
+            js.append(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", mode));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", (mode != null) ? mode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -54,7 +50,7 @@ public class Error extends CoreBase {
     }
 
 
-    public Error setMode(ErrorMode mode1) {
+    public Error setMode(String mode1) {
         if (jsBase == null) {
             this.mode = null;
             this.mode1 = null;
@@ -62,19 +58,15 @@ public class Error extends CoreBase {
             this.mode1 = mode1;
         } else {
             this.mode1 = mode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".mode(%s)", (mode1 != null) ? mode1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".mode(%s)", mode1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", (mode1 != null) ? mode1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", mode1));
                 js.setLength(0);
             }
         }
@@ -92,10 +84,6 @@ public class Error extends CoreBase {
             this.valueError = valueError;
         } else {
             this.valueError = valueError;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class Error extends CoreBase {
             this.valueError1 = valueError1;
         } else {
             this.valueError1 = valueError1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -164,10 +148,6 @@ public class Error extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -201,10 +181,6 @@ public class Error extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -238,10 +214,6 @@ public class Error extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -264,10 +236,6 @@ public class Error extends CoreBase {
             this.valueErrorWidth = valueErrorWidth;
         } else {
             this.valueErrorWidth = valueErrorWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -294,10 +262,6 @@ public class Error extends CoreBase {
             this.valueLowerError = valueLowerError;
         } else {
             this.valueLowerError = valueLowerError;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -322,10 +286,6 @@ public class Error extends CoreBase {
             this.valueLowerError1 = valueLowerError1;
         } else {
             this.valueLowerError1 = valueLowerError1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -352,10 +312,6 @@ public class Error extends CoreBase {
             this.valueUpperError = valueUpperError;
         } else {
             this.valueUpperError = valueUpperError;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -380,10 +336,6 @@ public class Error extends CoreBase {
             this.valueUpperError1 = valueUpperError1;
         } else {
             this.valueUpperError1 = valueUpperError1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -410,10 +362,6 @@ public class Error extends CoreBase {
             this.xError = xError;
         } else {
             this.xError = xError;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -438,10 +386,6 @@ public class Error extends CoreBase {
             this.xError1 = xError1;
         } else {
             this.xError1 = xError1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -497,10 +441,6 @@ public class Error extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -549,10 +489,6 @@ public class Error extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -601,10 +537,6 @@ public class Error extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -627,10 +559,6 @@ public class Error extends CoreBase {
             this.xErrorWidth = xErrorWidth;
         } else {
             this.xErrorWidth = xErrorWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -657,10 +585,6 @@ public class Error extends CoreBase {
             this.xLowerError = xLowerError;
         } else {
             this.xLowerError = xLowerError;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -685,10 +609,6 @@ public class Error extends CoreBase {
             this.xLowerError1 = xLowerError1;
         } else {
             this.xLowerError1 = xLowerError1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -715,10 +635,6 @@ public class Error extends CoreBase {
             this.xUpperError = xUpperError;
         } else {
             this.xUpperError = xUpperError;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -743,10 +659,6 @@ public class Error extends CoreBase {
             this.xUpperError1 = xUpperError1;
         } else {
             this.xUpperError1 = xUpperError1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -764,14 +676,14 @@ public class Error extends CoreBase {
 
     private String generateJSmode() {
         if (mode != null) {
-            return String.format(Locale.US, "mode: %s,", mode);
+            return String.format(Locale.US, "mode: %s,", (mode != null) ? mode.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSmode1() {
         if (mode1 != null) {
-            return String.format(Locale.US, "mode: %s,", (mode1 != null) ? mode1.generateJs() : "null");
+            return String.format(Locale.US, "mode: %s,", mode1);
         }
         return "";
     }

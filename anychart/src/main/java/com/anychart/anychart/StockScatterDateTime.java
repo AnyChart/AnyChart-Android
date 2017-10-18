@@ -30,10 +30,6 @@ public class StockScatterDateTime extends CoreBase {
             this.ratio = ratio;
         } else {
             this.ratio = ratio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -59,10 +55,6 @@ public class StockScatterDateTime extends CoreBase {
             this.transform = transform;
         } else {
             this.transform = transform;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -86,10 +78,6 @@ public class StockScatterDateTime extends CoreBase {
             this.transform1 = transform1;
         } else {
             this.transform1 = transform1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

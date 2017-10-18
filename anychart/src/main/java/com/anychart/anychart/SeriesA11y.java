@@ -30,10 +30,6 @@ public class SeriesA11y extends A11y {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class SeriesA11y extends A11y {
             this.titleFormat = titleFormat;
         } else {
             this.titleFormat = titleFormat;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

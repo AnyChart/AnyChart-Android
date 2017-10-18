@@ -43,10 +43,6 @@ public class ChartWithCredits extends Chart {
             this.credits = credits;
         } else {
             this.credits = credits;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -71,10 +67,6 @@ public class ChartWithCredits extends Chart {
             this.credits1 = credits1;
         } else {
             this.credits1 = credits1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

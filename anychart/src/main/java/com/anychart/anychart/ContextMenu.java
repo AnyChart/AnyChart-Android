@@ -30,10 +30,6 @@ public class ContextMenu extends JsObject {
             this.className = className;
         } else {
             this.className = className;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -62,10 +58,6 @@ public class ContextMenu extends JsObject {
         } else {
             this.target = target;
             this.capture = capture;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class ContextMenu extends JsObject {
         } else {
             this.target1 = target1;
             this.capture = capture;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -128,10 +116,6 @@ public class ContextMenu extends JsObject {
         } else {
             this.target2 = target2;
             this.capture1 = capture1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -154,10 +138,6 @@ public class ContextMenu extends JsObject {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -180,10 +160,6 @@ public class ContextMenu extends JsObject {
             this.items = items;
         } else {
             this.items = items;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -212,10 +188,6 @@ public class ContextMenu extends JsObject {
             this.type = type;
             this.useCapture = useCapture;
             this.listenerScope = listenerScope;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -240,10 +212,6 @@ public class ContextMenu extends JsObject {
             this.className1 = className1;
         } else {
             this.className1 = className1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -275,10 +243,6 @@ public class ContextMenu extends JsObject {
             this.var_args = var_args;
         } else {
             this.var_args = var_args;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -306,10 +270,6 @@ public class ContextMenu extends JsObject {
             this.var_args1 = var_args1;
         } else {
             this.var_args1 = var_args1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -337,10 +297,6 @@ public class ContextMenu extends JsObject {
             this.var_args2 = var_args2;
         } else {
             this.var_args2 = var_args2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -368,10 +324,6 @@ public class ContextMenu extends JsObject {
             this.var_args4 = var_args4;
         } else {
             this.var_args4 = var_args4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -397,10 +349,6 @@ public class ContextMenu extends JsObject {
         } else {
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -437,10 +385,6 @@ public class ContextMenu extends JsObject {
             this.type1 = type1;
             this.useCapture1 = useCapture1;
             this.listenerScope1 = listenerScope1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

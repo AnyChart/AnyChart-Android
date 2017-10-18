@@ -34,10 +34,6 @@ public class Circular extends VisualBase {
             this.cornersRounding = cornersRounding;
         } else {
             this.cornersRounding = cornersRounding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Circular extends VisualBase {
             this.cornersRounding1 = cornersRounding1;
         } else {
             this.cornersRounding1 = cornersRounding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class Circular extends VisualBase {
             this.drawFirstLabel = drawFirstLabel;
         } else {
             this.drawFirstLabel = drawFirstLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -114,10 +102,6 @@ public class Circular extends VisualBase {
             this.drawLastLabel = drawLastLabel;
         } else {
             this.drawLastLabel = drawLastLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -144,10 +128,6 @@ public class Circular extends VisualBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -172,10 +152,6 @@ public class Circular extends VisualBase {
             this.fill1 = fill1;
         } else {
             this.fill1 = fill1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -201,10 +177,6 @@ public class Circular extends VisualBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -249,10 +221,6 @@ public class Circular extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -290,10 +258,6 @@ public class Circular extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -331,10 +295,6 @@ public class Circular extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -372,10 +332,6 @@ public class Circular extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -413,10 +369,6 @@ public class Circular extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -454,10 +406,6 @@ public class Circular extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -513,10 +461,6 @@ public class Circular extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -564,10 +508,6 @@ public class Circular extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -604,10 +544,6 @@ public class Circular extends VisualBase {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -632,10 +568,6 @@ public class Circular extends VisualBase {
             this.labels1 = labels1;
         } else {
             this.labels1 = labels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -671,10 +603,6 @@ public class Circular extends VisualBase {
             this.minorLabels = minorLabels;
         } else {
             this.minorLabels = minorLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -699,10 +627,6 @@ public class Circular extends VisualBase {
             this.minorLabels1 = minorLabels1;
         } else {
             this.minorLabels1 = minorLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -738,10 +662,6 @@ public class Circular extends VisualBase {
             this.minorTicks = minorTicks;
         } else {
             this.minorTicks = minorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -766,10 +686,6 @@ public class Circular extends VisualBase {
             this.minorTicks1 = minorTicks1;
         } else {
             this.minorTicks1 = minorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -798,10 +714,6 @@ public class Circular extends VisualBase {
             this.overlapMode = overlapMode;
         } else {
             this.overlapMode = overlapMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -827,10 +739,6 @@ public class Circular extends VisualBase {
             this.overlapMode1 = overlapMode1;
         } else {
             this.overlapMode1 = overlapMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -856,10 +764,6 @@ public class Circular extends VisualBase {
             this.overlapMode2 = overlapMode2;
         } else {
             this.overlapMode2 = overlapMode2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -886,10 +790,6 @@ public class Circular extends VisualBase {
             this.radius = radius;
         } else {
             this.radius = radius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -914,10 +814,6 @@ public class Circular extends VisualBase {
             this.radius1 = radius1;
         } else {
             this.radius1 = radius1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -943,22 +839,20 @@ public class Circular extends VisualBase {
     }
 
     private GaugeScaleTypes scale;
-    private ScalesLinear scale1;
-    private String scale2;
+    private String scale1;
+    private ScalesLinear scale2;
+    private String scale3;
 
     public Circular setScale(GaugeScaleTypes scale) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
+            this.scale3 = null;
             
             this.scale = scale;
         } else {
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -975,28 +869,25 @@ public class Circular extends VisualBase {
     }
 
 
-    public Circular setScale(ScalesLinear scale1) {
+    public Circular setScale(String scale1) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
+            this.scale3 = null;
             
             this.scale1 = scale1;
         } else {
             this.scale1 = scale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".scale(%s)", scale1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
                 js.setLength(0);
             }
         }
@@ -1004,28 +895,25 @@ public class Circular extends VisualBase {
     }
 
 
-    public Circular setScale(String scale2) {
+    public Circular setScale(ScalesLinear scale2) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
+            this.scale3 = null;
             
             this.scale2 = scale2;
         } else {
             this.scale2 = scale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".scale(%s)", scale2));
+            js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale2));
+                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -1043,10 +931,6 @@ public class Circular extends VisualBase {
             this.startAngle = startAngle;
         } else {
             this.startAngle = startAngle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1071,10 +955,6 @@ public class Circular extends VisualBase {
             this.startAngle1 = startAngle1;
         } else {
             this.startAngle1 = startAngle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1101,10 +981,6 @@ public class Circular extends VisualBase {
             this.sweepAngle = sweepAngle;
         } else {
             this.sweepAngle = sweepAngle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1129,10 +1005,6 @@ public class Circular extends VisualBase {
             this.sweepAngle1 = sweepAngle1;
         } else {
             this.sweepAngle1 = sweepAngle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1168,10 +1040,6 @@ public class Circular extends VisualBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1196,10 +1064,6 @@ public class Circular extends VisualBase {
             this.ticks1 = ticks1;
         } else {
             this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1226,10 +1090,6 @@ public class Circular extends VisualBase {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1254,10 +1114,6 @@ public class Circular extends VisualBase {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1562,14 +1418,21 @@ public class Circular extends VisualBase {
 
     private String generateJSscale1() {
         if (scale1 != null) {
-            return String.format(Locale.US, "scale: %s,", (scale1 != null) ? scale1.generateJs() : "null");
+            return String.format(Locale.US, "scale: %s,", scale1);
         }
         return "";
     }
 
     private String generateJSscale2() {
         if (scale2 != null) {
-            return String.format(Locale.US, "scale: %s,", scale2);
+            return String.format(Locale.US, "scale: %s,", (scale2 != null) ? scale2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSscale3() {
+        if (scale3 != null) {
+            return String.format(Locale.US, "scale: %s,", scale3);
         }
         return "";
     }
@@ -1693,6 +1556,7 @@ public class Circular extends VisualBase {
             js.append(generateJSscale());
             js.append(generateJSscale1());
             js.append(generateJSscale2());
+            js.append(generateJSscale3());
             js.append(generateJSstartAngle());
             js.append(generateJSstartAngle1());
             js.append(generateJSsweepAngle());

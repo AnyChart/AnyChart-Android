@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class Pyramid extends SeparateChart {
 
-    public Pyramid() {
-        js.append("chart = anychart.pyramid();");
+    protected Pyramid(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -240,6 +242,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -248,7 +251,6 @@ public class Pyramid extends SeparateChart {
 
         return getData;
     }
-
     private View data;
     private Mapping data1;
     private Set data2;
@@ -256,7 +258,8 @@ public class Pyramid extends SeparateChart {
     private String data4;
     private DataSettings data5;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<Pyramid> setData = new ArrayList<>();
 
     public Pyramid setData(View data, TextParsingMode csvSettings) {
@@ -289,19 +292,19 @@ public class Pyramid extends SeparateChart {
 
     private List<Pyramid> setData1 = new ArrayList<>();
 
-    public Pyramid setData(View data, TextParsingSettings csvSettings1) {
+    public Pyramid setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -318,6 +321,36 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setData2 = new ArrayList<>();
+
+    public Pyramid setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pyramid> setData3 = new ArrayList<>();
 
     public Pyramid setData(Mapping data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -336,36 +369,6 @@ public class Pyramid extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pyramid> setData3 = new ArrayList<>();
-
-    public Pyramid setData(Mapping data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -378,6 +381,66 @@ public class Pyramid extends SeparateChart {
     }
 
     private List<Pyramid> setData4 = new ArrayList<>();
+
+    public Pyramid setData(Mapping data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pyramid> setData5 = new ArrayList<>();
+
+    public Pyramid setData(Mapping data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pyramid> setData6 = new ArrayList<>();
 
     public Pyramid setData(Set data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -396,10 +459,10 @@ public class Pyramid extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData4) {
+            for (Pyramid item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -407,29 +470,29 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
-    private List<Pyramid> setData5 = new ArrayList<>();
+    private List<Pyramid> setData7 = new ArrayList<>();
 
-    public Pyramid setData(Set data2, TextParsingSettings csvSettings1) {
+    public Pyramid setData(Set data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData5) {
+            for (Pyramid item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -437,7 +500,37 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
-    private List<Pyramid> setData6 = new ArrayList<>();
+    private List<Pyramid> setData8 = new ArrayList<>();
+
+    public Pyramid setData(Set data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pyramid> setData9 = new ArrayList<>();
 
     public Pyramid setData(String[] data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -456,10 +549,10 @@ public class Pyramid extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData6) {
+            for (Pyramid item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -467,29 +560,29 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
-    private List<Pyramid> setData7 = new ArrayList<>();
+    private List<Pyramid> setData10 = new ArrayList<>();
 
-    public Pyramid setData(String[] data3, TextParsingSettings csvSettings1) {
+    public Pyramid setData(String[] data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData7) {
+            for (Pyramid item : setData10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -497,7 +590,37 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
-    private List<Pyramid> setData8 = new ArrayList<>();
+    private List<Pyramid> setData11 = new ArrayList<>();
+
+    public Pyramid setData(String[] data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setData11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pyramid> setData12 = new ArrayList<>();
 
     public Pyramid setData(String data4, TextParsingMode csvSettings) {
         this.data4 = data4;
@@ -516,10 +639,10 @@ public class Pyramid extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
+    private String generateJSsetData12() {
+        if (!setData12.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData8) {
+            for (Pyramid item : setData12) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -527,29 +650,29 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
-    private List<Pyramid> setData9 = new ArrayList<>();
+    private List<Pyramid> setData13 = new ArrayList<>();
 
-    public Pyramid setData(String data4, TextParsingSettings csvSettings1) {
+    public Pyramid setData(String data4, String csvSettings1) {
         this.data4 = data4;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
+    private String generateJSsetData13() {
+        if (!setData13.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData9) {
+            for (Pyramid item : setData13) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -557,7 +680,37 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
-    private List<Pyramid> setData10 = new ArrayList<>();
+    private List<Pyramid> setData14 = new ArrayList<>();
+
+    public Pyramid setData(String data4, TextParsingSettings csvSettings2) {
+        this.data4 = data4;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData14() {
+        if (!setData14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setData14) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pyramid> setData15 = new ArrayList<>();
 
     public Pyramid setData(DataSettings data5, TextParsingMode csvSettings) {
         this.data5 = data5;
@@ -576,10 +729,10 @@ public class Pyramid extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData10() {
-        if (!setData10.isEmpty()) {
+    private String generateJSsetData15() {
+        if (!setData15.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData10) {
+            for (Pyramid item : setData15) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -587,29 +740,59 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
-    private List<Pyramid> setData11 = new ArrayList<>();
+    private List<Pyramid> setData16 = new ArrayList<>();
 
-    public Pyramid setData(DataSettings data5, TextParsingSettings csvSettings1) {
+    public Pyramid setData(DataSettings data5, String csvSettings1) {
         this.data5 = data5;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData11() {
-        if (!setData11.isEmpty()) {
+    private String generateJSsetData16() {
+        if (!setData16.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pyramid item : setData11) {
+            for (Pyramid item : setData16) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pyramid> setData17 = new ArrayList<>();
+
+    public Pyramid setData(DataSettings data5, TextParsingSettings csvSettings2) {
+        this.data5 = data5;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData17() {
+        if (!setData17.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setData17) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -958,6 +1141,7 @@ public class Pyramid extends SeparateChart {
     }
 
     private Fill imageSettings;
+
     private PatternFill getHatchFill;
 
     public PatternFill getHatchFill() {
@@ -966,7 +1150,6 @@ public class Pyramid extends SeparateChart {
 
         return getHatchFill;
     }
-
     private PatternFill patternFillOrType;
     private HatchFill patternFillOrType1;
     private HatchFillType patternFillOrType2;
@@ -1135,6 +1318,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private HatchFills getHatchFillPalette;
 
     public HatchFills getHatchFillPalette() {
@@ -1143,7 +1327,6 @@ public class Pyramid extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -1264,6 +1447,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -1272,7 +1456,6 @@ public class Pyramid extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<Pyramid> setHovered = new ArrayList<>();
 
@@ -1303,6 +1486,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -1311,7 +1495,6 @@ public class Pyramid extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<Pyramid> setLabels = new ArrayList<>();
@@ -1372,6 +1555,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -1380,10 +1564,10 @@ public class Pyramid extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<Pyramid> setMarkerPalette = new ArrayList<>();
 
     public Pyramid setMarkerPalette(Markers markerPalette) {
@@ -1471,6 +1655,36 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+    private List<Pyramid> setMarkerPalette3 = new ArrayList<>();
+
+    public Pyramid setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pyramid item : setMarkerPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
@@ -1479,7 +1693,6 @@ public class Pyramid extends SeparateChart {
 
         return getMarkers;
     }
-
     private String markers;
     private Boolean markers1;
     private String markers2;
@@ -1541,6 +1754,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1549,7 +1763,6 @@ public class Pyramid extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<Pyramid> setNormal = new ArrayList<>();
 
@@ -1670,6 +1883,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -1678,7 +1892,6 @@ public class Pyramid extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -1949,6 +2162,7 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -1957,7 +2171,6 @@ public class Pyramid extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<Pyramid> setSelected = new ArrayList<>();
 
@@ -2230,6 +2443,12 @@ public class Pyramid extends SeparateChart {
         js.append(generateJSsetData9());
         js.append(generateJSsetData10());
         js.append(generateJSsetData11());
+        js.append(generateJSsetData12());
+        js.append(generateJSsetData13());
+        js.append(generateJSsetData14());
+        js.append(generateJSsetData15());
+        js.append(generateJSsetData16());
+        js.append(generateJSsetData17());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());
@@ -2255,6 +2474,7 @@ public class Pyramid extends SeparateChart {
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetMarkers());
         js.append(generateJSsetMarkers1());
         js.append(generateJSsetNormal());

@@ -43,10 +43,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.axis = axis;
         } else {
             this.axis = axis;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.axis1 = axis1;
         } else {
             this.axis1 = axis1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -117,10 +109,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index = index;
             this.fallingLabel = fallingLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -150,10 +138,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index = index;
             this.fallingLabel1 = fallingLabel1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -183,10 +167,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index1 = index1;
             this.fallingLabel = fallingLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -216,10 +196,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index1 = index1;
             this.fallingLabel1 = fallingLabel1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -260,10 +236,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -297,10 +269,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -334,10 +302,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -353,11 +317,11 @@ public class CurrentPriceIndicator extends VisualBase {
         return this;
     }
 
-    private UiLabel getLabel;
+    private UiLabelsFactory getLabel;
 
-    public UiLabel getLabel() {
+    public UiLabelsFactory getLabel() {
         if (getLabel == null)
-            getLabel = new UiLabel(jsBase + ".label()");
+            getLabel = new UiLabelsFactory(jsBase + ".label()");
 
         return getLabel;
     }
@@ -382,10 +346,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index2 = index2;
             this.label = label;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -417,10 +377,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index2 = index2;
             this.label1 = label1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -452,10 +408,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index3 = index3;
             this.label = label;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -487,10 +439,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index3 = index3;
             this.label1 = label1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -537,10 +485,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index4 = index4;
             this.risingLabel = risingLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -574,10 +518,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index4 = index4;
             this.risingLabel1 = risingLabel1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -611,10 +551,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index5 = index5;
             this.risingLabel = risingLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -648,10 +584,6 @@ public class CurrentPriceIndicator extends VisualBase {
         } else {
             this.index5 = index5;
             this.risingLabel1 = risingLabel1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -704,10 +636,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -753,10 +681,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -802,10 +726,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -841,10 +761,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.series = series;
         } else {
             this.series = series;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -869,10 +785,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.series1 = series1;
         } else {
             this.series1 = series1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -929,10 +841,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -982,10 +890,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1035,10 +939,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1054,11 +954,11 @@ public class CurrentPriceIndicator extends VisualBase {
         return this;
     }
 
-    private String value;
-    private PriceIndicatorDataSource value1;
+    private PriceIndicatorDataSource value;
+    private String value1;
     private Double value2;
 
-    public CurrentPriceIndicator setValue(String value) {
+    public CurrentPriceIndicator setValue(PriceIndicatorDataSource value) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1067,19 +967,15 @@ public class CurrentPriceIndicator extends VisualBase {
             this.value = value;
         } else {
             this.value = value;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".value(%s)", value));
+            js.append(String.format(Locale.US, ".value(%s)", (value != null) ? value.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", value));
+                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", (value != null) ? value.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -1087,7 +983,7 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
 
-    public CurrentPriceIndicator setValue(PriceIndicatorDataSource value1) {
+    public CurrentPriceIndicator setValue(String value1) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1096,19 +992,15 @@ public class CurrentPriceIndicator extends VisualBase {
             this.value1 = value1;
         } else {
             this.value1 = value1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".value(%s)", (value1 != null) ? value1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".value(%s)", value1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", (value1 != null) ? value1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", value1));
                 js.setLength(0);
             }
         }
@@ -1125,10 +1017,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.value2 = value2;
         } else {
             this.value2 = value2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1151,10 +1039,6 @@ public class CurrentPriceIndicator extends VisualBase {
             this.valueField = valueField;
         } else {
             this.valueField = valueField;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1465,14 +1349,14 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private String generateJSvalue() {
         if (value != null) {
-            return String.format(Locale.US, "value: %s,", value);
+            return String.format(Locale.US, "value: %s,", (value != null) ? value.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSvalue1() {
         if (value1 != null) {
-            return String.format(Locale.US, "value: %s,", (value1 != null) ? value1.generateJs() : "null");
+            return String.format(Locale.US, "value: %s,", value1);
         }
         return "";
     }

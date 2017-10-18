@@ -34,10 +34,6 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
             this.stepDirection = stepDirection;
         } else {
             this.stepDirection = stepDirection;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
             this.stepDirection1 = stepDirection1;
         } else {
             this.stepDirection1 = stepDirection1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

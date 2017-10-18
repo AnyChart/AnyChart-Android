@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class TagCloud extends SeparateChart {
 
-    public TagCloud() {
-        js.append("chart = anychart.tagCloud();");
+    protected TagCloud(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -74,6 +76,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private UiColorRange getColorRange;
 
     public UiColorRange getColorRange() {
@@ -82,7 +85,6 @@ public class TagCloud extends SeparateChart {
 
         return getColorRange;
     }
-
     private String colorRange;
     private Boolean colorRange1;
     private List<TagCloud> setColorRange = new ArrayList<>();
@@ -143,6 +145,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private OrdinalColor getColorScale;
 
     public OrdinalColor getColorScale() {
@@ -151,7 +154,6 @@ public class TagCloud extends SeparateChart {
 
         return getColorScale;
     }
-
     private LinearColor colorScale;
     private OrdinalColor colorScale1;
     private String colorScale2;
@@ -273,6 +275,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -281,14 +284,14 @@ public class TagCloud extends SeparateChart {
 
         return getData;
     }
-
     private View data;
     private Set data1;
     private String[] data2;
     private DataSettings data3;
     private String data4;
     private TextParsingMode settings;
-    private TextParsingSettings settings1;
+    private String settings1;
+    private TextParsingSettings settings2;
     private List<TagCloud> setData = new ArrayList<>();
 
     public TagCloud setData(View data, TextParsingMode settings) {
@@ -321,19 +324,19 @@ public class TagCloud extends SeparateChart {
 
     private List<TagCloud> setData1 = new ArrayList<>();
 
-    public TagCloud setData(View data, TextParsingSettings settings1) {
+    public TagCloud setData(View data, String settings1) {
         this.data = data;
         this.settings1 = settings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", settings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", settings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", settings1));
             js.setLength(0);
         }
         return this;
@@ -350,6 +353,36 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setData2 = new ArrayList<>();
+
+    public TagCloud setData(View data, TextParsingSettings settings2) {
+        this.data = data;
+        this.settings2 = settings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TagCloud item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TagCloud> setData3 = new ArrayList<>();
 
     public TagCloud setData(Set data1, TextParsingMode settings) {
         this.data1 = data1;
@@ -368,36 +401,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<TagCloud> setData3 = new ArrayList<>();
-
-    public TagCloud setData(Set data1, TextParsingSettings settings1) {
-        this.data1 = data1;
-        this.settings1 = settings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -410,6 +413,66 @@ public class TagCloud extends SeparateChart {
     }
 
     private List<TagCloud> setData4 = new ArrayList<>();
+
+    public TagCloud setData(Set data1, String settings1) {
+        this.data1 = data1;
+        this.settings1 = settings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", settings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", settings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", settings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TagCloud item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TagCloud> setData5 = new ArrayList<>();
+
+    public TagCloud setData(Set data1, TextParsingSettings settings2) {
+        this.data1 = data1;
+        this.settings2 = settings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TagCloud item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TagCloud> setData6 = new ArrayList<>();
 
     public TagCloud setData(String[] data2, TextParsingMode settings) {
         this.data2 = data2;
@@ -428,10 +491,10 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData4) {
+            for (TagCloud item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -439,29 +502,29 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
-    private List<TagCloud> setData5 = new ArrayList<>();
+    private List<TagCloud> setData7 = new ArrayList<>();
 
-    public TagCloud setData(String[] data2, TextParsingSettings settings1) {
+    public TagCloud setData(String[] data2, String settings1) {
         this.data2 = data2;
         this.settings1 = settings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings1 != null) ? settings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), settings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings1 != null) ? settings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), settings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings1 != null) ? settings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), settings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData5) {
+            for (TagCloud item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -469,7 +532,37 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
-    private List<TagCloud> setData6 = new ArrayList<>();
+    private List<TagCloud> setData8 = new ArrayList<>();
+
+    public TagCloud setData(String[] data2, TextParsingSettings settings2) {
+        this.data2 = data2;
+        this.settings2 = settings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings2 != null) ? settings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings2 != null) ? settings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (settings2 != null) ? settings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TagCloud item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TagCloud> setData9 = new ArrayList<>();
 
     public TagCloud setData(DataSettings data3, TextParsingMode settings) {
         this.data3 = data3;
@@ -488,10 +581,10 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData6) {
+            for (TagCloud item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -499,29 +592,29 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
-    private List<TagCloud> setData7 = new ArrayList<>();
+    private List<TagCloud> setData10 = new ArrayList<>();
 
-    public TagCloud setData(DataSettings data3, TextParsingSettings settings1) {
+    public TagCloud setData(DataSettings data3, String settings1) {
         this.data3 = data3;
         this.settings1 = settings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", settings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", settings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings1 != null) ? settings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", settings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData7) {
+            for (TagCloud item : setData10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -529,7 +622,37 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
-    private List<TagCloud> setData8 = new ArrayList<>();
+    private List<TagCloud> setData11 = new ArrayList<>();
+
+    public TagCloud setData(DataSettings data3, TextParsingSettings settings2) {
+        this.data3 = data3;
+        this.settings2 = settings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (settings2 != null) ? settings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TagCloud item : setData11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TagCloud> setData12 = new ArrayList<>();
 
     public TagCloud setData(String data4, TextParsingMode settings) {
         this.data4 = data4;
@@ -548,10 +671,10 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
+    private String generateJSsetData12() {
+        if (!setData12.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData8) {
+            for (TagCloud item : setData12) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -559,29 +682,59 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
-    private List<TagCloud> setData9 = new ArrayList<>();
+    private List<TagCloud> setData13 = new ArrayList<>();
 
-    public TagCloud setData(String data4, TextParsingSettings settings1) {
+    public TagCloud setData(String data4, String settings1) {
         this.data4 = data4;
         this.settings1 = settings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings1 != null) ? settings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data4, settings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings1 != null) ? settings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, settings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (settings1 != null) ? settings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, settings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
+    private String generateJSsetData13() {
+        if (!setData13.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData9) {
+            for (TagCloud item : setData13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TagCloud> setData14 = new ArrayList<>();
+
+    public TagCloud setData(String data4, TextParsingSettings settings2) {
+        this.data4 = data4;
+        this.settings2 = settings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings2 != null) ? settings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (settings2 != null) ? settings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (settings2 != null) ? settings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData14() {
+        if (!setData14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TagCloud item : setData14) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -619,15 +772,14 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
-    private Point getGetPoint;
+
+    private List<Point> getGetPoint = new ArrayList<>();
 
     public Point getGetPoint(Double index) {
-        if (getGetPoint == null)
-            getGetPoint = new Point(jsBase + ".getPoint("+ index+")");
-
-        return getGetPoint;
+        Point item = new Point(jsBase + ".getPoint("+ index+")");
+        getGetPoint.add(item);
+        return item;
     }
-
     private Double index1;
     private Double[] index2;
     private List<TagCloud> setHover = new ArrayList<>();
@@ -688,6 +840,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -696,7 +849,6 @@ public class TagCloud extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<TagCloud> setHovered = new ArrayList<>();
 
@@ -787,6 +939,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -795,7 +948,6 @@ public class TagCloud extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<TagCloud> setNormal = new ArrayList<>();
 
@@ -826,6 +978,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -834,7 +987,6 @@ public class TagCloud extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -955,6 +1107,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private ScalesBase getScale;
 
     public ScalesBase getScale() {
@@ -963,10 +1116,10 @@ public class TagCloud extends SeparateChart {
 
         return getScale;
     }
-
     private ScaleTypes scale;
-    private ScalesBase scale1;
-    private String scale2;
+    private String scale1;
+    private ScalesBase scale2;
+    private String scale3;
     private List<TagCloud> setScale = new ArrayList<>();
 
     public TagCloud setScale(ScaleTypes scale) {
@@ -998,18 +1151,18 @@ public class TagCloud extends SeparateChart {
 
     private List<TagCloud> setScale1 = new ArrayList<>();
 
-    public TagCloud setScale(ScalesBase scale1) {
+    public TagCloud setScale(String scale1) {
         this.scale1 = scale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".scale(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".scale(%s)", scale1));
 
-//        js.append(String.format(Locale.US, ".scale(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".scale(%s)", scale1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale1 != null) ? scale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale1));
             js.setLength(0);
         }
         return this;
@@ -1027,18 +1180,18 @@ public class TagCloud extends SeparateChart {
 
     private List<TagCloud> setScale2 = new ArrayList<>();
 
-    public TagCloud setScale(String scale2) {
+    public TagCloud setScale(ScalesBase scale2) {
         this.scale2 = scale2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".scale(%s)", scale2));
+        js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".scale(%s)", scale2));
+//        js.append(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", scale2));
+            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", (scale2 != null) ? scale2.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -1114,6 +1267,7 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -1122,7 +1276,6 @@ public class TagCloud extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<TagCloud> setSelected = new ArrayList<>();
 
@@ -1271,11 +1424,16 @@ public class TagCloud extends SeparateChart {
     }
 
     private String generateJSgetGetPoint() {
-        if (getGetPoint != null) {
-            return getGetPoint.generateJs();
+        if (!getGetPoint.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Point item : getGetPoint) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetHovered() {
         if (getHovered != null) {
@@ -1346,6 +1504,11 @@ public class TagCloud extends SeparateChart {
         js.append(generateJSsetData7());
         js.append(generateJSsetData8());
         js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
+        js.append(generateJSsetData12());
+        js.append(generateJSsetData13());
+        js.append(generateJSsetData14());
         js.append(generateJSsetFromAngle());
         js.append(generateJSsetHover());
         js.append(generateJSsetHover1());

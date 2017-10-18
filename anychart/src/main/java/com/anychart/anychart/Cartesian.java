@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class Cartesian extends SeparateChart {
 
-    public Cartesian() {
-        js.append("chart = anychart.cartesian();");
+    protected Cartesian(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -68,6 +70,7 @@ public class Cartesian extends SeparateChart {
         }
     }
 
+
     private PlotController getAnnotations;
 
     public PlotController getAnnotations() {
@@ -76,7 +79,6 @@ public class Cartesian extends SeparateChart {
 
         return getAnnotations;
     }
-
     private String[] annotationsList;
     private List<Cartesian> setAnnotations = new ArrayList<>();
 
@@ -111,7 +113,8 @@ public class Cartesian extends SeparateChart {
     private Set data1;
     private String[] data2;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<CartesianSeriesArea> setArea = new ArrayList<>();
 
     public CartesianSeriesArea area(View data, TextParsingMode csvSettings) {
@@ -146,19 +149,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesArea> setArea1 = new ArrayList<>();
 
-    public CartesianSeriesArea area(View data, TextParsingSettings csvSettings1) {
+    public CartesianSeriesArea area(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         CartesianSeriesArea item = new CartesianSeriesArea("setArea1" + variableIndex);
@@ -178,19 +181,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesArea> setArea2 = new ArrayList<>();
 
-    public CartesianSeriesArea area(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
+    public CartesianSeriesArea area(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesArea item = new CartesianSeriesArea("setArea2" + variableIndex);
@@ -210,19 +213,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesArea> setArea3 = new ArrayList<>();
 
-    public CartesianSeriesArea area(Set data1, TextParsingSettings csvSettings1) {
+    public CartesianSeriesArea area(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
+        this.csvSettings = csvSettings;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea3" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea3" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesArea item = new CartesianSeriesArea("setArea3" + variableIndex);
@@ -242,19 +245,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesArea> setArea4 = new ArrayList<>();
 
-    public CartesianSeriesArea area(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
+    public CartesianSeriesArea area(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea4" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea4" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         CartesianSeriesArea item = new CartesianSeriesArea("setArea4" + variableIndex);
@@ -274,19 +277,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesArea> setArea5 = new ArrayList<>();
 
-    public CartesianSeriesArea area(String[] data2, TextParsingSettings csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
+    public CartesianSeriesArea area(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea5" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea5" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesArea item = new CartesianSeriesArea("setArea5" + variableIndex);
@@ -304,27 +307,124 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data3;
-    private Set data4;
-    private String[] data5;
-    private String data6;
-    private TextParsingMode csvSettings2;
-    private TextParsingSettings csvSettings3;
-    private List<SeriesBar> setBar = new ArrayList<>();
+    private List<CartesianSeriesArea> setArea6 = new ArrayList<>();
 
-    public SeriesBar bar(View data3, TextParsingMode csvSettings2) {
-        this.data3 = data3;
+    public CartesianSeriesArea area(String[] data2, TextParsingMode csvSettings) {
+        this.data2 = data2;
+        this.csvSettings = csvSettings;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea6" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesArea item = new CartesianSeriesArea("setArea6" + variableIndex);
+        setArea6.add(item);
+        return item;
+    }
+    private String generateJSsetArea6() {
+        if (!setArea6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesArea item : setArea6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesArea> setArea7 = new ArrayList<>();
+
+    public CartesianSeriesArea area(String[] data2, String csvSettings1) {
+        this.data2 = data2;
+        this.csvSettings1 = csvSettings1;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea7" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), csvSettings1));
+            js.setLength(0);
+        }
+        CartesianSeriesArea item = new CartesianSeriesArea("setArea7" + variableIndex);
+        setArea7.add(item);
+        return item;
+    }
+    private String generateJSsetArea7() {
+        if (!setArea7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesArea item : setArea7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesArea> setArea8 = new ArrayList<>();
+
+    public CartesianSeriesArea area(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
         this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBar" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea8" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesArea item = new CartesianSeriesArea("setArea8" + variableIndex);
+        setArea8.add(item);
+        return item;
+    }
+    private String generateJSsetArea8() {
+        if (!setArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesArea item : setArea8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data3;
+    private Set data4;
+    private String[] data5;
+    private String data6;
+    private TextParsingMode csvSettings3;
+    private String csvSettings4;
+    private TextParsingSettings csvSettings5;
+    private List<SeriesBar> setBar = new ArrayList<>();
+
+    public SeriesBar bar(View data3, TextParsingMode csvSettings3) {
+        this.data3 = data3;
+        this.csvSettings3 = csvSettings3;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBar" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesBar item = new SeriesBar("setBar" + variableIndex);
@@ -344,19 +444,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesBar> setBar1 = new ArrayList<>();
 
-    public SeriesBar bar(View data3, TextParsingSettings csvSettings3) {
+    public SeriesBar bar(View data3, String csvSettings4) {
         this.data3 = data3;
-        this.csvSettings3 = csvSettings3;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBar1" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBar1" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         SeriesBar item = new SeriesBar("setBar1" + variableIndex);
@@ -376,19 +476,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesBar> setBar2 = new ArrayList<>();
 
-    public SeriesBar bar(Set data4, TextParsingMode csvSettings2) {
-        this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
+    public SeriesBar bar(View data3, TextParsingSettings csvSettings5) {
+        this.data3 = data3;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBar2" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBar2" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesBar item = new SeriesBar("setBar2" + variableIndex);
@@ -408,7 +508,7 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesBar> setBar3 = new ArrayList<>();
 
-    public SeriesBar bar(Set data4, TextParsingSettings csvSettings3) {
+    public SeriesBar bar(Set data4, TextParsingMode csvSettings3) {
         this.data4 = data4;
         this.csvSettings3 = csvSettings3;
         if (isChain) {
@@ -440,19 +540,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesBar> setBar4 = new ArrayList<>();
 
-    public SeriesBar bar(String[] data5, TextParsingMode csvSettings2) {
-        this.data5 = data5;
-        this.csvSettings2 = csvSettings2;
+    public SeriesBar bar(Set data4, String csvSettings4) {
+        this.data4 = data4;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBar4" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBar4" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         SeriesBar item = new SeriesBar("setBar4" + variableIndex);
@@ -472,19 +572,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesBar> setBar5 = new ArrayList<>();
 
-    public SeriesBar bar(String[] data5, TextParsingSettings csvSettings3) {
-        this.data5 = data5;
-        this.csvSettings3 = csvSettings3;
+    public SeriesBar bar(Set data4, TextParsingSettings csvSettings5) {
+        this.data4 = data4;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBar5" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBar5" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesBar item = new SeriesBar("setBar5" + variableIndex);
@@ -504,19 +604,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesBar> setBar6 = new ArrayList<>();
 
-    public SeriesBar bar(String data6, TextParsingMode csvSettings2) {
-        this.data6 = data6;
-        this.csvSettings2 = csvSettings2;
+    public SeriesBar bar(String[] data5, TextParsingMode csvSettings3) {
+        this.data5 = data5;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBar6" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBar6" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesBar item = new SeriesBar("setBar6" + variableIndex);
@@ -536,19 +636,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesBar> setBar7 = new ArrayList<>();
 
-    public SeriesBar bar(String data6, TextParsingSettings csvSettings3) {
-        this.data6 = data6;
-        this.csvSettings3 = csvSettings3;
+    public SeriesBar bar(String[] data5, String csvSettings4) {
+        this.data5 = data5;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBar7" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBar7" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), csvSettings4));
             js.setLength(0);
         }
         SeriesBar item = new SeriesBar("setBar7" + variableIndex);
@@ -559,6 +659,134 @@ public class Cartesian extends SeparateChart {
         if (!setBar7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (SeriesBar item : setBar7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesBar> setBar8 = new ArrayList<>();
+
+    public SeriesBar bar(String[] data5, TextParsingSettings csvSettings5) {
+        this.data5 = data5;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBar8" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        SeriesBar item = new SeriesBar("setBar8" + variableIndex);
+        setBar8.add(item);
+        return item;
+    }
+    private String generateJSsetBar8() {
+        if (!setBar8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesBar item : setBar8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesBar> setBar9 = new ArrayList<>();
+
+    public SeriesBar bar(String data6, TextParsingMode csvSettings3) {
+        this.data6 = data6;
+        this.csvSettings3 = csvSettings3;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBar9" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            js.setLength(0);
+        }
+        SeriesBar item = new SeriesBar("setBar9" + variableIndex);
+        setBar9.add(item);
+        return item;
+    }
+    private String generateJSsetBar9() {
+        if (!setBar9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesBar item : setBar9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesBar> setBar10 = new ArrayList<>();
+
+    public SeriesBar bar(String data6, String csvSettings4) {
+        this.data6 = data6;
+        this.csvSettings4 = csvSettings4;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBar10" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, csvSettings4));
+
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, csvSettings4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, csvSettings4));
+            js.setLength(0);
+        }
+        SeriesBar item = new SeriesBar("setBar10" + variableIndex);
+        setBar10.add(item);
+        return item;
+    }
+    private String generateJSsetBar10() {
+        if (!setBar10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesBar item : setBar10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesBar> setBar11 = new ArrayList<>();
+
+    public SeriesBar bar(String data6, TextParsingSettings csvSettings5) {
+        this.data6 = data6;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBar11" + ++variableIndex + " = " + jsBase + ".bar(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bar(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bar(%s, %s)", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        SeriesBar item = new SeriesBar("setBar11" + variableIndex);
+        setBar11.add(item);
+        return item;
+    }
+    private String generateJSsetBar11() {
+        if (!setBar11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesBar item : setBar11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -630,23 +858,24 @@ public class Cartesian extends SeparateChart {
     private Set data8;
     private String[] data9;
     private String data10;
-    private TextParsingMode csvSettings4;
-    private TextParsingSettings csvSettings5;
+    private TextParsingMode csvSettings6;
+    private String csvSettings7;
+    private TextParsingSettings csvSettings8;
     private List<Box> setBox = new ArrayList<>();
 
-    public Box box(View data7, TextParsingMode csvSettings4) {
+    public Box box(View data7, TextParsingMode csvSettings6) {
         this.data7 = data7;
-        this.csvSettings4 = csvSettings4;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         Box item = new Box("setBox" + variableIndex);
@@ -666,19 +895,19 @@ public class Cartesian extends SeparateChart {
 
     private List<Box> setBox1 = new ArrayList<>();
 
-    public Box box(View data7, TextParsingSettings csvSettings5) {
+    public Box box(View data7, String csvSettings7) {
         this.data7 = data7;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox1" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox1" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         Box item = new Box("setBox1" + variableIndex);
@@ -698,19 +927,19 @@ public class Cartesian extends SeparateChart {
 
     private List<Box> setBox2 = new ArrayList<>();
 
-    public Box box(Set data8, TextParsingMode csvSettings4) {
-        this.data8 = data8;
-        this.csvSettings4 = csvSettings4;
+    public Box box(View data7, TextParsingSettings csvSettings8) {
+        this.data7 = data7;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox2" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox2" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         Box item = new Box("setBox2" + variableIndex);
@@ -730,19 +959,19 @@ public class Cartesian extends SeparateChart {
 
     private List<Box> setBox3 = new ArrayList<>();
 
-    public Box box(Set data8, TextParsingSettings csvSettings5) {
+    public Box box(Set data8, TextParsingMode csvSettings6) {
         this.data8 = data8;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox3" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox3" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         Box item = new Box("setBox3" + variableIndex);
@@ -762,19 +991,19 @@ public class Cartesian extends SeparateChart {
 
     private List<Box> setBox4 = new ArrayList<>();
 
-    public Box box(String[] data9, TextParsingMode csvSettings4) {
-        this.data9 = data9;
-        this.csvSettings4 = csvSettings4;
+    public Box box(Set data8, String csvSettings7) {
+        this.data8 = data8;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox4" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox4" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         Box item = new Box("setBox4" + variableIndex);
@@ -794,19 +1023,19 @@ public class Cartesian extends SeparateChart {
 
     private List<Box> setBox5 = new ArrayList<>();
 
-    public Box box(String[] data9, TextParsingSettings csvSettings5) {
-        this.data9 = data9;
-        this.csvSettings5 = csvSettings5;
+    public Box box(Set data8, TextParsingSettings csvSettings8) {
+        this.data8 = data8;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox5" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox5" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         Box item = new Box("setBox5" + variableIndex);
@@ -826,19 +1055,19 @@ public class Cartesian extends SeparateChart {
 
     private List<Box> setBox6 = new ArrayList<>();
 
-    public Box box(String data10, TextParsingMode csvSettings4) {
-        this.data10 = data10;
-        this.csvSettings4 = csvSettings4;
+    public Box box(String[] data9, TextParsingMode csvSettings6) {
+        this.data9 = data9;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox6" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox6" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         Box item = new Box("setBox6" + variableIndex);
@@ -858,19 +1087,19 @@ public class Cartesian extends SeparateChart {
 
     private List<Box> setBox7 = new ArrayList<>();
 
-    public Box box(String data10, TextParsingSettings csvSettings5) {
-        this.data10 = data10;
-        this.csvSettings5 = csvSettings5;
+    public Box box(String[] data9, String csvSettings7) {
+        this.data9 = data9;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBox7" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox7" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), csvSettings7));
             js.setLength(0);
         }
         Box item = new Box("setBox7" + variableIndex);
@@ -888,27 +1117,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data11;
-    private Set data12;
-    private String[] data13;
-    private String data14;
-    private TextParsingMode csvSettings6;
-    private TextParsingSettings csvSettings7;
-    private List<CartesianSeriesBubble> setBubble = new ArrayList<>();
+    private List<Box> setBox8 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(View data11, TextParsingMode csvSettings6) {
-        this.data11 = data11;
+    public Box box(String[] data9, TextParsingSettings csvSettings8) {
+        this.data9 = data9;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBox8" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Box item = new Box("setBox8" + variableIndex);
+        setBox8.add(item);
+        return item;
+    }
+    private String generateJSsetBox8() {
+        if (!setBox8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Box item : setBox8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Box> setBox9 = new ArrayList<>();
+
+    public Box box(String data10, TextParsingMode csvSettings6) {
+        this.data10 = data10;
         this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBox9" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Box item = new Box("setBox9" + variableIndex);
+        setBox9.add(item);
+        return item;
+    }
+    private String generateJSsetBox9() {
+        if (!setBox9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Box item : setBox9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Box> setBox10 = new ArrayList<>();
+
+    public Box box(String data10, String csvSettings7) {
+        this.data10 = data10;
+        this.csvSettings7 = csvSettings7;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBox10" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, csvSettings7));
+
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, csvSettings7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, csvSettings7));
+            js.setLength(0);
+        }
+        Box item = new Box("setBox10" + variableIndex);
+        setBox10.add(item);
+        return item;
+    }
+    private String generateJSsetBox10() {
+        if (!setBox10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Box item : setBox10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Box> setBox11 = new ArrayList<>();
+
+    public Box box(String data10, TextParsingSettings csvSettings8) {
+        this.data10 = data10;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBox11" + ++variableIndex + " = " + jsBase + ".box(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".box(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".box(%s, %s)", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Box item = new Box("setBox11" + variableIndex);
+        setBox11.add(item);
+        return item;
+    }
+    private String generateJSsetBox11() {
+        if (!setBox11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Box item : setBox11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data11;
+    private Set data12;
+    private String[] data13;
+    private String data14;
+    private TextParsingMode csvSettings9;
+    private String csvSettings10;
+    private TextParsingSettings csvSettings11;
+    private List<CartesianSeriesBubble> setBubble = new ArrayList<>();
+
+    public CartesianSeriesBubble bubble(View data11, TextParsingMode csvSettings9) {
+        this.data11 = data11;
+        this.csvSettings9 = csvSettings9;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble" + variableIndex);
@@ -928,19 +1286,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesBubble> setBubble1 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(View data11, TextParsingSettings csvSettings7) {
+    public CartesianSeriesBubble bubble(View data11, String csvSettings10) {
         this.data11 = data11;
-        this.csvSettings7 = csvSettings7;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble1" + variableIndex);
@@ -960,19 +1318,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesBubble> setBubble2 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(Set data12, TextParsingMode csvSettings6) {
-        this.data12 = data12;
-        this.csvSettings6 = csvSettings6;
+    public CartesianSeriesBubble bubble(View data11, TextParsingSettings csvSettings11) {
+        this.data11 = data11;
+        this.csvSettings11 = csvSettings11;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble2" + variableIndex);
@@ -992,19 +1350,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesBubble> setBubble3 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(Set data12, TextParsingSettings csvSettings7) {
+    public CartesianSeriesBubble bubble(Set data12, TextParsingMode csvSettings9) {
         this.data12 = data12;
-        this.csvSettings7 = csvSettings7;
+        this.csvSettings9 = csvSettings9;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble3" + variableIndex);
@@ -1024,19 +1382,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesBubble> setBubble4 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(String[] data13, TextParsingMode csvSettings6) {
-        this.data13 = data13;
-        this.csvSettings6 = csvSettings6;
+    public CartesianSeriesBubble bubble(Set data12, String csvSettings10) {
+        this.data12 = data12;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble4" + variableIndex);
@@ -1056,19 +1414,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesBubble> setBubble5 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(String[] data13, TextParsingSettings csvSettings7) {
-        this.data13 = data13;
-        this.csvSettings7 = csvSettings7;
+    public CartesianSeriesBubble bubble(Set data12, TextParsingSettings csvSettings11) {
+        this.data12 = data12;
+        this.csvSettings11 = csvSettings11;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble5" + variableIndex);
@@ -1088,19 +1446,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesBubble> setBubble6 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(String data14, TextParsingMode csvSettings6) {
-        this.data14 = data14;
-        this.csvSettings6 = csvSettings6;
+    public CartesianSeriesBubble bubble(String[] data13, TextParsingMode csvSettings9) {
+        this.data13 = data13;
+        this.csvSettings9 = csvSettings9;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble6" + variableIndex);
@@ -1120,19 +1478,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesBubble> setBubble7 = new ArrayList<>();
 
-    public CartesianSeriesBubble bubble(String data14, TextParsingSettings csvSettings7) {
-        this.data14 = data14;
-        this.csvSettings7 = csvSettings7;
+    public CartesianSeriesBubble bubble(String[] data13, String csvSettings10) {
+        this.data13 = data13;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), csvSettings10));
             js.setLength(0);
         }
         CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble7" + variableIndex);
@@ -1150,27 +1508,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data15;
-    private Set data16;
-    private String[] data17;
-    private String data18;
-    private TextParsingMode csvSettings8;
-    private TextParsingSettings csvSettings9;
-    private List<CartesianSeriesCandlestick> setCandlestick = new ArrayList<>();
+    private List<CartesianSeriesBubble> setBubble8 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(View data15, TextParsingMode csvSettings8) {
-        this.data15 = data15;
-        this.csvSettings8 = csvSettings8;
+    public CartesianSeriesBubble bubble(String[] data13, TextParsingSettings csvSettings11) {
+        this.data13 = data13;
+        this.csvSettings11 = csvSettings11;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble8" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble8" + variableIndex);
+        setBubble8.add(item);
+        return item;
+    }
+    private String generateJSsetBubble8() {
+        if (!setBubble8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBubble item : setBubble8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesBubble> setBubble9 = new ArrayList<>();
+
+    public CartesianSeriesBubble bubble(String data14, TextParsingMode csvSettings9) {
+        this.data14 = data14;
+        this.csvSettings9 = csvSettings9;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble9" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble9" + variableIndex);
+        setBubble9.add(item);
+        return item;
+    }
+    private String generateJSsetBubble9() {
+        if (!setBubble9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBubble item : setBubble9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesBubble> setBubble10 = new ArrayList<>();
+
+    public CartesianSeriesBubble bubble(String data14, String csvSettings10) {
+        this.data14 = data14;
+        this.csvSettings10 = csvSettings10;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble10" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, csvSettings10));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, csvSettings10));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, csvSettings10));
+            js.setLength(0);
+        }
+        CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble10" + variableIndex);
+        setBubble10.add(item);
+        return item;
+    }
+    private String generateJSsetBubble10() {
+        if (!setBubble10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBubble item : setBubble10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesBubble> setBubble11 = new ArrayList<>();
+
+    public CartesianSeriesBubble bubble(String data14, TextParsingSettings csvSettings11) {
+        this.data14 = data14;
+        this.csvSettings11 = csvSettings11;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble11" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble11" + variableIndex);
+        setBubble11.add(item);
+        return item;
+    }
+    private String generateJSsetBubble11() {
+        if (!setBubble11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBubble item : setBubble11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data15;
+    private Set data16;
+    private String[] data17;
+    private String data18;
+    private TextParsingMode csvSettings12;
+    private String csvSettings13;
+    private TextParsingSettings csvSettings14;
+    private List<CartesianSeriesCandlestick> setCandlestick = new ArrayList<>();
+
+    public CartesianSeriesCandlestick candlestick(View data15, TextParsingMode csvSettings12) {
+        this.data15 = data15;
+        this.csvSettings12 = csvSettings12;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick" + variableIndex);
@@ -1190,19 +1677,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesCandlestick> setCandlestick1 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(View data15, TextParsingSettings csvSettings9) {
+    public CartesianSeriesCandlestick candlestick(View data15, String csvSettings13) {
         this.data15 = data15;
-        this.csvSettings9 = csvSettings9;
+        this.csvSettings13 = csvSettings13;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick1" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick1" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick1" + variableIndex);
@@ -1222,19 +1709,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesCandlestick> setCandlestick2 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(Set data16, TextParsingMode csvSettings8) {
-        this.data16 = data16;
-        this.csvSettings8 = csvSettings8;
+    public CartesianSeriesCandlestick candlestick(View data15, TextParsingSettings csvSettings14) {
+        this.data15 = data15;
+        this.csvSettings14 = csvSettings14;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick2" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick2" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick2" + variableIndex);
@@ -1254,19 +1741,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesCandlestick> setCandlestick3 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(Set data16, TextParsingSettings csvSettings9) {
+    public CartesianSeriesCandlestick candlestick(Set data16, TextParsingMode csvSettings12) {
         this.data16 = data16;
-        this.csvSettings9 = csvSettings9;
+        this.csvSettings12 = csvSettings12;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick3" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick3" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick3" + variableIndex);
@@ -1286,19 +1773,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesCandlestick> setCandlestick4 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(String[] data17, TextParsingMode csvSettings8) {
-        this.data17 = data17;
-        this.csvSettings8 = csvSettings8;
+    public CartesianSeriesCandlestick candlestick(Set data16, String csvSettings13) {
+        this.data16 = data16;
+        this.csvSettings13 = csvSettings13;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick4" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick4" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick4" + variableIndex);
@@ -1318,19 +1805,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesCandlestick> setCandlestick5 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(String[] data17, TextParsingSettings csvSettings9) {
-        this.data17 = data17;
-        this.csvSettings9 = csvSettings9;
+    public CartesianSeriesCandlestick candlestick(Set data16, TextParsingSettings csvSettings14) {
+        this.data16 = data16;
+        this.csvSettings14 = csvSettings14;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick5" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick5" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick5" + variableIndex);
@@ -1350,19 +1837,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesCandlestick> setCandlestick6 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(String data18, TextParsingMode csvSettings8) {
-        this.data18 = data18;
-        this.csvSettings8 = csvSettings8;
+    public CartesianSeriesCandlestick candlestick(String[] data17, TextParsingMode csvSettings12) {
+        this.data17 = data17;
+        this.csvSettings12 = csvSettings12;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick6" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick6" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick6" + variableIndex);
@@ -1382,19 +1869,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesCandlestick> setCandlestick7 = new ArrayList<>();
 
-    public CartesianSeriesCandlestick candlestick(String data18, TextParsingSettings csvSettings9) {
-        this.data18 = data18;
-        this.csvSettings9 = csvSettings9;
+    public CartesianSeriesCandlestick candlestick(String[] data17, String csvSettings13) {
+        this.data17 = data17;
+        this.csvSettings13 = csvSettings13;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setCandlestick7" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick7" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), csvSettings13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), csvSettings13));
             js.setLength(0);
         }
         CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick7" + variableIndex);
@@ -1412,27 +1899,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data19;
-    private Set data20;
-    private String[] data21;
-    private String data22;
-    private TextParsingMode csvSettings10;
-    private TextParsingSettings csvSettings11;
-    private List<CartesianSeriesColumn> setColumn = new ArrayList<>();
+    private List<CartesianSeriesCandlestick> setCandlestick8 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(View data19, TextParsingMode csvSettings10) {
-        this.data19 = data19;
-        this.csvSettings10 = csvSettings10;
+    public CartesianSeriesCandlestick candlestick(String[] data17, TextParsingSettings csvSettings14) {
+        this.data17 = data17;
+        this.csvSettings14 = csvSettings14;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setCandlestick8" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick8" + variableIndex);
+        setCandlestick8.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick8() {
+        if (!setCandlestick8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesCandlestick item : setCandlestick8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesCandlestick> setCandlestick9 = new ArrayList<>();
+
+    public CartesianSeriesCandlestick candlestick(String data18, TextParsingMode csvSettings12) {
+        this.data18 = data18;
+        this.csvSettings12 = csvSettings12;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setCandlestick9" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick9" + variableIndex);
+        setCandlestick9.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick9() {
+        if (!setCandlestick9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesCandlestick item : setCandlestick9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesCandlestick> setCandlestick10 = new ArrayList<>();
+
+    public CartesianSeriesCandlestick candlestick(String data18, String csvSettings13) {
+        this.data18 = data18;
+        this.csvSettings13 = csvSettings13;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setCandlestick10" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, csvSettings13));
+
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, csvSettings13));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, csvSettings13));
+            js.setLength(0);
+        }
+        CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick10" + variableIndex);
+        setCandlestick10.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick10() {
+        if (!setCandlestick10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesCandlestick item : setCandlestick10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesCandlestick> setCandlestick11 = new ArrayList<>();
+
+    public CartesianSeriesCandlestick candlestick(String data18, TextParsingSettings csvSettings14) {
+        this.data18 = data18;
+        this.csvSettings14 = csvSettings14;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setCandlestick11" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s);", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".candlestick(%s, %s);", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s)", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick11" + variableIndex);
+        setCandlestick11.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick11() {
+        if (!setCandlestick11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesCandlestick item : setCandlestick11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data19;
+    private Set data20;
+    private String[] data21;
+    private String data22;
+    private TextParsingMode csvSettings15;
+    private String csvSettings16;
+    private TextParsingSettings csvSettings17;
+    private List<CartesianSeriesColumn> setColumn = new ArrayList<>();
+
+    public CartesianSeriesColumn column(View data19, TextParsingMode csvSettings15) {
+        this.data19 = data19;
+        this.csvSettings15 = csvSettings15;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn" + variableIndex);
@@ -1452,19 +2068,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesColumn> setColumn1 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(View data19, TextParsingSettings csvSettings11) {
+    public CartesianSeriesColumn column(View data19, String csvSettings16) {
         this.data19 = data19;
-        this.csvSettings11 = csvSettings11;
+        this.csvSettings16 = csvSettings16;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn1" + variableIndex);
@@ -1484,19 +2100,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesColumn> setColumn2 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(Set data20, TextParsingMode csvSettings10) {
-        this.data20 = data20;
-        this.csvSettings10 = csvSettings10;
+    public CartesianSeriesColumn column(View data19, TextParsingSettings csvSettings17) {
+        this.data19 = data19;
+        this.csvSettings17 = csvSettings17;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn2" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn2" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn2" + variableIndex);
@@ -1516,19 +2132,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesColumn> setColumn3 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(Set data20, TextParsingSettings csvSettings11) {
+    public CartesianSeriesColumn column(Set data20, TextParsingMode csvSettings15) {
         this.data20 = data20;
-        this.csvSettings11 = csvSettings11;
+        this.csvSettings15 = csvSettings15;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn3" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn3" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn3" + variableIndex);
@@ -1548,19 +2164,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesColumn> setColumn4 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(String[] data21, TextParsingMode csvSettings10) {
-        this.data21 = data21;
-        this.csvSettings10 = csvSettings10;
+    public CartesianSeriesColumn column(Set data20, String csvSettings16) {
+        this.data20 = data20;
+        this.csvSettings16 = csvSettings16;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn4" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn4" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn4" + variableIndex);
@@ -1580,19 +2196,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesColumn> setColumn5 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(String[] data21, TextParsingSettings csvSettings11) {
-        this.data21 = data21;
-        this.csvSettings11 = csvSettings11;
+    public CartesianSeriesColumn column(Set data20, TextParsingSettings csvSettings17) {
+        this.data20 = data20;
+        this.csvSettings17 = csvSettings17;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn5" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn5" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn5" + variableIndex);
@@ -1612,19 +2228,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesColumn> setColumn6 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(String data22, TextParsingMode csvSettings10) {
-        this.data22 = data22;
-        this.csvSettings10 = csvSettings10;
+    public CartesianSeriesColumn column(String[] data21, TextParsingMode csvSettings15) {
+        this.data21 = data21;
+        this.csvSettings15 = csvSettings15;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn6" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn6" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn6" + variableIndex);
@@ -1644,19 +2260,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesColumn> setColumn7 = new ArrayList<>();
 
-    public CartesianSeriesColumn column(String data22, TextParsingSettings csvSettings11) {
-        this.data22 = data22;
-        this.csvSettings11 = csvSettings11;
+    public CartesianSeriesColumn column(String[] data21, String csvSettings16) {
+        this.data21 = data21;
+        this.csvSettings16 = csvSettings16;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn7" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn7" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), csvSettings16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), csvSettings16));
             js.setLength(0);
         }
         CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn7" + variableIndex);
@@ -1674,6 +2290,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesColumn> setColumn8 = new ArrayList<>();
+
+    public CartesianSeriesColumn column(String[] data21, TextParsingSettings csvSettings17) {
+        this.data21 = data21;
+        this.csvSettings17 = csvSettings17;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn8" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn8" + variableIndex);
+        setColumn8.add(item);
+        return item;
+    }
+    private String generateJSsetColumn8() {
+        if (!setColumn8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesColumn item : setColumn8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesColumn> setColumn9 = new ArrayList<>();
+
+    public CartesianSeriesColumn column(String data22, TextParsingMode csvSettings15) {
+        this.data22 = data22;
+        this.csvSettings15 = csvSettings15;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn9" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn9" + variableIndex);
+        setColumn9.add(item);
+        return item;
+    }
+    private String generateJSsetColumn9() {
+        if (!setColumn9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesColumn item : setColumn9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesColumn> setColumn10 = new ArrayList<>();
+
+    public CartesianSeriesColumn column(String data22, String csvSettings16) {
+        this.data22 = data22;
+        this.csvSettings16 = csvSettings16;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn10" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, csvSettings16));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, csvSettings16));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, csvSettings16));
+            js.setLength(0);
+        }
+        CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn10" + variableIndex);
+        setColumn10.add(item);
+        return item;
+    }
+    private String generateJSsetColumn10() {
+        if (!setColumn10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesColumn item : setColumn10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesColumn> setColumn11 = new ArrayList<>();
+
+    public CartesianSeriesColumn column(String data22, TextParsingSettings csvSettings17) {
+        this.data22 = data22;
+        this.csvSettings17 = csvSettings17;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn11" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn11" + variableIndex);
+        setColumn11.add(item);
+        return item;
+    }
+    private String generateJSsetColumn11() {
+        if (!setColumn11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesColumn item : setColumn11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Crosshair getCrosshair;
 
     public Crosshair getCrosshair() {
@@ -1682,7 +2427,6 @@ public class Cartesian extends SeparateChart {
 
         return getCrosshair;
     }
-
     private String crosshair;
     private Boolean crosshair1;
     private List<Cartesian> setCrosshair = new ArrayList<>();
@@ -1743,6 +2487,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -1751,7 +2496,6 @@ public class Cartesian extends SeparateChart {
 
         return getData;
     }
-
     private Set data23;
     private DataSettings data24;
     private String[] data25;
@@ -1842,22 +2586,22 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private String defaultSeriesType;
-    private CartesianSeriesType defaultSeriesType1;
+    private CartesianSeriesType defaultSeriesType;
+    private String defaultSeriesType1;
     private List<Cartesian> setDefaultSeriesType = new ArrayList<>();
 
-    public Cartesian setDefaultSeriesType(String defaultSeriesType) {
+    public Cartesian setDefaultSeriesType(CartesianSeriesType defaultSeriesType) {
         this.defaultSeriesType = defaultSeriesType;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -1875,18 +2619,18 @@ public class Cartesian extends SeparateChart {
 
     private List<Cartesian> setDefaultSeriesType1 = new ArrayList<>();
 
-    public Cartesian setDefaultSeriesType(CartesianSeriesType defaultSeriesType1) {
+    public Cartesian setDefaultSeriesType(String defaultSeriesType1) {
         this.defaultSeriesType1 = defaultSeriesType1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
             js.setLength(0);
         }
         return this;
@@ -1902,6 +2646,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private AnychartMathRect getGetPlotBounds;
 
     public AnychartMathRect getGetPlotBounds() {
@@ -1911,31 +2656,28 @@ public class Cartesian extends SeparateChart {
         return getGetPlotBounds;
     }
 
-    private CartesianSeriesBase getGetSeries;
+    private List<CartesianSeriesBase> getGetSeries = new ArrayList<>();
 
     public CartesianSeriesBase getGetSeries(Double id) {
-        if (getGetSeries == null)
-            getGetSeries = new CartesianSeriesBase(jsBase + ".getSeries("+ id+")");
-
-        return getGetSeries;
+        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ id+")");
+        getGetSeries.add(item);
+        return item;
     }
 
-    private CartesianSeriesBase getGetSeries1;
+    private List<CartesianSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public CartesianSeriesBase getGetSeries(String id1) {
-        if (getGetSeries1 == null)
-            getGetSeries1 = new CartesianSeriesBase(jsBase + ".getSeries("+ id1+")");
-
-        return getGetSeries1;
+        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ id1+")");
+        getGetSeries1.add(item);
+        return item;
     }
 
-    private CartesianSeriesBase getGetSeriesAt;
+    private List<CartesianSeriesBase> getGetSeriesAt = new ArrayList<>();
 
     public CartesianSeriesBase getGetSeriesAt(Double index) {
-        if (getGetSeriesAt == null)
-            getGetSeriesAt = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
-
-        return getGetSeriesAt;
+        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
+        getGetSeriesAt.add(item);
+        return item;
     }
 
     private HatchFills getHatchFillPalette;
@@ -1946,7 +2688,6 @@ public class Cartesian extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -2041,23 +2782,24 @@ public class Cartesian extends SeparateChart {
     private Set data27;
     private String[] data28;
     private String data29;
-    private TextParsingMode csvSettings12;
-    private TextParsingSettings csvSettings13;
+    private TextParsingMode csvSettings18;
+    private String csvSettings19;
+    private TextParsingSettings csvSettings20;
     private List<CartesianSeriesHilo> setHilo = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(View data26, TextParsingMode csvSettings12) {
+    public CartesianSeriesHilo hilo(View data26, TextParsingMode csvSettings18) {
         this.data26 = data26;
-        this.csvSettings12 = csvSettings12;
+        this.csvSettings18 = csvSettings18;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo" + variableIndex);
@@ -2077,19 +2819,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesHilo> setHilo1 = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(View data26, TextParsingSettings csvSettings13) {
+    public CartesianSeriesHilo hilo(View data26, String csvSettings19) {
         this.data26 = data26;
-        this.csvSettings13 = csvSettings13;
+        this.csvSettings19 = csvSettings19;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo1" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo1" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", csvSettings19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", csvSettings19));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo1" + variableIndex);
@@ -2109,19 +2851,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesHilo> setHilo2 = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(Set data27, TextParsingMode csvSettings12) {
-        this.data27 = data27;
-        this.csvSettings12 = csvSettings12;
+    public CartesianSeriesHilo hilo(View data26, TextParsingSettings csvSettings20) {
+        this.data26 = data26;
+        this.csvSettings20 = csvSettings20;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo2" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo2" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data26 != null) ? data26.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data26 != null) ? data26.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo2" + variableIndex);
@@ -2141,19 +2883,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesHilo> setHilo3 = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(Set data27, TextParsingSettings csvSettings13) {
+    public CartesianSeriesHilo hilo(Set data27, TextParsingMode csvSettings18) {
         this.data27 = data27;
-        this.csvSettings13 = csvSettings13;
+        this.csvSettings18 = csvSettings18;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo3" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo3" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo3" + variableIndex);
@@ -2173,19 +2915,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesHilo> setHilo4 = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(String[] data28, TextParsingMode csvSettings12) {
-        this.data28 = data28;
-        this.csvSettings12 = csvSettings12;
+    public CartesianSeriesHilo hilo(Set data27, String csvSettings19) {
+        this.data27 = data27;
+        this.csvSettings19 = csvSettings19;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo4" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo4" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", csvSettings19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", csvSettings19));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo4" + variableIndex);
@@ -2205,19 +2947,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesHilo> setHilo5 = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(String[] data28, TextParsingSettings csvSettings13) {
-        this.data28 = data28;
-        this.csvSettings13 = csvSettings13;
+    public CartesianSeriesHilo hilo(Set data27, TextParsingSettings csvSettings20) {
+        this.data27 = data27;
+        this.csvSettings20 = csvSettings20;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo5" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo5" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", (data27 != null) ? data27.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", (data27 != null) ? data27.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo5" + variableIndex);
@@ -2237,19 +2979,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesHilo> setHilo6 = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(String data29, TextParsingMode csvSettings12) {
-        this.data29 = data29;
-        this.csvSettings12 = csvSettings12;
+    public CartesianSeriesHilo hilo(String[] data28, TextParsingMode csvSettings18) {
+        this.data28 = data28;
+        this.csvSettings18 = csvSettings18;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo6" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo6" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo6" + variableIndex);
@@ -2269,19 +3011,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesHilo> setHilo7 = new ArrayList<>();
 
-    public CartesianSeriesHilo hilo(String data29, TextParsingSettings csvSettings13) {
-        this.data29 = data29;
-        this.csvSettings13 = csvSettings13;
+    public CartesianSeriesHilo hilo(String[] data28, String csvSettings19) {
+        this.data28 = data28;
+        this.csvSettings19 = csvSettings19;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setHilo7" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setHilo7" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), csvSettings19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), csvSettings19));
             js.setLength(0);
         }
         CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo7" + variableIndex);
@@ -2299,6 +3041,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesHilo> setHilo8 = new ArrayList<>();
+
+    public CartesianSeriesHilo hilo(String[] data28, TextParsingSettings csvSettings20) {
+        this.data28 = data28;
+        this.csvSettings20 = csvSettings20;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setHilo8" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", Arrays.toString(data28), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", Arrays.toString(data28), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo8" + variableIndex);
+        setHilo8.add(item);
+        return item;
+    }
+    private String generateJSsetHilo8() {
+        if (!setHilo8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesHilo item : setHilo8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesHilo> setHilo9 = new ArrayList<>();
+
+    public CartesianSeriesHilo hilo(String data29, TextParsingMode csvSettings18) {
+        this.data29 = data29;
+        this.csvSettings18 = csvSettings18;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setHilo9" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo9" + variableIndex);
+        setHilo9.add(item);
+        return item;
+    }
+    private String generateJSsetHilo9() {
+        if (!setHilo9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesHilo item : setHilo9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesHilo> setHilo10 = new ArrayList<>();
+
+    public CartesianSeriesHilo hilo(String data29, String csvSettings19) {
+        this.data29 = data29;
+        this.csvSettings19 = csvSettings19;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setHilo10" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, csvSettings19));
+
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, csvSettings19));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, csvSettings19));
+            js.setLength(0);
+        }
+        CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo10" + variableIndex);
+        setHilo10.add(item);
+        return item;
+    }
+    private String generateJSsetHilo10() {
+        if (!setHilo10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesHilo item : setHilo10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesHilo> setHilo11 = new ArrayList<>();
+
+    public CartesianSeriesHilo hilo(String data29, TextParsingSettings csvSettings20) {
+        this.data29 = data29;
+        this.csvSettings20 = csvSettings20;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setHilo11" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s);", data29, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".hilo(%s, %s);", data29, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s)", data29, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo11" + variableIndex);
+        setHilo11.add(item);
+        return item;
+    }
+    private String generateJSsetHilo11() {
+        if (!setHilo11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesHilo item : setHilo11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -2307,7 +3178,6 @@ public class Cartesian extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<Cartesian> setHovered = new ArrayList<>();
 
@@ -2372,23 +3242,24 @@ public class Cartesian extends SeparateChart {
     private Set data31;
     private String[] data32;
     private String data33;
-    private TextParsingMode csvSettings14;
-    private TextParsingSettings csvSettings15;
+    private TextParsingMode csvSettings21;
+    private String csvSettings22;
+    private TextParsingSettings csvSettings23;
     private List<CartesianSeriesJumpLine> setJumpLine = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(View data30, TextParsingMode csvSettings14) {
+    public CartesianSeriesJumpLine jumpLine(View data30, TextParsingMode csvSettings21) {
         this.data30 = data30;
-        this.csvSettings14 = csvSettings14;
+        this.csvSettings21 = csvSettings21;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine" + variableIndex);
@@ -2408,19 +3279,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesJumpLine> setJumpLine1 = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(View data30, TextParsingSettings csvSettings15) {
+    public CartesianSeriesJumpLine jumpLine(View data30, String csvSettings22) {
         this.data30 = data30;
-        this.csvSettings15 = csvSettings15;
+        this.csvSettings22 = csvSettings22;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine1" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine1" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", csvSettings22));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", csvSettings22));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", csvSettings22));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine1" + variableIndex);
@@ -2440,19 +3311,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesJumpLine> setJumpLine2 = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(Set data31, TextParsingMode csvSettings14) {
-        this.data31 = data31;
-        this.csvSettings14 = csvSettings14;
+    public CartesianSeriesJumpLine jumpLine(View data30, TextParsingSettings csvSettings23) {
+        this.data30 = data30;
+        this.csvSettings23 = csvSettings23;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine2" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine2" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data30 != null) ? data30.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data30 != null) ? data30.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine2" + variableIndex);
@@ -2472,19 +3343,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesJumpLine> setJumpLine3 = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(Set data31, TextParsingSettings csvSettings15) {
+    public CartesianSeriesJumpLine jumpLine(Set data31, TextParsingMode csvSettings21) {
         this.data31 = data31;
-        this.csvSettings15 = csvSettings15;
+        this.csvSettings21 = csvSettings21;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine3" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine3" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine3" + variableIndex);
@@ -2504,19 +3375,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesJumpLine> setJumpLine4 = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(String[] data32, TextParsingMode csvSettings14) {
-        this.data32 = data32;
-        this.csvSettings14 = csvSettings14;
+    public CartesianSeriesJumpLine jumpLine(Set data31, String csvSettings22) {
+        this.data31 = data31;
+        this.csvSettings22 = csvSettings22;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine4" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine4" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", csvSettings22));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", csvSettings22));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", csvSettings22));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine4" + variableIndex);
@@ -2536,19 +3407,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesJumpLine> setJumpLine5 = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(String[] data32, TextParsingSettings csvSettings15) {
-        this.data32 = data32;
-        this.csvSettings15 = csvSettings15;
+    public CartesianSeriesJumpLine jumpLine(Set data31, TextParsingSettings csvSettings23) {
+        this.data31 = data31;
+        this.csvSettings23 = csvSettings23;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine5" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine5" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", (data31 != null) ? data31.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", (data31 != null) ? data31.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine5" + variableIndex);
@@ -2568,19 +3439,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesJumpLine> setJumpLine6 = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(String data33, TextParsingMode csvSettings14) {
-        this.data33 = data33;
-        this.csvSettings14 = csvSettings14;
+    public CartesianSeriesJumpLine jumpLine(String[] data32, TextParsingMode csvSettings21) {
+        this.data32 = data32;
+        this.csvSettings21 = csvSettings21;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine6" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine6" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine6" + variableIndex);
@@ -2600,19 +3471,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesJumpLine> setJumpLine7 = new ArrayList<>();
 
-    public CartesianSeriesJumpLine jumpLine(String data33, TextParsingSettings csvSettings15) {
-        this.data33 = data33;
-        this.csvSettings15 = csvSettings15;
+    public CartesianSeriesJumpLine jumpLine(String[] data32, String csvSettings22) {
+        this.data32 = data32;
+        this.csvSettings22 = csvSettings22;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setJumpLine7" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setJumpLine7" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), csvSettings22));
 
-//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), csvSettings22));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), csvSettings22));
             js.setLength(0);
         }
         CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine7" + variableIndex);
@@ -2630,6 +3501,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesJumpLine> setJumpLine8 = new ArrayList<>();
+
+    public CartesianSeriesJumpLine jumpLine(String[] data32, TextParsingSettings csvSettings23) {
+        this.data32 = data32;
+        this.csvSettings23 = csvSettings23;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setJumpLine8" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", Arrays.toString(data32), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", Arrays.toString(data32), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine8" + variableIndex);
+        setJumpLine8.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine8() {
+        if (!setJumpLine8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesJumpLine item : setJumpLine8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesJumpLine> setJumpLine9 = new ArrayList<>();
+
+    public CartesianSeriesJumpLine jumpLine(String data33, TextParsingMode csvSettings21) {
+        this.data33 = data33;
+        this.csvSettings21 = csvSettings21;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setJumpLine9" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine9" + variableIndex);
+        setJumpLine9.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine9() {
+        if (!setJumpLine9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesJumpLine item : setJumpLine9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesJumpLine> setJumpLine10 = new ArrayList<>();
+
+    public CartesianSeriesJumpLine jumpLine(String data33, String csvSettings22) {
+        this.data33 = data33;
+        this.csvSettings22 = csvSettings22;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setJumpLine10" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, csvSettings22));
+
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, csvSettings22));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, csvSettings22));
+            js.setLength(0);
+        }
+        CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine10" + variableIndex);
+        setJumpLine10.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine10() {
+        if (!setJumpLine10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesJumpLine item : setJumpLine10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesJumpLine> setJumpLine11 = new ArrayList<>();
+
+    public CartesianSeriesJumpLine jumpLine(String data33, TextParsingSettings csvSettings23) {
+        this.data33 = data33;
+        this.csvSettings23 = csvSettings23;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setJumpLine11" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s);", data33, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".jumpLine(%s, %s);", data33, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s)", data33, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine11" + variableIndex);
+        setJumpLine11.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine11() {
+        if (!setJumpLine11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesJumpLine item : setJumpLine11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -2638,7 +3638,6 @@ public class Cartesian extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<Cartesian> setLabels = new ArrayList<>();
@@ -2703,23 +3702,24 @@ public class Cartesian extends SeparateChart {
     private Set data35;
     private String[] data36;
     private String data37;
-    private TextParsingMode csvSettings16;
-    private TextParsingSettings csvSettings17;
+    private TextParsingMode csvSettings24;
+    private String csvSettings25;
+    private TextParsingSettings csvSettings26;
     private List<CartesianSeriesLine> setLine = new ArrayList<>();
 
-    public CartesianSeriesLine line(View data34, TextParsingMode csvSettings16) {
+    public CartesianSeriesLine line(View data34, TextParsingMode csvSettings24) {
         this.data34 = data34;
-        this.csvSettings16 = csvSettings16;
+        this.csvSettings24 = csvSettings24;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine" + variableIndex);
@@ -2739,19 +3739,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesLine> setLine1 = new ArrayList<>();
 
-    public CartesianSeriesLine line(View data34, TextParsingSettings csvSettings17) {
+    public CartesianSeriesLine line(View data34, String csvSettings25) {
         this.data34 = data34;
-        this.csvSettings17 = csvSettings17;
+        this.csvSettings25 = csvSettings25;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", csvSettings25));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", csvSettings25));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", csvSettings25));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine1" + variableIndex);
@@ -2771,19 +3771,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesLine> setLine2 = new ArrayList<>();
 
-    public CartesianSeriesLine line(Set data35, TextParsingMode csvSettings16) {
-        this.data35 = data35;
-        this.csvSettings16 = csvSettings16;
+    public CartesianSeriesLine line(View data34, TextParsingSettings csvSettings26) {
+        this.data34 = data34;
+        this.csvSettings26 = csvSettings26;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data34 != null) ? data34.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data34 != null) ? data34.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine2" + variableIndex);
@@ -2803,19 +3803,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesLine> setLine3 = new ArrayList<>();
 
-    public CartesianSeriesLine line(Set data35, TextParsingSettings csvSettings17) {
+    public CartesianSeriesLine line(Set data35, TextParsingMode csvSettings24) {
         this.data35 = data35;
-        this.csvSettings17 = csvSettings17;
+        this.csvSettings24 = csvSettings24;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine3" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine3" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine3" + variableIndex);
@@ -2835,19 +3835,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesLine> setLine4 = new ArrayList<>();
 
-    public CartesianSeriesLine line(String[] data36, TextParsingMode csvSettings16) {
-        this.data36 = data36;
-        this.csvSettings16 = csvSettings16;
+    public CartesianSeriesLine line(Set data35, String csvSettings25) {
+        this.data35 = data35;
+        this.csvSettings25 = csvSettings25;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", csvSettings25));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", csvSettings25));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", csvSettings25));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine4" + variableIndex);
@@ -2867,19 +3867,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesLine> setLine5 = new ArrayList<>();
 
-    public CartesianSeriesLine line(String[] data36, TextParsingSettings csvSettings17) {
-        this.data36 = data36;
-        this.csvSettings17 = csvSettings17;
+    public CartesianSeriesLine line(Set data35, TextParsingSettings csvSettings26) {
+        this.data35 = data35;
+        this.csvSettings26 = csvSettings26;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data35 != null) ? data35.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data35 != null) ? data35.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine5" + variableIndex);
@@ -2899,19 +3899,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesLine> setLine6 = new ArrayList<>();
 
-    public CartesianSeriesLine line(String data37, TextParsingMode csvSettings16) {
-        this.data37 = data37;
-        this.csvSettings16 = csvSettings16;
+    public CartesianSeriesLine line(String[] data36, TextParsingMode csvSettings24) {
+        this.data36 = data36;
+        this.csvSettings24 = csvSettings24;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, (csvSettings16 != null) ? csvSettings16.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine6" + variableIndex);
@@ -2931,19 +3931,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesLine> setLine7 = new ArrayList<>();
 
-    public CartesianSeriesLine line(String data37, TextParsingSettings csvSettings17) {
-        this.data37 = data37;
-        this.csvSettings17 = csvSettings17;
+    public CartesianSeriesLine line(String[] data36, String csvSettings25) {
+        this.data36 = data36;
+        this.csvSettings25 = csvSettings25;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), csvSettings25));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), csvSettings25));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), csvSettings25));
             js.setLength(0);
         }
         CartesianSeriesLine item = new CartesianSeriesLine("setLine7" + variableIndex);
@@ -2961,6 +3961,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesLine> setLine8 = new ArrayList<>();
+
+    public CartesianSeriesLine line(String[] data36, TextParsingSettings csvSettings26) {
+        this.data36 = data36;
+        this.csvSettings26 = csvSettings26;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine8" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data36), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data36), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesLine item = new CartesianSeriesLine("setLine8" + variableIndex);
+        setLine8.add(item);
+        return item;
+    }
+    private String generateJSsetLine8() {
+        if (!setLine8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesLine item : setLine8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesLine> setLine9 = new ArrayList<>();
+
+    public CartesianSeriesLine line(String data37, TextParsingMode csvSettings24) {
+        this.data37 = data37;
+        this.csvSettings24 = csvSettings24;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine9" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesLine item = new CartesianSeriesLine("setLine9" + variableIndex);
+        setLine9.add(item);
+        return item;
+    }
+    private String generateJSsetLine9() {
+        if (!setLine9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesLine item : setLine9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesLine> setLine10 = new ArrayList<>();
+
+    public CartesianSeriesLine line(String data37, String csvSettings25) {
+        this.data37 = data37;
+        this.csvSettings25 = csvSettings25;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine10" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, csvSettings25));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, csvSettings25));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, csvSettings25));
+            js.setLength(0);
+        }
+        CartesianSeriesLine item = new CartesianSeriesLine("setLine10" + variableIndex);
+        setLine10.add(item);
+        return item;
+    }
+    private String generateJSsetLine10() {
+        if (!setLine10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesLine item : setLine10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesLine> setLine11 = new ArrayList<>();
+
+    public CartesianSeriesLine line(String data37, TextParsingSettings csvSettings26) {
+        this.data37 = data37;
+        this.csvSettings26 = csvSettings26;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine11" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data37, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data37, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data37, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesLine item = new CartesianSeriesLine("setLine11" + variableIndex);
+        setLine11.add(item);
+        return item;
+    }
+    private String generateJSsetLine11() {
+        if (!setLine11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesLine item : setLine11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private CoreAxismarkersLine getLineMarker;
 
     public CoreAxismarkersLine getLineMarker() {
@@ -2970,15 +4099,13 @@ public class Cartesian extends SeparateChart {
         return getLineMarker;
     }
 
-    private CoreAxismarkersLine getLineMarker1;
+    private List<CoreAxismarkersLine> getLineMarker1 = new ArrayList<>();
 
     public CoreAxismarkersLine getLineMarker(Double index1) {
-        if (getLineMarker1 == null)
-            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
-
-        return getLineMarker1;
+        CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
+        getLineMarker1.add(item);
+        return item;
     }
-
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Cartesian> setLineMarker = new ArrayList<>();
@@ -3106,23 +4233,24 @@ public class Cartesian extends SeparateChart {
     private Set data39;
     private String[] data40;
     private String data41;
-    private TextParsingMode csvSettings18;
-    private TextParsingSettings csvSettings19;
+    private TextParsingMode csvSettings27;
+    private String csvSettings28;
+    private TextParsingSettings csvSettings29;
     private List<CartesianSeriesMarker> setMarker = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(View data38, TextParsingMode csvSettings18) {
+    public CartesianSeriesMarker marker(View data38, TextParsingMode csvSettings27) {
         this.data38 = data38;
-        this.csvSettings18 = csvSettings18;
+        this.csvSettings27 = csvSettings27;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker" + variableIndex);
@@ -3142,19 +4270,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesMarker> setMarker1 = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(View data38, TextParsingSettings csvSettings19) {
+    public CartesianSeriesMarker marker(View data38, String csvSettings28) {
         this.data38 = data38;
-        this.csvSettings19 = csvSettings19;
+        this.csvSettings28 = csvSettings28;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", csvSettings28));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", csvSettings28));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", csvSettings28));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker1" + variableIndex);
@@ -3174,19 +4302,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesMarker> setMarker2 = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(Set data39, TextParsingMode csvSettings18) {
-        this.data39 = data39;
-        this.csvSettings18 = csvSettings18;
+    public CartesianSeriesMarker marker(View data38, TextParsingSettings csvSettings29) {
+        this.data38 = data38;
+        this.csvSettings29 = csvSettings29;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data38 != null) ? data38.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data38 != null) ? data38.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker2" + variableIndex);
@@ -3206,19 +4334,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesMarker> setMarker3 = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(Set data39, TextParsingSettings csvSettings19) {
+    public CartesianSeriesMarker marker(Set data39, TextParsingMode csvSettings27) {
         this.data39 = data39;
-        this.csvSettings19 = csvSettings19;
+        this.csvSettings27 = csvSettings27;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker3" + variableIndex);
@@ -3238,19 +4366,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesMarker> setMarker4 = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(String[] data40, TextParsingMode csvSettings18) {
-        this.data40 = data40;
-        this.csvSettings18 = csvSettings18;
+    public CartesianSeriesMarker marker(Set data39, String csvSettings28) {
+        this.data39 = data39;
+        this.csvSettings28 = csvSettings28;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", csvSettings28));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", csvSettings28));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", csvSettings28));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker4" + variableIndex);
@@ -3270,19 +4398,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesMarker> setMarker5 = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(String[] data40, TextParsingSettings csvSettings19) {
-        this.data40 = data40;
-        this.csvSettings19 = csvSettings19;
+    public CartesianSeriesMarker marker(Set data39, TextParsingSettings csvSettings29) {
+        this.data39 = data39;
+        this.csvSettings29 = csvSettings29;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data39 != null) ? data39.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data39 != null) ? data39.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker5" + variableIndex);
@@ -3302,19 +4430,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesMarker> setMarker6 = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(String data41, TextParsingMode csvSettings18) {
-        this.data41 = data41;
-        this.csvSettings18 = csvSettings18;
+    public CartesianSeriesMarker marker(String[] data40, TextParsingMode csvSettings27) {
+        this.data40 = data40;
+        this.csvSettings27 = csvSettings27;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker6" + variableIndex);
@@ -3334,19 +4462,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesMarker> setMarker7 = new ArrayList<>();
 
-    public CartesianSeriesMarker marker(String data41, TextParsingSettings csvSettings19) {
-        this.data41 = data41;
-        this.csvSettings19 = csvSettings19;
+    public CartesianSeriesMarker marker(String[] data40, String csvSettings28) {
+        this.data40 = data40;
+        this.csvSettings28 = csvSettings28;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), csvSettings28));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), csvSettings28));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, (csvSettings19 != null) ? csvSettings19.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), csvSettings28));
             js.setLength(0);
         }
         CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker7" + variableIndex);
@@ -3364,6 +4492,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesMarker> setMarker8 = new ArrayList<>();
+
+    public CartesianSeriesMarker marker(String[] data40, TextParsingSettings csvSettings29) {
+        this.data40 = data40;
+        this.csvSettings29 = csvSettings29;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data40), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data40), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker8" + variableIndex);
+        setMarker8.add(item);
+        return item;
+    }
+    private String generateJSsetMarker8() {
+        if (!setMarker8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setMarker8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesMarker> setMarker9 = new ArrayList<>();
+
+    public CartesianSeriesMarker marker(String data41, TextParsingMode csvSettings27) {
+        this.data41 = data41;
+        this.csvSettings27 = csvSettings27;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker9" + variableIndex);
+        setMarker9.add(item);
+        return item;
+    }
+    private String generateJSsetMarker9() {
+        if (!setMarker9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setMarker9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesMarker> setMarker10 = new ArrayList<>();
+
+    public CartesianSeriesMarker marker(String data41, String csvSettings28) {
+        this.data41 = data41;
+        this.csvSettings28 = csvSettings28;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, csvSettings28));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, csvSettings28));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, csvSettings28));
+            js.setLength(0);
+        }
+        CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker10" + variableIndex);
+        setMarker10.add(item);
+        return item;
+    }
+    private String generateJSsetMarker10() {
+        if (!setMarker10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setMarker10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesMarker> setMarker11 = new ArrayList<>();
+
+    public CartesianSeriesMarker marker(String data41, TextParsingSettings csvSettings29) {
+        this.data41 = data41;
+        this.csvSettings29 = csvSettings29;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data41, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data41, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data41, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker11" + variableIndex);
+        setMarker11.add(item);
+        return item;
+    }
+    private String generateJSsetMarker11() {
+        if (!setMarker11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setMarker11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -3372,10 +4629,10 @@ public class Cartesian extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<Cartesian> setMarkerPalette = new ArrayList<>();
 
     public Cartesian setMarkerPalette(Markers markerPalette) {
@@ -3456,6 +4713,35 @@ public class Cartesian extends SeparateChart {
         if (!setMarkerPalette2.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Cartesian item : setMarkerPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian> setMarkerPalette3 = new ArrayList<>();
+
+    public Cartesian setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian item : setMarkerPalette3) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -3703,6 +4989,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -3711,7 +4998,6 @@ public class Cartesian extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<Cartesian> setNormal = new ArrayList<>();
 
@@ -3746,23 +5032,24 @@ public class Cartesian extends SeparateChart {
     private Set data43;
     private String[] data44;
     private String data45;
-    private TextParsingMode csvSettings20;
-    private TextParsingSettings csvSettings21;
+    private TextParsingMode csvSettings30;
+    private String csvSettings31;
+    private TextParsingSettings csvSettings32;
     private List<CartesianSeriesOHLC> setOhlc = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(View data42, TextParsingMode csvSettings20) {
+    public CartesianSeriesOHLC ohlc(View data42, TextParsingMode csvSettings30) {
         this.data42 = data42;
-        this.csvSettings20 = csvSettings20;
+        this.csvSettings30 = csvSettings30;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc" + variableIndex);
@@ -3782,19 +5069,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesOHLC> setOhlc1 = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(View data42, TextParsingSettings csvSettings21) {
+    public CartesianSeriesOHLC ohlc(View data42, String csvSettings31) {
         this.data42 = data42;
-        this.csvSettings21 = csvSettings21;
+        this.csvSettings31 = csvSettings31;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc1" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc1" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", csvSettings31));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", csvSettings31));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", csvSettings31));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc1" + variableIndex);
@@ -3814,19 +5101,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesOHLC> setOhlc2 = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(Set data43, TextParsingMode csvSettings20) {
-        this.data43 = data43;
-        this.csvSettings20 = csvSettings20;
+    public CartesianSeriesOHLC ohlc(View data42, TextParsingSettings csvSettings32) {
+        this.data42 = data42;
+        this.csvSettings32 = csvSettings32;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc2" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc2" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data42 != null) ? data42.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data42 != null) ? data42.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc2" + variableIndex);
@@ -3846,19 +5133,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesOHLC> setOhlc3 = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(Set data43, TextParsingSettings csvSettings21) {
+    public CartesianSeriesOHLC ohlc(Set data43, TextParsingMode csvSettings30) {
         this.data43 = data43;
-        this.csvSettings21 = csvSettings21;
+        this.csvSettings30 = csvSettings30;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc3" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc3" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc3" + variableIndex);
@@ -3878,19 +5165,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesOHLC> setOhlc4 = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(String[] data44, TextParsingMode csvSettings20) {
-        this.data44 = data44;
-        this.csvSettings20 = csvSettings20;
+    public CartesianSeriesOHLC ohlc(Set data43, String csvSettings31) {
+        this.data43 = data43;
+        this.csvSettings31 = csvSettings31;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc4" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc4" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", csvSettings31));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", csvSettings31));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", csvSettings31));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc4" + variableIndex);
@@ -3910,19 +5197,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesOHLC> setOhlc5 = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(String[] data44, TextParsingSettings csvSettings21) {
-        this.data44 = data44;
-        this.csvSettings21 = csvSettings21;
+    public CartesianSeriesOHLC ohlc(Set data43, TextParsingSettings csvSettings32) {
+        this.data43 = data43;
+        this.csvSettings32 = csvSettings32;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc5" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc5" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", (data43 != null) ? data43.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", (data43 != null) ? data43.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc5" + variableIndex);
@@ -3942,19 +5229,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesOHLC> setOhlc6 = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(String data45, TextParsingMode csvSettings20) {
-        this.data45 = data45;
-        this.csvSettings20 = csvSettings20;
+    public CartesianSeriesOHLC ohlc(String[] data44, TextParsingMode csvSettings30) {
+        this.data44 = data44;
+        this.csvSettings30 = csvSettings30;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc6" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc6" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc6" + variableIndex);
@@ -3974,19 +5261,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesOHLC> setOhlc7 = new ArrayList<>();
 
-    public CartesianSeriesOHLC ohlc(String data45, TextParsingSettings csvSettings21) {
-        this.data45 = data45;
-        this.csvSettings21 = csvSettings21;
+    public CartesianSeriesOHLC ohlc(String[] data44, String csvSettings31) {
+        this.data44 = data44;
+        this.csvSettings31 = csvSettings31;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setOhlc7" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setOhlc7" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), csvSettings31));
 
-//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), csvSettings31));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, (csvSettings21 != null) ? csvSettings21.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), csvSettings31));
             js.setLength(0);
         }
         CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc7" + variableIndex);
@@ -4004,6 +5291,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesOHLC> setOhlc8 = new ArrayList<>();
+
+    public CartesianSeriesOHLC ohlc(String[] data44, TextParsingSettings csvSettings32) {
+        this.data44 = data44;
+        this.csvSettings32 = csvSettings32;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setOhlc8" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", Arrays.toString(data44), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", Arrays.toString(data44), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc8" + variableIndex);
+        setOhlc8.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc8() {
+        if (!setOhlc8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesOHLC item : setOhlc8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesOHLC> setOhlc9 = new ArrayList<>();
+
+    public CartesianSeriesOHLC ohlc(String data45, TextParsingMode csvSettings30) {
+        this.data45 = data45;
+        this.csvSettings30 = csvSettings30;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setOhlc9" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc9" + variableIndex);
+        setOhlc9.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc9() {
+        if (!setOhlc9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesOHLC item : setOhlc9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesOHLC> setOhlc10 = new ArrayList<>();
+
+    public CartesianSeriesOHLC ohlc(String data45, String csvSettings31) {
+        this.data45 = data45;
+        this.csvSettings31 = csvSettings31;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setOhlc10" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, csvSettings31));
+
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, csvSettings31));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, csvSettings31));
+            js.setLength(0);
+        }
+        CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc10" + variableIndex);
+        setOhlc10.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc10() {
+        if (!setOhlc10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesOHLC item : setOhlc10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesOHLC> setOhlc11 = new ArrayList<>();
+
+    public CartesianSeriesOHLC ohlc(String data45, TextParsingSettings csvSettings32) {
+        this.data45 = data45;
+        this.csvSettings32 = csvSettings32;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setOhlc11" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s);", data45, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".ohlc(%s, %s);", data45, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s)", data45, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc11" + variableIndex);
+        setOhlc11.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc11() {
+        if (!setOhlc11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesOHLC item : setOhlc11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -4012,7 +5428,6 @@ public class Cartesian extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -4197,23 +5612,24 @@ public class Cartesian extends SeparateChart {
     private Set data47;
     private String[] data48;
     private String data49;
-    private TextParsingMode csvSettings22;
-    private TextParsingSettings csvSettings23;
+    private TextParsingMode csvSettings33;
+    private String csvSettings34;
+    private TextParsingSettings csvSettings35;
     private List<CartesianSeriesRangeArea> setRangeArea = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(View data46, TextParsingMode csvSettings22) {
+    public CartesianSeriesRangeArea rangeArea(View data46, TextParsingMode csvSettings33) {
         this.data46 = data46;
-        this.csvSettings22 = csvSettings22;
+        this.csvSettings33 = csvSettings33;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea" + variableIndex);
@@ -4233,19 +5649,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeArea> setRangeArea1 = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(View data46, TextParsingSettings csvSettings23) {
+    public CartesianSeriesRangeArea rangeArea(View data46, String csvSettings34) {
         this.data46 = data46;
-        this.csvSettings23 = csvSettings23;
+        this.csvSettings34 = csvSettings34;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea1" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea1" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", csvSettings34));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", csvSettings34));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", csvSettings34));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea1" + variableIndex);
@@ -4265,19 +5681,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeArea> setRangeArea2 = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(Set data47, TextParsingMode csvSettings22) {
-        this.data47 = data47;
-        this.csvSettings22 = csvSettings22;
+    public CartesianSeriesRangeArea rangeArea(View data46, TextParsingSettings csvSettings35) {
+        this.data46 = data46;
+        this.csvSettings35 = csvSettings35;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea2" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea2" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data46 != null) ? data46.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data46 != null) ? data46.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea2" + variableIndex);
@@ -4297,19 +5713,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeArea> setRangeArea3 = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(Set data47, TextParsingSettings csvSettings23) {
+    public CartesianSeriesRangeArea rangeArea(Set data47, TextParsingMode csvSettings33) {
         this.data47 = data47;
-        this.csvSettings23 = csvSettings23;
+        this.csvSettings33 = csvSettings33;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea3" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea3" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea3" + variableIndex);
@@ -4329,19 +5745,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeArea> setRangeArea4 = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(String[] data48, TextParsingMode csvSettings22) {
-        this.data48 = data48;
-        this.csvSettings22 = csvSettings22;
+    public CartesianSeriesRangeArea rangeArea(Set data47, String csvSettings34) {
+        this.data47 = data47;
+        this.csvSettings34 = csvSettings34;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea4" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea4" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", csvSettings34));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", csvSettings34));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", csvSettings34));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea4" + variableIndex);
@@ -4361,19 +5777,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeArea> setRangeArea5 = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(String[] data48, TextParsingSettings csvSettings23) {
-        this.data48 = data48;
-        this.csvSettings23 = csvSettings23;
+    public CartesianSeriesRangeArea rangeArea(Set data47, TextParsingSettings csvSettings35) {
+        this.data47 = data47;
+        this.csvSettings35 = csvSettings35;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea5" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea5" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", (data47 != null) ? data47.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", (data47 != null) ? data47.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea5" + variableIndex);
@@ -4393,19 +5809,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeArea> setRangeArea6 = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(String data49, TextParsingMode csvSettings22) {
-        this.data49 = data49;
-        this.csvSettings22 = csvSettings22;
+    public CartesianSeriesRangeArea rangeArea(String[] data48, TextParsingMode csvSettings33) {
+        this.data48 = data48;
+        this.csvSettings33 = csvSettings33;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea6" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea6" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, (csvSettings22 != null) ? csvSettings22.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea6" + variableIndex);
@@ -4425,19 +5841,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeArea> setRangeArea7 = new ArrayList<>();
 
-    public CartesianSeriesRangeArea rangeArea(String data49, TextParsingSettings csvSettings23) {
-        this.data49 = data49;
-        this.csvSettings23 = csvSettings23;
+    public CartesianSeriesRangeArea rangeArea(String[] data48, String csvSettings34) {
+        this.data48 = data48;
+        this.csvSettings34 = csvSettings34;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeArea7" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea7" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), csvSettings34));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), csvSettings34));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, (csvSettings23 != null) ? csvSettings23.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), csvSettings34));
             js.setLength(0);
         }
         CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea7" + variableIndex);
@@ -4455,27 +5871,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data50;
-    private Set data51;
-    private String[] data52;
-    private String data53;
-    private TextParsingMode csvSettings24;
-    private TextParsingSettings csvSettings25;
-    private List<SeriesRangeBar> setRangeBar = new ArrayList<>();
+    private List<CartesianSeriesRangeArea> setRangeArea8 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(View data50, TextParsingMode csvSettings24) {
-        this.data50 = data50;
-        this.csvSettings24 = csvSettings24;
+    public CartesianSeriesRangeArea rangeArea(String[] data48, TextParsingSettings csvSettings35) {
+        this.data48 = data48;
+        this.csvSettings35 = csvSettings35;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeArea8" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", Arrays.toString(data48), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", Arrays.toString(data48), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea8" + variableIndex);
+        setRangeArea8.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea8() {
+        if (!setRangeArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeArea item : setRangeArea8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeArea> setRangeArea9 = new ArrayList<>();
+
+    public CartesianSeriesRangeArea rangeArea(String data49, TextParsingMode csvSettings33) {
+        this.data49 = data49;
+        this.csvSettings33 = csvSettings33;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeArea9" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea9" + variableIndex);
+        setRangeArea9.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea9() {
+        if (!setRangeArea9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeArea item : setRangeArea9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeArea> setRangeArea10 = new ArrayList<>();
+
+    public CartesianSeriesRangeArea rangeArea(String data49, String csvSettings34) {
+        this.data49 = data49;
+        this.csvSettings34 = csvSettings34;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeArea10" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, csvSettings34));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, csvSettings34));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, csvSettings34));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea10" + variableIndex);
+        setRangeArea10.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea10() {
+        if (!setRangeArea10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeArea item : setRangeArea10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeArea> setRangeArea11 = new ArrayList<>();
+
+    public CartesianSeriesRangeArea rangeArea(String data49, TextParsingSettings csvSettings35) {
+        this.data49 = data49;
+        this.csvSettings35 = csvSettings35;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeArea11" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s);", data49, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeArea(%s, %s);", data49, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", data49, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea11" + variableIndex);
+        setRangeArea11.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea11() {
+        if (!setRangeArea11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeArea item : setRangeArea11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data50;
+    private Set data51;
+    private String[] data52;
+    private String data53;
+    private TextParsingMode csvSettings36;
+    private String csvSettings37;
+    private TextParsingSettings csvSettings38;
+    private List<SeriesRangeBar> setRangeBar = new ArrayList<>();
+
+    public SeriesRangeBar rangeBar(View data50, TextParsingMode csvSettings36) {
+        this.data50 = data50;
+        this.csvSettings36 = csvSettings36;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeBar" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar" + variableIndex);
@@ -4495,19 +6040,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesRangeBar> setRangeBar1 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(View data50, TextParsingSettings csvSettings25) {
+    public SeriesRangeBar rangeBar(View data50, String csvSettings37) {
         this.data50 = data50;
-        this.csvSettings25 = csvSettings25;
+        this.csvSettings37 = csvSettings37;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar1" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar1" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", csvSettings37));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", csvSettings37));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", csvSettings37));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar1" + variableIndex);
@@ -4527,19 +6072,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesRangeBar> setRangeBar2 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(Set data51, TextParsingMode csvSettings24) {
-        this.data51 = data51;
-        this.csvSettings24 = csvSettings24;
+    public SeriesRangeBar rangeBar(View data50, TextParsingSettings csvSettings38) {
+        this.data50 = data50;
+        this.csvSettings38 = csvSettings38;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar2" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar2" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data50 != null) ? data50.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data50 != null) ? data50.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar2" + variableIndex);
@@ -4559,19 +6104,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesRangeBar> setRangeBar3 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(Set data51, TextParsingSettings csvSettings25) {
+    public SeriesRangeBar rangeBar(Set data51, TextParsingMode csvSettings36) {
         this.data51 = data51;
-        this.csvSettings25 = csvSettings25;
+        this.csvSettings36 = csvSettings36;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar3" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar3" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar3" + variableIndex);
@@ -4591,19 +6136,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesRangeBar> setRangeBar4 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(String[] data52, TextParsingMode csvSettings24) {
-        this.data52 = data52;
-        this.csvSettings24 = csvSettings24;
+    public SeriesRangeBar rangeBar(Set data51, String csvSettings37) {
+        this.data51 = data51;
+        this.csvSettings37 = csvSettings37;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar4" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar4" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", csvSettings37));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", csvSettings37));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", csvSettings37));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar4" + variableIndex);
@@ -4623,19 +6168,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesRangeBar> setRangeBar5 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(String[] data52, TextParsingSettings csvSettings25) {
-        this.data52 = data52;
-        this.csvSettings25 = csvSettings25;
+    public SeriesRangeBar rangeBar(Set data51, TextParsingSettings csvSettings38) {
+        this.data51 = data51;
+        this.csvSettings38 = csvSettings38;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar5" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar5" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", (data51 != null) ? data51.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data51 != null) ? data51.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar5" + variableIndex);
@@ -4655,19 +6200,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesRangeBar> setRangeBar6 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(String data53, TextParsingMode csvSettings24) {
-        this.data53 = data53;
-        this.csvSettings24 = csvSettings24;
+    public SeriesRangeBar rangeBar(String[] data52, TextParsingMode csvSettings36) {
+        this.data52 = data52;
+        this.csvSettings36 = csvSettings36;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar6" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar6" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, (csvSettings24 != null) ? csvSettings24.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar6" + variableIndex);
@@ -4687,19 +6232,19 @@ public class Cartesian extends SeparateChart {
 
     private List<SeriesRangeBar> setRangeBar7 = new ArrayList<>();
 
-    public SeriesRangeBar rangeBar(String data53, TextParsingSettings csvSettings25) {
-        this.data53 = data53;
-        this.csvSettings25 = csvSettings25;
+    public SeriesRangeBar rangeBar(String[] data52, String csvSettings37) {
+        this.data52 = data52;
+        this.csvSettings37 = csvSettings37;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeBar7" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar7" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), csvSettings37));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), csvSettings37));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, (csvSettings25 != null) ? csvSettings25.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), csvSettings37));
             js.setLength(0);
         }
         SeriesRangeBar item = new SeriesRangeBar("setRangeBar7" + variableIndex);
@@ -4717,27 +6262,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data54;
-    private Set data55;
-    private String[] data56;
-    private String data57;
-    private TextParsingMode csvSettings26;
-    private TextParsingSettings csvSettings27;
-    private List<CartesianSeriesRangeColumn> setRangeColumn = new ArrayList<>();
+    private List<SeriesRangeBar> setRangeBar8 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(View data54, TextParsingMode csvSettings26) {
-        this.data54 = data54;
-        this.csvSettings26 = csvSettings26;
+    public SeriesRangeBar rangeBar(String[] data52, TextParsingSettings csvSettings38) {
+        this.data52 = data52;
+        this.csvSettings38 = csvSettings38;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeBar8" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", Arrays.toString(data52), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", Arrays.toString(data52), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+            js.setLength(0);
+        }
+        SeriesRangeBar item = new SeriesRangeBar("setRangeBar8" + variableIndex);
+        setRangeBar8.add(item);
+        return item;
+    }
+    private String generateJSsetRangeBar8() {
+        if (!setRangeBar8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesRangeBar item : setRangeBar8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesRangeBar> setRangeBar9 = new ArrayList<>();
+
+    public SeriesRangeBar rangeBar(String data53, TextParsingMode csvSettings36) {
+        this.data53 = data53;
+        this.csvSettings36 = csvSettings36;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeBar9" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+            js.setLength(0);
+        }
+        SeriesRangeBar item = new SeriesRangeBar("setRangeBar9" + variableIndex);
+        setRangeBar9.add(item);
+        return item;
+    }
+    private String generateJSsetRangeBar9() {
+        if (!setRangeBar9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesRangeBar item : setRangeBar9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesRangeBar> setRangeBar10 = new ArrayList<>();
+
+    public SeriesRangeBar rangeBar(String data53, String csvSettings37) {
+        this.data53 = data53;
+        this.csvSettings37 = csvSettings37;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeBar10" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, csvSettings37));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, csvSettings37));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, csvSettings37));
+            js.setLength(0);
+        }
+        SeriesRangeBar item = new SeriesRangeBar("setRangeBar10" + variableIndex);
+        setRangeBar10.add(item);
+        return item;
+    }
+    private String generateJSsetRangeBar10() {
+        if (!setRangeBar10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesRangeBar item : setRangeBar10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesRangeBar> setRangeBar11 = new ArrayList<>();
+
+    public SeriesRangeBar rangeBar(String data53, TextParsingSettings csvSettings38) {
+        this.data53 = data53;
+        this.csvSettings38 = csvSettings38;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeBar11" + ++variableIndex + " = " + jsBase + ".rangeBar(%s, %s);", data53, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeBar(%s, %s);", data53, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", data53, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+            js.setLength(0);
+        }
+        SeriesRangeBar item = new SeriesRangeBar("setRangeBar11" + variableIndex);
+        setRangeBar11.add(item);
+        return item;
+    }
+    private String generateJSsetRangeBar11() {
+        if (!setRangeBar11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesRangeBar item : setRangeBar11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data54;
+    private Set data55;
+    private String[] data56;
+    private String data57;
+    private TextParsingMode csvSettings39;
+    private String csvSettings40;
+    private TextParsingSettings csvSettings41;
+    private List<CartesianSeriesRangeColumn> setRangeColumn = new ArrayList<>();
+
+    public CartesianSeriesRangeColumn rangeColumn(View data54, TextParsingMode csvSettings39) {
+        this.data54 = data54;
+        this.csvSettings39 = csvSettings39;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn" + variableIndex);
@@ -4757,19 +6431,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeColumn> setRangeColumn1 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(View data54, TextParsingSettings csvSettings27) {
+    public CartesianSeriesRangeColumn rangeColumn(View data54, String csvSettings40) {
         this.data54 = data54;
-        this.csvSettings27 = csvSettings27;
+        this.csvSettings40 = csvSettings40;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", csvSettings40));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", csvSettings40));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", csvSettings40));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn1" + variableIndex);
@@ -4789,19 +6463,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeColumn> setRangeColumn2 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(Set data55, TextParsingMode csvSettings26) {
-        this.data55 = data55;
-        this.csvSettings26 = csvSettings26;
+    public CartesianSeriesRangeColumn rangeColumn(View data54, TextParsingSettings csvSettings41) {
+        this.data54 = data54;
+        this.csvSettings41 = csvSettings41;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn2" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn2" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data54 != null) ? data54.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data54 != null) ? data54.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn2" + variableIndex);
@@ -4821,19 +6495,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeColumn> setRangeColumn3 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(Set data55, TextParsingSettings csvSettings27) {
+    public CartesianSeriesRangeColumn rangeColumn(Set data55, TextParsingMode csvSettings39) {
         this.data55 = data55;
-        this.csvSettings27 = csvSettings27;
+        this.csvSettings39 = csvSettings39;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn3" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn3" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn3" + variableIndex);
@@ -4853,19 +6527,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeColumn> setRangeColumn4 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(String[] data56, TextParsingMode csvSettings26) {
-        this.data56 = data56;
-        this.csvSettings26 = csvSettings26;
+    public CartesianSeriesRangeColumn rangeColumn(Set data55, String csvSettings40) {
+        this.data55 = data55;
+        this.csvSettings40 = csvSettings40;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn4" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn4" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", csvSettings40));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", csvSettings40));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", csvSettings40));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn4" + variableIndex);
@@ -4885,19 +6559,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeColumn> setRangeColumn5 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(String[] data56, TextParsingSettings csvSettings27) {
-        this.data56 = data56;
-        this.csvSettings27 = csvSettings27;
+    public CartesianSeriesRangeColumn rangeColumn(Set data55, TextParsingSettings csvSettings41) {
+        this.data55 = data55;
+        this.csvSettings41 = csvSettings41;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn5" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn5" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data55 != null) ? data55.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data55 != null) ? data55.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn5" + variableIndex);
@@ -4917,19 +6591,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeColumn> setRangeColumn6 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(String data57, TextParsingMode csvSettings26) {
-        this.data57 = data57;
-        this.csvSettings26 = csvSettings26;
+    public CartesianSeriesRangeColumn rangeColumn(String[] data56, TextParsingMode csvSettings39) {
+        this.data56 = data56;
+        this.csvSettings39 = csvSettings39;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn6" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn6" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, (csvSettings26 != null) ? csvSettings26.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn6" + variableIndex);
@@ -4949,19 +6623,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeColumn> setRangeColumn7 = new ArrayList<>();
 
-    public CartesianSeriesRangeColumn rangeColumn(String data57, TextParsingSettings csvSettings27) {
-        this.data57 = data57;
-        this.csvSettings27 = csvSettings27;
+    public CartesianSeriesRangeColumn rangeColumn(String[] data56, String csvSettings40) {
+        this.data56 = data56;
+        this.csvSettings40 = csvSettings40;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn7" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn7" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), csvSettings40));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), csvSettings40));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, (csvSettings27 != null) ? csvSettings27.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), csvSettings40));
             js.setLength(0);
         }
         CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn7" + variableIndex);
@@ -4979,6 +6653,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesRangeColumn> setRangeColumn8 = new ArrayList<>();
+
+    public CartesianSeriesRangeColumn rangeColumn(String[] data56, TextParsingSettings csvSettings41) {
+        this.data56 = data56;
+        this.csvSettings41 = csvSettings41;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn8" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data56), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data56), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn8" + variableIndex);
+        setRangeColumn8.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn8() {
+        if (!setRangeColumn8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeColumn item : setRangeColumn8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeColumn> setRangeColumn9 = new ArrayList<>();
+
+    public CartesianSeriesRangeColumn rangeColumn(String data57, TextParsingMode csvSettings39) {
+        this.data57 = data57;
+        this.csvSettings39 = csvSettings39;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn9" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn9" + variableIndex);
+        setRangeColumn9.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn9() {
+        if (!setRangeColumn9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeColumn item : setRangeColumn9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeColumn> setRangeColumn10 = new ArrayList<>();
+
+    public CartesianSeriesRangeColumn rangeColumn(String data57, String csvSettings40) {
+        this.data57 = data57;
+        this.csvSettings40 = csvSettings40;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn10" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, csvSettings40));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, csvSettings40));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, csvSettings40));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn10" + variableIndex);
+        setRangeColumn10.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn10() {
+        if (!setRangeColumn10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeColumn item : setRangeColumn10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeColumn> setRangeColumn11 = new ArrayList<>();
+
+    public CartesianSeriesRangeColumn rangeColumn(String data57, TextParsingSettings csvSettings41) {
+        this.data57 = data57;
+        this.csvSettings41 = csvSettings41;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn11" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data57, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data57, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn11" + variableIndex);
+        setRangeColumn11.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn11() {
+        if (!setRangeColumn11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeColumn item : setRangeColumn11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private CoreAxismarkersRange getRangeMarker;
 
     public CoreAxismarkersRange getRangeMarker() {
@@ -4988,15 +6791,13 @@ public class Cartesian extends SeparateChart {
         return getRangeMarker;
     }
 
-    private CoreAxismarkersRange getRangeMarker1;
+    private List<CoreAxismarkersRange> getRangeMarker1 = new ArrayList<>();
 
     public CoreAxismarkersRange getRangeMarker(Double index3) {
-        if (getRangeMarker1 == null)
-            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
-
-        return getRangeMarker1;
+        CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
+        getRangeMarker1.add(item);
+        return item;
     }
-
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Cartesian> setRangeMarker = new ArrayList<>();
@@ -5124,23 +6925,24 @@ public class Cartesian extends SeparateChart {
     private Set data59;
     private String[] data60;
     private String data61;
-    private TextParsingMode csvSettings28;
-    private TextParsingSettings csvSettings29;
+    private TextParsingMode csvSettings42;
+    private String csvSettings43;
+    private TextParsingSettings csvSettings44;
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(View data58, TextParsingMode csvSettings28) {
+    public CartesianSeriesRangeSplineArea rangeSplineArea(View data58, TextParsingMode csvSettings42) {
         this.data58 = data58;
-        this.csvSettings28 = csvSettings28;
+        this.csvSettings42 = csvSettings42;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea" + variableIndex);
@@ -5160,19 +6962,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea1 = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(View data58, TextParsingSettings csvSettings29) {
+    public CartesianSeriesRangeSplineArea rangeSplineArea(View data58, String csvSettings43) {
         this.data58 = data58;
-        this.csvSettings29 = csvSettings29;
+        this.csvSettings43 = csvSettings43;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea1" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea1" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", csvSettings43));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", csvSettings43));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", csvSettings43));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea1" + variableIndex);
@@ -5192,19 +6994,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea2 = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(Set data59, TextParsingMode csvSettings28) {
-        this.data59 = data59;
-        this.csvSettings28 = csvSettings28;
+    public CartesianSeriesRangeSplineArea rangeSplineArea(View data58, TextParsingSettings csvSettings44) {
+        this.data58 = data58;
+        this.csvSettings44 = csvSettings44;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea2" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea2" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data58 != null) ? data58.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data58 != null) ? data58.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea2" + variableIndex);
@@ -5224,19 +7026,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea3 = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(Set data59, TextParsingSettings csvSettings29) {
+    public CartesianSeriesRangeSplineArea rangeSplineArea(Set data59, TextParsingMode csvSettings42) {
         this.data59 = data59;
-        this.csvSettings29 = csvSettings29;
+        this.csvSettings42 = csvSettings42;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea3" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea3" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea3" + variableIndex);
@@ -5256,19 +7058,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea4 = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(String[] data60, TextParsingMode csvSettings28) {
-        this.data60 = data60;
-        this.csvSettings28 = csvSettings28;
+    public CartesianSeriesRangeSplineArea rangeSplineArea(Set data59, String csvSettings43) {
+        this.data59 = data59;
+        this.csvSettings43 = csvSettings43;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea4" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea4" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", csvSettings43));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", csvSettings43));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", csvSettings43));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea4" + variableIndex);
@@ -5288,19 +7090,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea5 = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(String[] data60, TextParsingSettings csvSettings29) {
-        this.data60 = data60;
-        this.csvSettings29 = csvSettings29;
+    public CartesianSeriesRangeSplineArea rangeSplineArea(Set data59, TextParsingSettings csvSettings44) {
+        this.data59 = data59;
+        this.csvSettings44 = csvSettings44;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea5" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea5" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", (data59 != null) ? data59.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", (data59 != null) ? data59.generateJs() : "null", (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea5" + variableIndex);
@@ -5320,19 +7122,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea6 = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(String data61, TextParsingMode csvSettings28) {
-        this.data61 = data61;
-        this.csvSettings28 = csvSettings28;
+    public CartesianSeriesRangeSplineArea rangeSplineArea(String[] data60, TextParsingMode csvSettings42) {
+        this.data60 = data60;
+        this.csvSettings42 = csvSettings42;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea6" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea6" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, (csvSettings28 != null) ? csvSettings28.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea6" + variableIndex);
@@ -5352,19 +7154,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea7 = new ArrayList<>();
 
-    public CartesianSeriesRangeSplineArea rangeSplineArea(String data61, TextParsingSettings csvSettings29) {
-        this.data61 = data61;
-        this.csvSettings29 = csvSettings29;
+    public CartesianSeriesRangeSplineArea rangeSplineArea(String[] data60, String csvSettings43) {
+        this.data60 = data60;
+        this.csvSettings43 = csvSettings43;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeSplineArea7" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea7" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), csvSettings43));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), csvSettings43));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, (csvSettings29 != null) ? csvSettings29.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), csvSettings43));
             js.setLength(0);
         }
         CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea7" + variableIndex);
@@ -5382,27 +7184,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data62;
-    private Set data63;
-    private String[] data64;
-    private String data65;
-    private TextParsingMode csvSettings30;
-    private TextParsingSettings csvSettings31;
-    private List<CartesianSeriesRangeStepArea> setRangeStepArea = new ArrayList<>();
+    private List<CartesianSeriesRangeSplineArea> setRangeSplineArea8 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(View data62, TextParsingMode csvSettings30) {
-        this.data62 = data62;
-        this.csvSettings30 = csvSettings30;
+    public CartesianSeriesRangeSplineArea rangeSplineArea(String[] data60, TextParsingSettings csvSettings44) {
+        this.data60 = data60;
+        this.csvSettings44 = csvSettings44;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeSplineArea8" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", Arrays.toString(data60), (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", Arrays.toString(data60), (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea8" + variableIndex);
+        setRangeSplineArea8.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea8() {
+        if (!setRangeSplineArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeSplineArea item : setRangeSplineArea8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeSplineArea> setRangeSplineArea9 = new ArrayList<>();
+
+    public CartesianSeriesRangeSplineArea rangeSplineArea(String data61, TextParsingMode csvSettings42) {
+        this.data61 = data61;
+        this.csvSettings42 = csvSettings42;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeSplineArea9" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, (csvSettings42 != null) ? csvSettings42.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea9" + variableIndex);
+        setRangeSplineArea9.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea9() {
+        if (!setRangeSplineArea9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeSplineArea item : setRangeSplineArea9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeSplineArea> setRangeSplineArea10 = new ArrayList<>();
+
+    public CartesianSeriesRangeSplineArea rangeSplineArea(String data61, String csvSettings43) {
+        this.data61 = data61;
+        this.csvSettings43 = csvSettings43;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeSplineArea10" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, csvSettings43));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, csvSettings43));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, csvSettings43));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea10" + variableIndex);
+        setRangeSplineArea10.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea10() {
+        if (!setRangeSplineArea10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeSplineArea item : setRangeSplineArea10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeSplineArea> setRangeSplineArea11 = new ArrayList<>();
+
+    public CartesianSeriesRangeSplineArea rangeSplineArea(String data61, TextParsingSettings csvSettings44) {
+        this.data61 = data61;
+        this.csvSettings44 = csvSettings44;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeSplineArea11" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s);", data61, (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s)", data61, (csvSettings44 != null) ? csvSettings44.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea11" + variableIndex);
+        setRangeSplineArea11.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea11() {
+        if (!setRangeSplineArea11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeSplineArea item : setRangeSplineArea11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data62;
+    private Set data63;
+    private String[] data64;
+    private String data65;
+    private TextParsingMode csvSettings45;
+    private String csvSettings46;
+    private TextParsingSettings csvSettings47;
+    private List<CartesianSeriesRangeStepArea> setRangeStepArea = new ArrayList<>();
+
+    public CartesianSeriesRangeStepArea rangeStepArea(View data62, TextParsingMode csvSettings45) {
+        this.data62 = data62;
+        this.csvSettings45 = csvSettings45;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea" + variableIndex);
@@ -5422,19 +7353,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeStepArea> setRangeStepArea1 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(View data62, TextParsingSettings csvSettings31) {
+    public CartesianSeriesRangeStepArea rangeStepArea(View data62, String csvSettings46) {
         this.data62 = data62;
-        this.csvSettings31 = csvSettings31;
+        this.csvSettings46 = csvSettings46;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea1" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeStepArea1" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", csvSettings46));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", csvSettings46));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", csvSettings46));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea1" + variableIndex);
@@ -5454,19 +7385,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeStepArea> setRangeStepArea2 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(Set data63, TextParsingMode csvSettings30) {
-        this.data63 = data63;
-        this.csvSettings30 = csvSettings30;
+    public CartesianSeriesRangeStepArea rangeStepArea(View data62, TextParsingSettings csvSettings47) {
+        this.data62 = data62;
+        this.csvSettings47 = csvSettings47;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea2" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeStepArea2" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data62 != null) ? data62.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data62 != null) ? data62.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea2" + variableIndex);
@@ -5486,19 +7417,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeStepArea> setRangeStepArea3 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(Set data63, TextParsingSettings csvSettings31) {
+    public CartesianSeriesRangeStepArea rangeStepArea(Set data63, TextParsingMode csvSettings45) {
         this.data63 = data63;
-        this.csvSettings31 = csvSettings31;
+        this.csvSettings45 = csvSettings45;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea3" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeStepArea3" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea3" + variableIndex);
@@ -5518,19 +7449,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeStepArea> setRangeStepArea4 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(String[] data64, TextParsingMode csvSettings30) {
-        this.data64 = data64;
-        this.csvSettings30 = csvSettings30;
+    public CartesianSeriesRangeStepArea rangeStepArea(Set data63, String csvSettings46) {
+        this.data63 = data63;
+        this.csvSettings46 = csvSettings46;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea4" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeStepArea4" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", csvSettings46));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", csvSettings46));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", csvSettings46));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea4" + variableIndex);
@@ -5550,19 +7481,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeStepArea> setRangeStepArea5 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(String[] data64, TextParsingSettings csvSettings31) {
-        this.data64 = data64;
-        this.csvSettings31 = csvSettings31;
+    public CartesianSeriesRangeStepArea rangeStepArea(Set data63, TextParsingSettings csvSettings47) {
+        this.data63 = data63;
+        this.csvSettings47 = csvSettings47;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea5" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeStepArea5" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", (data63 != null) ? data63.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", (data63 != null) ? data63.generateJs() : "null", (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea5" + variableIndex);
@@ -5582,19 +7513,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeStepArea> setRangeStepArea6 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(String data65, TextParsingMode csvSettings30) {
-        this.data65 = data65;
-        this.csvSettings30 = csvSettings30;
+    public CartesianSeriesRangeStepArea rangeStepArea(String[] data64, TextParsingMode csvSettings45) {
+        this.data64 = data64;
+        this.csvSettings45 = csvSettings45;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea6" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeStepArea6" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, (csvSettings30 != null) ? csvSettings30.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea6" + variableIndex);
@@ -5614,19 +7545,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesRangeStepArea> setRangeStepArea7 = new ArrayList<>();
 
-    public CartesianSeriesRangeStepArea rangeStepArea(String data65, TextParsingSettings csvSettings31) {
-        this.data65 = data65;
-        this.csvSettings31 = csvSettings31;
+    public CartesianSeriesRangeStepArea rangeStepArea(String[] data64, String csvSettings46) {
+        this.data64 = data64;
+        this.csvSettings46 = csvSettings46;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeStepArea7" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeStepArea7" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), csvSettings46));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), csvSettings46));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, (csvSettings31 != null) ? csvSettings31.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), csvSettings46));
             js.setLength(0);
         }
         CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea7" + variableIndex);
@@ -5637,6 +7568,134 @@ public class Cartesian extends SeparateChart {
         if (!setRangeStepArea7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesRangeStepArea item : setRangeStepArea7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeStepArea> setRangeStepArea8 = new ArrayList<>();
+
+    public CartesianSeriesRangeStepArea rangeStepArea(String[] data64, TextParsingSettings csvSettings47) {
+        this.data64 = data64;
+        this.csvSettings47 = csvSettings47;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeStepArea8" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", Arrays.toString(data64), (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", Arrays.toString(data64), (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea8" + variableIndex);
+        setRangeStepArea8.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea8() {
+        if (!setRangeStepArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeStepArea item : setRangeStepArea8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeStepArea> setRangeStepArea9 = new ArrayList<>();
+
+    public CartesianSeriesRangeStepArea rangeStepArea(String data65, TextParsingMode csvSettings45) {
+        this.data65 = data65;
+        this.csvSettings45 = csvSettings45;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeStepArea9" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, (csvSettings45 != null) ? csvSettings45.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea9" + variableIndex);
+        setRangeStepArea9.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea9() {
+        if (!setRangeStepArea9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeStepArea item : setRangeStepArea9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeStepArea> setRangeStepArea10 = new ArrayList<>();
+
+    public CartesianSeriesRangeStepArea rangeStepArea(String data65, String csvSettings46) {
+        this.data65 = data65;
+        this.csvSettings46 = csvSettings46;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeStepArea10" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, csvSettings46));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, csvSettings46));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, csvSettings46));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea10" + variableIndex);
+        setRangeStepArea10.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea10() {
+        if (!setRangeStepArea10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeStepArea item : setRangeStepArea10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeStepArea> setRangeStepArea11 = new ArrayList<>();
+
+    public CartesianSeriesRangeStepArea rangeStepArea(String data65, TextParsingSettings csvSettings47) {
+        this.data65 = data65;
+        this.csvSettings47 = csvSettings47;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeStepArea11" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s);", data65, (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s)", data65, (csvSettings47 != null) ? csvSettings47.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea11" + variableIndex);
+        setRangeStepArea11.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea11() {
+        if (!setRangeStepArea11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeStepArea item : setRangeStepArea11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -5734,6 +7793,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -5742,7 +7802,6 @@ public class Cartesian extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<Cartesian> setSelected = new ArrayList<>();
 
@@ -5777,23 +7836,24 @@ public class Cartesian extends SeparateChart {
     private Set data67;
     private String[] data68;
     private String data69;
-    private TextParsingMode csvSettings32;
-    private TextParsingSettings csvSettings33;
+    private TextParsingMode csvSettings48;
+    private String csvSettings49;
+    private TextParsingSettings csvSettings50;
     private List<CartesianSeriesSpline> setSpline = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(View data66, TextParsingMode csvSettings32) {
+    public CartesianSeriesSpline spline(View data66, TextParsingMode csvSettings48) {
         this.data66 = data66;
-        this.csvSettings32 = csvSettings32;
+        this.csvSettings48 = csvSettings48;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline" + variableIndex);
@@ -5813,19 +7873,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSpline> setSpline1 = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(View data66, TextParsingSettings csvSettings33) {
+    public CartesianSeriesSpline spline(View data66, String csvSettings49) {
         this.data66 = data66;
-        this.csvSettings33 = csvSettings33;
+        this.csvSettings49 = csvSettings49;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline1" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline1" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", csvSettings49));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", csvSettings49));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", csvSettings49));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline1" + variableIndex);
@@ -5845,19 +7905,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSpline> setSpline2 = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(Set data67, TextParsingMode csvSettings32) {
-        this.data67 = data67;
-        this.csvSettings32 = csvSettings32;
+    public CartesianSeriesSpline spline(View data66, TextParsingSettings csvSettings50) {
+        this.data66 = data66;
+        this.csvSettings50 = csvSettings50;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline2" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline2" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data66 != null) ? data66.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data66 != null) ? data66.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline2" + variableIndex);
@@ -5877,19 +7937,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSpline> setSpline3 = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(Set data67, TextParsingSettings csvSettings33) {
+    public CartesianSeriesSpline spline(Set data67, TextParsingMode csvSettings48) {
         this.data67 = data67;
-        this.csvSettings33 = csvSettings33;
+        this.csvSettings48 = csvSettings48;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline3" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline3" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline3" + variableIndex);
@@ -5909,19 +7969,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSpline> setSpline4 = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(String[] data68, TextParsingMode csvSettings32) {
-        this.data68 = data68;
-        this.csvSettings32 = csvSettings32;
+    public CartesianSeriesSpline spline(Set data67, String csvSettings49) {
+        this.data67 = data67;
+        this.csvSettings49 = csvSettings49;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline4" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline4" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", csvSettings49));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", csvSettings49));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", csvSettings49));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline4" + variableIndex);
@@ -5941,19 +8001,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSpline> setSpline5 = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(String[] data68, TextParsingSettings csvSettings33) {
-        this.data68 = data68;
-        this.csvSettings33 = csvSettings33;
+    public CartesianSeriesSpline spline(Set data67, TextParsingSettings csvSettings50) {
+        this.data67 = data67;
+        this.csvSettings50 = csvSettings50;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline5" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline5" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", (data67 != null) ? data67.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", (data67 != null) ? data67.generateJs() : "null", (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline5" + variableIndex);
@@ -5973,19 +8033,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSpline> setSpline6 = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(String data69, TextParsingMode csvSettings32) {
-        this.data69 = data69;
-        this.csvSettings32 = csvSettings32;
+    public CartesianSeriesSpline spline(String[] data68, TextParsingMode csvSettings48) {
+        this.data68 = data68;
+        this.csvSettings48 = csvSettings48;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline6" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline6" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, (csvSettings32 != null) ? csvSettings32.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline6" + variableIndex);
@@ -6005,19 +8065,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSpline> setSpline7 = new ArrayList<>();
 
-    public CartesianSeriesSpline spline(String data69, TextParsingSettings csvSettings33) {
-        this.data69 = data69;
-        this.csvSettings33 = csvSettings33;
+    public CartesianSeriesSpline spline(String[] data68, String csvSettings49) {
+        this.data68 = data68;
+        this.csvSettings49 = csvSettings49;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSpline7" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline7" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), csvSettings49));
 
-//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), csvSettings49));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, (csvSettings33 != null) ? csvSettings33.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), csvSettings49));
             js.setLength(0);
         }
         CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline7" + variableIndex);
@@ -6035,27 +8095,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data70;
-    private Set data71;
-    private String[] data72;
-    private String data73;
-    private TextParsingMode csvSettings34;
-    private TextParsingSettings csvSettings35;
-    private List<CartesianSeriesSplineArea> setSplineArea = new ArrayList<>();
+    private List<CartesianSeriesSpline> setSpline8 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(View data70, TextParsingMode csvSettings34) {
-        this.data70 = data70;
-        this.csvSettings34 = csvSettings34;
+    public CartesianSeriesSpline spline(String[] data68, TextParsingSettings csvSettings50) {
+        this.data68 = data68;
+        this.csvSettings50 = csvSettings50;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSpline8" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", Arrays.toString(data68), (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", Arrays.toString(data68), (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline8" + variableIndex);
+        setSpline8.add(item);
+        return item;
+    }
+    private String generateJSsetSpline8() {
+        if (!setSpline8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSpline item : setSpline8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesSpline> setSpline9 = new ArrayList<>();
+
+    public CartesianSeriesSpline spline(String data69, TextParsingMode csvSettings48) {
+        this.data69 = data69;
+        this.csvSettings48 = csvSettings48;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setSpline9" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, (csvSettings48 != null) ? csvSettings48.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline9" + variableIndex);
+        setSpline9.add(item);
+        return item;
+    }
+    private String generateJSsetSpline9() {
+        if (!setSpline9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSpline item : setSpline9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesSpline> setSpline10 = new ArrayList<>();
+
+    public CartesianSeriesSpline spline(String data69, String csvSettings49) {
+        this.data69 = data69;
+        this.csvSettings49 = csvSettings49;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setSpline10" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, csvSettings49));
+
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, csvSettings49));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, csvSettings49));
+            js.setLength(0);
+        }
+        CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline10" + variableIndex);
+        setSpline10.add(item);
+        return item;
+    }
+    private String generateJSsetSpline10() {
+        if (!setSpline10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSpline item : setSpline10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesSpline> setSpline11 = new ArrayList<>();
+
+    public CartesianSeriesSpline spline(String data69, TextParsingSettings csvSettings50) {
+        this.data69 = data69;
+        this.csvSettings50 = csvSettings50;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setSpline11" + ++variableIndex + " = " + jsBase + ".spline(%s, %s);", data69, (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".spline(%s, %s);", data69, (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s)", data69, (csvSettings50 != null) ? csvSettings50.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline11" + variableIndex);
+        setSpline11.add(item);
+        return item;
+    }
+    private String generateJSsetSpline11() {
+        if (!setSpline11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSpline item : setSpline11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data70;
+    private Set data71;
+    private String[] data72;
+    private String data73;
+    private TextParsingMode csvSettings51;
+    private String csvSettings52;
+    private TextParsingSettings csvSettings53;
+    private List<CartesianSeriesSplineArea> setSplineArea = new ArrayList<>();
+
+    public CartesianSeriesSplineArea splineArea(View data70, TextParsingMode csvSettings51) {
+        this.data70 = data70;
+        this.csvSettings51 = csvSettings51;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea" + variableIndex);
@@ -6075,19 +8264,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSplineArea> setSplineArea1 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(View data70, TextParsingSettings csvSettings35) {
+    public CartesianSeriesSplineArea splineArea(View data70, String csvSettings52) {
         this.data70 = data70;
-        this.csvSettings35 = csvSettings35;
+        this.csvSettings52 = csvSettings52;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea1" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea1" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", csvSettings52));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", csvSettings52));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", csvSettings52));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea1" + variableIndex);
@@ -6107,19 +8296,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSplineArea> setSplineArea2 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(Set data71, TextParsingMode csvSettings34) {
-        this.data71 = data71;
-        this.csvSettings34 = csvSettings34;
+    public CartesianSeriesSplineArea splineArea(View data70, TextParsingSettings csvSettings53) {
+        this.data70 = data70;
+        this.csvSettings53 = csvSettings53;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea2" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea2" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data70 != null) ? data70.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data70 != null) ? data70.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea2" + variableIndex);
@@ -6139,19 +8328,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSplineArea> setSplineArea3 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(Set data71, TextParsingSettings csvSettings35) {
+    public CartesianSeriesSplineArea splineArea(Set data71, TextParsingMode csvSettings51) {
         this.data71 = data71;
-        this.csvSettings35 = csvSettings35;
+        this.csvSettings51 = csvSettings51;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea3" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea3" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea3" + variableIndex);
@@ -6171,19 +8360,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSplineArea> setSplineArea4 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(String[] data72, TextParsingMode csvSettings34) {
-        this.data72 = data72;
-        this.csvSettings34 = csvSettings34;
+    public CartesianSeriesSplineArea splineArea(Set data71, String csvSettings52) {
+        this.data71 = data71;
+        this.csvSettings52 = csvSettings52;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea4" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea4" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", csvSettings52));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", csvSettings52));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", csvSettings52));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea4" + variableIndex);
@@ -6203,19 +8392,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSplineArea> setSplineArea5 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(String[] data72, TextParsingSettings csvSettings35) {
-        this.data72 = data72;
-        this.csvSettings35 = csvSettings35;
+    public CartesianSeriesSplineArea splineArea(Set data71, TextParsingSettings csvSettings53) {
+        this.data71 = data71;
+        this.csvSettings53 = csvSettings53;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea5" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea5" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", (data71 != null) ? data71.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", (data71 != null) ? data71.generateJs() : "null", (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea5" + variableIndex);
@@ -6235,19 +8424,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSplineArea> setSplineArea6 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(String data73, TextParsingMode csvSettings34) {
-        this.data73 = data73;
-        this.csvSettings34 = csvSettings34;
+    public CartesianSeriesSplineArea splineArea(String[] data72, TextParsingMode csvSettings51) {
+        this.data72 = data72;
+        this.csvSettings51 = csvSettings51;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea6" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea6" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, (csvSettings34 != null) ? csvSettings34.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea6" + variableIndex);
@@ -6267,19 +8456,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesSplineArea> setSplineArea7 = new ArrayList<>();
 
-    public CartesianSeriesSplineArea splineArea(String data73, TextParsingSettings csvSettings35) {
-        this.data73 = data73;
-        this.csvSettings35 = csvSettings35;
+    public CartesianSeriesSplineArea splineArea(String[] data72, String csvSettings52) {
+        this.data72 = data72;
+        this.csvSettings52 = csvSettings52;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setSplineArea7" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea7" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), csvSettings52));
 
-//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), csvSettings52));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, (csvSettings35 != null) ? csvSettings35.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), csvSettings52));
             js.setLength(0);
         }
         CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea7" + variableIndex);
@@ -6297,27 +8486,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data74;
-    private Set data75;
-    private String[] data76;
-    private String data77;
-    private TextParsingMode csvSettings36;
-    private TextParsingSettings csvSettings37;
-    private List<CartesianSeriesStepArea> setStepArea = new ArrayList<>();
+    private List<CartesianSeriesSplineArea> setSplineArea8 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(View data74, TextParsingMode csvSettings36) {
-        this.data74 = data74;
-        this.csvSettings36 = csvSettings36;
+    public CartesianSeriesSplineArea splineArea(String[] data72, TextParsingSettings csvSettings53) {
+        this.data72 = data72;
+        this.csvSettings53 = csvSettings53;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setSplineArea8" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", Arrays.toString(data72), (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", Arrays.toString(data72), (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea8" + variableIndex);
+        setSplineArea8.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea8() {
+        if (!setSplineArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSplineArea item : setSplineArea8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesSplineArea> setSplineArea9 = new ArrayList<>();
+
+    public CartesianSeriesSplineArea splineArea(String data73, TextParsingMode csvSettings51) {
+        this.data73 = data73;
+        this.csvSettings51 = csvSettings51;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setSplineArea9" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, (csvSettings51 != null) ? csvSettings51.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea9" + variableIndex);
+        setSplineArea9.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea9() {
+        if (!setSplineArea9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSplineArea item : setSplineArea9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesSplineArea> setSplineArea10 = new ArrayList<>();
+
+    public CartesianSeriesSplineArea splineArea(String data73, String csvSettings52) {
+        this.data73 = data73;
+        this.csvSettings52 = csvSettings52;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setSplineArea10" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, csvSettings52));
+
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, csvSettings52));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, csvSettings52));
+            js.setLength(0);
+        }
+        CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea10" + variableIndex);
+        setSplineArea10.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea10() {
+        if (!setSplineArea10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSplineArea item : setSplineArea10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesSplineArea> setSplineArea11 = new ArrayList<>();
+
+    public CartesianSeriesSplineArea splineArea(String data73, TextParsingSettings csvSettings53) {
+        this.data73 = data73;
+        this.csvSettings53 = csvSettings53;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setSplineArea11" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s);", data73, (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".splineArea(%s, %s);", data73, (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s)", data73, (csvSettings53 != null) ? csvSettings53.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea11" + variableIndex);
+        setSplineArea11.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea11() {
+        if (!setSplineArea11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSplineArea item : setSplineArea11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data74;
+    private Set data75;
+    private String[] data76;
+    private String data77;
+    private TextParsingMode csvSettings54;
+    private String csvSettings55;
+    private TextParsingSettings csvSettings56;
+    private List<CartesianSeriesStepArea> setStepArea = new ArrayList<>();
+
+    public CartesianSeriesStepArea stepArea(View data74, TextParsingMode csvSettings54) {
+        this.data74 = data74;
+        this.csvSettings54 = csvSettings54;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea" + variableIndex);
@@ -6337,19 +8655,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepArea> setStepArea1 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(View data74, TextParsingSettings csvSettings37) {
+    public CartesianSeriesStepArea stepArea(View data74, String csvSettings55) {
         this.data74 = data74;
-        this.csvSettings37 = csvSettings37;
+        this.csvSettings55 = csvSettings55;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea1" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea1" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", csvSettings55));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", csvSettings55));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", csvSettings55));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea1" + variableIndex);
@@ -6369,19 +8687,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepArea> setStepArea2 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(Set data75, TextParsingMode csvSettings36) {
-        this.data75 = data75;
-        this.csvSettings36 = csvSettings36;
+    public CartesianSeriesStepArea stepArea(View data74, TextParsingSettings csvSettings56) {
+        this.data74 = data74;
+        this.csvSettings56 = csvSettings56;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea2" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea2" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data74 != null) ? data74.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data74 != null) ? data74.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea2" + variableIndex);
@@ -6401,19 +8719,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepArea> setStepArea3 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(Set data75, TextParsingSettings csvSettings37) {
+    public CartesianSeriesStepArea stepArea(Set data75, TextParsingMode csvSettings54) {
         this.data75 = data75;
-        this.csvSettings37 = csvSettings37;
+        this.csvSettings54 = csvSettings54;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea3" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea3" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea3" + variableIndex);
@@ -6433,19 +8751,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepArea> setStepArea4 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(String[] data76, TextParsingMode csvSettings36) {
-        this.data76 = data76;
-        this.csvSettings36 = csvSettings36;
+    public CartesianSeriesStepArea stepArea(Set data75, String csvSettings55) {
+        this.data75 = data75;
+        this.csvSettings55 = csvSettings55;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea4" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea4" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", csvSettings55));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", csvSettings55));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", csvSettings55));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea4" + variableIndex);
@@ -6465,19 +8783,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepArea> setStepArea5 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(String[] data76, TextParsingSettings csvSettings37) {
-        this.data76 = data76;
-        this.csvSettings37 = csvSettings37;
+    public CartesianSeriesStepArea stepArea(Set data75, TextParsingSettings csvSettings56) {
+        this.data75 = data75;
+        this.csvSettings56 = csvSettings56;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea5" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea5" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", (data75 != null) ? data75.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", (data75 != null) ? data75.generateJs() : "null", (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea5" + variableIndex);
@@ -6497,19 +8815,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepArea> setStepArea6 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(String data77, TextParsingMode csvSettings36) {
-        this.data77 = data77;
-        this.csvSettings36 = csvSettings36;
+    public CartesianSeriesStepArea stepArea(String[] data76, TextParsingMode csvSettings54) {
+        this.data76 = data76;
+        this.csvSettings54 = csvSettings54;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea6" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea6" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, (csvSettings36 != null) ? csvSettings36.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea6" + variableIndex);
@@ -6529,19 +8847,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepArea> setStepArea7 = new ArrayList<>();
 
-    public CartesianSeriesStepArea stepArea(String data77, TextParsingSettings csvSettings37) {
-        this.data77 = data77;
-        this.csvSettings37 = csvSettings37;
+    public CartesianSeriesStepArea stepArea(String[] data76, String csvSettings55) {
+        this.data76 = data76;
+        this.csvSettings55 = csvSettings55;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepArea7" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea7" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), csvSettings55));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), csvSettings55));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, (csvSettings37 != null) ? csvSettings37.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), csvSettings55));
             js.setLength(0);
         }
         CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea7" + variableIndex);
@@ -6559,27 +8877,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data78;
-    private Set data79;
-    private String[] data80;
-    private String data81;
-    private TextParsingMode csvSettings38;
-    private TextParsingSettings csvSettings39;
-    private List<CartesianSeriesStepLine> setStepLine = new ArrayList<>();
+    private List<CartesianSeriesStepArea> setStepArea8 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(View data78, TextParsingMode csvSettings38) {
-        this.data78 = data78;
-        this.csvSettings38 = csvSettings38;
+    public CartesianSeriesStepArea stepArea(String[] data76, TextParsingSettings csvSettings56) {
+        this.data76 = data76;
+        this.csvSettings56 = csvSettings56;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepArea8" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", Arrays.toString(data76), (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", Arrays.toString(data76), (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea8" + variableIndex);
+        setStepArea8.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea8() {
+        if (!setStepArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStepArea8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStepArea> setStepArea9 = new ArrayList<>();
+
+    public CartesianSeriesStepArea stepArea(String data77, TextParsingMode csvSettings54) {
+        this.data77 = data77;
+        this.csvSettings54 = csvSettings54;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepArea9" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, (csvSettings54 != null) ? csvSettings54.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea9" + variableIndex);
+        setStepArea9.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea9() {
+        if (!setStepArea9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStepArea9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStepArea> setStepArea10 = new ArrayList<>();
+
+    public CartesianSeriesStepArea stepArea(String data77, String csvSettings55) {
+        this.data77 = data77;
+        this.csvSettings55 = csvSettings55;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepArea10" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, csvSettings55));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, csvSettings55));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, csvSettings55));
+            js.setLength(0);
+        }
+        CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea10" + variableIndex);
+        setStepArea10.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea10() {
+        if (!setStepArea10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStepArea10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStepArea> setStepArea11 = new ArrayList<>();
+
+    public CartesianSeriesStepArea stepArea(String data77, TextParsingSettings csvSettings56) {
+        this.data77 = data77;
+        this.csvSettings56 = csvSettings56;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepArea11" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s);", data77, (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepArea(%s, %s);", data77, (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s)", data77, (csvSettings56 != null) ? csvSettings56.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea11" + variableIndex);
+        setStepArea11.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea11() {
+        if (!setStepArea11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStepArea11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data78;
+    private Set data79;
+    private String[] data80;
+    private String data81;
+    private TextParsingMode csvSettings57;
+    private String csvSettings58;
+    private TextParsingSettings csvSettings59;
+    private List<CartesianSeriesStepLine> setStepLine = new ArrayList<>();
+
+    public CartesianSeriesStepLine stepLine(View data78, TextParsingMode csvSettings57) {
+        this.data78 = data78;
+        this.csvSettings57 = csvSettings57;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine" + variableIndex);
@@ -6599,19 +9046,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepLine> setStepLine1 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(View data78, TextParsingSettings csvSettings39) {
+    public CartesianSeriesStepLine stepLine(View data78, String csvSettings58) {
         this.data78 = data78;
-        this.csvSettings39 = csvSettings39;
+        this.csvSettings58 = csvSettings58;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine1" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine1" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", csvSettings58));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", csvSettings58));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", csvSettings58));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine1" + variableIndex);
@@ -6631,19 +9078,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepLine> setStepLine2 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(Set data79, TextParsingMode csvSettings38) {
-        this.data79 = data79;
-        this.csvSettings38 = csvSettings38;
+    public CartesianSeriesStepLine stepLine(View data78, TextParsingSettings csvSettings59) {
+        this.data78 = data78;
+        this.csvSettings59 = csvSettings59;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine2" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine2" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data78 != null) ? data78.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data78 != null) ? data78.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine2" + variableIndex);
@@ -6663,19 +9110,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepLine> setStepLine3 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(Set data79, TextParsingSettings csvSettings39) {
+    public CartesianSeriesStepLine stepLine(Set data79, TextParsingMode csvSettings57) {
         this.data79 = data79;
-        this.csvSettings39 = csvSettings39;
+        this.csvSettings57 = csvSettings57;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine3" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine3" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine3" + variableIndex);
@@ -6695,19 +9142,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepLine> setStepLine4 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(String[] data80, TextParsingMode csvSettings38) {
-        this.data80 = data80;
-        this.csvSettings38 = csvSettings38;
+    public CartesianSeriesStepLine stepLine(Set data79, String csvSettings58) {
+        this.data79 = data79;
+        this.csvSettings58 = csvSettings58;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine4" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine4" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", csvSettings58));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", csvSettings58));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", csvSettings58));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine4" + variableIndex);
@@ -6727,19 +9174,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepLine> setStepLine5 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(String[] data80, TextParsingSettings csvSettings39) {
-        this.data80 = data80;
-        this.csvSettings39 = csvSettings39;
+    public CartesianSeriesStepLine stepLine(Set data79, TextParsingSettings csvSettings59) {
+        this.data79 = data79;
+        this.csvSettings59 = csvSettings59;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine5" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine5" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", (data79 != null) ? data79.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", (data79 != null) ? data79.generateJs() : "null", (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine5" + variableIndex);
@@ -6759,19 +9206,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepLine> setStepLine6 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(String data81, TextParsingMode csvSettings38) {
-        this.data81 = data81;
-        this.csvSettings38 = csvSettings38;
+    public CartesianSeriesStepLine stepLine(String[] data80, TextParsingMode csvSettings57) {
+        this.data80 = data80;
+        this.csvSettings57 = csvSettings57;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine6" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine6" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, (csvSettings38 != null) ? csvSettings38.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine6" + variableIndex);
@@ -6791,19 +9238,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStepLine> setStepLine7 = new ArrayList<>();
 
-    public CartesianSeriesStepLine stepLine(String data81, TextParsingSettings csvSettings39) {
-        this.data81 = data81;
-        this.csvSettings39 = csvSettings39;
+    public CartesianSeriesStepLine stepLine(String[] data80, String csvSettings58) {
+        this.data80 = data80;
+        this.csvSettings58 = csvSettings58;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStepLine7" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine7" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), csvSettings58));
 
-//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), csvSettings58));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, (csvSettings39 != null) ? csvSettings39.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), csvSettings58));
             js.setLength(0);
         }
         CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine7" + variableIndex);
@@ -6821,27 +9268,156 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
-    private View data82;
-    private Set data83;
-    private String[] data84;
-    private String data85;
-    private TextParsingMode csvSettings40;
-    private TextParsingSettings csvSettings41;
-    private List<CartesianSeriesStick> setStick = new ArrayList<>();
+    private List<CartesianSeriesStepLine> setStepLine8 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(View data82, TextParsingMode csvSettings40) {
-        this.data82 = data82;
-        this.csvSettings40 = csvSettings40;
+    public CartesianSeriesStepLine stepLine(String[] data80, TextParsingSettings csvSettings59) {
+        this.data80 = data80;
+        this.csvSettings59 = csvSettings59;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStepLine8" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", Arrays.toString(data80), (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", Arrays.toString(data80), (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine8" + variableIndex);
+        setStepLine8.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine8() {
+        if (!setStepLine8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStepLine8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStepLine> setStepLine9 = new ArrayList<>();
+
+    public CartesianSeriesStepLine stepLine(String data81, TextParsingMode csvSettings57) {
+        this.data81 = data81;
+        this.csvSettings57 = csvSettings57;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepLine9" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, (csvSettings57 != null) ? csvSettings57.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine9" + variableIndex);
+        setStepLine9.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine9() {
+        if (!setStepLine9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStepLine9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStepLine> setStepLine10 = new ArrayList<>();
+
+    public CartesianSeriesStepLine stepLine(String data81, String csvSettings58) {
+        this.data81 = data81;
+        this.csvSettings58 = csvSettings58;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepLine10" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, csvSettings58));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, csvSettings58));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, csvSettings58));
+            js.setLength(0);
+        }
+        CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine10" + variableIndex);
+        setStepLine10.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine10() {
+        if (!setStepLine10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStepLine10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStepLine> setStepLine11 = new ArrayList<>();
+
+    public CartesianSeriesStepLine stepLine(String data81, TextParsingSettings csvSettings59) {
+        this.data81 = data81;
+        this.csvSettings59 = csvSettings59;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStepLine11" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s);", data81, (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stepLine(%s, %s);", data81, (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s)", data81, (csvSettings59 != null) ? csvSettings59.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine11" + variableIndex);
+        setStepLine11.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine11() {
+        if (!setStepLine11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStepLine11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data82;
+    private Set data83;
+    private String[] data84;
+    private String data85;
+    private TextParsingMode csvSettings60;
+    private String csvSettings61;
+    private TextParsingSettings csvSettings62;
+    private List<CartesianSeriesStick> setStick = new ArrayList<>();
+
+    public CartesianSeriesStick stick(View data82, TextParsingMode csvSettings60) {
+        this.data82 = data82;
+        this.csvSettings60 = csvSettings60;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick" + variableIndex);
@@ -6861,19 +9437,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStick> setStick1 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(View data82, TextParsingSettings csvSettings41) {
+    public CartesianSeriesStick stick(View data82, String csvSettings61) {
         this.data82 = data82;
-        this.csvSettings41 = csvSettings41;
+        this.csvSettings61 = csvSettings61;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick1" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStick1" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", csvSettings61));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", csvSettings61));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", csvSettings61));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick1" + variableIndex);
@@ -6893,19 +9469,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStick> setStick2 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(Set data83, TextParsingMode csvSettings40) {
-        this.data83 = data83;
-        this.csvSettings40 = csvSettings40;
+    public CartesianSeriesStick stick(View data82, TextParsingSettings csvSettings62) {
+        this.data82 = data82;
+        this.csvSettings62 = csvSettings62;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick2" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStick2" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data82 != null) ? data82.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data82 != null) ? data82.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick2" + variableIndex);
@@ -6925,19 +9501,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStick> setStick3 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(Set data83, TextParsingSettings csvSettings41) {
+    public CartesianSeriesStick stick(Set data83, TextParsingMode csvSettings60) {
         this.data83 = data83;
-        this.csvSettings41 = csvSettings41;
+        this.csvSettings60 = csvSettings60;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick3" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStick3" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick3" + variableIndex);
@@ -6957,19 +9533,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStick> setStick4 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(String[] data84, TextParsingMode csvSettings40) {
-        this.data84 = data84;
-        this.csvSettings40 = csvSettings40;
+    public CartesianSeriesStick stick(Set data83, String csvSettings61) {
+        this.data83 = data83;
+        this.csvSettings61 = csvSettings61;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick4" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStick4" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", csvSettings61));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", csvSettings61));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", csvSettings61));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick4" + variableIndex);
@@ -6989,19 +9565,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStick> setStick5 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(String[] data84, TextParsingSettings csvSettings41) {
-        this.data84 = data84;
-        this.csvSettings41 = csvSettings41;
+    public CartesianSeriesStick stick(Set data83, TextParsingSettings csvSettings62) {
+        this.data83 = data83;
+        this.csvSettings62 = csvSettings62;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick5" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStick5" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", (data83 != null) ? data83.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", (data83 != null) ? data83.generateJs() : "null", (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick5" + variableIndex);
@@ -7021,19 +9597,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStick> setStick6 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(String data85, TextParsingMode csvSettings40) {
-        this.data85 = data85;
-        this.csvSettings40 = csvSettings40;
+    public CartesianSeriesStick stick(String[] data84, TextParsingMode csvSettings60) {
+        this.data84 = data84;
+        this.csvSettings60 = csvSettings60;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick6" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStick6" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, (csvSettings40 != null) ? csvSettings40.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick6" + variableIndex);
@@ -7053,19 +9629,19 @@ public class Cartesian extends SeparateChart {
 
     private List<CartesianSeriesStick> setStick7 = new ArrayList<>();
 
-    public CartesianSeriesStick stick(String data85, TextParsingSettings csvSettings41) {
-        this.data85 = data85;
-        this.csvSettings41 = csvSettings41;
+    public CartesianSeriesStick stick(String[] data84, String csvSettings61) {
+        this.data84 = data84;
+        this.csvSettings61 = csvSettings61;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setStick7" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setStick7" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), csvSettings61));
 
-//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), csvSettings61));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, (csvSettings41 != null) ? csvSettings41.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), csvSettings61));
             js.setLength(0);
         }
         CartesianSeriesStick item = new CartesianSeriesStick("setStick7" + variableIndex);
@@ -7083,6 +9659,135 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesStick> setStick8 = new ArrayList<>();
+
+    public CartesianSeriesStick stick(String[] data84, TextParsingSettings csvSettings62) {
+        this.data84 = data84;
+        this.csvSettings62 = csvSettings62;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStick8" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", Arrays.toString(data84), (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", Arrays.toString(data84), (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStick item = new CartesianSeriesStick("setStick8" + variableIndex);
+        setStick8.add(item);
+        return item;
+    }
+    private String generateJSsetStick8() {
+        if (!setStick8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStick item : setStick8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStick> setStick9 = new ArrayList<>();
+
+    public CartesianSeriesStick stick(String data85, TextParsingMode csvSettings60) {
+        this.data85 = data85;
+        this.csvSettings60 = csvSettings60;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStick9" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, (csvSettings60 != null) ? csvSettings60.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStick item = new CartesianSeriesStick("setStick9" + variableIndex);
+        setStick9.add(item);
+        return item;
+    }
+    private String generateJSsetStick9() {
+        if (!setStick9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStick item : setStick9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStick> setStick10 = new ArrayList<>();
+
+    public CartesianSeriesStick stick(String data85, String csvSettings61) {
+        this.data85 = data85;
+        this.csvSettings61 = csvSettings61;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStick10" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, csvSettings61));
+
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, csvSettings61));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, csvSettings61));
+            js.setLength(0);
+        }
+        CartesianSeriesStick item = new CartesianSeriesStick("setStick10" + variableIndex);
+        setStick10.add(item);
+        return item;
+    }
+    private String generateJSsetStick10() {
+        if (!setStick10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStick item : setStick10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStick> setStick11 = new ArrayList<>();
+
+    public CartesianSeriesStick stick(String data85, TextParsingSettings csvSettings62) {
+        this.data85 = data85;
+        this.csvSettings62 = csvSettings62;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setStick11" + ++variableIndex + " = " + jsBase + ".stick(%s, %s);", data85, (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".stick(%s, %s);", data85, (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s)", data85, (csvSettings62 != null) ? csvSettings62.generateJs() : "null"));
+            js.setLength(0);
+        }
+        CartesianSeriesStick item = new CartesianSeriesStick("setStick11" + variableIndex);
+        setStick11.add(item);
+        return item;
+    }
+    private String generateJSsetStick11() {
+        if (!setStick11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStick item : setStick11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private CoreAxismarkersText getTextMarker;
 
     public CoreAxismarkersText getTextMarker() {
@@ -7092,15 +9797,13 @@ public class Cartesian extends SeparateChart {
         return getTextMarker;
     }
 
-    private CoreAxismarkersText getTextMarker1;
+    private List<CoreAxismarkersText> getTextMarker1 = new ArrayList<>();
 
     public CoreAxismarkersText getTextMarker(Double index6) {
-        if (getTextMarker1 == null)
-            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
-
-        return getTextMarker1;
+        CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
+        getTextMarker1.add(item);
+        return item;
     }
-
     private String textMarker;
     private Boolean textMarker1;
     private List<Cartesian> setTextMarker = new ArrayList<>();
@@ -7224,6 +9927,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getXAxis;
 
     public CoreAxesLinear getXAxis() {
@@ -7233,15 +9937,13 @@ public class Cartesian extends SeparateChart {
         return getXAxis;
     }
 
-    private CoreAxesLinear getXAxis1;
+    private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getXAxis(Double index8) {
-        if (getXAxis1 == null)
-            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
-
-        return getXAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
+        getXAxis1.add(item);
+        return item;
     }
-
     private String xAxis;
     private Boolean xAxis1;
     private List<Cartesian> setXAxis = new ArrayList<>();
@@ -7365,6 +10067,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getXGrid;
 
     public CoreGridsLinear getXGrid() {
@@ -7374,15 +10077,13 @@ public class Cartesian extends SeparateChart {
         return getXGrid;
     }
 
-    private CoreGridsLinear getXGrid1;
+    private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getXGrid(Double index10) {
-        if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
-
-        return getXGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
+        getXGrid1.add(item);
+        return item;
     }
-
     private String xGrid;
     private Boolean xGrid1;
     private List<Cartesian> setXGrid = new ArrayList<>();
@@ -7506,6 +10207,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getXMinorGrid;
 
     public CoreGridsLinear getXMinorGrid() {
@@ -7515,15 +10217,13 @@ public class Cartesian extends SeparateChart {
         return getXMinorGrid;
     }
 
-    private CoreGridsLinear getXMinorGrid1;
+    private List<CoreGridsLinear> getXMinorGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getXMinorGrid(Double index12) {
-        if (getXMinorGrid1 == null)
-            getXMinorGrid1 = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
-
-        return getXMinorGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
+        getXMinorGrid1.add(item);
+        return item;
     }
-
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<Cartesian> setXMinorGrid = new ArrayList<>();
@@ -7647,6 +10347,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private Ordinal getXScale;
 
     public Ordinal getXScale() {
@@ -7655,10 +10356,9 @@ public class Cartesian extends SeparateChart {
 
         return getXScale;
     }
-
     private String xScale;
-    private String xScale1;
-    private ScaleTypes xScale2;
+    private ScaleTypes xScale1;
+    private String xScale2;
     private ScalesBase xScale3;
     private List<Cartesian> setXScale = new ArrayList<>();
 
@@ -7691,18 +10391,18 @@ public class Cartesian extends SeparateChart {
 
     private List<Cartesian> setXScale1 = new ArrayList<>();
 
-    public Cartesian setXScale(ScaleTypes xScale2) {
-        this.xScale2 = xScale2;
+    public Cartesian setXScale(ScaleTypes xScale1) {
+        this.xScale1 = xScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -7747,6 +10447,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private ChartScroller getXScroller;
 
     public ChartScroller getXScroller() {
@@ -7755,7 +10456,6 @@ public class Cartesian extends SeparateChart {
 
         return getXScroller;
     }
-
     private String xScroller;
     private Boolean xScroller1;
     private List<Cartesian> setXScroller = new ArrayList<>();
@@ -7816,6 +10516,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private OrdinalZoom getXZoom;
 
     public OrdinalZoom getXZoom() {
@@ -7824,7 +10525,6 @@ public class Cartesian extends SeparateChart {
 
         return getXZoom;
     }
-
     private Double xZoom;
     private Boolean xZoom1;
     private String xZoom2;
@@ -7915,6 +10615,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getYAxis;
 
     public CoreAxesLinear getYAxis() {
@@ -7924,15 +10625,13 @@ public class Cartesian extends SeparateChart {
         return getYAxis;
     }
 
-    private CoreAxesLinear getYAxis1;
+    private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getYAxis(Double index14) {
-        if (getYAxis1 == null)
-            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
-
-        return getYAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
+        getYAxis1.add(item);
+        return item;
     }
-
     private String yAxis;
     private Boolean yAxis1;
     private List<Cartesian> setYAxis = new ArrayList<>();
@@ -8056,6 +10755,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getYGrid;
 
     public CoreGridsLinear getYGrid() {
@@ -8065,15 +10765,13 @@ public class Cartesian extends SeparateChart {
         return getYGrid;
     }
 
-    private CoreGridsLinear getYGrid1;
+    private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getYGrid(Double index16) {
-        if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
-
-        return getYGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
+        getYGrid1.add(item);
+        return item;
     }
-
     private String yGrid;
     private Boolean yGrid1;
     private List<Cartesian> setYGrid = new ArrayList<>();
@@ -8197,6 +10895,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getYMinorGrid;
 
     public CoreGridsLinear getYMinorGrid() {
@@ -8206,15 +10905,13 @@ public class Cartesian extends SeparateChart {
         return getYMinorGrid;
     }
 
-    private CoreGridsLinear getYMinorGrid1;
+    private List<CoreGridsLinear> getYMinorGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getYMinorGrid(Double index18) {
-        if (getYMinorGrid1 == null)
-            getYMinorGrid1 = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
-
-        return getYMinorGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
+        getYMinorGrid1.add(item);
+        return item;
     }
-
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<Cartesian> setYMinorGrid = new ArrayList<>();
@@ -8338,6 +11035,7 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+
     private ScalesLinear getYScale;
 
     public ScalesLinear getYScale() {
@@ -8346,10 +11044,9 @@ public class Cartesian extends SeparateChart {
 
         return getYScale;
     }
-
     private String yScale;
-    private String yScale1;
-    private ScaleTypes yScale2;
+    private ScaleTypes yScale1;
+    private String yScale2;
     private ScalesBase yScale3;
     private List<Cartesian> setYScale = new ArrayList<>();
 
@@ -8382,18 +11079,18 @@ public class Cartesian extends SeparateChart {
 
     private List<Cartesian> setYScale1 = new ArrayList<>();
 
-    public Cartesian setYScale(ScaleTypes yScale2) {
-        this.yScale2 = yScale2;
+    public Cartesian setYScale(ScaleTypes yScale1) {
+        this.yScale1 = yScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -8467,25 +11164,40 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetGetSeries() {
-        if (getGetSeries != null) {
-            return getGetSeries.generateJs();
+        if (!getGetSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : getGetSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetSeries1() {
-        if (getGetSeries1 != null) {
-            return getGetSeries1.generateJs();
+        if (!getGetSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : getGetSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetGetSeriesAt() {
-        if (getGetSeriesAt != null) {
-            return getGetSeriesAt.generateJs();
+        if (!getGetSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : getGetSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
@@ -8516,11 +11228,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetLineMarker1() {
-        if (getLineMarker1 != null) {
-            return getLineMarker1.generateJs();
+        if (!getLineMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersLine item : getLineMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetMarkerPalette() {
         if (getMarkerPalette != null) {
@@ -8551,11 +11268,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetRangeMarker1() {
-        if (getRangeMarker1 != null) {
-            return getRangeMarker1.generateJs();
+        if (!getRangeMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : getRangeMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetSelected() {
         if (getSelected != null) {
@@ -8572,11 +11294,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetTextMarker1() {
-        if (getTextMarker1 != null) {
-            return getTextMarker1.generateJs();
+        if (!getTextMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersText item : getTextMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
@@ -8586,11 +11313,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetXAxis1() {
-        if (getXAxis1 != null) {
-            return getXAxis1.generateJs();
+        if (!getXAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getXAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXGrid() {
         if (getXGrid != null) {
@@ -8600,11 +11332,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetXGrid1() {
-        if (getXGrid1 != null) {
-            return getXGrid1.generateJs();
+        if (!getXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXMinorGrid() {
         if (getXMinorGrid != null) {
@@ -8614,11 +11351,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetXMinorGrid1() {
-        if (getXMinorGrid1 != null) {
-            return getXMinorGrid1.generateJs();
+        if (!getXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXScale() {
         if (getXScale != null) {
@@ -8649,11 +11391,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetYAxis1() {
-        if (getYAxis1 != null) {
-            return getYAxis1.generateJs();
+        if (!getYAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getYAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYGrid() {
         if (getYGrid != null) {
@@ -8663,11 +11410,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetYGrid1() {
-        if (getYGrid1 != null) {
-            return getYGrid1.generateJs();
+        if (!getYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYMinorGrid() {
         if (getYMinorGrid != null) {
@@ -8677,11 +11429,16 @@ public class Cartesian extends SeparateChart {
     }
 
     private String generateJSgetYMinorGrid1() {
-        if (getYMinorGrid1 != null) {
-            return getYMinorGrid1.generateJs();
+        if (!getYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYScale() {
         if (getYScale != null) {
@@ -8740,6 +11497,9 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetArea3());
         js.append(generateJSsetArea4());
         js.append(generateJSsetArea5());
+        js.append(generateJSsetArea6());
+        js.append(generateJSsetArea7());
+        js.append(generateJSsetArea8());
         js.append(generateJSsetBar());
         js.append(generateJSsetBar1());
         js.append(generateJSsetBar2());
@@ -8748,6 +11508,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetBar5());
         js.append(generateJSsetBar6());
         js.append(generateJSsetBar7());
+        js.append(generateJSsetBar8());
+        js.append(generateJSsetBar9());
+        js.append(generateJSsetBar10());
+        js.append(generateJSsetBar11());
         js.append(generateJSsetBarGroupsPadding());
         js.append(generateJSsetBarsPadding());
         js.append(generateJSsetBox());
@@ -8758,6 +11522,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetBox5());
         js.append(generateJSsetBox6());
         js.append(generateJSsetBox7());
+        js.append(generateJSsetBox8());
+        js.append(generateJSsetBox9());
+        js.append(generateJSsetBox10());
+        js.append(generateJSsetBox11());
         js.append(generateJSsetBubble());
         js.append(generateJSsetBubble1());
         js.append(generateJSsetBubble2());
@@ -8766,6 +11534,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetBubble5());
         js.append(generateJSsetBubble6());
         js.append(generateJSsetBubble7());
+        js.append(generateJSsetBubble8());
+        js.append(generateJSsetBubble9());
+        js.append(generateJSsetBubble10());
+        js.append(generateJSsetBubble11());
         js.append(generateJSsetCandlestick());
         js.append(generateJSsetCandlestick1());
         js.append(generateJSsetCandlestick2());
@@ -8774,6 +11546,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetCandlestick5());
         js.append(generateJSsetCandlestick6());
         js.append(generateJSsetCandlestick7());
+        js.append(generateJSsetCandlestick8());
+        js.append(generateJSsetCandlestick9());
+        js.append(generateJSsetCandlestick10());
+        js.append(generateJSsetCandlestick11());
         js.append(generateJSsetColumn());
         js.append(generateJSsetColumn1());
         js.append(generateJSsetColumn2());
@@ -8782,6 +11558,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetColumn5());
         js.append(generateJSsetColumn6());
         js.append(generateJSsetColumn7());
+        js.append(generateJSsetColumn8());
+        js.append(generateJSsetColumn9());
+        js.append(generateJSsetColumn10());
+        js.append(generateJSsetColumn11());
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetData());
@@ -8800,6 +11580,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetHilo5());
         js.append(generateJSsetHilo6());
         js.append(generateJSsetHilo7());
+        js.append(generateJSsetHilo8());
+        js.append(generateJSsetHilo9());
+        js.append(generateJSsetHilo10());
+        js.append(generateJSsetHilo11());
         js.append(generateJSsetHovered());
         js.append(generateJSsetIsVertical());
         js.append(generateJSsetJumpLine());
@@ -8810,6 +11594,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetJumpLine5());
         js.append(generateJSsetJumpLine6());
         js.append(generateJSsetJumpLine7());
+        js.append(generateJSsetJumpLine8());
+        js.append(generateJSsetJumpLine9());
+        js.append(generateJSsetJumpLine10());
+        js.append(generateJSsetJumpLine11());
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
@@ -8820,6 +11608,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetLine5());
         js.append(generateJSsetLine6());
         js.append(generateJSsetLine7());
+        js.append(generateJSsetLine8());
+        js.append(generateJSsetLine9());
+        js.append(generateJSsetLine10());
+        js.append(generateJSsetLine11());
         js.append(generateJSsetLineMarker());
         js.append(generateJSsetLineMarker1());
         js.append(generateJSsetLineMarker2());
@@ -8832,9 +11624,14 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetMarker5());
         js.append(generateJSsetMarker6());
         js.append(generateJSsetMarker7());
+        js.append(generateJSsetMarker8());
+        js.append(generateJSsetMarker9());
+        js.append(generateJSsetMarker10());
+        js.append(generateJSsetMarker11());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetMaxBubbleSize());
         js.append(generateJSsetMaxBubbleSize1());
         js.append(generateJSsetMaxPointWidth());
@@ -8852,6 +11649,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetOhlc5());
         js.append(generateJSsetOhlc6());
         js.append(generateJSsetOhlc7());
+        js.append(generateJSsetOhlc8());
+        js.append(generateJSsetOhlc9());
+        js.append(generateJSsetOhlc10());
+        js.append(generateJSsetOhlc11());
         js.append(generateJSsetPalette());
         js.append(generateJSsetPalette1());
         js.append(generateJSsetPalette2());
@@ -8866,6 +11667,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetRangeArea5());
         js.append(generateJSsetRangeArea6());
         js.append(generateJSsetRangeArea7());
+        js.append(generateJSsetRangeArea8());
+        js.append(generateJSsetRangeArea9());
+        js.append(generateJSsetRangeArea10());
+        js.append(generateJSsetRangeArea11());
         js.append(generateJSsetRangeBar());
         js.append(generateJSsetRangeBar1());
         js.append(generateJSsetRangeBar2());
@@ -8874,6 +11679,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetRangeBar5());
         js.append(generateJSsetRangeBar6());
         js.append(generateJSsetRangeBar7());
+        js.append(generateJSsetRangeBar8());
+        js.append(generateJSsetRangeBar9());
+        js.append(generateJSsetRangeBar10());
+        js.append(generateJSsetRangeBar11());
         js.append(generateJSsetRangeColumn());
         js.append(generateJSsetRangeColumn1());
         js.append(generateJSsetRangeColumn2());
@@ -8882,6 +11691,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetRangeColumn5());
         js.append(generateJSsetRangeColumn6());
         js.append(generateJSsetRangeColumn7());
+        js.append(generateJSsetRangeColumn8());
+        js.append(generateJSsetRangeColumn9());
+        js.append(generateJSsetRangeColumn10());
+        js.append(generateJSsetRangeColumn11());
         js.append(generateJSsetRangeMarker());
         js.append(generateJSsetRangeMarker1());
         js.append(generateJSsetRangeMarker2());
@@ -8894,6 +11707,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetRangeSplineArea5());
         js.append(generateJSsetRangeSplineArea6());
         js.append(generateJSsetRangeSplineArea7());
+        js.append(generateJSsetRangeSplineArea8());
+        js.append(generateJSsetRangeSplineArea9());
+        js.append(generateJSsetRangeSplineArea10());
+        js.append(generateJSsetRangeSplineArea11());
         js.append(generateJSsetRangeStepArea());
         js.append(generateJSsetRangeStepArea1());
         js.append(generateJSsetRangeStepArea2());
@@ -8902,6 +11719,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetRangeStepArea5());
         js.append(generateJSsetRangeStepArea6());
         js.append(generateJSsetRangeStepArea7());
+        js.append(generateJSsetRangeStepArea8());
+        js.append(generateJSsetRangeStepArea9());
+        js.append(generateJSsetRangeStepArea10());
+        js.append(generateJSsetRangeStepArea11());
         js.append(generateJSsetRemoveSeries());
         js.append(generateJSsetRemoveSeries1());
         js.append(generateJSsetRemoveSeriesAt());
@@ -8914,6 +11735,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetSpline5());
         js.append(generateJSsetSpline6());
         js.append(generateJSsetSpline7());
+        js.append(generateJSsetSpline8());
+        js.append(generateJSsetSpline9());
+        js.append(generateJSsetSpline10());
+        js.append(generateJSsetSpline11());
         js.append(generateJSsetSplineArea());
         js.append(generateJSsetSplineArea1());
         js.append(generateJSsetSplineArea2());
@@ -8922,6 +11747,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetSplineArea5());
         js.append(generateJSsetSplineArea6());
         js.append(generateJSsetSplineArea7());
+        js.append(generateJSsetSplineArea8());
+        js.append(generateJSsetSplineArea9());
+        js.append(generateJSsetSplineArea10());
+        js.append(generateJSsetSplineArea11());
         js.append(generateJSsetStepArea());
         js.append(generateJSsetStepArea1());
         js.append(generateJSsetStepArea2());
@@ -8930,6 +11759,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetStepArea5());
         js.append(generateJSsetStepArea6());
         js.append(generateJSsetStepArea7());
+        js.append(generateJSsetStepArea8());
+        js.append(generateJSsetStepArea9());
+        js.append(generateJSsetStepArea10());
+        js.append(generateJSsetStepArea11());
         js.append(generateJSsetStepLine());
         js.append(generateJSsetStepLine1());
         js.append(generateJSsetStepLine2());
@@ -8938,6 +11771,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetStepLine5());
         js.append(generateJSsetStepLine6());
         js.append(generateJSsetStepLine7());
+        js.append(generateJSsetStepLine8());
+        js.append(generateJSsetStepLine9());
+        js.append(generateJSsetStepLine10());
+        js.append(generateJSsetStepLine11());
         js.append(generateJSsetStick());
         js.append(generateJSsetStick1());
         js.append(generateJSsetStick2());
@@ -8946,6 +11783,10 @@ public class Cartesian extends SeparateChart {
         js.append(generateJSsetStick5());
         js.append(generateJSsetStick6());
         js.append(generateJSsetStick7());
+        js.append(generateJSsetStick8());
+        js.append(generateJSsetStick9());
+        js.append(generateJSsetStick10());
+        js.append(generateJSsetStick11());
         js.append(generateJSsetTextMarker());
         js.append(generateJSsetTextMarker1());
         js.append(generateJSsetTextMarker2());

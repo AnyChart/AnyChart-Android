@@ -36,10 +36,6 @@ public class TreeviewDataItem extends JsObject {
             this.child = child;
         } else {
             this.child = child;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -65,10 +61,6 @@ public class TreeviewDataItem extends JsObject {
             this.child1 = child1;
         } else {
             this.child1 = child1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -94,10 +86,6 @@ public class TreeviewDataItem extends JsObject {
             this.child2 = child2;
         } else {
             this.child2 = child2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -132,10 +120,6 @@ public class TreeviewDataItem extends JsObject {
         } else {
             this.child3 = child3;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -166,10 +150,6 @@ public class TreeviewDataItem extends JsObject {
         } else {
             this.child4 = child4;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -200,10 +180,6 @@ public class TreeviewDataItem extends JsObject {
         } else {
             this.child5 = child5;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -244,10 +220,6 @@ public class TreeviewDataItem extends JsObject {
             this.key = key;
         } else {
             this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -279,10 +251,6 @@ public class TreeviewDataItem extends JsObject {
             this.child6 = child6;
         } else {
             this.child6 = child6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -313,10 +281,6 @@ public class TreeviewDataItem extends JsObject {
             this.child7 = child7;
         } else {
             this.child7 = child7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -342,10 +306,6 @@ public class TreeviewDataItem extends JsObject {
             this.index1 = index1;
         } else {
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

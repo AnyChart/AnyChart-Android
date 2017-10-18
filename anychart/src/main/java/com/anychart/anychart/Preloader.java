@@ -30,10 +30,6 @@ public class Preloader extends JsObject {
             this.element = element;
         } else {
             this.element = element;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -55,10 +51,6 @@ public class Preloader extends JsObject {
             this.parentElement = parentElement;
         } else {
             this.parentElement = parentElement;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -80,10 +72,6 @@ public class Preloader extends JsObject {
             this.visible = visible;
         } else {
             this.visible = visible;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

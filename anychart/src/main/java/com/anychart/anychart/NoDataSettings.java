@@ -45,10 +45,6 @@ public class NoDataSettings extends CoreBase {
             this.label = label;
         } else {
             this.label = label;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -74,10 +70,6 @@ public class NoDataSettings extends CoreBase {
             this.label2 = label2;
         } else {
             this.label2 = label2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

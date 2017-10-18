@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class Sparkline extends Chart {
 
-    public Sparkline() {
-        js.append("chart = anychart.sparkline();");
+    protected Sparkline(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private AnychartMathRect getClip;
 
     public AnychartMathRect getClip() {
@@ -22,7 +25,6 @@ public class Sparkline extends Chart {
 
         return getClip;
     }
-
     private AnychartMathRect clip;
     private List<Sparkline> setClip = new ArrayList<>();
 
@@ -83,6 +85,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -91,13 +94,13 @@ public class Sparkline extends Chart {
 
         return getData;
     }
-
     private View data;
     private Set data1;
     private String[] data2;
     private String data3;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<Sparkline> setData = new ArrayList<>();
 
     public Sparkline setData(View data, TextParsingMode csvSettings) {
@@ -130,19 +133,19 @@ public class Sparkline extends Chart {
 
     private List<Sparkline> setData1 = new ArrayList<>();
 
-    public Sparkline setData(View data, TextParsingSettings csvSettings1) {
+    public Sparkline setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -159,6 +162,36 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setData2 = new ArrayList<>();
+
+    public Sparkline setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Sparkline> setData3 = new ArrayList<>();
 
     public Sparkline setData(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -177,36 +210,6 @@ public class Sparkline extends Chart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Sparkline> setData3 = new ArrayList<>();
-
-    public Sparkline setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -219,6 +222,66 @@ public class Sparkline extends Chart {
     }
 
     private List<Sparkline> setData4 = new ArrayList<>();
+
+    public Sparkline setData(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Sparkline> setData5 = new ArrayList<>();
+
+    public Sparkline setData(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Sparkline> setData6 = new ArrayList<>();
 
     public Sparkline setData(String[] data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -237,10 +300,10 @@ public class Sparkline extends Chart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setData4) {
+            for (Sparkline item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -248,29 +311,29 @@ public class Sparkline extends Chart {
         return "";
     }
 
-    private List<Sparkline> setData5 = new ArrayList<>();
+    private List<Sparkline> setData7 = new ArrayList<>();
 
-    public Sparkline setData(String[] data2, TextParsingSettings csvSettings1) {
+    public Sparkline setData(String[] data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setData5) {
+            for (Sparkline item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -278,7 +341,37 @@ public class Sparkline extends Chart {
         return "";
     }
 
-    private List<Sparkline> setData6 = new ArrayList<>();
+    private List<Sparkline> setData8 = new ArrayList<>();
+
+    public Sparkline setData(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Sparkline> setData9 = new ArrayList<>();
 
     public Sparkline setData(String data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -297,10 +390,10 @@ public class Sparkline extends Chart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setData6) {
+            for (Sparkline item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -308,29 +401,59 @@ public class Sparkline extends Chart {
         return "";
     }
 
-    private List<Sparkline> setData7 = new ArrayList<>();
+    private List<Sparkline> setData10 = new ArrayList<>();
 
-    public Sparkline setData(String data3, TextParsingSettings csvSettings1) {
+    public Sparkline setData(String data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setData7) {
+            for (Sparkline item : setData10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Sparkline> setData11 = new ArrayList<>();
+
+    public Sparkline setData(String data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Sparkline item : setData11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1018,6 +1141,7 @@ public class Sparkline extends Chart {
     }
 
     private Fill imageSettings1;
+
     private PatternFill getFirstHatchFill;
 
     public PatternFill getFirstHatchFill() {
@@ -1026,7 +1150,6 @@ public class Sparkline extends Chart {
 
         return getFirstHatchFill;
     }
-
     private PatternFill patternFillOrType;
     private HatchFill patternFillOrType1;
     private HatchFillType patternFillOrType2;
@@ -1162,6 +1285,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private LabelsfactoryLabel getFirstLabels;
 
     public LabelsfactoryLabel getFirstLabels() {
@@ -1170,7 +1294,6 @@ public class Sparkline extends Chart {
 
         return getFirstLabels;
     }
-
     private String firstLabels;
     private Boolean firstLabels1;
     private List<Sparkline> setFirstLabels = new ArrayList<>();
@@ -1231,6 +1354,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private UiMarkersfactoryMarker getFirstMarkers;
 
     public UiMarkersfactoryMarker getFirstMarkers() {
@@ -1239,7 +1363,6 @@ public class Sparkline extends Chart {
 
         return getFirstMarkers;
     }
-
     private String firstMarkers;
     private Boolean firstMarkers1;
     private List<Sparkline> setFirstMarkers = new ArrayList<>();
@@ -1300,6 +1423,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private PatternFill getHatchFill;
 
     public PatternFill getHatchFill() {
@@ -1308,7 +1432,6 @@ public class Sparkline extends Chart {
 
         return getHatchFill;
     }
-
     private PatternFill patternFillOrType4;
     private HatchFill patternFillOrType5;
     private HatchFillType patternFillOrType6;
@@ -1444,6 +1567,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private LabelsfactoryLabel getLabels;
 
     public LabelsfactoryLabel getLabels() {
@@ -1452,7 +1576,6 @@ public class Sparkline extends Chart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<Sparkline> setLabels = new ArrayList<>();
@@ -1853,6 +1976,7 @@ public class Sparkline extends Chart {
     }
 
     private Fill imageSettings2;
+
     private PatternFill getLastHatchFill;
 
     public PatternFill getLastHatchFill() {
@@ -1861,7 +1985,6 @@ public class Sparkline extends Chart {
 
         return getLastHatchFill;
     }
-
     private PatternFill patternFillOrType8;
     private HatchFill patternFillOrType9;
     private HatchFillType patternFillOrType10;
@@ -1997,6 +2120,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private LabelsfactoryLabel getLastLabels;
 
     public LabelsfactoryLabel getLastLabels() {
@@ -2005,7 +2129,6 @@ public class Sparkline extends Chart {
 
         return getLastLabels;
     }
-
     private String lastLabels;
     private Boolean lastLabels1;
     private List<Sparkline> setLastLabels = new ArrayList<>();
@@ -2066,6 +2189,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private UiMarkersfactoryMarker getLastMarkers;
 
     public UiMarkersfactoryMarker getLastMarkers() {
@@ -2074,7 +2198,6 @@ public class Sparkline extends Chart {
 
         return getLastMarkers;
     }
-
     private String lastMarkers;
     private Boolean lastMarkers1;
     private List<Sparkline> setLastMarkers = new ArrayList<>();
@@ -2135,6 +2258,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private CoreAxismarkersLine getLineMarker;
 
     public CoreAxismarkersLine getLineMarker() {
@@ -2144,15 +2268,13 @@ public class Sparkline extends Chart {
         return getLineMarker;
     }
 
-    private CoreAxismarkersLine getLineMarker1;
+    private List<CoreAxismarkersLine> getLineMarker1 = new ArrayList<>();
 
     public CoreAxismarkersLine getLineMarker(Double index) {
-        if (getLineMarker1 == null)
-            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index+")");
-
-        return getLineMarker1;
+        CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index+")");
+        getLineMarker1.add(item);
+        return item;
     }
-
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Sparkline> setLineMarker = new ArrayList<>();
@@ -2276,6 +2398,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private UiMarkersfactoryMarker getMarkers;
 
     public UiMarkersfactoryMarker getMarkers() {
@@ -2284,7 +2407,6 @@ public class Sparkline extends Chart {
 
         return getMarkers;
     }
-
     private String markers;
     private Boolean markers1;
     private List<Sparkline> setMarkers = new ArrayList<>();
@@ -2685,6 +2807,7 @@ public class Sparkline extends Chart {
     }
 
     private Fill imageSettings3;
+
     private PatternFill getMaxHatchFill;
 
     public PatternFill getMaxHatchFill() {
@@ -2693,7 +2816,6 @@ public class Sparkline extends Chart {
 
         return getMaxHatchFill;
     }
-
     private PatternFill patternFillOrType12;
     private HatchFill patternFillOrType13;
     private HatchFillType patternFillOrType14;
@@ -2829,6 +2951,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private LabelsfactoryLabel getMaxLabels;
 
     public LabelsfactoryLabel getMaxLabels() {
@@ -2837,7 +2960,6 @@ public class Sparkline extends Chart {
 
         return getMaxLabels;
     }
-
     private String maxLabels;
     private Boolean maxLabels1;
     private List<Sparkline> setMaxLabels = new ArrayList<>();
@@ -2898,6 +3020,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private UiMarkersfactoryMarker getMaxMarkers;
 
     public UiMarkersfactoryMarker getMaxMarkers() {
@@ -2906,7 +3029,6 @@ public class Sparkline extends Chart {
 
         return getMaxMarkers;
     }
-
     private String maxMarkers;
     private Boolean maxMarkers1;
     private List<Sparkline> setMaxMarkers = new ArrayList<>();
@@ -3307,6 +3429,7 @@ public class Sparkline extends Chart {
     }
 
     private Fill imageSettings4;
+
     private PatternFill getMinHatchFill;
 
     public PatternFill getMinHatchFill() {
@@ -3315,7 +3438,6 @@ public class Sparkline extends Chart {
 
         return getMinHatchFill;
     }
-
     private PatternFill patternFillOrType16;
     private HatchFill patternFillOrType17;
     private HatchFillType patternFillOrType18;
@@ -3451,6 +3573,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private LabelsfactoryLabel getMinLabels;
 
     public LabelsfactoryLabel getMinLabels() {
@@ -3459,7 +3582,6 @@ public class Sparkline extends Chart {
 
         return getMinLabels;
     }
-
     private String minLabels;
     private Boolean minLabels1;
     private List<Sparkline> setMinLabels = new ArrayList<>();
@@ -3520,6 +3642,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private UiMarkersfactoryMarker getMinMarkers;
 
     public UiMarkersfactoryMarker getMinMarkers() {
@@ -3528,7 +3651,6 @@ public class Sparkline extends Chart {
 
         return getMinMarkers;
     }
-
     private String minMarkers;
     private Boolean minMarkers1;
     private List<Sparkline> setMinMarkers = new ArrayList<>();
@@ -3929,6 +4051,7 @@ public class Sparkline extends Chart {
     }
 
     private Fill imageSettings5;
+
     private PatternFill getNegativeHatchFill;
 
     public PatternFill getNegativeHatchFill() {
@@ -3937,7 +4060,6 @@ public class Sparkline extends Chart {
 
         return getNegativeHatchFill;
     }
-
     private PatternFill patternFillOrType20;
     private HatchFill patternFillOrType21;
     private HatchFillType patternFillOrType22;
@@ -4073,6 +4195,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private LabelsfactoryLabel getNegativeLabels;
 
     public LabelsfactoryLabel getNegativeLabels() {
@@ -4081,7 +4204,6 @@ public class Sparkline extends Chart {
 
         return getNegativeLabels;
     }
-
     private String negativeLabels;
     private Boolean negativeLabels1;
     private List<Sparkline> setNegativeLabels = new ArrayList<>();
@@ -4142,6 +4264,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private UiMarkersfactoryMarker getNegativeMarkers;
 
     public UiMarkersfactoryMarker getNegativeMarkers() {
@@ -4150,7 +4273,6 @@ public class Sparkline extends Chart {
 
         return getNegativeMarkers;
     }
-
     private String negativeMarkers;
     private Boolean negativeMarkers1;
     private List<Sparkline> setNegativeMarkers = new ArrayList<>();
@@ -4271,6 +4393,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private CoreAxismarkersRange getRangeMarker;
 
     public CoreAxismarkersRange getRangeMarker() {
@@ -4280,15 +4403,13 @@ public class Sparkline extends Chart {
         return getRangeMarker;
     }
 
-    private CoreAxismarkersRange getRangeMarker1;
+    private List<CoreAxismarkersRange> getRangeMarker1 = new ArrayList<>();
 
     public CoreAxismarkersRange getRangeMarker(Double index2) {
-        if (getRangeMarker1 == null)
-            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index2+")");
-
-        return getRangeMarker1;
+        CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index2+")");
+        getRangeMarker1.add(item);
+        return item;
     }
-
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Sparkline> setRangeMarker = new ArrayList<>();
@@ -4412,22 +4533,22 @@ public class Sparkline extends Chart {
         return "";
     }
 
-    private String type;
-    private SparklineSeriesType type1;
+    private SparklineSeriesType type;
+    private String type1;
     private List<Sparkline> setSeriesType = new ArrayList<>();
 
-    public Sparkline setSeriesType(String type) {
+    public Sparkline setSeriesType(SparklineSeriesType type) {
         this.type = type;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".seriesType(%s)", type));
+        js.append(String.format(Locale.US, ".seriesType(%s)", (type != null) ? type.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".seriesType(%s)", type));
+//        js.append(String.format(Locale.US, ".seriesType(%s)", (type != null) ? type.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", type));
+            onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", (type != null) ? type.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -4445,18 +4566,18 @@ public class Sparkline extends Chart {
 
     private List<Sparkline> setSeriesType1 = new ArrayList<>();
 
-    public Sparkline setSeriesType(SparklineSeriesType type1) {
+    public Sparkline setSeriesType(String type1) {
         this.type1 = type1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".seriesType(%s)", (type1 != null) ? type1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".seriesType(%s)", type1));
 
-//        js.append(String.format(Locale.US, ".seriesType(%s)", (type1 != null) ? type1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".seriesType(%s)", type1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", (type1 != null) ? type1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", type1));
             js.setLength(0);
         }
         return this;
@@ -4578,6 +4699,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private CoreAxismarkersText getTextMarker;
 
     public CoreAxismarkersText getTextMarker() {
@@ -4587,15 +4709,13 @@ public class Sparkline extends Chart {
         return getTextMarker;
     }
 
-    private CoreAxismarkersText getTextMarker1;
+    private List<CoreAxismarkersText> getTextMarker1 = new ArrayList<>();
 
     public CoreAxismarkersText getTextMarker(Double index4) {
-        if (getTextMarker1 == null)
-            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker("+ index4+")");
-
-        return getTextMarker1;
+        CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index4+")");
+        getTextMarker1.add(item);
+        return item;
     }
-
     private String textMarker;
     private Boolean textMarker1;
     private List<Sparkline> setTextMarker = new ArrayList<>();
@@ -4719,6 +4839,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private Ordinal getXScale;
 
     public Ordinal getXScale() {
@@ -4727,7 +4848,6 @@ public class Sparkline extends Chart {
 
         return getXScale;
     }
-
     private ScaleTypes xScale;
     private String xScale1;
     private ScalesBase xScale2;
@@ -4819,6 +4939,7 @@ public class Sparkline extends Chart {
         return "";
     }
 
+
     private ScalesBase getYScale;
 
     public ScalesBase getYScale() {
@@ -4827,7 +4948,6 @@ public class Sparkline extends Chart {
 
         return getYScale;
     }
-
     private ScaleTypes yScale;
     private String yScale1;
     private ScalesBase yScale2;
@@ -4997,11 +5117,16 @@ public class Sparkline extends Chart {
     }
 
     private String generateJSgetLineMarker1() {
-        if (getLineMarker1 != null) {
-            return getLineMarker1.generateJs();
+        if (!getLineMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersLine item : getLineMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
@@ -5081,11 +5206,16 @@ public class Sparkline extends Chart {
     }
 
     private String generateJSgetRangeMarker1() {
-        if (getRangeMarker1 != null) {
-            return getRangeMarker1.generateJs();
+        if (!getRangeMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : getRangeMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetTextMarker() {
         if (getTextMarker != null) {
@@ -5095,11 +5225,16 @@ public class Sparkline extends Chart {
     }
 
     private String generateJSgetTextMarker1() {
-        if (getTextMarker1 != null) {
-            return getTextMarker1.generateJs();
+        if (!getTextMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersText item : getTextMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXScale() {
         if (getXScale != null) {
@@ -5160,6 +5295,10 @@ public class Sparkline extends Chart {
         js.append(generateJSsetData5());
         js.append(generateJSsetData6());
         js.append(generateJSsetData7());
+        js.append(generateJSsetData8());
+        js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());

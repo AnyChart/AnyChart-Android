@@ -30,10 +30,6 @@ public class CycledQueue extends JsObject {
             this.newLengthLimit = newLengthLimit;
         } else {
             this.newLengthLimit = newLengthLimit;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -55,10 +51,6 @@ public class CycledQueue extends JsObject {
             this.index = index;
         } else {
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

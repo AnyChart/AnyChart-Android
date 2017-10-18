@@ -45,10 +45,6 @@ public class Grid extends VisualBaseWithBounds {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -74,10 +70,6 @@ public class Grid extends VisualBaseWithBounds {
             this.background2 = background2;
         } else {
             this.background2 = background2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -100,10 +92,6 @@ public class Grid extends VisualBaseWithBounds {
             this.drawBottomLine = drawBottomLine;
         } else {
             this.drawBottomLine = drawBottomLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -126,10 +114,6 @@ public class Grid extends VisualBaseWithBounds {
             this.drawLeftLine = drawLeftLine;
         } else {
             this.drawLeftLine = drawLeftLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -152,10 +136,6 @@ public class Grid extends VisualBaseWithBounds {
             this.drawRightLine = drawRightLine;
         } else {
             this.drawRightLine = drawRightLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +158,6 @@ public class Grid extends VisualBaseWithBounds {
             this.drawTopLine = drawTopLine;
         } else {
             this.drawTopLine = drawTopLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -204,10 +180,6 @@ public class Grid extends VisualBaseWithBounds {
             this.evenFill = evenFill;
         } else {
             this.evenFill = evenFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -233,10 +205,6 @@ public class Grid extends VisualBaseWithBounds {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -281,10 +249,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -322,10 +286,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -363,10 +323,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -404,10 +360,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -445,10 +397,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -486,10 +434,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -545,10 +489,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -596,10 +536,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -652,10 +588,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -691,10 +623,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -730,10 +658,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -769,10 +693,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color1 = color1;
             this.thickness = thickness;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -795,10 +715,6 @@ public class Grid extends VisualBaseWithBounds {
             this.evenHolidayFill = evenHolidayFill;
         } else {
             this.evenHolidayFill = evenHolidayFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -833,10 +749,6 @@ public class Grid extends VisualBaseWithBounds {
         } else {
             this.color2 = color2;
             this.opacity3 = opacity3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -895,10 +807,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -950,10 +858,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1005,10 +909,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1060,10 +960,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1115,10 +1011,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1170,10 +1062,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1252,10 +1140,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1326,10 +1210,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1394,10 +1274,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color3 = color3;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1445,10 +1321,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color3 = color3;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1496,10 +1368,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color3 = color3;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1547,10 +1415,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color3 = color3;
             this.thickness1 = thickness1;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1599,10 +1463,6 @@ public class Grid extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1644,10 +1504,6 @@ public class Grid extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1689,10 +1545,6 @@ public class Grid extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1715,10 +1567,6 @@ public class Grid extends VisualBaseWithBounds {
             this.oddFill = oddFill;
         } else {
             this.oddFill = oddFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1761,10 +1609,6 @@ public class Grid extends VisualBaseWithBounds {
         } else {
             this.color7 = color7;
             this.opacity6 = opacity6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1835,10 +1679,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1902,10 +1742,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1969,10 +1805,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2036,10 +1868,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2103,10 +1931,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2170,10 +1994,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2267,10 +2087,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2356,10 +2172,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2436,10 +2248,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color8 = color8;
             this.thickness3 = thickness3;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2499,10 +2307,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color8 = color8;
             this.thickness3 = thickness3;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2562,10 +2366,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color8 = color8;
             this.thickness3 = thickness3;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2625,10 +2425,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color8 = color8;
             this.thickness3 = thickness3;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2651,10 +2447,6 @@ public class Grid extends VisualBaseWithBounds {
             this.oddHolidayFill = oddHolidayFill;
         } else {
             this.oddHolidayFill = oddHolidayFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2702,10 +2494,6 @@ public class Grid extends VisualBaseWithBounds {
         } else {
             this.color9 = color9;
             this.opacity9 = opacity9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2788,10 +2576,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2867,10 +2651,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2946,10 +2726,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3025,10 +2801,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3104,10 +2876,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3183,10 +2951,6 @@ public class Grid extends VisualBaseWithBounds {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3295,10 +3059,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity11 = opacity11;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3399,10 +3159,6 @@ public class Grid extends VisualBaseWithBounds {
             this.opacity11 = opacity11;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3487,10 +3243,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color10 = color10;
             this.thickness4 = thickness4;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3558,10 +3310,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color10 = color10;
             this.thickness4 = thickness4;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3629,10 +3377,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color10 = color10;
             this.thickness4 = thickness4;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3700,10 +3444,6 @@ public class Grid extends VisualBaseWithBounds {
             this.color10 = color10;
             this.thickness4 = thickness4;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3739,10 +3479,6 @@ public class Grid extends VisualBaseWithBounds {
             this.overlay = overlay;
         } else {
             this.overlay = overlay;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3767,10 +3503,6 @@ public class Grid extends VisualBaseWithBounds {
             this.overlay1 = overlay1;
         } else {
             this.overlay1 = overlay1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3838,10 +3570,6 @@ public class Grid extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3902,10 +3630,6 @@ public class Grid extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3966,10 +3690,6 @@ public class Grid extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

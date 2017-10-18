@@ -34,10 +34,6 @@ public class Thermometer extends LineargaugePointersBase {
             this.bulbPadding = bulbPadding;
         } else {
             this.bulbPadding = bulbPadding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Thermometer extends LineargaugePointersBase {
             this.bulbPadding1 = bulbPadding1;
         } else {
             this.bulbPadding1 = bulbPadding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class Thermometer extends LineargaugePointersBase {
             this.bulbRadius = bulbRadius;
         } else {
             this.bulbRadius = bulbRadius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

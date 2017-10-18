@@ -30,10 +30,6 @@ public class GridsMapSettings extends CoreBase {
             this.drawFirstLine = drawFirstLine;
         } else {
             this.drawFirstLine = drawFirstLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class GridsMapSettings extends CoreBase {
             this.drawLastLine = drawLastLine;
         } else {
             this.drawLastLine = drawLastLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +74,6 @@ public class GridsMapSettings extends CoreBase {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -108,10 +96,6 @@ public class GridsMapSettings extends CoreBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -137,10 +121,6 @@ public class GridsMapSettings extends CoreBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -185,10 +165,6 @@ public class GridsMapSettings extends CoreBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -226,10 +202,6 @@ public class GridsMapSettings extends CoreBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -267,10 +239,6 @@ public class GridsMapSettings extends CoreBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -308,10 +276,6 @@ public class GridsMapSettings extends CoreBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -349,10 +313,6 @@ public class GridsMapSettings extends CoreBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -390,10 +350,6 @@ public class GridsMapSettings extends CoreBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -449,10 +405,6 @@ public class GridsMapSettings extends CoreBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -500,10 +452,6 @@ public class GridsMapSettings extends CoreBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -540,10 +488,6 @@ public class GridsMapSettings extends CoreBase {
             this.horizontal = horizontal;
         } else {
             this.horizontal = horizontal;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -568,10 +512,6 @@ public class GridsMapSettings extends CoreBase {
             this.horizontal1 = horizontal1;
         } else {
             this.horizontal1 = horizontal1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -613,10 +553,6 @@ public class GridsMapSettings extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -651,10 +587,6 @@ public class GridsMapSettings extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -689,10 +621,6 @@ public class GridsMapSettings extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -732,10 +660,6 @@ public class GridsMapSettings extends CoreBase {
             this.palette = palette;
         } else {
             this.palette = palette;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -762,10 +686,6 @@ public class GridsMapSettings extends CoreBase {
             this.palette1 = palette1;
         } else {
             this.palette1 = palette1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -792,10 +712,6 @@ public class GridsMapSettings extends CoreBase {
             this.palette2 = palette2;
         } else {
             this.palette2 = palette2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -822,10 +738,6 @@ public class GridsMapSettings extends CoreBase {
             this.palette3 = palette3;
         } else {
             this.palette3 = palette3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -882,10 +794,6 @@ public class GridsMapSettings extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -935,10 +843,6 @@ public class GridsMapSettings extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -988,10 +892,6 @@ public class GridsMapSettings extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1027,10 +927,6 @@ public class GridsMapSettings extends CoreBase {
             this.vertical = vertical;
         } else {
             this.vertical = vertical;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1055,10 +951,6 @@ public class GridsMapSettings extends CoreBase {
             this.vertical1 = vertical1;
         } else {
             this.vertical1 = vertical1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1076,19 +968,17 @@ public class GridsMapSettings extends CoreBase {
 
     private Double zIndex;
     private MapGridZIndex zIndex1;
+    private String zIndex2;
 
     public GridsMapSettings setZIndex(Double zIndex) {
         if (jsBase == null) {
             this.zIndex = null;
             this.zIndex1 = null;
+            this.zIndex2 = null;
             
             this.zIndex = zIndex;
         } else {
             this.zIndex = zIndex;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1109,14 +999,11 @@ public class GridsMapSettings extends CoreBase {
         if (jsBase == null) {
             this.zIndex = null;
             this.zIndex1 = null;
+            this.zIndex2 = null;
             
             this.zIndex1 = zIndex1;
         } else {
             this.zIndex1 = zIndex1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1126,6 +1013,31 @@ public class GridsMapSettings extends CoreBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".zIndex(%s)", (zIndex1 != null) ? zIndex1.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public GridsMapSettings setZIndex(String zIndex2) {
+        if (jsBase == null) {
+            this.zIndex = null;
+            this.zIndex1 = null;
+            this.zIndex2 = null;
+            
+            this.zIndex2 = zIndex2;
+        } else {
+            this.zIndex2 = zIndex2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".zIndex(%s)", zIndex2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%s)", zIndex2));
                 js.setLength(0);
             }
         }
@@ -1475,6 +1387,13 @@ public class GridsMapSettings extends CoreBase {
         return "";
     }
 
+    private String generateJSzIndex2() {
+        if (zIndex2 != null) {
+            return String.format(Locale.US, "zIndex: %s,", zIndex2);
+        }
+        return "";
+    }
+
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -1544,6 +1463,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(generateJSvertical1());
             js.append(generateJSzIndex());
             js.append(generateJSzIndex1());
+            js.append(generateJSzIndex2());
             js.append("}");
         }
 

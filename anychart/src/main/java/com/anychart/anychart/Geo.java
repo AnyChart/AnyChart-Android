@@ -33,10 +33,6 @@ public class Geo extends CoreBase {
         } else {
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class Geo extends CoreBase {
             this.gap = gap;
         } else {
             this.gap = gap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -85,10 +77,6 @@ public class Geo extends CoreBase {
             this.maxTicksCount = maxTicksCount;
         } else {
             this.maxTicksCount = maxTicksCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -111,10 +99,6 @@ public class Geo extends CoreBase {
             this.maximumX = maximumX;
         } else {
             this.maximumX = maximumX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -137,10 +121,6 @@ public class Geo extends CoreBase {
             this.maximumY = maximumY;
         } else {
             this.maximumY = maximumY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -163,10 +143,6 @@ public class Geo extends CoreBase {
             this.minimumX = minimumX;
         } else {
             this.minimumX = minimumX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -189,10 +165,6 @@ public class Geo extends CoreBase {
             this.minimumY = minimumY;
         } else {
             this.minimumY = minimumY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -215,10 +187,6 @@ public class Geo extends CoreBase {
             this.precision = precision;
         } else {
             this.precision = precision;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -244,10 +212,6 @@ public class Geo extends CoreBase {
         } else {
             this.xPrecision = xPrecision;
             this.yPrecision = yPrecision;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -283,10 +247,6 @@ public class Geo extends CoreBase {
             this.xMinorTicks = xMinorTicks;
         } else {
             this.xMinorTicks = xMinorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -311,10 +271,6 @@ public class Geo extends CoreBase {
             this.xMinorTicks1 = xMinorTicks1;
         } else {
             this.xMinorTicks1 = xMinorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -350,10 +306,6 @@ public class Geo extends CoreBase {
             this.xTicks = xTicks;
         } else {
             this.xTicks = xTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -378,10 +330,6 @@ public class Geo extends CoreBase {
             this.xTicks1 = xTicks1;
         } else {
             this.xTicks1 = xTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -417,10 +365,6 @@ public class Geo extends CoreBase {
             this.yMinorTicks = yMinorTicks;
         } else {
             this.yMinorTicks = yMinorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -445,10 +389,6 @@ public class Geo extends CoreBase {
             this.yMinorTicks1 = yMinorTicks1;
         } else {
             this.yMinorTicks1 = yMinorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -484,10 +424,6 @@ public class Geo extends CoreBase {
             this.yTicks = yTicks;
         } else {
             this.yTicks = yTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -512,10 +448,6 @@ public class Geo extends CoreBase {
             this.yTicks1 = yTicks1;
         } else {
             this.yTicks1 = yTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

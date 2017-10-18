@@ -34,10 +34,6 @@ public class UtilsPadding extends CoreBase {
             this.bottom = bottom;
         } else {
             this.bottom = bottom;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class UtilsPadding extends CoreBase {
             this.bottom1 = bottom1;
         } else {
             this.bottom1 = bottom1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class UtilsPadding extends CoreBase {
             this.left = left;
         } else {
             this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class UtilsPadding extends CoreBase {
             this.left1 = left1;
         } else {
             this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -150,10 +134,6 @@ public class UtilsPadding extends CoreBase {
             this.right = right;
         } else {
             this.right = right;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +158,6 @@ public class UtilsPadding extends CoreBase {
             this.right1 = right1;
         } else {
             this.right1 = right1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -226,10 +202,6 @@ public class UtilsPadding extends CoreBase {
             this.value2 = value2;
         } else {
             this.value2 = value2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -263,10 +235,6 @@ public class UtilsPadding extends CoreBase {
             this.value3 = value3;
         } else {
             this.value3 = value3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -293,10 +261,6 @@ public class UtilsPadding extends CoreBase {
             this.top = top;
         } else {
             this.top = top;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -321,10 +285,6 @@ public class UtilsPadding extends CoreBase {
             this.top1 = top1;
         } else {
             this.top1 = top1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

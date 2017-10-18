@@ -25,27 +25,53 @@ public class TableSelectable extends JsObject {
     
     private Double key;
     private TableSearchMode mode;
+    private String mode1;
 
-    public TableselectableRowProxy search(Double key, TableSearchMode mode) {
+    public TableselectableRowProxy search(TableSearchMode mode, Double key) {
         if (jsBase == null) {
-            this.key = key;
+            this.mode = null;
+            this.mode1 = null;
+            
             this.mode = mode;
+            this.key = key;
         } else {
-            this.key = key;
             this.mode = mode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.key = key;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".search(%f, %s);", key, (mode != null) ? mode.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", (mode != null) ? mode.generateJs() : "null", key));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", key, (mode != null) ? mode.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", (mode != null) ? mode.generateJs() : "null", key));
+                js.setLength(0);
+            }
+        }
+        return new TableselectableRowProxy(jsBase);
+    }
+
+
+    public TableselectableRowProxy search(String mode1, Double key) {
+        if (jsBase == null) {
+            this.mode = null;
+            this.mode1 = null;
+            
+            this.mode1 = mode1;
+            this.key = key;
+        } else {
+            this.mode1 = mode1;
+            this.key = key;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".search(%s, %f);", mode1, key));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", mode1, key));
                 js.setLength(0);
             }
         }
@@ -57,6 +83,7 @@ public class TableSelectable extends JsObject {
     private Double endDate;
     private String endDate1;
     private Interval intervalUnit;
+    private String intervalUnit1;
     private Double intervalCount;
 
     public TableSelectable select(Double startDate, Double endDate, Interval intervalUnit, Double intervalCount) {
@@ -69,6 +96,9 @@ public class TableSelectable extends JsObject {
             this.endDate1 = null;
             
             this.endDate = endDate;
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
         } else {
@@ -76,10 +106,6 @@ public class TableSelectable extends JsObject {
             this.endDate = endDate;
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -89,6 +115,42 @@ public class TableSelectable extends JsObject {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TableSelectable select(Double startDate, Double endDate, String intervalUnit1, Double intervalCount) {
+        if (jsBase == null) {
+            this.startDate = null;
+            this.startDate1 = null;
+            
+            this.startDate = startDate;
+            this.endDate = null;
+            this.endDate1 = null;
+            
+            this.endDate = endDate;
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            
+            this.intervalUnit1 = intervalUnit1;
+            this.intervalCount = intervalCount;
+        } else {
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.intervalUnit1 = intervalUnit1;
+            this.intervalCount = intervalCount;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, intervalUnit1, intervalCount));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f, %s, %f)", startDate, endDate, intervalUnit1, intervalCount));
                 js.setLength(0);
             }
         }
@@ -106,6 +168,9 @@ public class TableSelectable extends JsObject {
             this.endDate1 = null;
             
             this.endDate1 = endDate1;
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
         } else {
@@ -113,10 +178,6 @@ public class TableSelectable extends JsObject {
             this.endDate1 = endDate1;
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -126,6 +187,42 @@ public class TableSelectable extends JsObject {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TableSelectable select(Double startDate, String endDate1, String intervalUnit1, Double intervalCount) {
+        if (jsBase == null) {
+            this.startDate = null;
+            this.startDate1 = null;
+            
+            this.startDate = startDate;
+            this.endDate = null;
+            this.endDate1 = null;
+            
+            this.endDate1 = endDate1;
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            
+            this.intervalUnit1 = intervalUnit1;
+            this.intervalCount = intervalCount;
+        } else {
+            this.startDate = startDate;
+            this.endDate1 = endDate1;
+            this.intervalUnit1 = intervalUnit1;
+            this.intervalCount = intervalCount;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, intervalUnit1, intervalCount));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".select(%f, %s, %s, %f)", startDate, endDate1, intervalUnit1, intervalCount));
                 js.setLength(0);
             }
         }
@@ -143,6 +240,9 @@ public class TableSelectable extends JsObject {
             this.endDate1 = null;
             
             this.endDate = endDate;
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
         } else {
@@ -150,10 +250,6 @@ public class TableSelectable extends JsObject {
             this.endDate = endDate;
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -163,6 +259,42 @@ public class TableSelectable extends JsObject {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, (intervalUnit != null) ? intervalUnit.generateJs() : "null", intervalCount));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TableSelectable select(String startDate1, Double endDate, String intervalUnit1, Double intervalCount) {
+        if (jsBase == null) {
+            this.startDate = null;
+            this.startDate1 = null;
+            
+            this.startDate1 = startDate1;
+            this.endDate = null;
+            this.endDate1 = null;
+            
+            this.endDate = endDate;
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            
+            this.intervalUnit1 = intervalUnit1;
+            this.intervalCount = intervalCount;
+        } else {
+            this.startDate1 = startDate1;
+            this.endDate = endDate;
+            this.intervalUnit1 = intervalUnit1;
+            this.intervalCount = intervalCount;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, intervalUnit1, intervalCount));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %f, %s, %f)", startDate1, endDate, intervalUnit1, intervalCount));
                 js.setLength(0);
             }
         }
@@ -180,6 +312,9 @@ public class TableSelectable extends JsObject {
             this.endDate1 = null;
             
             this.endDate1 = endDate1;
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
         } else {
@@ -187,10 +322,6 @@ public class TableSelectable extends JsObject {
             this.endDate1 = endDate1;
             this.intervalUnit = intervalUnit;
             this.intervalCount = intervalCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -206,35 +337,101 @@ public class TableSelectable extends JsObject {
         return this;
     }
 
-    private Interval intervalUnit1;
-    private Double intervalCount1;
 
-    public TableSelectable selectAll(Interval intervalUnit1, Double intervalCount1) {
+    public TableSelectable select(String startDate1, String endDate1, String intervalUnit1, Double intervalCount) {
         if (jsBase == null) {
+            this.startDate = null;
+            this.startDate1 = null;
+            
+            this.startDate1 = startDate1;
+            this.endDate = null;
+            this.endDate1 = null;
+            
+            this.endDate1 = endDate1;
             this.intervalUnit = null;
             this.intervalUnit1 = null;
             
             this.intervalUnit1 = intervalUnit1;
-            this.intervalCount = null;
-            this.intervalCount1 = null;
-            
-            this.intervalCount1 = intervalCount1;
+            this.intervalCount = intervalCount;
         } else {
+            this.startDate1 = startDate1;
+            this.endDate1 = endDate1;
             this.intervalUnit1 = intervalUnit1;
-            this.intervalCount1 = intervalCount1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.intervalCount = intervalCount;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit1 != null) ? intervalUnit1.generateJs() : "null", intervalCount1));
+            js.append(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, intervalUnit1, intervalCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit1 != null) ? intervalUnit1.generateJs() : "null", intervalCount1));
+                onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s, %s, %f)", startDate1, endDate1, intervalUnit1, intervalCount));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Interval intervalUnit2;
+    private String intervalUnit3;
+    private Double intervalCount1;
+
+    public TableSelectable selectAll(Interval intervalUnit2, Double intervalCount1) {
+        if (jsBase == null) {
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            this.intervalUnit2 = null;
+            this.intervalUnit3 = null;
+            
+            this.intervalUnit2 = intervalUnit2;
+            this.intervalCount = null;
+            this.intervalCount1 = null;
+            
+            this.intervalCount1 = intervalCount1;
+        } else {
+            this.intervalUnit2 = intervalUnit2;
+            this.intervalCount1 = intervalCount1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit2 != null) ? intervalUnit2.generateJs() : "null", intervalCount1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", (intervalUnit2 != null) ? intervalUnit2.generateJs() : "null", intervalCount1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TableSelectable selectAll(String intervalUnit3, Double intervalCount1) {
+        if (jsBase == null) {
+            this.intervalUnit = null;
+            this.intervalUnit1 = null;
+            this.intervalUnit2 = null;
+            this.intervalUnit3 = null;
+            
+            this.intervalUnit3 = intervalUnit3;
+            this.intervalCount = null;
+            this.intervalCount1 = null;
+            
+            this.intervalCount1 = intervalCount1;
+        } else {
+            this.intervalUnit3 = intervalUnit3;
+            this.intervalCount1 = intervalCount1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".selectAll(%s, %f)", intervalUnit3, intervalCount1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".selectAll(%s, %f)", intervalUnit3, intervalCount1));
                 js.setLength(0);
             }
         }
@@ -251,6 +448,13 @@ public class TableSelectable extends JsObject {
     private String generateJSmode() {
         if (mode != null) {
             return String.format(Locale.US, "mode: %s,", (mode != null) ? mode.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSmode1() {
+        if (mode1 != null) {
+            return String.format(Locale.US, "mode: %s,", mode1);
         }
         return "";
     }
@@ -290,6 +494,13 @@ public class TableSelectable extends JsObject {
         return "";
     }
 
+    private String generateJSintervalUnit1() {
+        if (intervalUnit1 != null) {
+            return String.format(Locale.US, "intervalUnit: %s,", intervalUnit1);
+        }
+        return "";
+    }
+
     private String generateJSintervalCount() {
         if (intervalCount != null) {
             return String.format(Locale.US, "intervalCount: %f,", intervalCount);
@@ -297,9 +508,16 @@ public class TableSelectable extends JsObject {
         return "";
     }
 
-    private String generateJSintervalUnit1() {
-        if (intervalUnit1 != null) {
-            return String.format(Locale.US, "intervalUnit: %s,", (intervalUnit1 != null) ? intervalUnit1.generateJs() : "null");
+    private String generateJSintervalUnit2() {
+        if (intervalUnit2 != null) {
+            return String.format(Locale.US, "intervalUnit: %s,", (intervalUnit2 != null) ? intervalUnit2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSintervalUnit3() {
+        if (intervalUnit3 != null) {
+            return String.format(Locale.US, "intervalUnit: %s,", intervalUnit3);
         }
         return "";
     }
@@ -333,13 +551,16 @@ public class TableSelectable extends JsObject {
             js.append("{");
             js.append(generateJSkey());
             js.append(generateJSmode());
+            js.append(generateJSmode1());
             js.append(generateJSstartDate());
             js.append(generateJSstartDate1());
             js.append(generateJSendDate());
             js.append(generateJSendDate1());
             js.append(generateJSintervalUnit());
-            js.append(generateJSintervalCount());
             js.append(generateJSintervalUnit1());
+            js.append(generateJSintervalCount());
+            js.append(generateJSintervalUnit2());
+            js.append(generateJSintervalUnit3());
             js.append(generateJSintervalCount1());
             js.append("}");
         }

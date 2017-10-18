@@ -24,16 +24,16 @@ public class KDJ extends JsObject {
 
     
     private MovingAverageType dMAType;
+    private String dMAType1;
 
     public KDJ setDMAType(MovingAverageType dMAType) {
         if (jsBase == null) {
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
         } else {
             this.dMAType = dMAType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -49,6 +49,30 @@ public class KDJ extends JsObject {
         return this;
     }
 
+
+    public KDJ setDMAType(String dMAType1) {
+        if (jsBase == null) {
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+        } else {
+            this.dMAType1 = dMAType1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dMAType(%s)", dMAType1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".dMAType(%s)", dMAType1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Double dMultiplier;
 
     public KDJ setDMultiplier(Double dMultiplier) {
@@ -56,10 +80,6 @@ public class KDJ extends JsObject {
             this.dMultiplier = dMultiplier;
         } else {
             this.dMultiplier = dMultiplier;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +102,6 @@ public class KDJ extends JsObject {
             this.dPeriod = dPeriod;
         } else {
             this.dPeriod = dPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -111,16 +127,16 @@ public class KDJ extends JsObject {
     }
 
     private StockSeriesType type;
+    private String type1;
 
     public KDJ setDSeries(StockSeriesType type) {
         if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -136,6 +152,30 @@ public class KDJ extends JsObject {
         return this;
     }
 
+
+    public KDJ setDSeries(String type1) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            
+            this.type1 = type1;
+        } else {
+            this.type1 = type1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".dSeries(%s)", type1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".dSeries(%s)", type1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private StockSeriesBase getJSeries;
 
     public StockSeriesBase getJSeries() {
@@ -145,29 +185,54 @@ public class KDJ extends JsObject {
         return getJSeries;
     }
 
-    private StockSeriesType type1;
+    private StockSeriesType type2;
+    private String type3;
 
-    public KDJ setJSeries(StockSeriesType type1) {
+    public KDJ setJSeries(StockSeriesType type2) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
             
-            this.type1 = type1;
+            this.type2 = type2;
         } else {
-            this.type1 = type1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.type2 = type2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".jSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".jSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".jSeries(%s)", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".jSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public KDJ setJSeries(String type3) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            
+            this.type3 = type3;
+        } else {
+            this.type3 = type3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".jSeries(%s)", type3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".jSeries(%s)", type3));
                 js.setLength(0);
             }
         }
@@ -184,16 +249,16 @@ public class KDJ extends JsObject {
     }
 
     private MovingAverageType kMAType;
+    private String kMAType1;
 
     public KDJ setKMAType(MovingAverageType kMAType) {
         if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
         } else {
             this.kMAType = kMAType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -209,6 +274,30 @@ public class KDJ extends JsObject {
         return this;
     }
 
+
+    public KDJ setKMAType(String kMAType1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+        } else {
+            this.kMAType1 = kMAType1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kMAType(%s)", kMAType1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".kMAType(%s)", kMAType1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Double kMultiplier;
 
     public KDJ setKMultiplier(Double kMultiplier) {
@@ -216,10 +305,6 @@ public class KDJ extends JsObject {
             this.kMultiplier = kMultiplier;
         } else {
             this.kMultiplier = kMultiplier;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -242,10 +327,6 @@ public class KDJ extends JsObject {
             this.kPeriod = kPeriod;
         } else {
             this.kPeriod = kPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -270,30 +351,58 @@ public class KDJ extends JsObject {
         return getKSeries;
     }
 
-    private StockSeriesType type2;
+    private StockSeriesType type4;
+    private String type5;
 
-    public KDJ setKSeries(StockSeriesType type2) {
+    public KDJ setKSeries(StockSeriesType type4) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
             this.type2 = null;
+            this.type3 = null;
+            this.type4 = null;
+            this.type5 = null;
             
-            this.type2 = type2;
+            this.type4 = type4;
         } else {
-            this.type2 = type2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.type4 = type4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".kSeries(%s)", (type4 != null) ? type4.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", (type2 != null) ? type2.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", (type4 != null) ? type4.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public KDJ setKSeries(String type5) {
+        if (jsBase == null) {
+            this.type = null;
+            this.type1 = null;
+            this.type2 = null;
+            this.type3 = null;
+            this.type4 = null;
+            this.type5 = null;
+            
+            this.type5 = type5;
+        } else {
+            this.type5 = type5;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".kSeries(%s)", type5));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".kSeries(%s)", type5));
                 js.setLength(0);
             }
         }
@@ -335,6 +444,13 @@ public class KDJ extends JsObject {
         return "";
     }
 
+    private String generateJSdMAType1() {
+        if (dMAType1 != null) {
+            return String.format(Locale.US, "dMAType: %s,", dMAType1);
+        }
+        return "";
+    }
+
     private String generateJSdMultiplier() {
         if (dMultiplier != null) {
             return String.format(Locale.US, "dMultiplier: %f,", dMultiplier);
@@ -358,7 +474,21 @@ public class KDJ extends JsObject {
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", (type1 != null) ? type1.generateJs() : "null");
+            return String.format(Locale.US, "type: %s,", type1);
+        }
+        return "";
+    }
+
+    private String generateJStype2() {
+        if (type2 != null) {
+            return String.format(Locale.US, "type: %s,", (type2 != null) ? type2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJStype3() {
+        if (type3 != null) {
+            return String.format(Locale.US, "type: %s,", type3);
         }
         return "";
     }
@@ -366,6 +496,13 @@ public class KDJ extends JsObject {
     private String generateJSkMAType() {
         if (kMAType != null) {
             return String.format(Locale.US, "kMAType: %s,", (kMAType != null) ? kMAType.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSkMAType1() {
+        if (kMAType1 != null) {
+            return String.format(Locale.US, "kMAType: %s,", kMAType1);
         }
         return "";
     }
@@ -384,9 +521,16 @@ public class KDJ extends JsObject {
         return "";
     }
 
-    private String generateJStype2() {
-        if (type2 != null) {
-            return String.format(Locale.US, "type: %s,", (type2 != null) ? type2.generateJs() : "null");
+    private String generateJStype4() {
+        if (type4 != null) {
+            return String.format(Locale.US, "type: %s,", (type4 != null) ? type4.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJStype5() {
+        if (type5 != null) {
+            return String.format(Locale.US, "type: %s,", type5);
         }
         return "";
     }
@@ -416,14 +560,19 @@ public class KDJ extends JsObject {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSdMAType());
+            js.append(generateJSdMAType1());
             js.append(generateJSdMultiplier());
             js.append(generateJSdPeriod());
             js.append(generateJStype());
             js.append(generateJStype1());
+            js.append(generateJStype2());
+            js.append(generateJStype3());
             js.append(generateJSkMAType());
+            js.append(generateJSkMAType1());
             js.append(generateJSkMultiplier());
             js.append(generateJSkPeriod());
-            js.append(generateJStype2());
+            js.append(generateJStype4());
+            js.append(generateJStype5());
             js.append("}");
         }
 

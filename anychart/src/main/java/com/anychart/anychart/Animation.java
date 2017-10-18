@@ -1,9 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-
-import android.text.TextUtils;
 
 // class
 public class Animation extends CoreBase {
@@ -30,10 +27,6 @@ public class Animation extends CoreBase {
             this.duration = duration;
         } else {
             this.duration = duration;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +49,6 @@ public class Animation extends CoreBase {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

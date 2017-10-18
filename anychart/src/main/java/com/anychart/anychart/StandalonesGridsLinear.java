@@ -34,10 +34,6 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
             this.layout = layout;
         } else {
             this.layout = layout;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
             this.layout1 = layout1;
         } else {
             this.layout1 = layout1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

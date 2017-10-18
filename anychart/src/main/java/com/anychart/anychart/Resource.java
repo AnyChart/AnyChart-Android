@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class Resource extends Chart {
 
-    public Resource() {
-        js.append("chart = anychart.resource();");
+    protected Resource(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private Activities getActivities;
 
     public Activities getActivities() {
@@ -22,7 +25,6 @@ public class Resource extends Chart {
 
         return getActivities;
     }
-
     private String activities;
     private List<Resource> setActivities = new ArrayList<>();
 
@@ -53,6 +55,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private Calendar getCalendar;
 
     public Calendar getCalendar() {
@@ -61,7 +64,6 @@ public class Resource extends Chart {
 
         return getCalendar;
     }
-
     private String calendar;
     private List<Resource> setCalendar = new ArrayList<>();
 
@@ -92,6 +94,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private UtilsPadding getCellPadding;
 
     public UtilsPadding getCellPadding() {
@@ -100,7 +103,6 @@ public class Resource extends Chart {
 
         return getCellPadding;
     }
-
     private Double[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
@@ -233,454 +235,6 @@ public class Resource extends Chart {
 
     private List<Resource> setCellPadding4 = new ArrayList<>();
 
-    public Resource setCellPadding(String value, String value2, String value4, Double value7) {
-        this.value = value;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value7 = value7;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %f)", value, value2, value4, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %f)", value, value2, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %f)", value, value2, value4, value7));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding4() {
-        if (!setCellPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding5 = new ArrayList<>();
-
-    public Resource setCellPadding(String value, String value2, Double value5, String value6) {
-        this.value = value;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value6 = value6;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %s)", value, value2, value5, value6));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %s)", value, value2, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %f, %s)", value, value2, value5, value6));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding5() {
-        if (!setCellPadding5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding6 = new ArrayList<>();
-
-    public Resource setCellPadding(String value, String value2, Double value5, Double value7) {
-        this.value = value;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value7 = value7;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %f)", value, value2, value5, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %f, %f)", value, value2, value5, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %f, %f)", value, value2, value5, value7));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding6() {
-        if (!setCellPadding6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding7 = new ArrayList<>();
-
-    public Resource setCellPadding(String value, Double value3, String value4, String value6) {
-        this.value = value;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value6 = value6;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %s)", value, value3, value4, value6));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %s)", value, value3, value4, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %s, %s)", value, value3, value4, value6));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding7() {
-        if (!setCellPadding7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding8 = new ArrayList<>();
-
-    public Resource setCellPadding(String value, Double value3, String value4, Double value7) {
-        this.value = value;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value7 = value7;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %f)", value, value3, value4, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %s, %f)", value, value3, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %s, %f)", value, value3, value4, value7));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding8() {
-        if (!setCellPadding8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding9 = new ArrayList<>();
-
-    public Resource setCellPadding(String value, Double value3, Double value5, String value6) {
-        this.value = value;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value6 = value6;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %s)", value, value3, value5, value6));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %s)", value, value3, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %f, %s)", value, value3, value5, value6));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding9() {
-        if (!setCellPadding9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding10 = new ArrayList<>();
-
-    public Resource setCellPadding(String value, Double value3, Double value5, Double value7) {
-        this.value = value;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value7 = value7;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %f)", value, value3, value5, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%s, %f, %f, %f)", value, value3, value5, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %f, %f, %f)", value, value3, value5, value7));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding10() {
-        if (!setCellPadding10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding11 = new ArrayList<>();
-
-    public Resource setCellPadding(Double value1, String value2, String value4, String value6) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value6 = value6;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %s)", value1, value2, value4, value6));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %s)", value1, value2, value4, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %s, %s)", value1, value2, value4, value6));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding11() {
-        if (!setCellPadding11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding11) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding12 = new ArrayList<>();
-
-    public Resource setCellPadding(Double value1, String value2, String value4, Double value7) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value4 = value4;
-        this.value7 = value7;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %f)", value1, value2, value4, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %s, %f)", value1, value2, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %s, %f)", value1, value2, value4, value7));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding12() {
-        if (!setCellPadding12.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding12) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding13 = new ArrayList<>();
-
-    public Resource setCellPadding(Double value1, String value2, Double value5, String value6) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value6 = value6;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %s)", value1, value2, value5, value6));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %s)", value1, value2, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %f, %s)", value1, value2, value5, value6));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding13() {
-        if (!setCellPadding13.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding13) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding14 = new ArrayList<>();
-
-    public Resource setCellPadding(Double value1, String value2, Double value5, Double value7) {
-        this.value1 = value1;
-        this.value2 = value2;
-        this.value5 = value5;
-        this.value7 = value7;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %f)", value1, value2, value5, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %s, %f, %f)", value1, value2, value5, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %s, %f, %f)", value1, value2, value5, value7));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding14() {
-        if (!setCellPadding14.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding14) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding15 = new ArrayList<>();
-
-    public Resource setCellPadding(Double value1, Double value3, String value4, String value6) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value6 = value6;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %s)", value1, value3, value4, value6));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %s)", value1, value3, value4, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %s, %s)", value1, value3, value4, value6));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding15() {
-        if (!setCellPadding15.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding15) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding16 = new ArrayList<>();
-
-    public Resource setCellPadding(Double value1, Double value3, String value4, Double value7) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value4 = value4;
-        this.value7 = value7;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %f)", value1, value3, value4, value7));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %s, %f)", value1, value3, value4, value7));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %s, %f)", value1, value3, value4, value7));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding16() {
-        if (!setCellPadding16.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding16) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding17 = new ArrayList<>();
-
-    public Resource setCellPadding(Double value1, Double value3, Double value5, String value6) {
-        this.value1 = value1;
-        this.value3 = value3;
-        this.value5 = value5;
-        this.value6 = value6;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %s)", value1, value3, value5, value6));
-
-//        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %s)", value1, value3, value5, value6));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %f, %s)", value1, value3, value5, value6));
-            js.setLength(0);
-        }
-        return this;
-    }
-    private String generateJSsetCellPadding17() {
-        if (!setCellPadding17.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding17) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setCellPadding18 = new ArrayList<>();
-
     public Resource setCellPadding(Double value1, Double value3, Double value5, Double value7) {
         this.value1 = value1;
         this.value3 = value3;
@@ -700,16 +254,17 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCellPadding18() {
-        if (!setCellPadding18.isEmpty()) {
+    private String generateJSsetCellPadding4() {
+        if (!setCellPadding4.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding18) {
+            for (Resource item : setCellPadding4) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
         }
         return "";
     }
+
 
     private Conflicts getConflicts;
 
@@ -719,7 +274,6 @@ public class Resource extends Chart {
 
         return getConflicts;
     }
-
     private String conflicts;
     private List<Resource> setConflicts = new ArrayList<>();
 
@@ -750,6 +304,67 @@ public class Resource extends Chart {
         return "";
     }
 
+    private Double currentStartDate;
+    private String currentStartDate1;
+    private List<Resource> setCurrentStartDate = new ArrayList<>();
+
+    public Resource setCurrentStartDate(Double currentStartDate) {
+        this.currentStartDate = currentStartDate;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
+
+//        js.append(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetCurrentStartDate() {
+        if (!setCurrentStartDate.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setCurrentStartDate) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Resource> setCurrentStartDate1 = new ArrayList<>();
+
+    public Resource setCurrentStartDate(String currentStartDate1) {
+        this.currentStartDate1 = currentStartDate1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
+
+//        js.append(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetCurrentStartDate1() {
+        if (!setCurrentStartDate1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setCurrentStartDate1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private View getData;
 
     public View getData() {
@@ -758,13 +373,13 @@ public class Resource extends Chart {
 
         return getData;
     }
-
     private View data;
     private Set data1;
     private String[] data2;
     private String data3;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<Resource> setData = new ArrayList<>();
 
     public Resource setData(View data, TextParsingMode csvSettings) {
@@ -797,19 +412,19 @@ public class Resource extends Chart {
 
     private List<Resource> setData1 = new ArrayList<>();
 
-    public Resource setData(View data, TextParsingSettings csvSettings1) {
+    public Resource setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -826,6 +441,36 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setData2 = new ArrayList<>();
+
+    public Resource setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Resource> setData3 = new ArrayList<>();
 
     public Resource setData(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -844,36 +489,6 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Resource> setData3 = new ArrayList<>();
-
-    public Resource setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -886,6 +501,66 @@ public class Resource extends Chart {
     }
 
     private List<Resource> setData4 = new ArrayList<>();
+
+    public Resource setData(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Resource> setData5 = new ArrayList<>();
+
+    public Resource setData(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Resource> setData6 = new ArrayList<>();
 
     public Resource setData(String[] data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -904,10 +579,10 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData4) {
+            for (Resource item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -915,29 +590,29 @@ public class Resource extends Chart {
         return "";
     }
 
-    private List<Resource> setData5 = new ArrayList<>();
+    private List<Resource> setData7 = new ArrayList<>();
 
-    public Resource setData(String[] data2, TextParsingSettings csvSettings1) {
+    public Resource setData(String[] data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData5) {
+            for (Resource item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -945,7 +620,37 @@ public class Resource extends Chart {
         return "";
     }
 
-    private List<Resource> setData6 = new ArrayList<>();
+    private List<Resource> setData8 = new ArrayList<>();
+
+    public Resource setData(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Resource> setData9 = new ArrayList<>();
 
     public Resource setData(String data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -964,10 +669,10 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData6) {
+            for (Resource item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -975,29 +680,59 @@ public class Resource extends Chart {
         return "";
     }
 
-    private List<Resource> setData7 = new ArrayList<>();
+    private List<Resource> setData10 = new ArrayList<>();
 
-    public Resource setData(String data3, TextParsingSettings csvSettings1) {
+    public Resource setData(String data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData7) {
+            for (Resource item : setData10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Resource> setData11 = new ArrayList<>();
+
+    public Resource setData(String data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setData11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1035,6 +770,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private Grid getGrid;
 
     public Grid getGrid() {
@@ -1043,7 +779,6 @@ public class Resource extends Chart {
 
         return getGrid;
     }
-
     private String grid;
     private Boolean grid1;
     private List<Resource> setGrid = new ArrayList<>();
@@ -1104,6 +839,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private UiScroller getHorizontalScrollBar;
 
     public UiScroller getHorizontalScrollBar() {
@@ -1112,7 +848,6 @@ public class Resource extends Chart {
 
         return getHorizontalScrollBar;
     }
-
     private String horizontalScrollBar;
     private Boolean horizontalScrollBar1;
     private List<Resource> setHorizontalScrollBar = new ArrayList<>();
@@ -1235,6 +970,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private Logo getLogo;
 
     public Logo getLogo() {
@@ -1243,7 +979,6 @@ public class Resource extends Chart {
 
         return getLogo;
     }
-
     private String logo;
     private List<Resource> setLogo = new ArrayList<>();
 
@@ -1304,6 +1039,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private Overlay getOverlay;
 
     public Overlay getOverlay() {
@@ -1312,7 +1048,6 @@ public class Resource extends Chart {
 
         return getOverlay;
     }
-
     private String overlay;
     private Boolean overlay1;
     private List<Resource> setOverlay = new ArrayList<>();
@@ -1631,6 +1366,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private TimeLine getTimeLine;
 
     public TimeLine getTimeLine() {
@@ -1639,7 +1375,6 @@ public class Resource extends Chart {
 
         return getTimeLine;
     }
-
     private String timeLine;
     private Boolean timeLine1;
     private List<Resource> setTimeLine = new ArrayList<>();
@@ -1922,6 +1657,7 @@ public class Resource extends Chart {
         }
     }
 
+
     private UiScroller getVerticalScrollBar;
 
     public UiScroller getVerticalScrollBar() {
@@ -1930,7 +1666,6 @@ public class Resource extends Chart {
 
         return getVerticalScrollBar;
     }
-
     private String verticalScrollBar;
     private Boolean verticalScrollBar1;
     private List<Resource> setVerticalScrollBar = new ArrayList<>();
@@ -1991,6 +1726,7 @@ public class Resource extends Chart {
         return "";
     }
 
+
     private DateTimeWithCalendar getXScale;
 
     public DateTimeWithCalendar getXScale() {
@@ -1999,7 +1735,6 @@ public class Resource extends Chart {
 
         return getXScale;
     }
-
     private String xScale;
     private List<Resource> setXScale = new ArrayList<>();
 
@@ -2230,21 +1965,9 @@ public class Resource extends Chart {
         js.append(generateJSsetCellPadding2());
         js.append(generateJSsetCellPadding3());
         js.append(generateJSsetCellPadding4());
-        js.append(generateJSsetCellPadding5());
-        js.append(generateJSsetCellPadding6());
-        js.append(generateJSsetCellPadding7());
-        js.append(generateJSsetCellPadding8());
-        js.append(generateJSsetCellPadding9());
-        js.append(generateJSsetCellPadding10());
-        js.append(generateJSsetCellPadding11());
-        js.append(generateJSsetCellPadding12());
-        js.append(generateJSsetCellPadding13());
-        js.append(generateJSsetCellPadding14());
-        js.append(generateJSsetCellPadding15());
-        js.append(generateJSsetCellPadding16());
-        js.append(generateJSsetCellPadding17());
-        js.append(generateJSsetCellPadding18());
         js.append(generateJSsetConflicts());
+        js.append(generateJSsetCurrentStartDate());
+        js.append(generateJSsetCurrentStartDate1());
         js.append(generateJSsetData());
         js.append(generateJSsetData1());
         js.append(generateJSsetData2());
@@ -2253,6 +1976,10 @@ public class Resource extends Chart {
         js.append(generateJSsetData5());
         js.append(generateJSsetData6());
         js.append(generateJSsetData7());
+        js.append(generateJSsetData8());
+        js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
         js.append(generateJSsetDefaultMinutesPerDay());
         js.append(generateJSsetGrid());
         js.append(generateJSsetGrid1());

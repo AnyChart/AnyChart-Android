@@ -30,10 +30,6 @@ public class DateTime extends ScatterBase {
             this.maximumGap = maximumGap;
         } else {
             this.maximumGap = maximumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class DateTime extends ScatterBase {
             this.minimumGap = minimumGap;
         } else {
             this.minimumGap = minimumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -95,10 +87,6 @@ public class DateTime extends ScatterBase {
             this.minorTicks = minorTicks;
         } else {
             this.minorTicks = minorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -123,10 +111,6 @@ public class DateTime extends ScatterBase {
             this.minorTicks1 = minorTicks1;
         } else {
             this.minorTicks1 = minorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -149,10 +133,6 @@ public class DateTime extends ScatterBase {
             this.softMaximum = softMaximum;
         } else {
             this.softMaximum = softMaximum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -175,10 +155,6 @@ public class DateTime extends ScatterBase {
             this.softMinimum = softMinimum;
         } else {
             this.softMinimum = softMinimum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -214,10 +190,6 @@ public class DateTime extends ScatterBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -242,10 +214,6 @@ public class DateTime extends ScatterBase {
             this.ticks1 = ticks1;
         } else {
             this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -34,10 +34,6 @@ public class UiLegend extends CoreText {
             this.align = align;
         } else {
             this.align = align;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class UiLegend extends CoreText {
             this.align1 = align1;
         } else {
             this.align1 = align1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -103,10 +95,6 @@ public class UiLegend extends CoreText {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -132,10 +120,6 @@ public class UiLegend extends CoreText {
             this.background2 = background2;
         } else {
             this.background2 = background2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -158,10 +142,6 @@ public class UiLegend extends CoreText {
             this.drag = drag;
         } else {
             this.drag = drag;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -197,10 +177,6 @@ public class UiLegend extends CoreText {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -225,10 +201,6 @@ public class UiLegend extends CoreText {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -255,10 +227,6 @@ public class UiLegend extends CoreText {
             this.hoverCursor = hoverCursor;
         } else {
             this.hoverCursor = hoverCursor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -283,10 +251,6 @@ public class UiLegend extends CoreText {
             this.hoverCursor1 = hoverCursor1;
         } else {
             this.hoverCursor1 = hoverCursor1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -313,10 +277,6 @@ public class UiLegend extends CoreText {
             this.iconSize = iconSize;
         } else {
             this.iconSize = iconSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -341,10 +301,6 @@ public class UiLegend extends CoreText {
             this.iconSize1 = iconSize1;
         } else {
             this.iconSize1 = iconSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -371,10 +327,6 @@ public class UiLegend extends CoreText {
             this.iconTextSpacing = iconTextSpacing;
         } else {
             this.iconTextSpacing = iconTextSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -399,10 +351,6 @@ public class UiLegend extends CoreText {
             this.iconTextSpacing1 = iconTextSpacing1;
         } else {
             this.iconTextSpacing1 = iconTextSpacing1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -425,10 +373,6 @@ public class UiLegend extends CoreText {
             this.inverted = inverted;
         } else {
             this.inverted = inverted;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -451,10 +395,6 @@ public class UiLegend extends CoreText {
             this.items = items;
         } else {
             this.items = items;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -470,10 +410,10 @@ public class UiLegend extends CoreText {
         return this;
     }
 
-    private String itemsLayout;
-    private LegendLayout itemsLayout1;
+    private LegendLayout itemsLayout;
+    private String itemsLayout1;
 
-    public UiLegend setItemsLayout(String itemsLayout) {
+    public UiLegend setItemsLayout(LegendLayout itemsLayout) {
         if (jsBase == null) {
             this.itemsLayout = null;
             this.itemsLayout1 = null;
@@ -481,19 +421,15 @@ public class UiLegend extends CoreText {
             this.itemsLayout = itemsLayout;
         } else {
             this.itemsLayout = itemsLayout;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsLayout(%s)", itemsLayout));
+            js.append(String.format(Locale.US, ".itemsLayout(%s)", (itemsLayout != null) ? itemsLayout.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", itemsLayout));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", (itemsLayout != null) ? itemsLayout.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -501,7 +437,7 @@ public class UiLegend extends CoreText {
     }
 
 
-    public UiLegend setItemsLayout(LegendLayout itemsLayout1) {
+    public UiLegend setItemsLayout(String itemsLayout1) {
         if (jsBase == null) {
             this.itemsLayout = null;
             this.itemsLayout1 = null;
@@ -509,29 +445,25 @@ public class UiLegend extends CoreText {
             this.itemsLayout1 = itemsLayout1;
         } else {
             this.itemsLayout1 = itemsLayout1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsLayout(%s)", (itemsLayout1 != null) ? itemsLayout1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemsLayout(%s)", itemsLayout1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", (itemsLayout1 != null) ? itemsLayout1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsLayout(%s)", itemsLayout1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String itemsSourceMode;
-    private LegendItemsSourceMode itemsSourceMode1;
+    private LegendItemsSourceMode itemsSourceMode;
+    private String itemsSourceMode1;
 
-    public UiLegend setItemsSourceMode(String itemsSourceMode) {
+    public UiLegend setItemsSourceMode(LegendItemsSourceMode itemsSourceMode) {
         if (jsBase == null) {
             this.itemsSourceMode = null;
             this.itemsSourceMode1 = null;
@@ -539,19 +471,15 @@ public class UiLegend extends CoreText {
             this.itemsSourceMode = itemsSourceMode;
         } else {
             this.itemsSourceMode = itemsSourceMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", itemsSourceMode));
+            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", (itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", itemsSourceMode));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", (itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -559,7 +487,7 @@ public class UiLegend extends CoreText {
     }
 
 
-    public UiLegend setItemsSourceMode(LegendItemsSourceMode itemsSourceMode1) {
+    public UiLegend setItemsSourceMode(String itemsSourceMode1) {
         if (jsBase == null) {
             this.itemsSourceMode = null;
             this.itemsSourceMode1 = null;
@@ -567,19 +495,15 @@ public class UiLegend extends CoreText {
             this.itemsSourceMode1 = itemsSourceMode1;
         } else {
             this.itemsSourceMode1 = itemsSourceMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", (itemsSourceMode1 != null) ? itemsSourceMode1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".itemsSourceMode(%s)", itemsSourceMode1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", (itemsSourceMode1 != null) ? itemsSourceMode1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".itemsSourceMode(%s)", itemsSourceMode1));
                 js.setLength(0);
             }
         }
@@ -597,10 +521,6 @@ public class UiLegend extends CoreText {
             this.itemsSpacing = itemsSpacing;
         } else {
             this.itemsSpacing = itemsSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -625,10 +545,6 @@ public class UiLegend extends CoreText {
             this.itemsSpacing1 = itemsSpacing1;
         } else {
             this.itemsSpacing1 = itemsSpacing1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -670,10 +586,6 @@ public class UiLegend extends CoreText {
             this.margin = margin;
         } else {
             this.margin = margin;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -701,10 +613,6 @@ public class UiLegend extends CoreText {
             this.margin1 = margin1;
         } else {
             this.margin1 = margin1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -776,10 +684,6 @@ public class UiLegend extends CoreText {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -843,10 +747,6 @@ public class UiLegend extends CoreText {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -873,10 +773,6 @@ public class UiLegend extends CoreText {
             this.maxHeight = maxHeight;
         } else {
             this.maxHeight = maxHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -901,10 +797,6 @@ public class UiLegend extends CoreText {
             this.maxHeight1 = maxHeight1;
         } else {
             this.maxHeight1 = maxHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -931,10 +823,6 @@ public class UiLegend extends CoreText {
             this.maxWidth = maxWidth;
         } else {
             this.maxWidth = maxWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -959,10 +847,6 @@ public class UiLegend extends CoreText {
             this.maxWidth1 = maxWidth1;
         } else {
             this.maxWidth1 = maxWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1004,10 +888,6 @@ public class UiLegend extends CoreText {
             this.padding = padding;
         } else {
             this.padding = padding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1035,10 +915,6 @@ public class UiLegend extends CoreText {
             this.padding1 = padding1;
         } else {
             this.padding1 = padding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1142,10 +1018,6 @@ public class UiLegend extends CoreText {
             this.value10 = value10;
             this.value12 = value12;
             this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1241,10 +1113,6 @@ public class UiLegend extends CoreText {
             this.value11 = value11;
             this.value13 = value13;
             this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1280,10 +1148,6 @@ public class UiLegend extends CoreText {
             this.paginator = paginator;
         } else {
             this.paginator = paginator;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1308,10 +1172,6 @@ public class UiLegend extends CoreText {
             this.paginator1 = paginator1;
         } else {
             this.paginator1 = paginator1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1338,10 +1198,6 @@ public class UiLegend extends CoreText {
             this.position = position;
         } else {
             this.position = position;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1366,10 +1222,6 @@ public class UiLegend extends CoreText {
             this.position1 = position1;
         } else {
             this.position1 = position1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1396,10 +1248,6 @@ public class UiLegend extends CoreText {
             this.positionMode = positionMode;
         } else {
             this.positionMode = positionMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1424,10 +1272,6 @@ public class UiLegend extends CoreText {
             this.positionMode1 = positionMode1;
         } else {
             this.positionMode1 = positionMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1465,10 +1309,6 @@ public class UiLegend extends CoreText {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1494,10 +1334,6 @@ public class UiLegend extends CoreText {
             this.title1 = title1;
         } else {
             this.title1 = title1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1520,10 +1356,6 @@ public class UiLegend extends CoreText {
             this.titleFormat = titleFormat;
         } else {
             this.titleFormat = titleFormat;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1559,10 +1391,6 @@ public class UiLegend extends CoreText {
             this.titleSeparator = titleSeparator;
         } else {
             this.titleSeparator = titleSeparator;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1587,10 +1415,6 @@ public class UiLegend extends CoreText {
             this.titleSeparator1 = titleSeparator1;
         } else {
             this.titleSeparator1 = titleSeparator1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1626,10 +1450,6 @@ public class UiLegend extends CoreText {
             this.tooltip = tooltip;
         } else {
             this.tooltip = tooltip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1654,10 +1474,6 @@ public class UiLegend extends CoreText {
             this.tooltip1 = tooltip1;
         } else {
             this.tooltip1 = tooltip1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1684,10 +1500,6 @@ public class UiLegend extends CoreText {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1712,10 +1524,6 @@ public class UiLegend extends CoreText {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1901,28 +1709,28 @@ public class UiLegend extends CoreText {
 
     private String generateJSitemsLayout() {
         if (itemsLayout != null) {
-            return String.format(Locale.US, "itemsLayout: %s,", itemsLayout);
+            return String.format(Locale.US, "itemsLayout: %s,", (itemsLayout != null) ? itemsLayout.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSitemsLayout1() {
         if (itemsLayout1 != null) {
-            return String.format(Locale.US, "itemsLayout: %s,", (itemsLayout1 != null) ? itemsLayout1.generateJs() : "null");
+            return String.format(Locale.US, "itemsLayout: %s,", itemsLayout1);
         }
         return "";
     }
 
     private String generateJSitemsSourceMode() {
         if (itemsSourceMode != null) {
-            return String.format(Locale.US, "itemsSourceMode: %s,", itemsSourceMode);
+            return String.format(Locale.US, "itemsSourceMode: %s,", (itemsSourceMode != null) ? itemsSourceMode.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSitemsSourceMode1() {
         if (itemsSourceMode1 != null) {
-            return String.format(Locale.US, "itemsSourceMode: %s,", (itemsSourceMode1 != null) ? itemsSourceMode1.generateJs() : "null");
+            return String.format(Locale.US, "itemsSourceMode: %s,", itemsSourceMode1);
         }
         return "";
     }

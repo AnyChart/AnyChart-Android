@@ -34,10 +34,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.bottom = bottom;
         } else {
             this.bottom = bottom;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.bottom1 = bottom1;
         } else {
             this.bottom1 = bottom1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -103,10 +95,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.bounds = bounds;
         } else {
             this.bounds = bounds;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -132,10 +120,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.bounds1 = bounds1;
         } else {
             this.bounds1 = bounds1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -161,10 +145,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.bounds2 = bounds2;
         } else {
             this.bounds2 = bounds2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -212,10 +192,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y1 = y1;
             this.width1 = width1;
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -255,10 +231,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.y = y;
             this.width = width;
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -287,10 +259,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.height2 = height2;
         } else {
             this.height2 = height2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -317,10 +285,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.height3 = height3;
         } else {
             this.height3 = height3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -347,10 +311,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.left = left;
         } else {
             this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -375,10 +335,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.left1 = left1;
         } else {
             this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -405,10 +361,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.maxHeight = maxHeight;
         } else {
             this.maxHeight = maxHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -433,10 +385,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.maxHeight1 = maxHeight1;
         } else {
             this.maxHeight1 = maxHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -463,10 +411,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.maxWidth = maxWidth;
         } else {
             this.maxWidth = maxWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -491,10 +435,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.maxWidth1 = maxWidth1;
         } else {
             this.maxWidth1 = maxWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -521,10 +461,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.minHeight = minHeight;
         } else {
             this.minHeight = minHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -549,10 +485,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.minHeight1 = minHeight1;
         } else {
             this.minHeight1 = minHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -579,10 +511,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.minWidth = minWidth;
         } else {
             this.minWidth = minWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -607,10 +535,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.minWidth1 = minWidth1;
         } else {
             this.minWidth1 = minWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -637,10 +561,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.right = right;
         } else {
             this.right = right;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -665,10 +585,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.right1 = right1;
         } else {
             this.right1 = right1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -695,10 +611,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.top = top;
         } else {
             this.top = top;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -723,10 +635,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.top1 = top1;
         } else {
             this.top1 = top1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -755,10 +663,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.width2 = width2;
         } else {
             this.width2 = width2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -785,10 +689,6 @@ public class VisualBaseWithBounds extends VisualBase {
             this.width3 = width3;
         } else {
             this.width3 = width3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -23,11 +23,11 @@ public class ScalesLinear extends ScatterBase {
     }
 
     
-    private String compareWith;
-    private ScaleCompareWithMode compareWith1;
+    private ScaleCompareWithMode compareWith;
+    private String compareWith1;
     private Double compareWith2;
 
-    public ScalesLinear setCompareWith(String compareWith) {
+    public ScalesLinear setCompareWith(ScaleCompareWithMode compareWith) {
         if (jsBase == null) {
             this.compareWith = null;
             this.compareWith1 = null;
@@ -36,19 +36,15 @@ public class ScalesLinear extends ScatterBase {
             this.compareWith = compareWith;
         } else {
             this.compareWith = compareWith;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".compareWith(%s)", compareWith));
+            js.append(String.format(Locale.US, ".compareWith(%s)", (compareWith != null) ? compareWith.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", compareWith));
+                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", (compareWith != null) ? compareWith.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -56,7 +52,7 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
-    public ScalesLinear setCompareWith(ScaleCompareWithMode compareWith1) {
+    public ScalesLinear setCompareWith(String compareWith1) {
         if (jsBase == null) {
             this.compareWith = null;
             this.compareWith1 = null;
@@ -65,19 +61,15 @@ public class ScalesLinear extends ScatterBase {
             this.compareWith1 = compareWith1;
         } else {
             this.compareWith1 = compareWith1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".compareWith(%s)", (compareWith1 != null) ? compareWith1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".compareWith(%s)", compareWith1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", (compareWith1 != null) ? compareWith1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", compareWith1));
                 js.setLength(0);
             }
         }
@@ -94,10 +86,6 @@ public class ScalesLinear extends ScatterBase {
             this.compareWith2 = compareWith2;
         } else {
             this.compareWith2 = compareWith2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -113,10 +101,10 @@ public class ScalesLinear extends ScatterBase {
         return this;
     }
 
-    private String comparisonMode;
-    private ScaleComparisonMode comparisonMode1;
+    private ScaleComparisonMode comparisonMode;
+    private String comparisonMode1;
 
-    public ScalesLinear setComparisonMode(String comparisonMode) {
+    public ScalesLinear setComparisonMode(ScaleComparisonMode comparisonMode) {
         if (jsBase == null) {
             this.comparisonMode = null;
             this.comparisonMode1 = null;
@@ -124,19 +112,15 @@ public class ScalesLinear extends ScatterBase {
             this.comparisonMode = comparisonMode;
         } else {
             this.comparisonMode = comparisonMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".comparisonMode(%s)", comparisonMode));
+            js.append(String.format(Locale.US, ".comparisonMode(%s)", (comparisonMode != null) ? comparisonMode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", comparisonMode));
+                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", (comparisonMode != null) ? comparisonMode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -144,7 +128,7 @@ public class ScalesLinear extends ScatterBase {
     }
 
 
-    public ScalesLinear setComparisonMode(ScaleComparisonMode comparisonMode1) {
+    public ScalesLinear setComparisonMode(String comparisonMode1) {
         if (jsBase == null) {
             this.comparisonMode = null;
             this.comparisonMode1 = null;
@@ -152,19 +136,15 @@ public class ScalesLinear extends ScatterBase {
             this.comparisonMode1 = comparisonMode1;
         } else {
             this.comparisonMode1 = comparisonMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".comparisonMode(%s)", (comparisonMode1 != null) ? comparisonMode1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".comparisonMode(%s)", comparisonMode1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", (comparisonMode1 != null) ? comparisonMode1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", comparisonMode1));
                 js.setLength(0);
             }
         }
@@ -178,10 +158,6 @@ public class ScalesLinear extends ScatterBase {
             this.maximumGap = maximumGap;
         } else {
             this.maximumGap = maximumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -204,10 +180,6 @@ public class ScalesLinear extends ScatterBase {
             this.minimumGap = minimumGap;
         } else {
             this.minimumGap = minimumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -243,10 +215,6 @@ public class ScalesLinear extends ScatterBase {
             this.minorTicks = minorTicks;
         } else {
             this.minorTicks = minorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -271,10 +239,6 @@ public class ScalesLinear extends ScatterBase {
             this.minorTicks1 = minorTicks1;
         } else {
             this.minorTicks1 = minorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -297,10 +261,6 @@ public class ScalesLinear extends ScatterBase {
             this.softMaximum = softMaximum;
         } else {
             this.softMaximum = softMaximum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -323,10 +283,6 @@ public class ScalesLinear extends ScatterBase {
             this.softMinimum = softMinimum;
         } else {
             this.softMinimum = softMinimum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -353,10 +309,6 @@ public class ScalesLinear extends ScatterBase {
             this.stackDirection = stackDirection;
         } else {
             this.stackDirection = stackDirection;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -381,10 +333,6 @@ public class ScalesLinear extends ScatterBase {
             this.stackDirection1 = stackDirection1;
         } else {
             this.stackDirection1 = stackDirection1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -411,10 +359,6 @@ public class ScalesLinear extends ScatterBase {
             this.stackMode = stackMode;
         } else {
             this.stackMode = stackMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -439,10 +383,6 @@ public class ScalesLinear extends ScatterBase {
             this.stackMode1 = stackMode1;
         } else {
             this.stackMode1 = stackMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -465,10 +405,6 @@ public class ScalesLinear extends ScatterBase {
             this.stickToZero = stickToZero;
         } else {
             this.stickToZero = stickToZero;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -504,10 +440,6 @@ public class ScalesLinear extends ScatterBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -532,10 +464,6 @@ public class ScalesLinear extends ScatterBase {
             this.ticks1 = ticks1;
         } else {
             this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -567,14 +495,14 @@ public class ScalesLinear extends ScatterBase {
 
     private String generateJScompareWith() {
         if (compareWith != null) {
-            return String.format(Locale.US, "compareWith: %s,", compareWith);
+            return String.format(Locale.US, "compareWith: %s,", (compareWith != null) ? compareWith.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJScompareWith1() {
         if (compareWith1 != null) {
-            return String.format(Locale.US, "compareWith: %s,", (compareWith1 != null) ? compareWith1.generateJs() : "null");
+            return String.format(Locale.US, "compareWith: %s,", compareWith1);
         }
         return "";
     }
@@ -588,14 +516,14 @@ public class ScalesLinear extends ScatterBase {
 
     private String generateJScomparisonMode() {
         if (comparisonMode != null) {
-            return String.format(Locale.US, "comparisonMode: %s,", comparisonMode);
+            return String.format(Locale.US, "comparisonMode: %s,", (comparisonMode != null) ? comparisonMode.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJScomparisonMode1() {
         if (comparisonMode1 != null) {
-            return String.format(Locale.US, "comparisonMode: %s,", (comparisonMode1 != null) ? comparisonMode1.generateJs() : "null");
+            return String.format(Locale.US, "comparisonMode: %s,", comparisonMode1);
         }
         return "";
     }

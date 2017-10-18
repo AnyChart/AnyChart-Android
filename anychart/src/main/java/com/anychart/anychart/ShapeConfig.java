@@ -12,21 +12,34 @@ public class ShapeConfig extends JsObject  {
     private String name;
     private Boolean scrollerSelected;
     private ShapeType shapeType;
+    private String shapeType1;
     private String strokeNames;
     private Double zIndex;
 
     
-    public ShapeConfig(Boolean canBeHoveredSelected, String fillNames, Boolean isHatchFill, String name, Boolean scrollerSelected, ShapeType shapeType, String strokeNames, Double zIndex) {
+    public ShapeConfig(ShapeType shapeType, Boolean canBeHoveredSelected, String fillNames, Boolean isHatchFill, String name, Boolean scrollerSelected, String strokeNames, Double zIndex) {
+        this.shapeType = shapeType;
         this.canBeHoveredSelected = canBeHoveredSelected;
         this.fillNames = fillNames;
         this.isHatchFill = isHatchFill;
         this.name = name;
         this.scrollerSelected = scrollerSelected;
-        this.shapeType = shapeType;
         this.strokeNames = strokeNames;
         this.zIndex = zIndex;
 
-        js.append(String.format(Locale.US, "{canBeHoveredSelected: %b,fillNames: %s,isHatchFill: %b,name: %s,scrollerSelected: %b,shapeType: %s,strokeNames: %s,zIndex: %f}",  canBeHoveredSelected, fillNames, isHatchFill, name, scrollerSelected, (shapeType != null) ? shapeType.generateJs() : "null", strokeNames, zIndex));
+        js.append(String.format(Locale.US, "{shapeType: %s,canBeHoveredSelected: %b,fillNames: %s,isHatchFill: %b,name: %s,scrollerSelected: %b,strokeNames: %s,zIndex: %f}",  (shapeType != null) ? shapeType.generateJs() : "null", canBeHoveredSelected, fillNames, isHatchFill, name, scrollerSelected, strokeNames, zIndex));
+    }
+    public ShapeConfig(String shapeType1, Boolean canBeHoveredSelected, String fillNames, Boolean isHatchFill, String name, Boolean scrollerSelected, String strokeNames, Double zIndex) {
+        this.shapeType1 = shapeType1;
+        this.canBeHoveredSelected = canBeHoveredSelected;
+        this.fillNames = fillNames;
+        this.isHatchFill = isHatchFill;
+        this.name = name;
+        this.scrollerSelected = scrollerSelected;
+        this.strokeNames = strokeNames;
+        this.zIndex = zIndex;
+
+        js.append(String.format(Locale.US, "{shapeType: %s,canBeHoveredSelected: %b,fillNames: %s,isHatchFill: %b,name: %s,scrollerSelected: %b,strokeNames: %s,zIndex: %f}",  shapeType1, canBeHoveredSelected, fillNames, isHatchFill, name, scrollerSelected, strokeNames, zIndex));
     }
 
     @Override

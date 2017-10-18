@@ -30,10 +30,6 @@ public class Separator extends VisualBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class Separator extends VisualBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -107,10 +99,6 @@ public class Separator extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -148,10 +136,6 @@ public class Separator extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -189,10 +173,6 @@ public class Separator extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -230,10 +210,6 @@ public class Separator extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -271,10 +247,6 @@ public class Separator extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -312,10 +284,6 @@ public class Separator extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -371,10 +339,6 @@ public class Separator extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -422,10 +386,6 @@ public class Separator extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -453,10 +413,6 @@ public class Separator extends VisualBase {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -481,10 +437,6 @@ public class Separator extends VisualBase {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -500,6 +452,15 @@ public class Separator extends VisualBase {
         return this;
     }
 
+    private Margin getMargin;
+
+    public Margin getMargin() {
+        if (getMargin == null)
+            getMargin = new Margin(jsBase + ".margin()");
+
+        return getMargin;
+    }
+
     private String spaceOrTopOrTopAndBottom;
     private Double spaceOrTopOrTopAndBottom1;
     private Double[] spaceOrTopOrTopAndBottom2;
@@ -512,7 +473,7 @@ public class Separator extends VisualBase {
     private String left;
     private Double left1;
 
-    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, String left) {
+    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -520,37 +481,18 @@ public class Separator extends VisualBase {
             this.spaceOrTopOrTopAndBottom3 = null;
             this.spaceOrTopOrTopAndBottom4 = null;
             
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
+            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
         } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left));
+            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
                 js.setLength(0);
             }
         }
@@ -558,7 +500,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, String bottom, Double left1) {
+    public Separator setMargin(String[] spaceOrTopOrTopAndBottom3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -566,37 +508,18 @@ public class Separator extends VisualBase {
             this.spaceOrTopOrTopAndBottom3 = null;
             this.spaceOrTopOrTopAndBottom4 = null;
             
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
+            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
         } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left1));
+            js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom, left1));
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom3)));
                 js.setLength(0);
             }
         }
@@ -604,605 +527,7 @@ public class Separator extends VisualBase {
     }
 
 
-    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String spaceOrTopOrTopAndBottom, String rightOrRightAndLeft, Double bottom1, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft, bottom1, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, String bottom, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String spaceOrTopOrTopAndBottom, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom = spaceOrTopOrTopAndBottom;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom1 = bottom1;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", spaceOrTopOrTopAndBottom, rightOrRightAndLeft1, bottom1, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, String bottom, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, String rightOrRightAndLeft, Double bottom1, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %s, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %s, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft, bottom1, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, String bottom, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %f, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %s, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom1 = spaceOrTopOrTopAndBottom1;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -1228,10 +553,6 @@ public class Separator extends VisualBase {
             this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
             this.bottom1 = bottom1;
             this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1247,798 +568,13 @@ public class Separator extends VisualBase {
         return this;
     }
 
+    private Separator getOrientation;
 
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left = left;
+    public Separator getOrientation() {
+        if (getOrientation == null)
+            getOrientation = new Separator(jsBase + ".orientation()");
 
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, String bottom, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, String rightOrRightAndLeft, Double bottom1, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft, bottom1, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, String bottom, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(Double[] spaceOrTopOrTopAndBottom2, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom2 = spaceOrTopOrTopAndBottom2;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom1 = bottom1;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom2), rightOrRightAndLeft1, bottom1, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, String bottom, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, String rightOrRightAndLeft, Double bottom1, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = rightOrRightAndLeft;
-            this.bottom1 = bottom1;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft, bottom1, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, String bottom, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom = bottom;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = bottom;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %s, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, String left) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left = left;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom1 = bottom1;
-            this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %s)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator margin(String[] spaceOrTopOrTopAndBottom3, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
-        if (jsBase == null) {
-            this.spaceOrTopOrTopAndBottom = null;
-            this.spaceOrTopOrTopAndBottom1 = null;
-            this.spaceOrTopOrTopAndBottom2 = null;
-            this.spaceOrTopOrTopAndBottom3 = null;
-            this.spaceOrTopOrTopAndBottom4 = null;
-            
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft = null;
-            this.rightOrRightAndLeft1 = null;
-            
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom = null;
-            this.bottom1 = null;
-            
-            this.bottom1 = bottom1;
-            this.left = null;
-            this.left1 = null;
-            
-            this.left1 = left1;
-        } else {
-            this.spaceOrTopOrTopAndBottom3 = spaceOrTopOrTopAndBottom3;
-            this.rightOrRightAndLeft1 = rightOrRightAndLeft1;
-            this.bottom1 = bottom1;
-            this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %f, %f, %f)", Arrays.toString(spaceOrTopOrTopAndBottom3), rightOrRightAndLeft1, bottom1, left1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private Orientation orientation;
-    private String orientation1;
-
-    public Separator orientation(Orientation orientation) {
-        if (jsBase == null) {
-            this.orientation = null;
-            this.orientation1 = null;
-            
-            this.orientation = orientation;
-        } else {
-            this.orientation = orientation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Separator orientation(String orientation1) {
-        if (jsBase == null) {
-            this.orientation = null;
-            this.orientation1 = null;
-            
-            this.orientation1 = orientation1;
-        } else {
-            this.orientation1 = orientation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".orientation(%s)", orientation1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation1));
-                js.setLength(0);
-            }
-        }
-        return this;
+        return getOrientation;
     }
 
     private Stroke strokeOrFill;
@@ -2066,10 +602,6 @@ public class Separator extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2103,10 +635,6 @@ public class Separator extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2140,10 +668,6 @@ public class Separator extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2170,10 +694,6 @@ public class Separator extends VisualBase {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2198,10 +718,6 @@ public class Separator extends VisualBase {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2215,6 +731,20 @@ public class Separator extends VisualBase {
             }
         }
         return this;
+    }
+
+    private String generateJSgetMargin() {
+        if (getMargin != null) {
+            return getMargin.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetOrientation() {
+        if (getOrientation != null) {
+            return getOrientation.generateJs();
+        }
+        return "";
     }
 
     private String generateJSfill() {
@@ -2441,20 +971,6 @@ public class Separator extends VisualBase {
         return "";
     }
 
-    private String generateJSorientation() {
-        if (orientation != null) {
-            return String.format(Locale.US, "orientation: %s,", (orientation != null) ? orientation.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSorientation1() {
-        if (orientation1 != null) {
-            return String.format(Locale.US, "orientation: %s,", orientation1);
-        }
-        return "";
-    }
-
     private String generateJSstrokeOrFill() {
         if (strokeOrFill != null) {
             return String.format(Locale.US, "strokeOrFill: %s,", (strokeOrFill != null) ? strokeOrFill.generateJs() : "null");
@@ -2525,6 +1041,8 @@ public class Separator extends VisualBase {
         jsGetters.append(super.generateJsGetters());
 
     
+        jsGetters.append(generateJSgetMargin());
+        jsGetters.append(generateJSgetOrientation());
 
         return jsGetters.toString();
     }
@@ -2570,8 +1088,6 @@ public class Separator extends VisualBase {
             js.append(generateJSbottom1());
             js.append(generateJSleft());
             js.append(generateJSleft1());
-            js.append(generateJSorientation());
-            js.append(generateJSorientation1());
             js.append(generateJSstrokeOrFill());
             js.append(generateJSstrokeOrFill1());
             js.append(generateJSstrokeOrFill2());

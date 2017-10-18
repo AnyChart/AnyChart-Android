@@ -30,10 +30,6 @@ public class CoreAxesLinear extends VisualBase {
             this.drawFirstLabel = drawFirstLabel;
         } else {
             this.drawFirstLabel = drawFirstLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class CoreAxesLinear extends VisualBase {
             this.drawLastLabel = drawLastLabel;
         } else {
             this.drawLastLabel = drawLastLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -95,10 +87,6 @@ public class CoreAxesLinear extends VisualBase {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -123,10 +111,6 @@ public class CoreAxesLinear extends VisualBase {
             this.labels1 = labels1;
         } else {
             this.labels1 = labels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -162,10 +146,6 @@ public class CoreAxesLinear extends VisualBase {
             this.minorLabels = minorLabels;
         } else {
             this.minorLabels = minorLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -190,10 +170,6 @@ public class CoreAxesLinear extends VisualBase {
             this.minorLabels1 = minorLabels1;
         } else {
             this.minorLabels1 = minorLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -229,10 +205,6 @@ public class CoreAxesLinear extends VisualBase {
             this.minorTicks = minorTicks;
         } else {
             this.minorTicks = minorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -257,10 +229,6 @@ public class CoreAxesLinear extends VisualBase {
             this.minorTicks1 = minorTicks1;
         } else {
             this.minorTicks1 = minorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -276,10 +244,10 @@ public class CoreAxesLinear extends VisualBase {
         return this;
     }
 
-    private String orientation;
-    private Orientation orientation1;
+    private Orientation orientation;
+    private String orientation1;
 
-    public CoreAxesLinear setOrientation(String orientation) {
+    public CoreAxesLinear setOrientation(Orientation orientation) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -287,19 +255,15 @@ public class CoreAxesLinear extends VisualBase {
             this.orientation = orientation;
         } else {
             this.orientation = orientation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".orientation(%s)", orientation));
+            js.append(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation != null) ? orientation.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -307,7 +271,7 @@ public class CoreAxesLinear extends VisualBase {
     }
 
 
-    public CoreAxesLinear setOrientation(Orientation orientation1) {
+    public CoreAxesLinear setOrientation(String orientation1) {
         if (jsBase == null) {
             this.orientation = null;
             this.orientation1 = null;
@@ -315,19 +279,15 @@ public class CoreAxesLinear extends VisualBase {
             this.orientation1 = orientation1;
         } else {
             this.orientation1 = orientation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".orientation(%s)", (orientation1 != null) ? orientation1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".orientation(%s)", orientation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", (orientation1 != null) ? orientation1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", orientation1));
                 js.setLength(0);
             }
         }
@@ -345,10 +305,6 @@ public class CoreAxesLinear extends VisualBase {
             this.overlapMode = overlapMode;
         } else {
             this.overlapMode = overlapMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -373,10 +329,6 @@ public class CoreAxesLinear extends VisualBase {
             this.overlapMode1 = overlapMode1;
         } else {
             this.overlapMode1 = overlapMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -416,10 +368,6 @@ public class CoreAxesLinear extends VisualBase {
             this.scale = scale;
         } else {
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -446,10 +394,6 @@ public class CoreAxesLinear extends VisualBase {
             this.scale1 = scale1;
         } else {
             this.scale1 = scale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -476,10 +420,6 @@ public class CoreAxesLinear extends VisualBase {
             this.scale2 = scale2;
         } else {
             this.scale2 = scale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -502,10 +442,6 @@ public class CoreAxesLinear extends VisualBase {
             this.staggerLines = staggerLines;
         } else {
             this.staggerLines = staggerLines;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -528,10 +464,6 @@ public class CoreAxesLinear extends VisualBase {
             this.staggerMaxLines = staggerMaxLines;
         } else {
             this.staggerMaxLines = staggerMaxLines;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -554,10 +486,6 @@ public class CoreAxesLinear extends VisualBase {
             this.staggerMode = staggerMode;
         } else {
             this.staggerMode = staggerMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -598,10 +526,6 @@ public class CoreAxesLinear extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -635,10 +559,6 @@ public class CoreAxesLinear extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -672,10 +592,6 @@ public class CoreAxesLinear extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -711,10 +627,6 @@ public class CoreAxesLinear extends VisualBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -739,10 +651,6 @@ public class CoreAxesLinear extends VisualBase {
             this.ticks1 = ticks1;
         } else {
             this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -780,10 +688,6 @@ public class CoreAxesLinear extends VisualBase {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -809,10 +713,6 @@ public class CoreAxesLinear extends VisualBase {
             this.title1 = title1;
         } else {
             this.title1 = title1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -839,10 +739,6 @@ public class CoreAxesLinear extends VisualBase {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -867,10 +763,6 @@ public class CoreAxesLinear extends VisualBase {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -986,14 +878,14 @@ public class CoreAxesLinear extends VisualBase {
 
     private String generateJSorientation() {
         if (orientation != null) {
-            return String.format(Locale.US, "orientation: %s,", orientation);
+            return String.format(Locale.US, "orientation: %s,", (orientation != null) ? orientation.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSorientation1() {
         if (orientation1 != null) {
-            return String.format(Locale.US, "orientation: %s,", (orientation1 != null) ? orientation1.generateJs() : "null");
+            return String.format(Locale.US, "orientation: %s,", orientation1);
         }
         return "";
     }

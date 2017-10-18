@@ -30,10 +30,6 @@ public class Timeline extends JsObject {
             this.backgroundFill = backgroundFill;
         } else {
             this.backgroundFill = backgroundFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class Timeline extends JsObject {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -107,10 +99,6 @@ public class Timeline extends JsObject {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -148,10 +136,6 @@ public class Timeline extends JsObject {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -189,10 +173,6 @@ public class Timeline extends JsObject {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -230,10 +210,6 @@ public class Timeline extends JsObject {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -271,10 +247,6 @@ public class Timeline extends JsObject {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -312,10 +284,6 @@ public class Timeline extends JsObject {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -371,10 +339,6 @@ public class Timeline extends JsObject {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -422,10 +386,6 @@ public class Timeline extends JsObject {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -449,10 +409,6 @@ public class Timeline extends JsObject {
             this.baseFill = baseFill;
         } else {
             this.baseFill = baseFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -486,10 +442,6 @@ public class Timeline extends JsObject {
         } else {
             this.color1 = color1;
             this.opacity3 = opacity3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -548,10 +500,6 @@ public class Timeline extends JsObject {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -603,10 +551,6 @@ public class Timeline extends JsObject {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -658,10 +602,6 @@ public class Timeline extends JsObject {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -713,10 +653,6 @@ public class Timeline extends JsObject {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -768,10 +704,6 @@ public class Timeline extends JsObject {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -823,10 +755,6 @@ public class Timeline extends JsObject {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -905,10 +833,6 @@ public class Timeline extends JsObject {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -979,10 +903,6 @@ public class Timeline extends JsObject {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1019,10 +939,6 @@ public class Timeline extends JsObject {
             this.baseLabels = baseLabels;
         } else {
             this.baseLabels = baseLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1047,10 +963,6 @@ public class Timeline extends JsObject {
             this.baseLabels1 = baseLabels1;
         } else {
             this.baseLabels1 = baseLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1091,10 +1003,6 @@ public class Timeline extends JsObject {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1128,10 +1036,6 @@ public class Timeline extends JsObject {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1165,10 +1069,6 @@ public class Timeline extends JsObject {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1191,10 +1091,6 @@ public class Timeline extends JsObject {
             this.baselineAbove = baselineAbove;
         } else {
             this.baselineAbove = baselineAbove;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1217,10 +1113,6 @@ public class Timeline extends JsObject {
             this.baselineFill = baselineFill;
         } else {
             this.baselineFill = baselineFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1258,10 +1150,6 @@ public class Timeline extends JsObject {
         } else {
             this.color2 = color2;
             this.opacity6 = opacity6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1332,10 +1220,6 @@ public class Timeline extends JsObject {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1399,10 +1283,6 @@ public class Timeline extends JsObject {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1466,10 +1346,6 @@ public class Timeline extends JsObject {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1533,10 +1409,6 @@ public class Timeline extends JsObject {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1600,10 +1472,6 @@ public class Timeline extends JsObject {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1667,10 +1535,6 @@ public class Timeline extends JsObject {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1764,10 +1628,6 @@ public class Timeline extends JsObject {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1853,10 +1713,6 @@ public class Timeline extends JsObject {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1893,10 +1749,6 @@ public class Timeline extends JsObject {
             this.baselineLabels = baselineLabels;
         } else {
             this.baselineLabels = baselineLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1921,10 +1773,6 @@ public class Timeline extends JsObject {
             this.baselineLabels1 = baselineLabels1;
         } else {
             this.baselineLabels1 = baselineLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1977,10 +1825,6 @@ public class Timeline extends JsObject {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2026,10 +1870,6 @@ public class Timeline extends JsObject {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2075,10 +1915,6 @@ public class Timeline extends JsObject {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2105,10 +1941,6 @@ public class Timeline extends JsObject {
             this.columnStroke = columnStroke;
         } else {
             this.columnStroke = columnStroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2133,10 +1965,6 @@ public class Timeline extends JsObject {
             this.columnStroke1 = columnStroke1;
         } else {
             this.columnStroke1 = columnStroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2214,10 +2042,6 @@ public class Timeline extends JsObject {
             this.opacity9 = opacity9;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2286,10 +2110,6 @@ public class Timeline extends JsObject {
             this.opacity9 = opacity9;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2358,10 +2178,6 @@ public class Timeline extends JsObject {
             this.opacity9 = opacity9;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2418,10 +2234,6 @@ public class Timeline extends JsObject {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2471,10 +2283,6 @@ public class Timeline extends JsObject {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2524,10 +2332,6 @@ public class Timeline extends JsObject {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2588,10 +2392,6 @@ public class Timeline extends JsObject {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2645,10 +2445,6 @@ public class Timeline extends JsObject {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2702,10 +2498,6 @@ public class Timeline extends JsObject {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2728,10 +2520,6 @@ public class Timeline extends JsObject {
             this.editConnectorThumbFill = editConnectorThumbFill;
         } else {
             this.editConnectorThumbFill = editConnectorThumbFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2774,10 +2562,6 @@ public class Timeline extends JsObject {
         } else {
             this.color3 = color3;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2861,10 +2645,6 @@ public class Timeline extends JsObject {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2941,10 +2721,6 @@ public class Timeline extends JsObject {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3021,10 +2797,6 @@ public class Timeline extends JsObject {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3101,10 +2873,6 @@ public class Timeline extends JsObject {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3181,10 +2949,6 @@ public class Timeline extends JsObject {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3261,10 +3025,6 @@ public class Timeline extends JsObject {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3378,10 +3138,6 @@ public class Timeline extends JsObject {
             this.opacity12 = opacity12;
             this.fx4 = fx4;
             this.fy4 = fy4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3487,10 +3243,6 @@ public class Timeline extends JsObject {
             this.opacity12 = opacity12;
             this.fx4 = fx4;
             this.fy4 = fy4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3556,10 +3308,6 @@ public class Timeline extends JsObject {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3617,10 +3365,6 @@ public class Timeline extends JsObject {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3678,10 +3422,6 @@ public class Timeline extends JsObject {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3704,10 +3444,6 @@ public class Timeline extends JsObject {
             this.editFinishConnectorMarkerHorizontalOffset = editFinishConnectorMarkerHorizontalOffset;
         } else {
             this.editFinishConnectorMarkerHorizontalOffset = editFinishConnectorMarkerHorizontalOffset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3730,10 +3466,6 @@ public class Timeline extends JsObject {
             this.editFinishConnectorMarkerSize = editFinishConnectorMarkerSize;
         } else {
             this.editFinishConnectorMarkerSize = editFinishConnectorMarkerSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3750,16 +3482,16 @@ public class Timeline extends JsObject {
     }
 
     private MarkerType editFinishConnectorMarkerType;
+    private String editFinishConnectorMarkerType1;
 
     public void setEditFinishConnectorMarkerType(MarkerType editFinishConnectorMarkerType) {
         if (jsBase == null) {
+            this.editFinishConnectorMarkerType = null;
+            this.editFinishConnectorMarkerType1 = null;
+            
             this.editFinishConnectorMarkerType = editFinishConnectorMarkerType;
         } else {
             this.editFinishConnectorMarkerType = editFinishConnectorMarkerType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3774,6 +3506,29 @@ public class Timeline extends JsObject {
         }
     }
 
+
+    public void setEditFinishConnectorMarkerType(String editFinishConnectorMarkerType1) {
+        if (jsBase == null) {
+            this.editFinishConnectorMarkerType = null;
+            this.editFinishConnectorMarkerType1 = null;
+            
+            this.editFinishConnectorMarkerType1 = editFinishConnectorMarkerType1;
+        } else {
+            this.editFinishConnectorMarkerType1 = editFinishConnectorMarkerType1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", editFinishConnectorMarkerType1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", editFinishConnectorMarkerType1));
+                js.setLength(0);
+            }
+        }
+    }
+
     private Double editFinishConnectorMarkerVerticalOffset;
 
     public Timeline setEditFinishConnectorMarkerVerticalOffset(Double editFinishConnectorMarkerVerticalOffset) {
@@ -3781,10 +3536,6 @@ public class Timeline extends JsObject {
             this.editFinishConnectorMarkerVerticalOffset = editFinishConnectorMarkerVerticalOffset;
         } else {
             this.editFinishConnectorMarkerVerticalOffset = editFinishConnectorMarkerVerticalOffset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3807,10 +3558,6 @@ public class Timeline extends JsObject {
             this.editIntervalThumbFill = editIntervalThumbFill;
         } else {
             this.editIntervalThumbFill = editIntervalThumbFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3857,10 +3604,6 @@ public class Timeline extends JsObject {
         } else {
             this.color4 = color4;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3956,10 +3699,6 @@ public class Timeline extends JsObject {
             this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4048,10 +3787,6 @@ public class Timeline extends JsObject {
             this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4140,10 +3875,6 @@ public class Timeline extends JsObject {
             this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4232,10 +3963,6 @@ public class Timeline extends JsObject {
             this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4324,10 +4051,6 @@ public class Timeline extends JsObject {
             this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4416,10 +4139,6 @@ public class Timeline extends JsObject {
             this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4548,10 +4267,6 @@ public class Timeline extends JsObject {
             this.opacity15 = opacity15;
             this.fx5 = fx5;
             this.fy5 = fy5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4672,10 +4387,6 @@ public class Timeline extends JsObject {
             this.opacity15 = opacity15;
             this.fx5 = fx5;
             this.fy5 = fy5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4745,10 +4456,6 @@ public class Timeline extends JsObject {
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4810,10 +4517,6 @@ public class Timeline extends JsObject {
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4875,10 +4578,6 @@ public class Timeline extends JsObject {
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4901,10 +4600,6 @@ public class Timeline extends JsObject {
             this.editIntervalWidth = editIntervalWidth;
         } else {
             this.editIntervalWidth = editIntervalWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4927,10 +4622,6 @@ public class Timeline extends JsObject {
             this.editPreviewFill = editPreviewFill;
         } else {
             this.editPreviewFill = editPreviewFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4981,10 +4672,6 @@ public class Timeline extends JsObject {
         } else {
             this.color5 = color5;
             this.opacity16 = opacity16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5092,10 +4779,6 @@ public class Timeline extends JsObject {
             this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5196,10 +4879,6 @@ public class Timeline extends JsObject {
             this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5300,10 +4979,6 @@ public class Timeline extends JsObject {
             this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5404,10 +5079,6 @@ public class Timeline extends JsObject {
             this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5508,10 +5179,6 @@ public class Timeline extends JsObject {
             this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5612,10 +5279,6 @@ public class Timeline extends JsObject {
             this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5759,10 +5422,6 @@ public class Timeline extends JsObject {
             this.opacity18 = opacity18;
             this.fx6 = fx6;
             this.fy6 = fy6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5898,10 +5557,6 @@ public class Timeline extends JsObject {
             this.opacity18 = opacity18;
             this.fx6 = fx6;
             this.fy6 = fy6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5975,10 +5630,6 @@ public class Timeline extends JsObject {
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6044,10 +5695,6 @@ public class Timeline extends JsObject {
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6113,10 +5760,6 @@ public class Timeline extends JsObject {
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6139,10 +5782,6 @@ public class Timeline extends JsObject {
             this.editProgressFill = editProgressFill;
         } else {
             this.editProgressFill = editProgressFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6197,10 +5836,6 @@ public class Timeline extends JsObject {
         } else {
             this.color6 = color6;
             this.opacity19 = opacity19;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6320,10 +5955,6 @@ public class Timeline extends JsObject {
             this.mode24 = mode24;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6436,10 +6067,6 @@ public class Timeline extends JsObject {
             this.mode25 = mode25;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6552,10 +6179,6 @@ public class Timeline extends JsObject {
             this.mode26 = mode26;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6668,10 +6291,6 @@ public class Timeline extends JsObject {
             this.mode24 = mode24;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6784,10 +6403,6 @@ public class Timeline extends JsObject {
             this.mode25 = mode25;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6900,10 +6515,6 @@ public class Timeline extends JsObject {
             this.mode26 = mode26;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7062,10 +6673,6 @@ public class Timeline extends JsObject {
             this.opacity21 = opacity21;
             this.fx7 = fx7;
             this.fy7 = fy7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7216,10 +6823,6 @@ public class Timeline extends JsObject {
             this.opacity21 = opacity21;
             this.fx7 = fx7;
             this.fy7 = fy7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7297,10 +6900,6 @@ public class Timeline extends JsObject {
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7370,10 +6969,6 @@ public class Timeline extends JsObject {
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7443,10 +7038,6 @@ public class Timeline extends JsObject {
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7469,10 +7060,6 @@ public class Timeline extends JsObject {
             this.editStartConnectorMarkerHorizontalOffset = editStartConnectorMarkerHorizontalOffset;
         } else {
             this.editStartConnectorMarkerHorizontalOffset = editStartConnectorMarkerHorizontalOffset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7495,10 +7082,6 @@ public class Timeline extends JsObject {
             this.editStartConnectorMarkerSize = editStartConnectorMarkerSize;
         } else {
             this.editStartConnectorMarkerSize = editStartConnectorMarkerSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7515,16 +7098,16 @@ public class Timeline extends JsObject {
     }
 
     private MarkerType editStartConnectorMarkerType;
+    private String editStartConnectorMarkerType1;
 
     public void setEditStartConnectorMarkerType(MarkerType editStartConnectorMarkerType) {
         if (jsBase == null) {
+            this.editStartConnectorMarkerType = null;
+            this.editStartConnectorMarkerType1 = null;
+            
             this.editStartConnectorMarkerType = editStartConnectorMarkerType;
         } else {
             this.editStartConnectorMarkerType = editStartConnectorMarkerType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7539,6 +7122,29 @@ public class Timeline extends JsObject {
         }
     }
 
+
+    public void setEditStartConnectorMarkerType(String editStartConnectorMarkerType1) {
+        if (jsBase == null) {
+            this.editStartConnectorMarkerType = null;
+            this.editStartConnectorMarkerType1 = null;
+            
+            this.editStartConnectorMarkerType1 = editStartConnectorMarkerType1;
+        } else {
+            this.editStartConnectorMarkerType1 = editStartConnectorMarkerType1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", editStartConnectorMarkerType1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", editStartConnectorMarkerType1));
+                js.setLength(0);
+            }
+        }
+    }
+
     private Double editStartConnectorMarkerVerticalOffset;
 
     public Timeline setEditStartConnectorMarkerVerticalOffset(Double editStartConnectorMarkerVerticalOffset) {
@@ -7546,10 +7152,6 @@ public class Timeline extends JsObject {
             this.editStartConnectorMarkerVerticalOffset = editStartConnectorMarkerVerticalOffset;
         } else {
             this.editStartConnectorMarkerVerticalOffset = editStartConnectorMarkerVerticalOffset;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7630,10 +7232,6 @@ public class Timeline extends JsObject {
             this.dashpattern8 = dashpattern8;
             this.lineJoin8 = lineJoin8;
             this.lineCap8 = lineCap8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7707,10 +7305,6 @@ public class Timeline extends JsObject {
             this.dashpattern8 = dashpattern8;
             this.lineJoin8 = lineJoin8;
             this.lineCap8 = lineCap8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7784,10 +7378,6 @@ public class Timeline extends JsObject {
             this.dashpattern8 = dashpattern8;
             this.lineJoin8 = lineJoin8;
             this.lineCap8 = lineCap8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7810,10 +7400,6 @@ public class Timeline extends JsObject {
             this.editStructurePreviewFill = editStructurePreviewFill;
         } else {
             this.editStructurePreviewFill = editStructurePreviewFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7872,10 +7458,6 @@ public class Timeline extends JsObject {
         } else {
             this.color7 = color7;
             this.opacity22 = opacity22;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8007,10 +7589,6 @@ public class Timeline extends JsObject {
             this.mode28 = mode28;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8135,10 +7713,6 @@ public class Timeline extends JsObject {
             this.mode29 = mode29;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8263,10 +7837,6 @@ public class Timeline extends JsObject {
             this.mode30 = mode30;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8391,10 +7961,6 @@ public class Timeline extends JsObject {
             this.mode28 = mode28;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8519,10 +8085,6 @@ public class Timeline extends JsObject {
             this.mode29 = mode29;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8647,10 +8209,6 @@ public class Timeline extends JsObject {
             this.mode30 = mode30;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8824,10 +8382,6 @@ public class Timeline extends JsObject {
             this.opacity24 = opacity24;
             this.fx8 = fx8;
             this.fy8 = fy8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8993,10 +8547,6 @@ public class Timeline extends JsObject {
             this.opacity24 = opacity24;
             this.fx8 = fx8;
             this.fy8 = fy8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9082,10 +8632,6 @@ public class Timeline extends JsObject {
             this.dashpattern9 = dashpattern9;
             this.lineJoin9 = lineJoin9;
             this.lineCap9 = lineCap9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9163,10 +8709,6 @@ public class Timeline extends JsObject {
             this.dashpattern9 = dashpattern9;
             this.lineJoin9 = lineJoin9;
             this.lineCap9 = lineCap9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9244,10 +8786,6 @@ public class Timeline extends JsObject {
             this.dashpattern9 = dashpattern9;
             this.lineJoin9 = lineJoin9;
             this.lineCap9 = lineCap9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9270,10 +8808,6 @@ public class Timeline extends JsObject {
             this.editing = editing;
         } else {
             this.editing = editing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9305,10 +8839,6 @@ public class Timeline extends JsObject {
             this.header = header;
         } else {
             this.header = header;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9340,10 +8870,6 @@ public class Timeline extends JsObject {
             this.horizontalScrollBar = horizontalScrollBar;
         } else {
             this.horizontalScrollBar = horizontalScrollBar;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9375,10 +8901,6 @@ public class Timeline extends JsObject {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9414,10 +8936,6 @@ public class Timeline extends JsObject {
             this.lineMarker = lineMarker;
         } else {
             this.lineMarker = lineMarker;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9442,10 +8960,6 @@ public class Timeline extends JsObject {
             this.lineMarker1 = lineMarker1;
         } else {
             this.lineMarker1 = lineMarker1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9465,6 +8979,7 @@ public class Timeline extends JsObject {
     private String lineMarker2;
     private Boolean lineMarker3;
     private GanttDateTimeMarkers lineMarker4;
+    private String lineMarker5;
 
     public Timeline setLineMarker(String lineMarker2, Double index) {
         if (jsBase == null) {
@@ -9473,16 +8988,13 @@ public class Timeline extends JsObject {
             this.lineMarker2 = null;
             this.lineMarker3 = null;
             this.lineMarker4 = null;
+            this.lineMarker5 = null;
             
             this.lineMarker2 = lineMarker2;
             this.index = index;
         } else {
             this.lineMarker2 = lineMarker2;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9506,16 +9018,13 @@ public class Timeline extends JsObject {
             this.lineMarker2 = null;
             this.lineMarker3 = null;
             this.lineMarker4 = null;
+            this.lineMarker5 = null;
             
             this.lineMarker3 = lineMarker3;
             this.index = index;
         } else {
             this.lineMarker3 = lineMarker3;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9539,16 +9048,13 @@ public class Timeline extends JsObject {
             this.lineMarker2 = null;
             this.lineMarker3 = null;
             this.lineMarker4 = null;
+            this.lineMarker5 = null;
             
             this.lineMarker4 = lineMarker4;
             this.index = index;
         } else {
             this.lineMarker4 = lineMarker4;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9580,10 +9086,6 @@ public class Timeline extends JsObject {
             this.markers = markers;
         } else {
             this.markers = markers;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9606,10 +9108,6 @@ public class Timeline extends JsObject {
             this.milestoneFill = milestoneFill;
         } else {
             this.milestoneFill = milestoneFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9672,10 +9170,6 @@ public class Timeline extends JsObject {
         } else {
             this.color8 = color8;
             this.opacity25 = opacity25;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9819,10 +9313,6 @@ public class Timeline extends JsObject {
             this.mode32 = mode32;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9959,10 +9449,6 @@ public class Timeline extends JsObject {
             this.mode33 = mode33;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10099,10 +9585,6 @@ public class Timeline extends JsObject {
             this.mode34 = mode34;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10239,10 +9721,6 @@ public class Timeline extends JsObject {
             this.mode32 = mode32;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10379,10 +9857,6 @@ public class Timeline extends JsObject {
             this.mode33 = mode33;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10519,10 +9993,6 @@ public class Timeline extends JsObject {
             this.mode34 = mode34;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10711,10 +10181,6 @@ public class Timeline extends JsObject {
             this.opacity27 = opacity27;
             this.fx9 = fx9;
             this.fy9 = fy9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10895,10 +10361,6 @@ public class Timeline extends JsObject {
             this.opacity27 = opacity27;
             this.fx9 = fx9;
             this.fy9 = fy9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10935,10 +10397,6 @@ public class Timeline extends JsObject {
             this.milestoneLabels = milestoneLabels;
         } else {
             this.milestoneLabels = milestoneLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -10963,10 +10421,6 @@ public class Timeline extends JsObject {
             this.milestoneLabels1 = milestoneLabels1;
         } else {
             this.milestoneLabels1 = milestoneLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11055,10 +10509,6 @@ public class Timeline extends JsObject {
             this.dashpattern10 = dashpattern10;
             this.lineJoin10 = lineJoin10;
             this.lineCap10 = lineCap10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11140,10 +10590,6 @@ public class Timeline extends JsObject {
             this.dashpattern10 = dashpattern10;
             this.lineJoin10 = lineJoin10;
             this.lineCap10 = lineCap10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11225,10 +10671,6 @@ public class Timeline extends JsObject {
             this.dashpattern10 = dashpattern10;
             this.lineJoin10 = lineJoin10;
             this.lineCap10 = lineCap10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11251,10 +10693,6 @@ public class Timeline extends JsObject {
             this.parentFill = parentFill;
         } else {
             this.parentFill = parentFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11321,10 +10759,6 @@ public class Timeline extends JsObject {
         } else {
             this.color9 = color9;
             this.opacity28 = opacity28;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11480,10 +10914,6 @@ public class Timeline extends JsObject {
             this.mode36 = mode36;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11632,10 +11062,6 @@ public class Timeline extends JsObject {
             this.mode37 = mode37;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11784,10 +11210,6 @@ public class Timeline extends JsObject {
             this.mode38 = mode38;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11936,10 +11358,6 @@ public class Timeline extends JsObject {
             this.mode36 = mode36;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12088,10 +11506,6 @@ public class Timeline extends JsObject {
             this.mode37 = mode37;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12240,10 +11654,6 @@ public class Timeline extends JsObject {
             this.mode38 = mode38;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12447,10 +11857,6 @@ public class Timeline extends JsObject {
             this.opacity30 = opacity30;
             this.fx10 = fx10;
             this.fy10 = fy10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12646,10 +12052,6 @@ public class Timeline extends JsObject {
             this.opacity30 = opacity30;
             this.fx10 = fx10;
             this.fy10 = fy10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12686,10 +12088,6 @@ public class Timeline extends JsObject {
             this.parentLabels = parentLabels;
         } else {
             this.parentLabels = parentLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12714,10 +12112,6 @@ public class Timeline extends JsObject {
             this.parentLabels1 = parentLabels1;
         } else {
             this.parentLabels1 = parentLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12810,10 +12204,6 @@ public class Timeline extends JsObject {
             this.dashpattern11 = dashpattern11;
             this.lineJoin11 = lineJoin11;
             this.lineCap11 = lineCap11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12899,10 +12289,6 @@ public class Timeline extends JsObject {
             this.dashpattern11 = dashpattern11;
             this.lineJoin11 = lineJoin11;
             this.lineCap11 = lineCap11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -12988,10 +12374,6 @@ public class Timeline extends JsObject {
             this.dashpattern11 = dashpattern11;
             this.lineJoin11 = lineJoin11;
             this.lineCap11 = lineCap11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -13014,10 +12396,6 @@ public class Timeline extends JsObject {
             this.progressFill = progressFill;
         } else {
             this.progressFill = progressFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -13088,10 +12466,6 @@ public class Timeline extends JsObject {
         } else {
             this.color10 = color10;
             this.opacity31 = opacity31;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -13259,10 +12633,6 @@ public class Timeline extends JsObject {
             this.mode40 = mode40;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -13423,10 +12793,6 @@ public class Timeline extends JsObject {
             this.mode41 = mode41;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -13587,10 +12953,6 @@ public class Timeline extends JsObject {
             this.mode42 = mode42;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -13751,10 +13113,6 @@ public class Timeline extends JsObject {
             this.mode40 = mode40;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -13915,10 +13273,6 @@ public class Timeline extends JsObject {
             this.mode41 = mode41;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14079,10 +13433,6 @@ public class Timeline extends JsObject {
             this.mode42 = mode42;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14301,10 +13651,6 @@ public class Timeline extends JsObject {
             this.opacity33 = opacity33;
             this.fx11 = fx11;
             this.fy11 = fy11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14515,10 +13861,6 @@ public class Timeline extends JsObject {
             this.opacity33 = opacity33;
             this.fx11 = fx11;
             this.fy11 = fy11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14555,10 +13897,6 @@ public class Timeline extends JsObject {
             this.progressLabels = progressLabels;
         } else {
             this.progressLabels = progressLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14583,10 +13921,6 @@ public class Timeline extends JsObject {
             this.progressLabels1 = progressLabels1;
         } else {
             this.progressLabels1 = progressLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14683,10 +14017,6 @@ public class Timeline extends JsObject {
             this.dashpattern12 = dashpattern12;
             this.lineJoin12 = lineJoin12;
             this.lineCap12 = lineCap12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14776,10 +14106,6 @@ public class Timeline extends JsObject {
             this.dashpattern12 = dashpattern12;
             this.lineJoin12 = lineJoin12;
             this.lineCap12 = lineCap12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14869,10 +14195,6 @@ public class Timeline extends JsObject {
             this.dashpattern12 = dashpattern12;
             this.lineJoin12 = lineJoin12;
             this.lineCap12 = lineCap12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14908,10 +14230,6 @@ public class Timeline extends JsObject {
             this.rangeMarker = rangeMarker;
         } else {
             this.rangeMarker = rangeMarker;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14936,10 +14254,6 @@ public class Timeline extends JsObject {
             this.rangeMarker1 = rangeMarker1;
         } else {
             this.rangeMarker1 = rangeMarker1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -14971,10 +14285,6 @@ public class Timeline extends JsObject {
             this.rowEvenFill = rowEvenFill;
         } else {
             this.rowEvenFill = rowEvenFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -15049,10 +14359,6 @@ public class Timeline extends JsObject {
         } else {
             this.color11 = color11;
             this.opacity34 = opacity34;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -15232,10 +14538,6 @@ public class Timeline extends JsObject {
             this.mode44 = mode44;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -15408,10 +14710,6 @@ public class Timeline extends JsObject {
             this.mode45 = mode45;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -15584,10 +14882,6 @@ public class Timeline extends JsObject {
             this.mode46 = mode46;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -15760,10 +15054,6 @@ public class Timeline extends JsObject {
             this.mode44 = mode44;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -15936,10 +15226,6 @@ public class Timeline extends JsObject {
             this.mode45 = mode45;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -16112,10 +15398,6 @@ public class Timeline extends JsObject {
             this.mode46 = mode46;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -16349,10 +15631,6 @@ public class Timeline extends JsObject {
             this.opacity36 = opacity36;
             this.fx12 = fx12;
             this.fy12 = fy12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -16578,10 +15856,6 @@ public class Timeline extends JsObject {
             this.opacity36 = opacity36;
             this.fx12 = fx12;
             this.fy12 = fy12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -16605,10 +15879,6 @@ public class Timeline extends JsObject {
             this.rowFill = rowFill;
         } else {
             this.rowFill = rowFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -16687,10 +15957,6 @@ public class Timeline extends JsObject {
         } else {
             this.color12 = color12;
             this.opacity37 = opacity37;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -16882,10 +16148,6 @@ public class Timeline extends JsObject {
             this.mode48 = mode48;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -17070,10 +16332,6 @@ public class Timeline extends JsObject {
             this.mode49 = mode49;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -17258,10 +16516,6 @@ public class Timeline extends JsObject {
             this.mode50 = mode50;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -17446,10 +16700,6 @@ public class Timeline extends JsObject {
             this.mode48 = mode48;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -17634,10 +16884,6 @@ public class Timeline extends JsObject {
             this.mode49 = mode49;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -17822,10 +17068,6 @@ public class Timeline extends JsObject {
             this.mode50 = mode50;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -18074,10 +17316,6 @@ public class Timeline extends JsObject {
             this.opacity39 = opacity39;
             this.fx13 = fx13;
             this.fy13 = fy13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -18318,10 +17556,6 @@ public class Timeline extends JsObject {
             this.opacity39 = opacity39;
             this.fx13 = fx13;
             this.fy13 = fy13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -18345,10 +17579,6 @@ public class Timeline extends JsObject {
             this.rowHoverFill = rowHoverFill;
         } else {
             this.rowHoverFill = rowHoverFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -18431,10 +17661,6 @@ public class Timeline extends JsObject {
         } else {
             this.color13 = color13;
             this.opacity40 = opacity40;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -18638,10 +17864,6 @@ public class Timeline extends JsObject {
             this.mode52 = mode52;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -18838,10 +18060,6 @@ public class Timeline extends JsObject {
             this.mode53 = mode53;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -19038,10 +18256,6 @@ public class Timeline extends JsObject {
             this.mode54 = mode54;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -19238,10 +18452,6 @@ public class Timeline extends JsObject {
             this.mode52 = mode52;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -19438,10 +18648,6 @@ public class Timeline extends JsObject {
             this.mode53 = mode53;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -19638,10 +18844,6 @@ public class Timeline extends JsObject {
             this.mode54 = mode54;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -19905,10 +19107,6 @@ public class Timeline extends JsObject {
             this.opacity42 = opacity42;
             this.fx14 = fx14;
             this.fy14 = fy14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -20164,10 +19362,6 @@ public class Timeline extends JsObject {
             this.opacity42 = opacity42;
             this.fx14 = fx14;
             this.fy14 = fy14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -20190,10 +19384,6 @@ public class Timeline extends JsObject {
             this.rowOddFill = rowOddFill;
         } else {
             this.rowOddFill = rowOddFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -20280,10 +19470,6 @@ public class Timeline extends JsObject {
         } else {
             this.color14 = color14;
             this.opacity43 = opacity43;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -20499,10 +19685,6 @@ public class Timeline extends JsObject {
             this.mode56 = mode56;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -20711,10 +19893,6 @@ public class Timeline extends JsObject {
             this.mode57 = mode57;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -20923,10 +20101,6 @@ public class Timeline extends JsObject {
             this.mode58 = mode58;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -21135,10 +20309,6 @@ public class Timeline extends JsObject {
             this.mode56 = mode56;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -21347,10 +20517,6 @@ public class Timeline extends JsObject {
             this.mode57 = mode57;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -21559,10 +20725,6 @@ public class Timeline extends JsObject {
             this.mode58 = mode58;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -21841,10 +21003,6 @@ public class Timeline extends JsObject {
             this.opacity45 = opacity45;
             this.fx15 = fx15;
             this.fy15 = fy15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -22115,10 +21273,6 @@ public class Timeline extends JsObject {
             this.opacity45 = opacity45;
             this.fx15 = fx15;
             this.fy15 = fy15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -22142,10 +21296,6 @@ public class Timeline extends JsObject {
             this.rowSelectedFill = rowSelectedFill;
         } else {
             this.rowSelectedFill = rowSelectedFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -22236,10 +21386,6 @@ public class Timeline extends JsObject {
         } else {
             this.color15 = color15;
             this.opacity46 = opacity46;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -22415,10 +21561,6 @@ public class Timeline extends JsObject {
             this.keys60 = keys60;
             this.mode60 = mode60;
             this.angle15 = angle15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -22588,10 +21730,6 @@ public class Timeline extends JsObject {
             this.keys60 = keys60;
             this.mode61 = mode61;
             this.angle15 = angle15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -22761,10 +21899,6 @@ public class Timeline extends JsObject {
             this.keys60 = keys60;
             this.mode62 = mode62;
             this.angle15 = angle15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -22934,10 +22068,6 @@ public class Timeline extends JsObject {
             this.keys61 = keys61;
             this.mode60 = mode60;
             this.angle15 = angle15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -23107,10 +22237,6 @@ public class Timeline extends JsObject {
             this.keys61 = keys61;
             this.mode61 = mode61;
             this.angle15 = angle15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -23280,10 +22406,6 @@ public class Timeline extends JsObject {
             this.keys61 = keys61;
             this.mode62 = mode62;
             this.angle15 = angle15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -23576,10 +22698,6 @@ public class Timeline extends JsObject {
             this.opacity47 = opacity47;
             this.fx16 = fx16;
             this.fy16 = fy16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -23864,10 +22982,6 @@ public class Timeline extends JsObject {
             this.opacity47 = opacity47;
             this.fx16 = fx16;
             this.fy16 = fy16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -23900,10 +23014,6 @@ public class Timeline extends JsObject {
             this.scale = scale;
         } else {
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -23926,10 +23036,6 @@ public class Timeline extends JsObject {
             this.selectedElementFill = selectedElementFill;
         } else {
             this.selectedElementFill = selectedElementFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -24023,10 +23129,6 @@ public class Timeline extends JsObject {
         } else {
             this.color16 = color16;
             this.opacity48 = opacity48;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -24265,10 +23367,6 @@ public class Timeline extends JsObject {
             this.mode64 = mode64;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -24500,10 +23598,6 @@ public class Timeline extends JsObject {
             this.mode65 = mode65;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -24735,10 +23829,6 @@ public class Timeline extends JsObject {
             this.mode66 = mode66;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -24970,10 +24060,6 @@ public class Timeline extends JsObject {
             this.mode64 = mode64;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -25205,10 +24291,6 @@ public class Timeline extends JsObject {
             this.mode65 = mode65;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -25440,10 +24522,6 @@ public class Timeline extends JsObject {
             this.mode66 = mode66;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -25751,10 +24829,6 @@ public class Timeline extends JsObject {
             this.opacity50 = opacity50;
             this.fx17 = fx17;
             this.fy17 = fy17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26054,10 +25128,6 @@ public class Timeline extends JsObject {
             this.opacity50 = opacity50;
             this.fx17 = fx17;
             this.fy17 = fy17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26159,10 +25229,6 @@ public class Timeline extends JsObject {
             this.dashpattern13 = dashpattern13;
             this.lineJoin13 = lineJoin13;
             this.lineCap13 = lineCap13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26256,10 +25322,6 @@ public class Timeline extends JsObject {
             this.dashpattern13 = dashpattern13;
             this.lineJoin13 = lineJoin13;
             this.lineCap13 = lineCap13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26353,10 +25415,6 @@ public class Timeline extends JsObject {
             this.dashpattern13 = dashpattern13;
             this.lineJoin13 = lineJoin13;
             this.lineCap13 = lineCap13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26392,10 +25450,6 @@ public class Timeline extends JsObject {
             this.textMarker = textMarker;
         } else {
             this.textMarker = textMarker;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26420,10 +25474,6 @@ public class Timeline extends JsObject {
             this.textMarker1 = textMarker1;
         } else {
             this.textMarker1 = textMarker1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26443,6 +25493,7 @@ public class Timeline extends JsObject {
     private String textMarker2;
     private Boolean textMarker3;
     private GanttDateTimeMarkers textMarker4;
+    private String textMarker5;
 
     public Timeline setTextMarker(String textMarker2, Double index1) {
         if (jsBase == null) {
@@ -26451,6 +25502,7 @@ public class Timeline extends JsObject {
             this.textMarker2 = null;
             this.textMarker3 = null;
             this.textMarker4 = null;
+            this.textMarker5 = null;
             
             this.textMarker2 = textMarker2;
             this.index = null;
@@ -26460,10 +25512,6 @@ public class Timeline extends JsObject {
         } else {
             this.textMarker2 = textMarker2;
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26487,6 +25535,7 @@ public class Timeline extends JsObject {
             this.textMarker2 = null;
             this.textMarker3 = null;
             this.textMarker4 = null;
+            this.textMarker5 = null;
             
             this.textMarker3 = textMarker3;
             this.index = null;
@@ -26496,10 +25545,6 @@ public class Timeline extends JsObject {
         } else {
             this.textMarker3 = textMarker3;
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26523,6 +25568,7 @@ public class Timeline extends JsObject {
             this.textMarker2 = null;
             this.textMarker3 = null;
             this.textMarker4 = null;
+            this.textMarker5 = null;
             
             this.textMarker4 = textMarker4;
             this.index = null;
@@ -26532,10 +25578,6 @@ public class Timeline extends JsObject {
         } else {
             this.textMarker4 = textMarker4;
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26571,10 +25613,6 @@ public class Timeline extends JsObject {
             this.tooltip = tooltip;
         } else {
             this.tooltip = tooltip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26599,10 +25637,6 @@ public class Timeline extends JsObject {
             this.tooltip1 = tooltip1;
         } else {
             this.tooltip1 = tooltip1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -26634,10 +25668,6 @@ public class Timeline extends JsObject {
             this.verticalScrollBar = verticalScrollBar;
         } else {
             this.verticalScrollBar = verticalScrollBar;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -27675,6 +26705,13 @@ public class Timeline extends JsObject {
         return "";
     }
 
+    private String generateJSeditFinishConnectorMarkerType1() {
+        if (editFinishConnectorMarkerType1 != null) {
+            return String.format(Locale.US, "editFinishConnectorMarkerType: %s,", editFinishConnectorMarkerType1);
+        }
+        return "";
+    }
+
     private String generateJSeditFinishConnectorMarkerVerticalOffset() {
         if (editFinishConnectorMarkerVerticalOffset != null) {
             return String.format(Locale.US, "editFinishConnectorMarkerVerticalOffset: %f,", editFinishConnectorMarkerVerticalOffset);
@@ -28256,6 +27293,13 @@ public class Timeline extends JsObject {
         return "";
     }
 
+    private String generateJSeditStartConnectorMarkerType1() {
+        if (editStartConnectorMarkerType1 != null) {
+            return String.format(Locale.US, "editStartConnectorMarkerType: %s,", editStartConnectorMarkerType1);
+        }
+        return "";
+    }
+
     private String generateJSeditStartConnectorMarkerVerticalOffset() {
         if (editStartConnectorMarkerVerticalOffset != null) {
             return String.format(Locale.US, "editStartConnectorMarkerVerticalOffset: %f,", editStartConnectorMarkerVerticalOffset);
@@ -28560,6 +27604,13 @@ public class Timeline extends JsObject {
     private String generateJSlineMarker4() {
         if (lineMarker4 != null) {
             return String.format(Locale.US, "lineMarker: %s,", (lineMarker4 != null) ? lineMarker4.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSlineMarker5() {
+        if (lineMarker5 != null) {
+            return String.format(Locale.US, "lineMarker: %s,", lineMarker5);
         }
         return "";
     }
@@ -30055,6 +29106,13 @@ public class Timeline extends JsObject {
         return "";
     }
 
+    private String generateJStextMarker5() {
+        if (textMarker5 != null) {
+            return String.format(Locale.US, "textMarker: %s,", textMarker5);
+        }
+        return "";
+    }
+
     private String generateJStooltip() {
         if (tooltip != null) {
             return String.format(Locale.US, "tooltip: %s,", tooltip);
@@ -30242,6 +29300,7 @@ public class Timeline extends JsObject {
             js.append(generateJSeditFinishConnectorMarkerHorizontalOffset());
             js.append(generateJSeditFinishConnectorMarkerSize());
             js.append(generateJSeditFinishConnectorMarkerType());
+            js.append(generateJSeditFinishConnectorMarkerType1());
             js.append(generateJSeditFinishConnectorMarkerVerticalOffset());
             js.append(generateJSeditIntervalThumbFill());
             js.append(generateJScolor4());
@@ -30325,6 +29384,7 @@ public class Timeline extends JsObject {
             js.append(generateJSeditStartConnectorMarkerHorizontalOffset());
             js.append(generateJSeditStartConnectorMarkerSize());
             js.append(generateJSeditStartConnectorMarkerType());
+            js.append(generateJSeditStartConnectorMarkerType1());
             js.append(generateJSeditStartConnectorMarkerVerticalOffset());
             js.append(generateJSeditStructurePreviewDashStroke());
             js.append(generateJSeditStructurePreviewDashStroke1());
@@ -30369,6 +29429,7 @@ public class Timeline extends JsObject {
             js.append(generateJSlineMarker2());
             js.append(generateJSlineMarker3());
             js.append(generateJSlineMarker4());
+            js.append(generateJSlineMarker5());
             js.append(generateJSmarkers());
             js.append(generateJSmilestoneFill());
             js.append(generateJScolor8());
@@ -30582,6 +29643,7 @@ public class Timeline extends JsObject {
             js.append(generateJStextMarker2());
             js.append(generateJStextMarker3());
             js.append(generateJStextMarker4());
+            js.append(generateJStextMarker5());
             js.append(generateJStooltip());
             js.append(generateJStooltip1());
             js.append(generateJSverticalScrollBar());

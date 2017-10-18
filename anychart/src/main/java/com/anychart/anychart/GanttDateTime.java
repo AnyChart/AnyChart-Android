@@ -30,10 +30,6 @@ public class GanttDateTime extends CoreBase {
             this.maximum = maximum;
         } else {
             this.maximum = maximum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class GanttDateTime extends CoreBase {
             this.maximumGap = maximumGap;
         } else {
             this.maximumGap = maximumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -82,10 +74,6 @@ public class GanttDateTime extends CoreBase {
             this.minimum = minimum;
         } else {
             this.minimum = minimum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -108,10 +96,6 @@ public class GanttDateTime extends CoreBase {
             this.minimumGap = minimumGap;
         } else {
             this.minimumGap = minimumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -134,10 +118,6 @@ public class GanttDateTime extends CoreBase {
             this.softMaximum = softMaximum;
         } else {
             this.softMaximum = softMaximum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -160,10 +140,6 @@ public class GanttDateTime extends CoreBase {
             this.softMinimum = softMinimum;
         } else {
             this.softMinimum = softMinimum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

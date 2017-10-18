@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class ChartsPolar extends SeparateChart {
 
-    public ChartsPolar() {
-        js.append("chart = anychart.polar();");
+    protected ChartsPolar(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -72,7 +74,8 @@ public class ChartsPolar extends SeparateChart {
     private Set data1;
     private String[] data2;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<PolarSeriesArea> setArea = new ArrayList<>();
 
     public PolarSeriesArea area(View data, TextParsingMode csvSettings) {
@@ -107,19 +110,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesArea> setArea1 = new ArrayList<>();
 
-    public PolarSeriesArea area(View data, TextParsingSettings csvSettings1) {
+    public PolarSeriesArea area(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         PolarSeriesArea item = new PolarSeriesArea("setArea1" + variableIndex);
@@ -139,19 +142,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesArea> setArea2 = new ArrayList<>();
 
-    public PolarSeriesArea area(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
+    public PolarSeriesArea area(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesArea item = new PolarSeriesArea("setArea2" + variableIndex);
@@ -171,19 +174,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesArea> setArea3 = new ArrayList<>();
 
-    public PolarSeriesArea area(Set data1, TextParsingSettings csvSettings1) {
+    public PolarSeriesArea area(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
+        this.csvSettings = csvSettings;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea3" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea3" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesArea item = new PolarSeriesArea("setArea3" + variableIndex);
@@ -203,19 +206,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesArea> setArea4 = new ArrayList<>();
 
-    public PolarSeriesArea area(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
+    public PolarSeriesArea area(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea4" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea4" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         PolarSeriesArea item = new PolarSeriesArea("setArea4" + variableIndex);
@@ -235,19 +238,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesArea> setArea5 = new ArrayList<>();
 
-    public PolarSeriesArea area(String[] data2, TextParsingSettings csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
+    public PolarSeriesArea area(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea5" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea5" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesArea item = new PolarSeriesArea("setArea5" + variableIndex);
@@ -258,6 +261,102 @@ public class ChartsPolar extends SeparateChart {
         if (!setArea5.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (PolarSeriesArea item : setArea5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesArea> setArea6 = new ArrayList<>();
+
+    public PolarSeriesArea area(String[] data2, TextParsingMode csvSettings) {
+        this.data2 = data2;
+        this.csvSettings = csvSettings;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea6" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesArea item = new PolarSeriesArea("setArea6" + variableIndex);
+        setArea6.add(item);
+        return item;
+    }
+    private String generateJSsetArea6() {
+        if (!setArea6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesArea item : setArea6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesArea> setArea7 = new ArrayList<>();
+
+    public PolarSeriesArea area(String[] data2, String csvSettings1) {
+        this.data2 = data2;
+        this.csvSettings1 = csvSettings1;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea7" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), csvSettings1));
+            js.setLength(0);
+        }
+        PolarSeriesArea item = new PolarSeriesArea("setArea7" + variableIndex);
+        setArea7.add(item);
+        return item;
+    }
+    private String generateJSsetArea7() {
+        if (!setArea7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesArea item : setArea7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesArea> setArea8 = new ArrayList<>();
+
+    public PolarSeriesArea area(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea8" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesArea item = new PolarSeriesArea("setArea8" + variableIndex);
+        setArea8.add(item);
+        return item;
+    }
+    private String generateJSsetArea8() {
+        if (!setArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesArea item : setArea8) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -329,23 +428,24 @@ public class ChartsPolar extends SeparateChart {
     private Set data4;
     private String[] data5;
     private String data6;
-    private TextParsingMode csvSettings2;
-    private TextParsingSettings csvSettings3;
+    private TextParsingMode csvSettings3;
+    private String csvSettings4;
+    private TextParsingSettings csvSettings5;
     private List<PolarSeriesColumn> setColumn = new ArrayList<>();
 
-    public PolarSeriesColumn column(View data3, TextParsingMode csvSettings2) {
+    public PolarSeriesColumn column(View data3, TextParsingMode csvSettings3) {
         this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn" + variableIndex);
@@ -365,19 +465,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesColumn> setColumn1 = new ArrayList<>();
 
-    public PolarSeriesColumn column(View data3, TextParsingSettings csvSettings3) {
+    public PolarSeriesColumn column(View data3, String csvSettings4) {
         this.data3 = data3;
-        this.csvSettings3 = csvSettings3;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn1" + variableIndex);
@@ -397,19 +497,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesColumn> setColumn2 = new ArrayList<>();
 
-    public PolarSeriesColumn column(Set data4, TextParsingMode csvSettings2) {
-        this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
+    public PolarSeriesColumn column(View data3, TextParsingSettings csvSettings5) {
+        this.data3 = data3;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn2" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn2" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn2" + variableIndex);
@@ -429,7 +529,7 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesColumn> setColumn3 = new ArrayList<>();
 
-    public PolarSeriesColumn column(Set data4, TextParsingSettings csvSettings3) {
+    public PolarSeriesColumn column(Set data4, TextParsingMode csvSettings3) {
         this.data4 = data4;
         this.csvSettings3 = csvSettings3;
         if (isChain) {
@@ -461,19 +561,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesColumn> setColumn4 = new ArrayList<>();
 
-    public PolarSeriesColumn column(String[] data5, TextParsingMode csvSettings2) {
-        this.data5 = data5;
-        this.csvSettings2 = csvSettings2;
+    public PolarSeriesColumn column(Set data4, String csvSettings4) {
+        this.data4 = data4;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn4" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn4" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn4" + variableIndex);
@@ -493,19 +593,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesColumn> setColumn5 = new ArrayList<>();
 
-    public PolarSeriesColumn column(String[] data5, TextParsingSettings csvSettings3) {
-        this.data5 = data5;
-        this.csvSettings3 = csvSettings3;
+    public PolarSeriesColumn column(Set data4, TextParsingSettings csvSettings5) {
+        this.data4 = data4;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn5" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn5" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn5" + variableIndex);
@@ -525,19 +625,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesColumn> setColumn6 = new ArrayList<>();
 
-    public PolarSeriesColumn column(String data6, TextParsingMode csvSettings2) {
-        this.data6 = data6;
-        this.csvSettings2 = csvSettings2;
+    public PolarSeriesColumn column(String[] data5, TextParsingMode csvSettings3) {
+        this.data5 = data5;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn6" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn6" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn6" + variableIndex);
@@ -557,19 +657,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesColumn> setColumn7 = new ArrayList<>();
 
-    public PolarSeriesColumn column(String data6, TextParsingSettings csvSettings3) {
-        this.data6 = data6;
-        this.csvSettings3 = csvSettings3;
+    public PolarSeriesColumn column(String[] data5, String csvSettings4) {
+        this.data5 = data5;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setColumn7" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setColumn7" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data5), csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data5), csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data5), csvSettings4));
             js.setLength(0);
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn7" + variableIndex);
@@ -587,22 +687,150 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
-    private String defaultSeriesType;
-    private PolarSeriesType defaultSeriesType1;
+    private List<PolarSeriesColumn> setColumn8 = new ArrayList<>();
+
+    public PolarSeriesColumn column(String[] data5, TextParsingSettings csvSettings5) {
+        this.data5 = data5;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn8" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesColumn item = new PolarSeriesColumn("setColumn8" + variableIndex);
+        setColumn8.add(item);
+        return item;
+    }
+    private String generateJSsetColumn8() {
+        if (!setColumn8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesColumn item : setColumn8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesColumn> setColumn9 = new ArrayList<>();
+
+    public PolarSeriesColumn column(String data6, TextParsingMode csvSettings3) {
+        this.data6 = data6;
+        this.csvSettings3 = csvSettings3;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn9" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesColumn item = new PolarSeriesColumn("setColumn9" + variableIndex);
+        setColumn9.add(item);
+        return item;
+    }
+    private String generateJSsetColumn9() {
+        if (!setColumn9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesColumn item : setColumn9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesColumn> setColumn10 = new ArrayList<>();
+
+    public PolarSeriesColumn column(String data6, String csvSettings4) {
+        this.data6 = data6;
+        this.csvSettings4 = csvSettings4;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn10" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data6, csvSettings4));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data6, csvSettings4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data6, csvSettings4));
+            js.setLength(0);
+        }
+        PolarSeriesColumn item = new PolarSeriesColumn("setColumn10" + variableIndex);
+        setColumn10.add(item);
+        return item;
+    }
+    private String generateJSsetColumn10() {
+        if (!setColumn10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesColumn item : setColumn10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesColumn> setColumn11 = new ArrayList<>();
+
+    public PolarSeriesColumn column(String data6, TextParsingSettings csvSettings5) {
+        this.data6 = data6;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setColumn11" + ++variableIndex + " = " + jsBase + ".column(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".column(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s)", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesColumn item = new PolarSeriesColumn("setColumn11" + variableIndex);
+        setColumn11.add(item);
+        return item;
+    }
+    private String generateJSsetColumn11() {
+        if (!setColumn11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesColumn item : setColumn11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private PolarSeriesType defaultSeriesType;
+    private String defaultSeriesType1;
     private List<ChartsPolar> setDefaultSeriesType = new ArrayList<>();
 
-    public ChartsPolar setDefaultSeriesType(String defaultSeriesType) {
+    public ChartsPolar setDefaultSeriesType(PolarSeriesType defaultSeriesType) {
         this.defaultSeriesType = defaultSeriesType;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -620,18 +848,18 @@ public class ChartsPolar extends SeparateChart {
 
     private List<ChartsPolar> setDefaultSeriesType1 = new ArrayList<>();
 
-    public ChartsPolar setDefaultSeriesType(PolarSeriesType defaultSeriesType1) {
+    public ChartsPolar setDefaultSeriesType(String defaultSeriesType1) {
         this.defaultSeriesType1 = defaultSeriesType1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
             js.setLength(0);
         }
         return this;
@@ -647,6 +875,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private AnychartMathRect getGetPlotBounds;
 
     public AnychartMathRect getGetPlotBounds() {
@@ -656,31 +885,28 @@ public class ChartsPolar extends SeparateChart {
         return getGetPlotBounds;
     }
 
-    private PolarSeriesBase getGetSeries;
+    private List<PolarSeriesBase> getGetSeries = new ArrayList<>();
 
     public PolarSeriesBase getGetSeries(Double id) {
-        if (getGetSeries == null)
-            getGetSeries = new PolarSeriesBase(jsBase + ".getSeries("+ id+")");
-
-        return getGetSeries;
+        PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeries("+ id+")");
+        getGetSeries.add(item);
+        return item;
     }
 
-    private PolarSeriesBase getGetSeries1;
+    private List<PolarSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public PolarSeriesBase getGetSeries(String id1) {
-        if (getGetSeries1 == null)
-            getGetSeries1 = new PolarSeriesBase(jsBase + ".getSeries("+ id1+")");
-
-        return getGetSeries1;
+        PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeries("+ id1+")");
+        getGetSeries1.add(item);
+        return item;
     }
 
-    private PolarSeriesBase getGetSeriesAt;
+    private List<PolarSeriesBase> getGetSeriesAt = new ArrayList<>();
 
     public PolarSeriesBase getGetSeriesAt(Double index) {
-        if (getGetSeriesAt == null)
-            getGetSeriesAt = new PolarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
-
-        return getGetSeriesAt;
+        PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
+        getGetSeriesAt.add(item);
+        return item;
     }
 
     private HatchFills getHatchFillPalette;
@@ -691,7 +917,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -782,6 +1007,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -790,7 +1016,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<ChartsPolar> setHovered = new ArrayList<>();
 
@@ -881,6 +1106,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -889,7 +1115,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<ChartsPolar> setLabels = new ArrayList<>();
@@ -954,23 +1179,24 @@ public class ChartsPolar extends SeparateChart {
     private Set data8;
     private String[] data9;
     private String data10;
-    private TextParsingMode csvSettings4;
-    private TextParsingSettings csvSettings5;
+    private TextParsingMode csvSettings6;
+    private String csvSettings7;
+    private TextParsingSettings csvSettings8;
     private List<PolarSeriesLine> setLine = new ArrayList<>();
 
-    public PolarSeriesLine line(View data7, TextParsingMode csvSettings4) {
+    public PolarSeriesLine line(View data7, TextParsingMode csvSettings6) {
         this.data7 = data7;
-        this.csvSettings4 = csvSettings4;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine" + variableIndex);
@@ -990,19 +1216,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesLine> setLine1 = new ArrayList<>();
 
-    public PolarSeriesLine line(View data7, TextParsingSettings csvSettings5) {
+    public PolarSeriesLine line(View data7, String csvSettings7) {
         this.data7 = data7;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine1" + variableIndex);
@@ -1022,19 +1248,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesLine> setLine2 = new ArrayList<>();
 
-    public PolarSeriesLine line(Set data8, TextParsingMode csvSettings4) {
-        this.data8 = data8;
-        this.csvSettings4 = csvSettings4;
+    public PolarSeriesLine line(View data7, TextParsingSettings csvSettings8) {
+        this.data7 = data7;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine2" + variableIndex);
@@ -1054,19 +1280,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesLine> setLine3 = new ArrayList<>();
 
-    public PolarSeriesLine line(Set data8, TextParsingSettings csvSettings5) {
+    public PolarSeriesLine line(Set data8, TextParsingMode csvSettings6) {
         this.data8 = data8;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine3" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine3" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine3" + variableIndex);
@@ -1086,19 +1312,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesLine> setLine4 = new ArrayList<>();
 
-    public PolarSeriesLine line(String[] data9, TextParsingMode csvSettings4) {
-        this.data9 = data9;
-        this.csvSettings4 = csvSettings4;
+    public PolarSeriesLine line(Set data8, String csvSettings7) {
+        this.data8 = data8;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine4" + variableIndex);
@@ -1118,19 +1344,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesLine> setLine5 = new ArrayList<>();
 
-    public PolarSeriesLine line(String[] data9, TextParsingSettings csvSettings5) {
-        this.data9 = data9;
-        this.csvSettings5 = csvSettings5;
+    public PolarSeriesLine line(Set data8, TextParsingSettings csvSettings8) {
+        this.data8 = data8;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine5" + variableIndex);
@@ -1150,19 +1376,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesLine> setLine6 = new ArrayList<>();
 
-    public PolarSeriesLine line(String data10, TextParsingMode csvSettings4) {
-        this.data10 = data10;
-        this.csvSettings4 = csvSettings4;
+    public PolarSeriesLine line(String[] data9, TextParsingMode csvSettings6) {
+        this.data9 = data9;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine6" + variableIndex);
@@ -1182,19 +1408,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesLine> setLine7 = new ArrayList<>();
 
-    public PolarSeriesLine line(String data10, TextParsingSettings csvSettings5) {
-        this.data10 = data10;
-        this.csvSettings5 = csvSettings5;
+    public PolarSeriesLine line(String[] data9, String csvSettings7) {
+        this.data9 = data9;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data9), csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data9), csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data9), csvSettings7));
             js.setLength(0);
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine7" + variableIndex);
@@ -1212,27 +1438,156 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
-    private View data11;
-    private Set data12;
-    private String[] data13;
-    private String data14;
-    private TextParsingMode csvSettings6;
-    private TextParsingSettings csvSettings7;
-    private List<PolarSeriesMarker> setMarker = new ArrayList<>();
+    private List<PolarSeriesLine> setLine8 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(View data11, TextParsingMode csvSettings6) {
-        this.data11 = data11;
+    public PolarSeriesLine line(String[] data9, TextParsingSettings csvSettings8) {
+        this.data9 = data9;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine8" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesLine item = new PolarSeriesLine("setLine8" + variableIndex);
+        setLine8.add(item);
+        return item;
+    }
+    private String generateJSsetLine8() {
+        if (!setLine8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesLine item : setLine8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesLine> setLine9 = new ArrayList<>();
+
+    public PolarSeriesLine line(String data10, TextParsingMode csvSettings6) {
+        this.data10 = data10;
         this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine9" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesLine item = new PolarSeriesLine("setLine9" + variableIndex);
+        setLine9.add(item);
+        return item;
+    }
+    private String generateJSsetLine9() {
+        if (!setLine9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesLine item : setLine9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesLine> setLine10 = new ArrayList<>();
+
+    public PolarSeriesLine line(String data10, String csvSettings7) {
+        this.data10 = data10;
+        this.csvSettings7 = csvSettings7;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine10" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data10, csvSettings7));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data10, csvSettings7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data10, csvSettings7));
+            js.setLength(0);
+        }
+        PolarSeriesLine item = new PolarSeriesLine("setLine10" + variableIndex);
+        setLine10.add(item);
+        return item;
+    }
+    private String generateJSsetLine10() {
+        if (!setLine10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesLine item : setLine10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesLine> setLine11 = new ArrayList<>();
+
+    public PolarSeriesLine line(String data10, TextParsingSettings csvSettings8) {
+        this.data10 = data10;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine11" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesLine item = new PolarSeriesLine("setLine11" + variableIndex);
+        setLine11.add(item);
+        return item;
+    }
+    private String generateJSsetLine11() {
+        if (!setLine11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesLine item : setLine11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data11;
+    private Set data12;
+    private String[] data13;
+    private String data14;
+    private TextParsingMode csvSettings9;
+    private String csvSettings10;
+    private TextParsingSettings csvSettings11;
+    private List<PolarSeriesMarker> setMarker = new ArrayList<>();
+
+    public PolarSeriesMarker marker(View data11, TextParsingMode csvSettings9) {
+        this.data11 = data11;
+        this.csvSettings9 = csvSettings9;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker" + variableIndex);
@@ -1252,19 +1607,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesMarker> setMarker1 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(View data11, TextParsingSettings csvSettings7) {
+    public PolarSeriesMarker marker(View data11, String csvSettings10) {
         this.data11 = data11;
-        this.csvSettings7 = csvSettings7;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data11 != null) ? data11.generateJs() : "null", csvSettings10));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker1" + variableIndex);
@@ -1284,19 +1639,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesMarker> setMarker2 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(Set data12, TextParsingMode csvSettings6) {
-        this.data12 = data12;
-        this.csvSettings6 = csvSettings6;
+    public PolarSeriesMarker marker(View data11, TextParsingSettings csvSettings11) {
+        this.data11 = data11;
+        this.csvSettings11 = csvSettings11;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data11 != null) ? data11.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker2" + variableIndex);
@@ -1316,19 +1671,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesMarker> setMarker3 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(Set data12, TextParsingSettings csvSettings7) {
+    public PolarSeriesMarker marker(Set data12, TextParsingMode csvSettings9) {
         this.data12 = data12;
-        this.csvSettings7 = csvSettings7;
+        this.csvSettings9 = csvSettings9;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker3" + variableIndex);
@@ -1348,19 +1703,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesMarker> setMarker4 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(String[] data13, TextParsingMode csvSettings6) {
-        this.data13 = data13;
-        this.csvSettings6 = csvSettings6;
+    public PolarSeriesMarker marker(Set data12, String csvSettings10) {
+        this.data12 = data12;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data13), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data12 != null) ? data12.generateJs() : "null", csvSettings10));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker4" + variableIndex);
@@ -1380,19 +1735,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesMarker> setMarker5 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(String[] data13, TextParsingSettings csvSettings7) {
-        this.data13 = data13;
-        this.csvSettings7 = csvSettings7;
+    public PolarSeriesMarker marker(Set data12, TextParsingSettings csvSettings11) {
+        this.data12 = data12;
+        this.csvSettings11 = csvSettings11;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data13), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data12 != null) ? data12.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker5" + variableIndex);
@@ -1412,19 +1767,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesMarker> setMarker6 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(String data14, TextParsingMode csvSettings6) {
-        this.data14 = data14;
-        this.csvSettings6 = csvSettings6;
+    public PolarSeriesMarker marker(String[] data13, TextParsingMode csvSettings9) {
+        this.data13 = data13;
+        this.csvSettings9 = csvSettings9;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data14, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data13), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker6" + variableIndex);
@@ -1444,19 +1799,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesMarker> setMarker7 = new ArrayList<>();
 
-    public PolarSeriesMarker marker(String data14, TextParsingSettings csvSettings7) {
-        this.data14 = data14;
-        this.csvSettings7 = csvSettings7;
+    public PolarSeriesMarker marker(String[] data13, String csvSettings10) {
+        this.data13 = data13;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data13), csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data13), csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data14, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data13), csvSettings10));
             js.setLength(0);
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker7" + variableIndex);
@@ -1474,6 +1829,135 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+    private List<PolarSeriesMarker> setMarker8 = new ArrayList<>();
+
+    public PolarSeriesMarker marker(String[] data13, TextParsingSettings csvSettings11) {
+        this.data13 = data13;
+        this.csvSettings11 = csvSettings11;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data13), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesMarker item = new PolarSeriesMarker("setMarker8" + variableIndex);
+        setMarker8.add(item);
+        return item;
+    }
+    private String generateJSsetMarker8() {
+        if (!setMarker8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesMarker item : setMarker8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesMarker> setMarker9 = new ArrayList<>();
+
+    public PolarSeriesMarker marker(String data14, TextParsingMode csvSettings9) {
+        this.data14 = data14;
+        this.csvSettings9 = csvSettings9;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data14, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesMarker item = new PolarSeriesMarker("setMarker9" + variableIndex);
+        setMarker9.add(item);
+        return item;
+    }
+    private String generateJSsetMarker9() {
+        if (!setMarker9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesMarker item : setMarker9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesMarker> setMarker10 = new ArrayList<>();
+
+    public PolarSeriesMarker marker(String data14, String csvSettings10) {
+        this.data14 = data14;
+        this.csvSettings10 = csvSettings10;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data14, csvSettings10));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data14, csvSettings10));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data14, csvSettings10));
+            js.setLength(0);
+        }
+        PolarSeriesMarker item = new PolarSeriesMarker("setMarker10" + variableIndex);
+        setMarker10.add(item);
+        return item;
+    }
+    private String generateJSsetMarker10() {
+        if (!setMarker10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesMarker item : setMarker10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesMarker> setMarker11 = new ArrayList<>();
+
+    public PolarSeriesMarker marker(String data14, TextParsingSettings csvSettings11) {
+        this.data14 = data14;
+        this.csvSettings11 = csvSettings11;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data14, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesMarker item = new PolarSeriesMarker("setMarker11" + variableIndex);
+        setMarker11.add(item);
+        return item;
+    }
+    private String generateJSsetMarker11() {
+        if (!setMarker11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesMarker item : setMarker11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -1482,10 +1966,10 @@ public class ChartsPolar extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<ChartsPolar> setMarkerPalette = new ArrayList<>();
 
     public ChartsPolar setMarkerPalette(Markers markerPalette) {
@@ -1573,6 +2057,35 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+    private List<ChartsPolar> setMarkerPalette3 = new ArrayList<>();
+
+    public ChartsPolar setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsPolar item : setMarkerPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private Double maxPointWidth;
     private String maxPointWidth1;
     private List<ChartsPolar> setMaxPointWidth = new ArrayList<>();
@@ -1633,6 +2146,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1641,7 +2155,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<ChartsPolar> setNormal = new ArrayList<>();
 
@@ -1672,6 +2185,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -1680,7 +2194,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -1865,23 +2378,24 @@ public class ChartsPolar extends SeparateChart {
     private Set data16;
     private String[] data17;
     private String data18;
-    private TextParsingMode csvSettings8;
-    private TextParsingSettings csvSettings9;
+    private TextParsingMode csvSettings12;
+    private String csvSettings13;
+    private TextParsingSettings csvSettings14;
     private List<Polygon> setPolygon = new ArrayList<>();
 
-    public Polygon polygon(View data15, TextParsingMode csvSettings8) {
+    public Polygon polygon(View data15, TextParsingMode csvSettings12) {
         this.data15 = data15;
-        this.csvSettings8 = csvSettings8;
+        this.csvSettings12 = csvSettings12;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon" + variableIndex);
@@ -1901,19 +2415,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polygon> setPolygon1 = new ArrayList<>();
 
-    public Polygon polygon(View data15, TextParsingSettings csvSettings9) {
+    public Polygon polygon(View data15, String csvSettings13) {
         this.data15 = data15;
-        this.csvSettings9 = csvSettings9;
+        this.csvSettings13 = csvSettings13;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon1" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon1" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data15 != null) ? data15.generateJs() : "null", csvSettings13));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon1" + variableIndex);
@@ -1933,19 +2447,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polygon> setPolygon2 = new ArrayList<>();
 
-    public Polygon polygon(Set data16, TextParsingMode csvSettings8) {
-        this.data16 = data16;
-        this.csvSettings8 = csvSettings8;
+    public Polygon polygon(View data15, TextParsingSettings csvSettings14) {
+        this.data15 = data15;
+        this.csvSettings14 = csvSettings14;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon2" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon2" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon2" + variableIndex);
@@ -1965,19 +2479,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polygon> setPolygon3 = new ArrayList<>();
 
-    public Polygon polygon(Set data16, TextParsingSettings csvSettings9) {
+    public Polygon polygon(Set data16, TextParsingMode csvSettings12) {
         this.data16 = data16;
-        this.csvSettings9 = csvSettings9;
+        this.csvSettings12 = csvSettings12;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon3" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon3" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon3" + variableIndex);
@@ -1997,19 +2511,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polygon> setPolygon4 = new ArrayList<>();
 
-    public Polygon polygon(String[] data17, TextParsingMode csvSettings8) {
-        this.data17 = data17;
-        this.csvSettings8 = csvSettings8;
+    public Polygon polygon(Set data16, String csvSettings13) {
+        this.data16 = data16;
+        this.csvSettings13 = csvSettings13;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon4" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon4" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", Arrays.toString(data17), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data16 != null) ? data16.generateJs() : "null", csvSettings13));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon4" + variableIndex);
@@ -2029,19 +2543,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polygon> setPolygon5 = new ArrayList<>();
 
-    public Polygon polygon(String[] data17, TextParsingSettings csvSettings9) {
-        this.data17 = data17;
-        this.csvSettings9 = csvSettings9;
+    public Polygon polygon(Set data16, TextParsingSettings csvSettings14) {
+        this.data16 = data16;
+        this.csvSettings14 = csvSettings14;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon5" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon5" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", Arrays.toString(data17), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", (data16 != null) ? data16.generateJs() : "null", (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon5" + variableIndex);
@@ -2061,19 +2575,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polygon> setPolygon6 = new ArrayList<>();
 
-    public Polygon polygon(String data18, TextParsingMode csvSettings8) {
-        this.data18 = data18;
-        this.csvSettings8 = csvSettings8;
+    public Polygon polygon(String[] data17, TextParsingMode csvSettings12) {
+        this.data17 = data17;
+        this.csvSettings12 = csvSettings12;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon6" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon6" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", data18, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", Arrays.toString(data17), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon6" + variableIndex);
@@ -2093,19 +2607,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polygon> setPolygon7 = new ArrayList<>();
 
-    public Polygon polygon(String data18, TextParsingSettings csvSettings9) {
-        this.data18 = data18;
-        this.csvSettings9 = csvSettings9;
+    public Polygon polygon(String[] data17, String csvSettings13) {
+        this.data17 = data17;
+        this.csvSettings13 = csvSettings13;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolygon7" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon7" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", Arrays.toString(data17), csvSettings13));
 
-//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", Arrays.toString(data17), csvSettings13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", data18, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", Arrays.toString(data17), csvSettings13));
             js.setLength(0);
         }
         Polygon item = new Polygon("setPolygon7" + variableIndex);
@@ -2123,27 +2637,156 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
-    private View data19;
-    private Set data20;
-    private String[] data21;
-    private String data22;
-    private TextParsingMode csvSettings10;
-    private TextParsingSettings csvSettings11;
-    private List<Polyline> setPolyline = new ArrayList<>();
+    private List<Polygon> setPolygon8 = new ArrayList<>();
 
-    public Polyline polyline(View data19, TextParsingMode csvSettings10) {
-        this.data19 = data19;
-        this.csvSettings10 = csvSettings10;
+    public Polygon polygon(String[] data17, TextParsingSettings csvSettings14) {
+        this.data17 = data17;
+        this.csvSettings14 = csvSettings14;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolygon8" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", Arrays.toString(data17), (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Polygon item = new Polygon("setPolygon8" + variableIndex);
+        setPolygon8.add(item);
+        return item;
+    }
+    private String generateJSsetPolygon8() {
+        if (!setPolygon8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polygon item : setPolygon8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Polygon> setPolygon9 = new ArrayList<>();
+
+    public Polygon polygon(String data18, TextParsingMode csvSettings12) {
+        this.data18 = data18;
+        this.csvSettings12 = csvSettings12;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setPolygon9" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", data18, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Polygon item = new Polygon("setPolygon9" + variableIndex);
+        setPolygon9.add(item);
+        return item;
+    }
+    private String generateJSsetPolygon9() {
+        if (!setPolygon9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polygon item : setPolygon9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Polygon> setPolygon10 = new ArrayList<>();
+
+    public Polygon polygon(String data18, String csvSettings13) {
+        this.data18 = data18;
+        this.csvSettings13 = csvSettings13;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setPolygon10" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", data18, csvSettings13));
+
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", data18, csvSettings13));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", data18, csvSettings13));
+            js.setLength(0);
+        }
+        Polygon item = new Polygon("setPolygon10" + variableIndex);
+        setPolygon10.add(item);
+        return item;
+    }
+    private String generateJSsetPolygon10() {
+        if (!setPolygon10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polygon item : setPolygon10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Polygon> setPolygon11 = new ArrayList<>();
+
+    public Polygon polygon(String data18, TextParsingSettings csvSettings14) {
+        this.data18 = data18;
+        this.csvSettings14 = csvSettings14;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setPolygon11" + ++variableIndex + " = " + jsBase + ".polygon(%s, %s);", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".polygon(%s, %s);", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s, %s)", data18, (csvSettings14 != null) ? csvSettings14.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Polygon item = new Polygon("setPolygon11" + variableIndex);
+        setPolygon11.add(item);
+        return item;
+    }
+    private String generateJSsetPolygon11() {
+        if (!setPolygon11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polygon item : setPolygon11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data19;
+    private Set data20;
+    private String[] data21;
+    private String data22;
+    private TextParsingMode csvSettings15;
+    private String csvSettings16;
+    private TextParsingSettings csvSettings17;
+    private List<Polyline> setPolyline = new ArrayList<>();
+
+    public Polyline polyline(View data19, TextParsingMode csvSettings15) {
+        this.data19 = data19;
+        this.csvSettings15 = csvSettings15;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setPolyline" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline" + variableIndex);
@@ -2163,19 +2806,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polyline> setPolyline1 = new ArrayList<>();
 
-    public Polyline polyline(View data19, TextParsingSettings csvSettings11) {
+    public Polyline polyline(View data19, String csvSettings16) {
         this.data19 = data19;
-        this.csvSettings11 = csvSettings11;
+        this.csvSettings16 = csvSettings16;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline1" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline1" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data19 != null) ? data19.generateJs() : "null", csvSettings16));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline1" + variableIndex);
@@ -2195,19 +2838,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polyline> setPolyline2 = new ArrayList<>();
 
-    public Polyline polyline(Set data20, TextParsingMode csvSettings10) {
-        this.data20 = data20;
-        this.csvSettings10 = csvSettings10;
+    public Polyline polyline(View data19, TextParsingSettings csvSettings17) {
+        this.data19 = data19;
+        this.csvSettings17 = csvSettings17;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline2" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline2" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data19 != null) ? data19.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline2" + variableIndex);
@@ -2227,19 +2870,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polyline> setPolyline3 = new ArrayList<>();
 
-    public Polyline polyline(Set data20, TextParsingSettings csvSettings11) {
+    public Polyline polyline(Set data20, TextParsingMode csvSettings15) {
         this.data20 = data20;
-        this.csvSettings11 = csvSettings11;
+        this.csvSettings15 = csvSettings15;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline3" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline3" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline3" + variableIndex);
@@ -2259,19 +2902,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polyline> setPolyline4 = new ArrayList<>();
 
-    public Polyline polyline(String[] data21, TextParsingMode csvSettings10) {
-        this.data21 = data21;
-        this.csvSettings10 = csvSettings10;
+    public Polyline polyline(Set data20, String csvSettings16) {
+        this.data20 = data20;
+        this.csvSettings16 = csvSettings16;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline4" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline4" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", Arrays.toString(data21), (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data20 != null) ? data20.generateJs() : "null", csvSettings16));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline4" + variableIndex);
@@ -2291,19 +2934,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polyline> setPolyline5 = new ArrayList<>();
 
-    public Polyline polyline(String[] data21, TextParsingSettings csvSettings11) {
-        this.data21 = data21;
-        this.csvSettings11 = csvSettings11;
+    public Polyline polyline(Set data20, TextParsingSettings csvSettings17) {
+        this.data20 = data20;
+        this.csvSettings17 = csvSettings17;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline5" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline5" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", Arrays.toString(data21), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", (data20 != null) ? data20.generateJs() : "null", (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline5" + variableIndex);
@@ -2323,19 +2966,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polyline> setPolyline6 = new ArrayList<>();
 
-    public Polyline polyline(String data22, TextParsingMode csvSettings10) {
-        this.data22 = data22;
-        this.csvSettings10 = csvSettings10;
+    public Polyline polyline(String[] data21, TextParsingMode csvSettings15) {
+        this.data21 = data21;
+        this.csvSettings15 = csvSettings15;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline6" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline6" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", data22, (csvSettings10 != null) ? csvSettings10.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", Arrays.toString(data21), (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline6" + variableIndex);
@@ -2355,19 +2998,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<Polyline> setPolyline7 = new ArrayList<>();
 
-    public Polyline polyline(String data22, TextParsingSettings csvSettings11) {
-        this.data22 = data22;
-        this.csvSettings11 = csvSettings11;
+    public Polyline polyline(String[] data21, String csvSettings16) {
+        this.data21 = data21;
+        this.csvSettings16 = csvSettings16;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setPolyline7" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline7" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", Arrays.toString(data21), csvSettings16));
 
-//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", Arrays.toString(data21), csvSettings16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", data22, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", Arrays.toString(data21), csvSettings16));
             js.setLength(0);
         }
         Polyline item = new Polyline("setPolyline7" + variableIndex);
@@ -2385,27 +3028,156 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
-    private View data23;
-    private Set data24;
-    private String[] data25;
-    private String data26;
-    private TextParsingMode csvSettings12;
-    private TextParsingSettings csvSettings13;
-    private List<PolarSeriesRangeColumn> setRangeColumn = new ArrayList<>();
+    private List<Polyline> setPolyline8 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(View data23, TextParsingMode csvSettings12) {
-        this.data23 = data23;
-        this.csvSettings12 = csvSettings12;
+    public Polyline polyline(String[] data21, TextParsingSettings csvSettings17) {
+        this.data21 = data21;
+        this.csvSettings17 = csvSettings17;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setPolyline8" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data23 != null) ? data23.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", Arrays.toString(data21), (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Polyline item = new Polyline("setPolyline8" + variableIndex);
+        setPolyline8.add(item);
+        return item;
+    }
+    private String generateJSsetPolyline8() {
+        if (!setPolyline8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setPolyline8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Polyline> setPolyline9 = new ArrayList<>();
+
+    public Polyline polyline(String data22, TextParsingMode csvSettings15) {
+        this.data22 = data22;
+        this.csvSettings15 = csvSettings15;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setPolyline9" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", data22, (csvSettings15 != null) ? csvSettings15.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Polyline item = new Polyline("setPolyline9" + variableIndex);
+        setPolyline9.add(item);
+        return item;
+    }
+    private String generateJSsetPolyline9() {
+        if (!setPolyline9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setPolyline9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Polyline> setPolyline10 = new ArrayList<>();
+
+    public Polyline polyline(String data22, String csvSettings16) {
+        this.data22 = data22;
+        this.csvSettings16 = csvSettings16;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setPolyline10" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", data22, csvSettings16));
+
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", data22, csvSettings16));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", data22, csvSettings16));
+            js.setLength(0);
+        }
+        Polyline item = new Polyline("setPolyline10" + variableIndex);
+        setPolyline10.add(item);
+        return item;
+    }
+    private String generateJSsetPolyline10() {
+        if (!setPolyline10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setPolyline10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Polyline> setPolyline11 = new ArrayList<>();
+
+    public Polyline polyline(String data22, TextParsingSettings csvSettings17) {
+        this.data22 = data22;
+        this.csvSettings17 = csvSettings17;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setPolyline11" + ++variableIndex + " = " + jsBase + ".polyline(%s, %s);", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".polyline(%s, %s);", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s, %s)", data22, (csvSettings17 != null) ? csvSettings17.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Polyline item = new Polyline("setPolyline11" + variableIndex);
+        setPolyline11.add(item);
+        return item;
+    }
+    private String generateJSsetPolyline11() {
+        if (!setPolyline11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setPolyline11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data23;
+    private Set data24;
+    private String[] data25;
+    private String data26;
+    private TextParsingMode csvSettings18;
+    private String csvSettings19;
+    private TextParsingSettings csvSettings20;
+    private List<PolarSeriesRangeColumn> setRangeColumn = new ArrayList<>();
+
+    public PolarSeriesRangeColumn rangeColumn(View data23, TextParsingMode csvSettings18) {
+        this.data23 = data23;
+        this.csvSettings18 = csvSettings18;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data23 != null) ? data23.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn" + variableIndex);
@@ -2425,19 +3197,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesRangeColumn> setRangeColumn1 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(View data23, TextParsingSettings csvSettings13) {
+    public PolarSeriesRangeColumn rangeColumn(View data23, String csvSettings19) {
         this.data23 = data23;
-        this.csvSettings13 = csvSettings13;
+        this.csvSettings19 = csvSettings19;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", csvSettings19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data23 != null) ? data23.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data23 != null) ? data23.generateJs() : "null", csvSettings19));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn1" + variableIndex);
@@ -2457,19 +3229,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesRangeColumn> setRangeColumn2 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(Set data24, TextParsingMode csvSettings12) {
-        this.data24 = data24;
-        this.csvSettings12 = csvSettings12;
+    public PolarSeriesRangeColumn rangeColumn(View data23, TextParsingSettings csvSettings20) {
+        this.data23 = data23;
+        this.csvSettings20 = csvSettings20;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn2" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn2" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data23 != null) ? data23.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data24 != null) ? data24.generateJs() : "null", (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data23 != null) ? data23.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn2" + variableIndex);
@@ -2489,19 +3261,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesRangeColumn> setRangeColumn3 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(Set data24, TextParsingSettings csvSettings13) {
+    public PolarSeriesRangeColumn rangeColumn(Set data24, TextParsingMode csvSettings18) {
         this.data24 = data24;
-        this.csvSettings13 = csvSettings13;
+        this.csvSettings18 = csvSettings18;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn3" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn3" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data24 != null) ? data24.generateJs() : "null", (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data24 != null) ? data24.generateJs() : "null", (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn3" + variableIndex);
@@ -2521,19 +3293,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesRangeColumn> setRangeColumn4 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(String[] data25, TextParsingMode csvSettings12) {
-        this.data25 = data25;
-        this.csvSettings12 = csvSettings12;
+    public PolarSeriesRangeColumn rangeColumn(Set data24, String csvSettings19) {
+        this.data24 = data24;
+        this.csvSettings19 = csvSettings19;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn4" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn4" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", csvSettings19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data25), (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data24 != null) ? data24.generateJs() : "null", csvSettings19));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn4" + variableIndex);
@@ -2553,19 +3325,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesRangeColumn> setRangeColumn5 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(String[] data25, TextParsingSettings csvSettings13) {
-        this.data25 = data25;
-        this.csvSettings13 = csvSettings13;
+    public PolarSeriesRangeColumn rangeColumn(Set data24, TextParsingSettings csvSettings20) {
+        this.data24 = data24;
+        this.csvSettings20 = csvSettings20;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn5" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn5" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", (data24 != null) ? data24.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data25), (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", (data24 != null) ? data24.generateJs() : "null", (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn5" + variableIndex);
@@ -2585,19 +3357,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesRangeColumn> setRangeColumn6 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(String data26, TextParsingMode csvSettings12) {
-        this.data26 = data26;
-        this.csvSettings12 = csvSettings12;
+    public PolarSeriesRangeColumn rangeColumn(String[] data25, TextParsingMode csvSettings18) {
+        this.data25 = data25;
+        this.csvSettings18 = csvSettings18;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn6" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn6" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data26, (csvSettings12 != null) ? csvSettings12.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data25), (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn6" + variableIndex);
@@ -2617,19 +3389,19 @@ public class ChartsPolar extends SeparateChart {
 
     private List<PolarSeriesRangeColumn> setRangeColumn7 = new ArrayList<>();
 
-    public PolarSeriesRangeColumn rangeColumn(String data26, TextParsingSettings csvSettings13) {
-        this.data26 = data26;
-        this.csvSettings13 = csvSettings13;
+    public PolarSeriesRangeColumn rangeColumn(String[] data25, String csvSettings19) {
+        this.data25 = data25;
+        this.csvSettings19 = csvSettings19;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setRangeColumn7" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setRangeColumn7" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), csvSettings19));
 
-//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), csvSettings19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data26, (csvSettings13 != null) ? csvSettings13.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data25), csvSettings19));
             js.setLength(0);
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn7" + variableIndex);
@@ -2640,6 +3412,134 @@ public class ChartsPolar extends SeparateChart {
         if (!setRangeColumn7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (PolarSeriesRangeColumn item : setRangeColumn7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesRangeColumn> setRangeColumn8 = new ArrayList<>();
+
+    public PolarSeriesRangeColumn rangeColumn(String[] data25, TextParsingSettings csvSettings20) {
+        this.data25 = data25;
+        this.csvSettings20 = csvSettings20;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn8" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", Arrays.toString(data25), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", Arrays.toString(data25), (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn8" + variableIndex);
+        setRangeColumn8.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn8() {
+        if (!setRangeColumn8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesRangeColumn item : setRangeColumn8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesRangeColumn> setRangeColumn9 = new ArrayList<>();
+
+    public PolarSeriesRangeColumn rangeColumn(String data26, TextParsingMode csvSettings18) {
+        this.data26 = data26;
+        this.csvSettings18 = csvSettings18;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn9" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data26, (csvSettings18 != null) ? csvSettings18.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn9" + variableIndex);
+        setRangeColumn9.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn9() {
+        if (!setRangeColumn9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesRangeColumn item : setRangeColumn9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesRangeColumn> setRangeColumn10 = new ArrayList<>();
+
+    public PolarSeriesRangeColumn rangeColumn(String data26, String csvSettings19) {
+        this.data26 = data26;
+        this.csvSettings19 = csvSettings19;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn10" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data26, csvSettings19));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data26, csvSettings19));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data26, csvSettings19));
+            js.setLength(0);
+        }
+        PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn10" + variableIndex);
+        setRangeColumn10.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn10() {
+        if (!setRangeColumn10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesRangeColumn item : setRangeColumn10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesRangeColumn> setRangeColumn11 = new ArrayList<>();
+
+    public PolarSeriesRangeColumn rangeColumn(String data26, TextParsingSettings csvSettings20) {
+        this.data26 = data26;
+        this.csvSettings20 = csvSettings20;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setRangeColumn11" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s);", data26, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s)", data26, (csvSettings20 != null) ? csvSettings20.generateJs() : "null"));
+            js.setLength(0);
+        }
+        PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn11" + variableIndex);
+        setRangeColumn11.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn11() {
+        if (!setRangeColumn11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesRangeColumn item : setRangeColumn11) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2737,6 +3637,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -2745,7 +3646,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<ChartsPolar> setSelected = new ArrayList<>();
 
@@ -2866,6 +3766,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesRadar getXAxis;
 
     public CoreAxesRadar getXAxis() {
@@ -2874,7 +3775,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getXAxis;
     }
-
     private String xAxis;
     private Boolean xAxis1;
     private List<ChartsPolar> setXAxis = new ArrayList<>();
@@ -2935,6 +3835,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsPolar getXGrid;
 
     public CoreGridsPolar getXGrid() {
@@ -2944,15 +3845,13 @@ public class ChartsPolar extends SeparateChart {
         return getXGrid;
     }
 
-    private CoreGridsPolar getXGrid1;
+    private List<CoreGridsPolar> getXGrid1 = new ArrayList<>();
 
     public CoreGridsPolar getXGrid(Double index2) {
-        if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsPolar(jsBase + ".xGrid("+ index2+")");
-
-        return getXGrid1;
+        CoreGridsPolar item = new CoreGridsPolar(jsBase + ".xGrid("+ index2+")");
+        getXGrid1.add(item);
+        return item;
     }
-
     private String xGrid;
     private Boolean xGrid1;
     private List<ChartsPolar> setXGrid = new ArrayList<>();
@@ -3076,6 +3975,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsPolar getXMinorGrid;
 
     public CoreGridsPolar getXMinorGrid() {
@@ -3085,15 +3985,13 @@ public class ChartsPolar extends SeparateChart {
         return getXMinorGrid;
     }
 
-    private CoreGridsPolar getXMinorGrid1;
+    private List<CoreGridsPolar> getXMinorGrid1 = new ArrayList<>();
 
     public CoreGridsPolar getXMinorGrid(Double index4) {
-        if (getXMinorGrid1 == null)
-            getXMinorGrid1 = new CoreGridsPolar(jsBase + ".xMinorGrid("+ index4+")");
-
-        return getXMinorGrid1;
+        CoreGridsPolar item = new CoreGridsPolar(jsBase + ".xMinorGrid("+ index4+")");
+        getXMinorGrid1.add(item);
+        return item;
     }
-
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<ChartsPolar> setXMinorGrid = new ArrayList<>();
@@ -3217,6 +4115,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private ScatterBase getXScale;
 
     public ScatterBase getXScale() {
@@ -3225,10 +4124,9 @@ public class ChartsPolar extends SeparateChart {
 
         return getXScale;
     }
-
     private String xScale;
-    private String xScale1;
-    private ScaleTypes xScale2;
+    private ScaleTypes xScale1;
+    private String xScale2;
     private ScalesBase xScale3;
     private List<ChartsPolar> setXScale = new ArrayList<>();
 
@@ -3261,18 +4159,18 @@ public class ChartsPolar extends SeparateChart {
 
     private List<ChartsPolar> setXScale1 = new ArrayList<>();
 
-    public ChartsPolar setXScale(ScaleTypes xScale2) {
-        this.xScale2 = xScale2;
+    public ChartsPolar setXScale(ScaleTypes xScale1) {
+        this.xScale1 = xScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -3317,6 +4215,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesRadial getYAxis;
 
     public CoreAxesRadial getYAxis() {
@@ -3325,7 +4224,6 @@ public class ChartsPolar extends SeparateChart {
 
         return getYAxis;
     }
-
     private String yAxis;
     private Boolean yAxis1;
     private List<ChartsPolar> setYAxis = new ArrayList<>();
@@ -3386,6 +4284,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsPolar getYGrid;
 
     public CoreGridsPolar getYGrid() {
@@ -3395,15 +4294,13 @@ public class ChartsPolar extends SeparateChart {
         return getYGrid;
     }
 
-    private CoreGridsPolar getYGrid1;
+    private List<CoreGridsPolar> getYGrid1 = new ArrayList<>();
 
     public CoreGridsPolar getYGrid(Double index6) {
-        if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsPolar(jsBase + ".yGrid("+ index6+")");
-
-        return getYGrid1;
+        CoreGridsPolar item = new CoreGridsPolar(jsBase + ".yGrid("+ index6+")");
+        getYGrid1.add(item);
+        return item;
     }
-
     private String yGrid;
     private Boolean yGrid1;
     private List<ChartsPolar> setYGrid = new ArrayList<>();
@@ -3527,6 +4424,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsPolar getYMinorGrid;
 
     public CoreGridsPolar getYMinorGrid() {
@@ -3536,15 +4434,13 @@ public class ChartsPolar extends SeparateChart {
         return getYMinorGrid;
     }
 
-    private CoreGridsPolar getYMinorGrid1;
+    private List<CoreGridsPolar> getYMinorGrid1 = new ArrayList<>();
 
     public CoreGridsPolar getYMinorGrid(Double index8) {
-        if (getYMinorGrid1 == null)
-            getYMinorGrid1 = new CoreGridsPolar(jsBase + ".yMinorGrid("+ index8+")");
-
-        return getYMinorGrid1;
+        CoreGridsPolar item = new CoreGridsPolar(jsBase + ".yMinorGrid("+ index8+")");
+        getYMinorGrid1.add(item);
+        return item;
     }
-
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<ChartsPolar> setYMinorGrid = new ArrayList<>();
@@ -3668,6 +4564,7 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+
     private ScatterBase getYScale;
 
     public ScatterBase getYScale() {
@@ -3676,10 +4573,9 @@ public class ChartsPolar extends SeparateChart {
 
         return getYScale;
     }
-
     private String yScale;
-    private String yScale1;
-    private ScatterScaleTypes yScale2;
+    private ScatterScaleTypes yScale1;
+    private String yScale2;
     private ScatterBase yScale3;
     private List<ChartsPolar> setYScale = new ArrayList<>();
 
@@ -3712,18 +4608,18 @@ public class ChartsPolar extends SeparateChart {
 
     private List<ChartsPolar> setYScale1 = new ArrayList<>();
 
-    public ChartsPolar setYScale(ScatterScaleTypes yScale2) {
-        this.yScale2 = yScale2;
+    public ChartsPolar setYScale(ScatterScaleTypes yScale1) {
+        this.yScale1 = yScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -3776,25 +4672,40 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private String generateJSgetGetSeries() {
-        if (getGetSeries != null) {
-            return getGetSeries.generateJs();
+        if (!getGetSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesBase item : getGetSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetSeries1() {
-        if (getGetSeries1 != null) {
-            return getGetSeries1.generateJs();
+        if (!getGetSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesBase item : getGetSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetGetSeriesAt() {
-        if (getGetSeriesAt != null) {
-            return getGetSeriesAt.generateJs();
+        if (!getGetSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesBase item : getGetSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
@@ -3860,11 +4771,16 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private String generateJSgetXGrid1() {
-        if (getXGrid1 != null) {
-            return getXGrid1.generateJs();
+        if (!getXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsPolar item : getXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXMinorGrid() {
         if (getXMinorGrid != null) {
@@ -3874,11 +4790,16 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private String generateJSgetXMinorGrid1() {
-        if (getXMinorGrid1 != null) {
-            return getXMinorGrid1.generateJs();
+        if (!getXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsPolar item : getXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXScale() {
         if (getXScale != null) {
@@ -3902,11 +4823,16 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private String generateJSgetYGrid1() {
-        if (getYGrid1 != null) {
-            return getYGrid1.generateJs();
+        if (!getYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsPolar item : getYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYMinorGrid() {
         if (getYMinorGrid != null) {
@@ -3916,11 +4842,16 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private String generateJSgetYMinorGrid1() {
-        if (getYMinorGrid1 != null) {
-            return getYMinorGrid1.generateJs();
+        if (!getYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsPolar item : getYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYScale() {
         if (getYScale != null) {
@@ -3965,6 +4896,9 @@ public class ChartsPolar extends SeparateChart {
         js.append(generateJSsetArea3());
         js.append(generateJSsetArea4());
         js.append(generateJSsetArea5());
+        js.append(generateJSsetArea6());
+        js.append(generateJSsetArea7());
+        js.append(generateJSsetArea8());
         js.append(generateJSsetBarGroupsPadding());
         js.append(generateJSsetBarsPadding());
         js.append(generateJSsetColumn());
@@ -3975,6 +4909,10 @@ public class ChartsPolar extends SeparateChart {
         js.append(generateJSsetColumn5());
         js.append(generateJSsetColumn6());
         js.append(generateJSsetColumn7());
+        js.append(generateJSsetColumn8());
+        js.append(generateJSsetColumn9());
+        js.append(generateJSsetColumn10());
+        js.append(generateJSsetColumn11());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());
@@ -3993,6 +4931,10 @@ public class ChartsPolar extends SeparateChart {
         js.append(generateJSsetLine5());
         js.append(generateJSsetLine6());
         js.append(generateJSsetLine7());
+        js.append(generateJSsetLine8());
+        js.append(generateJSsetLine9());
+        js.append(generateJSsetLine10());
+        js.append(generateJSsetLine11());
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
         js.append(generateJSsetMarker2());
@@ -4001,9 +4943,14 @@ public class ChartsPolar extends SeparateChart {
         js.append(generateJSsetMarker5());
         js.append(generateJSsetMarker6());
         js.append(generateJSsetMarker7());
+        js.append(generateJSsetMarker8());
+        js.append(generateJSsetMarker9());
+        js.append(generateJSsetMarker10());
+        js.append(generateJSsetMarker11());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetMaxPointWidth());
         js.append(generateJSsetMaxPointWidth1());
         js.append(generateJSsetNormal());
@@ -4021,6 +4968,10 @@ public class ChartsPolar extends SeparateChart {
         js.append(generateJSsetPolygon5());
         js.append(generateJSsetPolygon6());
         js.append(generateJSsetPolygon7());
+        js.append(generateJSsetPolygon8());
+        js.append(generateJSsetPolygon9());
+        js.append(generateJSsetPolygon10());
+        js.append(generateJSsetPolygon11());
         js.append(generateJSsetPolyline());
         js.append(generateJSsetPolyline1());
         js.append(generateJSsetPolyline2());
@@ -4029,6 +4980,10 @@ public class ChartsPolar extends SeparateChart {
         js.append(generateJSsetPolyline5());
         js.append(generateJSsetPolyline6());
         js.append(generateJSsetPolyline7());
+        js.append(generateJSsetPolyline8());
+        js.append(generateJSsetPolyline9());
+        js.append(generateJSsetPolyline10());
+        js.append(generateJSsetPolyline11());
         js.append(generateJSsetRangeColumn());
         js.append(generateJSsetRangeColumn1());
         js.append(generateJSsetRangeColumn2());
@@ -4037,6 +4992,10 @@ public class ChartsPolar extends SeparateChart {
         js.append(generateJSsetRangeColumn5());
         js.append(generateJSsetRangeColumn6());
         js.append(generateJSsetRangeColumn7());
+        js.append(generateJSsetRangeColumn8());
+        js.append(generateJSsetRangeColumn9());
+        js.append(generateJSsetRangeColumn10());
+        js.append(generateJSsetRangeColumn11());
         js.append(generateJSsetRemoveSeries());
         js.append(generateJSsetRemoveSeries1());
         js.append(generateJSsetRemoveSeriesAt());

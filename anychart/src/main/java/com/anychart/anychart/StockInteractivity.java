@@ -30,10 +30,6 @@ public class StockInteractivity extends Interactivity {
             this.scrollOnMouseWheel = scrollOnMouseWheel;
         } else {
             this.scrollOnMouseWheel = scrollOnMouseWheel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class StockInteractivity extends Interactivity {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
         } else {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

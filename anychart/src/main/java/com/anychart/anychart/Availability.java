@@ -7,6 +7,7 @@ public class Availability extends JsObject  {
 
     
     private AvailabilityPeriod each;
+    private String each1;
     private Double ends;
     private String ends1;
     private Double from;
@@ -20,357 +21,709 @@ public class Availability extends JsObject  {
     private String to1;
 
     
-    public Availability(Double ends, Double from, Double on, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on = on;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %f,starts: %f,to: %f,each: %s,isWorking: %b}",  ends, from, on, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on, starts, to, isWorking));
     }
-    public Availability(Double ends, Double from, Double on, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on = on;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %f,starts: %f,to: %s,each: %s,isWorking: %b}",  ends, from, on, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on, starts, to1, isWorking));
     }
-    public Availability(Double ends, Double from, Double on, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on = on;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %f,starts: %s,to: %f,each: %s,isWorking: %b}",  ends, from, on, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on, starts1, to, isWorking));
     }
-    public Availability(Double ends, Double from, Double on, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on = on;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %f,starts: %s,to: %s,each: %s,isWorking: %b}",  ends, from, on, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on, starts1, to1, isWorking));
     }
-    public Availability(Double ends, Double from, String on1, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on1 = on1;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %s,starts: %f,to: %f,each: %s,isWorking: %b}",  ends, from, on1, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on1, starts, to, isWorking));
     }
-    public Availability(Double ends, Double from, String on1, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on1 = on1;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %s,starts: %f,to: %s,each: %s,isWorking: %b}",  ends, from, on1, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on1, starts, to1, isWorking));
     }
-    public Availability(Double ends, Double from, String on1, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %s,starts: %s,to: %f,each: %s,isWorking: %b}",  ends, from, on1, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on1, starts1, to, isWorking));
     }
-    public Availability(Double ends, Double from, String on1, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, Double from, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from = from;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %f,on: %s,starts: %s,to: %s,each: %s,isWorking: %b}",  ends, from, on1, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from, on1, starts1, to1, isWorking));
     }
-    public Availability(Double ends, String from1, Double on, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on = on;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %f,starts: %f,to: %f,each: %s,isWorking: %b}",  ends, from1, on, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on, starts, to, isWorking));
     }
-    public Availability(Double ends, String from1, Double on, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on = on;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %f,starts: %f,to: %s,each: %s,isWorking: %b}",  ends, from1, on, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on, starts, to1, isWorking));
     }
-    public Availability(Double ends, String from1, Double on, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on = on;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %f,starts: %s,to: %f,each: %s,isWorking: %b}",  ends, from1, on, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on, starts1, to, isWorking));
     }
-    public Availability(Double ends, String from1, Double on, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on = on;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %f,starts: %s,to: %s,each: %s,isWorking: %b}",  ends, from1, on, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on, starts1, to1, isWorking));
     }
-    public Availability(Double ends, String from1, String on1, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on1 = on1;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %s,starts: %f,to: %f,each: %s,isWorking: %b}",  ends, from1, on1, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on1, starts, to, isWorking));
     }
-    public Availability(Double ends, String from1, String on1, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on1 = on1;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %s,starts: %f,to: %s,each: %s,isWorking: %b}",  ends, from1, on1, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on1, starts, to1, isWorking));
     }
-    public Availability(Double ends, String from1, String on1, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %s,starts: %s,to: %f,each: %s,isWorking: %b}",  ends, from1, on1, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on1, starts1, to, isWorking));
     }
-    public Availability(Double ends, String from1, String on1, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, Double ends, String from1, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends = ends;
         this.from1 = from1;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %f,from: %s,on: %s,starts: %s,to: %s,each: %s,isWorking: %b}",  ends, from1, on1, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends, from1, on1, starts1, to1, isWorking));
     }
-    public Availability(String ends1, Double from, Double on, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on = on;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %f,starts: %f,to: %f,each: %s,isWorking: %b}",  ends1, from, on, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on, starts, to, isWorking));
     }
-    public Availability(String ends1, Double from, Double on, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on = on;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %f,starts: %f,to: %s,each: %s,isWorking: %b}",  ends1, from, on, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on, starts, to1, isWorking));
     }
-    public Availability(String ends1, Double from, Double on, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on = on;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %f,starts: %s,to: %f,each: %s,isWorking: %b}",  ends1, from, on, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on, starts1, to, isWorking));
     }
-    public Availability(String ends1, Double from, Double on, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on = on;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %f,starts: %s,to: %s,each: %s,isWorking: %b}",  ends1, from, on, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on, starts1, to1, isWorking));
     }
-    public Availability(String ends1, Double from, String on1, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on1 = on1;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %s,starts: %f,to: %f,each: %s,isWorking: %b}",  ends1, from, on1, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on1, starts, to, isWorking));
     }
-    public Availability(String ends1, Double from, String on1, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on1 = on1;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %s,starts: %f,to: %s,each: %s,isWorking: %b}",  ends1, from, on1, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on1, starts, to1, isWorking));
     }
-    public Availability(String ends1, Double from, String on1, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %s,starts: %s,to: %f,each: %s,isWorking: %b}",  ends1, from, on1, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on1, starts1, to, isWorking));
     }
-    public Availability(String ends1, Double from, String on1, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, Double from, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from = from;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %f,on: %s,starts: %s,to: %s,each: %s,isWorking: %b}",  ends1, from, on1, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from, on1, starts1, to1, isWorking));
     }
-    public Availability(String ends1, String from1, Double on, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on = on;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %f,starts: %f,to: %f,each: %s,isWorking: %b}",  ends1, from1, on, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on, starts, to, isWorking));
     }
-    public Availability(String ends1, String from1, Double on, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on = on;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %f,starts: %f,to: %s,each: %s,isWorking: %b}",  ends1, from1, on, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on, starts, to1, isWorking));
     }
-    public Availability(String ends1, String from1, Double on, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on = on;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %f,starts: %s,to: %f,each: %s,isWorking: %b}",  ends1, from1, on, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on, starts1, to, isWorking));
     }
-    public Availability(String ends1, String from1, Double on, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on = on;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %f,starts: %s,to: %s,each: %s,isWorking: %b}",  ends1, from1, on, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on, starts1, to1, isWorking));
     }
-    public Availability(String ends1, String from1, String on1, Double starts, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on1 = on1;
         this.starts = starts;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %s,starts: %f,to: %f,each: %s,isWorking: %b}",  ends1, from1, on1, starts, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on1, starts, to, isWorking));
     }
-    public Availability(String ends1, String from1, String on1, Double starts, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on1 = on1;
         this.starts = starts;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %s,starts: %f,to: %s,each: %s,isWorking: %b}",  ends1, from1, on1, starts, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on1, starts, to1, isWorking));
     }
-    public Availability(String ends1, String from1, String on1, String starts1, Double to, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to = to;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %s,starts: %s,to: %f,each: %s,isWorking: %b}",  ends1, from1, on1, starts1, to, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on1, starts1, to, isWorking));
     }
-    public Availability(String ends1, String from1, String on1, String starts1, String to1, AvailabilityPeriod each, Boolean isWorking) {
+    public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each = each;
         this.ends1 = ends1;
         this.from1 = from1;
         this.on1 = on1;
         this.starts1 = starts1;
         this.to1 = to1;
-        this.each = each;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{ends: %s,from: %s,on: %s,starts: %s,to: %s,each: %s,isWorking: %b}",  ends1, from1, on1, starts1, to1, (each != null) ? each.generateJs() : "null", isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  (each != null) ? each.generateJs() : "null", ends1, from1, on1, starts1, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on = on;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  each1, ends, from, on, starts, to, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on = on;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  each1, ends, from, on, starts, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  each1, ends, from, on, starts1, to, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  each1, ends, from, on, starts1, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  each1, ends, from, on1, starts, to, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  each1, ends, from, on1, starts, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  each1, ends, from, on1, starts1, to, isWorking));
+    }
+    public Availability(String each1, Double ends, Double from, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from = from;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  each1, ends, from, on1, starts1, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on = on;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  each1, ends, from1, on, starts, to, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on = on;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  each1, ends, from1, on, starts, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  each1, ends, from1, on, starts1, to, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  each1, ends, from1, on, starts1, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  each1, ends, from1, on1, starts, to, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  each1, ends, from1, on1, starts, to1, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  each1, ends, from1, on1, starts1, to, isWorking));
+    }
+    public Availability(String each1, Double ends, String from1, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends = ends;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  each1, ends, from1, on1, starts1, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on = on;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  each1, ends1, from, on, starts, to, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on = on;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  each1, ends1, from, on, starts, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  each1, ends1, from, on, starts1, to, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  each1, ends1, from, on, starts1, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  each1, ends1, from, on1, starts, to, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  each1, ends1, from, on1, starts, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  each1, ends1, from, on1, starts1, to, isWorking));
+    }
+    public Availability(String each1, String ends1, Double from, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from = from;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  each1, ends1, from, on1, starts1, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, Double on, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on = on;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  each1, ends1, from1, on, starts, to, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, Double on, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on = on;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  each1, ends1, from1, on, starts, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, Double on, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  each1, ends1, from1, on, starts1, to, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, Double on, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on = on;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  each1, ends1, from1, on, starts1, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, String on1, Double starts, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  each1, ends1, from1, on1, starts, to, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, String on1, Double starts, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts = starts;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  each1, ends1, from1, on1, starts, to1, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, String on1, String starts1, Double to, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to = to;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  each1, ends1, from1, on1, starts1, to, isWorking));
+    }
+    public Availability(String each1, String ends1, String from1, String on1, String starts1, String to1, Boolean isWorking) {
+        this.each1 = each1;
+        this.ends1 = ends1;
+        this.from1 = from1;
+        this.on1 = on1;
+        this.starts1 = starts1;
+        this.to1 = to1;
+        this.isWorking = isWorking;
+
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  each1, ends1, from1, on1, starts1, to1, isWorking));
     }
 
     @Override

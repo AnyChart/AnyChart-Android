@@ -34,10 +34,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             this.curvature = curvature;
         } else {
             this.curvature = curvature;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             this.curvature1 = curvature1;
         } else {
             this.curvature1 = curvature1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -101,10 +93,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             this.startSize = startSize;
         } else {
             this.startSize = startSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -129,10 +117,6 @@ public class Connector extends MapSeriesBaseWithMarkers {
             this.startSize1 = startSize1;
         } else {
             this.startSize1 = startSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

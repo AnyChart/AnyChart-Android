@@ -30,10 +30,6 @@ public class CoreText extends VisualBase {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class CoreText extends VisualBase {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -86,10 +78,6 @@ public class CoreText extends VisualBase {
             this.fontDecoration = fontDecoration;
         } else {
             this.fontDecoration = fontDecoration;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -114,10 +102,6 @@ public class CoreText extends VisualBase {
             this.fontDecoration1 = fontDecoration1;
         } else {
             this.fontDecoration1 = fontDecoration1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -140,10 +124,6 @@ public class CoreText extends VisualBase {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -166,10 +146,6 @@ public class CoreText extends VisualBase {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -196,10 +172,6 @@ public class CoreText extends VisualBase {
             this.fontSize = fontSize;
         } else {
             this.fontSize = fontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -224,10 +196,6 @@ public class CoreText extends VisualBase {
             this.fontSize1 = fontSize1;
         } else {
             this.fontSize1 = fontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -254,10 +222,6 @@ public class CoreText extends VisualBase {
             this.fontStyle = fontStyle;
         } else {
             this.fontStyle = fontStyle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -282,10 +246,6 @@ public class CoreText extends VisualBase {
             this.fontStyle1 = fontStyle1;
         } else {
             this.fontStyle1 = fontStyle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -312,10 +272,6 @@ public class CoreText extends VisualBase {
             this.fontVariant = fontVariant;
         } else {
             this.fontVariant = fontVariant;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -340,10 +296,6 @@ public class CoreText extends VisualBase {
             this.fontVariant1 = fontVariant1;
         } else {
             this.fontVariant1 = fontVariant1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -370,10 +322,6 @@ public class CoreText extends VisualBase {
             this.fontWeight = fontWeight;
         } else {
             this.fontWeight = fontWeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -398,10 +346,6 @@ public class CoreText extends VisualBase {
             this.fontWeight1 = fontWeight1;
         } else {
             this.fontWeight1 = fontWeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -428,10 +372,6 @@ public class CoreText extends VisualBase {
             this.hAlign = hAlign;
         } else {
             this.hAlign = hAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -456,10 +396,6 @@ public class CoreText extends VisualBase {
             this.hAlign1 = hAlign1;
         } else {
             this.hAlign1 = hAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -486,10 +422,6 @@ public class CoreText extends VisualBase {
             this.letterSpacing = letterSpacing;
         } else {
             this.letterSpacing = letterSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -514,10 +446,6 @@ public class CoreText extends VisualBase {
             this.letterSpacing1 = letterSpacing1;
         } else {
             this.letterSpacing1 = letterSpacing1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -544,10 +472,6 @@ public class CoreText extends VisualBase {
             this.lineHeight = lineHeight;
         } else {
             this.lineHeight = lineHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -572,10 +496,6 @@ public class CoreText extends VisualBase {
             this.lineHeight1 = lineHeight1;
         } else {
             this.lineHeight1 = lineHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -598,10 +518,6 @@ public class CoreText extends VisualBase {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -628,10 +544,6 @@ public class CoreText extends VisualBase {
             this.textDirection = textDirection;
         } else {
             this.textDirection = textDirection;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -656,10 +568,6 @@ public class CoreText extends VisualBase {
             this.textDirection1 = textDirection1;
         } else {
             this.textDirection1 = textDirection1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -682,10 +590,6 @@ public class CoreText extends VisualBase {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -712,10 +616,6 @@ public class CoreText extends VisualBase {
             this.textOverflow = textOverflow;
         } else {
             this.textOverflow = textOverflow;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -740,10 +640,6 @@ public class CoreText extends VisualBase {
             this.textOverflow1 = textOverflow1;
         } else {
             this.textOverflow1 = textOverflow1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -766,10 +662,6 @@ public class CoreText extends VisualBase {
             this.objectWithSettings = objectWithSettings;
         } else {
             this.objectWithSettings = objectWithSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -801,10 +693,6 @@ public class CoreText extends VisualBase {
         } else {
             this.textSettings = textSettings;
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -832,10 +720,6 @@ public class CoreText extends VisualBase {
         } else {
             this.textSettings1 = textSettings1;
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -863,10 +747,6 @@ public class CoreText extends VisualBase {
         } else {
             this.textSettings2 = textSettings2;
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -889,10 +769,6 @@ public class CoreText extends VisualBase {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -919,10 +795,6 @@ public class CoreText extends VisualBase {
             this.vAlign = vAlign;
         } else {
             this.vAlign = vAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -947,10 +819,6 @@ public class CoreText extends VisualBase {
             this.vAlign1 = vAlign1;
         } else {
             this.vAlign1 = vAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -966,10 +834,10 @@ public class CoreText extends VisualBase {
         return this;
     }
 
-    private String wordBreak;
-    private EnumsWordBreak wordBreak1;
+    private EnumsWordBreak wordBreak;
+    private String wordBreak1;
 
-    public CoreText setWordBreak(String wordBreak) {
+    public CoreText setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -977,19 +845,15 @@ public class CoreText extends VisualBase {
             this.wordBreak = wordBreak;
         } else {
             this.wordBreak = wordBreak;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -997,7 +861,7 @@ public class CoreText extends VisualBase {
     }
 
 
-    public CoreText setWordBreak(EnumsWordBreak wordBreak1) {
+    public CoreText setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -1005,29 +869,25 @@ public class CoreText extends VisualBase {
             this.wordBreak1 = wordBreak1;
         } else {
             this.wordBreak1 = wordBreak1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String wordWrap;
-    private EnumsWordWrap wordWrap1;
+    private EnumsWordWrap wordWrap;
+    private String wordWrap1;
 
-    public CoreText setWordWrap(String wordWrap) {
+    public CoreText setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -1035,19 +895,15 @@ public class CoreText extends VisualBase {
             this.wordWrap = wordWrap;
         } else {
             this.wordWrap = wordWrap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -1055,7 +911,7 @@ public class CoreText extends VisualBase {
     }
 
 
-    public CoreText setWordWrap(EnumsWordWrap wordWrap1) {
+    public CoreText setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -1063,19 +919,15 @@ public class CoreText extends VisualBase {
             this.wordWrap1 = wordWrap1;
         } else {
             this.wordWrap1 = wordWrap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
                 js.setLength(0);
             }
         }
@@ -1322,28 +1174,28 @@ public class CoreText extends VisualBase {
 
     private String generateJSwordBreak() {
         if (wordBreak != null) {
-            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak != null) ? wordBreak.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordBreak1() {
         if (wordBreak1 != null) {
-            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak1);
         }
         return "";
     }
 
     private String generateJSwordWrap() {
         if (wordWrap != null) {
-            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap != null) ? wordWrap.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordWrap1() {
         if (wordWrap1 != null) {
-            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap1);
         }
         return "";
     }

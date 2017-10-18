@@ -30,10 +30,6 @@ public class Plot extends VisualBaseWithBounds {
             this.var_args = var_args;
         } else {
             this.var_args = var_args;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -50,27 +46,53 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping;
     private StockSeriesType seriesType;
+    private String seriesType1;
 
-    public ADL adl(TableMapping mapping, StockSeriesType seriesType) {
+    public ADL adl(StockSeriesType seriesType, TableMapping mapping) {
         if (jsBase == null) {
-            this.mapping = mapping;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            
             this.seriesType = seriesType;
+            this.mapping = mapping;
         } else {
-            this.mapping = mapping;
             this.seriesType = seriesType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.mapping = mapping;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", (mapping != null) ? mapping.generateJs() : "null", (seriesType != null) ? seriesType.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", (seriesType != null) ? seriesType.generateJs() : "null", (mapping != null) ? mapping.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", (mapping != null) ? mapping.generateJs() : "null", (seriesType != null) ? seriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", (seriesType != null) ? seriesType.generateJs() : "null", (mapping != null) ? mapping.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return new ADL(jsBase);
+    }
+
+
+    public ADL adl(String seriesType1, TableMapping mapping) {
+        if (jsBase == null) {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            
+            this.seriesType1 = seriesType1;
+            this.mapping = mapping;
+        } else {
+            this.seriesType1 = seriesType1;
+            this.mapping = mapping;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".adl(%s, %s);", seriesType1, (mapping != null) ? mapping.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", seriesType1, (mapping != null) ? mapping.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -81,16 +103,17 @@ public class Plot extends VisualBaseWithBounds {
     private Double period;
     private Double fastPeriod;
     private Double slowPeriod;
-    private StockSeriesType seriesType1;
-    private String seriesType2;
+    private StockSeriesType seriesType2;
+    private String seriesType3;
 
-    public AMA ama(StockSeriesType seriesType1, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(StockSeriesType seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
+            this.seriesType3 = null;
             
-            this.seriesType1 = seriesType1;
+            this.seriesType2 = seriesType2;
             this.mapping = null;
             this.mapping1 = null;
             
@@ -99,24 +122,20 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
         } else {
-            this.seriesType1 = seriesType1;
+            this.seriesType2 = seriesType2;
             this.mapping1 = mapping1;
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", (seriesType1 != null) ? seriesType1.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", (seriesType2 != null) ? seriesType2.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", (seriesType1 != null) ? seriesType1.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", (seriesType2 != null) ? seriesType2.generateJs() : "null", (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
@@ -124,13 +143,14 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public AMA ama(String seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(String seriesType3, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
+            this.seriesType3 = null;
             
-            this.seriesType2 = seriesType2;
+            this.seriesType3 = seriesType3;
             this.mapping = null;
             this.mapping1 = null;
             
@@ -139,24 +159,20 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
         } else {
-            this.seriesType2 = seriesType2;
+            this.seriesType3 = seriesType3;
             this.mapping1 = mapping1;
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", seriesType2, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+            js.append(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f);", seriesType3, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", seriesType2, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", seriesType3, (mapping1 != null) ? mapping1.generateJs() : "null", period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
@@ -179,10 +195,6 @@ public class Plot extends VisualBaseWithBounds {
             this.annotationsList = annotationsList;
         } else {
             this.annotationsList = annotationsList;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -219,10 +231,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data = data;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -253,10 +261,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data1 = data1;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -287,10 +291,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data2 = data2;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -309,10 +309,20 @@ public class Plot extends VisualBaseWithBounds {
     private TableMapping mapping2;
     private Double period1;
     private StockSeriesType upSeriesType;
+    private String upSeriesType1;
     private StockSeriesType downSeriesType;
+    private String downSeriesType1;
 
-    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
+    public Aroon aroon(StockSeriesType upSeriesType, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
         if (jsBase == null) {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
+            this.upSeriesType = upSeriesType;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
+            this.downSeriesType = downSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -322,26 +332,140 @@ public class Plot extends VisualBaseWithBounds {
             this.period1 = null;
             
             this.period1 = period1;
+        } else {
             this.upSeriesType = upSeriesType;
             this.downSeriesType = downSeriesType;
-        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
-            this.upSeriesType = upSeriesType;
-            this.downSeriesType = downSeriesType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s);", (mapping2 != null) ? mapping2.generateJs() : "null", period1, (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", (mapping2 != null) ? mapping2.generateJs() : "null", period1, (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", (upSeriesType != null) ? upSeriesType.generateJs() : "null", (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+                js.setLength(0);
+            }
+        }
+        return new Aroon(jsBase);
+    }
+
+
+    public Aroon aroon(StockSeriesType upSeriesType, String downSeriesType1, TableMapping mapping2, Double period1) {
+        if (jsBase == null) {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
+            this.upSeriesType = upSeriesType;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
+            this.downSeriesType1 = downSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            
+            this.mapping2 = mapping2;
+            this.period = null;
+            this.period1 = null;
+            
+            this.period1 = period1;
+        } else {
+            this.upSeriesType = upSeriesType;
+            this.downSeriesType1 = downSeriesType1;
+            this.mapping2 = mapping2;
+            this.period1 = period1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", (upSeriesType != null) ? upSeriesType.generateJs() : "null", downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", (upSeriesType != null) ? upSeriesType.generateJs() : "null", downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+                js.setLength(0);
+            }
+        }
+        return new Aroon(jsBase);
+    }
+
+
+    public Aroon aroon(String upSeriesType1, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
+        if (jsBase == null) {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
+            this.downSeriesType = downSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            
+            this.mapping2 = mapping2;
+            this.period = null;
+            this.period1 = null;
+            
+            this.period1 = period1;
+        } else {
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = downSeriesType;
+            this.mapping2 = mapping2;
+            this.period1 = period1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", upSeriesType1, (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", upSeriesType1, (downSeriesType != null) ? downSeriesType.generateJs() : "null", (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+                js.setLength(0);
+            }
+        }
+        return new Aroon(jsBase);
+    }
+
+
+    public Aroon aroon(String upSeriesType1, String downSeriesType1, TableMapping mapping2, Double period1) {
+        if (jsBase == null) {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
+            this.downSeriesType1 = downSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            
+            this.mapping2 = mapping2;
+            this.period = null;
+            this.period1 = null;
+            
+            this.period1 = period1;
+        } else {
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType1 = downSeriesType1;
+            this.mapping2 = mapping2;
+            this.period1 = period1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f);", upSeriesType1, downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", upSeriesType1, downSeriesType1, (mapping2 != null) ? mapping2.generateJs() : "null", period1));
                 js.setLength(0);
             }
         }
@@ -350,10 +474,19 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping3;
     private Double period2;
-    private StockSeriesType seriesType3;
+    private StockSeriesType seriesType4;
+    private String seriesType5;
 
-    public ATR atr(TableMapping mapping3, Double period2, StockSeriesType seriesType3) {
+    public ATR atr(StockSeriesType seriesType4, TableMapping mapping3, Double period2) {
         if (jsBase == null) {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            
+            this.seriesType4 = seriesType4;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -365,29 +498,60 @@ public class Plot extends VisualBaseWithBounds {
             this.period2 = null;
             
             this.period2 = period2;
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            
-            this.seriesType3 = seriesType3;
         } else {
+            this.seriesType4 = seriesType4;
             this.mapping3 = mapping3;
             this.period2 = period2;
-            this.seriesType3 = seriesType3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".atr(%s, %f, %s);", (mapping3 != null) ? mapping3.generateJs() : "null", period2, (seriesType3 != null) ? seriesType3.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping3 != null) ? mapping3.generateJs() : "null", period2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", (mapping3 != null) ? mapping3.generateJs() : "null", period2, (seriesType3 != null) ? seriesType3.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping3 != null) ? mapping3.generateJs() : "null", period2));
+                js.setLength(0);
+            }
+        }
+        return new ATR(jsBase);
+    }
+
+
+    public ATR atr(String seriesType5, TableMapping mapping3, Double period2) {
+        if (jsBase == null) {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            
+            this.seriesType5 = seriesType5;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            
+            this.mapping3 = mapping3;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            
+            this.period2 = period2;
+        } else {
+            this.seriesType5 = seriesType5;
+            this.mapping3 = mapping3;
+            this.period2 = period2;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".atr(%s, %s, %f);", seriesType5, (mapping3 != null) ? mapping3.generateJs() : "null", period2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", seriesType5, (mapping3 != null) ? mapping3.generateJs() : "null", period2));
                 js.setLength(0);
             }
         }
@@ -416,10 +580,6 @@ public class Plot extends VisualBaseWithBounds {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -445,10 +605,6 @@ public class Plot extends VisualBaseWithBounds {
             this.background2 = background2;
         } else {
             this.background2 = background2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -509,10 +665,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -564,10 +716,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -619,10 +767,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -674,10 +818,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -729,10 +869,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -784,10 +920,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -839,10 +971,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -894,10 +1022,6 @@ public class Plot extends VisualBaseWithBounds {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -916,10 +1040,10 @@ public class Plot extends VisualBaseWithBounds {
     private TableMapping mapping5;
     private Double period4;
     private Double deviation1;
-    private StockSeriesType seriesType4;
-    private String seriesType5;
+    private StockSeriesType seriesType6;
+    private String seriesType7;
 
-    public BBandsB bbandsB(StockSeriesType seriesType4, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(StockSeriesType seriesType6, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -927,8 +1051,10 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType3 = null;
             this.seriesType4 = null;
             this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
             
-            this.seriesType4 = seriesType4;
+            this.seriesType6 = seriesType6;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -949,23 +1075,19 @@ public class Plot extends VisualBaseWithBounds {
             
             this.deviation1 = deviation1;
         } else {
-            this.seriesType4 = seriesType4;
+            this.seriesType6 = seriesType6;
             this.mapping5 = mapping5;
             this.period4 = period4;
             this.deviation1 = deviation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", (seriesType4 != null) ? seriesType4.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
                 js.setLength(0);
             }
         }
@@ -973,7 +1095,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBandsB bbandsB(String seriesType5, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(String seriesType7, TableMapping mapping5, Double period4, Double deviation1) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -981,8 +1103,10 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType3 = null;
             this.seriesType4 = null;
             this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
             
-            this.seriesType5 = seriesType5;
+            this.seriesType7 = seriesType7;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1003,23 +1127,19 @@ public class Plot extends VisualBaseWithBounds {
             
             this.deviation1 = deviation1;
         } else {
-            this.seriesType5 = seriesType5;
+            this.seriesType7 = seriesType7;
             this.mapping5 = mapping5;
             this.period4 = period4;
             this.deviation1 = deviation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", seriesType5, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+            js.append(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f);", seriesType7, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", seriesType5, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", seriesType7, (mapping5 != null) ? mapping5.generateJs() : "null", period4, deviation1));
                 js.setLength(0);
             }
         }
@@ -1029,10 +1149,10 @@ public class Plot extends VisualBaseWithBounds {
     private TableMapping mapping6;
     private Double period5;
     private Double deviation2;
-    private StockSeriesType seriesType6;
-    private String seriesType7;
+    private StockSeriesType seriesType8;
+    private String seriesType9;
 
-    public BBandsWidth bbandsWidth(StockSeriesType seriesType6, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(StockSeriesType seriesType8, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1042,8 +1162,10 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType5 = null;
             this.seriesType6 = null;
             this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
             
-            this.seriesType6 = seriesType6;
+            this.seriesType8 = seriesType8;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1067,23 +1189,19 @@ public class Plot extends VisualBaseWithBounds {
             
             this.deviation2 = deviation2;
         } else {
-            this.seriesType6 = seriesType6;
+            this.seriesType8 = seriesType8;
             this.mapping6 = mapping6;
             this.period5 = period5;
             this.deviation2 = deviation2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", (seriesType8 != null) ? seriesType8.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", (seriesType6 != null) ? seriesType6.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", (seriesType8 != null) ? seriesType8.generateJs() : "null", (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
                 js.setLength(0);
             }
         }
@@ -1091,7 +1209,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public BBandsWidth bbandsWidth(String seriesType7, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(String seriesType9, TableMapping mapping6, Double period5, Double deviation2) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1101,8 +1219,10 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType5 = null;
             this.seriesType6 = null;
             this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
             
-            this.seriesType7 = seriesType7;
+            this.seriesType9 = seriesType9;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1126,23 +1246,19 @@ public class Plot extends VisualBaseWithBounds {
             
             this.deviation2 = deviation2;
         } else {
-            this.seriesType7 = seriesType7;
+            this.seriesType9 = seriesType9;
             this.mapping6 = mapping6;
             this.period5 = period5;
             this.deviation2 = deviation2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", seriesType7, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+            js.append(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f);", seriesType9, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", seriesType7, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", seriesType9, (mapping6 != null) ? mapping6.generateJs() : "null", period5, deviation2));
                 js.setLength(0);
             }
         }
@@ -1180,10 +1296,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data4 = data4;
             this.mappingSettings1 = mappingSettings1;
             this.csvSettings1 = csvSettings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1224,10 +1336,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data5 = data5;
             this.mappingSettings1 = mappingSettings1;
             this.csvSettings1 = csvSettings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1268,10 +1376,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data6 = data6;
             this.mappingSettings1 = mappingSettings1;
             this.csvSettings1 = csvSettings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1289,10 +1393,25 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping7;
     private Double period6;
-    private StockSeriesType seriesType8;
+    private StockSeriesType seriesType10;
+    private String seriesType11;
 
-    public CCI cci(TableMapping mapping7, Double period6, StockSeriesType seriesType8) {
+    public CCI cci(StockSeriesType seriesType10, TableMapping mapping7, Double period6) {
         if (jsBase == null) {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            
+            this.seriesType10 = seriesType10;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1312,6 +1431,28 @@ public class Plot extends VisualBaseWithBounds {
             this.period6 = null;
             
             this.period6 = period6;
+        } else {
+            this.seriesType10 = seriesType10;
+            this.mapping7 = mapping7;
+            this.period6 = period6;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", (seriesType10 != null) ? seriesType10.generateJs() : "null", (mapping7 != null) ? mapping7.generateJs() : "null", period6));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", (seriesType10 != null) ? seriesType10.generateJs() : "null", (mapping7 != null) ? mapping7.generateJs() : "null", period6));
+                js.setLength(0);
+            }
+        }
+        return new CCI(jsBase);
+    }
+
+
+    public CCI cci(String seriesType11, TableMapping mapping7, Double period6) {
+        if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -1321,25 +1462,43 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType6 = null;
             this.seriesType7 = null;
             this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
             
-            this.seriesType8 = seriesType8;
+            this.seriesType11 = seriesType11;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            
+            this.mapping7 = mapping7;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            
+            this.period6 = period6;
         } else {
+            this.seriesType11 = seriesType11;
             this.mapping7 = mapping7;
             this.period6 = period6;
-            this.seriesType8 = seriesType8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cci(%s, %f, %s);", (mapping7 != null) ? mapping7.generateJs() : "null", period6, (seriesType8 != null) ? seriesType8.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".cci(%s, %s, %f);", seriesType11, (mapping7 != null) ? mapping7.generateJs() : "null", period6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", (mapping7 != null) ? mapping7.generateJs() : "null", period6, (seriesType8 != null) ? seriesType8.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", seriesType11, (mapping7 != null) ? mapping7.generateJs() : "null", period6));
                 js.setLength(0);
             }
         }
@@ -1349,16 +1508,33 @@ public class Plot extends VisualBaseWithBounds {
     private TableMapping mapping8;
     private Double fastPeriod1;
     private Double slowPeriod1;
-    private String maType;
-    private MovingAverageType maType1;
-    private StockSeriesType seriesType9;
+    private MovingAverageType maType;
+    private String maType1;
+    private StockSeriesType seriesType12;
+    private String seriesType13;
 
-    public CHO cho(String maType, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
+    public CHO cho(MovingAverageType maType, StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
             
             this.maType = maType;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            
+            this.seriesType12 = seriesType12;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1378,37 +1554,21 @@ public class Plot extends VisualBaseWithBounds {
             this.slowPeriod1 = null;
             
             this.slowPeriod1 = slowPeriod1;
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            
-            this.seriesType9 = seriesType9;
         } else {
             this.maType = maType;
+            this.seriesType12 = seriesType12;
             this.mapping8 = mapping8;
             this.fastPeriod1 = fastPeriod1;
             this.slowPeriod1 = slowPeriod1;
-            this.seriesType9 = seriesType9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", maType, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", (maType != null) ? maType.generateJs() : "null", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", maType, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", (maType != null) ? maType.generateJs() : "null", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
@@ -1416,12 +1576,28 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public CHO cho(MovingAverageType maType1, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, StockSeriesType seriesType9) {
+    public CHO cho(MovingAverageType maType, String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
         if (jsBase == null) {
             this.maType = null;
             this.maType1 = null;
             
-            this.maType1 = maType1;
+            this.maType = maType;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            
+            this.seriesType13 = seriesType13;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1441,6 +1617,34 @@ public class Plot extends VisualBaseWithBounds {
             this.slowPeriod1 = null;
             
             this.slowPeriod1 = slowPeriod1;
+        } else {
+            this.maType = maType;
+            this.seriesType13 = seriesType13;
+            this.mapping8 = mapping8;
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod1 = slowPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", (maType != null) ? maType.generateJs() : "null", seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", (maType != null) ? maType.generateJs() : "null", seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new CHO(jsBase);
+    }
+
+
+    public CHO cho(String maType1, StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
+        if (jsBase == null) {
+            this.maType = null;
+            this.maType1 = null;
+            
+            this.maType1 = maType1;
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -1451,27 +1655,109 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType7 = null;
             this.seriesType8 = null;
             this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
             
-            this.seriesType9 = seriesType9;
+            this.seriesType12 = seriesType12;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            
+            this.mapping8 = mapping8;
+            this.fastPeriod = null;
+            this.fastPeriod1 = null;
+            
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod = null;
+            this.slowPeriod1 = null;
+            
+            this.slowPeriod1 = slowPeriod1;
         } else {
             this.maType1 = maType1;
+            this.seriesType12 = seriesType12;
             this.mapping8 = mapping8;
             this.fastPeriod1 = fastPeriod1;
             this.slowPeriod1 = slowPeriod1;
-            this.seriesType9 = seriesType9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s);", (maType1 != null) ? maType1.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", maType1, (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", (maType1 != null) ? maType1.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1, (seriesType9 != null) ? seriesType9.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", maType1, (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new CHO(jsBase);
+    }
+
+
+    public CHO cho(String maType1, String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
+        if (jsBase == null) {
+            this.maType = null;
+            this.maType1 = null;
+            
+            this.maType1 = maType1;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            
+            this.seriesType13 = seriesType13;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            
+            this.mapping8 = mapping8;
+            this.fastPeriod = null;
+            this.fastPeriod1 = null;
+            
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod = null;
+            this.slowPeriod1 = null;
+            
+            this.slowPeriod1 = slowPeriod1;
+        } else {
+            this.maType1 = maType1;
+            this.seriesType13 = seriesType13;
+            this.mapping8 = mapping8;
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod1 = slowPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f);", maType1, seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", maType1, seriesType13, (mapping8 != null) ? mapping8.generateJs() : "null", fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
@@ -1480,10 +1766,29 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping9;
     private Double period7;
-    private StockSeriesType seriesType10;
+    private StockSeriesType seriesType14;
+    private String seriesType15;
 
-    public CMF cmf(TableMapping mapping9, Double period7, StockSeriesType seriesType10) {
+    public CMF cmf(StockSeriesType seriesType14, TableMapping mapping9, Double period7) {
         if (jsBase == null) {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            
+            this.seriesType14 = seriesType14;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1506,6 +1811,28 @@ public class Plot extends VisualBaseWithBounds {
             this.period7 = null;
             
             this.period7 = period7;
+        } else {
+            this.seriesType14 = seriesType14;
+            this.mapping9 = mapping9;
+            this.period7 = period7;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", (seriesType14 != null) ? seriesType14.generateJs() : "null", (mapping9 != null) ? mapping9.generateJs() : "null", period7));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", (seriesType14 != null) ? seriesType14.generateJs() : "null", (mapping9 != null) ? mapping9.generateJs() : "null", period7));
+                js.setLength(0);
+            }
+        }
+        return new CMF(jsBase);
+    }
+
+
+    public CMF cmf(String seriesType15, TableMapping mapping9, Double period7) {
+        if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -1517,25 +1844,48 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType8 = null;
             this.seriesType9 = null;
             this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
             
-            this.seriesType10 = seriesType10;
+            this.seriesType15 = seriesType15;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            
+            this.mapping9 = mapping9;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            
+            this.period7 = period7;
         } else {
+            this.seriesType15 = seriesType15;
             this.mapping9 = mapping9;
             this.period7 = period7;
-            this.seriesType10 = seriesType10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s);", (mapping9 != null) ? mapping9.generateJs() : "null", period7, (seriesType10 != null) ? seriesType10.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f);", seriesType15, (mapping9 != null) ? mapping9.generateJs() : "null", period7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", (mapping9 != null) ? mapping9.generateJs() : "null", period7, (seriesType10 != null) ? seriesType10.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", seriesType15, (mapping9 != null) ? mapping9.generateJs() : "null", period7));
                 js.setLength(0);
             }
         }
@@ -1579,10 +1929,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data8 = data8;
             this.mappingSettings2 = mappingSettings2;
             this.csvSettings2 = csvSettings2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1629,10 +1975,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data9 = data9;
             this.mappingSettings2 = mappingSettings2;
             this.csvSettings2 = csvSettings2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1679,10 +2021,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data10 = data10;
             this.mappingSettings2 = mappingSettings2;
             this.csvSettings2 = csvSettings2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1718,10 +2056,6 @@ public class Plot extends VisualBaseWithBounds {
             this.crosshair = crosshair;
         } else {
             this.crosshair = crosshair;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1746,10 +2080,6 @@ public class Plot extends VisualBaseWithBounds {
             this.crosshair1 = crosshair1;
         } else {
             this.crosshair1 = crosshair1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1765,10 +2095,10 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
 
-    private String defaultSeriesType;
-    private StockSeriesType defaultSeriesType1;
+    private StockSeriesType defaultSeriesType;
+    private String defaultSeriesType1;
 
-    public Plot setDefaultSeriesType(String defaultSeriesType) {
+    public Plot setDefaultSeriesType(StockSeriesType defaultSeriesType) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
             this.defaultSeriesType1 = null;
@@ -1776,19 +2106,15 @@ public class Plot extends VisualBaseWithBounds {
             this.defaultSeriesType = defaultSeriesType;
         } else {
             this.defaultSeriesType = defaultSeriesType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -1796,7 +2122,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setDefaultSeriesType(StockSeriesType defaultSeriesType1) {
+    public Plot setDefaultSeriesType(String defaultSeriesType1) {
         if (jsBase == null) {
             this.defaultSeriesType = null;
             this.defaultSeriesType1 = null;
@@ -1804,19 +2130,15 @@ public class Plot extends VisualBaseWithBounds {
             this.defaultSeriesType1 = defaultSeriesType1;
         } else {
             this.defaultSeriesType1 = defaultSeriesType1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
                 js.setLength(0);
             }
         }
@@ -1828,11 +2150,26 @@ public class Plot extends VisualBaseWithBounds {
     private Double adxPeriod;
     private Boolean useWildersSmoothing;
     private StockSeriesType pdiSeriesType;
+    private String pdiSeriesType1;
     private StockSeriesType ndiSeriesType;
+    private String ndiSeriesType1;
     private StockSeriesType adxSeriesType;
+    private String adxSeriesType1;
 
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
+    public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
         if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1859,30 +2196,471 @@ public class Plot extends VisualBaseWithBounds {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+        } else {
             this.pdiSeriesType = pdiSeriesType;
             this.ndiSeriesType = ndiSeriesType;
             this.adxSeriesType = adxSeriesType;
-        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = adxSeriesType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing, (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing, (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+        return new DMI(jsBase);
+    }
+
+
+    public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+        if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            
+            this.mapping10 = mapping10;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping10 = mapping10;
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+        return new DMI(jsBase);
+    }
+
+
+    public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+        if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType = adxSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            
+            this.mapping10 = mapping10;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = adxSeriesType;
+            this.mapping10 = mapping10;
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+        return new DMI(jsBase);
+    }
+
+
+    public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+        if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            
+            this.mapping10 = mapping10;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping10 = mapping10;
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", (pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null", ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+        return new DMI(jsBase);
+    }
+
+
+    public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+        if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType = adxSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            
+            this.mapping10 = mapping10;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = adxSeriesType;
+            this.mapping10 = mapping10;
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+        return new DMI(jsBase);
+    }
+
+
+    public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+        if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            
+            this.mapping10 = mapping10;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping10 = mapping10;
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null", adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+        return new DMI(jsBase);
+    }
+
+
+    public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+        if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType = adxSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            
+            this.mapping10 = mapping10;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = adxSeriesType;
+            this.mapping10 = mapping10;
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, ndiSeriesType1, (adxSeriesType != null) ? adxSeriesType.generateJs() : "null", (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+                js.setLength(0);
+            }
+        }
+        return new DMI(jsBase);
+    }
+
+
+    public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+        if (jsBase == null) {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            
+            this.mapping10 = mapping10;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+        } else {
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType1 = adxSeriesType1;
+            this.mapping10 = mapping10;
+            this.period8 = period8;
+            this.adxPeriod = adxPeriod;
+            this.useWildersSmoothing = useWildersSmoothing;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b);", pdiSeriesType1, ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", pdiSeriesType1, ndiSeriesType1, adxSeriesType1, (mapping10 != null) ? mapping10.generateJs() : "null", period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
@@ -1891,10 +2669,10 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping11;
     private Double period9;
-    private String seriesType11;
-    private StockSeriesType seriesType12;
+    private StockSeriesType seriesType16;
+    private String seriesType17;
 
-    public EMA ema(String seriesType11, TableMapping mapping11, Double period9) {
+    public EMA ema(StockSeriesType seriesType16, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1909,8 +2687,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType10 = null;
             this.seriesType11 = null;
             this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
             
-            this.seriesType11 = seriesType11;
+            this.seriesType16 = seriesType16;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1938,22 +2721,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period9 = period9;
         } else {
-            this.seriesType11 = seriesType11;
+            this.seriesType16 = seriesType16;
             this.mapping11 = mapping11;
             this.period9 = period9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", seriesType11, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", seriesType11, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
                 js.setLength(0);
             }
         }
@@ -1961,7 +2740,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public EMA ema(StockSeriesType seriesType12, TableMapping mapping11, Double period9) {
+    public EMA ema(String seriesType17, TableMapping mapping11, Double period9) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -1976,8 +2755,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType10 = null;
             this.seriesType11 = null;
             this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
             
-            this.seriesType12 = seriesType12;
+            this.seriesType17 = seriesType17;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2005,22 +2789,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period9 = period9;
         } else {
-            this.seriesType12 = seriesType12;
+            this.seriesType17 = seriesType17;
             this.mapping11 = mapping11;
             this.period9 = period9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+            js.append(String.format(Locale.US, jsBase + ".ema(%s, %s, %f);", seriesType17, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", (seriesType12 != null) ? seriesType12.generateJs() : "null", (mapping11 != null) ? mapping11.generateJs() : "null", period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", seriesType17, (mapping11 != null) ? mapping11.generateJs() : "null", period9));
                 js.setLength(0);
             }
         }
@@ -2067,10 +2847,6 @@ public class Plot extends VisualBaseWithBounds {
             this.hatchFillPalette = hatchFillPalette;
         } else {
             this.hatchFillPalette = hatchFillPalette;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2096,10 +2872,6 @@ public class Plot extends VisualBaseWithBounds {
             this.hatchFillPalette1 = hatchFillPalette1;
         } else {
             this.hatchFillPalette1 = hatchFillPalette1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2125,10 +2897,6 @@ public class Plot extends VisualBaseWithBounds {
             this.hatchFillPalette2 = hatchFillPalette2;
         } else {
             this.hatchFillPalette2 = hatchFillPalette2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2187,10 +2955,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data12 = data12;
             this.mappingSettings3 = mappingSettings3;
             this.csvSettings3 = csvSettings3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2243,10 +3007,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data13 = data13;
             this.mappingSettings3 = mappingSettings3;
             this.csvSettings3 = csvSettings3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2299,10 +3059,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data14 = data14;
             this.mappingSettings3 = mappingSettings3;
             this.csvSettings3 = csvSettings3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2367,10 +3123,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data16 = data16;
             this.mappingSettings4 = mappingSettings4;
             this.csvSettings4 = csvSettings4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2429,10 +3181,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data17 = data17;
             this.mappingSettings4 = mappingSettings4;
             this.csvSettings4 = csvSettings4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2491,10 +3239,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data18 = data18;
             this.mappingSettings4 = mappingSettings4;
             this.csvSettings4 = csvSettings4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2515,15 +3259,40 @@ public class Plot extends VisualBaseWithBounds {
     private Double kMAPeriod;
     private Double dPeriod;
     private MovingAverageType kMAType;
+    private String kMAType1;
     private MovingAverageType dMAType;
+    private String dMAType1;
     private Double kMultiplier;
     private Double dMultiplier;
     private StockSeriesType kSeriesType;
+    private String kSeriesType1;
     private StockSeriesType dSeriesType;
+    private String dSeriesType1;
     private StockSeriesType jSeriesType;
+    private String jSeriesType1;
 
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, MovingAverageType dMAType, Double kMultiplier, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
         if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2542,38 +3311,2199 @@ public class Plot extends VisualBaseWithBounds {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMAType = kMAType;
-            this.dMAType = dMAType;
             this.kMultiplier = kMultiplier;
             this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
             this.kSeriesType = kSeriesType;
             this.dSeriesType = dSeriesType;
             this.jSeriesType = jSeriesType;
-        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMAType = kMAType;
-            this.dMAType = dMAType;
             this.kMultiplier = kMultiplier;
             this.dMultiplier = dMultiplier;
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = jSeriesType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %s, %f, %f, %s, %s, %s);", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMultiplier, dMultiplier, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %s, %f, %f, %s, %s, %s)", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kMultiplier, dMultiplier, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType = kMAType;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType = kMAType;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", (kMAType != null) ? kMAType.generateJs() : "null", dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType = dMAType;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType = dMAType;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, (dMAType != null) ? dMAType.generateJs() : "null", kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, (kSeriesType != null) ? kSeriesType.generateJs() : "null", dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, (dSeriesType != null) ? dSeriesType.generateJs() : "null", jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType = jSeriesType;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, dSeriesType1, (jSeriesType != null) ? jSeriesType.generateJs() : "null", (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                js.setLength(0);
+            }
+        }
+        return new KDJ(jsBase);
+    }
+
+
+    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
+            this.kMAType1 = kMAType1;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
+            this.dMAType1 = dMAType1;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+        } else {
+            this.kMAType1 = kMAType1;
+            this.dMAType1 = dMAType1;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
+            this.mapping12 = mapping12;
+            this.kPeriod = kPeriod;
+            this.kMAPeriod = kMAPeriod;
+            this.dPeriod = dPeriod;
+            this.kMultiplier = kMultiplier;
+            this.dMultiplier = dMultiplier;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f);", kMAType1, dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", kMAType1, dMAType1, kSeriesType1, dSeriesType1, jSeriesType1, (mapping12 != null) ? mapping12.generateJs() : "null", kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
@@ -2600,10 +5530,6 @@ public class Plot extends VisualBaseWithBounds {
             this.legend = legend;
         } else {
             this.legend = legend;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2628,10 +5554,6 @@ public class Plot extends VisualBaseWithBounds {
             this.legend1 = legend1;
         } else {
             this.legend1 = legend1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2702,10 +5624,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data20 = data20;
             this.mappingSettings5 = mappingSettings5;
             this.csvSettings5 = csvSettings5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2770,10 +5688,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data21 = data21;
             this.mappingSettings5 = mappingSettings5;
             this.csvSettings5 = csvSettings5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2838,10 +5752,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data22 = data22;
             this.mappingSettings5 = mappingSettings5;
             this.csvSettings5 = csvSettings5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2861,14 +5771,14 @@ public class Plot extends VisualBaseWithBounds {
     private Double fastPeriod2;
     private Double slowPeriod2;
     private Double signalPeriod;
-    private String macdSeriesType;
-    private StockSeriesType macdSeriesType1;
-    private String signalSeriesType;
-    private StockSeriesType signalSeriesType1;
-    private String histogramSeriesType;
-    private StockSeriesType histogramSeriesType1;
+    private StockSeriesType macdSeriesType;
+    private String macdSeriesType1;
+    private StockSeriesType signalSeriesType;
+    private String signalSeriesType1;
+    private StockSeriesType histogramSeriesType;
+    private String histogramSeriesType1;
 
-    public MACD macd(String macdSeriesType, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -2917,19 +5827,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -2937,7 +5843,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD macd(String macdSeriesType, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -2986,19 +5892,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -3006,7 +5908,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD macd(String macdSeriesType, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3055,19 +5957,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -3075,7 +5973,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD macd(String macdSeriesType, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3124,19 +6022,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType, (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null", signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -3144,7 +6038,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD macd(StockSeriesType macdSeriesType1, String signalSeriesType, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3193,19 +6087,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -3213,7 +6103,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD macd(StockSeriesType macdSeriesType1, String signalSeriesType, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3262,19 +6152,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", signalSeriesType, (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, (signalSeriesType != null) ? signalSeriesType.generateJs() : "null", histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -3282,7 +6168,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD macd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, String histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3331,19 +6217,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", histogramSeriesType, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, signalSeriesType1, (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -3351,7 +6233,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MACD macd(StockSeriesType macdSeriesType1, StockSeriesType signalSeriesType1, StockSeriesType histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
         if (jsBase == null) {
             this.macdSeriesType = null;
             this.macdSeriesType1 = null;
@@ -3400,19 +6282,15 @@ public class Plot extends VisualBaseWithBounds {
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+            js.append(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f);", macdSeriesType1, signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null", (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", macdSeriesType1, signalSeriesType1, histogramSeriesType1, (mapping13 != null) ? mapping13.generateJs() : "null", fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
@@ -3480,10 +6358,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data24 = data24;
             this.mappingSettings6 = mappingSettings6;
             this.csvSettings6 = csvSettings6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3554,10 +6428,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data25 = data25;
             this.mappingSettings6 = mappingSettings6;
             this.csvSettings6 = csvSettings6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3628,10 +6498,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data26 = data26;
             this.mappingSettings6 = mappingSettings6;
             this.csvSettings6 = csvSettings6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3659,20 +6525,18 @@ public class Plot extends VisualBaseWithBounds {
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
 
     public Plot setMarkerPalette(Markers markerPalette) {
         if (jsBase == null) {
             this.markerPalette = null;
             this.markerPalette1 = null;
             this.markerPalette2 = null;
+            this.markerPalette3 = null;
             
             this.markerPalette = markerPalette;
         } else {
             this.markerPalette = markerPalette;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3694,14 +6558,11 @@ public class Plot extends VisualBaseWithBounds {
             this.markerPalette = null;
             this.markerPalette1 = null;
             this.markerPalette2 = null;
+            this.markerPalette3 = null;
             
             this.markerPalette1 = markerPalette1;
         } else {
             this.markerPalette1 = markerPalette1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3723,14 +6584,11 @@ public class Plot extends VisualBaseWithBounds {
             this.markerPalette = null;
             this.markerPalette1 = null;
             this.markerPalette2 = null;
+            this.markerPalette3 = null;
             
             this.markerPalette2 = markerPalette2;
         } else {
             this.markerPalette2 = markerPalette2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3740,6 +6598,32 @@ public class Plot extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Plot setMarkerPalette(String[] markerPalette3) {
+        if (jsBase == null) {
+            this.markerPalette = null;
+            this.markerPalette1 = null;
+            this.markerPalette2 = null;
+            this.markerPalette3 = null;
+            
+            this.markerPalette3 = markerPalette3;
+        } else {
+            this.markerPalette3 = markerPalette3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
                 js.setLength(0);
             }
         }
@@ -3757,10 +6641,6 @@ public class Plot extends VisualBaseWithBounds {
             this.maxPointWidth = maxPointWidth;
         } else {
             this.maxPointWidth = maxPointWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3785,10 +6665,6 @@ public class Plot extends VisualBaseWithBounds {
             this.maxPointWidth1 = maxPointWidth1;
         } else {
             this.maxPointWidth1 = maxPointWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3815,10 +6691,6 @@ public class Plot extends VisualBaseWithBounds {
             this.minPointLength = minPointLength;
         } else {
             this.minPointLength = minPointLength;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3843,10 +6715,6 @@ public class Plot extends VisualBaseWithBounds {
             this.minPointLength1 = minPointLength1;
         } else {
             this.minPointLength1 = minPointLength1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3864,10 +6732,10 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping14;
     private Double period10;
-    private StockSeriesType seriesType13;
-    private String seriesType14;
+    private StockSeriesType seriesType18;
+    private String seriesType19;
 
-    public MMA mma(StockSeriesType seriesType13, TableMapping mapping14, Double period10) {
+    public MMA mma(StockSeriesType seriesType18, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -3884,8 +6752,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType12 = null;
             this.seriesType13 = null;
             this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
             
-            this.seriesType13 = seriesType13;
+            this.seriesType18 = seriesType18;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3917,22 +6790,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period10 = period10;
         } else {
-            this.seriesType13 = seriesType13;
+            this.seriesType18 = seriesType18;
             this.mapping14 = mapping14;
             this.period10 = period10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", (seriesType13 != null) ? seriesType13.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", (seriesType13 != null) ? seriesType13.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping14 != null) ? mapping14.generateJs() : "null", period10));
                 js.setLength(0);
             }
         }
@@ -3940,7 +6809,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public MMA mma(String seriesType14, TableMapping mapping14, Double period10) {
+    public MMA mma(String seriesType19, TableMapping mapping14, Double period10) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -3957,8 +6826,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType12 = null;
             this.seriesType13 = null;
             this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
             
-            this.seriesType14 = seriesType14;
+            this.seriesType19 = seriesType19;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3990,22 +6864,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period10 = period10;
         } else {
-            this.seriesType14 = seriesType14;
+            this.seriesType19 = seriesType19;
             this.mapping14 = mapping14;
             this.period10 = period10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", seriesType14, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+            js.append(String.format(Locale.US, jsBase + ".mma(%s, %s, %f);", seriesType19, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", seriesType14, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", seriesType19, (mapping14 != null) ? mapping14.generateJs() : "null", period10));
                 js.setLength(0);
             }
         }
@@ -4028,10 +6898,6 @@ public class Plot extends VisualBaseWithBounds {
             this.noData = noData;
         } else {
             this.noData = noData;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4114,10 +6980,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data28 = data28;
             this.mappingSettings7 = mappingSettings7;
             this.csvSettings7 = csvSettings7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4194,10 +7056,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data29 = data29;
             this.mappingSettings7 = mappingSettings7;
             this.csvSettings7 = csvSettings7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4274,10 +7132,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data30 = data30;
             this.mappingSettings7 = mappingSettings7;
             this.csvSettings7 = csvSettings7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4317,10 +7171,6 @@ public class Plot extends VisualBaseWithBounds {
             this.palette = palette;
         } else {
             this.palette = palette;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4347,10 +7197,6 @@ public class Plot extends VisualBaseWithBounds {
             this.palette1 = palette1;
         } else {
             this.palette1 = palette1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4377,10 +7223,6 @@ public class Plot extends VisualBaseWithBounds {
             this.palette2 = palette2;
         } else {
             this.palette2 = palette2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4407,10 +7249,6 @@ public class Plot extends VisualBaseWithBounds {
             this.palette3 = palette3;
         } else {
             this.palette3 = palette3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4437,10 +7275,6 @@ public class Plot extends VisualBaseWithBounds {
             this.pointWidth = pointWidth;
         } else {
             this.pointWidth = pointWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4465,10 +7299,6 @@ public class Plot extends VisualBaseWithBounds {
             this.pointWidth1 = pointWidth1;
         } else {
             this.pointWidth1 = pointWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4504,10 +7334,6 @@ public class Plot extends VisualBaseWithBounds {
             this.priceIndicator = priceIndicator;
         } else {
             this.priceIndicator = priceIndicator;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4532,10 +7358,6 @@ public class Plot extends VisualBaseWithBounds {
             this.priceIndicator1 = priceIndicator1;
         } else {
             this.priceIndicator1 = priceIndicator1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4567,10 +7389,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.priceIndicator2 = priceIndicator2;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4599,10 +7417,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.priceIndicator3 = priceIndicator3;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4691,10 +7505,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data32 = data32;
             this.mappingSettings8 = mappingSettings8;
             this.csvSettings8 = csvSettings8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4777,10 +7587,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data33 = data33;
             this.mappingSettings8 = mappingSettings8;
             this.csvSettings8 = csvSettings8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4863,10 +7669,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data34 = data34;
             this.mappingSettings8 = mappingSettings8;
             this.csvSettings8 = csvSettings8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4961,10 +7763,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data36 = data36;
             this.mappingSettings9 = mappingSettings9;
             this.csvSettings9 = csvSettings9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5053,10 +7851,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data37 = data37;
             this.mappingSettings9 = mappingSettings9;
             this.csvSettings9 = csvSettings9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5145,10 +7939,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data38 = data38;
             this.mappingSettings9 = mappingSettings9;
             this.csvSettings9 = csvSettings9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5249,10 +8039,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data40 = data40;
             this.mappingSettings10 = mappingSettings10;
             this.csvSettings10 = csvSettings10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5347,10 +8133,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data41 = data41;
             this.mappingSettings10 = mappingSettings10;
             this.csvSettings10 = csvSettings10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5445,10 +8227,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data42 = data42;
             this.mappingSettings10 = mappingSettings10;
             this.csvSettings10 = csvSettings10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5555,10 +8333,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data44 = data44;
             this.mappingSettings11 = mappingSettings11;
             this.csvSettings11 = csvSettings11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5659,10 +8433,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data45 = data45;
             this.mappingSettings11 = mappingSettings11;
             this.csvSettings11 = csvSettings11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5763,10 +8533,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data46 = data46;
             this.mappingSettings11 = mappingSettings11;
             this.csvSettings11 = csvSettings11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5793,10 +8559,6 @@ public class Plot extends VisualBaseWithBounds {
             this.id = id;
         } else {
             this.id = id;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5821,10 +8583,6 @@ public class Plot extends VisualBaseWithBounds {
             this.id1 = id1;
         } else {
             this.id1 = id1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5850,10 +8608,6 @@ public class Plot extends VisualBaseWithBounds {
             this.index1 = index1;
         } else {
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5871,10 +8625,10 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping15;
     private Double period11;
-    private String seriesType15;
-    private StockSeriesType seriesType16;
+    private StockSeriesType seriesType20;
+    private String seriesType21;
 
-    public RoC roc(String seriesType15, TableMapping mapping15, Double period11) {
+    public RoC roc(StockSeriesType seriesType20, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5893,8 +8647,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType14 = null;
             this.seriesType15 = null;
             this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
             
-            this.seriesType15 = seriesType15;
+            this.seriesType20 = seriesType20;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5928,22 +8687,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period11 = period11;
         } else {
-            this.seriesType15 = seriesType15;
+            this.seriesType20 = seriesType20;
             this.mapping15 = mapping15;
             this.period11 = period11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", seriesType15, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", seriesType15, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
                 js.setLength(0);
             }
         }
@@ -5951,7 +8706,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public RoC roc(StockSeriesType seriesType16, TableMapping mapping15, Double period11) {
+    public RoC roc(String seriesType21, TableMapping mapping15, Double period11) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -5970,8 +8725,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType14 = null;
             this.seriesType15 = null;
             this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
             
-            this.seriesType16 = seriesType16;
+            this.seriesType21 = seriesType21;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6005,22 +8765,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period11 = period11;
         } else {
-            this.seriesType16 = seriesType16;
+            this.seriesType21 = seriesType21;
             this.mapping15 = mapping15;
             this.period11 = period11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+            js.append(String.format(Locale.US, jsBase + ".roc(%s, %s, %f);", seriesType21, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", (seriesType16 != null) ? seriesType16.generateJs() : "null", (mapping15 != null) ? mapping15.generateJs() : "null", period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", seriesType21, (mapping15 != null) ? mapping15.generateJs() : "null", period11));
                 js.setLength(0);
             }
         }
@@ -6029,10 +8785,10 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping16;
     private Double period12;
-    private String seriesType17;
-    private StockSeriesType seriesType18;
+    private StockSeriesType seriesType22;
+    private String seriesType23;
 
-    public RSI rsi(String seriesType17, TableMapping mapping16, Double period12) {
+    public RSI rsi(StockSeriesType seriesType22, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6053,8 +8809,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType16 = null;
             this.seriesType17 = null;
             this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
             
-            this.seriesType17 = seriesType17;
+            this.seriesType22 = seriesType22;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6090,22 +8851,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period12 = period12;
         } else {
-            this.seriesType17 = seriesType17;
+            this.seriesType22 = seriesType22;
             this.mapping16 = mapping16;
             this.period12 = period12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", seriesType17, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", (seriesType22 != null) ? seriesType22.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", seriesType17, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", (seriesType22 != null) ? seriesType22.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
                 js.setLength(0);
             }
         }
@@ -6113,7 +8870,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public RSI rsi(StockSeriesType seriesType18, TableMapping mapping16, Double period12) {
+    public RSI rsi(String seriesType23, TableMapping mapping16, Double period12) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6134,8 +8891,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType16 = null;
             this.seriesType17 = null;
             this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
             
-            this.seriesType18 = seriesType18;
+            this.seriesType23 = seriesType23;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6171,22 +8933,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period12 = period12;
         } else {
-            this.seriesType18 = seriesType18;
+            this.seriesType23 = seriesType23;
             this.mapping16 = mapping16;
             this.period12 = period12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+            js.append(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f);", seriesType23, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", (seriesType18 != null) ? seriesType18.generateJs() : "null", (mapping16 != null) ? mapping16.generateJs() : "null", period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", seriesType23, (mapping16 != null) ? mapping16.generateJs() : "null", period12));
                 js.setLength(0);
             }
         }
@@ -6195,10 +8953,10 @@ public class Plot extends VisualBaseWithBounds {
 
     private TableMapping mapping17;
     private Double period13;
-    private String seriesType19;
-    private StockSeriesType seriesType20;
+    private StockSeriesType seriesType24;
+    private String seriesType25;
 
-    public SMA sma(String seriesType19, TableMapping mapping17, Double period13) {
+    public SMA sma(StockSeriesType seriesType24, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6221,8 +8979,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType18 = null;
             this.seriesType19 = null;
             this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
             
-            this.seriesType19 = seriesType19;
+            this.seriesType24 = seriesType24;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6260,22 +9023,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period13 = period13;
         } else {
-            this.seriesType19 = seriesType19;
+            this.seriesType24 = seriesType24;
             this.mapping17 = mapping17;
             this.period13 = period13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", seriesType19, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", (seriesType24 != null) ? seriesType24.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", seriesType19, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", (seriesType24 != null) ? seriesType24.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
                 js.setLength(0);
             }
         }
@@ -6283,7 +9042,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public SMA sma(StockSeriesType seriesType20, TableMapping mapping17, Double period13) {
+    public SMA sma(String seriesType25, TableMapping mapping17, Double period13) {
         if (jsBase == null) {
             this.seriesType = null;
             this.seriesType1 = null;
@@ -6306,8 +9065,13 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType18 = null;
             this.seriesType19 = null;
             this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
             
-            this.seriesType20 = seriesType20;
+            this.seriesType25 = seriesType25;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6345,22 +9109,18 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period13 = period13;
         } else {
-            this.seriesType20 = seriesType20;
+            this.seriesType25 = seriesType25;
             this.mapping17 = mapping17;
             this.period13 = period13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+            js.append(String.format(Locale.US, jsBase + ".sma(%s, %s, %f);", seriesType25, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", (seriesType20 != null) ? seriesType20.generateJs() : "null", (mapping17 != null) ? mapping17.generateJs() : "null", period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", seriesType25, (mapping17 != null) ? mapping17.generateJs() : "null", period13));
                 js.setLength(0);
             }
         }
@@ -6464,10 +9224,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data48 = data48;
             this.mappingSettings12 = mappingSettings12;
             this.csvSettings12 = csvSettings12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6574,10 +9330,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data49 = data49;
             this.mappingSettings12 = mappingSettings12;
             this.csvSettings12 = csvSettings12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6684,10 +9436,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data50 = data50;
             this.mappingSettings12 = mappingSettings12;
             this.csvSettings12 = csvSettings12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6806,10 +9554,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data52 = data52;
             this.mappingSettings13 = mappingSettings13;
             this.csvSettings13 = csvSettings13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6922,10 +9666,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data53 = data53;
             this.mappingSettings13 = mappingSettings13;
             this.csvSettings13 = csvSettings13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7038,10 +9778,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data54 = data54;
             this.mappingSettings13 = mappingSettings13;
             this.csvSettings13 = csvSettings13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7166,10 +9902,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data56 = data56;
             this.mappingSettings14 = mappingSettings14;
             this.csvSettings14 = csvSettings14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7288,10 +10020,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data57 = data57;
             this.mappingSettings14 = mappingSettings14;
             this.csvSettings14 = csvSettings14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7410,10 +10138,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data58 = data58;
             this.mappingSettings14 = mappingSettings14;
             this.csvSettings14 = csvSettings14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7544,10 +10268,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data60 = data60;
             this.mappingSettings15 = mappingSettings15;
             this.csvSettings15 = csvSettings15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7672,10 +10392,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data61 = data61;
             this.mappingSettings15 = mappingSettings15;
             this.csvSettings15 = csvSettings15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7800,10 +10516,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data62 = data62;
             this.mappingSettings15 = mappingSettings15;
             this.csvSettings15 = csvSettings15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7940,10 +10652,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data64 = data64;
             this.mappingSettings16 = mappingSettings16;
             this.csvSettings16 = csvSettings16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -8074,10 +10782,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data65 = data65;
             this.mappingSettings16 = mappingSettings16;
             this.csvSettings16 = csvSettings16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -8208,10 +10912,6 @@ public class Plot extends VisualBaseWithBounds {
             this.data66 = data66;
             this.mappingSettings16 = mappingSettings16;
             this.csvSettings16 = csvSettings16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -8231,13 +10931,41 @@ public class Plot extends VisualBaseWithBounds {
     private Double kPeriod1;
     private Double kMAPeriod1;
     private Double dPeriod1;
-    private MovingAverageType kMAType1;
-    private MovingAverageType dMAType1;
-    private StockSeriesType kSeriesType1;
-    private StockSeriesType dSeriesType1;
+    private MovingAverageType kMAType2;
+    private String kMAType3;
+    private MovingAverageType dMAType2;
+    private String dMAType3;
+    private StockSeriesType kSeriesType2;
+    private String kSeriesType3;
+    private StockSeriesType dSeriesType2;
+    private String dSeriesType3;
 
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType1, MovingAverageType dMAType1, StockSeriesType kSeriesType1, StockSeriesType dSeriesType1) {
+    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
         if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -8271,44 +10999,1284 @@ public class Plot extends VisualBaseWithBounds {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
         } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
-            this.kMAType1 = kMAType1;
-            this.dMAType1 = dMAType1;
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType1 = dSeriesType1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1, (kMAType1 != null) ? kMAType1.generateJs() : "null", (dMAType1 != null) ? dMAType1.generateJs() : "null", (kSeriesType1 != null) ? kSeriesType1.generateJs() : "null", (dSeriesType1 != null) ? dSeriesType1.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1, (kMAType1 != null) ? kMAType1.generateJs() : "null", (dMAType1 != null) ? dMAType1.generateJs() : "null", (kSeriesType1 != null) ? kSeriesType1.generateJs() : "null", (dSeriesType1 != null) ? dSeriesType1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", (kMAType2 != null) ? kMAType2.generateJs() : "null", dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, (dMAType2 != null) ? dMAType2.generateJs() : "null", kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null", dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, kSeriesType3, (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null", (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+                js.setLength(0);
+            }
+        }
+        return new Stochastic(jsBase);
+    }
+
+
+    public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+        if (jsBase == null) {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
+            this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
+            this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            
+            this.mapping18 = mapping18;
+            this.kPeriod = null;
+            this.kPeriod1 = null;
+            
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod = null;
+            this.kMAPeriod1 = null;
+            
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod = null;
+            this.dPeriod1 = null;
+            
+            this.dPeriod1 = dPeriod1;
+        } else {
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
+            this.mapping18 = mapping18;
+            this.kPeriod1 = kPeriod1;
+            this.kMAPeriod1 = kMAPeriod1;
+            this.dPeriod1 = dPeriod1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f);", kMAType3, dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", kMAType3, dMAType3, kSeriesType3, dSeriesType3, (mapping18 != null) ? mapping18.generateJs() : "null", kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
@@ -8335,10 +12303,6 @@ public class Plot extends VisualBaseWithBounds {
             this.xAxis = xAxis;
         } else {
             this.xAxis = xAxis;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8363,10 +12327,6 @@ public class Plot extends VisualBaseWithBounds {
             this.xAxis1 = xAxis1;
         } else {
             this.xAxis1 = xAxis1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8402,10 +12362,6 @@ public class Plot extends VisualBaseWithBounds {
             this.xGrid = xGrid;
         } else {
             this.xGrid = xGrid;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8430,10 +12386,6 @@ public class Plot extends VisualBaseWithBounds {
             this.xGrid1 = xGrid1;
         } else {
             this.xGrid1 = xGrid1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8469,10 +12421,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.xGrid2 = xGrid2;
             this.index2 = index2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8505,10 +12453,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.xGrid3 = xGrid3;
             this.index2 = index2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8544,10 +12488,6 @@ public class Plot extends VisualBaseWithBounds {
             this.xMinorGrid = xMinorGrid;
         } else {
             this.xMinorGrid = xMinorGrid;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8572,10 +12512,6 @@ public class Plot extends VisualBaseWithBounds {
             this.xMinorGrid1 = xMinorGrid1;
         } else {
             this.xMinorGrid1 = xMinorGrid1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8607,10 +12543,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.xMinorGrid2 = xMinorGrid2;
             this.indexOrValue = indexOrValue;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8639,10 +12571,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.xMinorGrid3 = xMinorGrid3;
             this.indexOrValue = indexOrValue;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8678,10 +12606,6 @@ public class Plot extends VisualBaseWithBounds {
             this.yAxis = yAxis;
         } else {
             this.yAxis = yAxis;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8706,10 +12630,6 @@ public class Plot extends VisualBaseWithBounds {
             this.yAxis1 = yAxis1;
         } else {
             this.yAxis1 = yAxis1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8746,10 +12666,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yAxis2 = yAxis2;
             this.index3 = index3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8783,10 +12699,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yAxis3 = yAxis3;
             this.index3 = index3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8822,10 +12734,6 @@ public class Plot extends VisualBaseWithBounds {
             this.yGrid = yGrid;
         } else {
             this.yGrid = yGrid;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8850,10 +12758,6 @@ public class Plot extends VisualBaseWithBounds {
             this.yGrid1 = yGrid1;
         } else {
             this.yGrid1 = yGrid1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8891,10 +12795,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yGrid2 = yGrid2;
             this.index4 = index4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8929,10 +12829,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yGrid3 = yGrid3;
             this.index4 = index4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8968,10 +12864,6 @@ public class Plot extends VisualBaseWithBounds {
             this.yMinorGrid = yMinorGrid;
         } else {
             this.yMinorGrid = yMinorGrid;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8996,10 +12888,6 @@ public class Plot extends VisualBaseWithBounds {
             this.yMinorGrid1 = yMinorGrid1;
         } else {
             this.yMinorGrid1 = yMinorGrid1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9034,10 +12922,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yMinorGrid2 = yMinorGrid2;
             this.indexOrValue1 = indexOrValue1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9069,10 +12953,6 @@ public class Plot extends VisualBaseWithBounds {
         } else {
             this.yMinorGrid3 = yMinorGrid3;
             this.indexOrValue1 = indexOrValue1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9098,22 +12978,20 @@ public class Plot extends VisualBaseWithBounds {
     }
 
     private ScatterScaleTypes yScale;
-    private ScatterBase yScale1;
-    private String yScale2;
+    private String yScale1;
+    private ScatterBase yScale2;
+    private String yScale3;
 
     public Plot setYScale(ScatterScaleTypes yScale) {
         if (jsBase == null) {
             this.yScale = null;
             this.yScale1 = null;
             this.yScale2 = null;
+            this.yScale3 = null;
             
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9130,28 +13008,25 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setYScale(ScatterBase yScale1) {
+    public Plot setYScale(String yScale1) {
         if (jsBase == null) {
             this.yScale = null;
             this.yScale1 = null;
             this.yScale2 = null;
+            this.yScale3 = null;
             
             this.yScale1 = yScale1;
         } else {
             this.yScale1 = yScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
                 js.setLength(0);
             }
         }
@@ -9159,28 +13034,25 @@ public class Plot extends VisualBaseWithBounds {
     }
 
 
-    public Plot setYScale(String yScale2) {
+    public Plot setYScale(ScatterBase yScale2) {
         if (jsBase == null) {
             this.yScale = null;
             this.yScale1 = null;
             this.yScale2 = null;
+            this.yScale3 = null;
             
             this.yScale2 = yScale2;
         } else {
             this.yScale2 = yScale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".yScale(%s)", yScale2));
+            js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale2));
+                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -9334,6 +13206,13 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSseriesType1() {
+        if (seriesType1 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType1);
+        }
+        return "";
+    }
+
     private String generateJSmapping1() {
         if (mapping1 != null) {
             return String.format(Locale.US, "mapping: %s,", (mapping1 != null) ? mapping1.generateJs() : "null");
@@ -9362,16 +13241,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType1() {
-        if (seriesType1 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType1 != null) ? seriesType1.generateJs() : "null");
+    private String generateJSseriesType2() {
+        if (seriesType2 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType2 != null) ? seriesType2.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType2() {
-        if (seriesType2 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType2);
+    private String generateJSseriesType3() {
+        if (seriesType3 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType3);
         }
         return "";
     }
@@ -9446,9 +13325,23 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSupSeriesType1() {
+        if (upSeriesType1 != null) {
+            return String.format(Locale.US, "upSeriesType: %s,", upSeriesType1);
+        }
+        return "";
+    }
+
     private String generateJSdownSeriesType() {
         if (downSeriesType != null) {
             return String.format(Locale.US, "downSeriesType: %s,", (downSeriesType != null) ? downSeriesType.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSdownSeriesType1() {
+        if (downSeriesType1 != null) {
+            return String.format(Locale.US, "downSeriesType: %s,", downSeriesType1);
         }
         return "";
     }
@@ -9467,9 +13360,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType3() {
-        if (seriesType3 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType3 != null) ? seriesType3.generateJs() : "null");
+    private String generateJSseriesType4() {
+        if (seriesType4 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType4 != null) ? seriesType4.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSseriesType5() {
+        if (seriesType5 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType5);
         }
         return "";
     }
@@ -9579,16 +13479,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType4() {
-        if (seriesType4 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType4 != null) ? seriesType4.generateJs() : "null");
+    private String generateJSseriesType6() {
+        if (seriesType6 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType6 != null) ? seriesType6.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType5() {
-        if (seriesType5 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType5);
+    private String generateJSseriesType7() {
+        if (seriesType7 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType7);
         }
         return "";
     }
@@ -9614,16 +13514,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType6() {
-        if (seriesType6 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType6 != null) ? seriesType6.generateJs() : "null");
+    private String generateJSseriesType8() {
+        if (seriesType8 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType8 != null) ? seriesType8.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType7() {
-        if (seriesType7 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType7);
+    private String generateJSseriesType9() {
+        if (seriesType9 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType9);
         }
         return "";
     }
@@ -9684,9 +13584,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType8() {
-        if (seriesType8 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType8 != null) ? seriesType8.generateJs() : "null");
+    private String generateJSseriesType10() {
+        if (seriesType10 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType10 != null) ? seriesType10.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSseriesType11() {
+        if (seriesType11 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType11);
         }
         return "";
     }
@@ -9714,21 +13621,28 @@ public class Plot extends VisualBaseWithBounds {
 
     private String generateJSmaType() {
         if (maType != null) {
-            return String.format(Locale.US, "maType: %s,", maType);
+            return String.format(Locale.US, "maType: %s,", (maType != null) ? maType.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSmaType1() {
         if (maType1 != null) {
-            return String.format(Locale.US, "maType: %s,", (maType1 != null) ? maType1.generateJs() : "null");
+            return String.format(Locale.US, "maType: %s,", maType1);
         }
         return "";
     }
 
-    private String generateJSseriesType9() {
-        if (seriesType9 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType9 != null) ? seriesType9.generateJs() : "null");
+    private String generateJSseriesType12() {
+        if (seriesType12 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType12 != null) ? seriesType12.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSseriesType13() {
+        if (seriesType13 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType13);
         }
         return "";
     }
@@ -9747,9 +13661,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType10() {
-        if (seriesType10 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType10 != null) ? seriesType10.generateJs() : "null");
+    private String generateJSseriesType14() {
+        if (seriesType14 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType14 != null) ? seriesType14.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSseriesType15() {
+        if (seriesType15 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType15);
         }
         return "";
     }
@@ -9812,14 +13733,14 @@ public class Plot extends VisualBaseWithBounds {
 
     private String generateJSdefaultSeriesType() {
         if (defaultSeriesType != null) {
-            return String.format(Locale.US, "defaultSeriesType: %s,", defaultSeriesType);
+            return String.format(Locale.US, "defaultSeriesType: %s,", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSdefaultSeriesType1() {
         if (defaultSeriesType1 != null) {
-            return String.format(Locale.US, "defaultSeriesType: %s,", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null");
+            return String.format(Locale.US, "defaultSeriesType: %s,", defaultSeriesType1);
         }
         return "";
     }
@@ -9859,6 +13780,13 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSpdiSeriesType1() {
+        if (pdiSeriesType1 != null) {
+            return String.format(Locale.US, "pdiSeriesType: %s,", pdiSeriesType1);
+        }
+        return "";
+    }
+
     private String generateJSndiSeriesType() {
         if (ndiSeriesType != null) {
             return String.format(Locale.US, "ndiSeriesType: %s,", (ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null");
@@ -9866,9 +13794,23 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSndiSeriesType1() {
+        if (ndiSeriesType1 != null) {
+            return String.format(Locale.US, "ndiSeriesType: %s,", ndiSeriesType1);
+        }
+        return "";
+    }
+
     private String generateJSadxSeriesType() {
         if (adxSeriesType != null) {
             return String.format(Locale.US, "adxSeriesType: %s,", (adxSeriesType != null) ? adxSeriesType.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSadxSeriesType1() {
+        if (adxSeriesType1 != null) {
+            return String.format(Locale.US, "adxSeriesType: %s,", adxSeriesType1);
         }
         return "";
     }
@@ -9887,16 +13829,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType11() {
-        if (seriesType11 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType11);
+    private String generateJSseriesType16() {
+        if (seriesType16 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType16 != null) ? seriesType16.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType12() {
-        if (seriesType12 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType12 != null) ? seriesType12.generateJs() : "null");
+    private String generateJSseriesType17() {
+        if (seriesType17 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType17);
         }
         return "";
     }
@@ -10041,9 +13983,23 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSkMAType1() {
+        if (kMAType1 != null) {
+            return String.format(Locale.US, "kMAType: %s,", kMAType1);
+        }
+        return "";
+    }
+
     private String generateJSdMAType() {
         if (dMAType != null) {
             return String.format(Locale.US, "dMAType: %s,", (dMAType != null) ? dMAType.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSdMAType1() {
+        if (dMAType1 != null) {
+            return String.format(Locale.US, "dMAType: %s,", dMAType1);
         }
         return "";
     }
@@ -10069,6 +14025,13 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSkSeriesType1() {
+        if (kSeriesType1 != null) {
+            return String.format(Locale.US, "kSeriesType: %s,", kSeriesType1);
+        }
+        return "";
+    }
+
     private String generateJSdSeriesType() {
         if (dSeriesType != null) {
             return String.format(Locale.US, "dSeriesType: %s,", (dSeriesType != null) ? dSeriesType.generateJs() : "null");
@@ -10076,9 +14039,23 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSdSeriesType1() {
+        if (dSeriesType1 != null) {
+            return String.format(Locale.US, "dSeriesType: %s,", dSeriesType1);
+        }
+        return "";
+    }
+
     private String generateJSjSeriesType() {
         if (jSeriesType != null) {
             return String.format(Locale.US, "jSeriesType: %s,", (jSeriesType != null) ? jSeriesType.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSjSeriesType1() {
+        if (jSeriesType1 != null) {
+            return String.format(Locale.US, "jSeriesType: %s,", jSeriesType1);
         }
         return "";
     }
@@ -10169,42 +14146,42 @@ public class Plot extends VisualBaseWithBounds {
 
     private String generateJSmacdSeriesType() {
         if (macdSeriesType != null) {
-            return String.format(Locale.US, "macdSeriesType: %s,", macdSeriesType);
+            return String.format(Locale.US, "macdSeriesType: %s,", (macdSeriesType != null) ? macdSeriesType.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSmacdSeriesType1() {
         if (macdSeriesType1 != null) {
-            return String.format(Locale.US, "macdSeriesType: %s,", (macdSeriesType1 != null) ? macdSeriesType1.generateJs() : "null");
+            return String.format(Locale.US, "macdSeriesType: %s,", macdSeriesType1);
         }
         return "";
     }
 
     private String generateJSsignalSeriesType() {
         if (signalSeriesType != null) {
-            return String.format(Locale.US, "signalSeriesType: %s,", signalSeriesType);
+            return String.format(Locale.US, "signalSeriesType: %s,", (signalSeriesType != null) ? signalSeriesType.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSsignalSeriesType1() {
         if (signalSeriesType1 != null) {
-            return String.format(Locale.US, "signalSeriesType: %s,", (signalSeriesType1 != null) ? signalSeriesType1.generateJs() : "null");
+            return String.format(Locale.US, "signalSeriesType: %s,", signalSeriesType1);
         }
         return "";
     }
 
     private String generateJShistogramSeriesType() {
         if (histogramSeriesType != null) {
-            return String.format(Locale.US, "histogramSeriesType: %s,", histogramSeriesType);
+            return String.format(Locale.US, "histogramSeriesType: %s,", (histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJShistogramSeriesType1() {
         if (histogramSeriesType1 != null) {
-            return String.format(Locale.US, "histogramSeriesType: %s,", (histogramSeriesType1 != null) ? histogramSeriesType1.generateJs() : "null");
+            return String.format(Locale.US, "histogramSeriesType: %s,", histogramSeriesType1);
         }
         return "";
     }
@@ -10272,6 +14249,13 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSmarkerPalette3() {
+        if (markerPalette3 != null) {
+            return String.format(Locale.US, "markerPalette: %s,", Arrays.toString(markerPalette3));
+        }
+        return "";
+    }
+
     private String generateJSmaxPointWidth() {
         if (maxPointWidth != null) {
             return String.format(Locale.US, "maxPointWidth: %f,", maxPointWidth);
@@ -10314,16 +14298,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType13() {
-        if (seriesType13 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType13 != null) ? seriesType13.generateJs() : "null");
+    private String generateJSseriesType18() {
+        if (seriesType18 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType18 != null) ? seriesType18.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType14() {
-        if (seriesType14 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType14);
+    private String generateJSseriesType19() {
+        if (seriesType19 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType19);
         }
         return "";
     }
@@ -10657,16 +14641,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType15() {
-        if (seriesType15 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType15);
+    private String generateJSseriesType20() {
+        if (seriesType20 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType20 != null) ? seriesType20.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType16() {
-        if (seriesType16 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType16 != null) ? seriesType16.generateJs() : "null");
+    private String generateJSseriesType21() {
+        if (seriesType21 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType21);
         }
         return "";
     }
@@ -10685,16 +14669,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType17() {
-        if (seriesType17 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType17);
+    private String generateJSseriesType22() {
+        if (seriesType22 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType22 != null) ? seriesType22.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType18() {
-        if (seriesType18 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType18 != null) ? seriesType18.generateJs() : "null");
+    private String generateJSseriesType23() {
+        if (seriesType23 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType23);
         }
         return "";
     }
@@ -10713,16 +14697,16 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSseriesType19() {
-        if (seriesType19 != null) {
-            return String.format(Locale.US, "seriesType: %s,", seriesType19);
+    private String generateJSseriesType24() {
+        if (seriesType24 != null) {
+            return String.format(Locale.US, "seriesType: %s,", (seriesType24 != null) ? seriesType24.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSseriesType20() {
-        if (seriesType20 != null) {
-            return String.format(Locale.US, "seriesType: %s,", (seriesType20 != null) ? seriesType20.generateJs() : "null");
+    private String generateJSseriesType25() {
+        if (seriesType25 != null) {
+            return String.format(Locale.US, "seriesType: %s,", seriesType25);
         }
         return "";
     }
@@ -10965,30 +14949,58 @@ public class Plot extends VisualBaseWithBounds {
         return "";
     }
 
-    private String generateJSkMAType1() {
-        if (kMAType1 != null) {
-            return String.format(Locale.US, "kMAType: %s,", (kMAType1 != null) ? kMAType1.generateJs() : "null");
+    private String generateJSkMAType2() {
+        if (kMAType2 != null) {
+            return String.format(Locale.US, "kMAType: %s,", (kMAType2 != null) ? kMAType2.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSdMAType1() {
-        if (dMAType1 != null) {
-            return String.format(Locale.US, "dMAType: %s,", (dMAType1 != null) ? dMAType1.generateJs() : "null");
+    private String generateJSkMAType3() {
+        if (kMAType3 != null) {
+            return String.format(Locale.US, "kMAType: %s,", kMAType3);
         }
         return "";
     }
 
-    private String generateJSkSeriesType1() {
-        if (kSeriesType1 != null) {
-            return String.format(Locale.US, "kSeriesType: %s,", (kSeriesType1 != null) ? kSeriesType1.generateJs() : "null");
+    private String generateJSdMAType2() {
+        if (dMAType2 != null) {
+            return String.format(Locale.US, "dMAType: %s,", (dMAType2 != null) ? dMAType2.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSdSeriesType1() {
-        if (dSeriesType1 != null) {
-            return String.format(Locale.US, "dSeriesType: %s,", (dSeriesType1 != null) ? dSeriesType1.generateJs() : "null");
+    private String generateJSdMAType3() {
+        if (dMAType3 != null) {
+            return String.format(Locale.US, "dMAType: %s,", dMAType3);
+        }
+        return "";
+    }
+
+    private String generateJSkSeriesType2() {
+        if (kSeriesType2 != null) {
+            return String.format(Locale.US, "kSeriesType: %s,", (kSeriesType2 != null) ? kSeriesType2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSkSeriesType3() {
+        if (kSeriesType3 != null) {
+            return String.format(Locale.US, "kSeriesType: %s,", kSeriesType3);
+        }
+        return "";
+    }
+
+    private String generateJSdSeriesType2() {
+        if (dSeriesType2 != null) {
+            return String.format(Locale.US, "dSeriesType: %s,", (dSeriesType2 != null) ? dSeriesType2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSdSeriesType3() {
+        if (dSeriesType3 != null) {
+            return String.format(Locale.US, "dSeriesType: %s,", dSeriesType3);
         }
         return "";
     }
@@ -11191,14 +15203,21 @@ public class Plot extends VisualBaseWithBounds {
 
     private String generateJSyScale1() {
         if (yScale1 != null) {
-            return String.format(Locale.US, "yScale: %s,", (yScale1 != null) ? yScale1.generateJs() : "null");
+            return String.format(Locale.US, "yScale: %s,", yScale1);
         }
         return "";
     }
 
     private String generateJSyScale2() {
         if (yScale2 != null) {
-            return String.format(Locale.US, "yScale: %s,", yScale2);
+            return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSyScale3() {
+        if (yScale3 != null) {
+            return String.format(Locale.US, "yScale: %s,", yScale3);
         }
         return "";
     }
@@ -11244,12 +15263,13 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSvar_args());
             js.append(generateJSmapping());
             js.append(generateJSseriesType());
+            js.append(generateJSseriesType1());
             js.append(generateJSmapping1());
             js.append(generateJSperiod());
             js.append(generateJSfastPeriod());
             js.append(generateJSslowPeriod());
-            js.append(generateJSseriesType1());
             js.append(generateJSseriesType2());
+            js.append(generateJSseriesType3());
             js.append(generateJSannotationsList());
             js.append(generateJSdata());
             js.append(generateJSdata1());
@@ -11260,10 +15280,13 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSmapping2());
             js.append(generateJSperiod1());
             js.append(generateJSupSeriesType());
+            js.append(generateJSupSeriesType1());
             js.append(generateJSdownSeriesType());
+            js.append(generateJSdownSeriesType1());
             js.append(generateJSmapping3());
             js.append(generateJSperiod2());
-            js.append(generateJSseriesType3());
+            js.append(generateJSseriesType4());
+            js.append(generateJSseriesType5());
             js.append(generateJSbackground());
             js.append(generateJSbackground1());
             js.append(generateJSbackground2());
@@ -11279,13 +15302,13 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSmapping5());
             js.append(generateJSperiod4());
             js.append(generateJSdeviation1());
-            js.append(generateJSseriesType4());
-            js.append(generateJSseriesType5());
+            js.append(generateJSseriesType6());
+            js.append(generateJSseriesType7());
             js.append(generateJSmapping6());
             js.append(generateJSperiod5());
             js.append(generateJSdeviation2());
-            js.append(generateJSseriesType6());
-            js.append(generateJSseriesType7());
+            js.append(generateJSseriesType8());
+            js.append(generateJSseriesType9());
             js.append(generateJSdata4());
             js.append(generateJSdata5());
             js.append(generateJSdata6());
@@ -11294,16 +15317,19 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJScsvSettings1());
             js.append(generateJSmapping7());
             js.append(generateJSperiod6());
-            js.append(generateJSseriesType8());
+            js.append(generateJSseriesType10());
+            js.append(generateJSseriesType11());
             js.append(generateJSmapping8());
             js.append(generateJSfastPeriod1());
             js.append(generateJSslowPeriod1());
             js.append(generateJSmaType());
             js.append(generateJSmaType1());
-            js.append(generateJSseriesType9());
+            js.append(generateJSseriesType12());
+            js.append(generateJSseriesType13());
             js.append(generateJSmapping9());
             js.append(generateJSperiod7());
-            js.append(generateJSseriesType10());
+            js.append(generateJSseriesType14());
+            js.append(generateJSseriesType15());
             js.append(generateJSdata8());
             js.append(generateJSdata9());
             js.append(generateJSdata10());
@@ -11319,12 +15345,15 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSadxPeriod());
             js.append(generateJSuseWildersSmoothing());
             js.append(generateJSpdiSeriesType());
+            js.append(generateJSpdiSeriesType1());
             js.append(generateJSndiSeriesType());
+            js.append(generateJSndiSeriesType1());
             js.append(generateJSadxSeriesType());
+            js.append(generateJSadxSeriesType1());
             js.append(generateJSmapping11());
             js.append(generateJSperiod9());
-            js.append(generateJSseriesType11());
-            js.append(generateJSseriesType12());
+            js.append(generateJSseriesType16());
+            js.append(generateJSseriesType17());
             js.append(generateJShatchFillPalette());
             js.append(generateJShatchFillPalette1());
             js.append(generateJShatchFillPalette2());
@@ -11345,12 +15374,17 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSkMAPeriod());
             js.append(generateJSdPeriod());
             js.append(generateJSkMAType());
+            js.append(generateJSkMAType1());
             js.append(generateJSdMAType());
+            js.append(generateJSdMAType1());
             js.append(generateJSkMultiplier());
             js.append(generateJSdMultiplier());
             js.append(generateJSkSeriesType());
+            js.append(generateJSkSeriesType1());
             js.append(generateJSdSeriesType());
+            js.append(generateJSdSeriesType1());
             js.append(generateJSjSeriesType());
+            js.append(generateJSjSeriesType1());
             js.append(generateJSlegend());
             js.append(generateJSlegend1());
             js.append(generateJSdata20());
@@ -11378,14 +15412,15 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSmarkerPalette());
             js.append(generateJSmarkerPalette1());
             js.append(generateJSmarkerPalette2());
+            js.append(generateJSmarkerPalette3());
             js.append(generateJSmaxPointWidth());
             js.append(generateJSmaxPointWidth1());
             js.append(generateJSminPointLength());
             js.append(generateJSminPointLength1());
             js.append(generateJSmapping14());
             js.append(generateJSperiod10());
-            js.append(generateJSseriesType13());
-            js.append(generateJSseriesType14());
+            js.append(generateJSseriesType18());
+            js.append(generateJSseriesType19());
             js.append(generateJSnoData());
             js.append(generateJSdata28());
             js.append(generateJSdata29());
@@ -11433,16 +15468,16 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSindex1());
             js.append(generateJSmapping15());
             js.append(generateJSperiod11());
-            js.append(generateJSseriesType15());
-            js.append(generateJSseriesType16());
+            js.append(generateJSseriesType20());
+            js.append(generateJSseriesType21());
             js.append(generateJSmapping16());
             js.append(generateJSperiod12());
-            js.append(generateJSseriesType17());
-            js.append(generateJSseriesType18());
+            js.append(generateJSseriesType22());
+            js.append(generateJSseriesType23());
             js.append(generateJSmapping17());
             js.append(generateJSperiod13());
-            js.append(generateJSseriesType19());
-            js.append(generateJSseriesType20());
+            js.append(generateJSseriesType24());
+            js.append(generateJSseriesType25());
             js.append(generateJSdata48());
             js.append(generateJSdata49());
             js.append(generateJSdata50());
@@ -11477,10 +15512,14 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSkPeriod1());
             js.append(generateJSkMAPeriod1());
             js.append(generateJSdPeriod1());
-            js.append(generateJSkMAType1());
-            js.append(generateJSdMAType1());
-            js.append(generateJSkSeriesType1());
-            js.append(generateJSdSeriesType1());
+            js.append(generateJSkMAType2());
+            js.append(generateJSkMAType3());
+            js.append(generateJSdMAType2());
+            js.append(generateJSdMAType3());
+            js.append(generateJSkSeriesType2());
+            js.append(generateJSkSeriesType3());
+            js.append(generateJSdSeriesType2());
+            js.append(generateJSdSeriesType3());
             js.append(generateJSxAxis());
             js.append(generateJSxAxis1());
             js.append(generateJSxGrid());
@@ -11511,6 +15550,7 @@ public class Plot extends VisualBaseWithBounds {
             js.append(generateJSyScale());
             js.append(generateJSyScale1());
             js.append(generateJSyScale2());
+            js.append(generateJSyScale3());
             js.append("}");
         }
 

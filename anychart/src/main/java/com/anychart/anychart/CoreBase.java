@@ -36,10 +36,6 @@ public class CoreBase extends JsObject {
             this.type = type;
             this.useCapture = useCapture;
             this.listenerScope = listenerScope;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -76,10 +72,6 @@ public class CoreBase extends JsObject {
             this.type1 = type1;
             this.useCapture1 = useCapture1;
             this.listenerScope1 = listenerScope1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -105,10 +97,6 @@ public class CoreBase extends JsObject {
             this.type2 = type2;
         } else {
             this.type2 = type2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -149,10 +137,6 @@ public class CoreBase extends JsObject {
             this.type3 = type3;
             this.useCapture2 = useCapture2;
             this.listenerScope2 = listenerScope2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -174,10 +158,6 @@ public class CoreBase extends JsObject {
             this.key = key;
         } else {
             this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

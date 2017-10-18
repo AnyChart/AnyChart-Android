@@ -39,10 +39,6 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
             this.adjustByHeight = adjustByHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -70,10 +66,6 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
             this.adjustByHeight = adjustByHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -101,10 +93,6 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
             this.adjustByHeight = adjustByHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -142,10 +130,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -171,10 +155,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.background2 = background2;
         } else {
             this.background2 = background2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -197,10 +177,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -223,10 +199,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.drawBottomLine = drawBottomLine;
         } else {
             this.drawBottomLine = drawBottomLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -249,10 +221,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.drawLeftLine = drawLeftLine;
         } else {
             this.drawLeftLine = drawLeftLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -275,10 +243,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.drawRightLine = drawRightLine;
         } else {
             this.drawRightLine = drawRightLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -301,10 +265,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.drawTopLine = drawTopLine;
         } else {
             this.drawTopLine = drawTopLine;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -327,10 +287,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -356,10 +312,6 @@ public class TimeLine extends VisualBaseWithBounds {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -404,10 +356,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -445,10 +393,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -486,10 +430,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -527,10 +467,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -568,10 +504,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -609,10 +541,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -668,10 +596,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -719,10 +643,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -746,10 +666,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -776,10 +692,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontDecoration = fontDecoration;
         } else {
             this.fontDecoration = fontDecoration;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -804,10 +716,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontDecoration1 = fontDecoration1;
         } else {
             this.fontDecoration1 = fontDecoration1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -830,10 +738,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -856,10 +760,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -886,10 +786,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontSize = fontSize;
         } else {
             this.fontSize = fontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -914,10 +810,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontSize1 = fontSize1;
         } else {
             this.fontSize1 = fontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -944,10 +836,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontStyle = fontStyle;
         } else {
             this.fontStyle = fontStyle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -972,10 +860,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontStyle1 = fontStyle1;
         } else {
             this.fontStyle1 = fontStyle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1002,10 +886,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontVariant = fontVariant;
         } else {
             this.fontVariant = fontVariant;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1030,10 +910,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontVariant1 = fontVariant1;
         } else {
             this.fontVariant1 = fontVariant1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1060,10 +936,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontWeight = fontWeight;
         } else {
             this.fontWeight = fontWeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1088,10 +960,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.fontWeight1 = fontWeight1;
         } else {
             this.fontWeight1 = fontWeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1114,10 +982,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.format = format;
         } else {
             this.format = format;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1144,10 +1008,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.hAlign = hAlign;
         } else {
             this.hAlign = hAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1172,10 +1032,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.hAlign1 = hAlign1;
         } else {
             this.hAlign1 = hAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1207,10 +1063,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.holidays = holidays;
         } else {
             this.holidays = holidays;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1237,10 +1089,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.letterSpacing = letterSpacing;
         } else {
             this.letterSpacing = letterSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1265,10 +1113,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.letterSpacing1 = letterSpacing1;
         } else {
             this.letterSpacing1 = letterSpacing1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1291,10 +1135,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.levelHeight = levelHeight;
         } else {
             this.levelHeight = levelHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1321,10 +1161,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.lineHeight = lineHeight;
         } else {
             this.lineHeight = lineHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1349,10 +1185,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.lineHeight1 = lineHeight1;
         } else {
             this.lineHeight1 = lineHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1379,10 +1211,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.maxFontSize = maxFontSize;
         } else {
             this.maxFontSize = maxFontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1407,10 +1235,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.maxFontSize1 = maxFontSize1;
         } else {
             this.maxFontSize1 = maxFontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1437,10 +1261,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.minFontSize = minFontSize;
         } else {
             this.minFontSize = minFontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1465,10 +1285,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.minFontSize1 = minFontSize1;
         } else {
             this.minFontSize1 = minFontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1504,10 +1320,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.overlay = overlay;
         } else {
             this.overlay = overlay;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1532,10 +1344,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.overlay1 = overlay1;
         } else {
             this.overlay1 = overlay1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1573,10 +1381,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.padding = padding;
         } else {
             this.padding = padding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1602,10 +1406,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.padding1 = padding1;
         } else {
             this.padding1 = padding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1615,6 +1415,31 @@ public class TimeLine extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public TimeLine setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
@@ -1677,10 +1502,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1744,10 +1565,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1770,10 +1587,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1815,10 +1628,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1853,10 +1662,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1891,10 +1696,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1921,10 +1722,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.textDirection = textDirection;
         } else {
             this.textDirection = textDirection;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1949,10 +1746,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.textDirection1 = textDirection1;
         } else {
             this.textDirection1 = textDirection1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1975,10 +1768,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2005,10 +1794,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.textOverflow = textOverflow;
         } else {
             this.textOverflow = textOverflow;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2033,10 +1818,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.textOverflow1 = textOverflow1;
         } else {
             this.textOverflow1 = textOverflow1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2059,10 +1840,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2089,10 +1866,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.vAlign = vAlign;
         } else {
             this.vAlign = vAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2117,10 +1890,6 @@ public class TimeLine extends VisualBaseWithBounds {
             this.vAlign1 = vAlign1;
         } else {
             this.vAlign1 = vAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2136,10 +1905,10 @@ public class TimeLine extends VisualBaseWithBounds {
         return this;
     }
 
-    private String wordBreak;
-    private EnumsWordBreak wordBreak1;
+    private EnumsWordBreak wordBreak;
+    private String wordBreak1;
 
-    public TimeLine setWordBreak(String wordBreak) {
+    public TimeLine setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -2147,19 +1916,15 @@ public class TimeLine extends VisualBaseWithBounds {
             this.wordBreak = wordBreak;
         } else {
             this.wordBreak = wordBreak;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -2167,7 +1932,7 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
-    public TimeLine setWordBreak(EnumsWordBreak wordBreak1) {
+    public TimeLine setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -2175,29 +1940,25 @@ public class TimeLine extends VisualBaseWithBounds {
             this.wordBreak1 = wordBreak1;
         } else {
             this.wordBreak1 = wordBreak1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String wordWrap;
-    private EnumsWordWrap wordWrap1;
+    private EnumsWordWrap wordWrap;
+    private String wordWrap1;
 
-    public TimeLine setWordWrap(String wordWrap) {
+    public TimeLine setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -2205,19 +1966,15 @@ public class TimeLine extends VisualBaseWithBounds {
             this.wordWrap = wordWrap;
         } else {
             this.wordWrap = wordWrap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -2225,7 +1982,7 @@ public class TimeLine extends VisualBaseWithBounds {
     }
 
 
-    public TimeLine setWordWrap(EnumsWordWrap wordWrap1) {
+    public TimeLine setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -2233,19 +1990,15 @@ public class TimeLine extends VisualBaseWithBounds {
             this.wordWrap1 = wordWrap1;
         } else {
             this.wordWrap1 = wordWrap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
                 js.setLength(0);
             }
         }
@@ -2884,28 +2637,28 @@ public class TimeLine extends VisualBaseWithBounds {
 
     private String generateJSwordBreak() {
         if (wordBreak != null) {
-            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak != null) ? wordBreak.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordBreak1() {
         if (wordBreak1 != null) {
-            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak1);
         }
         return "";
     }
 
     private String generateJSwordWrap() {
         if (wordWrap != null) {
-            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap != null) ? wordWrap.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordWrap1() {
         if (wordWrap1 != null) {
-            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap1);
         }
         return "";
     }

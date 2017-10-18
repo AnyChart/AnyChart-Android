@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class ChartsStock extends Chart {
 
-    public ChartsStock() {
-        js.append("chart = anychart.stock();");
+    protected ChartsStock(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private Crosshair getCrosshair;
 
     public Crosshair getCrosshair() {
@@ -22,7 +25,6 @@ public class ChartsStock extends Chart {
 
         return getCrosshair;
     }
-
     private String crosshair;
     private Boolean crosshair1;
     private List<ChartsStock> setCrosshair = new ArrayList<>();
@@ -83,6 +85,7 @@ public class ChartsStock extends Chart {
         return "";
     }
 
+
     private Grouping getGrouping;
 
     public Grouping getGrouping() {
@@ -91,7 +94,6 @@ public class ChartsStock extends Chart {
 
         return getGrouping;
     }
-
     private Boolean grouping;
     private String[] grouping1;
     private String grouping2;
@@ -182,6 +184,7 @@ public class ChartsStock extends Chart {
         return "";
     }
 
+
     private StockInteractivity getInteractivity;
 
     public StockInteractivity getInteractivity() {
@@ -190,9 +193,9 @@ public class ChartsStock extends Chart {
 
         return getInteractivity;
     }
-
     private String interactivity;
     private HoverMode interactivity1;
+    private String interactivity2;
     private List<SeparateChart> setInteractivity = new ArrayList<>();
 
     public SeparateChart setInteractivity(String interactivity) {
@@ -255,6 +258,7 @@ public class ChartsStock extends Chart {
         return "";
     }
 
+
     private Plot getPlot;
 
     public Plot getPlot() {
@@ -264,15 +268,13 @@ public class ChartsStock extends Chart {
         return getPlot;
     }
 
-    private Plot getPlot1;
+    private List<Plot> getPlot1 = new ArrayList<>();
 
     public Plot getPlot(Double index) {
-        if (getPlot1 == null)
-            getPlot1 = new Plot(jsBase + ".plot("+ index+")");
-
-        return getPlot1;
+        Plot item = new Plot(jsBase + ".plot("+ index+")");
+        getPlot1.add(item);
+        return item;
     }
-
     private String plot;
     private Boolean plot1;
     private List<ChartsStock> setPlot = new ArrayList<>();
@@ -426,6 +428,7 @@ public class ChartsStock extends Chart {
         return "";
     }
 
+
     private StockScroller getScroller;
 
     public StockScroller getScroller() {
@@ -434,7 +437,6 @@ public class ChartsStock extends Chart {
 
         return getScroller;
     }
-
     private String scroller;
     private Boolean scroller1;
     private List<ChartsStock> setScroller = new ArrayList<>();
@@ -495,6 +497,7 @@ public class ChartsStock extends Chart {
         return "";
     }
 
+
     private Grouping getScrollerGrouping;
 
     public Grouping getScrollerGrouping() {
@@ -503,7 +506,6 @@ public class ChartsStock extends Chart {
 
         return getScrollerGrouping;
     }
-
     private Boolean scrollerGrouping;
     private String[] scrollerGrouping1;
     private String scrollerGrouping2;
@@ -597,12 +599,14 @@ public class ChartsStock extends Chart {
     private Double typeOrUnitOrStart;
     private String typeOrUnitOrStart1;
     private StockRangeType typeOrUnitOrStart2;
-    private Interval typeOrUnitOrStart3;
+    private String typeOrUnitOrStart3;
+    private Interval typeOrUnitOrStart4;
     private Double endOrCountOrDispatchEvent;
     private String endOrCountOrDispatchEvent1;
     private Boolean endOrCountOrDispatchEvent2;
     private StockRangeAnchor anchorOrDispatchEvent;
-    private Boolean anchorOrDispatchEvent1;
+    private String anchorOrDispatchEvent1;
+    private Boolean anchorOrDispatchEvent2;
     private Boolean dispatchEvent;
     private List<ChartsStock> setSelectRange = new ArrayList<>();
 
@@ -638,7 +642,7 @@ public class ChartsStock extends Chart {
 
     private List<ChartsStock> setSelectRange1 = new ArrayList<>();
 
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart = typeOrUnitOrStart;
         this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -647,12 +651,12 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -669,6 +673,38 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange2 = new ArrayList<>();
+
+    public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart = typeOrUnitOrStart;
+        this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange2() {
+        if (!setSelectRange2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange3 = new ArrayList<>();
 
     public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart = typeOrUnitOrStart;
@@ -689,38 +725,6 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange2() {
-        if (!setSelectRange2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<ChartsStock> setSelectRange3 = new ArrayList<>();
-
-    public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        this.typeOrUnitOrStart = typeOrUnitOrStart;
-        this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
-        this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
-        this.dispatchEvent = dispatchEvent;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
-
-//        js.append(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetSelectRange3() {
         if (!setSelectRange3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -733,6 +737,70 @@ public class ChartsStock extends Chart {
     }
 
     private List<ChartsStock> setSelectRange4 = new ArrayList<>();
+
+    public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart = typeOrUnitOrStart;
+        this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
+        this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange4() {
+        if (!setSelectRange4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange5 = new ArrayList<>();
+
+    public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart = typeOrUnitOrStart;
+        this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange5() {
+        if (!setSelectRange5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange6 = new ArrayList<>();
 
     public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart = typeOrUnitOrStart;
@@ -753,10 +821,10 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange4() {
-        if (!setSelectRange4.isEmpty()) {
+    private String generateJSsetSelectRange6() {
+        if (!setSelectRange6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange4) {
+            for (ChartsStock item : setSelectRange6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -764,9 +832,9 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange5 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange7 = new ArrayList<>();
 
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart = typeOrUnitOrStart;
         this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -775,20 +843,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange5() {
-        if (!setSelectRange5.isEmpty()) {
+    private String generateJSsetSelectRange7() {
+        if (!setSelectRange7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange5) {
+            for (ChartsStock item : setSelectRange7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -796,7 +864,39 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange6 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange8 = new ArrayList<>();
+
+    public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart = typeOrUnitOrStart;
+        this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange8() {
+        if (!setSelectRange8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange9 = new ArrayList<>();
 
     public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
@@ -817,10 +917,10 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange6() {
-        if (!setSelectRange6.isEmpty()) {
+    private String generateJSsetSelectRange9() {
+        if (!setSelectRange9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange6) {
+            for (ChartsStock item : setSelectRange9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -828,9 +928,9 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange7 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange10 = new ArrayList<>();
 
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
         this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -839,20 +939,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange7() {
-        if (!setSelectRange7.isEmpty()) {
+    private String generateJSsetSelectRange10() {
+        if (!setSelectRange10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange7) {
+            for (ChartsStock item : setSelectRange10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -860,7 +960,39 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange8 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange11 = new ArrayList<>();
+
+    public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
+        this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange11() {
+        if (!setSelectRange11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange12 = new ArrayList<>();
 
     public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
@@ -881,10 +1013,10 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange8() {
-        if (!setSelectRange8.isEmpty()) {
+    private String generateJSsetSelectRange12() {
+        if (!setSelectRange12.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange8) {
+            for (ChartsStock item : setSelectRange12) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -892,9 +1024,9 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange9 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange13 = new ArrayList<>();
 
-    public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
         this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -903,20 +1035,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange9() {
-        if (!setSelectRange9.isEmpty()) {
+    private String generateJSsetSelectRange13() {
+        if (!setSelectRange13.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange9) {
+            for (ChartsStock item : setSelectRange13) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -924,7 +1056,39 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange10 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange14 = new ArrayList<>();
+
+    public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
+        this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange14() {
+        if (!setSelectRange14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange14) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange15 = new ArrayList<>();
 
     public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
@@ -945,10 +1109,10 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange10() {
-        if (!setSelectRange10.isEmpty()) {
+    private String generateJSsetSelectRange15() {
+        if (!setSelectRange15.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange10) {
+            for (ChartsStock item : setSelectRange15) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -956,9 +1120,9 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange11 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange16 = new ArrayList<>();
 
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
         this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -967,20 +1131,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange11() {
-        if (!setSelectRange11.isEmpty()) {
+    private String generateJSsetSelectRange16() {
+        if (!setSelectRange16.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange11) {
+            for (ChartsStock item : setSelectRange16) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -988,7 +1152,39 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange12 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange17 = new ArrayList<>();
+
+    public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart1 = typeOrUnitOrStart1;
+        this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart1, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange17() {
+        if (!setSelectRange17.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange17) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange18 = new ArrayList<>();
 
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
@@ -1009,10 +1205,10 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange12() {
-        if (!setSelectRange12.isEmpty()) {
+    private String generateJSsetSelectRange18() {
+        if (!setSelectRange18.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange12) {
+            for (ChartsStock item : setSelectRange18) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1020,9 +1216,9 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange13 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange19 = new ArrayList<>();
 
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
         this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -1031,20 +1227,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange13() {
-        if (!setSelectRange13.isEmpty()) {
+    private String generateJSsetSelectRange19() {
+        if (!setSelectRange19.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange13) {
+            for (ChartsStock item : setSelectRange19) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1052,7 +1248,39 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange14 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange20 = new ArrayList<>();
+
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
+        this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange20() {
+        if (!setSelectRange20.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange20) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange21 = new ArrayList<>();
 
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
@@ -1073,10 +1301,10 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange14() {
-        if (!setSelectRange14.isEmpty()) {
+    private String generateJSsetSelectRange21() {
+        if (!setSelectRange21.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange14) {
+            for (ChartsStock item : setSelectRange21) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1084,9 +1312,9 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange15 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange22 = new ArrayList<>();
 
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
         this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -1095,20 +1323,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange15() {
-        if (!setSelectRange15.isEmpty()) {
+    private String generateJSsetSelectRange22() {
+        if (!setSelectRange22.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange15) {
+            for (ChartsStock item : setSelectRange22) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1116,7 +1344,39 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange16 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange23 = new ArrayList<>();
+
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
+        this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange23() {
+        if (!setSelectRange23.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange23) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange24 = new ArrayList<>();
 
     public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
@@ -1137,10 +1397,10 @@ public class ChartsStock extends Chart {
         }
         return this;
     }
-    private String generateJSsetSelectRange16() {
-        if (!setSelectRange16.isEmpty()) {
+    private String generateJSsetSelectRange24() {
+        if (!setSelectRange24.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange16) {
+            for (ChartsStock item : setSelectRange24) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1148,9 +1408,9 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange17 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange25 = new ArrayList<>();
 
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
         this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
@@ -1159,20 +1419,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange17() {
-        if (!setSelectRange17.isEmpty()) {
+    private String generateJSsetSelectRange25() {
+        if (!setSelectRange25.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange17) {
+            for (ChartsStock item : setSelectRange25) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1180,10 +1440,42 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange18 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange26 = new ArrayList<>();
 
-    public ChartsStock selectRange(Interval typeOrUnitOrStart3, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        this.typeOrUnitOrStart3 = typeOrUnitOrStart3;
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart2 = typeOrUnitOrStart2;
+        this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange26() {
+        if (!setSelectRange26.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange26) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange27 = new ArrayList<>();
+
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
         this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
         this.anchorOrDispatchEvent = anchorOrDispatchEvent;
         this.dispatchEvent = dispatchEvent;
@@ -1191,20 +1483,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange18() {
-        if (!setSelectRange18.isEmpty()) {
+    private String generateJSsetSelectRange27() {
+        if (!setSelectRange27.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange18) {
+            for (ChartsStock item : setSelectRange27) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1212,10 +1504,10 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange19 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange28 = new ArrayList<>();
 
-    public ChartsStock selectRange(Interval typeOrUnitOrStart3, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        this.typeOrUnitOrStart3 = typeOrUnitOrStart3;
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
         this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
         this.dispatchEvent = dispatchEvent;
@@ -1223,20 +1515,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange19() {
-        if (!setSelectRange19.isEmpty()) {
+    private String generateJSsetSelectRange28() {
+        if (!setSelectRange28.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange19) {
+            for (ChartsStock item : setSelectRange28) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1244,10 +1536,42 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange20 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange29 = new ArrayList<>();
 
-    public ChartsStock selectRange(Interval typeOrUnitOrStart3, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        this.typeOrUnitOrStart3 = typeOrUnitOrStart3;
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
+        this.endOrCountOrDispatchEvent = endOrCountOrDispatchEvent;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange29() {
+        if (!setSelectRange29.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange29) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange30 = new ArrayList<>();
+
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
         this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
         this.anchorOrDispatchEvent = anchorOrDispatchEvent;
         this.dispatchEvent = dispatchEvent;
@@ -1255,20 +1579,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange20() {
-        if (!setSelectRange20.isEmpty()) {
+    private String generateJSsetSelectRange30() {
+        if (!setSelectRange30.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange20) {
+            for (ChartsStock item : setSelectRange30) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1276,10 +1600,10 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange21 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange31 = new ArrayList<>();
 
-    public ChartsStock selectRange(Interval typeOrUnitOrStart3, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        this.typeOrUnitOrStart3 = typeOrUnitOrStart3;
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
         this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
         this.dispatchEvent = dispatchEvent;
@@ -1287,20 +1611,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange21() {
-        if (!setSelectRange21.isEmpty()) {
+    private String generateJSsetSelectRange31() {
+        if (!setSelectRange31.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange21) {
+            for (ChartsStock item : setSelectRange31) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1308,10 +1632,42 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange22 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange32 = new ArrayList<>();
 
-    public ChartsStock selectRange(Interval typeOrUnitOrStart3, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        this.typeOrUnitOrStart3 = typeOrUnitOrStart3;
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
+        this.endOrCountOrDispatchEvent1 = endOrCountOrDispatchEvent1;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent1, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange32() {
+        if (!setSelectRange32.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange32) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange33 = new ArrayList<>();
+
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
         this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
         this.anchorOrDispatchEvent = anchorOrDispatchEvent;
         this.dispatchEvent = dispatchEvent;
@@ -1319,20 +1675,20 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, (anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null", dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange22() {
-        if (!setSelectRange22.isEmpty()) {
+    private String generateJSsetSelectRange33() {
+        if (!setSelectRange33.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange22) {
+            for (ChartsStock item : setSelectRange33) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1340,10 +1696,10 @@ public class ChartsStock extends Chart {
         return "";
     }
 
-    private List<ChartsStock> setSelectRange23 = new ArrayList<>();
+    private List<ChartsStock> setSelectRange34 = new ArrayList<>();
 
-    public ChartsStock selectRange(Interval typeOrUnitOrStart3, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        this.typeOrUnitOrStart3 = typeOrUnitOrStart3;
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
         this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
         this.anchorOrDispatchEvent1 = anchorOrDispatchEvent1;
         this.dispatchEvent = dispatchEvent;
@@ -1351,20 +1707,52 @@ public class ChartsStock extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
-//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart3 != null) ? typeOrUnitOrStart3.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent1, dispatchEvent));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetSelectRange23() {
-        if (!setSelectRange23.isEmpty()) {
+    private String generateJSsetSelectRange34() {
+        if (!setSelectRange34.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange23) {
+            for (ChartsStock item : setSelectRange34) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsStock> setSelectRange35 = new ArrayList<>();
+
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+        this.typeOrUnitOrStart4 = typeOrUnitOrStart4;
+        this.endOrCountOrDispatchEvent2 = endOrCountOrDispatchEvent2;
+        this.anchorOrDispatchEvent2 = anchorOrDispatchEvent2;
+        this.dispatchEvent = dispatchEvent;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+//        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", (typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null", endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetSelectRange35() {
+        if (!setSelectRange35.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsStock item : setSelectRange35) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1404,6 +1792,7 @@ public class ChartsStock extends Chart {
         return "";
     }
 
+
     private StockScatterDateTime getXScale;
 
     public StockScatterDateTime getXScale() {
@@ -1412,7 +1801,6 @@ public class ChartsStock extends Chart {
 
         return getXScale;
     }
-
     private String xScale;
     private String xScale1;
     private List<ChartsStock> setXScale = new ArrayList<>();
@@ -1925,11 +2313,16 @@ public class ChartsStock extends Chart {
     }
 
     private String generateJSgetPlot1() {
-        if (getPlot1 != null) {
-            return getPlot1.generateJs();
+        if (!getPlot1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : getPlot1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetScroller() {
         if (getScroller != null) {
@@ -2008,6 +2401,18 @@ public class ChartsStock extends Chart {
         js.append(generateJSsetSelectRange21());
         js.append(generateJSsetSelectRange22());
         js.append(generateJSsetSelectRange23());
+        js.append(generateJSsetSelectRange24());
+        js.append(generateJSsetSelectRange25());
+        js.append(generateJSsetSelectRange26());
+        js.append(generateJSsetSelectRange27());
+        js.append(generateJSsetSelectRange28());
+        js.append(generateJSsetSelectRange29());
+        js.append(generateJSsetSelectRange30());
+        js.append(generateJSsetSelectRange31());
+        js.append(generateJSsetSelectRange32());
+        js.append(generateJSsetSelectRange33());
+        js.append(generateJSsetSelectRange34());
+        js.append(generateJSsetSelectRange35());
         js.append(generateJSsetStartZoomMarquee());
         js.append(generateJSsetXScale());
         js.append(generateJSsetZoomMarqueeFill());

@@ -34,10 +34,6 @@ public class Bounds extends CoreBase {
             this.bottom = bottom;
         } else {
             this.bottom = bottom;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Bounds extends CoreBase {
             this.bottom1 = bottom1;
         } else {
             this.bottom1 = bottom1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class Bounds extends CoreBase {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class Bounds extends CoreBase {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -150,10 +134,6 @@ public class Bounds extends CoreBase {
             this.left = left;
         } else {
             this.left = left;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +158,6 @@ public class Bounds extends CoreBase {
             this.left1 = left1;
         } else {
             this.left1 = left1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -208,10 +184,6 @@ public class Bounds extends CoreBase {
             this.maxHeight = maxHeight;
         } else {
             this.maxHeight = maxHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -236,10 +208,6 @@ public class Bounds extends CoreBase {
             this.maxHeight1 = maxHeight1;
         } else {
             this.maxHeight1 = maxHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -266,10 +234,6 @@ public class Bounds extends CoreBase {
             this.maxWidth = maxWidth;
         } else {
             this.maxWidth = maxWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -294,10 +258,6 @@ public class Bounds extends CoreBase {
             this.maxWidth1 = maxWidth1;
         } else {
             this.maxWidth1 = maxWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -324,10 +284,6 @@ public class Bounds extends CoreBase {
             this.minHeight = minHeight;
         } else {
             this.minHeight = minHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -352,10 +308,6 @@ public class Bounds extends CoreBase {
             this.minHeight1 = minHeight1;
         } else {
             this.minHeight1 = minHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -382,10 +334,6 @@ public class Bounds extends CoreBase {
             this.minWidth = minWidth;
         } else {
             this.minWidth = minWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -410,10 +358,6 @@ public class Bounds extends CoreBase {
             this.minWidth1 = minWidth1;
         } else {
             this.minWidth1 = minWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -440,10 +384,6 @@ public class Bounds extends CoreBase {
             this.right = right;
         } else {
             this.right = right;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -468,10 +408,6 @@ public class Bounds extends CoreBase {
             this.right1 = right1;
         } else {
             this.right1 = right1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -490,10 +426,9 @@ public class Bounds extends CoreBase {
     private Double xOrRect;
     private String xOrRect1;
     private Double[] xOrRect2;
-    private String[] xOrRect3;
-    private RectObj xOrRect4;
-    private AnychartMathRect xOrRect5;
-    private Bounds xOrRect6;
+    private RectObj xOrRect3;
+    private AnychartMathRect xOrRect4;
+    private Bounds xOrRect5;
     private Double y;
     private String y1;
     private Double width;
@@ -509,15 +444,10 @@ public class Bounds extends CoreBase {
             this.xOrRect3 = null;
             this.xOrRect4 = null;
             this.xOrRect5 = null;
-            this.xOrRect6 = null;
             
             this.xOrRect2 = xOrRect2;
         } else {
             this.xOrRect2 = xOrRect2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -534,7 +464,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public Bounds set(String[] xOrRect3) {
+    public Bounds set(RectObj xOrRect3) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -542,24 +472,19 @@ public class Bounds extends CoreBase {
             this.xOrRect3 = null;
             this.xOrRect4 = null;
             this.xOrRect5 = null;
-            this.xOrRect6 = null;
             
             this.xOrRect3 = xOrRect3;
         } else {
             this.xOrRect3 = xOrRect3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(xOrRect3)));
+            js.append(String.format(Locale.US, ".set(%s)", (xOrRect3 != null) ? xOrRect3.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(xOrRect3)));
+                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", (xOrRect3 != null) ? xOrRect3.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -567,7 +492,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public Bounds set(RectObj xOrRect4) {
+    public Bounds set(AnychartMathRect xOrRect4) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -575,15 +500,10 @@ public class Bounds extends CoreBase {
             this.xOrRect3 = null;
             this.xOrRect4 = null;
             this.xOrRect5 = null;
-            this.xOrRect6 = null;
             
             this.xOrRect4 = xOrRect4;
         } else {
             this.xOrRect4 = xOrRect4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -600,7 +520,7 @@ public class Bounds extends CoreBase {
     }
 
 
-    public Bounds set(AnychartMathRect xOrRect5) {
+    public Bounds set(Bounds xOrRect5) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -608,15 +528,10 @@ public class Bounds extends CoreBase {
             this.xOrRect3 = null;
             this.xOrRect4 = null;
             this.xOrRect5 = null;
-            this.xOrRect6 = null;
             
             this.xOrRect5 = xOrRect5;
         } else {
             this.xOrRect5 = xOrRect5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -626,39 +541,6 @@ public class Bounds extends CoreBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".set(%s)", (xOrRect5 != null) ? xOrRect5.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Bounds set(Bounds xOrRect6) {
-        if (jsBase == null) {
-            this.xOrRect = null;
-            this.xOrRect1 = null;
-            this.xOrRect2 = null;
-            this.xOrRect3 = null;
-            this.xOrRect4 = null;
-            this.xOrRect5 = null;
-            this.xOrRect6 = null;
-            
-            this.xOrRect6 = xOrRect6;
-        } else {
-            this.xOrRect6 = xOrRect6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".set(%s)", (xOrRect6 != null) ? xOrRect6.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", (xOrRect6 != null) ? xOrRect6.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -687,10 +569,6 @@ public class Bounds extends CoreBase {
             this.parentTop = parentTop;
             this.parentWidth = parentWidth;
             this.parentHeight = parentHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -722,10 +600,6 @@ public class Bounds extends CoreBase {
             this.parentTop = parentTop;
             this.parentWidth = parentWidth;
             this.parentHeight = parentHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -757,10 +631,6 @@ public class Bounds extends CoreBase {
             this.parentTop = parentTop;
             this.parentWidth = parentWidth;
             this.parentHeight = parentHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -787,10 +657,6 @@ public class Bounds extends CoreBase {
             this.top = top;
         } else {
             this.top = top;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -815,10 +681,6 @@ public class Bounds extends CoreBase {
             this.top1 = top1;
         } else {
             this.top1 = top1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -847,10 +709,6 @@ public class Bounds extends CoreBase {
             this.width2 = width2;
         } else {
             this.width2 = width2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -877,10 +735,6 @@ public class Bounds extends CoreBase {
             this.width3 = width3;
         } else {
             this.width3 = width3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1031,7 +885,7 @@ public class Bounds extends CoreBase {
 
     private String generateJSxOrRect3() {
         if (xOrRect3 != null) {
-            return String.format(Locale.US, "xOrRect: %s,", Arrays.toString(xOrRect3));
+            return String.format(Locale.US, "xOrRect: %s,", (xOrRect3 != null) ? xOrRect3.generateJs() : "null");
         }
         return "";
     }
@@ -1046,13 +900,6 @@ public class Bounds extends CoreBase {
     private String generateJSxOrRect5() {
         if (xOrRect5 != null) {
             return String.format(Locale.US, "xOrRect: %s,", (xOrRect5 != null) ? xOrRect5.generateJs() : "null");
-        }
-        return "";
-    }
-
-    private String generateJSxOrRect6() {
-        if (xOrRect6 != null) {
-            return String.format(Locale.US, "xOrRect: %s,", (xOrRect6 != null) ? xOrRect6.generateJs() : "null");
         }
         return "";
     }
@@ -1211,7 +1058,6 @@ public class Bounds extends CoreBase {
             js.append(generateJSxOrRect3());
             js.append(generateJSxOrRect4());
             js.append(generateJSxOrRect5());
-            js.append(generateJSxOrRect6());
             js.append(generateJSy());
             js.append(generateJSy1());
             js.append(generateJSwidth());

@@ -34,10 +34,6 @@ public class Knob extends GaugePointersBase {
             this.bottomRadius = bottomRadius;
         } else {
             this.bottomRadius = bottomRadius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class Knob extends GaugePointersBase {
             this.bottomRadius1 = bottomRadius1;
         } else {
             this.bottomRadius1 = bottomRadius1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class Knob extends GaugePointersBase {
             this.bottomRatio = bottomRatio;
         } else {
             this.bottomRatio = bottomRatio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -118,10 +106,6 @@ public class Knob extends GaugePointersBase {
             this.topRadius = topRadius;
         } else {
             this.topRadius = topRadius;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -146,10 +130,6 @@ public class Knob extends GaugePointersBase {
             this.topRadius1 = topRadius1;
         } else {
             this.topRadius1 = topRadius1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -172,10 +152,6 @@ public class Knob extends GaugePointersBase {
             this.topRatio = topRatio;
         } else {
             this.topRatio = topRatio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -198,10 +174,6 @@ public class Knob extends GaugePointersBase {
             this.verticesCount = verticesCount;
         } else {
             this.verticesCount = verticesCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -224,10 +196,6 @@ public class Knob extends GaugePointersBase {
             this.verticesCurvature = verticesCurvature;
         } else {
             this.verticesCurvature = verticesCurvature;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

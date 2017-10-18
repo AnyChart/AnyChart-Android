@@ -45,10 +45,6 @@ public class StockDateTime extends VisualBase {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -74,10 +70,6 @@ public class StockDateTime extends VisualBase {
             this.background1 = background1;
         } else {
             this.background1 = background1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -100,10 +92,6 @@ public class StockDateTime extends VisualBase {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -139,10 +127,6 @@ public class StockDateTime extends VisualBase {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -167,10 +151,6 @@ public class StockDateTime extends VisualBase {
             this.labels1 = labels1;
         } else {
             this.labels1 = labels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -206,10 +186,6 @@ public class StockDateTime extends VisualBase {
             this.minorLabels = minorLabels;
         } else {
             this.minorLabels = minorLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -234,10 +210,6 @@ public class StockDateTime extends VisualBase {
             this.minorLabels1 = minorLabels1;
         } else {
             this.minorLabels1 = minorLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -273,10 +245,6 @@ public class StockDateTime extends VisualBase {
             this.minorTicks = minorTicks;
         } else {
             this.minorTicks = minorTicks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -301,10 +269,6 @@ public class StockDateTime extends VisualBase {
             this.minorTicks1 = minorTicks1;
         } else {
             this.minorTicks1 = minorTicks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -321,16 +285,16 @@ public class StockDateTime extends VisualBase {
     }
 
     private StockLabelsOverlapMode overlapMode;
+    private String overlapMode1;
 
     public StockDateTime setOverlapMode(StockLabelsOverlapMode overlapMode) {
         if (jsBase == null) {
+            this.overlapMode = null;
+            this.overlapMode1 = null;
+            
             this.overlapMode = overlapMode;
         } else {
             this.overlapMode = overlapMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -346,6 +310,30 @@ public class StockDateTime extends VisualBase {
         return this;
     }
 
+
+    public StockDateTime setOverlapMode(String overlapMode1) {
+        if (jsBase == null) {
+            this.overlapMode = null;
+            this.overlapMode1 = null;
+            
+            this.overlapMode1 = overlapMode1;
+        } else {
+            this.overlapMode1 = overlapMode1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", overlapMode1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Boolean showHelperLabel;
 
     public StockDateTime setShowHelperLabel(Boolean showHelperLabel) {
@@ -353,10 +341,6 @@ public class StockDateTime extends VisualBase {
             this.showHelperLabel = showHelperLabel;
         } else {
             this.showHelperLabel = showHelperLabel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -509,6 +493,13 @@ public class StockDateTime extends VisualBase {
         return "";
     }
 
+    private String generateJSoverlapMode1() {
+        if (overlapMode1 != null) {
+            return String.format(Locale.US, "overlapMode: %s,", overlapMode1);
+        }
+        return "";
+    }
+
     private String generateJSshowHelperLabel() {
         if (showHelperLabel != null) {
             return String.format(Locale.US, "showHelperLabel: %b,", showHelperLabel);
@@ -553,6 +544,7 @@ public class StockDateTime extends VisualBase {
             js.append(generateJSminorTicks());
             js.append(generateJSminorTicks1());
             js.append(generateJSoverlapMode());
+            js.append(generateJSoverlapMode1());
             js.append(generateJSshowHelperLabel());
             js.append("}");
         }

@@ -43,10 +43,6 @@ public class CoreAxesRadar extends VisualBase {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class CoreAxesRadar extends VisualBase {
             this.labels1 = labels1;
         } else {
             this.labels1 = labels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -102,20 +94,18 @@ public class CoreAxesRadar extends VisualBase {
     private ScalesBase scale;
     private ScaleTypes scale1;
     private String scale2;
+    private String scale3;
 
     public CoreAxesRadar setScale(ScalesBase scale) {
         if (jsBase == null) {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
+            this.scale3 = null;
             
             this.scale = scale;
         } else {
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -137,14 +127,11 @@ public class CoreAxesRadar extends VisualBase {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
+            this.scale3 = null;
             
             this.scale1 = scale1;
         } else {
             this.scale1 = scale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -166,14 +153,11 @@ public class CoreAxesRadar extends VisualBase {
             this.scale = null;
             this.scale1 = null;
             this.scale2 = null;
+            this.scale3 = null;
             
             this.scale2 = scale2;
         } else {
             this.scale2 = scale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -214,10 +198,6 @@ public class CoreAxesRadar extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -251,10 +231,6 @@ public class CoreAxesRadar extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -288,10 +264,6 @@ public class CoreAxesRadar extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -327,10 +299,6 @@ public class CoreAxesRadar extends VisualBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -355,10 +323,6 @@ public class CoreAxesRadar extends VisualBase {
             this.ticks1 = ticks1;
         } else {
             this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -426,6 +390,13 @@ public class CoreAxesRadar extends VisualBase {
     private String generateJSscale2() {
         if (scale2 != null) {
             return String.format(Locale.US, "scale: %s,", scale2);
+        }
+        return "";
+    }
+
+    private String generateJSscale3() {
+        if (scale3 != null) {
+            return String.format(Locale.US, "scale: %s,", scale3);
         }
         return "";
     }
@@ -521,6 +492,7 @@ public class CoreAxesRadar extends VisualBase {
             js.append(generateJSscale());
             js.append(generateJSscale1());
             js.append(generateJSscale2());
+            js.append(generateJSscale3());
             js.append(generateJSstroke());
             js.append(generateJSstroke1());
             js.append(generateJSstroke2());

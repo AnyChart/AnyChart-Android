@@ -11,7 +11,8 @@ public class DataSettings extends JsObject  {
     private String[] rows;
     private String text;
     private TextParsingMode textSettings;
-    private TextParsingSettings textSettings1;
+    private String textSettings1;
+    private TextParsingSettings textSettings2;
 
     
     public DataSettings(TextParsingMode textSettings, String caption, String[] header, String[] rows, String text) {
@@ -23,14 +24,23 @@ public class DataSettings extends JsObject  {
 
         js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  (textSettings != null) ? textSettings.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
     }
-    public DataSettings(TextParsingSettings textSettings1, String caption, String[] header, String[] rows, String text) {
+    public DataSettings(String textSettings1, String caption, String[] header, String[] rows, String text) {
         this.textSettings1 = textSettings1;
         this.caption = caption;
         this.header = header;
         this.rows = rows;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  (textSettings1 != null) ? textSettings1.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
+        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  textSettings1, caption, Arrays.toString(header), Arrays.toString(rows), text));
+    }
+    public DataSettings(TextParsingSettings textSettings2, String caption, String[] header, String[] rows, String text) {
+        this.textSettings2 = textSettings2;
+        this.caption = caption;
+        this.header = header;
+        this.rows = rows;
+        this.text = text;
+
+        js.append(String.format(Locale.US, "{textSettings: %s,caption: %s,header: %s,rows: %s,text: %s}",  (textSettings2 != null) ? textSettings2.generateJs() : "null", caption, Arrays.toString(header), Arrays.toString(rows), text));
     }
 
     @Override

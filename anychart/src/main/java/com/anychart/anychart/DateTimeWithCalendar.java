@@ -39,10 +39,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.count = count;
         } else {
             this.count = count;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -65,10 +61,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.date = date;
         } else {
             this.date = date;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -106,10 +98,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.fromPix = fromPix;
             this.toPix = toPix;
             this.count1 = count1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -142,10 +130,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.fromPix = fromPix;
             this.toPix = toPix;
             this.count1 = count1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -167,10 +151,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.maximumGap = maximumGap;
         } else {
             this.maximumGap = maximumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -193,10 +173,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.minimumGap = minimumGap;
         } else {
             this.minimumGap = minimumGap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -219,10 +195,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.pix = pix;
         } else {
             this.pix = pix;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -244,10 +216,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.skipHolidays = skipHolidays;
         } else {
             this.skipHolidays = skipHolidays;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -270,10 +238,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.softMaximum = softMaximum;
         } else {
             this.softMaximum = softMaximum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -296,10 +260,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.softMinimum = softMinimum;
         } else {
             this.softMinimum = softMinimum;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -328,10 +288,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.unit2 = unit2;
         } else {
             this.unit2 = unit2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -358,10 +314,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.unit3 = unit3;
         } else {
             this.unit3 = unit3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -388,10 +340,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.unitPixSize = unitPixSize;
         } else {
             this.unitPixSize = unitPixSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -416,10 +364,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             this.unitPixSize1 = unitPixSize1;
         } else {
             this.unitPixSize1 = unitPixSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

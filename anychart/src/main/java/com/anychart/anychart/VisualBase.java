@@ -30,10 +30,6 @@ public class VisualBase extends CoreBase {
             this.enabled = enabled;
         } else {
             this.enabled = enabled;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -63,10 +59,6 @@ public class VisualBase extends CoreBase {
         } else {
             this.paperSizeOrOptions = paperSizeOrOptions;
             this.landscape = landscape;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -92,10 +84,6 @@ public class VisualBase extends CoreBase {
         } else {
             this.paperSizeOrOptions1 = paperSizeOrOptions1;
             this.landscape = landscape;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -117,10 +105,6 @@ public class VisualBase extends CoreBase {
             this.zIndex = zIndex;
         } else {
             this.zIndex = zIndex;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

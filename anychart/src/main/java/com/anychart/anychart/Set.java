@@ -26,7 +26,8 @@ public class Set extends CoreBase {
     private String[] data;
     private String data1;
     private TextParsingMode settings;
-    private TextParsingSettings settings1;
+    private String settings1;
+    private TextParsingSettings settings2;
 
     public Set setData(String[] data, TextParsingMode settings) {
         if (jsBase == null) {
@@ -36,15 +37,12 @@ public class Set extends CoreBase {
             this.data = data;
             this.settings = null;
             this.settings1 = null;
+            this.settings2 = null;
             
             this.settings = settings;
         } else {
             this.data = data;
             this.settings = settings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -61,7 +59,7 @@ public class Set extends CoreBase {
     }
 
 
-    public Set setData(String[] data, TextParsingSettings settings1) {
+    public Set setData(String[] data, String settings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -69,24 +67,51 @@ public class Set extends CoreBase {
             this.data = data;
             this.settings = null;
             this.settings1 = null;
+            this.settings2 = null;
             
             this.settings1 = settings1;
         } else {
             this.data = data;
             this.settings1 = settings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings1 != null) ? settings1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), settings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings1 != null) ? settings1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), settings1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Set setData(String[] data, TextParsingSettings settings2) {
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            
+            this.data = data;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            
+            this.settings2 = settings2;
+        } else {
+            this.data = data;
+            this.settings2 = settings2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings2 != null) ? settings2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data), (settings2 != null) ? settings2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -102,15 +127,12 @@ public class Set extends CoreBase {
             this.data1 = data1;
             this.settings = null;
             this.settings1 = null;
+            this.settings2 = null;
             
             this.settings = settings;
         } else {
             this.data1 = data1;
             this.settings = settings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -127,7 +149,7 @@ public class Set extends CoreBase {
     }
 
 
-    public Set setData(String data1, TextParsingSettings settings1) {
+    public Set setData(String data1, String settings1) {
         if (jsBase == null) {
             this.data = null;
             this.data1 = null;
@@ -135,24 +157,51 @@ public class Set extends CoreBase {
             this.data1 = data1;
             this.settings = null;
             this.settings1 = null;
+            this.settings2 = null;
             
             this.settings1 = settings1;
         } else {
             this.data1 = data1;
             this.settings1 = settings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".data(%s, %s)", data1, (settings1 != null) ? settings1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".data(%s, %s)", data1, settings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data1, (settings1 != null) ? settings1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data1, settings1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Set setData(String data1, TextParsingSettings settings2) {
+        if (jsBase == null) {
+            this.data = null;
+            this.data1 = null;
+            
+            this.data1 = data1;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            
+            this.settings2 = settings2;
+        } else {
+            this.data1 = data1;
+            this.settings2 = settings2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".data(%s, %s)", data1, (settings2 != null) ? settings2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data1, (settings2 != null) ? settings2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -166,10 +215,6 @@ public class Set extends CoreBase {
             this.index = index;
         } else {
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -192,10 +237,6 @@ public class Set extends CoreBase {
             this.mapping = mapping;
         } else {
             this.mapping = mapping;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -221,10 +262,6 @@ public class Set extends CoreBase {
             this.index1 = index1;
         } else {
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -247,10 +284,6 @@ public class Set extends CoreBase {
             this.rowIndex = rowIndex;
         } else {
             this.rowIndex = rowIndex;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -288,7 +321,14 @@ public class Set extends CoreBase {
 
     private String generateJSsettings1() {
         if (settings1 != null) {
-            return String.format(Locale.US, "settings: %s,", (settings1 != null) ? settings1.generateJs() : "null");
+            return String.format(Locale.US, "settings: %s,", settings1);
+        }
+        return "";
+    }
+
+    private String generateJSsettings2() {
+        if (settings2 != null) {
+            return String.format(Locale.US, "settings: %s,", (settings2 != null) ? settings2.generateJs() : "null");
         }
         return "";
     }
@@ -345,6 +385,7 @@ public class Set extends CoreBase {
             js.append(generateJSdata1());
             js.append(generateJSsettings());
             js.append(generateJSsettings1());
+            js.append(generateJSsettings2());
             js.append(generateJSindex());
             js.append(generateJSmapping());
             js.append(generateJSindex1());

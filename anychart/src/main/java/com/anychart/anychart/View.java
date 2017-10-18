@@ -34,10 +34,6 @@ public class View extends CoreBase {
             this.otherView = otherView;
         } else {
             this.otherView = otherView;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class View extends CoreBase {
             this.otherView1 = otherView1;
         } else {
             this.otherView1 = otherView1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class View extends CoreBase {
             this.fieldName = fieldName;
         } else {
             this.fieldName = fieldName;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -117,10 +105,6 @@ public class View extends CoreBase {
             this.fieldName1 = fieldName1;
         } else {
             this.fieldName1 = fieldName1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -145,10 +129,6 @@ public class View extends CoreBase {
         } else {
             this.index = index;
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -171,10 +151,6 @@ public class View extends CoreBase {
             this.rowIndex = rowIndex;
         } else {
             this.rowIndex = rowIndex;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -206,10 +182,6 @@ public class View extends CoreBase {
         } else {
             this.rowIndex1 = rowIndex1;
             this.fieldName2 = fieldName2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -237,10 +209,6 @@ public class View extends CoreBase {
             this.fieldName3 = fieldName3;
         } else {
             this.fieldName3 = fieldName3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -258,9 +226,14 @@ public class View extends CoreBase {
 
     private String fieldName4;
     private Sort order;
+    private String order1;
 
-    public View sort(String fieldName4, Sort order) {
+    public View sort(Sort order, String fieldName4) {
         if (jsBase == null) {
+            this.order = null;
+            this.order1 = null;
+            
+            this.order = order;
             this.fieldName = null;
             this.fieldName1 = null;
             this.fieldName2 = null;
@@ -268,23 +241,50 @@ public class View extends CoreBase {
             this.fieldName4 = null;
             
             this.fieldName4 = fieldName4;
-            this.order = order;
         } else {
-            this.fieldName4 = fieldName4;
             this.order = order;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
+            this.fieldName4 = fieldName4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".sort(%s, %s)", fieldName4, (order != null) ? order.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".sort(%s, %s)", (order != null) ? order.generateJs() : "null", fieldName4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", fieldName4, (order != null) ? order.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", (order != null) ? order.generateJs() : "null", fieldName4));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public View sort(String order1, String fieldName4) {
+        if (jsBase == null) {
+            this.order = null;
+            this.order1 = null;
+            
+            this.order1 = order1;
+            this.fieldName = null;
+            this.fieldName1 = null;
+            this.fieldName2 = null;
+            this.fieldName3 = null;
+            this.fieldName4 = null;
+            
+            this.fieldName4 = fieldName4;
+        } else {
+            this.order1 = order1;
+            this.fieldName4 = fieldName4;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".sort(%s, %s)", order1, fieldName4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", order1, fieldName4));
                 js.setLength(0);
             }
         }
@@ -375,6 +375,13 @@ public class View extends CoreBase {
         return "";
     }
 
+    private String generateJSorder1() {
+        if (order1 != null) {
+            return String.format(Locale.US, "order: %s,", order1);
+        }
+        return "";
+    }
+
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -407,6 +414,7 @@ public class View extends CoreBase {
             js.append(generateJSfieldName3());
             js.append(generateJSfieldName4());
             js.append(generateJSorder());
+            js.append(generateJSorder1());
             js.append("}");
         }
 

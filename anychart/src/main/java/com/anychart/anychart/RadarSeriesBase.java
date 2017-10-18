@@ -34,10 +34,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.indexes = indexes;
         } else {
             this.indexes = indexes;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -61,10 +57,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.indexes1 = indexes1;
         } else {
             this.indexes1 = indexes1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -92,10 +84,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.indexes2 = indexes2;
         } else {
             this.indexes2 = indexes2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -121,10 +109,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.indexes3 = indexes3;
         } else {
             this.indexes3 = indexes3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -154,10 +138,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.indexes4 = indexes4;
         } else {
             this.indexes4 = indexes4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -185,10 +165,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.indexes5 = indexes5;
         } else {
             this.indexes5 = indexes5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -210,10 +186,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.xSubRangeRatio = xSubRangeRatio;
         } else {
             this.xSubRangeRatio = xSubRangeRatio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -252,10 +224,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.xScale = xScale;
         } else {
             this.xScale = xScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -282,10 +250,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.xScale1 = xScale1;
         } else {
             this.xScale1 = xScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -312,10 +276,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.xScale2 = xScale2;
         } else {
             this.xScale2 = xScale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -355,10 +315,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -385,10 +341,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.yScale1 = yScale1;
         } else {
             this.yScale1 = yScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -415,10 +367,6 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             this.yScale2 = yScale2;
         } else {
             this.yScale2 = yScale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

@@ -30,10 +30,6 @@ public class ChoroplethPoint extends SeriesPoint {
             this.crs = crs;
         } else {
             this.crs = crs;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -65,10 +61,6 @@ public class ChoroplethPoint extends SeriesPoint {
             this.middleX = middleX;
         } else {
             this.middleX = middleX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -91,10 +83,6 @@ public class ChoroplethPoint extends SeriesPoint {
             this.middleY = middleY;
         } else {
             this.middleY = middleY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -117,10 +105,6 @@ public class ChoroplethPoint extends SeriesPoint {
             this.scale = scale;
         } else {
             this.scale = scale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -146,10 +130,6 @@ public class ChoroplethPoint extends SeriesPoint {
         } else {
             this.dx = dx;
             this.dy = dy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -181,10 +161,6 @@ public class ChoroplethPoint extends SeriesPoint {
         } else {
             this.dx1 = dx1;
             this.dy1 = dy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

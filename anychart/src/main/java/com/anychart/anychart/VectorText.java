@@ -30,10 +30,6 @@ public class VectorText extends Element {
             this.color = color;
         } else {
             this.color = color;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -60,10 +56,6 @@ public class VectorText extends Element {
             this.decoration = decoration;
         } else {
             this.decoration = decoration;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -88,10 +80,6 @@ public class VectorText extends Element {
             this.decoration1 = decoration1;
         } else {
             this.decoration1 = decoration1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -118,10 +106,6 @@ public class VectorText extends Element {
             this.direction = direction;
         } else {
             this.direction = direction;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -146,10 +130,6 @@ public class VectorText extends Element {
             this.direction1 = direction1;
         } else {
             this.direction1 = direction1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -172,10 +152,6 @@ public class VectorText extends Element {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -202,10 +178,6 @@ public class VectorText extends Element {
             this.fontSize = fontSize;
         } else {
             this.fontSize = fontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -230,10 +202,6 @@ public class VectorText extends Element {
             this.fontSize1 = fontSize1;
         } else {
             this.fontSize1 = fontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -260,10 +228,6 @@ public class VectorText extends Element {
             this.fontStyle = fontStyle;
         } else {
             this.fontStyle = fontStyle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -288,10 +252,6 @@ public class VectorText extends Element {
             this.fontStyle1 = fontStyle1;
         } else {
             this.fontStyle1 = fontStyle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -318,10 +278,6 @@ public class VectorText extends Element {
             this.fontVariant = fontVariant;
         } else {
             this.fontVariant = fontVariant;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -346,10 +302,6 @@ public class VectorText extends Element {
             this.fontVariant1 = fontVariant1;
         } else {
             this.fontVariant1 = fontVariant1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -376,10 +328,6 @@ public class VectorText extends Element {
             this.fontWeight = fontWeight;
         } else {
             this.fontWeight = fontWeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -404,10 +352,6 @@ public class VectorText extends Element {
             this.fontWeight1 = fontWeight1;
         } else {
             this.fontWeight1 = fontWeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -434,10 +378,6 @@ public class VectorText extends Element {
             this.hAlign = hAlign;
         } else {
             this.hAlign = hAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -462,10 +402,6 @@ public class VectorText extends Element {
             this.hAlign1 = hAlign1;
         } else {
             this.hAlign1 = hAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -492,10 +428,6 @@ public class VectorText extends Element {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -520,10 +452,6 @@ public class VectorText extends Element {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -546,10 +474,6 @@ public class VectorText extends Element {
             this.htmlText = htmlText;
         } else {
             this.htmlText = htmlText;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -576,10 +500,6 @@ public class VectorText extends Element {
             this.letterSpacing = letterSpacing;
         } else {
             this.letterSpacing = letterSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -604,10 +524,6 @@ public class VectorText extends Element {
             this.letterSpacing1 = letterSpacing1;
         } else {
             this.letterSpacing1 = letterSpacing1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -634,10 +550,6 @@ public class VectorText extends Element {
             this.lineHeight = lineHeight;
         } else {
             this.lineHeight = lineHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -662,10 +574,6 @@ public class VectorText extends Element {
             this.lineHeight1 = lineHeight1;
         } else {
             this.lineHeight1 = lineHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -688,10 +596,6 @@ public class VectorText extends Element {
             this.opacity = opacity;
         } else {
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -723,10 +627,6 @@ public class VectorText extends Element {
             this.path = path;
         } else {
             this.path = path;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -749,10 +649,6 @@ public class VectorText extends Element {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -775,10 +671,6 @@ public class VectorText extends Element {
             this.text = text;
         } else {
             this.text = text;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -801,10 +693,6 @@ public class VectorText extends Element {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -831,10 +719,6 @@ public class VectorText extends Element {
             this.textOverflow = textOverflow;
         } else {
             this.textOverflow = textOverflow;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -859,10 +743,6 @@ public class VectorText extends Element {
             this.textOverflow1 = textOverflow1;
         } else {
             this.textOverflow1 = textOverflow1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -889,10 +769,6 @@ public class VectorText extends Element {
             this.vAlign = vAlign;
         } else {
             this.vAlign = vAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -917,10 +793,6 @@ public class VectorText extends Element {
             this.vAlign1 = vAlign1;
         } else {
             this.vAlign1 = vAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -947,10 +819,6 @@ public class VectorText extends Element {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -975,10 +843,6 @@ public class VectorText extends Element {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1005,10 +869,6 @@ public class VectorText extends Element {
             this.wordBreak = wordBreak;
         } else {
             this.wordBreak = wordBreak;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1033,10 +893,6 @@ public class VectorText extends Element {
             this.wordBreak1 = wordBreak1;
         } else {
             this.wordBreak1 = wordBreak1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1063,10 +919,6 @@ public class VectorText extends Element {
             this.wordWrap = wordWrap;
         } else {
             this.wordWrap = wordWrap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1091,10 +943,6 @@ public class VectorText extends Element {
             this.wordWrap1 = wordWrap1;
         } else {
             this.wordWrap1 = wordWrap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1117,10 +965,6 @@ public class VectorText extends Element {
             this.x = x;
         } else {
             this.x = x;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1143,10 +987,6 @@ public class VectorText extends Element {
             this.y = y;
         } else {
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

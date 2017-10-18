@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class TreeMap extends SeparateChart {
 
-    public TreeMap() {
-        js.append("chart = anychart.treeMap();");
+    protected TreeMap(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private UiColorRange getColorRange;
 
     public UiColorRange getColorRange() {
@@ -22,7 +25,6 @@ public class TreeMap extends SeparateChart {
 
         return getColorRange;
     }
-
     private String colorRange;
     private List<TreeMap> setColorRange = new ArrayList<>();
 
@@ -53,6 +55,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private OrdinalColor getColorScale;
 
     public OrdinalColor getColorScale() {
@@ -61,7 +64,6 @@ public class TreeMap extends SeparateChart {
 
         return getColorScale;
     }
-
     private OrdinalColor colorScale;
     private LinearColor colorScale1;
     private String colorScale2;
@@ -191,6 +193,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private Tree getData;
 
     public Tree getData() {
@@ -199,7 +202,6 @@ public class TreeMap extends SeparateChart {
 
         return getData;
     }
-
     private Tree data;
     private TreeView data1;
     private String data2;
@@ -779,6 +781,7 @@ public class TreeMap extends SeparateChart {
     }
 
     private Fill imageSettings;
+
     private PatternFill getHatchFill;
 
     public PatternFill getHatchFill() {
@@ -787,7 +790,6 @@ public class TreeMap extends SeparateChart {
 
         return getHatchFill;
     }
-
     private PatternFill patternFillOrType;
     private HatchFill patternFillOrType1;
     private HatchFillType patternFillOrType2;
@@ -956,6 +958,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getHeaders;
 
     public UiLabelsFactory getHeaders() {
@@ -964,7 +967,6 @@ public class TreeMap extends SeparateChart {
 
         return getHeaders;
     }
-
     private String headers;
     private Boolean headers1;
     private List<TreeMap> setHeaders = new ArrayList<>();
@@ -1025,22 +1027,22 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
-    private String headersDisplayMode;
-    private LabelsDisplayMode headersDisplayMode1;
+    private LabelsDisplayMode headersDisplayMode;
+    private String headersDisplayMode1;
     private List<TreeMap> setHeadersDisplayMode = new ArrayList<>();
 
-    public TreeMap setHeadersDisplayMode(String headersDisplayMode) {
+    public TreeMap setHeadersDisplayMode(LabelsDisplayMode headersDisplayMode) {
         this.headersDisplayMode = headersDisplayMode;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode));
+        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode != null) ? headersDisplayMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode));
+//        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode != null) ? headersDisplayMode.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode));
+            onChangeListener.onChange(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode != null) ? headersDisplayMode.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -1058,18 +1060,18 @@ public class TreeMap extends SeparateChart {
 
     private List<TreeMap> setHeadersDisplayMode1 = new ArrayList<>();
 
-    public TreeMap setHeadersDisplayMode(LabelsDisplayMode headersDisplayMode1) {
+    public TreeMap setHeadersDisplayMode(String headersDisplayMode1) {
         this.headersDisplayMode1 = headersDisplayMode1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode1 != null) ? headersDisplayMode1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode1));
 
-//        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode1 != null) ? headersDisplayMode1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".headersDisplayMode(%s)", (headersDisplayMode1 != null) ? headersDisplayMode1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".headersDisplayMode(%s)", headersDisplayMode1));
             js.setLength(0);
         }
         return this;
@@ -1145,6 +1147,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -1153,7 +1156,6 @@ public class TreeMap extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<TreeMap> setHovered = new ArrayList<>();
 
@@ -1184,6 +1186,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -1192,7 +1195,6 @@ public class TreeMap extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<TreeMap> setLabels = new ArrayList<>();
@@ -1253,6 +1255,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
@@ -1261,7 +1264,6 @@ public class TreeMap extends SeparateChart {
 
         return getMarkers;
     }
-
     private String markers;
     private Boolean markers1;
     private String markers2;
@@ -1413,6 +1415,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1421,7 +1424,6 @@ public class TreeMap extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<TreeMap> setNormal = new ArrayList<>();
 
@@ -1452,6 +1454,7 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -1460,7 +1463,6 @@ public class TreeMap extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<TreeMap> setSelected = new ArrayList<>();
 

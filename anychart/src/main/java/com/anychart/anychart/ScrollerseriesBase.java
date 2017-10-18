@@ -53,10 +53,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.data = data;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -87,10 +83,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.data1 = data1;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -121,10 +113,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.data2 = data2;
             this.mappingSettings = mappingSettings;
             this.csvSettings = csvSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -151,10 +139,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.maxPointWidth = maxPointWidth;
         } else {
             this.maxPointWidth = maxPointWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -179,10 +163,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.maxPointWidth1 = maxPointWidth1;
         } else {
             this.maxPointWidth1 = maxPointWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -209,10 +189,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.minPointLength = minPointLength;
         } else {
             this.minPointLength = minPointLength;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -237,10 +213,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.minPointLength1 = minPointLength1;
         } else {
             this.minPointLength1 = minPointLength1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -272,10 +244,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.normal = normal;
         } else {
             this.normal = normal;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -302,10 +270,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.pointWidth = pointWidth;
         } else {
             this.pointWidth = pointWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -330,10 +294,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.pointWidth1 = pointWidth1;
         } else {
             this.pointWidth1 = pointWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -365,10 +325,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.rendering = rendering;
         } else {
             this.rendering = rendering;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -400,10 +356,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.selected = selected;
         } else {
             this.selected = selected;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -426,10 +378,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.seriesType = seriesType;
         } else {
             this.seriesType = seriesType;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -469,10 +417,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -499,10 +443,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.yScale1 = yScale1;
         } else {
             this.yScale1 = yScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -529,10 +469,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             this.yScale2 = yScale2;
         } else {
             this.yScale2 = yScale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

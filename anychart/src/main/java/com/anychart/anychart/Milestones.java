@@ -23,13 +23,26 @@ public class Milestones extends JsObject {
     }
 
     
-    private Milestones getColor;
+    private String color;
 
-    public Milestones getColor() {
-        if (getColor == null)
-            getColor = new Milestones(jsBase + ".color()");
+    public Milestones setColor(String color) {
+        if (jsBase == null) {
+            this.color = color;
+        } else {
+            this.color = color;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
 
-        return getColor;
+            js.append(String.format(Locale.US, ".color(%s)", color));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", color));
+                js.setLength(0);
+            }
+        }
+        return this;
     }
 
     private Fill fill;
@@ -39,10 +52,6 @@ public class Milestones extends JsObject {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -58,29 +67,28 @@ public class Milestones extends JsObject {
         return this;
     }
 
-    private String color;
+    private String color1;
     private Double opacity;
 
-    public Milestones fill(String color, Double opacity) {
+    public Milestones setFill(String color1, Double opacity) {
         if (jsBase == null) {
-            this.color = color;
+            this.color = null;
+            this.color1 = null;
+            
+            this.color1 = color1;
             this.opacity = opacity;
         } else {
-            this.color = color;
+            this.color1 = color1;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+            js.append(String.format(Locale.US, ".fill(%s, %f)", color1, opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color, opacity));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", color1, opacity));
                 js.setLength(0);
             }
         }
@@ -95,7 +103,7 @@ public class Milestones extends JsObject {
     private String mode2;
     private Double opacity1;
 
-    public Milestones fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Milestones setFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -116,10 +124,6 @@ public class Milestones extends JsObject {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -136,7 +140,7 @@ public class Milestones extends JsObject {
     }
 
 
-    public Milestones fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Milestones setFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -157,10 +161,6 @@ public class Milestones extends JsObject {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -177,7 +177,7 @@ public class Milestones extends JsObject {
     }
 
 
-    public Milestones fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Milestones setFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -198,10 +198,6 @@ public class Milestones extends JsObject {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -218,7 +214,7 @@ public class Milestones extends JsObject {
     }
 
 
-    public Milestones fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Milestones setFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -239,10 +235,6 @@ public class Milestones extends JsObject {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -259,7 +251,7 @@ public class Milestones extends JsObject {
     }
 
 
-    public Milestones fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Milestones setFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -280,10 +272,6 @@ public class Milestones extends JsObject {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -300,7 +288,7 @@ public class Milestones extends JsObject {
     }
 
 
-    public Milestones fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Milestones setFill(String[] keys1, String mode2, Double angle, Double opacity1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -321,10 +309,6 @@ public class Milestones extends JsObject {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -349,7 +333,7 @@ public class Milestones extends JsObject {
     private Double fx;
     private Double fy;
 
-    public Milestones fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Milestones setFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -380,10 +364,6 @@ public class Milestones extends JsObject {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -400,7 +380,7 @@ public class Milestones extends JsObject {
     }
 
 
-    public Milestones fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Milestones setFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -431,10 +411,6 @@ public class Milestones extends JsObject {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -467,10 +443,6 @@ public class Milestones extends JsObject {
             this.hovered = hovered;
         } else {
             this.hovered = hovered;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -506,10 +478,6 @@ public class Milestones extends JsObject {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -534,10 +502,6 @@ public class Milestones extends JsObject {
             this.labels1 = labels1;
         } else {
             this.labels1 = labels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -569,10 +533,6 @@ public class Milestones extends JsObject {
             this.normal = normal;
         } else {
             this.normal = normal;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -604,10 +564,6 @@ public class Milestones extends JsObject {
             this.selected = selected;
         } else {
             this.selected = selected;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -634,10 +590,6 @@ public class Milestones extends JsObject {
             this.shape = shape;
         } else {
             this.shape = shape;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -662,10 +614,6 @@ public class Milestones extends JsObject {
             this.shape1 = shape1;
         } else {
             this.shape1 = shape1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -692,10 +640,6 @@ public class Milestones extends JsObject {
             this.size = size;
         } else {
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -720,10 +664,6 @@ public class Milestones extends JsObject {
             this.size1 = size1;
         } else {
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -739,58 +679,21 @@ public class Milestones extends JsObject {
         return this;
     }
 
-    private Stroke color1;
-    private ColoredFill color2;
-    private String color3;
+    private Stroke color2;
+    private ColoredFill color3;
+    private String color4;
     private Double thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
-    public Milestones setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Milestones setStroke(Stroke color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
             this.color2 = null;
             this.color3 = null;
-            
-            this.color1 = color1;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-        } else {
-            this.color1 = color1;
-            this.thickness = thickness;
-            this.dashpattern = dashpattern;
-            this.lineJoin = lineJoin;
-            this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color1 != null) ? color1.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    public Milestones setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
-        if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
+            this.color4 = null;
             
             this.color2 = color2;
             this.thickness = thickness;
@@ -803,10 +706,6 @@ public class Milestones extends JsObject {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -823,12 +722,13 @@ public class Milestones extends JsObject {
     }
 
 
-    public Milestones setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Milestones setStroke(ColoredFill color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
             this.color2 = null;
             this.color3 = null;
+            this.color4 = null;
             
             this.color3 = color3;
             this.thickness = thickness;
@@ -841,19 +741,50 @@ public class Milestones extends JsObject {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color3, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", (color3 != null) ? color3.generateJs() : "null", thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Milestones setStroke(String color4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+        if (jsBase == null) {
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
+            
+            this.color4 = color4;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+        } else {
+            this.color4 = color4;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", color4, thickness, dashpattern, (lineJoin != null) ? lineJoin.generateJs() : "null", (lineCap != null) ? lineCap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -880,10 +811,6 @@ public class Milestones extends JsObject {
             this.tooltip = tooltip;
         } else {
             this.tooltip = tooltip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -908,10 +835,6 @@ public class Milestones extends JsObject {
             this.tooltip1 = tooltip1;
         } else {
             this.tooltip1 = tooltip1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -925,13 +848,6 @@ public class Milestones extends JsObject {
             }
         }
         return this;
-    }
-
-    private String generateJSgetColor() {
-        if (getColor != null) {
-            return getColor.generateJs();
-        }
-        return "";
     }
 
     private String generateJSgetHovered() {
@@ -969,6 +885,13 @@ public class Milestones extends JsObject {
         return "";
     }
 
+    private String generateJScolor() {
+        if (color != null) {
+            return String.format(Locale.US, "color: %s,", color);
+        }
+        return "";
+    }
+
     private String generateJSfill() {
         if (fill != null) {
             return String.format(Locale.US, "fill: %s,", (fill != null) ? fill.generateJs() : "null");
@@ -976,9 +899,9 @@ public class Milestones extends JsObject {
         return "";
     }
 
-    private String generateJScolor() {
-        if (color != null) {
-            return String.format(Locale.US, "color: %s,", color);
+    private String generateJScolor1() {
+        if (color1 != null) {
+            return String.format(Locale.US, "color: %s,", color1);
         }
         return "";
     }
@@ -1165,13 +1088,6 @@ public class Milestones extends JsObject {
         return "";
     }
 
-    private String generateJScolor1() {
-        if (color1 != null) {
-            return String.format(Locale.US, "color: %s,", (color1 != null) ? color1.generateJs() : "null");
-        }
-        return "";
-    }
-
     private String generateJScolor2() {
         if (color2 != null) {
             return String.format(Locale.US, "color: %s,", (color2 != null) ? color2.generateJs() : "null");
@@ -1181,7 +1097,14 @@ public class Milestones extends JsObject {
 
     private String generateJScolor3() {
         if (color3 != null) {
-            return String.format(Locale.US, "color: %s,", color3);
+            return String.format(Locale.US, "color: %s,", (color3 != null) ? color3.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJScolor4() {
+        if (color4 != null) {
+            return String.format(Locale.US, "color: %s,", color4);
         }
         return "";
     }
@@ -1235,7 +1158,6 @@ public class Milestones extends JsObject {
         jsGetters.append(super.generateJsGetters());
 
     
-        jsGetters.append(generateJSgetColor());
         jsGetters.append(generateJSgetHovered());
         jsGetters.append(generateJSgetLabels());
         jsGetters.append(generateJSgetNormal());
@@ -1254,8 +1176,9 @@ public class Milestones extends JsObject {
 
         if (jsBase == null) {
             js.append("{");
-            js.append(generateJSfill());
             js.append(generateJScolor());
+            js.append(generateJSfill());
+            js.append(generateJScolor1());
             js.append(generateJSopacity());
             js.append(generateJSkeys());
             js.append(generateJSkeys1());
@@ -1282,9 +1205,9 @@ public class Milestones extends JsObject {
             js.append(generateJSshape1());
             js.append(generateJSsize());
             js.append(generateJSsize1());
-            js.append(generateJScolor1());
             js.append(generateJScolor2());
             js.append(generateJScolor3());
+            js.append(generateJScolor4());
             js.append(generateJSthickness());
             js.append(generateJSdashpattern());
             js.append(generateJSlineJoin());

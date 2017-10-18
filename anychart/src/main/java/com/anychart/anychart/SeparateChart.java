@@ -34,19 +34,17 @@ public class SeparateChart extends ChartWithCredits {
 
     private String interactivity;
     private HoverMode interactivity1;
+    private String interactivity2;
 
     public SeparateChart setInteractivity(String interactivity) {
         if (jsBase == null) {
             this.interactivity = null;
             this.interactivity1 = null;
+            this.interactivity2 = null;
             
             this.interactivity = interactivity;
         } else {
             this.interactivity = interactivity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -67,14 +65,11 @@ public class SeparateChart extends ChartWithCredits {
         if (jsBase == null) {
             this.interactivity = null;
             this.interactivity1 = null;
+            this.interactivity2 = null;
             
             this.interactivity1 = interactivity1;
         } else {
             this.interactivity1 = interactivity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -110,10 +105,6 @@ public class SeparateChart extends ChartWithCredits {
             this.legend = legend;
         } else {
             this.legend = legend;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -138,10 +129,6 @@ public class SeparateChart extends ChartWithCredits {
             this.legend1 = legend1;
         } else {
             this.legend1 = legend1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -185,6 +172,13 @@ public class SeparateChart extends ChartWithCredits {
         return "";
     }
 
+    private String generateJSinteractivity2() {
+        if (interactivity2 != null) {
+            return String.format(Locale.US, "interactivity: %s,", interactivity2);
+        }
+        return "";
+    }
+
     private String generateJSlegend() {
         if (legend != null) {
             return String.format(Locale.US, "legend: %s,", legend);
@@ -223,6 +217,7 @@ public class SeparateChart extends ChartWithCredits {
             js.append("{");
             js.append(generateJSinteractivity());
             js.append(generateJSinteractivity1());
+            js.append(generateJSinteractivity2());
             js.append(generateJSlegend());
             js.append(generateJSlegend1());
             js.append("}");

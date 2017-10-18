@@ -30,10 +30,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.color = color;
         } else {
             this.color = color;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -65,10 +61,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.hovered = hovered;
         } else {
             this.hovered = hovered;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -106,10 +98,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.markers = markers;
         } else {
             this.markers = markers;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -135,10 +123,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.markers1 = markers1;
         } else {
             this.markers1 = markers1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -170,10 +154,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.normal = normal;
         } else {
             this.normal = normal;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -205,10 +185,6 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.selected = selected;
         } else {
             this.selected = selected;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -237,6 +213,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private StockScatterDateTime xScale1;
     private String xScale2;
     private ScaleTypes xScale3;
+    private String xScale4;
 
     public AnnotationsBase setXScale(ScalesBase xScale) {
         if (jsBase == null) {
@@ -244,14 +221,11 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.xScale1 = null;
             this.xScale2 = null;
             this.xScale3 = null;
+            this.xScale4 = null;
             
             this.xScale = xScale;
         } else {
             this.xScale = xScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -274,14 +248,11 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.xScale1 = null;
             this.xScale2 = null;
             this.xScale3 = null;
+            this.xScale4 = null;
             
             this.xScale1 = xScale1;
         } else {
             this.xScale1 = xScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -304,14 +275,11 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.xScale1 = null;
             this.xScale2 = null;
             this.xScale3 = null;
+            this.xScale4 = null;
             
             this.xScale2 = xScale2;
         } else {
             this.xScale2 = xScale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -334,14 +302,11 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.xScale1 = null;
             this.xScale2 = null;
             this.xScale3 = null;
+            this.xScale4 = null;
             
             this.xScale3 = xScale3;
         } else {
             this.xScale3 = xScale3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -369,20 +334,18 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private ScalesBase yScale;
     private String yScale1;
     private ScaleTypes yScale2;
+    private String yScale3;
 
     public AnnotationsBase setYScale(ScalesBase yScale) {
         if (jsBase == null) {
             this.yScale = null;
             this.yScale1 = null;
             this.yScale2 = null;
+            this.yScale3 = null;
             
             this.yScale = yScale;
         } else {
             this.yScale = yScale;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -404,14 +367,11 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.yScale = null;
             this.yScale1 = null;
             this.yScale2 = null;
+            this.yScale3 = null;
             
             this.yScale1 = yScale1;
         } else {
             this.yScale1 = yScale1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -433,14 +393,11 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             this.yScale = null;
             this.yScale1 = null;
             this.yScale2 = null;
+            this.yScale3 = null;
             
             this.yScale2 = yScale2;
         } else {
             this.yScale2 = yScale2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -575,6 +532,13 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSxScale4() {
+        if (xScale4 != null) {
+            return String.format(Locale.US, "xScale: %s,", xScale4);
+        }
+        return "";
+    }
+
     private String generateJSyScale() {
         if (yScale != null) {
             return String.format(Locale.US, "yScale: %s,", (yScale != null) ? yScale.generateJs() : "null");
@@ -592,6 +556,13 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String generateJSyScale2() {
         if (yScale2 != null) {
             return String.format(Locale.US, "yScale: %s,", (yScale2 != null) ? yScale2.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSyScale3() {
+        if (yScale3 != null) {
+            return String.format(Locale.US, "yScale: %s,", yScale3);
         }
         return "";
     }
@@ -633,9 +604,11 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             js.append(generateJSxScale1());
             js.append(generateJSxScale2());
             js.append(generateJSxScale3());
+            js.append(generateJSxScale4());
             js.append(generateJSyScale());
             js.append(generateJSyScale1());
             js.append(generateJSyScale2());
+            js.append(generateJSyScale3());
             js.append("}");
         }
 

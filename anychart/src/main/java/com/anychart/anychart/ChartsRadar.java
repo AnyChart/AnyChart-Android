@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class ChartsRadar extends SeparateChart {
 
-    public ChartsRadar() {
-        js.append("chart = anychart.radar();");
+    protected ChartsRadar(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -72,7 +74,8 @@ public class ChartsRadar extends SeparateChart {
     private Set data1;
     private String[] data2;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<RadarSeriesArea> setArea = new ArrayList<>();
 
     public RadarSeriesArea area(View data, TextParsingMode csvSettings) {
@@ -107,19 +110,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesArea> setArea1 = new ArrayList<>();
 
-    public RadarSeriesArea area(View data, TextParsingSettings csvSettings1) {
+    public RadarSeriesArea area(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         RadarSeriesArea item = new RadarSeriesArea("setArea1" + variableIndex);
@@ -139,19 +142,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesArea> setArea2 = new ArrayList<>();
 
-    public RadarSeriesArea area(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
+    public RadarSeriesArea area(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesArea item = new RadarSeriesArea("setArea2" + variableIndex);
@@ -171,19 +174,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesArea> setArea3 = new ArrayList<>();
 
-    public RadarSeriesArea area(Set data1, TextParsingSettings csvSettings1) {
+    public RadarSeriesArea area(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
+        this.csvSettings = csvSettings;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea3" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea3" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesArea item = new RadarSeriesArea("setArea3" + variableIndex);
@@ -203,19 +206,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesArea> setArea4 = new ArrayList<>();
 
-    public RadarSeriesArea area(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
+    public RadarSeriesArea area(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea4" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea4" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         RadarSeriesArea item = new RadarSeriesArea("setArea4" + variableIndex);
@@ -235,19 +238,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesArea> setArea5 = new ArrayList<>();
 
-    public RadarSeriesArea area(String[] data2, TextParsingSettings csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
+    public RadarSeriesArea area(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setArea5" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setArea5" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesArea item = new RadarSeriesArea("setArea5" + variableIndex);
@@ -265,22 +268,118 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
-    private String defaultSeriesType;
-    private RadarSeriesType defaultSeriesType1;
+    private List<RadarSeriesArea> setArea6 = new ArrayList<>();
+
+    public RadarSeriesArea area(String[] data2, TextParsingMode csvSettings) {
+        this.data2 = data2;
+        this.csvSettings = csvSettings;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea6" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesArea item = new RadarSeriesArea("setArea6" + variableIndex);
+        setArea6.add(item);
+        return item;
+    }
+    private String generateJSsetArea6() {
+        if (!setArea6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setArea6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesArea> setArea7 = new ArrayList<>();
+
+    public RadarSeriesArea area(String[] data2, String csvSettings1) {
+        this.data2 = data2;
+        this.csvSettings1 = csvSettings1;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea7" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), csvSettings1));
+            js.setLength(0);
+        }
+        RadarSeriesArea item = new RadarSeriesArea("setArea7" + variableIndex);
+        setArea7.add(item);
+        return item;
+    }
+    private String generateJSsetArea7() {
+        if (!setArea7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setArea7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesArea> setArea8 = new ArrayList<>();
+
+    public RadarSeriesArea area(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setArea8" + ++variableIndex + " = " + jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".area(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesArea item = new RadarSeriesArea("setArea8" + variableIndex);
+        setArea8.add(item);
+        return item;
+    }
+    private String generateJSsetArea8() {
+        if (!setArea8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setArea8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private RadarSeriesType defaultSeriesType;
+    private String defaultSeriesType1;
     private List<ChartsRadar> setDefaultSeriesType = new ArrayList<>();
 
-    public ChartsRadar setDefaultSeriesType(String defaultSeriesType) {
+    public ChartsRadar setDefaultSeriesType(RadarSeriesType defaultSeriesType) {
         this.defaultSeriesType = defaultSeriesType;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -298,18 +397,18 @@ public class ChartsRadar extends SeparateChart {
 
     private List<ChartsRadar> setDefaultSeriesType1 = new ArrayList<>();
 
-    public ChartsRadar setDefaultSeriesType(RadarSeriesType defaultSeriesType1) {
+    public ChartsRadar setDefaultSeriesType(String defaultSeriesType1) {
         this.defaultSeriesType1 = defaultSeriesType1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
             js.setLength(0);
         }
         return this;
@@ -325,6 +424,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private AnychartMathRect getGetPlotBounds;
 
     public AnychartMathRect getGetPlotBounds() {
@@ -334,31 +434,28 @@ public class ChartsRadar extends SeparateChart {
         return getGetPlotBounds;
     }
 
-    private RadarSeriesBase getGetSeries;
+    private List<RadarSeriesBase> getGetSeries = new ArrayList<>();
 
     public RadarSeriesBase getGetSeries(Double id) {
-        if (getGetSeries == null)
-            getGetSeries = new RadarSeriesBase(jsBase + ".getSeries("+ id+")");
-
-        return getGetSeries;
+        RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeries("+ id+")");
+        getGetSeries.add(item);
+        return item;
     }
 
-    private RadarSeriesBase getGetSeries1;
+    private List<RadarSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public RadarSeriesBase getGetSeries(String id1) {
-        if (getGetSeries1 == null)
-            getGetSeries1 = new RadarSeriesBase(jsBase + ".getSeries("+ id1+")");
-
-        return getGetSeries1;
+        RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeries("+ id1+")");
+        getGetSeries1.add(item);
+        return item;
     }
 
-    private RadarSeriesBase getGetSeriesAt;
+    private List<RadarSeriesBase> getGetSeriesAt = new ArrayList<>();
 
     public RadarSeriesBase getGetSeriesAt(Double index) {
-        if (getGetSeriesAt == null)
-            getGetSeriesAt = new RadarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
-
-        return getGetSeriesAt;
+        RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
+        getGetSeriesAt.add(item);
+        return item;
     }
 
     private HatchFills getHatchFillPalette;
@@ -369,7 +466,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -460,6 +556,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -468,7 +565,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<ChartsRadar> setHovered = new ArrayList<>();
 
@@ -559,6 +655,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -567,7 +664,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<ChartsRadar> setLabels = new ArrayList<>();
@@ -632,23 +728,24 @@ public class ChartsRadar extends SeparateChart {
     private Set data4;
     private String[] data5;
     private String data6;
-    private TextParsingMode csvSettings2;
-    private TextParsingSettings csvSettings3;
+    private TextParsingMode csvSettings3;
+    private String csvSettings4;
+    private TextParsingSettings csvSettings5;
     private List<RadarSeriesLine> setLine = new ArrayList<>();
 
-    public RadarSeriesLine line(View data3, TextParsingMode csvSettings2) {
+    public RadarSeriesLine line(View data3, TextParsingMode csvSettings3) {
         this.data3 = data3;
-        this.csvSettings2 = csvSettings2;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesLine item = new RadarSeriesLine("setLine" + variableIndex);
@@ -668,19 +765,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesLine> setLine1 = new ArrayList<>();
 
-    public RadarSeriesLine line(View data3, TextParsingSettings csvSettings3) {
+    public RadarSeriesLine line(View data3, String csvSettings4) {
         this.data3 = data3;
-        this.csvSettings3 = csvSettings3;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         RadarSeriesLine item = new RadarSeriesLine("setLine1" + variableIndex);
@@ -700,19 +797,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesLine> setLine2 = new ArrayList<>();
 
-    public RadarSeriesLine line(Set data4, TextParsingMode csvSettings2) {
-        this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
+    public RadarSeriesLine line(View data3, TextParsingSettings csvSettings5) {
+        this.data3 = data3;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesLine item = new RadarSeriesLine("setLine2" + variableIndex);
@@ -732,7 +829,7 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesLine> setLine3 = new ArrayList<>();
 
-    public RadarSeriesLine line(Set data4, TextParsingSettings csvSettings3) {
+    public RadarSeriesLine line(Set data4, TextParsingMode csvSettings3) {
         this.data4 = data4;
         this.csvSettings3 = csvSettings3;
         if (isChain) {
@@ -764,19 +861,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesLine> setLine4 = new ArrayList<>();
 
-    public RadarSeriesLine line(String[] data5, TextParsingMode csvSettings2) {
-        this.data5 = data5;
-        this.csvSettings2 = csvSettings2;
+    public RadarSeriesLine line(Set data4, String csvSettings4) {
+        this.data4 = data4;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data5), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         RadarSeriesLine item = new RadarSeriesLine("setLine4" + variableIndex);
@@ -796,19 +893,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesLine> setLine5 = new ArrayList<>();
 
-    public RadarSeriesLine line(String[] data5, TextParsingSettings csvSettings3) {
-        this.data5 = data5;
-        this.csvSettings3 = csvSettings3;
+    public RadarSeriesLine line(Set data4, TextParsingSettings csvSettings5) {
+        this.data4 = data4;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesLine item = new RadarSeriesLine("setLine5" + variableIndex);
@@ -828,19 +925,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesLine> setLine6 = new ArrayList<>();
 
-    public RadarSeriesLine line(String data6, TextParsingMode csvSettings2) {
-        this.data6 = data6;
-        this.csvSettings2 = csvSettings2;
+    public RadarSeriesLine line(String[] data5, TextParsingMode csvSettings3) {
+        this.data5 = data5;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data6, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data5), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesLine item = new RadarSeriesLine("setLine6" + variableIndex);
@@ -860,19 +957,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesLine> setLine7 = new ArrayList<>();
 
-    public RadarSeriesLine line(String data6, TextParsingSettings csvSettings3) {
-        this.data6 = data6;
-        this.csvSettings3 = csvSettings3;
+    public RadarSeriesLine line(String[] data5, String csvSettings4) {
+        this.data5 = data5;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data5), csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data5), csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data5), csvSettings4));
             js.setLength(0);
         }
         RadarSeriesLine item = new RadarSeriesLine("setLine7" + variableIndex);
@@ -890,27 +987,156 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
-    private View data7;
-    private Set data8;
-    private String[] data9;
-    private String data10;
-    private TextParsingMode csvSettings4;
-    private TextParsingSettings csvSettings5;
-    private List<RadarSeriesMarker> setMarker = new ArrayList<>();
+    private List<RadarSeriesLine> setLine8 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(View data7, TextParsingMode csvSettings4) {
-        this.data7 = data7;
+    public RadarSeriesLine line(String[] data5, TextParsingSettings csvSettings5) {
+        this.data5 = data5;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine8" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data5), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesLine item = new RadarSeriesLine("setLine8" + variableIndex);
+        setLine8.add(item);
+        return item;
+    }
+    private String generateJSsetLine8() {
+        if (!setLine8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesLine item : setLine8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesLine> setLine9 = new ArrayList<>();
+
+    public RadarSeriesLine line(String data6, TextParsingMode csvSettings3) {
+        this.data6 = data6;
+        this.csvSettings3 = csvSettings3;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine9" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data6, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesLine item = new RadarSeriesLine("setLine9" + variableIndex);
+        setLine9.add(item);
+        return item;
+    }
+    private String generateJSsetLine9() {
+        if (!setLine9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesLine item : setLine9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesLine> setLine10 = new ArrayList<>();
+
+    public RadarSeriesLine line(String data6, String csvSettings4) {
+        this.data6 = data6;
         this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine10" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data6, csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data6, csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data6, csvSettings4));
+            js.setLength(0);
+        }
+        RadarSeriesLine item = new RadarSeriesLine("setLine10" + variableIndex);
+        setLine10.add(item);
+        return item;
+    }
+    private String generateJSsetLine10() {
+        if (!setLine10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesLine item : setLine10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesLine> setLine11 = new ArrayList<>();
+
+    public RadarSeriesLine line(String data6, TextParsingSettings csvSettings5) {
+        this.data6 = data6;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine11" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data6, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesLine item = new RadarSeriesLine("setLine11" + variableIndex);
+        setLine11.add(item);
+        return item;
+    }
+    private String generateJSsetLine11() {
+        if (!setLine11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesLine item : setLine11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private View data7;
+    private Set data8;
+    private String[] data9;
+    private String data10;
+    private TextParsingMode csvSettings6;
+    private String csvSettings7;
+    private TextParsingSettings csvSettings8;
+    private List<RadarSeriesMarker> setMarker = new ArrayList<>();
+
+    public RadarSeriesMarker marker(View data7, TextParsingMode csvSettings6) {
+        this.data7 = data7;
+        this.csvSettings6 = csvSettings6;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker" + variableIndex);
@@ -930,19 +1156,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesMarker> setMarker1 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(View data7, TextParsingSettings csvSettings5) {
+    public RadarSeriesMarker marker(View data7, String csvSettings7) {
         this.data7 = data7;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data7 != null) ? data7.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker1" + variableIndex);
@@ -962,19 +1188,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesMarker> setMarker2 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(Set data8, TextParsingMode csvSettings4) {
-        this.data8 = data8;
-        this.csvSettings4 = csvSettings4;
+    public RadarSeriesMarker marker(View data7, TextParsingSettings csvSettings8) {
+        this.data7 = data7;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data7 != null) ? data7.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker2" + variableIndex);
@@ -994,19 +1220,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesMarker> setMarker3 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(Set data8, TextParsingSettings csvSettings5) {
+    public RadarSeriesMarker marker(Set data8, TextParsingMode csvSettings6) {
         this.data8 = data8;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker3" + variableIndex);
@@ -1026,19 +1252,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesMarker> setMarker4 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(String[] data9, TextParsingMode csvSettings4) {
-        this.data9 = data9;
-        this.csvSettings4 = csvSettings4;
+    public RadarSeriesMarker marker(Set data8, String csvSettings7) {
+        this.data8 = data8;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data9), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker4" + variableIndex);
@@ -1058,19 +1284,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesMarker> setMarker5 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(String[] data9, TextParsingSettings csvSettings5) {
-        this.data9 = data9;
-        this.csvSettings5 = csvSettings5;
+    public RadarSeriesMarker marker(Set data8, TextParsingSettings csvSettings8) {
+        this.data8 = data8;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data9), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker5" + variableIndex);
@@ -1090,19 +1316,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesMarker> setMarker6 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(String data10, TextParsingMode csvSettings4) {
-        this.data10 = data10;
-        this.csvSettings4 = csvSettings4;
+    public RadarSeriesMarker marker(String[] data9, TextParsingMode csvSettings6) {
+        this.data9 = data9;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data10, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data9), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker6" + variableIndex);
@@ -1122,19 +1348,19 @@ public class ChartsRadar extends SeparateChart {
 
     private List<RadarSeriesMarker> setMarker7 = new ArrayList<>();
 
-    public RadarSeriesMarker marker(String data10, TextParsingSettings csvSettings5) {
-        this.data10 = data10;
-        this.csvSettings5 = csvSettings5;
+    public RadarSeriesMarker marker(String[] data9, String csvSettings7) {
+        this.data9 = data9;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data9), csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data9), csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data10, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data9), csvSettings7));
             js.setLength(0);
         }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker7" + variableIndex);
@@ -1152,6 +1378,135 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+    private List<RadarSeriesMarker> setMarker8 = new ArrayList<>();
+
+    public RadarSeriesMarker marker(String[] data9, TextParsingSettings csvSettings8) {
+        this.data9 = data9;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data9), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesMarker item = new RadarSeriesMarker("setMarker8" + variableIndex);
+        setMarker8.add(item);
+        return item;
+    }
+    private String generateJSsetMarker8() {
+        if (!setMarker8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesMarker item : setMarker8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesMarker> setMarker9 = new ArrayList<>();
+
+    public RadarSeriesMarker marker(String data10, TextParsingMode csvSettings6) {
+        this.data10 = data10;
+        this.csvSettings6 = csvSettings6;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data10, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesMarker item = new RadarSeriesMarker("setMarker9" + variableIndex);
+        setMarker9.add(item);
+        return item;
+    }
+    private String generateJSsetMarker9() {
+        if (!setMarker9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesMarker item : setMarker9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesMarker> setMarker10 = new ArrayList<>();
+
+    public RadarSeriesMarker marker(String data10, String csvSettings7) {
+        this.data10 = data10;
+        this.csvSettings7 = csvSettings7;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data10, csvSettings7));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data10, csvSettings7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data10, csvSettings7));
+            js.setLength(0);
+        }
+        RadarSeriesMarker item = new RadarSeriesMarker("setMarker10" + variableIndex);
+        setMarker10.add(item);
+        return item;
+    }
+    private String generateJSsetMarker10() {
+        if (!setMarker10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesMarker item : setMarker10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesMarker> setMarker11 = new ArrayList<>();
+
+    public RadarSeriesMarker marker(String data10, TextParsingSettings csvSettings8) {
+        this.data10 = data10;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data10, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        RadarSeriesMarker item = new RadarSeriesMarker("setMarker11" + variableIndex);
+        setMarker11.add(item);
+        return item;
+    }
+    private String generateJSsetMarker11() {
+        if (!setMarker11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesMarker item : setMarker11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -1160,10 +1515,10 @@ public class ChartsRadar extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<ChartsRadar> setMarkerPalette = new ArrayList<>();
 
     public ChartsRadar setMarkerPalette(Markers markerPalette) {
@@ -1251,6 +1606,36 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+    private List<ChartsRadar> setMarkerPalette3 = new ArrayList<>();
+
+    public ChartsRadar setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsRadar item : setMarkerPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1259,7 +1644,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<ChartsRadar> setNormal = new ArrayList<>();
 
@@ -1290,6 +1674,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -1298,7 +1683,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -1509,6 +1893,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -1517,7 +1902,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<ChartsRadar> setSelected = new ArrayList<>();
 
@@ -1608,6 +1992,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesRadar getXAxis;
 
     public CoreAxesRadar getXAxis() {
@@ -1616,7 +2001,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getXAxis;
     }
-
     private String xAxis;
     private Boolean xAxis1;
     private List<ChartsRadar> setXAxis = new ArrayList<>();
@@ -1677,6 +2061,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsRadar getXGrid;
 
     public CoreGridsRadar getXGrid() {
@@ -1686,15 +2071,13 @@ public class ChartsRadar extends SeparateChart {
         return getXGrid;
     }
 
-    private CoreGridsRadar getXGrid1;
+    private List<CoreGridsRadar> getXGrid1 = new ArrayList<>();
 
     public CoreGridsRadar getXGrid(Double index2) {
-        if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsRadar(jsBase + ".xGrid("+ index2+")");
-
-        return getXGrid1;
+        CoreGridsRadar item = new CoreGridsRadar(jsBase + ".xGrid("+ index2+")");
+        getXGrid1.add(item);
+        return item;
     }
-
     private String xGrid;
     private Boolean xGrid1;
     private List<ChartsRadar> setXGrid = new ArrayList<>();
@@ -1818,6 +2201,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsRadar getXMinorGrid;
 
     public CoreGridsRadar getXMinorGrid() {
@@ -1827,15 +2211,13 @@ public class ChartsRadar extends SeparateChart {
         return getXMinorGrid;
     }
 
-    private CoreGridsRadar getXMinorGrid1;
+    private List<CoreGridsRadar> getXMinorGrid1 = new ArrayList<>();
 
     public CoreGridsRadar getXMinorGrid(Double index4) {
-        if (getXMinorGrid1 == null)
-            getXMinorGrid1 = new CoreGridsRadar(jsBase + ".xMinorGrid("+ index4+")");
-
-        return getXMinorGrid1;
+        CoreGridsRadar item = new CoreGridsRadar(jsBase + ".xMinorGrid("+ index4+")");
+        getXMinorGrid1.add(item);
+        return item;
     }
-
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<ChartsRadar> setXMinorGrid = new ArrayList<>();
@@ -1959,6 +2341,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private Ordinal getXScale;
 
     public Ordinal getXScale() {
@@ -1967,7 +2350,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getXScale;
     }
-
     private Ordinal xScale;
     private List<ChartsRadar> setXScale = new ArrayList<>();
 
@@ -1998,6 +2380,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesRadar getYAxis;
 
     public CoreAxesRadar getYAxis() {
@@ -2006,7 +2389,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getYAxis;
     }
-
     private String yAxis;
     private Boolean yAxis1;
     private List<ChartsRadar> setYAxis = new ArrayList<>();
@@ -2067,6 +2449,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsRadar getYGrid;
 
     public CoreGridsRadar getYGrid() {
@@ -2076,15 +2459,13 @@ public class ChartsRadar extends SeparateChart {
         return getYGrid;
     }
 
-    private CoreGridsRadar getYGrid1;
+    private List<CoreGridsRadar> getYGrid1 = new ArrayList<>();
 
     public CoreGridsRadar getYGrid(Double index6) {
-        if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsRadar(jsBase + ".yGrid("+ index6+")");
-
-        return getYGrid1;
+        CoreGridsRadar item = new CoreGridsRadar(jsBase + ".yGrid("+ index6+")");
+        getYGrid1.add(item);
+        return item;
     }
-
     private String yGrid;
     private Boolean yGrid1;
     private List<ChartsRadar> setYGrid = new ArrayList<>();
@@ -2208,6 +2589,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsRadar getYMinorGrid;
 
     public CoreGridsRadar getYMinorGrid() {
@@ -2217,15 +2599,13 @@ public class ChartsRadar extends SeparateChart {
         return getYMinorGrid;
     }
 
-    private CoreGridsRadar getYMinorGrid1;
+    private List<CoreGridsRadar> getYMinorGrid1 = new ArrayList<>();
 
     public CoreGridsRadar getYMinorGrid(Double index8) {
-        if (getYMinorGrid1 == null)
-            getYMinorGrid1 = new CoreGridsRadar(jsBase + ".yMinorGrid("+ index8+")");
-
-        return getYMinorGrid1;
+        CoreGridsRadar item = new CoreGridsRadar(jsBase + ".yMinorGrid("+ index8+")");
+        getYMinorGrid1.add(item);
+        return item;
     }
-
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<ChartsRadar> setYMinorGrid = new ArrayList<>();
@@ -2349,6 +2729,7 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+
     private ScalesLinear getYScale;
 
     public ScalesLinear getYScale() {
@@ -2357,7 +2738,6 @@ public class ChartsRadar extends SeparateChart {
 
         return getYScale;
     }
-
     private String yScale;
     private String yScale1;
     private ScalesBase yScale2;
@@ -2457,25 +2837,40 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private String generateJSgetGetSeries() {
-        if (getGetSeries != null) {
-            return getGetSeries.generateJs();
+        if (!getGetSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : getGetSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetSeries1() {
-        if (getGetSeries1 != null) {
-            return getGetSeries1.generateJs();
+        if (!getGetSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : getGetSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetGetSeriesAt() {
-        if (getGetSeriesAt != null) {
-            return getGetSeriesAt.generateJs();
+        if (!getGetSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : getGetSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
@@ -2541,11 +2936,16 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private String generateJSgetXGrid1() {
-        if (getXGrid1 != null) {
-            return getXGrid1.generateJs();
+        if (!getXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsRadar item : getXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXMinorGrid() {
         if (getXMinorGrid != null) {
@@ -2555,11 +2955,16 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private String generateJSgetXMinorGrid1() {
-        if (getXMinorGrid1 != null) {
-            return getXMinorGrid1.generateJs();
+        if (!getXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsRadar item : getXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXScale() {
         if (getXScale != null) {
@@ -2583,11 +2988,16 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private String generateJSgetYGrid1() {
-        if (getYGrid1 != null) {
-            return getYGrid1.generateJs();
+        if (!getYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsRadar item : getYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYMinorGrid() {
         if (getYMinorGrid != null) {
@@ -2597,11 +3007,16 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private String generateJSgetYMinorGrid1() {
-        if (getYMinorGrid1 != null) {
-            return getYMinorGrid1.generateJs();
+        if (!getYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsRadar item : getYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYScale() {
         if (getYScale != null) {
@@ -2646,6 +3061,9 @@ public class ChartsRadar extends SeparateChart {
         js.append(generateJSsetArea3());
         js.append(generateJSsetArea4());
         js.append(generateJSsetArea5());
+        js.append(generateJSsetArea6());
+        js.append(generateJSsetArea7());
+        js.append(generateJSsetArea8());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());
@@ -2664,6 +3082,10 @@ public class ChartsRadar extends SeparateChart {
         js.append(generateJSsetLine5());
         js.append(generateJSsetLine6());
         js.append(generateJSsetLine7());
+        js.append(generateJSsetLine8());
+        js.append(generateJSsetLine9());
+        js.append(generateJSsetLine10());
+        js.append(generateJSsetLine11());
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
         js.append(generateJSsetMarker2());
@@ -2672,9 +3094,14 @@ public class ChartsRadar extends SeparateChart {
         js.append(generateJSsetMarker5());
         js.append(generateJSsetMarker6());
         js.append(generateJSsetMarker7());
+        js.append(generateJSsetMarker8());
+        js.append(generateJSsetMarker9());
+        js.append(generateJSsetMarker10());
+        js.append(generateJSsetMarker11());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetNormal());
         js.append(generateJSsetPalette());
         js.append(generateJSsetPalette1());

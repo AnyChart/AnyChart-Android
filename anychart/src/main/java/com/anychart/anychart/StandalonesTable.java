@@ -33,10 +33,6 @@ public class StandalonesTable extends UiTable {
         } else {
             this.csvSettings = csvSettings;
             this.filename = filename;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -61,10 +57,6 @@ public class StandalonesTable extends UiTable {
             this.filename1 = filename1;
         } else {
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -89,10 +81,6 @@ public class StandalonesTable extends UiTable {
             this.csvSettings1 = csvSettings1;
         } else {
             this.csvSettings1 = csvSettings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

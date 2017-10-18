@@ -33,10 +33,6 @@ public class TableComputer extends JsObject {
         } else {
             this.name = name;
             this.uid = uid;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -61,10 +57,6 @@ public class TableComputer extends JsObject {
             this.name1 = name1;
         } else {
             this.name1 = name1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -86,10 +78,6 @@ public class TableComputer extends JsObject {
             this.setContext = setContext;
         } else {
             this.setContext = setContext;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

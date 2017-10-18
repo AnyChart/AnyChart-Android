@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class Scatter extends SeparateChart {
 
-    public Scatter() {
-        js.append("chart = anychart.scatter();");
+    protected Scatter(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -68,6 +70,7 @@ public class Scatter extends SeparateChart {
         }
     }
 
+
     private PlotController getAnnotations;
 
     public PlotController getAnnotations() {
@@ -76,7 +79,6 @@ public class Scatter extends SeparateChart {
 
         return getAnnotations;
     }
-
     private String[] annotationsList;
     private List<Scatter> setAnnotations = new ArrayList<>();
 
@@ -112,7 +114,8 @@ public class Scatter extends SeparateChart {
     private String[] data2;
     private String data3;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<ScatterSeriesBubble> setBubble = new ArrayList<>();
 
     public ScatterSeriesBubble bubble(View data, TextParsingMode csvSettings) {
@@ -147,19 +150,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesBubble> setBubble1 = new ArrayList<>();
 
-    public ScatterSeriesBubble bubble(View data, TextParsingSettings csvSettings1) {
+    public ScatterSeriesBubble bubble(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble1" + variableIndex);
@@ -179,19 +182,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesBubble> setBubble2 = new ArrayList<>();
 
-    public ScatterSeriesBubble bubble(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
+    public ScatterSeriesBubble bubble(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble2" + variableIndex);
@@ -211,19 +214,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesBubble> setBubble3 = new ArrayList<>();
 
-    public ScatterSeriesBubble bubble(Set data1, TextParsingSettings csvSettings1) {
+    public ScatterSeriesBubble bubble(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
+        this.csvSettings = csvSettings;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble3" + variableIndex);
@@ -243,19 +246,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesBubble> setBubble4 = new ArrayList<>();
 
-    public ScatterSeriesBubble bubble(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
+    public ScatterSeriesBubble bubble(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble4" + variableIndex);
@@ -275,19 +278,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesBubble> setBubble5 = new ArrayList<>();
 
-    public ScatterSeriesBubble bubble(String[] data2, TextParsingSettings csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
+    public ScatterSeriesBubble bubble(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble5" + variableIndex);
@@ -307,19 +310,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesBubble> setBubble6 = new ArrayList<>();
 
-    public ScatterSeriesBubble bubble(String data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
+    public ScatterSeriesBubble bubble(String[] data2, TextParsingMode csvSettings) {
+        this.data2 = data2;
         this.csvSettings = csvSettings;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble6" + variableIndex);
@@ -339,19 +342,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesBubble> setBubble7 = new ArrayList<>();
 
-    public ScatterSeriesBubble bubble(String data3, TextParsingSettings csvSettings1) {
-        this.data3 = data3;
+    public ScatterSeriesBubble bubble(String[] data2, String csvSettings1) {
+        this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
         }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble7" + variableIndex);
@@ -369,6 +372,135 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+    private List<ScatterSeriesBubble> setBubble8 = new ArrayList<>();
+
+    public ScatterSeriesBubble bubble(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble8" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble8" + variableIndex);
+        setBubble8.add(item);
+        return item;
+    }
+    private String generateJSsetBubble8() {
+        if (!setBubble8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBubble item : setBubble8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesBubble> setBubble9 = new ArrayList<>();
+
+    public ScatterSeriesBubble bubble(String data3, TextParsingMode csvSettings) {
+        this.data3 = data3;
+        this.csvSettings = csvSettings;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble9" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble9" + variableIndex);
+        setBubble9.add(item);
+        return item;
+    }
+    private String generateJSsetBubble9() {
+        if (!setBubble9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBubble item : setBubble9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesBubble> setBubble10 = new ArrayList<>();
+
+    public ScatterSeriesBubble bubble(String data3, String csvSettings1) {
+        this.data3 = data3;
+        this.csvSettings1 = csvSettings1;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble10" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, csvSettings1));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, csvSettings1));
+            js.setLength(0);
+        }
+        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble10" + variableIndex);
+        setBubble10.add(item);
+        return item;
+    }
+    private String generateJSsetBubble10() {
+        if (!setBubble10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBubble item : setBubble10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesBubble> setBubble11 = new ArrayList<>();
+
+    public ScatterSeriesBubble bubble(String data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble11" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble11" + variableIndex);
+        setBubble11.add(item);
+        return item;
+    }
+    private String generateJSsetBubble11() {
+        if (!setBubble11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBubble item : setBubble11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Crosshair getCrosshair;
 
     public Crosshair getCrosshair() {
@@ -377,7 +509,6 @@ public class Scatter extends SeparateChart {
 
         return getCrosshair;
     }
-
     private String crosshair;
     private Boolean crosshair1;
     private List<Scatter> setCrosshair = new ArrayList<>();
@@ -438,6 +569,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private Crossing getCrossing;
 
     public Crossing getCrossing() {
@@ -446,7 +578,6 @@ public class Scatter extends SeparateChart {
 
         return getCrossing;
     }
-
     private String crossing;
     private List<Scatter> setCrossing = new ArrayList<>();
 
@@ -507,6 +638,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private AnychartMathRect getGetPlotBounds;
 
     public AnychartMathRect getGetPlotBounds() {
@@ -516,31 +648,28 @@ public class Scatter extends SeparateChart {
         return getGetPlotBounds;
     }
 
-    private ScatterSeriesBase getGetSeries;
+    private List<ScatterSeriesBase> getGetSeries = new ArrayList<>();
 
     public ScatterSeriesBase getGetSeries(Double id) {
-        if (getGetSeries == null)
-            getGetSeries = new ScatterSeriesBase(jsBase + ".getSeries("+ id+")");
-
-        return getGetSeries;
+        ScatterSeriesBase item = new ScatterSeriesBase(jsBase + ".getSeries("+ id+")");
+        getGetSeries.add(item);
+        return item;
     }
 
-    private ScatterSeriesBase getGetSeries1;
+    private List<ScatterSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public ScatterSeriesBase getGetSeries(String id1) {
-        if (getGetSeries1 == null)
-            getGetSeries1 = new ScatterSeriesBase(jsBase + ".getSeries("+ id1+")");
-
-        return getGetSeries1;
+        ScatterSeriesBase item = new ScatterSeriesBase(jsBase + ".getSeries("+ id1+")");
+        getGetSeries1.add(item);
+        return item;
     }
 
-    private ScatterSeriesBase getGetSeriesAt;
+    private List<ScatterSeriesBase> getGetSeriesAt = new ArrayList<>();
 
     public ScatterSeriesBase getGetSeriesAt(Double index) {
-        if (getGetSeriesAt == null)
-            getGetSeriesAt = new ScatterSeriesBase(jsBase + ".getSeriesAt("+ index+")");
-
-        return getGetSeriesAt;
+        ScatterSeriesBase item = new ScatterSeriesBase(jsBase + ".getSeriesAt("+ index+")");
+        getGetSeriesAt.add(item);
+        return item;
     }
 
     private HatchFills getHatchFillPalette;
@@ -551,7 +680,6 @@ public class Scatter extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -642,6 +770,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -650,7 +779,6 @@ public class Scatter extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<Scatter> setHovered = new ArrayList<>();
 
@@ -681,6 +809,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -689,7 +818,6 @@ public class Scatter extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<Scatter> setLabels = new ArrayList<>();
@@ -754,23 +882,24 @@ public class Scatter extends SeparateChart {
     private Set data5;
     private String[] data6;
     private String data7;
-    private TextParsingMode csvSettings2;
-    private TextParsingSettings csvSettings3;
+    private TextParsingMode csvSettings3;
+    private String csvSettings4;
+    private TextParsingSettings csvSettings5;
     private List<ScatterSeriesLine> setLine = new ArrayList<>();
 
-    public ScatterSeriesLine line(View data4, TextParsingMode csvSettings2) {
+    public ScatterSeriesLine line(View data4, TextParsingMode csvSettings3) {
         this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine" + variableIndex);
@@ -790,19 +919,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesLine> setLine1 = new ArrayList<>();
 
-    public ScatterSeriesLine line(View data4, TextParsingSettings csvSettings3) {
+    public ScatterSeriesLine line(View data4, String csvSettings4) {
         this.data4 = data4;
-        this.csvSettings3 = csvSettings3;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine1" + variableIndex);
@@ -822,19 +951,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesLine> setLine2 = new ArrayList<>();
 
-    public ScatterSeriesLine line(Set data5, TextParsingMode csvSettings2) {
-        this.data5 = data5;
-        this.csvSettings2 = csvSettings2;
+    public ScatterSeriesLine line(View data4, TextParsingSettings csvSettings5) {
+        this.data4 = data4;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine2" + variableIndex);
@@ -854,7 +983,7 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesLine> setLine3 = new ArrayList<>();
 
-    public ScatterSeriesLine line(Set data5, TextParsingSettings csvSettings3) {
+    public ScatterSeriesLine line(Set data5, TextParsingMode csvSettings3) {
         this.data5 = data5;
         this.csvSettings3 = csvSettings3;
         if (isChain) {
@@ -886,19 +1015,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesLine> setLine4 = new ArrayList<>();
 
-    public ScatterSeriesLine line(String[] data6, TextParsingMode csvSettings2) {
-        this.data6 = data6;
-        this.csvSettings2 = csvSettings2;
+    public ScatterSeriesLine line(Set data5, String csvSettings4) {
+        this.data5 = data5;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine4" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine4" + variableIndex);
@@ -918,19 +1047,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesLine> setLine5 = new ArrayList<>();
 
-    public ScatterSeriesLine line(String[] data6, TextParsingSettings csvSettings3) {
-        this.data6 = data6;
-        this.csvSettings3 = csvSettings3;
+    public ScatterSeriesLine line(Set data5, TextParsingSettings csvSettings5) {
+        this.data5 = data5;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine5" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine5" + variableIndex);
@@ -950,19 +1079,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesLine> setLine6 = new ArrayList<>();
 
-    public ScatterSeriesLine line(String data7, TextParsingMode csvSettings2) {
-        this.data7 = data7;
-        this.csvSettings2 = csvSettings2;
+    public ScatterSeriesLine line(String[] data6, TextParsingMode csvSettings3) {
+        this.data6 = data6;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine6" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine6" + variableIndex);
@@ -982,19 +1111,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesLine> setLine7 = new ArrayList<>();
 
-    public ScatterSeriesLine line(String data7, TextParsingSettings csvSettings3) {
-        this.data7 = data7;
-        this.csvSettings3 = csvSettings3;
+    public ScatterSeriesLine line(String[] data6, String csvSettings4) {
+        this.data6 = data6;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setLine7" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), csvSettings4));
             js.setLength(0);
         }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine7" + variableIndex);
@@ -1012,6 +1141,135 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+    private List<ScatterSeriesLine> setLine8 = new ArrayList<>();
+
+    public ScatterSeriesLine line(String[] data6, TextParsingSettings csvSettings5) {
+        this.data6 = data6;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine8" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesLine item = new ScatterSeriesLine("setLine8" + variableIndex);
+        setLine8.add(item);
+        return item;
+    }
+    private String generateJSsetLine8() {
+        if (!setLine8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesLine item : setLine8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesLine> setLine9 = new ArrayList<>();
+
+    public ScatterSeriesLine line(String data7, TextParsingMode csvSettings3) {
+        this.data7 = data7;
+        this.csvSettings3 = csvSettings3;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine9" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesLine item = new ScatterSeriesLine("setLine9" + variableIndex);
+        setLine9.add(item);
+        return item;
+    }
+    private String generateJSsetLine9() {
+        if (!setLine9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesLine item : setLine9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesLine> setLine10 = new ArrayList<>();
+
+    public ScatterSeriesLine line(String data7, String csvSettings4) {
+        this.data7 = data7;
+        this.csvSettings4 = csvSettings4;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine10" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, csvSettings4));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, csvSettings4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, csvSettings4));
+            js.setLength(0);
+        }
+        ScatterSeriesLine item = new ScatterSeriesLine("setLine10" + variableIndex);
+        setLine10.add(item);
+        return item;
+    }
+    private String generateJSsetLine10() {
+        if (!setLine10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesLine item : setLine10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesLine> setLine11 = new ArrayList<>();
+
+    public ScatterSeriesLine line(String data7, TextParsingSettings csvSettings5) {
+        this.data7 = data7;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setLine11" + ++variableIndex + " = " + jsBase + ".line(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".line(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s)", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesLine item = new ScatterSeriesLine("setLine11" + variableIndex);
+        setLine11.add(item);
+        return item;
+    }
+    private String generateJSsetLine11() {
+        if (!setLine11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesLine item : setLine11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private CoreAxismarkersLine getLineMarker;
 
     public CoreAxismarkersLine getLineMarker() {
@@ -1021,15 +1279,13 @@ public class Scatter extends SeparateChart {
         return getLineMarker;
     }
 
-    private CoreAxismarkersLine getLineMarker1;
+    private List<CoreAxismarkersLine> getLineMarker1 = new ArrayList<>();
 
     public CoreAxismarkersLine getLineMarker(Double index1) {
-        if (getLineMarker1 == null)
-            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
-
-        return getLineMarker1;
+        CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
+        getLineMarker1.add(item);
+        return item;
     }
-
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Scatter> setLineMarker = new ArrayList<>();
@@ -1157,23 +1413,24 @@ public class Scatter extends SeparateChart {
     private Set data9;
     private String[] data10;
     private String data11;
-    private TextParsingMode csvSettings4;
-    private TextParsingSettings csvSettings5;
+    private TextParsingMode csvSettings6;
+    private String csvSettings7;
+    private TextParsingSettings csvSettings8;
     private List<ScatterSeriesMarker> setMarker = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(View data8, TextParsingMode csvSettings4) {
+    public ScatterSeriesMarker marker(View data8, TextParsingMode csvSettings6) {
         this.data8 = data8;
-        this.csvSettings4 = csvSettings4;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker" + variableIndex);
@@ -1193,19 +1450,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesMarker> setMarker1 = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(View data8, TextParsingSettings csvSettings5) {
+    public ScatterSeriesMarker marker(View data8, String csvSettings7) {
         this.data8 = data8;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker1" + variableIndex);
@@ -1225,19 +1482,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesMarker> setMarker2 = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(Set data9, TextParsingMode csvSettings4) {
-        this.data9 = data9;
-        this.csvSettings4 = csvSettings4;
+    public ScatterSeriesMarker marker(View data8, TextParsingSettings csvSettings8) {
+        this.data8 = data8;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker2" + variableIndex);
@@ -1257,19 +1514,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesMarker> setMarker3 = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(Set data9, TextParsingSettings csvSettings5) {
+    public ScatterSeriesMarker marker(Set data9, TextParsingMode csvSettings6) {
         this.data9 = data9;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker3" + variableIndex);
@@ -1289,19 +1546,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesMarker> setMarker4 = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(String[] data10, TextParsingMode csvSettings4) {
-        this.data10 = data10;
-        this.csvSettings4 = csvSettings4;
+    public ScatterSeriesMarker marker(Set data9, String csvSettings7) {
+        this.data9 = data9;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker4" + variableIndex);
@@ -1321,19 +1578,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesMarker> setMarker5 = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(String[] data10, TextParsingSettings csvSettings5) {
-        this.data10 = data10;
-        this.csvSettings5 = csvSettings5;
+    public ScatterSeriesMarker marker(Set data9, TextParsingSettings csvSettings8) {
+        this.data9 = data9;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker5" + variableIndex);
@@ -1353,19 +1610,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesMarker> setMarker6 = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(String data11, TextParsingMode csvSettings4) {
-        this.data11 = data11;
-        this.csvSettings4 = csvSettings4;
+    public ScatterSeriesMarker marker(String[] data10, TextParsingMode csvSettings6) {
+        this.data10 = data10;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker6" + variableIndex);
@@ -1385,19 +1642,19 @@ public class Scatter extends SeparateChart {
 
     private List<ScatterSeriesMarker> setMarker7 = new ArrayList<>();
 
-    public ScatterSeriesMarker marker(String data11, TextParsingSettings csvSettings5) {
-        this.data11 = data11;
-        this.csvSettings5 = csvSettings5;
+    public ScatterSeriesMarker marker(String[] data10, String csvSettings7) {
+        this.data10 = data10;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), csvSettings7));
             js.setLength(0);
         }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker7" + variableIndex);
@@ -1415,6 +1672,135 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+    private List<ScatterSeriesMarker> setMarker8 = new ArrayList<>();
+
+    public ScatterSeriesMarker marker(String[] data10, TextParsingSettings csvSettings8) {
+        this.data10 = data10;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker8" + variableIndex);
+        setMarker8.add(item);
+        return item;
+    }
+    private String generateJSsetMarker8() {
+        if (!setMarker8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesMarker item : setMarker8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesMarker> setMarker9 = new ArrayList<>();
+
+    public ScatterSeriesMarker marker(String data11, TextParsingMode csvSettings6) {
+        this.data11 = data11;
+        this.csvSettings6 = csvSettings6;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker9" + variableIndex);
+        setMarker9.add(item);
+        return item;
+    }
+    private String generateJSsetMarker9() {
+        if (!setMarker9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesMarker item : setMarker9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesMarker> setMarker10 = new ArrayList<>();
+
+    public ScatterSeriesMarker marker(String data11, String csvSettings7) {
+        this.data11 = data11;
+        this.csvSettings7 = csvSettings7;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, csvSettings7));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, csvSettings7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, csvSettings7));
+            js.setLength(0);
+        }
+        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker10" + variableIndex);
+        setMarker10.add(item);
+        return item;
+    }
+    private String generateJSsetMarker10() {
+        if (!setMarker10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesMarker item : setMarker10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesMarker> setMarker11 = new ArrayList<>();
+
+    public ScatterSeriesMarker marker(String data11, TextParsingSettings csvSettings8) {
+        this.data11 = data11;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker11" + variableIndex);
+        setMarker11.add(item);
+        return item;
+    }
+    private String generateJSsetMarker11() {
+        if (!setMarker11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesMarker item : setMarker11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -1423,10 +1809,10 @@ public class Scatter extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<Scatter> setMarkerPalette = new ArrayList<>();
 
     public Scatter setMarkerPalette(Markers markerPalette) {
@@ -1507,6 +1893,35 @@ public class Scatter extends SeparateChart {
         if (!setMarkerPalette2.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Scatter item : setMarkerPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Scatter> setMarkerPalette3 = new ArrayList<>();
+
+    public Scatter setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Scatter item : setMarkerPalette3) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1634,6 +2049,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1642,7 +2058,6 @@ public class Scatter extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<Scatter> setNormal = new ArrayList<>();
 
@@ -1673,6 +2088,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -1681,7 +2097,6 @@ public class Scatter extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -1802,6 +2217,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private QuarterSettings getQuarters;
 
     public QuarterSettings getQuarters() {
@@ -1810,7 +2226,6 @@ public class Scatter extends SeparateChart {
 
         return getQuarters;
     }
-
     private String quarters;
     private List<Scatter> setQuarters = new ArrayList<>();
 
@@ -1841,6 +2256,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreAxismarkersRange getRangeMarker;
 
     public CoreAxismarkersRange getRangeMarker() {
@@ -1850,15 +2266,13 @@ public class Scatter extends SeparateChart {
         return getRangeMarker;
     }
 
-    private CoreAxismarkersRange getRangeMarker1;
+    private List<CoreAxismarkersRange> getRangeMarker1 = new ArrayList<>();
 
     public CoreAxismarkersRange getRangeMarker(Double index3) {
-        if (getRangeMarker1 == null)
-            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
-
-        return getRangeMarker1;
+        CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
+        getRangeMarker1.add(item);
+        return item;
     }
-
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Scatter> setRangeMarker = new ArrayList<>();
@@ -2072,6 +2486,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -2080,7 +2495,6 @@ public class Scatter extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<Scatter> setSelected = new ArrayList<>();
 
@@ -2111,6 +2525,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreAxismarkersText getTextMarker;
 
     public CoreAxismarkersText getTextMarker() {
@@ -2120,15 +2535,13 @@ public class Scatter extends SeparateChart {
         return getTextMarker;
     }
 
-    private CoreAxismarkersText getTextMarker1;
+    private List<CoreAxismarkersText> getTextMarker1 = new ArrayList<>();
 
     public CoreAxismarkersText getTextMarker(Double index6) {
-        if (getTextMarker1 == null)
-            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
-
-        return getTextMarker1;
+        CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
+        getTextMarker1.add(item);
+        return item;
     }
-
     private String textMarker;
     private Boolean textMarker1;
     private List<Scatter> setTextMarker = new ArrayList<>();
@@ -2252,6 +2665,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getXAxis;
 
     public CoreAxesLinear getXAxis() {
@@ -2261,15 +2675,13 @@ public class Scatter extends SeparateChart {
         return getXAxis;
     }
 
-    private CoreAxesLinear getXAxis1;
+    private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getXAxis(Double index8) {
-        if (getXAxis1 == null)
-            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
-
-        return getXAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
+        getXAxis1.add(item);
+        return item;
     }
-
     private String xAxis;
     private Boolean xAxis1;
     private List<Scatter> setXAxis = new ArrayList<>();
@@ -2393,6 +2805,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getXGrid;
 
     public CoreGridsLinear getXGrid() {
@@ -2402,15 +2815,13 @@ public class Scatter extends SeparateChart {
         return getXGrid;
     }
 
-    private CoreGridsLinear getXGrid1;
+    private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getXGrid(Double index10) {
-        if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
-
-        return getXGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
+        getXGrid1.add(item);
+        return item;
     }
-
     private String xGrid;
     private Boolean xGrid1;
     private List<Scatter> setXGrid = new ArrayList<>();
@@ -2534,6 +2945,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getXMinorGrid;
 
     public CoreGridsLinear getXMinorGrid() {
@@ -2543,15 +2955,13 @@ public class Scatter extends SeparateChart {
         return getXMinorGrid;
     }
 
-    private CoreGridsLinear getXMinorGrid1;
+    private List<CoreGridsLinear> getXMinorGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getXMinorGrid(Double index12) {
-        if (getXMinorGrid1 == null)
-            getXMinorGrid1 = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
-
-        return getXMinorGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
+        getXMinorGrid1.add(item);
+        return item;
     }
-
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<Scatter> setXMinorGrid = new ArrayList<>();
@@ -2675,6 +3085,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private ScatterBase getXScale;
 
     public ScatterBase getXScale() {
@@ -2683,10 +3094,9 @@ public class Scatter extends SeparateChart {
 
         return getXScale;
     }
-
     private String xScale;
-    private String xScale1;
-    private ScatterScaleTypes xScale2;
+    private ScatterScaleTypes xScale1;
+    private String xScale2;
     private ScatterBase xScale3;
     private List<Scatter> setXScale = new ArrayList<>();
 
@@ -2719,18 +3129,18 @@ public class Scatter extends SeparateChart {
 
     private List<Scatter> setXScale1 = new ArrayList<>();
 
-    public Scatter setXScale(ScatterScaleTypes xScale2) {
-        this.xScale2 = xScale2;
+    public Scatter setXScale(ScatterScaleTypes xScale1) {
+        this.xScale1 = xScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -2775,6 +3185,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getYAxis;
 
     public CoreAxesLinear getYAxis() {
@@ -2784,15 +3195,13 @@ public class Scatter extends SeparateChart {
         return getYAxis;
     }
 
-    private CoreAxesLinear getYAxis1;
+    private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getYAxis(Double index14) {
-        if (getYAxis1 == null)
-            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
-
-        return getYAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
+        getYAxis1.add(item);
+        return item;
     }
-
     private String yAxis;
     private Boolean yAxis1;
     private List<Scatter> setYAxis = new ArrayList<>();
@@ -2916,6 +3325,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getYGrid;
 
     public CoreGridsLinear getYGrid() {
@@ -2925,15 +3335,13 @@ public class Scatter extends SeparateChart {
         return getYGrid;
     }
 
-    private CoreGridsLinear getYGrid1;
+    private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getYGrid(Double index16) {
-        if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
-
-        return getYGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
+        getYGrid1.add(item);
+        return item;
     }
-
     private String yGrid;
     private Boolean yGrid1;
     private List<Scatter> setYGrid = new ArrayList<>();
@@ -3057,6 +3465,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getYMinorGrid;
 
     public CoreGridsLinear getYMinorGrid() {
@@ -3066,15 +3475,13 @@ public class Scatter extends SeparateChart {
         return getYMinorGrid;
     }
 
-    private CoreGridsLinear getYMinorGrid1;
+    private List<CoreGridsLinear> getYMinorGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getYMinorGrid(Double index18) {
-        if (getYMinorGrid1 == null)
-            getYMinorGrid1 = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
-
-        return getYMinorGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
+        getYMinorGrid1.add(item);
+        return item;
     }
-
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<Scatter> setYMinorGrid = new ArrayList<>();
@@ -3198,6 +3605,7 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+
     private ScatterBase getYScale;
 
     public ScatterBase getYScale() {
@@ -3206,10 +3614,9 @@ public class Scatter extends SeparateChart {
 
         return getYScale;
     }
-
     private String yScale;
-    private String yScale1;
-    private ScatterScaleTypes yScale2;
+    private ScatterScaleTypes yScale1;
+    private String yScale2;
     private ScatterBase yScale3;
     private List<Scatter> setYScale = new ArrayList<>();
 
@@ -3242,18 +3649,18 @@ public class Scatter extends SeparateChart {
 
     private List<Scatter> setYScale1 = new ArrayList<>();
 
-    public Scatter setYScale(ScatterScaleTypes yScale2) {
-        this.yScale2 = yScale2;
+    public Scatter setYScale(ScatterScaleTypes yScale1) {
+        this.yScale1 = yScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -3327,25 +3734,40 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetGetSeries() {
-        if (getGetSeries != null) {
-            return getGetSeries.generateJs();
+        if (!getGetSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : getGetSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetSeries1() {
-        if (getGetSeries1 != null) {
-            return getGetSeries1.generateJs();
+        if (!getGetSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : getGetSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetGetSeriesAt() {
-        if (getGetSeriesAt != null) {
-            return getGetSeriesAt.generateJs();
+        if (!getGetSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : getGetSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
@@ -3376,11 +3798,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetLineMarker1() {
-        if (getLineMarker1 != null) {
-            return getLineMarker1.generateJs();
+        if (!getLineMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersLine item : getLineMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetMarkerPalette() {
         if (getMarkerPalette != null) {
@@ -3418,11 +3845,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetRangeMarker1() {
-        if (getRangeMarker1 != null) {
-            return getRangeMarker1.generateJs();
+        if (!getRangeMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : getRangeMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetSelected() {
         if (getSelected != null) {
@@ -3439,11 +3871,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetTextMarker1() {
-        if (getTextMarker1 != null) {
-            return getTextMarker1.generateJs();
+        if (!getTextMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersText item : getTextMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
@@ -3453,11 +3890,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetXAxis1() {
-        if (getXAxis1 != null) {
-            return getXAxis1.generateJs();
+        if (!getXAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getXAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXGrid() {
         if (getXGrid != null) {
@@ -3467,11 +3909,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetXGrid1() {
-        if (getXGrid1 != null) {
-            return getXGrid1.generateJs();
+        if (!getXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXMinorGrid() {
         if (getXMinorGrid != null) {
@@ -3481,11 +3928,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetXMinorGrid1() {
-        if (getXMinorGrid1 != null) {
-            return getXMinorGrid1.generateJs();
+        if (!getXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXScale() {
         if (getXScale != null) {
@@ -3502,11 +3954,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetYAxis1() {
-        if (getYAxis1 != null) {
-            return getYAxis1.generateJs();
+        if (!getYAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getYAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYGrid() {
         if (getYGrid != null) {
@@ -3516,11 +3973,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetYGrid1() {
-        if (getYGrid1 != null) {
-            return getYGrid1.generateJs();
+        if (!getYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYMinorGrid() {
         if (getYMinorGrid != null) {
@@ -3530,11 +3992,16 @@ public class Scatter extends SeparateChart {
     }
 
     private String generateJSgetYMinorGrid1() {
-        if (getYMinorGrid1 != null) {
-            return getYMinorGrid1.generateJs();
+        if (!getYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYScale() {
         if (getYScale != null) {
@@ -3594,6 +4061,10 @@ public class Scatter extends SeparateChart {
         js.append(generateJSsetBubble5());
         js.append(generateJSsetBubble6());
         js.append(generateJSsetBubble7());
+        js.append(generateJSsetBubble8());
+        js.append(generateJSsetBubble9());
+        js.append(generateJSsetBubble10());
+        js.append(generateJSsetBubble11());
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetCrossing());
@@ -3612,6 +4083,10 @@ public class Scatter extends SeparateChart {
         js.append(generateJSsetLine5());
         js.append(generateJSsetLine6());
         js.append(generateJSsetLine7());
+        js.append(generateJSsetLine8());
+        js.append(generateJSsetLine9());
+        js.append(generateJSsetLine10());
+        js.append(generateJSsetLine11());
         js.append(generateJSsetLineMarker());
         js.append(generateJSsetLineMarker1());
         js.append(generateJSsetLineMarker2());
@@ -3624,9 +4099,14 @@ public class Scatter extends SeparateChart {
         js.append(generateJSsetMarker5());
         js.append(generateJSsetMarker6());
         js.append(generateJSsetMarker7());
+        js.append(generateJSsetMarker8());
+        js.append(generateJSsetMarker9());
+        js.append(generateJSsetMarker10());
+        js.append(generateJSsetMarker11());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetMaxBubbleSize());
         js.append(generateJSsetMaxBubbleSize1());
         js.append(generateJSsetMinBubbleSize());

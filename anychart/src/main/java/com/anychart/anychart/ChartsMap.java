@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class ChartsMap extends SeparateChart {
 
-    public ChartsMap() {
-        js.append("chart = anychart.map();");
+    protected ChartsMap(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -68,6 +70,7 @@ public class ChartsMap extends SeparateChart {
         }
     }
 
+
     private AxesMapSettings getAxes;
 
     public AxesMapSettings getAxes() {
@@ -76,7 +79,6 @@ public class ChartsMap extends SeparateChart {
 
         return getAxes;
     }
-
     private String axes;
     private Boolean axes1;
     private List<ChartsMap> setAxes = new ArrayList<>();
@@ -142,7 +144,8 @@ public class ChartsMap extends SeparateChart {
     private String[] data2;
     private String data3;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<MapSeriesBubble> setBubble = new ArrayList<>();
 
     public MapSeriesBubble bubble(View data, TextParsingMode csvSettings) {
@@ -177,19 +180,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBubble> setBubble1 = new ArrayList<>();
 
-    public MapSeriesBubble bubble(View data, TextParsingSettings csvSettings1) {
+    public MapSeriesBubble bubble(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble1" + variableIndex);
@@ -209,19 +212,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBubble> setBubble2 = new ArrayList<>();
 
-    public MapSeriesBubble bubble(Set data1, TextParsingMode csvSettings) {
-        this.data1 = data1;
-        this.csvSettings = csvSettings;
+    public MapSeriesBubble bubble(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble2" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble2" + variableIndex);
@@ -241,19 +244,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBubble> setBubble3 = new ArrayList<>();
 
-    public MapSeriesBubble bubble(Set data1, TextParsingSettings csvSettings1) {
+    public MapSeriesBubble bubble(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
+        this.csvSettings = csvSettings;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble3" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble3" + variableIndex);
@@ -273,19 +276,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBubble> setBubble4 = new ArrayList<>();
 
-    public MapSeriesBubble bubble(String[] data2, TextParsingMode csvSettings) {
-        this.data2 = data2;
-        this.csvSettings = csvSettings;
+    public MapSeriesBubble bubble(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble4" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble4" + variableIndex);
@@ -305,19 +308,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBubble> setBubble5 = new ArrayList<>();
 
-    public MapSeriesBubble bubble(String[] data2, TextParsingSettings csvSettings1) {
-        this.data2 = data2;
-        this.csvSettings1 = csvSettings1;
+    public MapSeriesBubble bubble(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble5" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble5" + variableIndex);
@@ -337,19 +340,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBubble> setBubble6 = new ArrayList<>();
 
-    public MapSeriesBubble bubble(String data3, TextParsingMode csvSettings) {
-        this.data3 = data3;
+    public MapSeriesBubble bubble(String[] data2, TextParsingMode csvSettings) {
+        this.data2 = data2;
         this.csvSettings = csvSettings;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble6" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings != null) ? csvSettings.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble6" + variableIndex);
@@ -369,19 +372,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesBubble> setBubble7 = new ArrayList<>();
 
-    public MapSeriesBubble bubble(String data3, TextParsingSettings csvSettings1) {
-        this.data3 = data3;
+    public MapSeriesBubble bubble(String[] data2, String csvSettings1) {
+        this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setBubble7" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble7" + variableIndex);
@@ -399,6 +402,135 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+    private List<MapSeriesBubble> setBubble8 = new ArrayList<>();
+
+    public MapSeriesBubble bubble(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble8" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        MapSeriesBubble item = new MapSeriesBubble("setBubble8" + variableIndex);
+        setBubble8.add(item);
+        return item;
+    }
+    private String generateJSsetBubble8() {
+        if (!setBubble8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBubble item : setBubble8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesBubble> setBubble9 = new ArrayList<>();
+
+    public MapSeriesBubble bubble(String data3, TextParsingMode csvSettings) {
+        this.data3 = data3;
+        this.csvSettings = csvSettings;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble9" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings != null) ? csvSettings.generateJs() : "null"));
+            js.setLength(0);
+        }
+        MapSeriesBubble item = new MapSeriesBubble("setBubble9" + variableIndex);
+        setBubble9.add(item);
+        return item;
+    }
+    private String generateJSsetBubble9() {
+        if (!setBubble9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBubble item : setBubble9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesBubble> setBubble10 = new ArrayList<>();
+
+    public MapSeriesBubble bubble(String data3, String csvSettings1) {
+        this.data3 = data3;
+        this.csvSettings1 = csvSettings1;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble10" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, csvSettings1));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, csvSettings1));
+            js.setLength(0);
+        }
+        MapSeriesBubble item = new MapSeriesBubble("setBubble10" + variableIndex);
+        setBubble10.add(item);
+        return item;
+    }
+    private String generateJSsetBubble10() {
+        if (!setBubble10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBubble item : setBubble10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesBubble> setBubble11 = new ArrayList<>();
+
+    public MapSeriesBubble bubble(String data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBubble11" + ++variableIndex + " = " + jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".bubble(%s, %s);", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        MapSeriesBubble item = new MapSeriesBubble("setBubble11" + variableIndex);
+        setBubble11.add(item);
+        return item;
+    }
+    private String generateJSsetBubble11() {
+        if (!setBubble11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBubble item : setBubble11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Callout getCallout;
 
     public Callout getCallout() {
@@ -408,15 +540,13 @@ public class ChartsMap extends SeparateChart {
         return getCallout;
     }
 
-    private Callout getCallout1;
+    private List<Callout> getCallout1 = new ArrayList<>();
 
     public Callout getCallout(Double index) {
-        if (getCallout1 == null)
-            getCallout1 = new Callout(jsBase + ".callout("+ index+")");
-
-        return getCallout1;
+        Callout item = new Callout(jsBase + ".callout("+ index+")");
+        getCallout1.add(item);
+        return item;
     }
-
     private String callout;
     private Boolean callout1;
     private List<ChartsMap> setCallout = new ArrayList<>();
@@ -544,23 +674,24 @@ public class ChartsMap extends SeparateChart {
     private Set data5;
     private String[] data6;
     private String data7;
-    private TextParsingMode csvSettings2;
-    private TextParsingSettings csvSettings3;
+    private TextParsingMode csvSettings3;
+    private String csvSettings4;
+    private TextParsingSettings csvSettings5;
     private List<Choropleth> setChoropleth = new ArrayList<>();
 
-    public Choropleth choropleth(View data4, TextParsingMode csvSettings2) {
+    public Choropleth choropleth(View data4, TextParsingMode csvSettings3) {
         this.data4 = data4;
-        this.csvSettings2 = csvSettings2;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setChoropleth" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setChoropleth" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         Choropleth item = new Choropleth("setChoropleth" + variableIndex);
@@ -580,19 +711,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Choropleth> setChoropleth1 = new ArrayList<>();
 
-    public Choropleth choropleth(View data4, TextParsingSettings csvSettings3) {
+    public Choropleth choropleth(View data4, String csvSettings4) {
         this.data4 = data4;
-        this.csvSettings3 = csvSettings3;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setChoropleth1" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setChoropleth1" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         Choropleth item = new Choropleth("setChoropleth1" + variableIndex);
@@ -612,19 +743,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Choropleth> setChoropleth2 = new ArrayList<>();
 
-    public Choropleth choropleth(Set data5, TextParsingMode csvSettings2) {
-        this.data5 = data5;
-        this.csvSettings2 = csvSettings2;
+    public Choropleth choropleth(View data4, TextParsingSettings csvSettings5) {
+        this.data4 = data4;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setChoropleth2" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setChoropleth2" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         Choropleth item = new Choropleth("setChoropleth2" + variableIndex);
@@ -644,7 +775,7 @@ public class ChartsMap extends SeparateChart {
 
     private List<Choropleth> setChoropleth3 = new ArrayList<>();
 
-    public Choropleth choropleth(Set data5, TextParsingSettings csvSettings3) {
+    public Choropleth choropleth(Set data5, TextParsingMode csvSettings3) {
         this.data5 = data5;
         this.csvSettings3 = csvSettings3;
         if (isChain) {
@@ -676,19 +807,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Choropleth> setChoropleth4 = new ArrayList<>();
 
-    public Choropleth choropleth(String[] data6, TextParsingMode csvSettings2) {
-        this.data6 = data6;
-        this.csvSettings2 = csvSettings2;
+    public Choropleth choropleth(Set data5, String csvSettings4) {
+        this.data5 = data5;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setChoropleth4" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setChoropleth4" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data5 != null) ? data5.generateJs() : "null", csvSettings4));
             js.setLength(0);
         }
         Choropleth item = new Choropleth("setChoropleth4" + variableIndex);
@@ -708,19 +839,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Choropleth> setChoropleth5 = new ArrayList<>();
 
-    public Choropleth choropleth(String[] data6, TextParsingSettings csvSettings3) {
-        this.data6 = data6;
-        this.csvSettings3 = csvSettings3;
+    public Choropleth choropleth(Set data5, TextParsingSettings csvSettings5) {
+        this.data5 = data5;
+        this.csvSettings5 = csvSettings5;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setChoropleth5" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setChoropleth5" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", (data5 != null) ? data5.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
             js.setLength(0);
         }
         Choropleth item = new Choropleth("setChoropleth5" + variableIndex);
@@ -740,19 +871,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Choropleth> setChoropleth6 = new ArrayList<>();
 
-    public Choropleth choropleth(String data7, TextParsingMode csvSettings2) {
-        this.data7 = data7;
-        this.csvSettings2 = csvSettings2;
+    public Choropleth choropleth(String[] data6, TextParsingMode csvSettings3) {
+        this.data6 = data6;
+        this.csvSettings3 = csvSettings3;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setChoropleth6" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setChoropleth6" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
             js.setLength(0);
         }
         Choropleth item = new Choropleth("setChoropleth6" + variableIndex);
@@ -772,19 +903,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Choropleth> setChoropleth7 = new ArrayList<>();
 
-    public Choropleth choropleth(String data7, TextParsingSettings csvSettings3) {
-        this.data7 = data7;
-        this.csvSettings3 = csvSettings3;
+    public Choropleth choropleth(String[] data6, String csvSettings4) {
+        this.data6 = data6;
+        this.csvSettings4 = csvSettings4;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setChoropleth7" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setChoropleth7" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), csvSettings4));
 
-//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), csvSettings4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), csvSettings4));
             js.setLength(0);
         }
         Choropleth item = new Choropleth("setChoropleth7" + variableIndex);
@@ -802,6 +933,135 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+    private List<Choropleth> setChoropleth8 = new ArrayList<>();
+
+    public Choropleth choropleth(String[] data6, TextParsingSettings csvSettings5) {
+        this.data6 = data6;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setChoropleth8" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", Arrays.toString(data6), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Choropleth item = new Choropleth("setChoropleth8" + variableIndex);
+        setChoropleth8.add(item);
+        return item;
+    }
+    private String generateJSsetChoropleth8() {
+        if (!setChoropleth8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Choropleth item : setChoropleth8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Choropleth> setChoropleth9 = new ArrayList<>();
+
+    public Choropleth choropleth(String data7, TextParsingMode csvSettings3) {
+        this.data7 = data7;
+        this.csvSettings3 = csvSettings3;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setChoropleth9" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, (csvSettings3 != null) ? csvSettings3.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Choropleth item = new Choropleth("setChoropleth9" + variableIndex);
+        setChoropleth9.add(item);
+        return item;
+    }
+    private String generateJSsetChoropleth9() {
+        if (!setChoropleth9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Choropleth item : setChoropleth9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Choropleth> setChoropleth10 = new ArrayList<>();
+
+    public Choropleth choropleth(String data7, String csvSettings4) {
+        this.data7 = data7;
+        this.csvSettings4 = csvSettings4;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setChoropleth10" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, csvSettings4));
+
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, csvSettings4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, csvSettings4));
+            js.setLength(0);
+        }
+        Choropleth item = new Choropleth("setChoropleth10" + variableIndex);
+        setChoropleth10.add(item);
+        return item;
+    }
+    private String generateJSsetChoropleth10() {
+        if (!setChoropleth10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Choropleth item : setChoropleth10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Choropleth> setChoropleth11 = new ArrayList<>();
+
+    public Choropleth choropleth(String data7, TextParsingSettings csvSettings5) {
+        this.data7 = data7;
+        this.csvSettings5 = csvSettings5;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setChoropleth11" + ++variableIndex + " = " + jsBase + ".choropleth(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".choropleth(%s, %s);", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s, %s)", data7, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Choropleth item = new Choropleth("setChoropleth11" + variableIndex);
+        setChoropleth11.add(item);
+        return item;
+    }
+    private String generateJSsetChoropleth11() {
+        if (!setChoropleth11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Choropleth item : setChoropleth11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private UiColorRange getColorRange;
 
     public UiColorRange getColorRange() {
@@ -810,7 +1070,6 @@ public class ChartsMap extends SeparateChart {
 
         return getColorRange;
     }
-
     private String colorRange;
     private List<ChartsMap> setColorRange = new ArrayList<>();
 
@@ -845,23 +1104,24 @@ public class ChartsMap extends SeparateChart {
     private Set data9;
     private String[] data10;
     private String data11;
-    private TextParsingMode csvSettings4;
-    private TextParsingSettings csvSettings5;
+    private TextParsingMode csvSettings6;
+    private String csvSettings7;
+    private TextParsingSettings csvSettings8;
     private List<Connector> setConnector = new ArrayList<>();
 
-    public Connector connector(View data8, TextParsingMode csvSettings4) {
+    public Connector connector(View data8, TextParsingMode csvSettings6) {
         this.data8 = data8;
-        this.csvSettings4 = csvSettings4;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector" + variableIndex);
@@ -881,19 +1141,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Connector> setConnector1 = new ArrayList<>();
 
-    public Connector connector(View data8, TextParsingSettings csvSettings5) {
+    public Connector connector(View data8, String csvSettings7) {
         this.data8 = data8;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector1" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector1" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector1" + variableIndex);
@@ -913,19 +1173,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Connector> setConnector2 = new ArrayList<>();
 
-    public Connector connector(Set data9, TextParsingMode csvSettings4) {
-        this.data9 = data9;
-        this.csvSettings4 = csvSettings4;
+    public Connector connector(View data8, TextParsingSettings csvSettings8) {
+        this.data8 = data8;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector2" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector2" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data8 != null) ? data8.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector2" + variableIndex);
@@ -945,19 +1205,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Connector> setConnector3 = new ArrayList<>();
 
-    public Connector connector(Set data9, TextParsingSettings csvSettings5) {
+    public Connector connector(Set data9, TextParsingMode csvSettings6) {
         this.data9 = data9;
-        this.csvSettings5 = csvSettings5;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector3" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector3" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector3" + variableIndex);
@@ -977,19 +1237,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Connector> setConnector4 = new ArrayList<>();
 
-    public Connector connector(String[] data10, TextParsingMode csvSettings4) {
-        this.data10 = data10;
-        this.csvSettings4 = csvSettings4;
+    public Connector connector(Set data9, String csvSettings7) {
+        this.data9 = data9;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector4" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector4" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", csvSettings7));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector4" + variableIndex);
@@ -1009,19 +1269,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Connector> setConnector5 = new ArrayList<>();
 
-    public Connector connector(String[] data10, TextParsingSettings csvSettings5) {
-        this.data10 = data10;
-        this.csvSettings5 = csvSettings5;
+    public Connector connector(Set data9, TextParsingSettings csvSettings8) {
+        this.data9 = data9;
+        this.csvSettings8 = csvSettings8;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector5" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector5" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", (data9 != null) ? data9.generateJs() : "null", (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector5" + variableIndex);
@@ -1041,19 +1301,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Connector> setConnector6 = new ArrayList<>();
 
-    public Connector connector(String data11, TextParsingMode csvSettings4) {
-        this.data11 = data11;
-        this.csvSettings4 = csvSettings4;
+    public Connector connector(String[] data10, TextParsingMode csvSettings6) {
+        this.data10 = data10;
+        this.csvSettings6 = csvSettings6;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector6" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector6" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, (csvSettings4 != null) ? csvSettings4.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector6" + variableIndex);
@@ -1073,19 +1333,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<Connector> setConnector7 = new ArrayList<>();
 
-    public Connector connector(String data11, TextParsingSettings csvSettings5) {
-        this.data11 = data11;
-        this.csvSettings5 = csvSettings5;
+    public Connector connector(String[] data10, String csvSettings7) {
+        this.data10 = data10;
+        this.csvSettings7 = csvSettings7;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setConnector7" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setConnector7" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), csvSettings7));
 
-//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), csvSettings7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, (csvSettings5 != null) ? csvSettings5.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), csvSettings7));
             js.setLength(0);
         }
         Connector item = new Connector("setConnector7" + variableIndex);
@@ -1103,6 +1363,135 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+    private List<Connector> setConnector8 = new ArrayList<>();
+
+    public Connector connector(String[] data10, TextParsingSettings csvSettings8) {
+        this.data10 = data10;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setConnector8" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", Arrays.toString(data10), (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Connector item = new Connector("setConnector8" + variableIndex);
+        setConnector8.add(item);
+        return item;
+    }
+    private String generateJSsetConnector8() {
+        if (!setConnector8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setConnector8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Connector> setConnector9 = new ArrayList<>();
+
+    public Connector connector(String data11, TextParsingMode csvSettings6) {
+        this.data11 = data11;
+        this.csvSettings6 = csvSettings6;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setConnector9" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Connector item = new Connector("setConnector9" + variableIndex);
+        setConnector9.add(item);
+        return item;
+    }
+    private String generateJSsetConnector9() {
+        if (!setConnector9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setConnector9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Connector> setConnector10 = new ArrayList<>();
+
+    public Connector connector(String data11, String csvSettings7) {
+        this.data11 = data11;
+        this.csvSettings7 = csvSettings7;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setConnector10" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, csvSettings7));
+
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, csvSettings7));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, csvSettings7));
+            js.setLength(0);
+        }
+        Connector item = new Connector("setConnector10" + variableIndex);
+        setConnector10.add(item);
+        return item;
+    }
+    private String generateJSsetConnector10() {
+        if (!setConnector10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setConnector10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Connector> setConnector11 = new ArrayList<>();
+
+    public Connector connector(String data11, TextParsingSettings csvSettings8) {
+        this.data11 = data11;
+        this.csvSettings8 = csvSettings8;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setConnector11" + ++variableIndex + " = " + jsBase + ".connector(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".connector(%s, %s);", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s, %s)", data11, (csvSettings8 != null) ? csvSettings8.generateJs() : "null"));
+            js.setLength(0);
+        }
+        Connector item = new Connector("setConnector11" + variableIndex);
+        setConnector11.add(item);
+        return item;
+    }
+    private String generateJSsetConnector11() {
+        if (!setConnector11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setConnector11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Crosshair getCrosshair;
 
     public Crosshair getCrosshair() {
@@ -1111,7 +1500,6 @@ public class ChartsMap extends SeparateChart {
 
         return getCrosshair;
     }
-
     private String crosshair;
     private Boolean crosshair1;
     private List<ChartsMap> setCrosshair = new ArrayList<>();
@@ -1209,6 +1597,7 @@ public class ChartsMap extends SeparateChart {
         }
     }
 
+
     private Animation getCrsAnimation;
 
     public Animation getCrsAnimation() {
@@ -1217,7 +1606,6 @@ public class ChartsMap extends SeparateChart {
 
         return getCrsAnimation;
     }
-
     private Boolean crsAnimation;
     private String crsAnimation1;
     private Double duration;
@@ -1281,22 +1669,22 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
-    private String defaultSeriesType;
-    private MapSeriesType defaultSeriesType1;
+    private MapSeriesType defaultSeriesType;
+    private String defaultSeriesType1;
     private List<ChartsMap> setDefaultSeriesType = new ArrayList<>();
 
-    public ChartsMap setDefaultSeriesType(String defaultSeriesType) {
+    public ChartsMap setDefaultSeriesType(MapSeriesType defaultSeriesType) {
         this.defaultSeriesType = defaultSeriesType;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -1314,18 +1702,18 @@ public class ChartsMap extends SeparateChart {
 
     private List<ChartsMap> setDefaultSeriesType1 = new ArrayList<>();
 
-    public ChartsMap setDefaultSeriesType(MapSeriesType defaultSeriesType1) {
+    public ChartsMap setDefaultSeriesType(String defaultSeriesType1) {
         this.defaultSeriesType1 = defaultSeriesType1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
             js.setLength(0);
         }
         return this;
@@ -1539,6 +1927,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private AnychartMathRect getGetPlotBounds;
 
     public AnychartMathRect getGetPlotBounds() {
@@ -1548,31 +1937,28 @@ public class ChartsMap extends SeparateChart {
         return getGetPlotBounds;
     }
 
-    private MapSeriesBase getGetSeries;
+    private List<MapSeriesBase> getGetSeries = new ArrayList<>();
 
     public MapSeriesBase getGetSeries(Double id7) {
-        if (getGetSeries == null)
-            getGetSeries = new MapSeriesBase(jsBase + ".getSeries("+ id7+")");
-
-        return getGetSeries;
+        MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeries("+ id7+")");
+        getGetSeries.add(item);
+        return item;
     }
 
-    private MapSeriesBase getGetSeries1;
+    private List<MapSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public MapSeriesBase getGetSeries(String id8) {
-        if (getGetSeries1 == null)
-            getGetSeries1 = new MapSeriesBase(jsBase + ".getSeries("+ id8+")");
-
-        return getGetSeries1;
+        MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeries("+ id8+")");
+        getGetSeries1.add(item);
+        return item;
     }
 
-    private MapSeriesBase getGetSeriesAt;
+    private List<MapSeriesBase> getGetSeriesAt = new ArrayList<>();
 
     public MapSeriesBase getGetSeriesAt(Double index2) {
-        if (getGetSeriesAt == null)
-            getGetSeriesAt = new MapSeriesBase(jsBase + ".getSeriesAt("+ index2+")");
-
-        return getGetSeriesAt;
+        MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeriesAt("+ index2+")");
+        getGetSeriesAt.add(item);
+        return item;
     }
 
     private GridsMapSettings getGrids;
@@ -1583,7 +1969,6 @@ public class ChartsMap extends SeparateChart {
 
         return getGrids;
     }
-
     private String grids;
     private Boolean grids1;
     private List<ChartsMap> setGrids = new ArrayList<>();
@@ -1644,6 +2029,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private HatchFills getHatchFillPalette;
 
     public HatchFills getHatchFillPalette() {
@@ -1652,7 +2038,6 @@ public class ChartsMap extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -1743,6 +2128,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -1751,7 +2137,6 @@ public class ChartsMap extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<ChartsMap> setHovered = new ArrayList<>();
 
@@ -1802,6 +2187,7 @@ public class ChartsMap extends SeparateChart {
         }
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -1810,7 +2196,6 @@ public class ChartsMap extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<ChartsMap> setLabels = new ArrayList<>();
@@ -1875,23 +2260,24 @@ public class ChartsMap extends SeparateChart {
     private Set data15;
     private String[] data16;
     private String data17;
-    private TextParsingMode csvSettings6;
-    private TextParsingSettings csvSettings7;
+    private TextParsingMode csvSettings9;
+    private String csvSettings10;
+    private TextParsingSettings csvSettings11;
     private List<MapSeriesMarker> setMarker = new ArrayList<>();
 
-    public MapSeriesMarker marker(View data14, TextParsingMode csvSettings6) {
+    public MapSeriesMarker marker(View data14, TextParsingMode csvSettings9) {
         this.data14 = data14;
-        this.csvSettings6 = csvSettings6;
+        this.csvSettings9 = csvSettings9;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker" + variableIndex);
@@ -1911,19 +2297,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesMarker> setMarker1 = new ArrayList<>();
 
-    public MapSeriesMarker marker(View data14, TextParsingSettings csvSettings7) {
+    public MapSeriesMarker marker(View data14, String csvSettings10) {
         this.data14 = data14;
-        this.csvSettings7 = csvSettings7;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", csvSettings10));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker1" + variableIndex);
@@ -1943,19 +2329,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesMarker> setMarker2 = new ArrayList<>();
 
-    public MapSeriesMarker marker(Set data15, TextParsingMode csvSettings6) {
-        this.data15 = data15;
-        this.csvSettings6 = csvSettings6;
+    public MapSeriesMarker marker(View data14, TextParsingSettings csvSettings11) {
+        this.data14 = data14;
+        this.csvSettings11 = csvSettings11;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data14 != null) ? data14.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data14 != null) ? data14.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker2" + variableIndex);
@@ -1975,19 +2361,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesMarker> setMarker3 = new ArrayList<>();
 
-    public MapSeriesMarker marker(Set data15, TextParsingSettings csvSettings7) {
+    public MapSeriesMarker marker(Set data15, TextParsingMode csvSettings9) {
         this.data15 = data15;
-        this.csvSettings7 = csvSettings7;
+        this.csvSettings9 = csvSettings9;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker3" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker3" + variableIndex);
@@ -2007,19 +2393,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesMarker> setMarker4 = new ArrayList<>();
 
-    public MapSeriesMarker marker(String[] data16, TextParsingMode csvSettings6) {
-        this.data16 = data16;
-        this.csvSettings6 = csvSettings6;
+    public MapSeriesMarker marker(Set data15, String csvSettings10) {
+        this.data15 = data15;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker4" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", csvSettings10));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker4" + variableIndex);
@@ -2039,19 +2425,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesMarker> setMarker5 = new ArrayList<>();
 
-    public MapSeriesMarker marker(String[] data16, TextParsingSettings csvSettings7) {
-        this.data16 = data16;
-        this.csvSettings7 = csvSettings7;
+    public MapSeriesMarker marker(Set data15, TextParsingSettings csvSettings11) {
+        this.data15 = data15;
+        this.csvSettings11 = csvSettings11;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker5" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", (data15 != null) ? data15.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", (data15 != null) ? data15.generateJs() : "null", (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker5" + variableIndex);
@@ -2071,19 +2457,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesMarker> setMarker6 = new ArrayList<>();
 
-    public MapSeriesMarker marker(String data17, TextParsingMode csvSettings6) {
-        this.data17 = data17;
-        this.csvSettings6 = csvSettings6;
+    public MapSeriesMarker marker(String[] data16, TextParsingMode csvSettings9) {
+        this.data16 = data16;
+        this.csvSettings9 = csvSettings9;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker6" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, (csvSettings6 != null) ? csvSettings6.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker6" + variableIndex);
@@ -2103,19 +2489,19 @@ public class ChartsMap extends SeparateChart {
 
     private List<MapSeriesMarker> setMarker7 = new ArrayList<>();
 
-    public MapSeriesMarker marker(String data17, TextParsingSettings csvSettings7) {
-        this.data17 = data17;
-        this.csvSettings7 = csvSettings7;
+    public MapSeriesMarker marker(String[] data16, String csvSettings10) {
+        this.data16 = data16;
+        this.csvSettings10 = csvSettings10;
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+        js.append(String.format(Locale.US, "var setMarker7" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), csvSettings10));
 
-//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), csvSettings10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, (csvSettings7 != null) ? csvSettings7.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), csvSettings10));
             js.setLength(0);
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker7" + variableIndex);
@@ -2133,6 +2519,135 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+    private List<MapSeriesMarker> setMarker8 = new ArrayList<>();
+
+    public MapSeriesMarker marker(String[] data16, TextParsingSettings csvSettings11) {
+        this.data16 = data16;
+        this.csvSettings11 = csvSettings11;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker8" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", Arrays.toString(data16), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", Arrays.toString(data16), (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            js.setLength(0);
+        }
+        MapSeriesMarker item = new MapSeriesMarker("setMarker8" + variableIndex);
+        setMarker8.add(item);
+        return item;
+    }
+    private String generateJSsetMarker8() {
+        if (!setMarker8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesMarker item : setMarker8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesMarker> setMarker9 = new ArrayList<>();
+
+    public MapSeriesMarker marker(String data17, TextParsingMode csvSettings9) {
+        this.data17 = data17;
+        this.csvSettings9 = csvSettings9;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker9" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, (csvSettings9 != null) ? csvSettings9.generateJs() : "null"));
+            js.setLength(0);
+        }
+        MapSeriesMarker item = new MapSeriesMarker("setMarker9" + variableIndex);
+        setMarker9.add(item);
+        return item;
+    }
+    private String generateJSsetMarker9() {
+        if (!setMarker9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesMarker item : setMarker9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesMarker> setMarker10 = new ArrayList<>();
+
+    public MapSeriesMarker marker(String data17, String csvSettings10) {
+        this.data17 = data17;
+        this.csvSettings10 = csvSettings10;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker10" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, csvSettings10));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, csvSettings10));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, csvSettings10));
+            js.setLength(0);
+        }
+        MapSeriesMarker item = new MapSeriesMarker("setMarker10" + variableIndex);
+        setMarker10.add(item);
+        return item;
+    }
+    private String generateJSsetMarker10() {
+        if (!setMarker10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesMarker item : setMarker10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesMarker> setMarker11 = new ArrayList<>();
+
+    public MapSeriesMarker marker(String data17, TextParsingSettings csvSettings11) {
+        this.data17 = data17;
+        this.csvSettings11 = csvSettings11;
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setMarker11" + ++variableIndex + " = " + jsBase + ".marker(%s, %s);", data17, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, jsBase + ".marker(%s, %s);", data17, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s)", data17, (csvSettings11 != null) ? csvSettings11.generateJs() : "null"));
+            js.setLength(0);
+        }
+        MapSeriesMarker item = new MapSeriesMarker("setMarker11" + variableIndex);
+        setMarker11.add(item);
+        return item;
+    }
+    private String generateJSsetMarker11() {
+        if (!setMarker11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesMarker item : setMarker11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -2141,10 +2656,10 @@ public class ChartsMap extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<ChartsMap> setMarkerPalette = new ArrayList<>();
 
     public ChartsMap setMarkerPalette(Markers markerPalette) {
@@ -2225,6 +2740,35 @@ public class ChartsMap extends SeparateChart {
         if (!setMarkerPalette2.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (ChartsMap item : setMarkerPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsMap> setMarkerPalette3 = new ArrayList<>();
+
+    public ChartsMap setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsMap item : setMarkerPalette3) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2414,6 +2958,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -2422,7 +2967,6 @@ public class ChartsMap extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<ChartsMap> setNormal = new ArrayList<>();
 
@@ -2543,6 +3087,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -2551,7 +3096,6 @@ public class ChartsMap extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -2762,6 +3306,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private Geo getScale;
 
     public Geo getScale() {
@@ -2770,7 +3315,6 @@ public class ChartsMap extends SeparateChart {
 
         return getScale;
     }
-
     private Geo scale;
     private String scale1;
     private List<Geo> setScale = new ArrayList<>();
@@ -2835,6 +3379,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -2843,7 +3388,6 @@ public class ChartsMap extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<ChartsMap> setSelected = new ArrayList<>();
 
@@ -2928,6 +3472,7 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+
     private UnboundRegionsSettings getUnboundRegions;
 
     public UnboundRegionsSettings getUnboundRegions() {
@@ -2936,7 +3481,6 @@ public class ChartsMap extends SeparateChart {
 
         return getUnboundRegions;
     }
-
     private String unboundRegions;
     private MapUnboundRegionsMode unboundRegions1;
     private String unboundRegions2;
@@ -3131,11 +3675,16 @@ public class ChartsMap extends SeparateChart {
     }
 
     private String generateJSgetCallout1() {
-        if (getCallout1 != null) {
-            return getCallout1.generateJs();
+        if (!getCallout1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Callout item : getCallout1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetColorRange() {
         if (getColorRange != null) {
@@ -3166,25 +3715,40 @@ public class ChartsMap extends SeparateChart {
     }
 
     private String generateJSgetGetSeries() {
-        if (getGetSeries != null) {
-            return getGetSeries.generateJs();
+        if (!getGetSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBase item : getGetSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetSeries1() {
-        if (getGetSeries1 != null) {
-            return getGetSeries1.generateJs();
+        if (!getGetSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBase item : getGetSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetGetSeriesAt() {
-        if (getGetSeriesAt != null) {
-            return getGetSeriesAt.generateJs();
+        if (!getGetSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBase item : getGetSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGrids() {
         if (getGrids != null) {
@@ -3293,6 +3857,10 @@ public class ChartsMap extends SeparateChart {
         js.append(generateJSsetBubble5());
         js.append(generateJSsetBubble6());
         js.append(generateJSsetBubble7());
+        js.append(generateJSsetBubble8());
+        js.append(generateJSsetBubble9());
+        js.append(generateJSsetBubble10());
+        js.append(generateJSsetBubble11());
         js.append(generateJSsetCallout());
         js.append(generateJSsetCallout1());
         js.append(generateJSsetCallout2());
@@ -3305,6 +3873,10 @@ public class ChartsMap extends SeparateChart {
         js.append(generateJSsetChoropleth5());
         js.append(generateJSsetChoropleth6());
         js.append(generateJSsetChoropleth7());
+        js.append(generateJSsetChoropleth8());
+        js.append(generateJSsetChoropleth9());
+        js.append(generateJSsetChoropleth10());
+        js.append(generateJSsetChoropleth11());
         js.append(generateJSsetColorRange());
         js.append(generateJSsetConnector());
         js.append(generateJSsetConnector1());
@@ -3314,6 +3886,10 @@ public class ChartsMap extends SeparateChart {
         js.append(generateJSsetConnector5());
         js.append(generateJSsetConnector6());
         js.append(generateJSsetConnector7());
+        js.append(generateJSsetConnector8());
+        js.append(generateJSsetConnector9());
+        js.append(generateJSsetConnector10());
+        js.append(generateJSsetConnector11());
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetCrsAnimation());
@@ -3341,9 +3917,14 @@ public class ChartsMap extends SeparateChart {
         js.append(generateJSsetMarker5());
         js.append(generateJSsetMarker6());
         js.append(generateJSsetMarker7());
+        js.append(generateJSsetMarker8());
+        js.append(generateJSsetMarker9());
+        js.append(generateJSsetMarker10());
+        js.append(generateJSsetMarker11());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetMaxBubbleSize());
         js.append(generateJSsetMaxBubbleSize1());
         js.append(generateJSsetMaxZoomLevel());

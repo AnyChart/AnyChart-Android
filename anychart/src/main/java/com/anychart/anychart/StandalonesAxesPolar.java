@@ -47,10 +47,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.container = container;
         } else {
             this.container = container;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -77,10 +73,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -107,10 +99,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.container2 = container2;
         } else {
             this.container2 = container2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -137,10 +125,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.container3 = container3;
         } else {
             this.container3 = container3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -176,10 +160,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.parentBounds = parentBounds;
         } else {
             this.parentBounds = parentBounds;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -204,10 +184,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.parentBounds1 = parentBounds1;
         } else {
             this.parentBounds1 = parentBounds1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -239,10 +215,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.top = top;
             this.width = width;
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -269,10 +241,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.startAngle = startAngle;
         } else {
             this.startAngle = startAngle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -297,10 +265,6 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
             this.startAngle1 = startAngle1;
         } else {
             this.startAngle1 = startAngle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

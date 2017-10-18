@@ -34,10 +34,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             this.maxPointWidth = maxPointWidth;
         } else {
             this.maxPointWidth = maxPointWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             this.maxPointWidth1 = maxPointWidth1;
         } else {
             this.maxPointWidth1 = maxPointWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             this.minPointLength = minPointLength;
         } else {
             this.minPointLength = minPointLength;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             this.minPointLength1 = minPointLength1;
         } else {
             this.minPointLength1 = minPointLength1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -150,10 +134,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             this.pointWidth = pointWidth;
         } else {
             this.pointWidth = pointWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -178,10 +158,6 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
             this.pointWidth1 = pointWidth1;
         } else {
             this.pointWidth1 = pointWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

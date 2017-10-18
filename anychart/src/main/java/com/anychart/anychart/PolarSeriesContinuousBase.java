@@ -30,10 +30,6 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
             this.closed = closed;
         } else {
             this.closed = closed;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
             this.connectMissingPoints = connectMissingPoints;
         } else {
             this.connectMissingPoints = connectMissingPoints;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -97,10 +89,6 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
             this.markers = markers;
         } else {
             this.markers = markers;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -126,10 +114,6 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
             this.markers1 = markers1;
         } else {
             this.markers1 = markers1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

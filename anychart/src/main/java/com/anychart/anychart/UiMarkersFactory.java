@@ -34,10 +34,6 @@ public class UiMarkersFactory extends VisualBase {
             this.anchor = anchor;
         } else {
             this.anchor = anchor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class UiMarkersFactory extends VisualBase {
             this.anchor1 = anchor1;
         } else {
             this.anchor1 = anchor1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -92,10 +84,6 @@ public class UiMarkersFactory extends VisualBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -120,10 +108,6 @@ public class UiMarkersFactory extends VisualBase {
             this.fill1 = fill1;
         } else {
             this.fill1 = fill1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -149,10 +133,6 @@ public class UiMarkersFactory extends VisualBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -197,10 +177,6 @@ public class UiMarkersFactory extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -238,10 +214,6 @@ public class UiMarkersFactory extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -279,10 +251,6 @@ public class UiMarkersFactory extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -320,10 +288,6 @@ public class UiMarkersFactory extends VisualBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -361,10 +325,6 @@ public class UiMarkersFactory extends VisualBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -402,10 +362,6 @@ public class UiMarkersFactory extends VisualBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -461,10 +417,6 @@ public class UiMarkersFactory extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -512,10 +464,6 @@ public class UiMarkersFactory extends VisualBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -543,10 +491,6 @@ public class UiMarkersFactory extends VisualBase {
             this.offsetX = offsetX;
         } else {
             this.offsetX = offsetX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -571,10 +515,6 @@ public class UiMarkersFactory extends VisualBase {
             this.offsetX1 = offsetX1;
         } else {
             this.offsetX1 = offsetX1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -601,10 +541,6 @@ public class UiMarkersFactory extends VisualBase {
             this.offsetY = offsetY;
         } else {
             this.offsetY = offsetY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -629,10 +565,6 @@ public class UiMarkersFactory extends VisualBase {
             this.offsetY1 = offsetY1;
         } else {
             this.offsetY1 = offsetY1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -655,10 +587,6 @@ public class UiMarkersFactory extends VisualBase {
             this.position = position;
         } else {
             this.position = position;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -681,10 +609,6 @@ public class UiMarkersFactory extends VisualBase {
             this.rotation = rotation;
         } else {
             this.rotation = rotation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -707,10 +631,6 @@ public class UiMarkersFactory extends VisualBase {
             this.size = size;
         } else {
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -737,10 +657,6 @@ public class UiMarkersFactory extends VisualBase {
             this.stroke = stroke;
         } else {
             this.stroke = stroke;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -765,10 +681,6 @@ public class UiMarkersFactory extends VisualBase {
             this.stroke1 = stroke1;
         } else {
             this.stroke1 = stroke1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -810,10 +722,6 @@ public class UiMarkersFactory extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -848,10 +756,6 @@ public class UiMarkersFactory extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -886,10 +790,6 @@ public class UiMarkersFactory extends VisualBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -905,10 +805,10 @@ public class UiMarkersFactory extends VisualBase {
         return this;
     }
 
-    private String type;
-    private MarkerType type1;
+    private MarkerType type;
+    private String type1;
 
-    public UiMarkersFactory setType(String type) {
+    public UiMarkersFactory setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -916,19 +816,15 @@ public class UiMarkersFactory extends VisualBase {
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", type));
+            js.append(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -936,7 +832,7 @@ public class UiMarkersFactory extends VisualBase {
     }
 
 
-    public UiMarkersFactory setType(MarkerType type1) {
+    public UiMarkersFactory setType(String type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -944,19 +840,15 @@ public class UiMarkersFactory extends VisualBase {
             this.type1 = type1;
         } else {
             this.type1 = type1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", (type1 != null) ? type1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".type(%s)", type1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type1));
                 js.setLength(0);
             }
         }
@@ -1231,14 +1123,14 @@ public class UiMarkersFactory extends VisualBase {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
+            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", (type1 != null) ? type1.generateJs() : "null");
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }

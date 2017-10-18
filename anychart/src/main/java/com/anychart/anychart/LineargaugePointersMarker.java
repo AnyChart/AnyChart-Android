@@ -23,10 +23,10 @@ public class LineargaugePointersMarker extends LineargaugePointersBase {
     }
 
     
-    private String type;
-    private MarkerType type1;
+    private MarkerType type;
+    private String type1;
 
-    public LineargaugePointersMarker setType(String type) {
+    public LineargaugePointersMarker setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -34,19 +34,15 @@ public class LineargaugePointersMarker extends LineargaugePointersBase {
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", type));
+            js.append(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -54,7 +50,7 @@ public class LineargaugePointersMarker extends LineargaugePointersBase {
     }
 
 
-    public LineargaugePointersMarker setType(MarkerType type1) {
+    public LineargaugePointersMarker setType(String type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -62,19 +58,15 @@ public class LineargaugePointersMarker extends LineargaugePointersBase {
             this.type1 = type1;
         } else {
             this.type1 = type1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", (type1 != null) ? type1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".type(%s)", type1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type1));
                 js.setLength(0);
             }
         }
@@ -83,14 +75,14 @@ public class LineargaugePointersMarker extends LineargaugePointersBase {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
+            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", (type1 != null) ? type1.generateJs() : "null");
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }

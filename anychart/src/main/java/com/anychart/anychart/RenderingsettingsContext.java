@@ -24,11 +24,15 @@ public class RenderingsettingsContext extends JsObject {
 
     
     private PointState state;
+    private String state1;
     private Double baseZIndex;
     private String restrictShapes;
 
     public void getShapesGroup(PointState state, Double baseZIndex, String restrictShapes) {
         if (jsBase == null) {
+            this.state = null;
+            this.state1 = null;
+            
             this.state = state;
             this.baseZIndex = baseZIndex;
             this.restrictShapes = restrictShapes;
@@ -36,10 +40,6 @@ public class RenderingsettingsContext extends JsObject {
             this.state = state;
             this.baseZIndex = baseZIndex;
             this.restrictShapes = restrictShapes;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -54,6 +54,33 @@ public class RenderingsettingsContext extends JsObject {
         }
     }
 
+
+    public void getShapesGroup(String state1, Double baseZIndex, String restrictShapes) {
+        if (jsBase == null) {
+            this.state = null;
+            this.state1 = null;
+            
+            this.state1 = state1;
+            this.baseZIndex = baseZIndex;
+            this.restrictShapes = restrictShapes;
+        } else {
+            this.state1 = state1;
+            this.baseZIndex = baseZIndex;
+            this.restrictShapes = restrictShapes;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", state1, baseZIndex, restrictShapes));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", state1, baseZIndex, restrictShapes));
+                js.setLength(0);
+            }
+        }
+    }
+
     private String key;
 
     public void getStat(String key) {
@@ -61,10 +88,6 @@ public class RenderingsettingsContext extends JsObject {
             this.key = key;
         } else {
             this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -82,6 +105,13 @@ public class RenderingsettingsContext extends JsObject {
     private String generateJSstate() {
         if (state != null) {
             return String.format(Locale.US, "state: %s,", (state != null) ? state.generateJs() : "null");
+        }
+        return "";
+    }
+
+    private String generateJSstate1() {
+        if (state1 != null) {
+            return String.format(Locale.US, "state: %s,", state1);
         }
         return "";
     }
@@ -128,6 +158,7 @@ public class RenderingsettingsContext extends JsObject {
         if (jsBase == null) {
             js.append("{");
             js.append(generateJSstate());
+            js.append(generateJSstate1());
             js.append(generateJSbaseZIndex());
             js.append(generateJSrestrictShapes());
             js.append(generateJSkey());

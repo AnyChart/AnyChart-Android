@@ -30,10 +30,6 @@ public class StateSettings extends CoreBase {
             this.dummyFill = dummyFill;
         } else {
             this.dummyFill = dummyFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -59,10 +55,6 @@ public class StateSettings extends CoreBase {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -107,10 +99,6 @@ public class StateSettings extends CoreBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -148,10 +136,6 @@ public class StateSettings extends CoreBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -189,10 +173,6 @@ public class StateSettings extends CoreBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -230,10 +210,6 @@ public class StateSettings extends CoreBase {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -271,10 +247,6 @@ public class StateSettings extends CoreBase {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -312,10 +284,6 @@ public class StateSettings extends CoreBase {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -371,10 +339,6 @@ public class StateSettings extends CoreBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -422,10 +386,6 @@ public class StateSettings extends CoreBase {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -468,10 +428,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -506,10 +462,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -544,10 +496,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -574,10 +522,6 @@ public class StateSettings extends CoreBase {
             this.emptyFill = emptyFill;
         } else {
             this.emptyFill = emptyFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -602,10 +546,6 @@ public class StateSettings extends CoreBase {
             this.emptyFill1 = emptyFill1;
         } else {
             this.emptyFill1 = emptyFill1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -642,10 +582,6 @@ public class StateSettings extends CoreBase {
         } else {
             this.color4 = color4;
             this.opacity3 = opacity3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -706,10 +642,6 @@ public class StateSettings extends CoreBase {
             this.color5 = color5;
             this.thickness1 = thickness1;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -753,10 +685,6 @@ public class StateSettings extends CoreBase {
             this.color5 = color5;
             this.thickness1 = thickness1;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -800,10 +728,6 @@ public class StateSettings extends CoreBase {
             this.color5 = color5;
             this.thickness1 = thickness1;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -847,10 +771,6 @@ public class StateSettings extends CoreBase {
             this.color5 = color5;
             this.thickness1 = thickness1;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -894,10 +814,6 @@ public class StateSettings extends CoreBase {
             this.color5 = color5;
             this.thickness1 = thickness1;
             this.size = size;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -920,10 +836,6 @@ public class StateSettings extends CoreBase {
             this.fallingFill = fallingFill;
         } else {
             this.fallingFill = fallingFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -963,10 +875,6 @@ public class StateSettings extends CoreBase {
         } else {
             this.color6 = color6;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1026,10 +934,6 @@ public class StateSettings extends CoreBase {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1082,10 +986,6 @@ public class StateSettings extends CoreBase {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1138,10 +1038,6 @@ public class StateSettings extends CoreBase {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1194,10 +1090,6 @@ public class StateSettings extends CoreBase {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1250,10 +1142,6 @@ public class StateSettings extends CoreBase {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1306,10 +1194,6 @@ public class StateSettings extends CoreBase {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1389,10 +1273,6 @@ public class StateSettings extends CoreBase {
             this.opacity6 = opacity6;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1464,10 +1344,6 @@ public class StateSettings extends CoreBase {
             this.opacity6 = opacity6;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1531,10 +1407,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1581,10 +1453,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1631,10 +1499,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1657,10 +1521,6 @@ public class StateSettings extends CoreBase {
             this.fill = fill;
         } else {
             this.fill = fill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1679,7 +1539,7 @@ public class StateSettings extends CoreBase {
     private String color7;
     private Double opacity7;
 
-    public StateSettings fill(String color7, Double opacity7) {
+    public StateSettings setFill(String color7, Double opacity7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1704,10 +1564,6 @@ public class StateSettings extends CoreBase {
         } else {
             this.color7 = color7;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1731,7 +1587,7 @@ public class StateSettings extends CoreBase {
     private String mode10;
     private Double opacity8;
 
-    public StateSettings fill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity8) {
+    public StateSettings setFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1779,10 +1635,6 @@ public class StateSettings extends CoreBase {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1799,7 +1651,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings fill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity8) {
+    public StateSettings setFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1847,10 +1699,6 @@ public class StateSettings extends CoreBase {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1867,7 +1715,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings fill(GradientKey[] keys8, String mode10, Double angle2, Double opacity8) {
+    public StateSettings setFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1915,10 +1763,6 @@ public class StateSettings extends CoreBase {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1935,7 +1779,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings fill(String[] keys9, Boolean mode8, Double angle2, Double opacity8) {
+    public StateSettings setFill(String[] keys9, Boolean mode8, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1983,10 +1827,6 @@ public class StateSettings extends CoreBase {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2003,7 +1843,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings fill(String[] keys9, VectorRect mode9, Double angle2, Double opacity8) {
+    public StateSettings setFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2051,10 +1891,6 @@ public class StateSettings extends CoreBase {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2071,7 +1907,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings fill(String[] keys9, String mode10, Double angle2, Double opacity8) {
+    public StateSettings setFill(String[] keys9, String mode10, Double angle2, Double opacity8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2119,10 +1955,6 @@ public class StateSettings extends CoreBase {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2147,7 +1979,7 @@ public class StateSettings extends CoreBase {
     private Double fx2;
     private Double fy2;
 
-    public StateSettings fill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
+    public StateSettings setFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2217,10 +2049,6 @@ public class StateSettings extends CoreBase {
             this.opacity9 = opacity9;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2237,7 +2065,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings fill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
+    public StateSettings setFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2307,10 +2135,6 @@ public class StateSettings extends CoreBase {
             this.opacity9 = opacity9;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2334,10 +2158,6 @@ public class StateSettings extends CoreBase {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2364,10 +2184,6 @@ public class StateSettings extends CoreBase {
             this.fontSize = fontSize;
         } else {
             this.fontSize = fontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2392,10 +2208,6 @@ public class StateSettings extends CoreBase {
             this.fontSize1 = fontSize1;
         } else {
             this.fontSize1 = fontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2422,10 +2234,6 @@ public class StateSettings extends CoreBase {
             this.fontStyle = fontStyle;
         } else {
             this.fontStyle = fontStyle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2450,10 +2258,6 @@ public class StateSettings extends CoreBase {
             this.fontStyle1 = fontStyle1;
         } else {
             this.fontStyle1 = fontStyle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2480,10 +2284,6 @@ public class StateSettings extends CoreBase {
             this.fontVariant = fontVariant;
         } else {
             this.fontVariant = fontVariant;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2508,10 +2308,6 @@ public class StateSettings extends CoreBase {
             this.fontVariant1 = fontVariant1;
         } else {
             this.fontVariant1 = fontVariant1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2538,10 +2334,6 @@ public class StateSettings extends CoreBase {
             this.fontWeight = fontWeight;
         } else {
             this.fontWeight = fontWeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2566,10 +2358,6 @@ public class StateSettings extends CoreBase {
             this.fontWeight1 = fontWeight1;
         } else {
             this.fontWeight1 = fontWeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2627,10 +2415,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2681,10 +2465,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2735,10 +2515,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern2 = dashpattern2;
             this.lineJoin2 = lineJoin2;
             this.lineCap2 = lineCap2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2811,10 +2587,6 @@ public class StateSettings extends CoreBase {
             this.color8 = color8;
             this.thickness4 = thickness4;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2871,10 +2643,6 @@ public class StateSettings extends CoreBase {
             this.color8 = color8;
             this.thickness4 = thickness4;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2931,10 +2699,6 @@ public class StateSettings extends CoreBase {
             this.color8 = color8;
             this.thickness4 = thickness4;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2991,10 +2755,6 @@ public class StateSettings extends CoreBase {
             this.color8 = color8;
             this.thickness4 = thickness4;
             this.size1 = size1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3030,10 +2790,6 @@ public class StateSettings extends CoreBase {
             this.headers = headers;
         } else {
             this.headers = headers;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3058,10 +2814,6 @@ public class StateSettings extends CoreBase {
             this.headers1 = headers1;
         } else {
             this.headers1 = headers1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3133,10 +2885,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3201,10 +2949,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3269,10 +3013,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern3 = dashpattern3;
             this.lineJoin3 = lineJoin3;
             this.lineCap3 = lineCap3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3304,10 +3044,6 @@ public class StateSettings extends CoreBase {
             this.hovered = hovered;
         } else {
             this.hovered = hovered;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3342,10 +3078,6 @@ public class StateSettings extends CoreBase {
             this.labels = labels;
         } else {
             this.labels = labels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3370,10 +3102,6 @@ public class StateSettings extends CoreBase {
             this.labels1 = labels1;
         } else {
             this.labels1 = labels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3452,10 +3180,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3527,10 +3251,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3602,10 +3322,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern4 = dashpattern4;
             this.lineJoin4 = lineJoin4;
             this.lineCap4 = lineCap4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3641,10 +3357,6 @@ public class StateSettings extends CoreBase {
             this.lowerLabels = lowerLabels;
         } else {
             this.lowerLabels = lowerLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3669,10 +3381,6 @@ public class StateSettings extends CoreBase {
             this.lowerLabels1 = lowerLabels1;
         } else {
             this.lowerLabels1 = lowerLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3710,10 +3418,6 @@ public class StateSettings extends CoreBase {
             this.markers = markers;
         } else {
             this.markers = markers;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3739,10 +3443,6 @@ public class StateSettings extends CoreBase {
             this.markers1 = markers1;
         } else {
             this.markers1 = markers1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3828,10 +3528,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3910,10 +3606,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3992,10 +3684,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern5 = dashpattern5;
             this.lineJoin5 = lineJoin5;
             this.lineCap5 = lineCap5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4018,10 +3706,6 @@ public class StateSettings extends CoreBase {
             this.negativeFill = negativeFill;
         } else {
             this.negativeFill = negativeFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4079,10 +3763,6 @@ public class StateSettings extends CoreBase {
         } else {
             this.color18 = color18;
             this.opacity10 = opacity10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4166,10 +3846,6 @@ public class StateSettings extends CoreBase {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4246,10 +3922,6 @@ public class StateSettings extends CoreBase {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4326,10 +3998,6 @@ public class StateSettings extends CoreBase {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4406,10 +4074,6 @@ public class StateSettings extends CoreBase {
             this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4486,10 +4150,6 @@ public class StateSettings extends CoreBase {
             this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4566,10 +4226,6 @@ public class StateSettings extends CoreBase {
             this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4679,10 +4335,6 @@ public class StateSettings extends CoreBase {
             this.opacity12 = opacity12;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4784,10 +4436,6 @@ public class StateSettings extends CoreBase {
             this.opacity12 = opacity12;
             this.fx3 = fx3;
             this.fy3 = fy3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4881,10 +4529,6 @@ public class StateSettings extends CoreBase {
             this.color19 = color19;
             this.thickness8 = thickness8;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4961,10 +4605,6 @@ public class StateSettings extends CoreBase {
             this.color19 = color19;
             this.thickness8 = thickness8;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5041,10 +4681,6 @@ public class StateSettings extends CoreBase {
             this.color19 = color19;
             this.thickness8 = thickness8;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5121,10 +4757,6 @@ public class StateSettings extends CoreBase {
             this.color19 = color19;
             this.thickness8 = thickness8;
             this.size2 = size2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5220,10 +4852,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5312,10 +4940,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5404,10 +5028,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern6 = dashpattern6;
             this.lineJoin6 = lineJoin6;
             this.lineCap6 = lineCap6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5439,10 +5059,6 @@ public class StateSettings extends CoreBase {
             this.normal = normal;
         } else {
             this.normal = normal;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5479,10 +5095,6 @@ public class StateSettings extends CoreBase {
             this.outlierMarkers = outlierMarkers;
         } else {
             this.outlierMarkers = outlierMarkers;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5508,10 +5120,6 @@ public class StateSettings extends CoreBase {
             this.outlierMarkers1 = outlierMarkers1;
         } else {
             this.outlierMarkers1 = outlierMarkers1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -5534,10 +5142,6 @@ public class StateSettings extends CoreBase {
             this.risingFill = risingFill;
         } else {
             this.risingFill = risingFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5603,10 +5207,6 @@ public class StateSettings extends CoreBase {
         } else {
             this.color23 = color23;
             this.opacity13 = opacity13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5702,10 +5302,6 @@ public class StateSettings extends CoreBase {
             this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5794,10 +5390,6 @@ public class StateSettings extends CoreBase {
             this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5886,10 +5478,6 @@ public class StateSettings extends CoreBase {
             this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -5978,10 +5566,6 @@ public class StateSettings extends CoreBase {
             this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6070,10 +5654,6 @@ public class StateSettings extends CoreBase {
             this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6162,10 +5742,6 @@ public class StateSettings extends CoreBase {
             this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6290,10 +5866,6 @@ public class StateSettings extends CoreBase {
             this.opacity15 = opacity15;
             this.fx4 = fx4;
             this.fy4 = fy4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6410,10 +5982,6 @@ public class StateSettings extends CoreBase {
             this.opacity15 = opacity15;
             this.fx4 = fx4;
             this.fy4 = fy4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -6508,10 +6076,6 @@ public class StateSettings extends CoreBase {
             this.color24 = color24;
             this.thickness10 = thickness10;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6588,10 +6152,6 @@ public class StateSettings extends CoreBase {
             this.color24 = color24;
             this.thickness10 = thickness10;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6668,10 +6228,6 @@ public class StateSettings extends CoreBase {
             this.color24 = color24;
             this.thickness10 = thickness10;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6748,10 +6304,6 @@ public class StateSettings extends CoreBase {
             this.color24 = color24;
             this.thickness10 = thickness10;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6828,10 +6380,6 @@ public class StateSettings extends CoreBase {
             this.color24 = color24;
             this.thickness10 = thickness10;
             this.size3 = size3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -6937,10 +6485,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7039,10 +6583,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7141,10 +6681,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern7 = dashpattern7;
             this.lineJoin7 = lineJoin7;
             this.lineCap7 = lineCap7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7241,10 +6777,6 @@ public class StateSettings extends CoreBase {
             this.color28 = color28;
             this.thickness12 = thickness12;
             this.size4 = size4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7333,10 +6865,6 @@ public class StateSettings extends CoreBase {
             this.color28 = color28;
             this.thickness12 = thickness12;
             this.size4 = size4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7425,10 +6953,6 @@ public class StateSettings extends CoreBase {
             this.color28 = color28;
             this.thickness12 = thickness12;
             this.size4 = size4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7517,10 +7041,6 @@ public class StateSettings extends CoreBase {
             this.color28 = color28;
             this.thickness12 = thickness12;
             this.size4 = size4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7609,10 +7129,6 @@ public class StateSettings extends CoreBase {
             this.color28 = color28;
             this.thickness12 = thickness12;
             this.size4 = size4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7644,10 +7160,6 @@ public class StateSettings extends CoreBase {
             this.selected = selected;
         } else {
             this.selected = selected;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7676,10 +7188,6 @@ public class StateSettings extends CoreBase {
             this.size5 = size5;
         } else {
             this.size5 = size5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -7794,10 +7302,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern8 = dashpattern8;
             this.lineJoin8 = lineJoin8;
             this.lineCap8 = lineCap8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -7905,10 +7409,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern8 = dashpattern8;
             this.lineJoin8 = lineJoin8;
             this.lineCap8 = lineCap8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8016,10 +7516,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern8 = dashpattern8;
             this.lineJoin8 = lineJoin8;
             this.lineCap8 = lineCap8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8141,10 +7637,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern9 = dashpattern9;
             this.lineJoin9 = lineJoin9;
             this.lineCap9 = lineCap9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8259,10 +7751,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern9 = dashpattern9;
             this.lineJoin9 = lineJoin9;
             this.lineCap9 = lineCap9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8377,10 +7865,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern9 = dashpattern9;
             this.lineJoin9 = lineJoin9;
             this.lineCap9 = lineCap9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8474,10 +7958,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern10 = dashpattern10;
             this.lineJoin10 = lineJoin10;
             this.lineCap10 = lineCap10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8564,10 +8044,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern10 = dashpattern10;
             this.lineJoin10 = lineJoin10;
             this.lineCap10 = lineCap10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8654,10 +8130,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern10 = dashpattern10;
             this.lineJoin10 = lineJoin10;
             this.lineCap10 = lineCap10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8673,10 +8145,10 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private String type;
-    private MarkerType type1;
+    private MarkerType type;
+    private String type1;
 
-    public StateSettings setType(String type) {
+    public StateSettings setType(MarkerType type) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -8684,19 +8156,15 @@ public class StateSettings extends CoreBase {
             this.type = type;
         } else {
             this.type = type;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", type));
+            js.append(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type != null) ? type.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -8704,7 +8172,7 @@ public class StateSettings extends CoreBase {
     }
 
 
-    public StateSettings setType(MarkerType type1) {
+    public StateSettings setType(String type1) {
         if (jsBase == null) {
             this.type = null;
             this.type1 = null;
@@ -8712,19 +8180,15 @@ public class StateSettings extends CoreBase {
             this.type1 = type1;
         } else {
             this.type1 = type1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".type(%s)", (type1 != null) ? type1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".type(%s)", type1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", (type1 != null) ? type1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", type1));
                 js.setLength(0);
             }
         }
@@ -8751,10 +8215,6 @@ public class StateSettings extends CoreBase {
             this.upperLabels = upperLabels;
         } else {
             this.upperLabels = upperLabels;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8779,10 +8239,6 @@ public class StateSettings extends CoreBase {
             this.upperLabels1 = upperLabels1;
         } else {
             this.upperLabels1 = upperLabels1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -8915,10 +8371,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern11 = dashpattern11;
             this.lineJoin11 = lineJoin11;
             this.lineCap11 = lineCap11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9044,10 +8496,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern11 = dashpattern11;
             this.lineJoin11 = lineJoin11;
             this.lineCap11 = lineCap11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9173,10 +8621,6 @@ public class StateSettings extends CoreBase {
             this.dashpattern11 = dashpattern11;
             this.lineJoin11 = lineJoin11;
             this.lineCap11 = lineCap11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9203,10 +8647,6 @@ public class StateSettings extends CoreBase {
             this.whiskerWidth = whiskerWidth;
         } else {
             this.whiskerWidth = whiskerWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -9231,10 +8671,6 @@ public class StateSettings extends CoreBase {
             this.whiskerWidth1 = whiskerWidth1;
         } else {
             this.whiskerWidth1 = whiskerWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -11023,14 +10459,14 @@ public class StateSettings extends CoreBase {
 
     private String generateJStype() {
         if (type != null) {
-            return String.format(Locale.US, "type: %s,", type);
+            return String.format(Locale.US, "type: %s,", (type != null) ? type.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJStype1() {
         if (type1 != null) {
-            return String.format(Locale.US, "type: %s,", (type1 != null) ? type1.generateJs() : "null");
+            return String.format(Locale.US, "type: %s,", type1);
         }
         return "";
     }

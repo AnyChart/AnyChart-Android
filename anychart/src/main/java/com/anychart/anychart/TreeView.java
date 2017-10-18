@@ -36,10 +36,6 @@ public class TreeView extends CoreBase {
             this.child = child;
         } else {
             this.child = child;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -65,10 +61,6 @@ public class TreeView extends CoreBase {
             this.child1 = child1;
         } else {
             this.child1 = child1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -94,10 +86,6 @@ public class TreeView extends CoreBase {
             this.child2 = child2;
         } else {
             this.child2 = child2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -132,10 +120,6 @@ public class TreeView extends CoreBase {
         } else {
             this.child3 = child3;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -166,10 +150,6 @@ public class TreeView extends CoreBase {
         } else {
             this.child4 = child4;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -200,10 +180,6 @@ public class TreeView extends CoreBase {
         } else {
             this.child5 = child5;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -223,6 +199,7 @@ public class TreeView extends CoreBase {
     private String data1;
     private TreeFillingMethod fillMethodOrCsvMapping;
     private String fillMethodOrCsvMapping1;
+    private String fillMethodOrCsvMapping2;
     private String csvSettingsOrDeps;
     private Dependency[] csvSettingsOrDeps1;
 
@@ -234,6 +211,7 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping = null;
             this.fillMethodOrCsvMapping1 = null;
+            this.fillMethodOrCsvMapping2 = null;
             
             this.fillMethodOrCsvMapping = fillMethodOrCsvMapping;
             this.csvSettingsOrDeps = null;
@@ -244,10 +222,6 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping = fillMethodOrCsvMapping;
             this.csvSettingsOrDeps = csvSettingsOrDeps;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -272,6 +246,7 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping = null;
             this.fillMethodOrCsvMapping1 = null;
+            this.fillMethodOrCsvMapping2 = null;
             
             this.fillMethodOrCsvMapping = fillMethodOrCsvMapping;
             this.csvSettingsOrDeps = null;
@@ -282,10 +257,6 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping = fillMethodOrCsvMapping;
             this.csvSettingsOrDeps1 = csvSettingsOrDeps1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -310,6 +281,7 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping = null;
             this.fillMethodOrCsvMapping1 = null;
+            this.fillMethodOrCsvMapping2 = null;
             
             this.fillMethodOrCsvMapping1 = fillMethodOrCsvMapping1;
             this.csvSettingsOrDeps = null;
@@ -320,10 +292,6 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping1 = fillMethodOrCsvMapping1;
             this.csvSettingsOrDeps = csvSettingsOrDeps;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -348,6 +316,7 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping = null;
             this.fillMethodOrCsvMapping1 = null;
+            this.fillMethodOrCsvMapping2 = null;
             
             this.fillMethodOrCsvMapping1 = fillMethodOrCsvMapping1;
             this.csvSettingsOrDeps = null;
@@ -358,10 +327,6 @@ public class TreeView extends CoreBase {
             this.data = data;
             this.fillMethodOrCsvMapping1 = fillMethodOrCsvMapping1;
             this.csvSettingsOrDeps1 = csvSettingsOrDeps1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -403,10 +368,6 @@ public class TreeView extends CoreBase {
             this.child6 = child6;
         } else {
             this.child6 = child6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -437,10 +398,6 @@ public class TreeView extends CoreBase {
             this.child7 = child7;
         } else {
             this.child7 = child7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -466,10 +423,6 @@ public class TreeView extends CoreBase {
             this.index1 = index1;
         } else {
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -504,10 +457,6 @@ public class TreeView extends CoreBase {
             this.search = search;
             this.soughtField = soughtField;
             this.comparisonFn = comparisonFn;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -537,10 +486,6 @@ public class TreeView extends CoreBase {
             this.search1 = search1;
             this.soughtField = soughtField;
             this.comparisonFn = comparisonFn;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -570,10 +515,6 @@ public class TreeView extends CoreBase {
             this.search2 = search2;
             this.soughtField = soughtField;
             this.comparisonFn = comparisonFn;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -614,10 +555,6 @@ public class TreeView extends CoreBase {
             this.searchItems = searchItems;
             this.soughtField1 = soughtField1;
             this.comparisonFn1 = comparisonFn1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -652,10 +589,6 @@ public class TreeView extends CoreBase {
             this.searchItems1 = searchItems1;
             this.soughtField1 = soughtField1;
             this.comparisonFn1 = comparisonFn1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -690,10 +623,6 @@ public class TreeView extends CoreBase {
             this.searchItems2 = searchItems2;
             this.soughtField1 = soughtField1;
             this.comparisonFn1 = comparisonFn1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -788,6 +717,13 @@ public class TreeView extends CoreBase {
     private String generateJSfillMethodOrCsvMapping1() {
         if (fillMethodOrCsvMapping1 != null) {
             return String.format(Locale.US, "fillMethodOrCsvMapping: %s,", fillMethodOrCsvMapping1);
+        }
+        return "";
+    }
+
+    private String generateJSfillMethodOrCsvMapping2() {
+        if (fillMethodOrCsvMapping2 != null) {
+            return String.format(Locale.US, "fillMethodOrCsvMapping: %s,", fillMethodOrCsvMapping2);
         }
         return "";
     }
@@ -929,6 +865,7 @@ public class TreeView extends CoreBase {
             js.append(generateJSdata1());
             js.append(generateJSfillMethodOrCsvMapping());
             js.append(generateJSfillMethodOrCsvMapping1());
+            js.append(generateJSfillMethodOrCsvMapping2());
             js.append(generateJScsvSettingsOrDeps());
             js.append(generateJScsvSettingsOrDeps1());
             js.append(generateJSchild6());

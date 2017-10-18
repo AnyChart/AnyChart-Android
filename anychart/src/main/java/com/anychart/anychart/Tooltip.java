@@ -39,10 +39,6 @@ public class Tooltip extends VisualBase {
         } else {
             this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
             this.adjustByHeight = adjustByHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -70,10 +66,6 @@ public class Tooltip extends VisualBase {
         } else {
             this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
             this.adjustByHeight = adjustByHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -101,10 +93,6 @@ public class Tooltip extends VisualBase {
         } else {
             this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
             this.adjustByHeight = adjustByHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -127,10 +115,6 @@ public class Tooltip extends VisualBase {
             this.allowLeaveChart = allowLeaveChart;
         } else {
             this.allowLeaveChart = allowLeaveChart;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -153,10 +137,6 @@ public class Tooltip extends VisualBase {
             this.allowLeaveScreen = allowLeaveScreen;
         } else {
             this.allowLeaveScreen = allowLeaveScreen;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -179,10 +159,6 @@ public class Tooltip extends VisualBase {
             this.allowLeaveStage = allowLeaveStage;
         } else {
             this.allowLeaveStage = allowLeaveStage;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -209,10 +185,6 @@ public class Tooltip extends VisualBase {
             this.anchor = anchor;
         } else {
             this.anchor = anchor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -237,10 +209,6 @@ public class Tooltip extends VisualBase {
             this.anchor1 = anchor1;
         } else {
             this.anchor1 = anchor1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -278,10 +246,6 @@ public class Tooltip extends VisualBase {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -307,10 +271,6 @@ public class Tooltip extends VisualBase {
             this.background1 = background1;
         } else {
             this.background1 = background1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -333,10 +293,6 @@ public class Tooltip extends VisualBase {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -363,10 +319,6 @@ public class Tooltip extends VisualBase {
             this.displayMode = displayMode;
         } else {
             this.displayMode = displayMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -391,10 +343,6 @@ public class Tooltip extends VisualBase {
             this.displayMode1 = displayMode1;
         } else {
             this.displayMode1 = displayMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -417,10 +365,6 @@ public class Tooltip extends VisualBase {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -447,10 +391,6 @@ public class Tooltip extends VisualBase {
             this.fontDecoration = fontDecoration;
         } else {
             this.fontDecoration = fontDecoration;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -475,10 +415,6 @@ public class Tooltip extends VisualBase {
             this.fontDecoration1 = fontDecoration1;
         } else {
             this.fontDecoration1 = fontDecoration1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -501,10 +437,6 @@ public class Tooltip extends VisualBase {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -527,10 +459,6 @@ public class Tooltip extends VisualBase {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -557,10 +485,6 @@ public class Tooltip extends VisualBase {
             this.fontSize = fontSize;
         } else {
             this.fontSize = fontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -585,10 +509,6 @@ public class Tooltip extends VisualBase {
             this.fontSize1 = fontSize1;
         } else {
             this.fontSize1 = fontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -615,10 +535,6 @@ public class Tooltip extends VisualBase {
             this.fontStyle = fontStyle;
         } else {
             this.fontStyle = fontStyle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -643,10 +559,6 @@ public class Tooltip extends VisualBase {
             this.fontStyle1 = fontStyle1;
         } else {
             this.fontStyle1 = fontStyle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -673,10 +585,6 @@ public class Tooltip extends VisualBase {
             this.fontVariant = fontVariant;
         } else {
             this.fontVariant = fontVariant;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -701,10 +609,6 @@ public class Tooltip extends VisualBase {
             this.fontVariant1 = fontVariant1;
         } else {
             this.fontVariant1 = fontVariant1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -731,10 +635,6 @@ public class Tooltip extends VisualBase {
             this.fontWeight = fontWeight;
         } else {
             this.fontWeight = fontWeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -759,10 +659,6 @@ public class Tooltip extends VisualBase {
             this.fontWeight1 = fontWeight1;
         } else {
             this.fontWeight1 = fontWeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -785,10 +681,6 @@ public class Tooltip extends VisualBase {
             this.format = format;
         } else {
             this.format = format;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -815,10 +707,6 @@ public class Tooltip extends VisualBase {
             this.hAlign = hAlign;
         } else {
             this.hAlign = hAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -843,10 +731,6 @@ public class Tooltip extends VisualBase {
             this.hAlign1 = hAlign1;
         } else {
             this.hAlign1 = hAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -873,10 +757,6 @@ public class Tooltip extends VisualBase {
             this.height = height;
         } else {
             this.height = height;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -901,10 +781,6 @@ public class Tooltip extends VisualBase {
             this.height1 = height1;
         } else {
             this.height1 = height1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -927,10 +803,6 @@ public class Tooltip extends VisualBase {
             this.force = force;
         } else {
             this.force = force;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -952,10 +824,6 @@ public class Tooltip extends VisualBase {
             this.hideDelay = hideDelay;
         } else {
             this.hideDelay = hideDelay;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -978,10 +846,6 @@ public class Tooltip extends VisualBase {
             this.letterSpacing = letterSpacing;
         } else {
             this.letterSpacing = letterSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1008,10 +872,6 @@ public class Tooltip extends VisualBase {
             this.lineHeight = lineHeight;
         } else {
             this.lineHeight = lineHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1036,10 +896,6 @@ public class Tooltip extends VisualBase {
             this.lineHeight1 = lineHeight1;
         } else {
             this.lineHeight1 = lineHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1066,10 +922,6 @@ public class Tooltip extends VisualBase {
             this.maxFontSize = maxFontSize;
         } else {
             this.maxFontSize = maxFontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1094,10 +946,6 @@ public class Tooltip extends VisualBase {
             this.maxFontSize1 = maxFontSize1;
         } else {
             this.maxFontSize1 = maxFontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1124,10 +972,6 @@ public class Tooltip extends VisualBase {
             this.minFontSize = minFontSize;
         } else {
             this.minFontSize = minFontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1152,10 +996,6 @@ public class Tooltip extends VisualBase {
             this.minFontSize1 = minFontSize1;
         } else {
             this.minFontSize1 = minFontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1178,10 +1018,6 @@ public class Tooltip extends VisualBase {
             this.offsetX = offsetX;
         } else {
             this.offsetX = offsetX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1204,10 +1040,6 @@ public class Tooltip extends VisualBase {
             this.offsetY = offsetY;
         } else {
             this.offsetY = offsetY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1245,10 +1077,6 @@ public class Tooltip extends VisualBase {
             this.padding = padding;
         } else {
             this.padding = padding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1274,10 +1102,6 @@ public class Tooltip extends VisualBase {
             this.padding1 = padding1;
         } else {
             this.padding1 = padding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1287,6 +1111,31 @@ public class Tooltip extends VisualBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Tooltip setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
@@ -1349,10 +1198,6 @@ public class Tooltip extends VisualBase {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1416,10 +1261,6 @@ public class Tooltip extends VisualBase {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1446,10 +1287,6 @@ public class Tooltip extends VisualBase {
             this.position = position;
         } else {
             this.position = position;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1474,10 +1311,6 @@ public class Tooltip extends VisualBase {
             this.position1 = position1;
         } else {
             this.position1 = position1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1493,10 +1326,10 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private String positionMode;
-    private TooltipPositionMode positionMode1;
+    private TooltipPositionMode positionMode;
+    private String positionMode1;
 
-    public Tooltip setPositionMode(String positionMode) {
+    public Tooltip setPositionMode(TooltipPositionMode positionMode) {
         if (jsBase == null) {
             this.positionMode = null;
             this.positionMode1 = null;
@@ -1504,19 +1337,15 @@ public class Tooltip extends VisualBase {
             this.positionMode = positionMode;
         } else {
             this.positionMode = positionMode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".positionMode(%s)", positionMode));
+            js.append(String.format(Locale.US, ".positionMode(%s)", (positionMode != null) ? positionMode.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", positionMode));
+                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", (positionMode != null) ? positionMode.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -1524,7 +1353,7 @@ public class Tooltip extends VisualBase {
     }
 
 
-    public Tooltip setPositionMode(TooltipPositionMode positionMode1) {
+    public Tooltip setPositionMode(String positionMode1) {
         if (jsBase == null) {
             this.positionMode = null;
             this.positionMode1 = null;
@@ -1532,19 +1361,15 @@ public class Tooltip extends VisualBase {
             this.positionMode1 = positionMode1;
         } else {
             this.positionMode1 = positionMode1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".positionMode(%s)", (positionMode1 != null) ? positionMode1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".positionMode(%s)", positionMode1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", (positionMode1 != null) ? positionMode1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".positionMode(%s)", positionMode1));
                 js.setLength(0);
             }
         }
@@ -1558,10 +1383,6 @@ public class Tooltip extends VisualBase {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1597,10 +1418,6 @@ public class Tooltip extends VisualBase {
             this.separator = separator;
         } else {
             this.separator = separator;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1625,10 +1442,6 @@ public class Tooltip extends VisualBase {
             this.separator1 = separator1;
         } else {
             this.separator1 = separator1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1655,10 +1468,6 @@ public class Tooltip extends VisualBase {
             this.textDirection = textDirection;
         } else {
             this.textDirection = textDirection;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1683,10 +1492,6 @@ public class Tooltip extends VisualBase {
             this.textDirection1 = textDirection1;
         } else {
             this.textDirection1 = textDirection1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1709,10 +1514,6 @@ public class Tooltip extends VisualBase {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1739,10 +1540,6 @@ public class Tooltip extends VisualBase {
             this.textOverflow = textOverflow;
         } else {
             this.textOverflow = textOverflow;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1767,10 +1564,6 @@ public class Tooltip extends VisualBase {
             this.textOverflow1 = textOverflow1;
         } else {
             this.textOverflow1 = textOverflow1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1793,10 +1586,6 @@ public class Tooltip extends VisualBase {
             this.textSettings = textSettings;
         } else {
             this.textSettings = textSettings;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1829,10 +1618,6 @@ public class Tooltip extends VisualBase {
         } else {
             this.textSettings1 = textSettings1;
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1861,10 +1646,6 @@ public class Tooltip extends VisualBase {
         } else {
             this.textSettings2 = textSettings2;
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1893,10 +1674,6 @@ public class Tooltip extends VisualBase {
         } else {
             this.textSettings3 = textSettings3;
             this.name = name;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1932,10 +1709,6 @@ public class Tooltip extends VisualBase {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1960,10 +1733,6 @@ public class Tooltip extends VisualBase {
             this.title1 = title1;
         } else {
             this.title1 = title1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1986,10 +1755,6 @@ public class Tooltip extends VisualBase {
             this.titleFormat = titleFormat;
         } else {
             this.titleFormat = titleFormat;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2012,10 +1777,6 @@ public class Tooltip extends VisualBase {
             this.unionFormat = unionFormat;
         } else {
             this.unionFormat = unionFormat;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2038,10 +1799,6 @@ public class Tooltip extends VisualBase {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2068,10 +1825,6 @@ public class Tooltip extends VisualBase {
             this.vAlign = vAlign;
         } else {
             this.vAlign = vAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2096,10 +1849,6 @@ public class Tooltip extends VisualBase {
             this.vAlign1 = vAlign1;
         } else {
             this.vAlign1 = vAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2122,10 +1871,6 @@ public class Tooltip extends VisualBase {
             this.valuePostfix = valuePostfix;
         } else {
             this.valuePostfix = valuePostfix;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2148,10 +1893,6 @@ public class Tooltip extends VisualBase {
             this.valuePrefix = valuePrefix;
         } else {
             this.valuePrefix = valuePrefix;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2178,10 +1919,6 @@ public class Tooltip extends VisualBase {
             this.width = width;
         } else {
             this.width = width;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2206,10 +1943,6 @@ public class Tooltip extends VisualBase {
             this.width1 = width1;
         } else {
             this.width1 = width1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2225,10 +1958,10 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private String wordBreak;
-    private EnumsWordBreak wordBreak1;
+    private EnumsWordBreak wordBreak;
+    private String wordBreak1;
 
-    public Tooltip setWordBreak(String wordBreak) {
+    public Tooltip setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -2236,19 +1969,15 @@ public class Tooltip extends VisualBase {
             this.wordBreak = wordBreak;
         } else {
             this.wordBreak = wordBreak;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -2256,7 +1985,7 @@ public class Tooltip extends VisualBase {
     }
 
 
-    public Tooltip setWordBreak(EnumsWordBreak wordBreak1) {
+    public Tooltip setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -2264,29 +1993,25 @@ public class Tooltip extends VisualBase {
             this.wordBreak1 = wordBreak1;
         } else {
             this.wordBreak1 = wordBreak1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String wordWrap;
-    private EnumsWordWrap wordWrap1;
+    private EnumsWordWrap wordWrap;
+    private String wordWrap1;
 
-    public Tooltip setWordWrap(String wordWrap) {
+    public Tooltip setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -2294,19 +2019,15 @@ public class Tooltip extends VisualBase {
             this.wordWrap = wordWrap;
         } else {
             this.wordWrap = wordWrap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -2314,7 +2035,7 @@ public class Tooltip extends VisualBase {
     }
 
 
-    public Tooltip setWordWrap(EnumsWordWrap wordWrap1) {
+    public Tooltip setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -2322,19 +2043,15 @@ public class Tooltip extends VisualBase {
             this.wordWrap1 = wordWrap1;
         } else {
             this.wordWrap1 = wordWrap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
                 js.setLength(0);
             }
         }
@@ -2770,14 +2487,14 @@ public class Tooltip extends VisualBase {
 
     private String generateJSpositionMode() {
         if (positionMode != null) {
-            return String.format(Locale.US, "positionMode: %s,", positionMode);
+            return String.format(Locale.US, "positionMode: %s,", (positionMode != null) ? positionMode.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSpositionMode1() {
         if (positionMode1 != null) {
-            return String.format(Locale.US, "positionMode: %s,", (positionMode1 != null) ? positionMode1.generateJs() : "null");
+            return String.format(Locale.US, "positionMode: %s,", positionMode1);
         }
         return "";
     }
@@ -2952,28 +2669,28 @@ public class Tooltip extends VisualBase {
 
     private String generateJSwordBreak() {
         if (wordBreak != null) {
-            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak != null) ? wordBreak.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordBreak1() {
         if (wordBreak1 != null) {
-            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak1);
         }
         return "";
     }
 
     private String generateJSwordWrap() {
         if (wordWrap != null) {
-            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap != null) ? wordWrap.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordWrap1() {
         if (wordWrap1 != null) {
-            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap1);
         }
         return "";
     }

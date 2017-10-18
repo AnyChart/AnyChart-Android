@@ -30,10 +30,6 @@ public class OrdinalColor extends ScalesBase {
             this.colorToValue = colorToValue;
         } else {
             this.colorToValue = colorToValue;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -55,10 +51,6 @@ public class OrdinalColor extends ScalesBase {
             this.colors = colors;
         } else {
             this.colors = colors;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -81,10 +73,6 @@ public class OrdinalColor extends ScalesBase {
             this.getIndexByValue = getIndexByValue;
         } else {
             this.getIndexByValue = getIndexByValue;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -106,10 +94,6 @@ public class OrdinalColor extends ScalesBase {
             this.getRangeByValue = getRangeByValue;
         } else {
             this.getRangeByValue = getRangeByValue;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -131,10 +115,6 @@ public class OrdinalColor extends ScalesBase {
             this.ratio = ratio;
         } else {
             this.ratio = ratio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -156,10 +136,6 @@ public class OrdinalColor extends ScalesBase {
             this.names = names;
         } else {
             this.names = names;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -182,10 +158,6 @@ public class OrdinalColor extends ScalesBase {
             this.ranges = ranges;
         } else {
             this.ranges = ranges;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -221,10 +193,6 @@ public class OrdinalColor extends ScalesBase {
             this.ticks = ticks;
         } else {
             this.ticks = ticks;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -249,10 +217,6 @@ public class OrdinalColor extends ScalesBase {
             this.ticks1 = ticks1;
         } else {
             this.ticks1 = ticks1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -275,10 +239,6 @@ public class OrdinalColor extends ScalesBase {
             this.subRangeRatio = subRangeRatio;
         } else {
             this.subRangeRatio = subRangeRatio;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -300,10 +260,6 @@ public class OrdinalColor extends ScalesBase {
             this.valueToColor = valueToColor;
         } else {
             this.valueToColor = valueToColor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

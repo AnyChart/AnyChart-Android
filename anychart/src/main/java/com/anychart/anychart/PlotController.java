@@ -24,20 +24,18 @@ public class PlotController extends VisualBase {
 
     
     private AnnotationTypes annotationTypeOrConfig;
-    private AnnotationJSONFormat annotationTypeOrConfig1;
+    private String annotationTypeOrConfig1;
+    private AnnotationJSONFormat annotationTypeOrConfig2;
 
     public AnnotationsBase add(AnnotationTypes annotationTypeOrConfig) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
             
             this.annotationTypeOrConfig = annotationTypeOrConfig;
         } else {
             this.annotationTypeOrConfig = annotationTypeOrConfig;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -54,27 +52,49 @@ public class PlotController extends VisualBase {
     }
 
 
-    public AnnotationsBase add(AnnotationJSONFormat annotationTypeOrConfig1) {
+    public AnnotationsBase add(String annotationTypeOrConfig1) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
             
             this.annotationTypeOrConfig1 = annotationTypeOrConfig1;
         } else {
             this.annotationTypeOrConfig1 = annotationTypeOrConfig1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".add(%s);", (annotationTypeOrConfig1 != null) ? annotationTypeOrConfig1.generateJs() : "null"));
+            js.append(String.format(Locale.US, jsBase + ".add(%s);", annotationTypeOrConfig1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", (annotationTypeOrConfig1 != null) ? annotationTypeOrConfig1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", annotationTypeOrConfig1));
+                js.setLength(0);
+            }
+        }
+        return new AnnotationsBase(jsBase);
+    }
+
+
+    public AnnotationsBase add(AnnotationJSONFormat annotationTypeOrConfig2) {
+        if (jsBase == null) {
+            this.annotationTypeOrConfig = null;
+            this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
+            
+            this.annotationTypeOrConfig2 = annotationTypeOrConfig2;
+        } else {
+            this.annotationTypeOrConfig2 = annotationTypeOrConfig2;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".add(%s);", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -88,10 +108,6 @@ public class PlotController extends VisualBase {
             this.config = config;
         } else {
             this.config = config;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -117,10 +133,6 @@ public class PlotController extends VisualBase {
             this.config1 = config1;
         } else {
             this.config1 = config1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -147,10 +159,6 @@ public class PlotController extends VisualBase {
             this.config2 = config2;
         } else {
             this.config2 = config2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -178,10 +186,6 @@ public class PlotController extends VisualBase {
             this.config3 = config3;
         } else {
             this.config3 = config3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -210,10 +214,6 @@ public class PlotController extends VisualBase {
             this.config4 = config4;
         } else {
             this.config4 = config4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -243,10 +243,6 @@ public class PlotController extends VisualBase {
             this.config5 = config5;
         } else {
             this.config5 = config5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -279,10 +275,6 @@ public class PlotController extends VisualBase {
             this.config6 = config6;
         } else {
             this.config6 = config6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -315,10 +307,6 @@ public class PlotController extends VisualBase {
             this.config8 = config8;
         } else {
             this.config8 = config8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -341,10 +329,6 @@ public class PlotController extends VisualBase {
             this.index = index;
         } else {
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -378,10 +362,6 @@ public class PlotController extends VisualBase {
             this.config9 = config9;
         } else {
             this.config9 = config9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -416,10 +396,6 @@ public class PlotController extends VisualBase {
             this.config10 = config10;
         } else {
             this.config10 = config10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -455,10 +431,6 @@ public class PlotController extends VisualBase {
             this.config11 = config11;
         } else {
             this.config11 = config11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -495,10 +467,6 @@ public class PlotController extends VisualBase {
             this.config12 = config12;
         } else {
             this.config12 = config12;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -536,10 +504,6 @@ public class PlotController extends VisualBase {
             this.config13 = config13;
         } else {
             this.config13 = config13;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -578,10 +542,6 @@ public class PlotController extends VisualBase {
             this.config14 = config14;
         } else {
             this.config14 = config14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -604,10 +564,6 @@ public class PlotController extends VisualBase {
             this.annotation = annotation;
         } else {
             this.annotation = annotation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -633,10 +589,6 @@ public class PlotController extends VisualBase {
             this.index1 = index1;
         } else {
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -662,10 +614,6 @@ public class PlotController extends VisualBase {
             this.annotation1 = annotation1;
         } else {
             this.annotation1 = annotation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -681,53 +629,22 @@ public class PlotController extends VisualBase {
         return this;
     }
 
-    private AnnotationTypes annotationTypeOrConfig2;
-    private AnnotationJSONFormat annotationTypeOrConfig3;
+    private AnnotationTypes annotationTypeOrConfig3;
+    private String annotationTypeOrConfig4;
+    private AnnotationJSONFormat annotationTypeOrConfig5;
 
-    public AnnotationsBase startDrawing(AnnotationTypes annotationTypeOrConfig2) {
+    public AnnotationsBase startDrawing(AnnotationTypes annotationTypeOrConfig3) {
         if (jsBase == null) {
             this.annotationTypeOrConfig = null;
             this.annotationTypeOrConfig1 = null;
             this.annotationTypeOrConfig2 = null;
             this.annotationTypeOrConfig3 = null;
-            
-            this.annotationTypeOrConfig2 = annotationTypeOrConfig2;
-        } else {
-            this.annotationTypeOrConfig2 = annotationTypeOrConfig2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null"));
-                js.setLength(0);
-            }
-        }
-        return new AnnotationsBase(jsBase);
-    }
-
-
-    public AnnotationsBase startDrawing(AnnotationJSONFormat annotationTypeOrConfig3) {
-        if (jsBase == null) {
-            this.annotationTypeOrConfig = null;
-            this.annotationTypeOrConfig1 = null;
-            this.annotationTypeOrConfig2 = null;
-            this.annotationTypeOrConfig3 = null;
+            this.annotationTypeOrConfig4 = null;
+            this.annotationTypeOrConfig5 = null;
             
             this.annotationTypeOrConfig3 = annotationTypeOrConfig3;
         } else {
             this.annotationTypeOrConfig3 = annotationTypeOrConfig3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -743,6 +660,62 @@ public class PlotController extends VisualBase {
         return new AnnotationsBase(jsBase);
     }
 
+
+    public AnnotationsBase startDrawing(String annotationTypeOrConfig4) {
+        if (jsBase == null) {
+            this.annotationTypeOrConfig = null;
+            this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
+            this.annotationTypeOrConfig3 = null;
+            this.annotationTypeOrConfig4 = null;
+            this.annotationTypeOrConfig5 = null;
+            
+            this.annotationTypeOrConfig4 = annotationTypeOrConfig4;
+        } else {
+            this.annotationTypeOrConfig4 = annotationTypeOrConfig4;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", annotationTypeOrConfig4));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", annotationTypeOrConfig4));
+                js.setLength(0);
+            }
+        }
+        return new AnnotationsBase(jsBase);
+    }
+
+
+    public AnnotationsBase startDrawing(AnnotationJSONFormat annotationTypeOrConfig5) {
+        if (jsBase == null) {
+            this.annotationTypeOrConfig = null;
+            this.annotationTypeOrConfig1 = null;
+            this.annotationTypeOrConfig2 = null;
+            this.annotationTypeOrConfig3 = null;
+            this.annotationTypeOrConfig4 = null;
+            this.annotationTypeOrConfig5 = null;
+            
+            this.annotationTypeOrConfig5 = annotationTypeOrConfig5;
+        } else {
+            this.annotationTypeOrConfig5 = annotationTypeOrConfig5;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+
+            js.append(String.format(Locale.US, jsBase + ".startDrawing(%s);", (annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null"));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", (annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null"));
+                js.setLength(0);
+            }
+        }
+        return new AnnotationsBase(jsBase);
+    }
+
     private Boolean stringify;
 
     public void toJson(Boolean stringify) {
@@ -750,10 +723,6 @@ public class PlotController extends VisualBase {
             this.stringify = stringify;
         } else {
             this.stringify = stringify;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -775,10 +744,6 @@ public class PlotController extends VisualBase {
             this.asXmlNode = asXmlNode;
         } else {
             this.asXmlNode = asXmlNode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -817,10 +782,6 @@ public class PlotController extends VisualBase {
             this.config15 = config15;
         } else {
             this.config15 = config15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -861,10 +822,6 @@ public class PlotController extends VisualBase {
             this.config16 = config16;
         } else {
             this.config16 = config16;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -906,10 +863,6 @@ public class PlotController extends VisualBase {
             this.config17 = config17;
         } else {
             this.config17 = config17;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -934,7 +887,14 @@ public class PlotController extends VisualBase {
 
     private String generateJSannotationTypeOrConfig1() {
         if (annotationTypeOrConfig1 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig1 != null) ? annotationTypeOrConfig1.generateJs() : "null");
+            return String.format(Locale.US, "annotationTypeOrConfig: %s,", annotationTypeOrConfig1);
+        }
+        return "";
+    }
+
+    private String generateJSannotationTypeOrConfig2() {
+        if (annotationTypeOrConfig2 != null) {
+            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null");
         }
         return "";
     }
@@ -1072,16 +1032,23 @@ public class PlotController extends VisualBase {
         return "";
     }
 
-    private String generateJSannotationTypeOrConfig2() {
-        if (annotationTypeOrConfig2 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null");
+    private String generateJSannotationTypeOrConfig3() {
+        if (annotationTypeOrConfig3 != null) {
+            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null");
         }
         return "";
     }
 
-    private String generateJSannotationTypeOrConfig3() {
-        if (annotationTypeOrConfig3 != null) {
-            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null");
+    private String generateJSannotationTypeOrConfig4() {
+        if (annotationTypeOrConfig4 != null) {
+            return String.format(Locale.US, "annotationTypeOrConfig: %s,", annotationTypeOrConfig4);
+        }
+        return "";
+    }
+
+    private String generateJSannotationTypeOrConfig5() {
+        if (annotationTypeOrConfig5 != null) {
+            return String.format(Locale.US, "annotationTypeOrConfig: %s,", (annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null");
         }
         return "";
     }
@@ -1143,6 +1110,7 @@ public class PlotController extends VisualBase {
             js.append("{");
             js.append(generateJSannotationTypeOrConfig());
             js.append(generateJSannotationTypeOrConfig1());
+            js.append(generateJSannotationTypeOrConfig2());
             js.append(generateJSconfig());
             js.append(generateJSconfig1());
             js.append(generateJSconfig2());
@@ -1162,8 +1130,9 @@ public class PlotController extends VisualBase {
             js.append(generateJSannotation());
             js.append(generateJSindex1());
             js.append(generateJSannotation1());
-            js.append(generateJSannotationTypeOrConfig2());
             js.append(generateJSannotationTypeOrConfig3());
+            js.append(generateJSannotationTypeOrConfig4());
+            js.append(generateJSannotationTypeOrConfig5());
             js.append(generateJSstringify());
             js.append(generateJSasXmlNode());
             js.append(generateJSconfig15());

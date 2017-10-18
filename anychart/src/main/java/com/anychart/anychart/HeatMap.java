@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class HeatMap extends SeparateChart {
 
-    public HeatMap() {
-        js.append("chart = anychart.heatMap();");
+    protected HeatMap(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private OrdinalColor getColorScale;
 
     public OrdinalColor getColorScale() {
@@ -22,7 +25,6 @@ public class HeatMap extends SeparateChart {
 
         return getColorScale;
     }
-
     private OrdinalColor colorScale;
     private String colorScale1;
     private ScaleTypes colorScale2;
@@ -114,6 +116,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -122,14 +125,14 @@ public class HeatMap extends SeparateChart {
 
         return getData;
     }
-
     private View data;
     private Set data1;
     private String[] data2;
     private String data3;
     private DataSettings data4;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<HeatMap> setData = new ArrayList<>();
 
     public HeatMap setData(View data, TextParsingMode csvSettings) {
@@ -162,19 +165,19 @@ public class HeatMap extends SeparateChart {
 
     private List<HeatMap> setData1 = new ArrayList<>();
 
-    public HeatMap setData(View data, TextParsingSettings csvSettings1) {
+    public HeatMap setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -191,6 +194,36 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setData2 = new ArrayList<>();
+
+    public HeatMap setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<HeatMap> setData3 = new ArrayList<>();
 
     public HeatMap setData(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -209,36 +242,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<HeatMap> setData3 = new ArrayList<>();
-
-    public HeatMap setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -251,6 +254,66 @@ public class HeatMap extends SeparateChart {
     }
 
     private List<HeatMap> setData4 = new ArrayList<>();
+
+    public HeatMap setData(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<HeatMap> setData5 = new ArrayList<>();
+
+    public HeatMap setData(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<HeatMap> setData6 = new ArrayList<>();
 
     public HeatMap setData(String[] data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -269,10 +332,10 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData4) {
+            for (HeatMap item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -280,29 +343,29 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
-    private List<HeatMap> setData5 = new ArrayList<>();
+    private List<HeatMap> setData7 = new ArrayList<>();
 
-    public HeatMap setData(String[] data2, TextParsingSettings csvSettings1) {
+    public HeatMap setData(String[] data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData5) {
+            for (HeatMap item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -310,7 +373,37 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
-    private List<HeatMap> setData6 = new ArrayList<>();
+    private List<HeatMap> setData8 = new ArrayList<>();
+
+    public HeatMap setData(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<HeatMap> setData9 = new ArrayList<>();
 
     public HeatMap setData(String data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -329,10 +422,10 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData6) {
+            for (HeatMap item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -340,29 +433,29 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
-    private List<HeatMap> setData7 = new ArrayList<>();
+    private List<HeatMap> setData10 = new ArrayList<>();
 
-    public HeatMap setData(String data3, TextParsingSettings csvSettings1) {
+    public HeatMap setData(String data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData7) {
+            for (HeatMap item : setData10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -370,7 +463,37 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
-    private List<HeatMap> setData8 = new ArrayList<>();
+    private List<HeatMap> setData11 = new ArrayList<>();
+
+    public HeatMap setData(String data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setData11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<HeatMap> setData12 = new ArrayList<>();
 
     public HeatMap setData(DataSettings data4, TextParsingMode csvSettings) {
         this.data4 = data4;
@@ -389,10 +512,10 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
+    private String generateJSsetData12() {
+        if (!setData12.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData8) {
+            for (HeatMap item : setData12) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -400,29 +523,59 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
-    private List<HeatMap> setData9 = new ArrayList<>();
+    private List<HeatMap> setData13 = new ArrayList<>();
 
-    public HeatMap setData(DataSettings data4, TextParsingSettings csvSettings1) {
+    public HeatMap setData(DataSettings data4, String csvSettings1) {
         this.data4 = data4;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
+    private String generateJSsetData13() {
+        if (!setData13.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData9) {
+            for (HeatMap item : setData13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<HeatMap> setData14 = new ArrayList<>();
+
+    public HeatMap setData(DataSettings data4, TextParsingSettings csvSettings2) {
+        this.data4 = data4;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data4 != null) ? data4.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData14() {
+        if (!setData14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setData14) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -770,6 +923,7 @@ public class HeatMap extends SeparateChart {
     }
 
     private Fill imageSettings;
+
     private PatternFill getHatchFill;
 
     public PatternFill getHatchFill() {
@@ -778,7 +932,6 @@ public class HeatMap extends SeparateChart {
 
         return getHatchFill;
     }
-
     private PatternFill patternFillOrType;
     private HatchFill patternFillOrType1;
     private HatchFillType patternFillOrType2;
@@ -1007,6 +1160,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -1015,7 +1169,6 @@ public class HeatMap extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<HeatMap> setHovered = new ArrayList<>();
 
@@ -1046,6 +1199,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -1054,7 +1208,6 @@ public class HeatMap extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<HeatMap> setLabels = new ArrayList<>();
@@ -1115,22 +1268,22 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
-    private String labelsDisplayMode;
-    private LabelsDisplayMode labelsDisplayMode1;
+    private LabelsDisplayMode labelsDisplayMode;
+    private String labelsDisplayMode1;
     private List<HeatMap> setLabelsDisplayMode = new ArrayList<>();
 
-    public HeatMap setLabelsDisplayMode(String labelsDisplayMode) {
+    public HeatMap setLabelsDisplayMode(LabelsDisplayMode labelsDisplayMode) {
         this.labelsDisplayMode = labelsDisplayMode;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode));
+        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode != null) ? labelsDisplayMode.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode));
+//        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode != null) ? labelsDisplayMode.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode));
+            onChangeListener.onChange(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode != null) ? labelsDisplayMode.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -1148,18 +1301,18 @@ public class HeatMap extends SeparateChart {
 
     private List<HeatMap> setLabelsDisplayMode1 = new ArrayList<>();
 
-    public HeatMap setLabelsDisplayMode(LabelsDisplayMode labelsDisplayMode1) {
+    public HeatMap setLabelsDisplayMode(String labelsDisplayMode1) {
         this.labelsDisplayMode1 = labelsDisplayMode1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode1 != null) ? labelsDisplayMode1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode1));
 
-//        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode1 != null) ? labelsDisplayMode1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".labelsDisplayMode(%s)", (labelsDisplayMode1 != null) ? labelsDisplayMode1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".labelsDisplayMode(%s)", labelsDisplayMode1));
             js.setLength(0);
         }
         return this;
@@ -1175,6 +1328,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private UiMarkersFactory getMarkers;
 
     public UiMarkersFactory getMarkers() {
@@ -1183,7 +1337,6 @@ public class HeatMap extends SeparateChart {
 
         return getMarkers;
     }
-
     private String markers;
     private Boolean markers1;
     private String markers2;
@@ -1245,6 +1398,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1253,7 +1407,6 @@ public class HeatMap extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<HeatMap> setNormal = new ArrayList<>();
 
@@ -1344,6 +1497,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -1352,7 +1506,6 @@ public class HeatMap extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<HeatMap> setSelected = new ArrayList<>();
 
@@ -1489,6 +1642,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getXAxis;
 
     public CoreAxesLinear getXAxis() {
@@ -1498,15 +1652,13 @@ public class HeatMap extends SeparateChart {
         return getXAxis;
     }
 
-    private CoreAxesLinear getXAxis1;
+    private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getXAxis(Double index) {
-        if (getXAxis1 == null)
-            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis("+ index+")");
-
-        return getXAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index+")");
+        getXAxis1.add(item);
+        return item;
     }
-
     private String xAxis;
     private Boolean xAxis1;
     private List<HeatMap> setXAxis = new ArrayList<>();
@@ -1630,6 +1782,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getXGrid;
 
     public CoreGridsLinear getXGrid() {
@@ -1639,15 +1792,13 @@ public class HeatMap extends SeparateChart {
         return getXGrid;
     }
 
-    private CoreGridsLinear getXGrid1;
+    private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getXGrid(Double index2) {
-        if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid("+ index2+")");
-
-        return getXGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index2+")");
+        getXGrid1.add(item);
+        return item;
     }
-
     private String xGrid;
     private Boolean xGrid1;
     private List<HeatMap> setXGrid = new ArrayList<>();
@@ -1771,6 +1922,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private Ordinal getXScale;
 
     public Ordinal getXScale() {
@@ -1779,9 +1931,9 @@ public class HeatMap extends SeparateChart {
 
         return getXScale;
     }
-
     private ScaleTypes xScale;
-    private Ordinal xScale1;
+    private String xScale1;
+    private Ordinal xScale2;
     private List<HeatMap> setXScale = new ArrayList<>();
 
     public HeatMap setXScale(ScaleTypes xScale) {
@@ -1813,18 +1965,18 @@ public class HeatMap extends SeparateChart {
 
     private List<HeatMap> setXScale1 = new ArrayList<>();
 
-    public HeatMap setXScale(Ordinal xScale1) {
+    public HeatMap setXScale(String xScale1) {
         this.xScale1 = xScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".xScale(%s)", xScale1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", xScale1));
             js.setLength(0);
         }
         return this;
@@ -1840,6 +1992,36 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+    private List<HeatMap> setXScale2 = new ArrayList<>();
+
+    public HeatMap setXScale(Ordinal xScale2) {
+        this.xScale2 = xScale2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetXScale2() {
+        if (!setXScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setXScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private ChartScroller getXScroller;
 
     public ChartScroller getXScroller() {
@@ -1848,7 +2030,6 @@ public class HeatMap extends SeparateChart {
 
         return getXScroller;
     }
-
     private String xScroller;
     private Boolean xScroller1;
     private List<HeatMap> setXScroller = new ArrayList<>();
@@ -1909,6 +2090,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private OrdinalZoom getXZoom;
 
     public OrdinalZoom getXZoom() {
@@ -1917,7 +2099,6 @@ public class HeatMap extends SeparateChart {
 
         return getXZoom;
     }
-
     private Double xZoom;
     private Boolean xZoom1;
     private String xZoom2;
@@ -2008,6 +2189,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getYAxis;
 
     public CoreAxesLinear getYAxis() {
@@ -2017,15 +2199,13 @@ public class HeatMap extends SeparateChart {
         return getYAxis;
     }
 
-    private CoreAxesLinear getYAxis1;
+    private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getYAxis(Double index4) {
-        if (getYAxis1 == null)
-            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis("+ index4+")");
-
-        return getYAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index4+")");
+        getYAxis1.add(item);
+        return item;
     }
-
     private String yAxis;
     private Boolean yAxis1;
     private List<HeatMap> setYAxis = new ArrayList<>();
@@ -2149,6 +2329,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getYGrid;
 
     public CoreGridsLinear getYGrid() {
@@ -2158,15 +2339,13 @@ public class HeatMap extends SeparateChart {
         return getYGrid;
     }
 
-    private CoreGridsLinear getYGrid1;
+    private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getYGrid(Double index6) {
-        if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid("+ index6+")");
-
-        return getYGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index6+")");
+        getYGrid1.add(item);
+        return item;
     }
-
     private String yGrid;
     private Boolean yGrid1;
     private List<HeatMap> setYGrid = new ArrayList<>();
@@ -2290,6 +2469,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private Ordinal getYScale;
 
     public Ordinal getYScale() {
@@ -2298,9 +2478,9 @@ public class HeatMap extends SeparateChart {
 
         return getYScale;
     }
-
     private ScaleTypes yScale;
-    private Ordinal yScale1;
+    private String yScale1;
+    private Ordinal yScale2;
     private List<HeatMap> setYScale = new ArrayList<>();
 
     public HeatMap setYScale(ScaleTypes yScale) {
@@ -2332,18 +2512,18 @@ public class HeatMap extends SeparateChart {
 
     private List<HeatMap> setYScale1 = new ArrayList<>();
 
-    public HeatMap setYScale(Ordinal yScale1) {
+    public HeatMap setYScale(String yScale1) {
         this.yScale1 = yScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".yScale(%s)", yScale1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", yScale1));
             js.setLength(0);
         }
         return this;
@@ -2359,6 +2539,36 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+    private List<HeatMap> setYScale2 = new ArrayList<>();
+
+    public HeatMap setYScale(Ordinal yScale2) {
+        this.yScale2 = yScale2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private ChartScroller getYScroller;
 
     public ChartScroller getYScroller() {
@@ -2367,7 +2577,6 @@ public class HeatMap extends SeparateChart {
 
         return getYScroller;
     }
-
     private String yScroller;
     private Boolean yScroller1;
     private List<HeatMap> setYScroller = new ArrayList<>();
@@ -2428,6 +2637,7 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+
     private OrdinalZoom getYZoom;
 
     public OrdinalZoom getYZoom() {
@@ -2436,7 +2646,6 @@ public class HeatMap extends SeparateChart {
 
         return getYZoom;
     }
-
     private Double yZoom;
     private Boolean yZoom1;
     private String yZoom2;
@@ -2591,11 +2800,16 @@ public class HeatMap extends SeparateChart {
     }
 
     private String generateJSgetXAxis1() {
-        if (getXAxis1 != null) {
-            return getXAxis1.generateJs();
+        if (!getXAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getXAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXGrid() {
         if (getXGrid != null) {
@@ -2605,11 +2819,16 @@ public class HeatMap extends SeparateChart {
     }
 
     private String generateJSgetXGrid1() {
-        if (getXGrid1 != null) {
-            return getXGrid1.generateJs();
+        if (!getXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXScale() {
         if (getXScale != null) {
@@ -2640,11 +2859,16 @@ public class HeatMap extends SeparateChart {
     }
 
     private String generateJSgetYAxis1() {
-        if (getYAxis1 != null) {
-            return getYAxis1.generateJs();
+        if (!getYAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getYAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYGrid() {
         if (getYGrid != null) {
@@ -2654,11 +2878,16 @@ public class HeatMap extends SeparateChart {
     }
 
     private String generateJSgetYGrid1() {
-        if (getYGrid1 != null) {
-            return getYGrid1.generateJs();
+        if (!getYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYScale() {
         if (getYScale != null) {
@@ -2723,6 +2952,11 @@ public class HeatMap extends SeparateChart {
         js.append(generateJSsetData7());
         js.append(generateJSsetData8());
         js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
+        js.append(generateJSsetData12());
+        js.append(generateJSsetData13());
+        js.append(generateJSsetData14());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());
@@ -2764,6 +2998,7 @@ public class HeatMap extends SeparateChart {
         js.append(generateJSsetXGrid3());
         js.append(generateJSsetXScale());
         js.append(generateJSsetXScale1());
+        js.append(generateJSsetXScale2());
         js.append(generateJSsetXScroller());
         js.append(generateJSsetXScroller1());
         js.append(generateJSsetXZoom());
@@ -2779,6 +3014,7 @@ public class HeatMap extends SeparateChart {
         js.append(generateJSsetYGrid3());
         js.append(generateJSsetYScale());
         js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
         js.append(generateJSsetYScroller());
         js.append(generateJSsetYScroller1());
         js.append(generateJSsetYZoom());

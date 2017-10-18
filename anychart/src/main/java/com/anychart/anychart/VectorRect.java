@@ -34,10 +34,6 @@ public class VectorRect extends Shape {
             this.radiusAll = radiusAll;
         } else {
             this.radiusAll = radiusAll;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -62,10 +58,6 @@ public class VectorRect extends Shape {
             this.radiusAll1 = radiusAll1;
         } else {
             this.radiusAll1 = radiusAll1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -97,10 +89,6 @@ public class VectorRect extends Shape {
             this.radiusRightTop = radiusRightTop;
             this.radiusRightBottom = radiusRightBottom;
             this.radiusLeftBottom = radiusLeftBottom;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -129,10 +117,6 @@ public class VectorRect extends Shape {
             this.radiusAll2 = radiusAll2;
         } else {
             this.radiusAll2 = radiusAll2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -159,10 +143,6 @@ public class VectorRect extends Shape {
             this.radiusAll3 = radiusAll3;
         } else {
             this.radiusAll3 = radiusAll3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -206,10 +186,6 @@ public class VectorRect extends Shape {
             this.radiusRightTop1 = radiusRightTop1;
             this.radiusRightBottom1 = radiusRightBottom1;
             this.radiusLeftBottom1 = radiusLeftBottom1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -240,10 +216,6 @@ public class VectorRect extends Shape {
             this.radiusAll4 = radiusAll4;
         } else {
             this.radiusAll4 = radiusAll4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -272,10 +244,6 @@ public class VectorRect extends Shape {
             this.radiusAll5 = radiusAll5;
         } else {
             this.radiusAll5 = radiusAll5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -323,10 +291,6 @@ public class VectorRect extends Shape {
             this.radiusRightTop2 = radiusRightTop2;
             this.radiusRightBottom2 = radiusRightBottom2;
             this.radiusLeftBottom2 = radiusLeftBottom2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -349,10 +313,6 @@ public class VectorRect extends Shape {
             this.setBounds = setBounds;
         } else {
             this.setBounds = setBounds;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -375,10 +335,6 @@ public class VectorRect extends Shape {
             this.setHeight = setHeight;
         } else {
             this.setHeight = setHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -401,10 +357,6 @@ public class VectorRect extends Shape {
             this.setWidth = setWidth;
         } else {
             this.setWidth = setWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -427,10 +379,6 @@ public class VectorRect extends Shape {
             this.setX = setX;
         } else {
             this.setX = setX;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -453,10 +401,6 @@ public class VectorRect extends Shape {
             this.setY = setY;
         } else {
             this.setY = setY;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

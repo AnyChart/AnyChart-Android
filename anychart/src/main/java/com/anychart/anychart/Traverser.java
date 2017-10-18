@@ -39,10 +39,6 @@ public class Traverser extends JsObject {
             this.key = key;
         } else {
             this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -67,10 +63,6 @@ public class Traverser extends JsObject {
             this.key1 = key1;
         } else {
             this.key1 = key1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

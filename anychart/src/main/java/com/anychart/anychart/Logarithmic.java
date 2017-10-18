@@ -30,10 +30,6 @@ public class Logarithmic extends ScalesLinear {
             this.logBase = logBase;
         } else {
             this.logBase = logBase;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

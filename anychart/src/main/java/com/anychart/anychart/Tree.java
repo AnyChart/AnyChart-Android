@@ -30,10 +30,6 @@ public class Tree extends CoreBase {
             this.child = child;
         } else {
             this.child = child;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -66,10 +62,6 @@ public class Tree extends CoreBase {
         } else {
             this.child1 = child1;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -98,10 +90,6 @@ public class Tree extends CoreBase {
         } else {
             this.child2 = child2;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -130,10 +118,6 @@ public class Tree extends CoreBase {
         } else {
             this.child3 = child3;
             this.index = index;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -174,10 +158,6 @@ public class Tree extends CoreBase {
             this.data = data;
             this.fillingMethod = fillingMethod;
             this.csvSettingsOrDeps = csvSettingsOrDeps;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -212,10 +192,6 @@ public class Tree extends CoreBase {
             this.data = data;
             this.fillingMethod = fillingMethod;
             this.csvSettingsOrDeps1 = csvSettingsOrDeps1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -250,10 +226,6 @@ public class Tree extends CoreBase {
             this.data = data;
             this.fillingMethod1 = fillingMethod1;
             this.csvSettingsOrDeps = csvSettingsOrDeps;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -288,10 +260,6 @@ public class Tree extends CoreBase {
             this.data = data;
             this.fillingMethod1 = fillingMethod1;
             this.csvSettingsOrDeps1 = csvSettingsOrDeps1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -317,10 +285,6 @@ public class Tree extends CoreBase {
         } else {
             this.field = field;
             this.asString = asString;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -343,10 +307,6 @@ public class Tree extends CoreBase {
             this.dispatchEvents = dispatchEvents;
         } else {
             this.dispatchEvents = dispatchEvents;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -378,10 +338,6 @@ public class Tree extends CoreBase {
             this.mapping = mapping;
         } else {
             this.mapping = mapping;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -410,10 +366,6 @@ public class Tree extends CoreBase {
             this.child4 = child4;
         } else {
             this.child4 = child4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -439,10 +391,6 @@ public class Tree extends CoreBase {
             this.index1 = index1;
         } else {
             this.index1 = index1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -468,10 +416,6 @@ public class Tree extends CoreBase {
             this.field1 = field1;
         } else {
             this.field1 = field1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -503,10 +447,6 @@ public class Tree extends CoreBase {
         } else {
             this.search = search;
             this.soughtField = soughtField;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -534,10 +474,6 @@ public class Tree extends CoreBase {
         } else {
             this.search1 = search1;
             this.soughtField = soughtField;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -565,10 +501,6 @@ public class Tree extends CoreBase {
         } else {
             this.search2 = search2;
             this.soughtField = soughtField;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -603,10 +535,6 @@ public class Tree extends CoreBase {
         } else {
             this.searchItems = searchItems;
             this.soughtField1 = soughtField1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -636,10 +564,6 @@ public class Tree extends CoreBase {
         } else {
             this.searchItems1 = searchItems1;
             this.soughtField1 = soughtField1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -669,10 +593,6 @@ public class Tree extends CoreBase {
         } else {
             this.searchItems2 = searchItems2;
             this.soughtField1 = soughtField1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;

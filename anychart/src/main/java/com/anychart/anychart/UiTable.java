@@ -57,10 +57,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -94,10 +90,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -131,10 +123,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -187,10 +175,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -236,10 +220,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -285,10 +265,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.dashpattern1 = dashpattern1;
             this.lineJoin1 = lineJoin1;
             this.lineCap1 = lineCap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -311,10 +287,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.cellFill = cellFill;
         } else {
             this.cellFill = cellFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -345,10 +317,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.color3 = color3;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -393,10 +361,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -434,10 +398,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -475,10 +435,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -516,10 +472,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -557,10 +509,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -598,10 +546,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -657,10 +601,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -708,10 +648,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -750,10 +686,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.cellPadding = cellPadding;
         } else {
             this.cellPadding = cellPadding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -779,10 +711,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.cellPadding1 = cellPadding1;
         } else {
             this.cellPadding1 = cellPadding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -792,6 +720,31 @@ public class UiTable extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public UiTable setCellPadding(String cellPadding2) {
+        if (jsBase == null) {
+            this.cellPadding = null;
+            this.cellPadding1 = null;
+            this.cellPadding2 = null;
+            
+            this.cellPadding2 = cellPadding2;
+        } else {
+            this.cellPadding2 = cellPadding2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", cellPadding2));
                 js.setLength(0);
             }
         }
@@ -854,10 +807,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -921,10 +870,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -947,10 +892,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.colsCount = colsCount;
         } else {
             this.colsCount = colsCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -977,10 +918,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.colsMaxWidth = colsMaxWidth;
         } else {
             this.colsMaxWidth = colsMaxWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1005,10 +942,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.colsMaxWidth1 = colsMaxWidth1;
         } else {
             this.colsMaxWidth1 = colsMaxWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1035,10 +968,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.colsMinWidth = colsMinWidth;
         } else {
             this.colsMinWidth = colsMinWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1063,10 +992,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.colsMinWidth1 = colsMinWidth1;
         } else {
             this.colsMinWidth1 = colsMinWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1093,10 +1018,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.colsWidth = colsWidth;
         } else {
             this.colsWidth = colsWidth;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1121,10 +1042,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.colsWidth1 = colsWidth1;
         } else {
             this.colsWidth1 = colsWidth1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1150,10 +1067,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.tableValues = tableValues;
             this.demergeCells = demergeCells;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1176,10 +1089,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1202,10 +1111,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontColor = fontColor;
         } else {
             this.fontColor = fontColor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1232,10 +1137,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontDecoration = fontDecoration;
         } else {
             this.fontDecoration = fontDecoration;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1260,10 +1161,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontDecoration1 = fontDecoration1;
         } else {
             this.fontDecoration1 = fontDecoration1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1286,10 +1183,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontFamily = fontFamily;
         } else {
             this.fontFamily = fontFamily;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1312,10 +1205,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontOpacity = fontOpacity;
         } else {
             this.fontOpacity = fontOpacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1342,10 +1231,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontSize = fontSize;
         } else {
             this.fontSize = fontSize;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1370,10 +1255,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontSize1 = fontSize1;
         } else {
             this.fontSize1 = fontSize1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1400,10 +1281,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontStyle = fontStyle;
         } else {
             this.fontStyle = fontStyle;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1428,10 +1305,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontStyle1 = fontStyle1;
         } else {
             this.fontStyle1 = fontStyle1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1458,10 +1331,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontVariant = fontVariant;
         } else {
             this.fontVariant = fontVariant;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1486,10 +1355,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontVariant1 = fontVariant1;
         } else {
             this.fontVariant1 = fontVariant1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1516,10 +1381,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontWeight = fontWeight;
         } else {
             this.fontWeight = fontWeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1544,10 +1405,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.fontWeight1 = fontWeight1;
         } else {
             this.fontWeight1 = fontWeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1573,10 +1430,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.row = row;
             this.col = col;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1602,10 +1455,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.col1 = col1;
         } else {
             this.col1 = col1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1637,10 +1486,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.height = height;
             this.quality = quality;
             this.forceTransparentWhite = forceTransparentWhite;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1679,10 +1524,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1715,10 +1556,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1751,10 +1588,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1787,10 +1620,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1827,10 +1656,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.width1 = width1;
             this.height1 = height1;
             this.quality1 = quality1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1855,10 +1680,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.row1 = row1;
         } else {
             this.row1 = row1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1894,10 +1715,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight = landscapeOrHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1928,10 +1745,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight1 = landscapeOrHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1962,10 +1775,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight = landscapeOrHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1996,10 +1805,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight1 = landscapeOrHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2025,10 +1830,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.hAlign = hAlign;
         } else {
             this.hAlign = hAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2053,10 +1854,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.hAlign1 = hAlign1;
         } else {
             this.hAlign1 = hAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2083,10 +1880,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.letterSpacing = letterSpacing;
         } else {
             this.letterSpacing = letterSpacing;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2111,10 +1904,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.letterSpacing1 = letterSpacing1;
         } else {
             this.letterSpacing1 = letterSpacing1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2141,10 +1930,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineHeight = lineHeight;
         } else {
             this.lineHeight = lineHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2169,10 +1954,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.lineHeight1 = lineHeight1;
         } else {
             this.lineHeight1 = lineHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2195,10 +1976,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowEvenFill = rowEvenFill;
         } else {
             this.rowEvenFill = rowEvenFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2235,10 +2012,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.color4 = color4;
             this.opacity3 = opacity3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2297,10 +2070,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2352,10 +2121,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2407,10 +2172,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2462,10 +2223,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2517,10 +2274,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2572,10 +2325,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2654,10 +2403,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2728,10 +2473,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.opacity5 = opacity5;
             this.fx1 = fx1;
             this.fy1 = fy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2755,10 +2496,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowOddFill = rowOddFill;
         } else {
             this.rowOddFill = rowOddFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2799,10 +2536,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.color5 = color5;
             this.opacity6 = opacity6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2873,10 +2606,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2940,10 +2669,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3007,10 +2732,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3074,10 +2795,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3141,10 +2858,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3208,10 +2921,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3305,10 +3014,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3394,10 +3099,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.opacity8 = opacity8;
             this.fx2 = fx2;
             this.fy2 = fy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3421,10 +3122,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowsCount = rowsCount;
         } else {
             this.rowsCount = rowsCount;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3451,10 +3148,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowsHeight = rowsHeight;
         } else {
             this.rowsHeight = rowsHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3479,10 +3172,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowsHeight1 = rowsHeight1;
         } else {
             this.rowsHeight1 = rowsHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3509,10 +3198,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowsMaxHeight = rowsMaxHeight;
         } else {
             this.rowsMaxHeight = rowsMaxHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3537,10 +3222,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowsMaxHeight1 = rowsMaxHeight1;
         } else {
             this.rowsMaxHeight1 = rowsMaxHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3567,10 +3248,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowsMinHeight = rowsMinHeight;
         } else {
             this.rowsMinHeight = rowsMinHeight;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3595,10 +3272,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.rowsMinHeight1 = rowsMinHeight1;
         } else {
             this.rowsMinHeight1 = rowsMinHeight1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3645,10 +3318,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.height2 = height2;
             this.quality2 = quality2;
             this.forceTransparentWhite1 = forceTransparentWhite1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3685,10 +3354,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscape = landscape;
             this.x1 = x1;
             this.y1 = y1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3731,10 +3396,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.width3 = width3;
             this.height3 = height3;
             this.quality3 = quality3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3765,10 +3426,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSize1 = paperSize1;
             this.landscape1 = landscape1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3805,10 +3462,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.width4 = width4;
             this.height4 = height4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3830,10 +3483,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.selectable = selectable;
         } else {
             this.selectable = selectable;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3895,10 +3544,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.quality4 = quality4;
             this.forceTransparentWhite2 = forceTransparentWhite2;
             this.filename = filename;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3963,10 +3608,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4023,10 +3664,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4083,10 +3720,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4143,10 +3776,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4211,10 +3840,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.height6 = height6;
             this.quality5 = quality5;
             this.filename2 = filename2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4271,10 +3896,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrHeight2 = landscapeOrHeight2;
             this.asBase3 = asBase3;
             this.filename3 = filename3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4325,10 +3946,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrHeight3 = landscapeOrHeight3;
             this.asBase3 = asBase3;
             this.filename3 = filename3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4379,10 +3996,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrHeight2 = landscapeOrHeight2;
             this.asBase3 = asBase3;
             this.filename3 = filename3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4433,10 +4046,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.landscapeOrHeight3 = landscapeOrHeight3;
             this.asBase3 = asBase3;
             this.filename3 = filename3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4462,10 +4071,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.textDirection = textDirection;
         } else {
             this.textDirection = textDirection;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4490,10 +4095,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.textDirection1 = textDirection1;
         } else {
             this.textDirection1 = textDirection1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4516,10 +4117,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.textIndent = textIndent;
         } else {
             this.textIndent = textIndent;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4546,10 +4143,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.textOverflow = textOverflow;
         } else {
             this.textOverflow = textOverflow;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4574,10 +4167,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.textOverflow1 = textOverflow1;
         } else {
             this.textOverflow1 = textOverflow1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4611,10 +4200,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.paperSize2 = paperSize2;
             this.landscape2 = landscape2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4657,10 +4242,6 @@ public class UiTable extends VisualBaseWithBounds {
         } else {
             this.width7 = width7;
             this.height7 = height7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4682,10 +4263,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.useHtml = useHtml;
         } else {
             this.useHtml = useHtml;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4712,10 +4289,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.vAlign = vAlign;
         } else {
             this.vAlign = vAlign;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4740,10 +4313,6 @@ public class UiTable extends VisualBaseWithBounds {
             this.vAlign1 = vAlign1;
         } else {
             this.vAlign1 = vAlign1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4759,10 +4328,10 @@ public class UiTable extends VisualBaseWithBounds {
         return this;
     }
 
-    private String wordBreak;
-    private EnumsWordBreak wordBreak1;
+    private EnumsWordBreak wordBreak;
+    private String wordBreak1;
 
-    public UiTable setWordBreak(String wordBreak) {
+    public UiTable setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -4770,19 +4339,15 @@ public class UiTable extends VisualBaseWithBounds {
             this.wordBreak = wordBreak;
         } else {
             this.wordBreak = wordBreak;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak != null) ? wordBreak.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -4790,7 +4355,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setWordBreak(EnumsWordBreak wordBreak1) {
+    public UiTable setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -4798,29 +4363,25 @@ public class UiTable extends VisualBaseWithBounds {
             this.wordBreak1 = wordBreak1;
         } else {
             this.wordBreak1 = wordBreak1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", (wordBreak1 != null) ? wordBreak1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wordBreak1));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String wordWrap;
-    private EnumsWordWrap wordWrap1;
+    private EnumsWordWrap wordWrap;
+    private String wordWrap1;
 
-    public UiTable setWordWrap(String wordWrap) {
+    public UiTable setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -4828,19 +4389,15 @@ public class UiTable extends VisualBaseWithBounds {
             this.wordWrap = wordWrap;
         } else {
             this.wordWrap = wordWrap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap != null) ? wordWrap.generateJs() : "null"));
                 js.setLength(0);
             }
         }
@@ -4848,7 +4405,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
 
-    public UiTable setWordWrap(EnumsWordWrap wordWrap1) {
+    public UiTable setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -4856,19 +4413,15 @@ public class UiTable extends VisualBaseWithBounds {
             this.wordWrap1 = wordWrap1;
         } else {
             this.wordWrap1 = wordWrap1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
 
-            js.append(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+            js.append(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", (wordWrap1 != null) ? wordWrap1.generateJs() : "null"));
+                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wordWrap1));
                 js.setLength(0);
             }
         }
@@ -6235,28 +5788,28 @@ public class UiTable extends VisualBaseWithBounds {
 
     private String generateJSwordBreak() {
         if (wordBreak != null) {
-            return String.format(Locale.US, "wordBreak: %s,", wordBreak);
+            return String.format(Locale.US, "wordBreak: %s,", (wordBreak != null) ? wordBreak.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordBreak1() {
         if (wordBreak1 != null) {
-            return String.format(Locale.US, "wordBreak: %s,", (wordBreak1 != null) ? wordBreak1.generateJs() : "null");
+            return String.format(Locale.US, "wordBreak: %s,", wordBreak1);
         }
         return "";
     }
 
     private String generateJSwordWrap() {
         if (wordWrap != null) {
-            return String.format(Locale.US, "wordWrap: %s,", wordWrap);
+            return String.format(Locale.US, "wordWrap: %s,", (wordWrap != null) ? wordWrap.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSwordWrap1() {
         if (wordWrap1 != null) {
-            return String.format(Locale.US, "wordWrap: %s,", (wordWrap1 != null) ? wordWrap1.generateJs() : "null");
+            return String.format(Locale.US, "wordWrap: %s,", wordWrap1);
         }
         return "";
     }

@@ -39,10 +39,6 @@ public class QuarterSettings extends CoreBase {
             this.leftBottom = leftBottom;
         } else {
             this.leftBottom = leftBottom;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -74,10 +70,6 @@ public class QuarterSettings extends CoreBase {
             this.leftTop = leftTop;
         } else {
             this.leftTop = leftTop;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -109,10 +101,6 @@ public class QuarterSettings extends CoreBase {
             this.rightBottom = rightBottom;
         } else {
             this.rightBottom = rightBottom;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -144,10 +132,6 @@ public class QuarterSettings extends CoreBase {
             this.rightTop = rightTop;
         } else {
             this.rightTop = rightTop;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

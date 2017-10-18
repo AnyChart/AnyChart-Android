@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class Pie extends SeparateChart {
 
-    public Pie() {
-        js.append("chart = anychart.pie();");
+    protected Pie(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -180,6 +182,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -188,14 +191,14 @@ public class Pie extends SeparateChart {
 
         return getData;
     }
-
     private View data;
     private Mapping data1;
     private Set data2;
     private DataSettings data3;
     private String[] data4;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<Pie> setData = new ArrayList<>();
 
     public Pie setData(View data, TextParsingMode csvSettings) {
@@ -228,19 +231,19 @@ public class Pie extends SeparateChart {
 
     private List<Pie> setData1 = new ArrayList<>();
 
-    public Pie setData(View data, TextParsingSettings csvSettings1) {
+    public Pie setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -257,6 +260,36 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setData2 = new ArrayList<>();
+
+    public Pie setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pie item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pie> setData3 = new ArrayList<>();
 
     public Pie setData(Mapping data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -275,36 +308,6 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pie> setData3 = new ArrayList<>();
-
-    public Pie setData(Mapping data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -317,6 +320,66 @@ public class Pie extends SeparateChart {
     }
 
     private List<Pie> setData4 = new ArrayList<>();
+
+    public Pie setData(Mapping data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pie item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pie> setData5 = new ArrayList<>();
+
+    public Pie setData(Mapping data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pie item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pie> setData6 = new ArrayList<>();
 
     public Pie setData(Set data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -335,10 +398,10 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData4) {
+            for (Pie item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -346,29 +409,29 @@ public class Pie extends SeparateChart {
         return "";
     }
 
-    private List<Pie> setData5 = new ArrayList<>();
+    private List<Pie> setData7 = new ArrayList<>();
 
-    public Pie setData(Set data2, TextParsingSettings csvSettings1) {
+    public Pie setData(Set data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData5) {
+            for (Pie item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -376,7 +439,37 @@ public class Pie extends SeparateChart {
         return "";
     }
 
-    private List<Pie> setData6 = new ArrayList<>();
+    private List<Pie> setData8 = new ArrayList<>();
+
+    public Pie setData(Set data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pie item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pie> setData9 = new ArrayList<>();
 
     public Pie setData(DataSettings data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -395,10 +488,10 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData6) {
+            for (Pie item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -406,29 +499,29 @@ public class Pie extends SeparateChart {
         return "";
     }
 
-    private List<Pie> setData7 = new ArrayList<>();
+    private List<Pie> setData10 = new ArrayList<>();
 
-    public Pie setData(DataSettings data3, TextParsingSettings csvSettings1) {
+    public Pie setData(DataSettings data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData7) {
+            for (Pie item : setData10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -436,7 +529,37 @@ public class Pie extends SeparateChart {
         return "";
     }
 
-    private List<Pie> setData8 = new ArrayList<>();
+    private List<Pie> setData11 = new ArrayList<>();
+
+    public Pie setData(DataSettings data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data3 != null) ? data3.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pie item : setData11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pie> setData12 = new ArrayList<>();
 
     public Pie setData(String[] data4, TextParsingMode csvSettings) {
         this.data4 = data4;
@@ -455,10 +578,10 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
+    private String generateJSsetData12() {
+        if (!setData12.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData8) {
+            for (Pie item : setData12) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -466,29 +589,59 @@ public class Pie extends SeparateChart {
         return "";
     }
 
-    private List<Pie> setData9 = new ArrayList<>();
+    private List<Pie> setData13 = new ArrayList<>();
 
-    public Pie setData(String[] data4, TextParsingSettings csvSettings1) {
+    public Pie setData(String[] data4, String csvSettings1) {
         this.data4 = data4;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
+    private String generateJSsetData13() {
+        if (!setData13.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData9) {
+            for (Pie item : setData13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pie> setData14 = new ArrayList<>();
+
+    public Pie setData(String[] data4, TextParsingSettings csvSettings2) {
+        this.data4 = data4;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data4), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData14() {
+        if (!setData14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pie item : setData14) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -988,6 +1141,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private Coordinate getGetCenterPoint;
 
     public Coordinate getGetCenterPoint() {
@@ -996,7 +1150,6 @@ public class Pie extends SeparateChart {
 
         return getGetCenterPoint;
     }
-
     private String group;
     private List<Pie> setGroup = new ArrayList<>();
 
@@ -1027,6 +1180,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private PatternFill getHatchFill;
 
     public PatternFill getHatchFill() {
@@ -1035,7 +1189,6 @@ public class Pie extends SeparateChart {
 
         return getHatchFill;
     }
-
     private PatternFill patternFillOrType;
     private HatchFill patternFillOrType1;
     private HatchFillType patternFillOrType2;
@@ -1204,6 +1357,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private HatchFills getHatchFillPalette;
 
     public HatchFills getHatchFillPalette() {
@@ -1212,7 +1366,6 @@ public class Pie extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -1333,6 +1486,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -1341,7 +1495,6 @@ public class Pie extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<Pie> setHovered = new ArrayList<>();
 
@@ -1492,6 +1645,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -1500,7 +1654,6 @@ public class Pie extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<Pie> setLabels = new ArrayList<>();
@@ -1561,6 +1714,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1569,7 +1723,6 @@ public class Pie extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<Pie> setNormal = new ArrayList<>();
 
@@ -1810,6 +1963,7 @@ public class Pie extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -1818,7 +1972,6 @@ public class Pie extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -2311,6 +2464,11 @@ public class Pie extends SeparateChart {
         js.append(generateJSsetData7());
         js.append(generateJSsetData8());
         js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
+        js.append(generateJSsetData12());
+        js.append(generateJSsetData13());
+        js.append(generateJSsetData14());
         js.append(generateJSsetExplode());
         js.append(generateJSsetExplode1());
         js.append(generateJSsetExplodeSlice());

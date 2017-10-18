@@ -87,10 +87,6 @@ public class Element extends JsObject {
             this.m3 = m3;
             this.m4 = m4;
             this.m5 = m5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -113,10 +109,6 @@ public class Element extends JsObject {
             this.key = key;
         } else {
             this.key = key;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -152,10 +144,6 @@ public class Element extends JsObject {
             this.clip = clip;
         } else {
             this.clip = clip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -180,10 +168,6 @@ public class Element extends JsObject {
             this.clip1 = clip1;
         } else {
             this.clip1 = clip1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -206,10 +190,6 @@ public class Element extends JsObject {
             this.cursor = cursor;
         } else {
             this.cursor = cursor;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -232,10 +212,6 @@ public class Element extends JsObject {
             this.desc = desc;
         } else {
             this.desc = desc;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -258,10 +234,6 @@ public class Element extends JsObject {
             this.disablePointerEvents = disablePointerEvents;
         } else {
             this.disablePointerEvents = disablePointerEvents;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -284,10 +256,6 @@ public class Element extends JsObject {
             this.disableStrokeScaling = disableStrokeScaling;
         } else {
             this.disableStrokeScaling = disableStrokeScaling;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -314,10 +282,6 @@ public class Element extends JsObject {
             this.drag = drag;
         } else {
             this.drag = drag;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -342,10 +306,6 @@ public class Element extends JsObject {
             this.drag1 = drag1;
         } else {
             this.drag1 = drag1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -377,10 +337,6 @@ public class Element extends JsObject {
             this.id = id;
         } else {
             this.id = id;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -409,10 +365,6 @@ public class Element extends JsObject {
             this.type = type;
             this.useCapture = useCapture;
             this.listenerScope = listenerScope;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -449,10 +401,6 @@ public class Element extends JsObject {
             this.type1 = type1;
             this.useCapture1 = useCapture1;
             this.listenerScope1 = listenerScope1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -478,10 +426,6 @@ public class Element extends JsObject {
             this.parent = parent;
         } else {
             this.parent = parent;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -506,10 +450,6 @@ public class Element extends JsObject {
             this.parent1 = parent1;
         } else {
             this.parent1 = parent1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -536,10 +476,6 @@ public class Element extends JsObject {
             this.type2 = type2;
         } else {
             this.type2 = type2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -567,10 +503,6 @@ public class Element extends JsObject {
             this.degrees = degrees;
             this.cx = cx;
             this.cy = cy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -603,10 +535,6 @@ public class Element extends JsObject {
         } else {
             this.anchor = anchor;
             this.degrees1 = degrees1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -636,10 +564,6 @@ public class Element extends JsObject {
         } else {
             this.anchor1 = anchor1;
             this.degrees1 = degrees1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -677,10 +601,6 @@ public class Element extends JsObject {
             this.sy = sy;
             this.cx1 = cx1;
             this.cy1 = cy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -721,10 +641,6 @@ public class Element extends JsObject {
             this.anchor2 = anchor2;
             this.sx1 = sx1;
             this.sy1 = sy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -761,10 +677,6 @@ public class Element extends JsObject {
             this.anchor3 = anchor3;
             this.sx1 = sx1;
             this.sy1 = sy1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -790,10 +702,6 @@ public class Element extends JsObject {
         } else {
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -834,10 +742,6 @@ public class Element extends JsObject {
             this.degrees2 = degrees2;
             this.cx2 = cx2;
             this.cy2 = cy2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -876,10 +780,6 @@ public class Element extends JsObject {
         } else {
             this.anchor4 = anchor4;
             this.degrees3 = degrees3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -915,10 +815,6 @@ public class Element extends JsObject {
         } else {
             this.anchor5 = anchor5;
             this.degrees3 = degrees3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1034,10 +930,6 @@ public class Element extends JsObject {
             this.m9 = m9;
             this.m10 = m10;
             this.m11 = m11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1060,10 +952,6 @@ public class Element extends JsObject {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1089,10 +977,6 @@ public class Element extends JsObject {
         } else {
             this.tx = tx;
             this.ty = ty;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1134,10 +1018,6 @@ public class Element extends JsObject {
             this.type3 = type3;
             this.useCapture2 = useCapture2;
             this.listenerScope2 = listenerScope2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1162,10 +1042,6 @@ public class Element extends JsObject {
             this.key1 = key1;
         } else {
             this.key1 = key1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1187,10 +1063,6 @@ public class Element extends JsObject {
             this.isVisible = isVisible;
         } else {
             this.isVisible = isVisible;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1213,10 +1085,6 @@ public class Element extends JsObject {
             this.zIndex = zIndex;
         } else {
             this.zIndex = zIndex;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;

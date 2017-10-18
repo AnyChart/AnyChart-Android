@@ -43,10 +43,6 @@ public class Chart extends VisualBaseWithBounds {
             this.ay = ay;
         } else {
             this.ay = ay;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -71,10 +67,6 @@ public class Chart extends VisualBaseWithBounds {
             this.ay1 = ay1;
         } else {
             this.ay1 = ay1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -110,10 +102,6 @@ public class Chart extends VisualBaseWithBounds {
             this.animation = animation;
         } else {
             this.animation = animation;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -138,10 +126,6 @@ public class Chart extends VisualBaseWithBounds {
             this.animation1 = animation1;
         } else {
             this.animation1 = animation1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -167,10 +151,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.enabled = enabled;
             this.duration = duration;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -202,10 +182,6 @@ public class Chart extends VisualBaseWithBounds {
             this.background = background;
         } else {
             this.background = background;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -245,10 +221,6 @@ public class Chart extends VisualBaseWithBounds {
             this.container = container;
         } else {
             this.container = container;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -275,10 +247,6 @@ public class Chart extends VisualBaseWithBounds {
             this.container1 = container1;
         } else {
             this.container1 = container1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -305,10 +273,6 @@ public class Chart extends VisualBaseWithBounds {
             this.container2 = container2;
         } else {
             this.container2 = container2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -335,10 +299,6 @@ public class Chart extends VisualBaseWithBounds {
             this.container3 = container3;
         } else {
             this.container3 = container3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -374,10 +334,6 @@ public class Chart extends VisualBaseWithBounds {
             this.contextMenu = contextMenu;
         } else {
             this.contextMenu = contextMenu;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -402,10 +358,6 @@ public class Chart extends VisualBaseWithBounds {
             this.contextMenu1 = contextMenu1;
         } else {
             this.contextMenu1 = contextMenu1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -428,10 +380,6 @@ public class Chart extends VisualBaseWithBounds {
             this.async = async;
         } else {
             this.async = async;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -463,10 +411,6 @@ public class Chart extends VisualBaseWithBounds {
             this.exports = exports;
         } else {
             this.exports = exports;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -501,10 +445,6 @@ public class Chart extends VisualBaseWithBounds {
             this.height = height;
             this.quality = quality;
             this.forceTransparentWhite = forceTransparentWhite;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -549,10 +489,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -590,10 +526,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -631,10 +563,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -672,10 +600,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
             this.x = x;
             this.y = y;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -719,10 +643,6 @@ public class Chart extends VisualBaseWithBounds {
             this.width1 = width1;
             this.height1 = height1;
             this.quality1 = quality1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -765,10 +685,6 @@ public class Chart extends VisualBaseWithBounds {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight = landscapeOrHeight;
             this.onSuccessOrOptions3 = onSuccessOrOptions3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -806,10 +722,6 @@ public class Chart extends VisualBaseWithBounds {
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight1 = landscapeOrHeight1;
             this.onSuccessOrOptions3 = onSuccessOrOptions3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -847,10 +759,6 @@ public class Chart extends VisualBaseWithBounds {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight = landscapeOrHeight;
             this.onSuccessOrOptions3 = onSuccessOrOptions3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -888,10 +796,6 @@ public class Chart extends VisualBaseWithBounds {
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight1 = landscapeOrHeight1;
             this.onSuccessOrOptions3 = onSuccessOrOptions3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -916,10 +820,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.xCoord = xCoord;
             this.yCoord = yCoord;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -956,10 +856,6 @@ public class Chart extends VisualBaseWithBounds {
             this.label = label;
         } else {
             this.label = label;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -985,10 +881,6 @@ public class Chart extends VisualBaseWithBounds {
             this.label1 = label1;
         } else {
             this.label1 = label1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1027,10 +919,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.index = index;
             this.label3 = label3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1064,10 +952,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.index = index;
             this.label4 = label4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1101,10 +985,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.index1 = index1;
             this.label3 = label3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1138,10 +1018,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.index1 = index1;
             this.label4 = label4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1173,10 +1049,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.xCoord1 = xCoord1;
             this.yCoord1 = yCoord1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1213,10 +1085,6 @@ public class Chart extends VisualBaseWithBounds {
             this.margin = margin;
         } else {
             this.margin = margin;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1242,10 +1110,6 @@ public class Chart extends VisualBaseWithBounds {
             this.margin1 = margin1;
         } else {
             this.margin1 = margin1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1255,6 +1119,31 @@ public class Chart extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Chart setMargin(String margin2) {
+        if (jsBase == null) {
+            this.margin = null;
+            this.margin1 = null;
+            this.margin2 = null;
+            
+            this.margin2 = margin2;
+        } else {
+            this.margin2 = margin2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".margin(%s)", margin2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", margin2));
                 js.setLength(0);
             }
         }
@@ -1317,10 +1206,6 @@ public class Chart extends VisualBaseWithBounds {
             this.value2 = value2;
             this.value4 = value4;
             this.value6 = value6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1384,10 +1269,6 @@ public class Chart extends VisualBaseWithBounds {
             this.value3 = value3;
             this.value5 = value5;
             this.value7 = value7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1419,10 +1300,6 @@ public class Chart extends VisualBaseWithBounds {
             this.noData = noData;
         } else {
             this.noData = noData;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1460,10 +1337,6 @@ public class Chart extends VisualBaseWithBounds {
             this.padding = padding;
         } else {
             this.padding = padding;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1489,10 +1362,6 @@ public class Chart extends VisualBaseWithBounds {
             this.padding1 = padding1;
         } else {
             this.padding1 = padding1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1502,6 +1371,31 @@ public class Chart extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    public Chart setPadding(String padding2) {
+        if (jsBase == null) {
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
+            
+            this.padding2 = padding2;
+        } else {
+            this.padding2 = padding2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+
+            js.append(String.format(Locale.US, ".padding(%s)", padding2));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", padding2));
                 js.setLength(0);
             }
         }
@@ -1596,10 +1490,6 @@ public class Chart extends VisualBaseWithBounds {
             this.value10 = value10;
             this.value12 = value12;
             this.value14 = value14;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1695,10 +1585,6 @@ public class Chart extends VisualBaseWithBounds {
             this.value11 = value11;
             this.value13 = value13;
             this.value15 = value15;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -1714,12 +1600,12 @@ public class Chart extends VisualBaseWithBounds {
         return this;
     }
 
-    private String chartDataExportMode;
-    private ChartDataExportMode chartDataExportMode1;
+    private ChartDataExportMode chartDataExportMode;
+    private String chartDataExportMode1;
     private String csvSettings;
     private String filename;
 
-    public void saveAsCsv(String chartDataExportMode, String csvSettings, String filename) {
+    public void saveAsCsv(ChartDataExportMode chartDataExportMode, String csvSettings, String filename) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -1731,26 +1617,22 @@ public class Chart extends VisualBaseWithBounds {
             this.chartDataExportMode = chartDataExportMode;
             this.csvSettings = csvSettings;
             this.filename = filename;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", chartDataExportMode, csvSettings, filename));
+            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", (chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null", csvSettings, filename));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", chartDataExportMode, csvSettings, filename));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", (chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null", csvSettings, filename));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void saveAsCsv(ChartDataExportMode chartDataExportMode1, String csvSettings, String filename) {
+    public void saveAsCsv(String chartDataExportMode1, String csvSettings, String filename) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -1762,19 +1644,15 @@ public class Chart extends VisualBaseWithBounds {
             this.chartDataExportMode1 = chartDataExportMode1;
             this.csvSettings = csvSettings;
             this.filename = filename;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings, filename));
+            js.append(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s);", chartDataExportMode1, csvSettings, filename));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null", csvSettings, filename));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", chartDataExportMode1, csvSettings, filename));
                 js.setLength(0);
             }
         }
@@ -1819,10 +1697,6 @@ public class Chart extends VisualBaseWithBounds {
             this.quality2 = quality2;
             this.forceTransparentWhite1 = forceTransparentWhite1;
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1870,10 +1744,6 @@ public class Chart extends VisualBaseWithBounds {
             this.quality2 = quality2;
             this.forceTransparentWhite1 = forceTransparentWhite1;
             this.filename1 = filename1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1899,10 +1769,6 @@ public class Chart extends VisualBaseWithBounds {
             this.filename2 = filename2;
         } else {
             this.filename2 = filename2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -1953,10 +1819,6 @@ public class Chart extends VisualBaseWithBounds {
             this.x1 = x1;
             this.y1 = y1;
             this.filename3 = filename3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2000,10 +1862,6 @@ public class Chart extends VisualBaseWithBounds {
             this.x1 = x1;
             this.y1 = y1;
             this.filename3 = filename3;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2058,10 +1916,6 @@ public class Chart extends VisualBaseWithBounds {
             this.height3 = height3;
             this.quality3 = quality3;
             this.filename4 = filename4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2111,10 +1965,6 @@ public class Chart extends VisualBaseWithBounds {
             this.height3 = height3;
             this.quality3 = quality3;
             this.filename4 = filename4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2156,10 +2006,6 @@ public class Chart extends VisualBaseWithBounds {
             this.paperSize = paperSize;
             this.landscape1 = landscape1;
             this.filename5 = filename5;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2198,10 +2044,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.width6 = width6;
             this.height4 = height4;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2216,11 +2058,11 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private String chartDataExportMode2;
-    private ChartDataExportMode chartDataExportMode3;
+    private ChartDataExportMode chartDataExportMode2;
+    private String chartDataExportMode3;
     private String filename6;
 
-    public void saveAsXlsx(String chartDataExportMode2, String filename6) {
+    public void saveAsXlsx(ChartDataExportMode chartDataExportMode2, String filename6) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -2240,26 +2082,22 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.chartDataExportMode2 = chartDataExportMode2;
             this.filename6 = filename6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", chartDataExportMode2, filename6));
+            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", (chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null", filename6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", chartDataExportMode2, filename6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", (chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null", filename6));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void saveAsXlsx(ChartDataExportMode chartDataExportMode3, String filename6) {
+    public void saveAsXlsx(String chartDataExportMode3, String filename6) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -2279,19 +2117,15 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.chartDataExportMode3 = chartDataExportMode3;
             this.filename6 = filename6;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
+            js.append(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s);", chartDataExportMode3, filename6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null", filename6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", chartDataExportMode3, filename6));
                 js.setLength(0);
             }
         }
@@ -2313,10 +2147,6 @@ public class Chart extends VisualBaseWithBounds {
             this.filename7 = filename7;
         } else {
             this.filename7 = filename7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -2338,10 +2168,6 @@ public class Chart extends VisualBaseWithBounds {
             this.selectMarqueeFill = selectMarqueeFill;
         } else {
             this.selectMarqueeFill = selectMarqueeFill;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2367,10 +2193,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.color = color;
             this.opacity = opacity;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2415,10 +2237,6 @@ public class Chart extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2456,10 +2274,6 @@ public class Chart extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2497,10 +2311,6 @@ public class Chart extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2538,10 +2348,6 @@ public class Chart extends VisualBaseWithBounds {
             this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2579,10 +2385,6 @@ public class Chart extends VisualBaseWithBounds {
             this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2620,10 +2422,6 @@ public class Chart extends VisualBaseWithBounds {
             this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2679,10 +2477,6 @@ public class Chart extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2730,10 +2524,6 @@ public class Chart extends VisualBaseWithBounds {
             this.opacity2 = opacity2;
             this.fx = fx;
             this.fy = fy;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2776,10 +2566,6 @@ public class Chart extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2814,10 +2600,6 @@ public class Chart extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2852,10 +2634,6 @@ public class Chart extends VisualBaseWithBounds {
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -2938,10 +2716,6 @@ public class Chart extends VisualBaseWithBounds {
             this.quality4 = quality4;
             this.forceTransparentWhite2 = forceTransparentWhite2;
             this.filename8 = filename8;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3024,10 +2798,6 @@ public class Chart extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename9 = filename9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3101,10 +2871,6 @@ public class Chart extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename9 = filename9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3178,10 +2944,6 @@ public class Chart extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename9 = filename9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3255,10 +3017,6 @@ public class Chart extends VisualBaseWithBounds {
             this.x2 = x2;
             this.y2 = y2;
             this.filename9 = filename9;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3344,10 +3102,6 @@ public class Chart extends VisualBaseWithBounds {
             this.height6 = height6;
             this.quality5 = quality5;
             this.filename10 = filename10;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3424,10 +3178,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions7 = onSuccessOrOptions7;
             this.asBase3 = asBase3;
             this.filename11 = filename11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3497,10 +3247,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions7 = onSuccessOrOptions7;
             this.asBase3 = asBase3;
             this.filename11 = filename11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3570,10 +3316,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions7 = onSuccessOrOptions7;
             this.asBase3 = asBase3;
             this.filename11 = filename11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3643,10 +3385,6 @@ public class Chart extends VisualBaseWithBounds {
             this.onSuccessOrOptions7 = onSuccessOrOptions7;
             this.asBase3 = asBase3;
             this.filename11 = filename11;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3681,10 +3419,6 @@ public class Chart extends VisualBaseWithBounds {
             this.link = link;
             this.name = name;
             this.description = description;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3718,10 +3452,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.captionOrOptions2 = captionOrOptions2;
             this.description1 = description1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3754,10 +3484,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.linkOrOptions = linkOrOptions;
             this.description2 = description2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3779,10 +3505,6 @@ public class Chart extends VisualBaseWithBounds {
             this.repeat = repeat;
         } else {
             this.repeat = repeat;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3820,10 +3542,6 @@ public class Chart extends VisualBaseWithBounds {
             this.title = title;
         } else {
             this.title = title;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3849,10 +3567,6 @@ public class Chart extends VisualBaseWithBounds {
             this.title1 = title1;
         } else {
             this.title1 = title1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -3883,10 +3597,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.title3 = title3;
             this.asString = asString;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -3902,11 +3612,11 @@ public class Chart extends VisualBaseWithBounds {
         return new Element(jsBase);
     }
 
-    private String chartDataExportMode4;
-    private ChartDataExportMode chartDataExportMode5;
+    private ChartDataExportMode chartDataExportMode4;
+    private String chartDataExportMode5;
     private String csvSettings1;
 
-    public void toCsv(String chartDataExportMode4, String csvSettings1) {
+    public void toCsv(ChartDataExportMode chartDataExportMode4, String csvSettings1) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -3923,26 +3633,22 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.chartDataExportMode4 = chartDataExportMode4;
             this.csvSettings1 = csvSettings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", chartDataExportMode4, csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", (chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null", csvSettings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", chartDataExportMode4, csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", (chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null", csvSettings1));
                 js.setLength(0);
             }
         }
     }
 
 
-    public void toCsv(ChartDataExportMode chartDataExportMode5, String csvSettings1) {
+    public void toCsv(String chartDataExportMode5, String csvSettings1) {
         if (jsBase == null) {
             this.chartDataExportMode = null;
             this.chartDataExportMode1 = null;
@@ -3959,19 +3665,15 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.chartDataExportMode5 = chartDataExportMode5;
             this.csvSettings1 = csvSettings1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
 
-            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings1));
+            js.append(String.format(Locale.US, jsBase + ".toCsv(%s, %s);", chartDataExportMode5, csvSettings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null", csvSettings1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", chartDataExportMode5, csvSettings1));
                 js.setLength(0);
             }
         }
@@ -3996,10 +3698,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.title4 = title4;
             this.asString1 = asString1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4022,10 +3720,6 @@ public class Chart extends VisualBaseWithBounds {
             this.stringify = stringify;
         } else {
             this.stringify = stringify;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4060,10 +3754,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.paperSize2 = paperSize2;
             this.landscape2 = landscape2;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4108,10 +3798,6 @@ public class Chart extends VisualBaseWithBounds {
         } else {
             this.width9 = width9;
             this.height7 = height7;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4133,10 +3819,6 @@ public class Chart extends VisualBaseWithBounds {
             this.asXmlNode = asXmlNode;
         } else {
             this.asXmlNode = asXmlNode;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -4171,10 +3853,6 @@ public class Chart extends VisualBaseWithBounds {
             this.tooltip = tooltip;
         } else {
             this.tooltip = tooltip;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4199,10 +3877,6 @@ public class Chart extends VisualBaseWithBounds {
             this.tooltip1 = tooltip1;
         } else {
             this.tooltip1 = tooltip1;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -4801,14 +4475,14 @@ public class Chart extends VisualBaseWithBounds {
 
     private String generateJSchartDataExportMode() {
         if (chartDataExportMode != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode);
+            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSchartDataExportMode1() {
         if (chartDataExportMode1 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode1 != null) ? chartDataExportMode1.generateJs() : "null");
+            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode1);
         }
         return "";
     }
@@ -5004,14 +4678,14 @@ public class Chart extends VisualBaseWithBounds {
 
     private String generateJSchartDataExportMode2() {
         if (chartDataExportMode2 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode2);
+            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSchartDataExportMode3() {
         if (chartDataExportMode3 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode3 != null) ? chartDataExportMode3.generateJs() : "null");
+            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode3);
         }
         return "";
     }
@@ -5536,14 +5210,14 @@ public class Chart extends VisualBaseWithBounds {
 
     private String generateJSchartDataExportMode4() {
         if (chartDataExportMode4 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode4);
+            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null");
         }
         return "";
     }
 
     private String generateJSchartDataExportMode5() {
         if (chartDataExportMode5 != null) {
-            return String.format(Locale.US, "chartDataExportMode: %s,", (chartDataExportMode5 != null) ? chartDataExportMode5.generateJs() : "null");
+            return String.format(Locale.US, "chartDataExportMode: %s,", chartDataExportMode5);
         }
         return "";
     }

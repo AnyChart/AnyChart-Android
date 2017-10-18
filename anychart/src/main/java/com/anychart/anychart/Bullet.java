@@ -8,12 +8,15 @@ import java.util.ArrayList;
 // chart class
 public class Bullet extends Chart {
 
-    public Bullet() {
-        js.append("chart = anychart.bullet();");
+    protected Bullet(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
     
+
     private CoreAxesLinear getAxis;
 
     public CoreAxesLinear getAxis() {
@@ -22,7 +25,6 @@ public class Bullet extends Chart {
 
         return getAxis;
     }
-
     private String axis;
     private Boolean axis1;
     private List<Bullet> setAxis = new ArrayList<>();
@@ -83,6 +85,7 @@ public class Bullet extends Chart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -91,13 +94,13 @@ public class Bullet extends Chart {
 
         return getData;
     }
-
     private View data;
     private Set data1;
     private String[] data2;
     private String data3;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<Bullet> setData = new ArrayList<>();
 
     public Bullet setData(View data, TextParsingMode csvSettings) {
@@ -130,19 +133,19 @@ public class Bullet extends Chart {
 
     private List<Bullet> setData1 = new ArrayList<>();
 
-    public Bullet setData(View data, TextParsingSettings csvSettings1) {
+    public Bullet setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -159,6 +162,36 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setData2 = new ArrayList<>();
+
+    public Bullet setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bullet item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Bullet> setData3 = new ArrayList<>();
 
     public Bullet setData(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -177,36 +210,6 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Bullet> setData3 = new ArrayList<>();
-
-    public Bullet setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -219,6 +222,66 @@ public class Bullet extends Chart {
     }
 
     private List<Bullet> setData4 = new ArrayList<>();
+
+    public Bullet setData(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bullet item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Bullet> setData5 = new ArrayList<>();
+
+    public Bullet setData(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bullet item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Bullet> setData6 = new ArrayList<>();
 
     public Bullet setData(String[] data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -237,10 +300,10 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setData4) {
+            for (Bullet item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -248,29 +311,29 @@ public class Bullet extends Chart {
         return "";
     }
 
-    private List<Bullet> setData5 = new ArrayList<>();
+    private List<Bullet> setData7 = new ArrayList<>();
 
-    public Bullet setData(String[] data2, TextParsingSettings csvSettings1) {
+    public Bullet setData(String[] data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setData5) {
+            for (Bullet item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -278,7 +341,37 @@ public class Bullet extends Chart {
         return "";
     }
 
-    private List<Bullet> setData6 = new ArrayList<>();
+    private List<Bullet> setData8 = new ArrayList<>();
+
+    public Bullet setData(String[] data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data2), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bullet item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Bullet> setData9 = new ArrayList<>();
 
     public Bullet setData(String data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -297,10 +390,10 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setData6) {
+            for (Bullet item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -308,29 +401,29 @@ public class Bullet extends Chart {
         return "";
     }
 
-    private List<Bullet> setData7 = new ArrayList<>();
+    private List<Bullet> setData10 = new ArrayList<>();
 
-    public Bullet setData(String data3, TextParsingSettings csvSettings1) {
+    public Bullet setData(String data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setData7) {
+            for (Bullet item : setData10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -338,22 +431,52 @@ public class Bullet extends Chart {
         return "";
     }
 
-    private String layout;
-    private Layout layout1;
+    private List<Bullet> setData11 = new ArrayList<>();
+
+    public Bullet setData(String data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data3, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bullet item : setData11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Layout layout;
+    private String layout1;
     private List<Bullet> setLayout = new ArrayList<>();
 
-    public Bullet setLayout(String layout) {
+    public Bullet setLayout(Layout layout) {
         this.layout = layout;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".layout(%s)", layout));
+        js.append(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".layout(%s)", layout));
+//        js.append(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", layout));
+            onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", (layout != null) ? layout.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -371,18 +494,18 @@ public class Bullet extends Chart {
 
     private List<Bullet> setLayout1 = new ArrayList<>();
 
-    public Bullet setLayout(Layout layout1) {
+    public Bullet setLayout(String layout1) {
         this.layout1 = layout1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".layout(%s)", (layout1 != null) ? layout1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".layout(%s)", layout1));
 
-//        js.append(String.format(Locale.US, ".layout(%s)", (layout1 != null) ? layout1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".layout(%s)", layout1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", (layout1 != null) ? layout1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", layout1));
             js.setLength(0);
         }
         return this;
@@ -398,6 +521,7 @@ public class Bullet extends Chart {
         return "";
     }
 
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -406,10 +530,10 @@ public class Bullet extends Chart {
 
         return getMarkerPalette;
     }
-
     private MarkerType[] markerPalette;
-    private String markerPalette1;
-    private Markers markerPalette2;
+    private String[] markerPalette1;
+    private String markerPalette2;
+    private Markers markerPalette3;
     private List<Bullet> setMarkerPalette = new ArrayList<>();
 
     public Bullet setMarkerPalette(MarkerType[] markerPalette) {
@@ -441,18 +565,18 @@ public class Bullet extends Chart {
 
     private List<Bullet> setMarkerPalette1 = new ArrayList<>();
 
-    public Bullet setMarkerPalette(String markerPalette1) {
+    public Bullet setMarkerPalette(String[] markerPalette1) {
         this.markerPalette1 = markerPalette1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette1)));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette1)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette1));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette1)));
             js.setLength(0);
         }
         return this;
@@ -470,18 +594,18 @@ public class Bullet extends Chart {
 
     private List<Bullet> setMarkerPalette2 = new ArrayList<>();
 
-    public Bullet setMarkerPalette(Markers markerPalette2) {
+    public Bullet setMarkerPalette(String markerPalette2) {
         this.markerPalette2 = markerPalette2;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette2 != null) ? markerPalette2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette2));
 
-//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette2 != null) ? markerPalette2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", markerPalette2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette2 != null) ? markerPalette2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", markerPalette2));
             js.setLength(0);
         }
         return this;
@@ -497,6 +621,36 @@ public class Bullet extends Chart {
         return "";
     }
 
+    private List<Bullet> setMarkerPalette3 = new ArrayList<>();
+
+    public Bullet setMarkerPalette(Markers markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette3 != null) ? markerPalette3.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", (markerPalette3 != null) ? markerPalette3.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", (markerPalette3 != null) ? markerPalette3.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bullet item : setMarkerPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private CoreAxismarkersRange getRange;
 
     public CoreAxismarkersRange getRange() {
@@ -506,15 +660,13 @@ public class Bullet extends Chart {
         return getRange;
     }
 
-    private CoreAxismarkersRange getRange1;
+    private List<CoreAxismarkersRange> getRange1 = new ArrayList<>();
 
     public CoreAxismarkersRange getRange(Double index) {
-        if (getRange1 == null)
-            getRange1 = new CoreAxismarkersRange(jsBase + ".range("+ index+")");
-
-        return getRange1;
+        CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".range("+ index+")");
+        getRange1.add(item);
+        return item;
     }
-
     private String range;
     private Boolean range1;
     private List<Bullet> setRange = new ArrayList<>();
@@ -638,6 +790,7 @@ public class Bullet extends Chart {
         return "";
     }
 
+
     private DistinctColors getRangePalette;
 
     public DistinctColors getRangePalette() {
@@ -646,7 +799,6 @@ public class Bullet extends Chart {
 
         return getRangePalette;
     }
-
     private DistinctColors rangePalette;
     private String rangePalette1;
     private String[] rangePalette2;
@@ -737,6 +889,7 @@ public class Bullet extends Chart {
         return "";
     }
 
+
     private ScalesBase getScale;
 
     public ScalesBase getScale() {
@@ -745,7 +898,6 @@ public class Bullet extends Chart {
 
         return getScale;
     }
-
     private ScalesBase scale;
     private String scale1;
     private ScaleTypes scale2;
@@ -866,11 +1018,16 @@ public class Bullet extends Chart {
     }
 
     private String generateJSgetRange1() {
-        if (getRange1 != null) {
-            return getRange1.generateJs();
+        if (!getRange1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : getRange1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetRangePalette() {
         if (getRangePalette != null) {
@@ -910,11 +1067,16 @@ public class Bullet extends Chart {
         js.append(generateJSsetData5());
         js.append(generateJSsetData6());
         js.append(generateJSsetData7());
+        js.append(generateJSsetData8());
+        js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
         js.append(generateJSsetLayout());
         js.append(generateJSsetLayout1());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetRange());
         js.append(generateJSsetRange1());
         js.append(generateJSsetRange2());

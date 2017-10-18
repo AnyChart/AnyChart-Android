@@ -8,8 +8,10 @@ import java.util.ArrayList;
 // chart class
 public class Pareto extends SeparateChart {
 
-    public Pareto() {
-        js.append("chart = anychart.pareto();");
+    protected Pareto(String name) {
+        super(name);
+
+        js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
     }
 
@@ -68,6 +70,7 @@ public class Pareto extends SeparateChart {
         }
     }
 
+
     private PlotController getAnnotations;
 
     public PlotController getAnnotations() {
@@ -76,7 +79,6 @@ public class Pareto extends SeparateChart {
 
         return getAnnotations;
     }
-
     private String[] annotationsList;
     private List<Pareto> setAnnotations = new ArrayList<>();
 
@@ -167,6 +169,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private Crosshair getCrosshair;
 
     public Crosshair getCrosshair() {
@@ -175,7 +178,6 @@ public class Pareto extends SeparateChart {
 
         return getCrosshair;
     }
-
     private String crosshair;
     private Boolean crosshair1;
     private List<Pareto> setCrosshair = new ArrayList<>();
@@ -236,6 +238,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private View getData;
 
     public View getData() {
@@ -244,14 +247,14 @@ public class Pareto extends SeparateChart {
 
         return getData;
     }
-
     private View data;
     private Set data1;
     private DataSettings data2;
     private String[] data3;
     private String data4;
     private TextParsingMode csvSettings;
-    private TextParsingSettings csvSettings1;
+    private String csvSettings1;
+    private TextParsingSettings csvSettings2;
     private List<Pareto> setData = new ArrayList<>();
 
     public Pareto setData(View data, TextParsingMode csvSettings) {
@@ -284,19 +287,19 @@ public class Pareto extends SeparateChart {
 
     private List<Pareto> setData1 = new ArrayList<>();
 
-    public Pareto setData(View data, TextParsingSettings csvSettings1) {
+    public Pareto setData(View data, String csvSettings1) {
         this.data = data;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
@@ -313,6 +316,36 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setData2 = new ArrayList<>();
+
+    public Pareto setData(View data, TextParsingSettings csvSettings2) {
+        this.data = data;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data != null) ? data.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pareto> setData3 = new ArrayList<>();
 
     public Pareto setData(Set data1, TextParsingMode csvSettings) {
         this.data1 = data1;
@@ -331,36 +364,6 @@ public class Pareto extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private List<Pareto> setData3 = new ArrayList<>();
-
-    public Pareto setData(Set data1, TextParsingSettings csvSettings1) {
-        this.data1 = data1;
-        this.csvSettings1 = csvSettings1;
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
-            js.setLength(0);
-        }
-        return this;
-    }
     private String generateJSsetData3() {
         if (!setData3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -373,6 +376,66 @@ public class Pareto extends SeparateChart {
     }
 
     private List<Pareto> setData4 = new ArrayList<>();
+
+    public Pareto setData(Set data1, String csvSettings1) {
+        this.data1 = data1;
+        this.csvSettings1 = csvSettings1;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", csvSettings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData4() {
+        if (!setData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pareto> setData5 = new ArrayList<>();
+
+    public Pareto setData(Set data1, TextParsingSettings csvSettings2) {
+        this.data1 = data1;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data1 != null) ? data1.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData5() {
+        if (!setData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pareto> setData6 = new ArrayList<>();
 
     public Pareto setData(DataSettings data2, TextParsingMode csvSettings) {
         this.data2 = data2;
@@ -391,10 +454,10 @@ public class Pareto extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
+    private String generateJSsetData6() {
+        if (!setData6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData4) {
+            for (Pareto item : setData6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -402,29 +465,29 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
-    private List<Pareto> setData5 = new ArrayList<>();
+    private List<Pareto> setData7 = new ArrayList<>();
 
-    public Pareto setData(DataSettings data2, TextParsingSettings csvSettings1) {
+    public Pareto setData(DataSettings data2, String csvSettings1) {
         this.data2 = data2;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
+    private String generateJSsetData7() {
+        if (!setData7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData5) {
+            for (Pareto item : setData7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -432,7 +495,37 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
-    private List<Pareto> setData6 = new ArrayList<>();
+    private List<Pareto> setData8 = new ArrayList<>();
+
+    public Pareto setData(DataSettings data2, TextParsingSettings csvSettings2) {
+        this.data2 = data2;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", (data2 != null) ? data2.generateJs() : "null", (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData8() {
+        if (!setData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pareto> setData9 = new ArrayList<>();
 
     public Pareto setData(String[] data3, TextParsingMode csvSettings) {
         this.data3 = data3;
@@ -451,10 +544,10 @@ public class Pareto extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
+    private String generateJSsetData9() {
+        if (!setData9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData6) {
+            for (Pareto item : setData9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -462,29 +555,29 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
-    private List<Pareto> setData7 = new ArrayList<>();
+    private List<Pareto> setData10 = new ArrayList<>();
 
-    public Pareto setData(String[] data3, TextParsingSettings csvSettings1) {
+    public Pareto setData(String[] data3, String csvSettings1) {
         this.data3 = data3;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
+    private String generateJSsetData10() {
+        if (!setData10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData7) {
+            for (Pareto item : setData10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -492,7 +585,37 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
-    private List<Pareto> setData8 = new ArrayList<>();
+    private List<Pareto> setData11 = new ArrayList<>();
+
+    public Pareto setData(String[] data3, TextParsingSettings csvSettings2) {
+        this.data3 = data3;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", Arrays.toString(data3), (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData11() {
+        if (!setData11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setData11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pareto> setData12 = new ArrayList<>();
 
     public Pareto setData(String data4, TextParsingMode csvSettings) {
         this.data4 = data4;
@@ -511,10 +634,10 @@ public class Pareto extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
+    private String generateJSsetData12() {
+        if (!setData12.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData8) {
+            for (Pareto item : setData12) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -522,29 +645,29 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
-    private List<Pareto> setData9 = new ArrayList<>();
+    private List<Pareto> setData13 = new ArrayList<>();
 
-    public Pareto setData(String data4, TextParsingSettings csvSettings1) {
+    public Pareto setData(String data4, String csvSettings1) {
         this.data4 = data4;
         this.csvSettings1 = csvSettings1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
 
-//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings1 != null) ? csvSettings1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, csvSettings1));
             js.setLength(0);
         }
         return this;
     }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
+    private String generateJSsetData13() {
+        if (!setData13.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData9) {
+            for (Pareto item : setData13) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -552,22 +675,52 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
-    private String defaultSeriesType;
-    private CartesianSeriesType defaultSeriesType1;
+    private List<Pareto> setData14 = new ArrayList<>();
+
+    public Pareto setData(String data4, TextParsingSettings csvSettings2) {
+        this.data4 = data4;
+        this.csvSettings2 = csvSettings2;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+//        js.append(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", data4, (csvSettings2 != null) ? csvSettings2.generateJs() : "null"));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetData14() {
+        if (!setData14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setData14) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private CartesianSeriesType defaultSeriesType;
+    private String defaultSeriesType1;
     private List<Pareto> setDefaultSeriesType = new ArrayList<>();
 
-    public Pareto setDefaultSeriesType(String defaultSeriesType) {
+    public Pareto setDefaultSeriesType(CartesianSeriesType defaultSeriesType) {
         this.defaultSeriesType = defaultSeriesType;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -585,18 +738,18 @@ public class Pareto extends SeparateChart {
 
     private List<Pareto> setDefaultSeriesType1 = new ArrayList<>();
 
-    public Pareto setDefaultSeriesType(CartesianSeriesType defaultSeriesType1) {
+    public Pareto setDefaultSeriesType(String defaultSeriesType1) {
         this.defaultSeriesType1 = defaultSeriesType1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
-//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", (defaultSeriesType1 != null) ? defaultSeriesType1.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", defaultSeriesType1));
             js.setLength(0);
         }
         return this;
@@ -612,6 +765,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private AnychartMathRect getGetPlotBounds;
 
     public AnychartMathRect getGetPlotBounds() {
@@ -621,31 +775,28 @@ public class Pareto extends SeparateChart {
         return getGetPlotBounds;
     }
 
-    private CartesianSeriesBase getGetSeries;
+    private List<CartesianSeriesBase> getGetSeries = new ArrayList<>();
 
     public CartesianSeriesBase getGetSeries(Double id) {
-        if (getGetSeries == null)
-            getGetSeries = new CartesianSeriesBase(jsBase + ".getSeries("+ id+")");
-
-        return getGetSeries;
+        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ id+")");
+        getGetSeries.add(item);
+        return item;
     }
 
-    private CartesianSeriesBase getGetSeries1;
+    private List<CartesianSeriesBase> getGetSeries1 = new ArrayList<>();
 
     public CartesianSeriesBase getGetSeries(String id1) {
-        if (getGetSeries1 == null)
-            getGetSeries1 = new CartesianSeriesBase(jsBase + ".getSeries("+ id1+")");
-
-        return getGetSeries1;
+        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ id1+")");
+        getGetSeries1.add(item);
+        return item;
     }
 
-    private CartesianSeriesBase getGetSeriesAt;
+    private List<CartesianSeriesBase> getGetSeriesAt = new ArrayList<>();
 
     public CartesianSeriesBase getGetSeriesAt(Double index) {
-        if (getGetSeriesAt == null)
-            getGetSeriesAt = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
-
-        return getGetSeriesAt;
+        CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
+        getGetSeriesAt.add(item);
+        return item;
     }
 
     private HatchFills getHatchFillPalette;
@@ -656,7 +807,6 @@ public class Pareto extends SeparateChart {
 
         return getHatchFillPalette;
     }
-
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
@@ -747,6 +897,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getHovered;
 
     public StateSettings getHovered() {
@@ -755,7 +906,6 @@ public class Pareto extends SeparateChart {
 
         return getHovered;
     }
-
     private String hovered;
     private List<Pareto> setHovered = new ArrayList<>();
 
@@ -786,6 +936,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private UiLabelsFactory getLabels;
 
     public UiLabelsFactory getLabels() {
@@ -794,7 +945,6 @@ public class Pareto extends SeparateChart {
 
         return getLabels;
     }
-
     private String labels;
     private Boolean labels1;
     private List<Pareto> setLabels = new ArrayList<>();
@@ -855,6 +1005,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreAxismarkersLine getLineMarker;
 
     public CoreAxismarkersLine getLineMarker() {
@@ -864,15 +1015,13 @@ public class Pareto extends SeparateChart {
         return getLineMarker;
     }
 
-    private CoreAxismarkersLine getLineMarker1;
+    private List<CoreAxismarkersLine> getLineMarker1 = new ArrayList<>();
 
     public CoreAxismarkersLine getLineMarker(Double index1) {
-        if (getLineMarker1 == null)
-            getLineMarker1 = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
-
-        return getLineMarker1;
+        CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
+        getLineMarker1.add(item);
+        return item;
     }
-
     private String lineMarker;
     private Boolean lineMarker1;
     private List<Pareto> setLineMarker = new ArrayList<>();
@@ -996,6 +1145,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private Markers getMarkerPalette;
 
     public Markers getMarkerPalette() {
@@ -1004,10 +1154,10 @@ public class Pareto extends SeparateChart {
 
         return getMarkerPalette;
     }
-
     private Markers markerPalette;
     private String markerPalette1;
     private MarkerType[] markerPalette2;
+    private String[] markerPalette3;
     private List<Pareto> setMarkerPalette = new ArrayList<>();
 
     public Pareto setMarkerPalette(Markers markerPalette) {
@@ -1088,6 +1238,35 @@ public class Pareto extends SeparateChart {
         if (!setMarkerPalette2.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Pareto item : setMarkerPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pareto> setMarkerPalette3 = new ArrayList<>();
+
+    public Pareto setMarkerPalette(String[] markerPalette3) {
+        this.markerPalette3 = markerPalette3;
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+//        js.append(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", Arrays.toString(markerPalette3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setMarkerPalette3) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1335,6 +1514,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getNormal;
 
     public StateSettings getNormal() {
@@ -1343,7 +1523,6 @@ public class Pareto extends SeparateChart {
 
         return getNormal;
     }
-
     private String normal;
     private List<Pareto> setNormal = new ArrayList<>();
 
@@ -1374,6 +1553,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private RangeColors getPalette;
 
     public RangeColors getPalette() {
@@ -1382,7 +1562,6 @@ public class Pareto extends SeparateChart {
 
         return getPalette;
     }
-
     private RangeColors palette;
     private DistinctColors palette1;
     private String palette2;
@@ -1563,6 +1742,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreAxismarkersRange getRangeMarker;
 
     public CoreAxismarkersRange getRangeMarker() {
@@ -1572,15 +1752,13 @@ public class Pareto extends SeparateChart {
         return getRangeMarker;
     }
 
-    private CoreAxismarkersRange getRangeMarker1;
+    private List<CoreAxismarkersRange> getRangeMarker1 = new ArrayList<>();
 
     public CoreAxismarkersRange getRangeMarker(Double index3) {
-        if (getRangeMarker1 == null)
-            getRangeMarker1 = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
-
-        return getRangeMarker1;
+        CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
+        getRangeMarker1.add(item);
+        return item;
     }
-
     private String rangeMarker;
     private Boolean rangeMarker1;
     private List<Pareto> setRangeMarker = new ArrayList<>();
@@ -1794,6 +1972,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private StateSettings getSelected;
 
     public StateSettings getSelected() {
@@ -1802,7 +1981,6 @@ public class Pareto extends SeparateChart {
 
         return getSelected;
     }
-
     private String selected;
     private List<Pareto> setSelected = new ArrayList<>();
 
@@ -1833,6 +2011,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreAxismarkersText getTextMarker;
 
     public CoreAxismarkersText getTextMarker() {
@@ -1842,15 +2021,13 @@ public class Pareto extends SeparateChart {
         return getTextMarker;
     }
 
-    private CoreAxismarkersText getTextMarker1;
+    private List<CoreAxismarkersText> getTextMarker1 = new ArrayList<>();
 
     public CoreAxismarkersText getTextMarker(Double index6) {
-        if (getTextMarker1 == null)
-            getTextMarker1 = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
-
-        return getTextMarker1;
+        CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
+        getTextMarker1.add(item);
+        return item;
     }
-
     private String textMarker;
     private Boolean textMarker1;
     private List<Pareto> setTextMarker = new ArrayList<>();
@@ -1974,6 +2151,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getXAxis;
 
     public CoreAxesLinear getXAxis() {
@@ -1983,15 +2161,13 @@ public class Pareto extends SeparateChart {
         return getXAxis;
     }
 
-    private CoreAxesLinear getXAxis1;
+    private List<CoreAxesLinear> getXAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getXAxis(Double index8) {
-        if (getXAxis1 == null)
-            getXAxis1 = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
-
-        return getXAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
+        getXAxis1.add(item);
+        return item;
     }
-
     private String xAxis;
     private Boolean xAxis1;
     private List<Pareto> setXAxis = new ArrayList<>();
@@ -2115,6 +2291,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getXGrid;
 
     public CoreGridsLinear getXGrid() {
@@ -2124,15 +2301,13 @@ public class Pareto extends SeparateChart {
         return getXGrid;
     }
 
-    private CoreGridsLinear getXGrid1;
+    private List<CoreGridsLinear> getXGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getXGrid(Double index10) {
-        if (getXGrid1 == null)
-            getXGrid1 = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
-
-        return getXGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
+        getXGrid1.add(item);
+        return item;
     }
-
     private String xGrid;
     private Boolean xGrid1;
     private List<Pareto> setXGrid = new ArrayList<>();
@@ -2256,6 +2431,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getXMinorGrid;
 
     public CoreGridsLinear getXMinorGrid() {
@@ -2265,15 +2441,13 @@ public class Pareto extends SeparateChart {
         return getXMinorGrid;
     }
 
-    private CoreGridsLinear getXMinorGrid1;
+    private List<CoreGridsLinear> getXMinorGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getXMinorGrid(Double index12) {
-        if (getXMinorGrid1 == null)
-            getXMinorGrid1 = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
-
-        return getXMinorGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
+        getXMinorGrid1.add(item);
+        return item;
     }
-
     private String xMinorGrid;
     private Boolean xMinorGrid1;
     private List<Pareto> setXMinorGrid = new ArrayList<>();
@@ -2397,6 +2571,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private ScalesBase getXScale;
 
     public ScalesBase getXScale() {
@@ -2405,10 +2580,9 @@ public class Pareto extends SeparateChart {
 
         return getXScale;
     }
-
     private String xScale;
-    private String xScale1;
-    private ScaleTypes xScale2;
+    private ScaleTypes xScale1;
+    private String xScale2;
     private ScalesBase xScale3;
     private List<Pareto> setXScale = new ArrayList<>();
 
@@ -2441,18 +2615,18 @@ public class Pareto extends SeparateChart {
 
     private List<Pareto> setXScale1 = new ArrayList<>();
 
-    public Pareto setXScale(ScaleTypes xScale2) {
-        this.xScale2 = xScale2;
+    public Pareto setXScale(ScaleTypes xScale1) {
+        this.xScale1 = xScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale2 != null) ? xScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", (xScale1 != null) ? xScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -2497,6 +2671,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private ChartScroller getXScroller;
 
     public ChartScroller getXScroller() {
@@ -2505,7 +2680,6 @@ public class Pareto extends SeparateChart {
 
         return getXScroller;
     }
-
     private String xScroller;
     private Boolean xScroller1;
     private List<Pareto> setXScroller = new ArrayList<>();
@@ -2566,6 +2740,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private OrdinalZoom getXZoom;
 
     public OrdinalZoom getXZoom() {
@@ -2574,7 +2749,6 @@ public class Pareto extends SeparateChart {
 
         return getXZoom;
     }
-
     private Double xZoom;
     private Boolean xZoom1;
     private String xZoom2;
@@ -2665,6 +2839,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreAxesLinear getYAxis;
 
     public CoreAxesLinear getYAxis() {
@@ -2674,15 +2849,13 @@ public class Pareto extends SeparateChart {
         return getYAxis;
     }
 
-    private CoreAxesLinear getYAxis1;
+    private List<CoreAxesLinear> getYAxis1 = new ArrayList<>();
 
     public CoreAxesLinear getYAxis(Double index14) {
-        if (getYAxis1 == null)
-            getYAxis1 = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
-
-        return getYAxis1;
+        CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
+        getYAxis1.add(item);
+        return item;
     }
-
     private String yAxis;
     private Boolean yAxis1;
     private List<Pareto> setYAxis = new ArrayList<>();
@@ -2806,6 +2979,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getYGrid;
 
     public CoreGridsLinear getYGrid() {
@@ -2815,15 +2989,13 @@ public class Pareto extends SeparateChart {
         return getYGrid;
     }
 
-    private CoreGridsLinear getYGrid1;
+    private List<CoreGridsLinear> getYGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getYGrid(Double index16) {
-        if (getYGrid1 == null)
-            getYGrid1 = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
-
-        return getYGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
+        getYGrid1.add(item);
+        return item;
     }
-
     private String yGrid;
     private Boolean yGrid1;
     private List<Pareto> setYGrid = new ArrayList<>();
@@ -2947,6 +3119,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private CoreGridsLinear getYMinorGrid;
 
     public CoreGridsLinear getYMinorGrid() {
@@ -2956,15 +3129,13 @@ public class Pareto extends SeparateChart {
         return getYMinorGrid;
     }
 
-    private CoreGridsLinear getYMinorGrid1;
+    private List<CoreGridsLinear> getYMinorGrid1 = new ArrayList<>();
 
     public CoreGridsLinear getYMinorGrid(Double index18) {
-        if (getYMinorGrid1 == null)
-            getYMinorGrid1 = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
-
-        return getYMinorGrid1;
+        CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
+        getYMinorGrid1.add(item);
+        return item;
     }
-
     private String yMinorGrid;
     private Boolean yMinorGrid1;
     private List<Pareto> setYMinorGrid = new ArrayList<>();
@@ -3088,6 +3259,7 @@ public class Pareto extends SeparateChart {
         return "";
     }
 
+
     private ScalesBase getYScale;
 
     public ScalesBase getYScale() {
@@ -3096,10 +3268,9 @@ public class Pareto extends SeparateChart {
 
         return getYScale;
     }
-
     private String yScale;
-    private String yScale1;
-    private ScaleTypes yScale2;
+    private ScaleTypes yScale1;
+    private String yScale2;
     private ScalesBase yScale3;
     private List<Pareto> setYScale = new ArrayList<>();
 
@@ -3132,18 +3303,18 @@ public class Pareto extends SeparateChart {
 
     private List<Pareto> setYScale1 = new ArrayList<>();
 
-    public Pareto setYScale(ScaleTypes yScale2) {
-        this.yScale2 = yScale2;
+    public Pareto setYScale(ScaleTypes yScale1) {
+        this.yScale1 = yScale1;
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
-//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+//        js.append(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale2 != null) ? yScale2.generateJs() : "null"));
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", (yScale1 != null) ? yScale1.generateJs() : "null"));
             js.setLength(0);
         }
         return this;
@@ -3217,25 +3388,40 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetGetSeries() {
-        if (getGetSeries != null) {
-            return getGetSeries.generateJs();
+        if (!getGetSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : getGetSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetGetSeries1() {
-        if (getGetSeries1 != null) {
-            return getGetSeries1.generateJs();
+        if (!getGetSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : getGetSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetGetSeriesAt() {
-        if (getGetSeriesAt != null) {
-            return getGetSeriesAt.generateJs();
+        if (!getGetSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : getGetSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetHatchFillPalette() {
         if (getHatchFillPalette != null) {
@@ -3266,11 +3452,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetLineMarker1() {
-        if (getLineMarker1 != null) {
-            return getLineMarker1.generateJs();
+        if (!getLineMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersLine item : getLineMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetMarkerPalette() {
         if (getMarkerPalette != null) {
@@ -3301,11 +3492,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetRangeMarker1() {
-        if (getRangeMarker1 != null) {
-            return getRangeMarker1.generateJs();
+        if (!getRangeMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : getRangeMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetSelected() {
         if (getSelected != null) {
@@ -3322,11 +3518,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetTextMarker1() {
-        if (getTextMarker1 != null) {
-            return getTextMarker1.generateJs();
+        if (!getTextMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersText item : getTextMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXAxis() {
         if (getXAxis != null) {
@@ -3336,11 +3537,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetXAxis1() {
-        if (getXAxis1 != null) {
-            return getXAxis1.generateJs();
+        if (!getXAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getXAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXGrid() {
         if (getXGrid != null) {
@@ -3350,11 +3556,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetXGrid1() {
-        if (getXGrid1 != null) {
-            return getXGrid1.generateJs();
+        if (!getXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXMinorGrid() {
         if (getXMinorGrid != null) {
@@ -3364,11 +3575,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetXMinorGrid1() {
-        if (getXMinorGrid1 != null) {
-            return getXMinorGrid1.generateJs();
+        if (!getXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetXScale() {
         if (getXScale != null) {
@@ -3399,11 +3615,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetYAxis1() {
-        if (getYAxis1 != null) {
-            return getYAxis1.generateJs();
+        if (!getYAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : getYAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYGrid() {
         if (getYGrid != null) {
@@ -3413,11 +3634,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetYGrid1() {
-        if (getYGrid1 != null) {
-            return getYGrid1.generateJs();
+        if (!getYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYMinorGrid() {
         if (getYMinorGrid != null) {
@@ -3427,11 +3653,16 @@ public class Pareto extends SeparateChart {
     }
 
     private String generateJSgetYMinorGrid1() {
-        if (getYMinorGrid1 != null) {
-            return getYMinorGrid1.generateJs();
+        if (!getYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsLinear item : getYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
     private String generateJSgetYScale() {
         if (getYScale != null) {
@@ -3498,6 +3729,11 @@ public class Pareto extends SeparateChart {
         js.append(generateJSsetData7());
         js.append(generateJSsetData8());
         js.append(generateJSsetData9());
+        js.append(generateJSsetData10());
+        js.append(generateJSsetData11());
+        js.append(generateJSsetData12());
+        js.append(generateJSsetData13());
+        js.append(generateJSsetData14());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());
@@ -3513,6 +3749,7 @@ public class Pareto extends SeparateChart {
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
         js.append(generateJSsetMaxBubbleSize());
         js.append(generateJSsetMaxBubbleSize1());
         js.append(generateJSsetMaxPointWidth());

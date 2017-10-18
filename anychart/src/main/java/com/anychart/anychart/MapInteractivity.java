@@ -30,10 +30,6 @@ public class MapInteractivity extends Interactivity {
             this.drag = drag;
         } else {
             this.drag = drag;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
@@ -56,10 +52,6 @@ public class MapInteractivity extends Interactivity {
             this.keyboardZoomAndMove = keyboardZoomAndMove;
         } else {
             this.keyboardZoomAndMove = keyboardZoomAndMove;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -82,10 +74,6 @@ public class MapInteractivity extends Interactivity {
             this.zoomOnDoubleClick = zoomOnDoubleClick;
         } else {
             this.zoomOnDoubleClick = zoomOnDoubleClick;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
@@ -108,10 +96,6 @@ public class MapInteractivity extends Interactivity {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
         } else {
             this.zoomOnMouseWheel = zoomOnMouseWheel;
-
-//            if (isChain && js.length() > 0 && TextUtils.equals(js.toString().substring(js.toString().length() - 1), ";")) {
-//                js.setLength(js.length() - 1);
-//            }
             if (isChain) {
                 js.append(";");
                 isChain = false;
