@@ -84,12 +84,12 @@ Create a new project and select appropriate API level (AnyChart library for Andr
         <td>
             <h3 align="center">Create new project</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_1.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_1.png" alt="Create new project">
         </td>
         <td>
             <h3 align="center">Select API level</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_2.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_2.png" alt="Select API level">
         </td>
     </tr>
 </table>
@@ -98,19 +98,14 @@ Add repository in your root build.gradle at the end of repositories (**WARNING:*
 <table>
     <tr>
         <td>
-            <h3 align="center">Create new project</h3>
+            <h3 align="center">Add repository in your root build.gradle</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" alt="Add repository in your root build.gradle">
         </td>
         <td>
-            <h3 align="center">Select API level</h3>
+            <h3 align="center">Add the dependency in your project build.gradle and sync project</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
-        </td>
-        <td>
-            <h3 align="center">Select API level</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" width="320px" height="400px" alt="Pie Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" alt="Add the dependency in your project build.gradle and sync project">
         </td>
     </tr>
 </table>
