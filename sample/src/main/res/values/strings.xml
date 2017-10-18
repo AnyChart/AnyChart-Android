@@ -19,7 +19,13 @@
     <string name="pert_chart">Pert Chart</string>
     <string name="gantt_chart">Gantt Chart</string>
     <string name="combined_chart">Combined Chart</string>
-    <string name="multi_series_bubble_chart">Multi-Series Bubble Chart</string>
+    <string name="bubble_chart">Bubble Chart</string>
     <string name="pareto_chart">Pareto Chart</string>
     <string name="pyramid_chart">Pyramid Chart</string>
+    <string name="area_chart">Area Chart</string>
+    <string name="bar_chart">Bar Chart</string>
+    <string name="box_chart">Box Chart</string>
+    <string name="mosaic_chart">Mosaic Chart</string>
+    <string name="mekko_chart">Mekko Chart</string>
+    <string name="bar3d_chart">3D Bar Chart</string>
 </resources>

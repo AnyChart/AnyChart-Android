@@ -56,11 +56,23 @@
         </activity>
         <activity android:name=".charts.CombinedChartActivity">
         </activity>
-        <activity android:name=".charts.MarkerAndBubleChartActivity">
+        <activity android:name=".charts.BubbleChartActivity">
         </activity>
         <activity android:name=".charts.ParetoChartActivity">
         </activity>
         <activity android:name=".charts.PyramidActivity">
+        </activity>
+        <activity android:name=".charts.AreaChartActivity">
+        </activity>
+        <activity android:name=".charts.BarChartActivity">
+        </activity>
+        <activity android:name=".charts.BoxChartActivity">
+        </activity>
+        <activity android:name=".charts.Bar3DChartActivity">
+        </activity>
+        <activity android:name=".charts.MosaicChartActivity">
+        </activity>
+        <activity android:name=".charts.MekkoChartActivity">
         </activity>
     </application>
 
